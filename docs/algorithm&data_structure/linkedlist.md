@@ -599,6 +599,8 @@ list.splice(pos, other, it1, it2); 	// 拼接链表，后两个参数可选，�
 
 我们在初始化链表时不使用 `head` 指针，而是构造一个 `L.nil` 哨兵节点，`L.nit.next` 代替 `head` 使用（始终指向表头）；对于双向链表，`L.nit.prev` 代替 `tail` 使用（始终指向表尾）
 
+--> 也就是说不需要再维护 `head` `tail` 了，由哨兵节点进行统一管理
+
 哨兵对于构造循环链表有很大的优势，循环闭合的操作可以通过哨兵节点的指针操作快速实现
 
 更加方便的是：对于涉及到边界操作的链表操作，`L.nil` 本身作为一个完整的节点可以消除一些边界情况：以双向循环链表中插入某一结点的操作为例
@@ -627,8 +629,6 @@ void insert(int index, int val) {
     }
     else if (index == size) {
         // 尾插
-        // 如果不考虑维护 tail 指针，可以与中间插入合并
-        // 考虑到单独实现尾插会有更好的性能（不需要遍历链表），所以可以分离出尾插操作
         newNode->prev = tail;
         newNode->next = head;
         tail->next = newNode;
@@ -651,13 +651,35 @@ void insert(int index, int val) {
 }
 ```
 
-我们引入哨兵后不再需要维护单独的 `head` `tail` 指针，有：
+我们引入哨兵后不再需要维护单独的 `head` `tail` 指针，并且简化逻辑为：
 
+```c++
+void insert(int index, int val) {
+    if (index < 0) index = 0;
+    if (index > size) index = size;
+    
+    ListNode* newNode = new ListNode(val);
+    
+    // 找到插入位置的前驱节点
+    ListNode* prevNode = L.nil;
+    
+    for (int i = 0; i < index; i++) {
+        prevNode = prevNode->next;
+    }
+    
+    // 插入操作完全统一化
+    ListNode* nextNode = prevNode->next;
+    
+    newNode->prev = prevNode;
+    newNode->next = nextNode;
+    prevNode->next = newNode;
+    nextNode->prev = newNode;
+    
+    size++;
+}
+```
 
-
-
-
-
+个人角度看，哨兵的使用消除了 “空链表” 的特殊操作，并且统一了头尾节点的设置；但是哨兵的使用优化不明显（其作用倾向于简化实现），并且有额外一个节点的内存开销。所以《算法导论》的建议是 “慎用哨兵，尤其是存在很多短链表的时候，会造成严重的存储浪费”
 
 ### 异或链表
 
