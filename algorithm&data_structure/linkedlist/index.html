@@ -490,6 +490,234 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICSPA x86 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ICSPA x86 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    i386 指令结构 for PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTF
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../404.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UNDER CONSTRUCTION
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1533,6 +1761,7 @@
 </blockquote>
 <p>哨兵（sentinel）是一个不存储实际信息的哑对象，其作用是简化边界条件的处理。</p>
 <p>我们在初始化链表时不使用 <code>head</code> 指针，而是构造一个 <code>L.nil</code> 哨兵节点，<code>L.nit.next</code> 代替 <code>head</code> 使用（始终指向表头）；对于双向链表，<code>L.nit.prev</code> 代替 <code>tail</code> 使用（始终指向表尾）</p>
+<p>--&gt; 也就是说不需要再维护 <code>head</code> <code>tail</code> 了，由哨兵节点进行统一管理</p>
 <p>哨兵对于构造循环链表有很大的优势，循环闭合的操作可以通过哨兵节点的指针操作快速实现</p>
 <p>更加方便的是：对于涉及到边界操作的链表操作，<code>L.nil</code> 本身作为一个完整的节点可以消除一些边界情况：以双向循环链表中插入某一结点的操作为例</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1577,9 +1806,7 @@
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 防止访问 NULL 领域</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
@@ -1602,8 +1829,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// 尾插</span>
-<span class="w">        </span><span class="c1">// 如果不考虑维护 tail 指针，可以与中间插入合并</span>
-<span class="w">        </span><span class="c1">// 考虑到单独实现尾插会有更好的性能（不需要遍历链表），所以可以分离出尾插操作</span>
 <span class="w">        </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span>
 <span class="w">        </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="w">        </span><span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
@@ -1625,7 +1850,54 @@
 <span class="w">    </span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>我们引入哨兵后不再需要维护单独的 <code>head</code> <code>tail</code> 指针，有：</p>
+<p>我们引入哨兵后不再需要维护单独的 <code>head</code> <code>tail</code> 指针，并且简化逻辑为：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 找到插入位置的前驱节点</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">prevNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">nil</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">prevNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prevNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 插入操作完全统一化</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">nextNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prevNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prevNode</span><span class="p">;</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextNode</span><span class="p">;</span>
+<span class="w">    </span><span class="n">prevNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+<span class="w">    </span><span class="n">nextNode</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>个人角度看，哨兵的使用消除了 “空链表” 的特殊操作，并且统一了头尾节点的设置；但是哨兵的使用优化不明显（其作用倾向于简化实现），并且有额外一个节点的内存开销。所以《算法导论》的建议是 “慎用哨兵，尤其是存在很多短链表的时候，会造成严重的存储浪费”</p>
 <h3 id="_7">异或链表</h3>
 <blockquote>
 <p>摘自 <a href="https://oiwiki.org/ds/linked-list/">链表 - OI Wiki</a></p>

@@ -442,6 +442,234 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICSPA x86 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ICSPA x86 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    i386 指令结构 for PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTF
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../404.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UNDER CONSTRUCTION
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -551,7 +779,11 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="c1">// 显式使用栈顶指针的写法</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define MAX_SIZE 10000</span>
+
+<span class="hll"><span class="c1">// 显式使用栈顶指针的写法</span>
 </span><span class="c1">// 初始化</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">];</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w">       </span><span class="c1">// top = -1 表示为空栈</span>
@@ -671,7 +903,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="stl-stack">STL <code class="highlight"><span class="o">&lt;</span><span class="n">stack</span><span class="o">&gt;</span></code> 库</h3>
+<h3 id="stl-stack">STL <code>&lt;stack&gt;</code> 库</h3>
 <p>支持的函数/操作有：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -716,9 +948,10 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>在实际运用中，我们有时不会将数值存入单调栈，而是将下标存入单调栈（在单调性比较时会比较数值），因为下标记录了数组栈中每个值的位置，这一额外信息在某些题目中非常重要</p>
+<p><br></p>
 <p>这里举三个具体的例子，其中最后一个例子并不是典型的单调栈，但是具有单调栈的思想：</p>
 <blockquote>
-<p>Luogu P5788 【模板】单调栈</p>
+<p><strong>Luogu P5788 【模板】单调栈</strong></p>
 <p>给出项数为 $n$ 的整数数列 $a_{1 \dots n}$。</p>
 <p>定义函数 $f(i)$ 代表数列中第 $i$ 个元素之后第一个大于 $a_i$ 的元素的<strong>下标</strong>，即 $f(i) = \min _{i &lt; j \leq n, a_j &gt; a_i} { j }$。若不存在，则 $f(i)=0$。</p>
 <p>试求出 $f(1\dots n)$。</p>
@@ -743,7 +976,8 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1-index</span>
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -761,15 +995,17 @@
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// 栈中剩余的元素都没有右边更大的元素，f[i] 保持为 0</span>
+<span class="w">    </span><span class="c1">// 不需要清栈操作</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<p><br></p>
 <blockquote>
-<p>LeetCode 84. 柱状图中最大的矩形</p>
+<p><strong>LeetCode 84. 柱状图中最大的矩形</strong></p>
 <p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
 <p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
 </blockquote>
-<p>这个例子中，我们需要为单调栈构造结尾的结束标识符 / 对遗留在栈中的元素进行清理</p>
+<p>这个例子中，由于我们不能保证一轮扫描后栈能够被清空，需要为单调栈构造结束标识符 / 对遗留在栈中的元素进行清理</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -812,7 +1048,7 @@
 <span class="w">        </span><span class="c1">// 对于栈中的每一个下标值，其左侧的值就是 “左边界下标 l”</span>
 <span class="w">        </span><span class="c1">// 当一个下标被弹出时，使它被弹出的下标就是 “右边界下标 r”</span>
 <span class="w">        </span><span class="c1">// 对每一个高为 h 的柱子，其向两边延伸的最大宽度为 (r-l-1)</span>
-<span class="w">        </span><span class="c1">// （为了确保每根柱子都被弹出，最后面要加一个高度为 0 的柱子，</span>
+<span class="w">        </span><span class="c1">// （为了确保每根柱子都被弹出，最后面要加一个高度为 0 的柱子作为结束标识符</span>
 <span class="w">        </span><span class="c1">// 或者在一轮扫描结束后加上额外的清空栈操作）</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="n">heights</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -840,8 +1076,9 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
+<p><br></p>
 <blockquote>
-<p>Luogu P1175 表达式的转换</p>
+<p><strong>Luogu P1175 表达式的转换</strong></p>
 <p>给定一个仅包含 <code>0123456789+-*/^()</code> 的中缀表达式，将其转换为后缀表达式后输出，并且进一步输出计算后缀表达式的过程，要求输出的每一个数据间都留一个空格。</p>
 <p>规定 <code>/</code> 为整除，乘方计算 <code>^</code> 为右结合运算且幂次不为负，表达式中的数字都是一位数，不出现 <code>2*-3</code> 的形式</p>
 <p>比如：<code>8-(3+2*6)/5+4</code> 这个输入的正确输出为：</p>
@@ -858,6 +1095,65 @@
 <span class="mi">9</span>
 </code></pre></div></td></tr></table></div>
 </blockquote>
+<p>这道题分为两步：</p>
+<ol>
+<li>中缀表达式转后缀表达式（⭐）</li>
+<li>后缀表达式计算</li>
+</ol>
+<p>对于第一步转换，我们准备一个存运算符的 <code>stack</code> 和一个存后缀表达式的 <code>vector</code> ，当遇到数字的时候直接将数字存入 <code>vector</code>，否则将符号插入 <code>stack</code> </p>
+<p>在符号入栈时，为了满足运算顺序，我们要为每种运算定义优先级，常规符号入栈时（括号属于特殊运算），结合单调栈的思想，维护一个优先级不严格单调递减的栈：</p>
+<p>注意所有的元素都入栈之后，需要像上一题一样，使用右括号清空栈，或者加上清空栈的函数</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 优先级定义</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">pr</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;*&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;^&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 这里是插入非括号运算符的逻辑，很符合单调栈的模式</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isOperator</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isOperator</span><span class="p">(</span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// 若栈顶运算符优先级高于当前运算符</span>
+<span class="w">        </span><span class="c1">// 或同级但左结合，则先输出（注意左右结合符号在此处的逻辑不同）</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pr</span><span class="p">(</span><span class="n">top</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pr</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">pr</span><span class="p">(</span><span class="n">top</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">pr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isRight</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">output</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">top</span><span class="p">);</span><span class="w">  </span><span class="c1">// 弹出栈顶符号，存入答案数组</span>
+<span class="w">            </span><span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>完整的 sol 不放出了，另外对于第二问，维护一个数字栈和一个符号栈，每次弹出两个数字一个符号计算后插入数字栈，每一次操作输出一次结果，直到最终数字栈只有一个元素，符号栈清空</p>
 
 
 
