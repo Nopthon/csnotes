@@ -1,0 +1,41 @@
+site_name: CSNote
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+  palette:
+    primary: black
+
+# plugins:
+#   - blog
+
+nav: 
+  - index: index.md
+  - 算法 && 数据结构: 
+    - 链表: algorithm&data_structure/linkedlist.md
+    - STL vector: algorithm&data_structure/vector.md
+    - 栈 && 单调栈: algorithm&data_structure/stack.md
+    - C++ 面向对象: algorithm&data_structure/C++ OOP.md
+  
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx.inline
+  
+
+extra_css:
+  - stylesheets/extra.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
+  - https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+
+extra_javascript:
+  - stylesheets/extra.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
