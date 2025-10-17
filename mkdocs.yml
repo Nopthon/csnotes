@@ -13,8 +13,10 @@ theme:
 nav: 
   - index: index.md
   - 算法 && 数据结构: 
+    - intro: algorithm&data_structure/index.md
     - 链表: algorithm&data_structure/linkedlist.md
-    - STL vector: algorithm&data_structure/vector.md
+    - STL 算法库: algorithm&data_structure/STL_algorithm.md
+    - STL vector ref: algorithm&data_structure/vector.md
     - 栈 && 单调栈: algorithm&data_structure/stack.md
     - C++ 面向对象: algorithm&data_structure/C++ OOP.md
   - ICSPA x86 note: 
@@ -23,8 +25,6 @@ nav:
     - PA2-1: ICSPA-x86/PA2-1.md
     - i386 指令结构 for PA2-1: ICSPA-x86/i386.md
     - PA2-2: ICSPA-x86/PA2-2.md
-  - CTF:
-    - UNDER CONSTRUCTION: 404.md
   
 markdown_extensions:
   - admonition
