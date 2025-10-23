@@ -1383,12 +1383,17 @@
 
 
 <h1 id="ics-binalab-solution">ICS Binalab Solution</h1>
-<p>和 CSAPP Bomblab 的内容大致相同，Binalab 将每个 Part 进行了拆分处理并进行了改动</p>
-<p>通过动态调试 / 静态分析二进制文件，为每个 Part 的二进制文件构造一个正确的输入，就可以完成每个 Part 的任务</p>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>✍ 3324 words  | 🐛 1011 codelines  | ⏰ 24 min read | Enjoy 🎶</p>
+</div>
+<p>和 CSAPP Bomblab 的内容大致相同，Binalab 将每个 Phase 进行了拆分处理</p>
+<p>通过动态调试 / 静态分析二进制文件，为每个 Phase 的二进制文件构造一个正确的输入，就可以完成每个 Phase 的任务</p>
 <div class="admonition quote">
 <p class="admonition-title">随笔</p>
 <p>完成校内 ICS 课程的 Binalab 之前，我在暑假完成了 CSAPP 的 Bomblab，这两个 Lab 的内容没有明显区别，因此这里的 Solution 会相对简略</p>
-<p>可以算是二刷吧</p>
+<p>比 Bomblab 难</p>
+<p>Update: 将每题的答案进行了折叠，确保在选择查看答案之前不会在文章中直接看到答案明文</p>
+<p>对于答案不唯一的题目，希望不要照抄文中的答案，而是自己尝试构造一个其他的正确答案</p>
 </div>
 <h2 id="solution">Solution</h2>
 <h3 id="before-start-how-main-works">Before Start: How <code>&lt;main&gt;</code> works</h3>
@@ -1624,9 +1629,15 @@
 <p>使用 gdb 读取内存：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>(gdb) x/s 0x400ae0
-0x400ae0:   &quot;Early PCs used physical addressing.&quot;
+0x400ae0:   &quot; ## CONSORED ##&quot;
 </code></pre></div></td></tr></table></div>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>Early PCs used physical addressing.</code></strong></p>
+</details>
+</details>
 <h3 id="phase-2">Phase 2: 浮点数表示</h3>
 <p>相比 CSAPP 特有的 Phase</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1715,8 +1726,14 @@
 </code></pre></div></td></tr></table></div>
 <p><code>movsd -0x10(%rbp),%xmm0</code> 需要一个 64 位的数字解释为浮点数传入 <code>%xmm0</code>，因此这两个整数会“拼接”为一个 64 位的数，（类型双关）解释为双精度浮点数之后再截断取整，结果与 <code>0xf3303938</code> 常数进行比较</p>
 <p>（注意 <code>movsd  -0x10(%rbp),%xmm0</code> 不是类型转换，它是从字节方向解释为了双精度浮点数，不会有精度损失）</p>
-<p>那么我们如何写出正确答案呢？逆向计算： <code>0xf3303938</code> 转换为有符号整数： <code>-214943432</code>，转换为浮点数 <code>-214943432.0</code>，这个浮点数用 IEEE 754 双精度浮点数表示为 <code>1 10000011010 100110011111100011011001000000000000</code>，即 <code>C1A99F8D 90000000</code>，拆开来用有符号十进制转换，得到 <code>-1045848179</code> 和 <code>-1879048192</code>，考虑到栈上存储方向，这两个数字还要交换顺序</p>
+<p>那么我们如何写出正确答案呢？逆向计算： <code>0xf3303938</code> 转换为有符号整数： <code>-214943432</code>，转换为浮点数 <code>-214943432.0</code>，这个浮点数用 IEEE 754 双精度浮点数表示为 <code>1 10000011010 100110011111100011011001000000000000</code>，即 <code>C1A99F8D 90000000</code>，拆开来用有符号十进制转换，得到 <code>ans1</code> 和 <code>ans2</code> 两个数字，考虑到栈上存储方向，这两个数字还要交换顺序</p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>-1879048192 -1045848179</code></strong></p>
+</details>
+</details>
 <h3 id="phase-3">Phase 3: 循环</h3>
 <p>为了方便阅读，将一段长代码的各个子部分通过换行符分隔</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1897,11 +1914,17 @@
 <span class="n">SUCCEED</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p>手推循环：<code>input[0] = 'w' = 0x77</code> </p>
-<p>--&gt; <code>input[1] = ((0x77 &gt;&gt; 1) + 32) ^ 1 = 91 ^ 1 = 0b01011010 = 'Z' = 90</code> </p>
-<p>--&gt; <code>input[2] = ((90 &gt;&gt; 1) + 32) ^ 2 = 77 ^ 2 = 0b01001111 = 'O' = 79</code> </p>
-<p>--&gt; <code>input[3] = ((79 &gt;&gt; 1) + 32) ^ 3 = 71 ^ 3 = 0b01000100 = 'D' = 68</code> </p>
-<p>--&gt; <code>input[4] = ((68 &gt;&gt; 1) + 32) ^ 4 = 66 ^ 4 = 0b01000110 = 'F' = 70</code> </p>
+<p>--&gt; <code>input[1] = ((0x77 &gt;&gt; 1) + 32) ^ 1 = 91 ^ 1 = 0b01011010 = 90</code> </p>
+<p>--&gt; <code>input[2] = ((90 &gt;&gt; 1) + 32) ^ 2 = 77 ^ 2 = 0b01001111 = 79</code> </p>
+<p>--&gt; <code>input[3] = ((79 &gt;&gt; 1) + 32) ^ 3 = 71 ^ 3 = 0b01000100 = 68</code> </p>
+<p>--&gt; <code>input[4] = ((68 &gt;&gt; 1) + 32) ^ 4 = 66 ^ 4 = 0b01000110 = 70</code> </p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p>Answer: <code>wZODF</code></p>
+</details>
+</details>
 <h3 id="phase-4">Phase 4: 选择（条件分支）</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2114,9 +2137,9 @@
 <p><code>opr += [5]</code> --&gt; <code>0b 0010 0111</code></p>
 <p>上面的操作中，<code>j</code> 的最高八位已经被设定为了 <code>0x65579927</code> 的低八位，只要持续按照上面的模式生成，就可以得到任意需要的值</p>
 <p>不难得到完整的 opr 链为</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[3,5,5,5] + [3,5,5] + [3,5] + [3,5,5] + [3,5] + [3,5,5] + [3,5,5] + [3,5,5] + [3,5,5,5,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5,5] + [3,5,5] + [3]`
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>[3,5,5,5] + [3,5,5] + [3,5] + [3,5,5] + [3,5] + [3,5,5] + [3,5,5] + [3,5,5] + [3,5,5,5,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5] + [3,5,5] + [3,5,5] + [3]
 </code></pre></div></td></tr></table></div>
-<p>不难看出上面的 opr 链的构造规律，注意最后没有 <code>5</code>，最后每个数字加上 65 映射到 ASCII 表上得到答案：</p>
+<p>不难看出上面的 opr 链的构造规律（注意末尾没有 <code>5</code>），最后每个数字加上 65 映射到 ASCII 表上得到答案：</p>
 <div class="admonition tip">
 <p class="admonition-title">利用 gdb 的动态调试</p>
 <p>你可以通过打断点 --&gt; 查内存的方式获取程序运行到某一个时间点时，某一处内存的值</p>
@@ -2144,7 +2167,7 @@ Starting program: /home/nopthon/icslab/phase4
 Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.
 Welcome to the binary program analysis lab.
 Here begins the task. Please input your answer ...
-DFFFDFFDFDFFDFDFFDFFDFFDFFFFDFDFDFDFDFDFDFDFDFFDFFD
+# 这里填的是正确答案
 
 Breakpoint 1, 0x0000000000400926 in phase ()
 (gdb) x/wx $rbp - 0xc       # 查询了 -0xc(%rbp) 的值
@@ -2155,7 +2178,13 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 [Inferior 1 (process 10462) exited normally]
 </code></pre></div></td></tr></table></div>
 </div>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>DFFFDFFDFDFFDFDFFDFFDFFDFFFFDFDFDFDFDFDFDFDFDFFDFFD</code></strong>（不唯一）</p>
+</details>
+</details>
 <h3 id="phase-5">Phase 5: 递归调用</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2359,8 +2388,14 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>递归结束后，我们需要比较的是 <code>cmp $0x2e,%eax</code>，对应了数组的最后一个元素。因此在递归二分时，我们应该确保每一次的 <code>(x &amp; 1)</code> 都成立</p>
-<p><code>z = 32</code>，因此需要 <code>x</code> 的低五位都为 <code>1</code>，而 <code>x</code> 的初始值为我的 16 进制输入，因此答案要求输入的 16 进制数的低五位都为 <code>1</code></p>
+<p><code>z = 32</code>，因此需要 <code>x</code> 的低五位都为 <code>1</code>，而 <code>x</code> 的初始值为我的 16 进制输入，据此得到答案</p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>0x1f</code></strong>（不唯一）</p>
+</details>
+</details>
 <h3 id="phase-6">Phase 6: 数组</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2534,7 +2569,13 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 </code></pre></div></td></tr></table></div>
 <p>简单来说，有一个二维数组 <code>cmat[3][8]</code> 和一个一维数组 <code>arr[22]</code>，我的六个无符号输入分别代表了三对 <code>cmat</code> 坐标，总共比较三次 <code>arr[i]</code> 与 <code>cmat[rows[i]][col[i]]</code> 要求都要相等</p>
 <p>不难发现 <code>arr[0] == cmat[0][3]</code> <code>arr[1] == cmat[2][7]</code> <code>arr[2] == cmat[0][1]</code> ，据此得到答案</p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>0 3 2 7 0 1</code></strong></p>
+</details>
+</details>
 <h3 id="phase-7">Phase 7: 指针</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3044,7 +3085,13 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 </table>
 <p>循环中 <code class="highlight"><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span></code> 说明可以进行五次计算，Phase 要求是：调用五次 <code>opfunc</code> 系列函数，要求调用完毕以后 <code>j</code> 的值恰好增加 <code>137</code> </p>
 <p>手搓一个 $O(n^3)$ 的函数遍历一下可以得到 <code>7</code> <code>13</code> <code>17</code> <code>47</code> <code>53</code> 这五个数（答案不唯一，随意挑一个），找到对应的 <code>opfunc</code> 序号得到答案</p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>1 4 11 13 15</code></strong> （不唯一，五个数字的顺序随意，也不一定必须是这五个数字） </p>
+</details>
+</details>
 <h3 id="phase-8">Phase 8: 结构与链表/树</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
@@ -3442,10 +3489,10 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 </code></pre></div></td></tr></table></div>
 <p>我们重点关注这三个变量，尤其是关注它们的赋值情况</p>
 <p><code>i</code> 变量是最外层的循环计数器，并且有这样的使用方法：</p>
-<p>--&gt; <code class="highlight"><span class="err">400</span><span class="nl">a41:</span><span class="w"> </span><span class="nf">movzbl</span><span class="w"> </span><span class="p">(</span><span class="nv">%rax</span><span class="p">),</span><span class="nv">%eax</span><span class="w">          </span><span class="c1"># eax = input[i];</span></code></p>
+<p>--&gt; <code class="highlight"><span class="err">400</span><span class="nl">a41:</span><span class="w"> </span><span class="nf">movzbl</span><span class="w"> </span><span class="p">(</span><span class="nv">%rax</span><span class="p">),</span><span class="nv">%eax</span><span class="w"> </span><span class="c1">### eax = input[i];</span></code></p>
 <p>由此可见，<code>i</code> 用于遍历输入的字符串，从 <code>input[0]</code> 遍历到 <code>input[14]</code></p>
 <p><code>k</code> 变量也是 <code>(k = 0; k &lt;=14; k++)</code> 的循环结构</p>
-<p>--&gt; <code>#!asm 400a61: mov %rax,-0x8(%rbp)         # j = &amp;(treeNode[k])</code></p>
+<p>--&gt; <code class="highlight"><span class="err">400</span><span class="nl">a61:</span><span class="w"> </span><span class="nf">mov</span><span class="w"> </span><span class="nv">%rax</span><span class="p">,-</span><span class="mi">0x8</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w"> </span><span class="c1">### j = &amp;(treeNode[k])</span></code></p>
 <p>由此可见，<code>k</code> 用于遍历二叉树节点</p>
 <p><code>j</code> 变量和 <code>k</code> 变量的关系从上面的例子中已经能很好的表示了</p>
 <p>继续观察理解，我们可以将 <code>i</code> 的大循环压缩为这样的 C 语言代码：</p>
@@ -3696,13 +3743,22 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <p>满二叉搜索树的中序遍历是节点值的递增序列</p>
 </blockquote>
 <p>我们给出这个递增序列对应的节点编号 <code>dlsurjpyhzfgaiw</code>，之后的计算过程略</p>
+<details class="question">
+<summary>这里是答案</summary>
+<details class="warning">
+<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>yugljzidsrphfaw</code></strong></p>
+</details>
+</details>
 
 
 
 
 
 
+
+  
+  
 
 
 
