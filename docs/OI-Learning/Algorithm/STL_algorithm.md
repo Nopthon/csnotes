@@ -6,7 +6,7 @@
 
 #### `sort()`
 
-通常采用内省排序（Introsort），其混合了快速排序、插入排序、堆排序，根据递归的数据量与层次自动选择，非常实用
+通常采用内省排序（Introsort），其混合了快速排序、插入排序、堆排序，根据递归的数据量与层次自动选择，平均时间复杂度 $O(n \log n)$
 
 ```c++
 sort(a, a + n)									// 对C风格数组排序
@@ -43,29 +43,32 @@ bool cmp(const string &a, const string &b){			// 解决拼接字符串字典序�
 sort(vec.begin(), vec.end(), [](int a, int b) { return a > b; });	// 降序排序
 ```
 
-!!! caution 关于排序规则 `cmp`
+事实上 `cmp` 可以是任何的可调用对象，只要满足：接受两个输入；返回值 `bool`；比较关系满足严格弱序。
 
-    排序的 `cmp` 必须满足对比较元素的[严格弱序（Strict Weak Ordering）](https://oi-wiki.org/basic/stl-sort/#%E4%B8%A5%E6%A0%BC%E5%BC%B1%E5%BA%8F)，即：
-    
-    
-    
-    
+!!! caution "关于排序规则 `cmp`"
 
-**（ `sort` 函数用到了快速排序，所以是不稳定的；可以使用 `stable_sort` 函数，其通过牺牲空间复杂度确保了排序的稳定性）**
+    排序规则 `cmp` 必须满足对比较元素的[严格弱序（Strict Weak Ordering）](https://oi-wiki.org/basic/stl-sort/#%E4%B8%A5%E6%A0%BC%E5%BC%B1%E5%BA%8F)，这对 [所有涉及 Compare 的函数都有效](https://en.cppreference.com/w/cpp/named_req/Compare#Standard_library) 
+    
+    如果 `cmp` 不满足严格弱序（比如 `return x <= y`），会出现不可预料的错误
+    
+    题目举例：[P2123 皇后游戏](https://www.luogu.com.cn/problem/P2123)，作为一道贪心排序题，cmp 函数的构造需要考虑到严格弱序的约束，很有趣的题目，调了两天
+
+
+另外，`sort` 函数用到了快速排序，所以是不稳定的；可以使用 `stable_sort` 函数，其通过牺牲空间复杂度确保了排序的稳定性
 
 
 
 #### `partial_sort()` 
 
-相比 `sort` 函数，`partial_sort` 函数可以指定将排序进行到部分程度便停止：
+相比 `sort` 函数，`partial_sort` 函数可以指定将排序进行到部分程度便停止，比如：
 
 ```c++
 partial_sort(vec.begin(), vec.begin() + k, vec.end())			// 也可以使用自定义cmp函数
 ```
 
-此时的排序结果只有 `vec[0] ~ vec[k]` 是有序的 ，在此之后的序列都可能是乱序的（即不保证有序）
+此时的排序结果只有 `vec[0] ~ vec[k]` 是有序的 ，在此之后的序列不保证有序
 
-对从较大的数据量中找到小部分最值结果的搜索很有用。
+底层采用堆排序，对从较大的数据量中找到小部分最值结果的搜索很有用，时间复杂度  $O(n \log l)$，$l$ 为待排序部分的长度
 
 该函数有一个变种 `partial_sort_copy()` ，可以将部分排序的结果存入另一个容器中：
 
@@ -80,7 +83,7 @@ partial_sort_copy(source.begin(), source.end(), target.begin(), target.end(), gr
 
 #### `nth_element()`
 
-只将第 `k + 1` 小的元素放在正确的排序位置 `vec[k]`，并且这个元素左侧的其他元素都比它小（ ≤ ），右侧的其他元素都比它大（ ≥ ）。
+只将第 `k + 1` 小的元素放在正确的排序位置 `vec[k]`，并且这个元素左侧的其他元素都比它小（ ≤ ），右侧的其他元素都比它大（ ≥ ）。时间复杂度 $O(n)$
 
 （类似于快速排序算法中 `partition` 的实现，但是后者没有“找到第 k 小的元素”这一步，后者的 `pivot` 没有限制条件）
 
@@ -128,7 +131,7 @@ auto it = is_sorted_until(vec.begin(), vec.end(), cmp);
 
 #### `partition()`
 
-根据某个筛选规则，将所有满足筛选规则 `p` 的元素放到容器前面，返回一个迭代器，指向第一个不满足筛选规则的元素。
+将所有满足谓词 `p` 的元素放到容器前面，返回一个迭代器，指向第一个不满足筛选规则的元素。
 
 ```c++
 auto it = partition(vec.begin(), vec.end(), p);

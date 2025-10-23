@@ -6,30 +6,62 @@ theme:
     - content.code.copy
   palette:
     primary: black
+  custom_dir: overrides
 
-# plugins:
+
+plugins:
+  - mermaid2
 #   - blog
 
 nav: 
   - index: index.md
-  - 算法 && 数据结构: 
-    - intro: algorithm&data_structure/index.md
-    - 链表: algorithm&data_structure/linkedlist.md
-    - STL 算法库: algorithm&data_structure/STL_algorithm.md
-    - STL vector ref: algorithm&data_structure/vector.md
-    - 栈 && 单调栈: algorithm&data_structure/stack.md
-    - C++ 面向对象: algorithm&data_structure/C++ OOP.md
-  - ICSPA x86 note: 
-    - PA0: ICSPA-x86/PA0.md
-    - PA1: ICSPA-x86/PA1.md
-    - PA2-1: ICSPA-x86/PA2-1.md
-    - i386 指令结构 for PA2-1: ICSPA-x86/i386.md
-    - PA2-2: ICSPA-x86/PA2-2.md
+  - OI-learning: 
+    - intro: OI-Learning/index.md
+    - C++ 面向对象: OI-Learning/C++ OOP.md
+
+    - Algorithm: 
+      - STL 算法库 ref: OI-Learning/Algorithm/STL_algorithm.md
+      - 快速幂: OI-Learning/Algorithm/fastpow.md
+
+    - Data Structure:
+      - 链表: OI-Learning/Data-Structure/linkedlist.md
+      - STL vector ref: OI-Learning/Data-Structure/vector.md
+      - 栈 && 单调栈: OI-Learning/Data-Structure/stack.md
+      - 队列 && 单调队列: OI-Learning/Data-Structure/queue.md
+      - 哈希表: OI-Learning/Data-Structure/hashmap.md
+    
+  - Course Notes:
+    - ICSPA x86 note: 
+      - PA0: course-notes/ICSPA-x86/PA0.md
+      - PA1: course-notes/ICSPA-x86/PA1.md
+      - PA2-1: course-notes/ICSPA-x86/PA2-1.md
+      - i386 指令结构 for PA2-1: course-notes/ICSPA-x86/i386.md
+      - PA2-2: course-notes/ICSPA-x86/PA2-2.md
+
+    - 网络攻防实战 note:
+      - Lab01: course-notes/Network-attack-and-defense-in-action/lab01.md
+      - Lab02: course-notes/Network-attack-and-defense-in-action/lab02.md
+      - Lab03: course-notes/Network-attack-and-defense-in-action/lab03.md
+      - Lab04: course-notes/Network-attack-and-defense-in-action/lab04.md
+      - Lab05: course-notes/Network-attack-and-defense-in-action/lab05.md
+
+    - ICS && CSAPP Labs sol:
+      - intro: course-notes/ICS&&CSAPP-Lab/intro.md
+      - CSAPP Datalab: course-notes/ICS&&CSAPP-Lab/Datalab.md
+      - CSAPP Bomblab: course-notes/ICS&&CSAPP-Lab/Bomblab.md
+      - ICS Binalab: course-notes/ICS&&CSAPP-Lab/Binalab.md
+
+  - Deep Learning:
+      - intro: Deep-Learning/intro.md
   
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.highlight:
