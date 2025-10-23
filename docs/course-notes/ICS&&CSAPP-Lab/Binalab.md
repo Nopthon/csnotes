@@ -14,99 +14,98 @@
 
 ### Before Start: How `<main>` works
 
-```c
-/*
-* Main module of BinaLAB.
-*
-* Copyright 2023, SU Feng, All rights reserved.
-*/
+??? quote "完整的 main 函数"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "config.h"
-
-//
-// Global Data
-//
-
-extern int phase(char *inputs);
-
-extern const char* phase_id;
-
-
-//
-// Declarations
-//
-
-char inputs[256];
-
-
-//
-// Utilities
-// 
-
-void fixinput( char* inputs, int length )
-{
-	char *p;
-	for ( p = inputs+length-1; p >= inputs; p -- )
-		if ( *p == '\n' )  *p = '\0';
-}
-
-
-//
-// Main Function
-// 
-
-int main( int argc, const char* argv[] )
-{
-#if defined(QUESTION)
-    FILE *stream = 0;
-
-    // If no command argument is given, read the input line from standard input.
-    if (argc == 1)
-		stream = stdin;
-    else // When a file argument is given, read the input line from the file.
-	if (argc == 2)
-	{
-		stream = fopen(argv[1], "r");
-		if (! stream) {
-			printf("Error: Failed to open the file %s.\n", argv[1]);
-			exit(1);
-		}
+    ```c
+    /*
+    * Main module of BinaLAB.
+    *
+    * Copyright 2023, SU Feng, All rights reserved.
+    */
+    
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include "config.h"
+    
+    //
+    // Global Data
+    //
+    
+    extern int phase(char *inputs);
+    
+    extern const char* phase_id;
+    
+    //
+    // Declarations
+    //
+    
+    char inputs[256];
+    
+    //
+    // Utilities
+    // 
+    
+    void fixinput( char* inputs, int length )
+    {
+    	char *p;
+    	for ( p = inputs+length-1; p >= inputs; p -- )
+    		if ( *p == '\n' )  *p = '\0';
     }
-    else // More than one command line arguments are not allowed.
-	{
-		printf("Usage: %s [input file]\n", argv[0]);
-		exit(1);
+    
+    //
+    // Main Function
+    // 
+    
+    int main( int argc, const char* argv[] )
+    {
+    #if defined(QUESTION)
+        FILE *stream = 0;
+    
+        // If no command argument is given, read the input line from standard input.
+        if (argc == 1)
+    		stream = stdin;
+        else // When a file argument is given, read the input line from the file.
+    	if (argc == 2)
+    	{
+    		stream = fopen(argv[1], "r");
+    		if (! stream) {
+    			printf("Error: Failed to open the file %s.\n", argv[1]);
+    			exit(1);
+    		}
+        }
+        else // More than one command line arguments are not allowed.
+    	{
+    		printf("Usage: %s [input file]\n", argv[0]);
+    		exit(1);
+        }
+    
+        printf("Welcome to the binary program analysis lab.\n");
+        printf("Here begins the task. Please input your answer ...\n");
+    
+    	// Read the input line
+    	memset(inputs, 0, sizeof(inputs));
+    	if (! fgets(inputs, sizeof(inputs), stream)) {
+    		printf("Error: Failed to read the input line.\n");
+    		exit(1);
+    	}
+    	fixinput(inputs, sizeof(inputs));
+    
+    	// Run the phase
+        if ( phase(inputs) )
+            printf("Congratulations! You've completed %s successfully.\n", phase_id);
+    	else
+            printf("Oops, %s failed. Try again.\n", phase_id);
+    
+    #elif defined(ANSWER)
+    	memset(inputs, 0, sizeof(inputs));
+    	phase(inputs);
+    	
+    #endif
+    		
+    	return 0;
     }
-
-    printf("Welcome to the binary program analysis lab.\n");
-    printf("Here begins the task. Please input your answer ...\n");
-
-	// Read the input line
-	memset(inputs, 0, sizeof(inputs));
-	if (! fgets(inputs, sizeof(inputs), stream)) {
-		printf("Error: Failed to read the input line.\n");
-		exit(1);
-	}
-	fixinput(inputs, sizeof(inputs));
-
-	// Run the phase
-    if ( phase(inputs) )
-        printf("Congratulations! You've completed %s successfully.\n", phase_id);
-	else
-        printf("Oops, %s failed. Try again.\n", phase_id);
-
-#elif defined(ANSWER)
-	memset(inputs, 0, sizeof(inputs));
-	phase(inputs);
-	
-#endif
-		
-	return 0;
-}
-```
+    ```
 
 C 语言还是很好理解的，可以读取标准输入，也可以读取文件作为某个 Phase 的输入；宏定义 `QUESTION` 有效时，进行正常的测试；宏定义为 `ANSWER` 时生成答案（这个我们用不到）
 
@@ -735,7 +734,7 @@ int seek(int x, int* y, int z) {
 0x601170 <cmat+16>:	0x64	0x42	0x71	0x53	0x41	0x50	0x47	0x44
 0x601178 <cmat+24>:	0x45	0x56	0x76	0x6a	0x72	0x52	0x54	0x4f
   
-  4009c3:	00 
+  4009c3:	00 															# 0x2007b5(%rip) 的值是原注释提供的
   4009c4:	48 8b 0d b5 07 20 00 	mov    0x2007b5(%rip),%rcx			# rcx = 0x00400bc3，
   4009cb:	8b 45 fc             	mov    -0x4(%rbp),%eax				# eax = i
   4009ce:	48 01 c8             	add    %rcx,%rax					# eax = i + 0x00400bc3
@@ -856,7 +855,7 @@ int seek(int x, int* y, int z) {
   400abb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 ```
 
-??? tip `operators` 函数指针数组指向的十六个运算函数
+??? tip "`operators` 函数指针数组指向的十六个运算函数"
 
     ```asm
     0000000000400902 <_opfunc0_>:
@@ -1034,36 +1033,30 @@ int seek(int x, int* y, int z) {
   
   4009fb:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)				# -0xc(%rbp) 记为 i，初始化为 0
   400a02:	e9 ab 00 00 00       	jmp    400ab2 <phase+0xdf>
+  
   400a07:	48 c7 45 f8 00 00 00 	movq   $0x0,-0x8(%rbp)				# -0x8(%rbp) 记为 j，初始化为 0
   400a0e:	00 
   400a0f:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%rbp)				# -0x10(%rbp) 记为 k，初始化为 0
   400a16:	eb 53                	jmp    400a6b <phase+0x98>
   
-# 这里是 0x602180 指向的数据结构
-(gdb) x/45g 0x602180
-0x602180 <__tree_OSYDJFMB>:	0x0000000000004d70	0x0000000000000000
-0x602190 <__tree_OSYDJFMB+16>:	0x0000000000000000	0x0000000000005567
-0x6021a0 <__tree_OSYDJFMB+32>:	0x0000000000000000	0x0000000000000000
-0x6021b0 <__tree_OSYDJFMB+48>:	0x0000000000004e79	0x0000000000000000
-0x6021c0 <__tree_OSYDJFMB+64>:	0x0000000000000000	0x0000000000004675
-0x6021d0 <__tree_OSYDJFMB+80>:	0x0000000000000000	0x0000000000000000
-0x6021e0 <__tree_OSYDJFMB+96>:	0x0000000000005661	0x0000000000000000
-0x6021f0 <__tree_OSYDJFMB+112>:	0x0000000000000000	0x0000000000005769
-0x602200 <__tree_OSYDJFMB+128>:	0x0000000000000000	0x0000000000000000
-0x602210 <__tree_OSYDJFMB+144>:	0x0000000000004872	0x0000000000000000
-0x602220 <__tree_OSYDJFMB+160>:	0x0000000000000000	0x0000000000004b6a
-0x602230 <__tree_OSYDJFMB+176>:	0x0000000000000000	0x0000000000000000
-0x602240 <__tree_OSYDJFMB+192>:	0x000000000000527a	0x0000000000000000
-0x602250 <__tree_OSYDJFMB+208>:	0x0000000000000000	0x0000000000004573
-0x602260 <__tree_OSYDJFMB+224>:	0x0000000000000000	0x0000000000000000
-0x602270 <__tree_OSYDJFMB+240>:	0x0000000000005068	0x0000000000000000
-0x602280 <__tree_OSYDJFMB+256>:	0x0000000000000000	0x000000000000446c
-0x602290 <__tree_OSYDJFMB+272>:	0x0000000000000000	0x0000000000000000
-0x6022a0 <__tree_OSYDJFMB+288>:	0x0000000000005366	0x0000000000000000
-0x6022b0 <__tree_OSYDJFMB+304>:	0x0000000000000000	0x0000000000004364
-0x6022c0 <__tree_OSYDJFMB+320>:	0x0000000000000000	0x0000000000000000
-0x6022d0 <__tree_OSYDJFMB+336>:	0x0000000000005877	0x0000000000000000
-0x6022e0 <__tree_OSYDJFMB+352>:	0x0000000000000000
+# 这里是 0x602180 指向的数据结构，手动按照 x/3g 对齐了一下
+# 标签中的 tree 暗示了 {值，左子树地址，右子树地址} 的数据结构
+0x602180 <tree>:		0x0000000000004d70	0x0000000000000000	0x0000000000000000
+0x602198 <tree+24>:		0x0000000000005567	0x0000000000000000	0x0000000000000000
+0x6021b0 <tree+48>:		0x0000000000004e79	0x0000000000000000	0x0000000000000000
+0x6021c8 <tree+72>:		0x0000000000004675	0x0000000000000000	0x0000000000000000
+0x6021e0 <tree+96>:		0x0000000000005661	0x0000000000000000	0x0000000000000000
+0x6021f8 <tree+120>:	0x0000000000005769	0x0000000000000000	0x0000000000000000
+0x602210 <tree+144>:	0x0000000000004872	0x0000000000000000	0x0000000000000000
+0x602228 <tree+168>:	0x0000000000004b6a	0x0000000000000000	0x0000000000000000
+0x602240 <tree+192>:	0x000000000000527a	0x0000000000000000	0x0000000000000000
+0x602258 <tree+216>:	0x0000000000004573	0x0000000000000000	0x0000000000000000
+0x602270 <tree+240>:	0x0000000000005068	0x0000000000000000	0x0000000000000000
+0x602288 <tree+264>:	0x000000000000446c	0x0000000000000000	0x0000000000000000
+0x6022a0 <tree+288>:	0x0000000000005366	0x0000000000000000	0x0000000000000000
+0x6022b8 <tree+312>:	0x0000000000004364	0x0000000000000000	0x0000000000000000
+0x6022d0 <tree+336>:	0x0000000000005877	0x0000000000000000	0x0000000000000000
+						# val				# leftNode			# rightNode
   
   400a18:	8b 45 f0             	mov    -0x10(%rbp),%eax				# eax = k
   400a1b:	48 63 d0             	movslq %eax,%rdx					# rdx = k（符号扩展到 64 位）
@@ -1071,60 +1064,64 @@ int seek(int x, int* y, int z) {
   400a21:	48 01 c0             	add    %rax,%rax					# rax = 2*k
   400a24:	48 01 d0             	add    %rdx,%rax					# rax = 3*k
   400a27:	48 c1 e0 03          	shl    $0x3,%rax					# rax 左移三位
-  400a2b:	48 05 80 21 60 00    	add    $0x602180,%rax				# rax = 0x602180 + (8*3*k)（看得出来是一个索引）
-  400a31:	0f b6 10             	movzbl (%rax),%edx					#
-  400a34:	8b 45 f4             	mov    -0xc(%rbp),%eax
-  400a37:	48 63 c8             	movslq %eax,%rcx
-  400a3a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
-  400a3e:	48 01 c8             	add    %rcx,%rax
-  400a41:	0f b6 00             	movzbl (%rax),%eax
-  400a44:	38 c2                	cmp    %al,%dl
-  400a46:	75 1f                	jne    400a67 <phase+0x94>
-  400a48:	8b 45 f0             	mov    -0x10(%rbp),%eax
-  400a4b:	48 63 d0             	movslq %eax,%rdx
-  400a4e:	48 89 d0             	mov    %rdx,%rax
-  400a51:	48 01 c0             	add    %rax,%rax
-  400a54:	48 01 d0             	add    %rdx,%rax
-  400a57:	48 c1 e0 03          	shl    $0x3,%rax
-  400a5b:	48 05 80 21 60 00    	add    $0x602180,%rax
-  400a61:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
-  400a65:	eb 0a                	jmp    400a71 <phase+0x9e>
+  400a2b:	48 05 80 21 60 00    	add    $0x602180,%rax				# rax = 0x602180 + (8*3*k)
+  400a31:	0f b6 10             	movzbl (%rax),%edx					# edx = treeNode[k].val
+  400a34:	8b 45 f4             	mov    -0xc(%rbp),%eax				# eax = i
+  400a37:	48 63 c8             	movslq %eax,%rcx					# rcx = i（符号扩展到 64 位）
+  400a3a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax				# rax = 输入首地址
+  400a3e:	48 01 c8             	add    %rcx,%rax					# rax += i
+  400a41:	0f b6 00             	movzbl (%rax),%eax					# eax = input[i];
+  400a44:	38 c2                	cmp    %al,%dl						# 取低八位与 treeNode[k].val 比较 
+  																		# 注意树节点值 val 也只取低八位
+  400a46:	75 1f                	jne    400a67 <phase+0x94>			# 不相等则跳转到 400a67
+  400a48:	8b 45 f0             	mov    -0x10(%rbp),%eax				# eax = k
+  400a4b:	48 63 d0             	movslq %eax,%rdx					# rdx = k（符号扩展至 64 位）
+  400a4e:	48 89 d0             	mov    %rdx,%rax					# rax = k
+  400a51:	48 01 c0             	add    %rax,%rax					# rax = 2*k
+  400a54:	48 01 d0             	add    %rdx,%rax					# rax = 3*k
+  400a57:	48 c1 e0 03          	shl    $0x3,%rax					# rax = 24*k
+  400a5b:	48 05 80 21 60 00    	add    $0x602180,%rax				# rax = 0x602180 + (8*3*k)
+  400a61:	48 89 45 f8          	mov    %rax,-0x8(%rbp)				# j = &(treeNode[k])
+  400a65:	eb 0a                	jmp    400a71 <phase+0x9e>			# 跳转到 400a71
+  
   400a67:	83 45 f0 01          	addl   $0x1,-0x10(%rbp)				# k++
-  400a6b:	83 7d f0 0e          	cmpl   $0xe,-0x10(%rbp)				# k 与 15 比较
-  400a6f:	7e a7                	jle    400a18 <phase+0x45>			# k <= 15 回到循环
+  400a6b:	83 7d f0 0e          	cmpl   $0xe,-0x10(%rbp)				# k 与 14 比较
+  400a6f:	7e a7                	jle    400a18 <phase+0x45>			# k <= 14 回到循环
   
   400a71:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)				# j 与 0 比较
   400a76:	75 07                	jne    400a7f <phase+0xac>			# j != 0 时跳转，否则 FAIL
   400a78:	b8 00 00 00 00       	mov    $0x0,%eax
   400a7d:	eb 55                	jmp    400ad4 <phase+0x101>
+  																		# 原注释：0x201__(%rip) 地址都是 602310
+  400a7f:	48 8b 05 8a 18 20 00 	mov    0x20188a(%rip),%rax			# rax = root（root 一开始为 0）
+  400a86:	48 85 c0             	test   %rax,%rax					# rax != 0 时跳转到 400a98 
+  400a89:	75 0d                	jne    400a98 <phase+0xc5>			
+  400a8b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				# rax = j
+  400a8f:	48 89 05 7a 18 20 00 	mov    %rax,0x20187a(%rip)			# root = j
+  400a96:	eb 16                	jmp    400aae <phase+0xdb>			# 跳转到 400aae
   
-  400a7f:	48 8b 05 8a 18 20 00 	mov    0x20188a(%rip),%rax        # 602310 <root>
-  400a86:	48 85 c0             	test   %rax,%rax
-  400a89:	75 0d                	jne    400a98 <phase+0xc5>
-  400a8b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-  400a8f:	48 89 05 7a 18 20 00 	mov    %rax,0x20187a(%rip)        # 602310 <root>
-  400a96:	eb 16                	jmp    400aae <phase+0xdb>
-  400a98:	48 8b 05 71 18 20 00 	mov    0x201871(%rip),%rax        # 602310 <root>
-  400a9f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
-  400aa3:	48 89 d6             	mov    %rdx,%rsi
-  400aa6:	48 89 c7             	mov    %rax,%rdi
-  400aa9:	e8 37 fe ff ff       	call   4008e5 <insert>
-  400aae:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
-  400ab2:	83 7d f4 0e          	cmpl   $0xe,-0xc(%rbp)
-  400ab6:	0f 8e 4b ff ff ff    	jle    400a07 <phase+0x34>
+  400a98:	48 8b 05 71 18 20 00 	mov    0x201871(%rip),%rax			# rax = root
+  400a9f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx				# rdx = j
+  400aa3:	48 89 d6             	mov    %rdx,%rsi					# rsi = j
+  400aa6:	48 89 c7             	mov    %rax,%rdi					# rdi = root
+  400aa9:	e8 37 fe ff ff       	call   4008e5 <insert>				# 调用 insert 函数
   
-  400abc:	48 8b 05 4d 18 20 00 	mov    0x20184d(%rip),%rax        # 602310 <root>
-  400ac3:	48 89 c7             	mov    %rax,%rdi
-  400ac6:	e8 b0 fe ff ff       	call   40097b <depth>
-  400acb:	83 f8 04             	cmp    $0x4,%eax
-  400ace:	0f 94 c0             	sete   %al
-  400ad1:	0f b6 c0             	movzbl %al,%eax
-  400ad4:	c9                   	leave  
+  400aae:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)				# i++
+  400ab2:	83 7d f4 0e          	cmpl   $0xe,-0xc(%rbp)				# i <= 14?
+  400ab6:	0f 8e 4b ff ff ff    	jle    400a07 <phase+0x34>			# i <= 14 跳回 400a07
+  
+  400abc:	48 8b 05 4d 18 20 00 	mov    0x20184d(%rip),%rax			# rax = root
+  400ac3:	48 89 c7             	mov    %rax,%rdi					# rdi = rax
+  400ac6:	e8 b0 fe ff ff       	call   40097b <depth>				# 调用 depth 函数
+  400acb:	83 f8 04             	cmp    $0x4,%eax					# 返回值 eax 与 4 比较
+  400ace:	0f 94 c0             	sete   %al							# 相等则 al = 1
+  400ad1:	0f b6 c0             	movzbl %al,%eax						# eax = 1
+  400ad4:	c9                   	leave  								# 结束 Phase
   400ad5:	c3                   	ret    
   400ad6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
   400add:	00 00 00
   
-00000000004008e5 <insert>:
+00000000004008e5 <insert>:												# 我们过一会再分析这个函数
   4008e5:	55                   	push   %rbp
   4008e6:	48 89 e5             	mov    %rsp,%rbp
   4008e9:	48 83 ec 10          	sub    $0x10,%rsp
@@ -1172,7 +1169,7 @@ int seek(int x, int* y, int z) {
   400979:	c9                   	leave  
   40097a:	c3                   	ret    
 
-000000000040097b <depth>:
+000000000040097b <depth>:												# 只要知道这个函数计算二叉树的深度即可
   40097b:	55                   	push   %rbp
   40097c:	48 89 e5             	mov    %rsp,%rbp
   40097f:	48 83 ec 20          	sub    $0x20,%rsp
@@ -1202,4 +1199,186 @@ int seek(int x, int* y, int z) {
   4009d1:	c9                   	leave  
   4009d2:	c3                   	ret 
 ```
+
+和 CSAPP-Bomblab 的 Secret Phase 一样，都是二叉搜索树，但是这个明显难一些
+
+首先开头检查字符串长度必须为 15，并且能大致看出这个 Phase 涉及二叉树的建立（尤其是 `0x602180 <tree>` 这里）。然后直接看代码的最后部分
+
+```asm
+  400abc:	48 8b 05 4d 18 20 00 	mov    0x20184d(%rip),%rax			# rax = root
+  400ac3:	48 89 c7             	mov    %rax,%rdi					# rdi = rax
+  400ac6:	e8 b0 fe ff ff       	call   40097b <depth>				# 调用 depth 函数
+  400acb:	83 f8 04             	cmp    $0x4,%eax					# 返回值 eax 与 4 比较
+  400ace:	0f 94 c0             	sete   %al							# 相等则 al = 1
+  400ad1:	0f b6 c0             	movzbl %al,%eax						# eax = 1
+  400ad4:	c9                   	leave  								# 结束 Phase
+  400ad5:	c3                   	ret    
+  400ad6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  400add:	00 00 00
+```
+
+经过一系列的建二叉树操作后，二叉树的深度必须为 4，若深度为 4 则 Phase 输入正确
+
+因此中间的内容都围绕着建二叉树展开：
+
+```asm
+movl   $0x0,-0xc(%rbp)				# -0xc(%rbp) 记为 i，初始化为 0
+jmp    400ab2 <phase+0xdf>
+movq   $0x0,-0x8(%rbp)				# -0x8(%rbp) 记为 j，初始化为 0
+movl   $0x0,-0x10(%rbp)				# -0x10(%rbp) 记为 k，初始化为 0
+jmp    400a6b <phase+0x98>
+```
+
+我们重点关注这三个变量，尤其是关注它们的赋值情况
+
+`i` 变量是最外层的循环计数器，并且有这样的使用方法：
+
+--> `#!asm 400a41: movzbl (%rax),%eax          # eax = input[i];`
+
+由此可见，`i` 用于遍历输入的字符串，从 `input[0]` 遍历到 `input[14]`
+
+`k` 变量也是 `(k = 0; k <=14; k++)` 的循环结构
+
+--> ` #!asm 400a61: mov %rax,-0x8(%rbp)         # j = &(treeNode[k])`
+
+由此可见，`k` 用于遍历二叉树节点
+
+`j` 变量和 `k` 变量的关系从上面的例子中已经能很好的表示了
+
+继续观察理解，我们可以将 `i` 的大循环压缩为这样的 C 语言代码：
+
+```c
+for (i = 0; i <= 14; i++) {
+    j = 0;
+    for (k = 0; k <= 14; k++) {
+        if (input[i] == treeNode[k].val)
+            j = &treeNode[k];
+    }
+    if (j == 0)
+        FAIL();
+    else
+    	insert(?); 
+}
+```
+
+也就是说，我的 15 位字符串输入，每一位的 ASCII 值的都可以和二叉树的一个节点匹配，否则 FAIL
+
+现在的问题是，我们并不清楚 `insert` 函数的逻辑：
+
+```asm
+  # 不难发现，root 初始化为 0，所以 insert 操作在 i = 0 时一定不会进行
+  # 因为 i = 0 对应根节点，不需要被插入
+  400a7f:	48 8b 05 8a 18 20 00 	mov    0x20188a(%rip),%rax			# rax = root（root 一开始为 0）
+  400a86:	48 85 c0             	test   %rax,%rax					# rax != 0 时跳转到 400a98 
+  # 这里是根节点才会进行的操作，令 root = j = &(treeNode[k])
+  # 接下来进行 insert 操作时，我们就能定位根节点了
+  400a89:	75 0d                	jne    400a98 <phase+0xc5>			
+  400a8b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				# rax = j
+  400a8f:	48 89 05 7a 18 20 00 	mov    %rax,0x20187a(%rip)			# root = j
+  400a96:	eb 16                	jmp    400aae <phase+0xdb>			# 跳转到 i++ 的地方
+  # 为使用 insert 函数进行寄存器准备
+  400a98:	48 8b 05 71 18 20 00 	mov    0x201871(%rip),%rax			# rax = root
+  400a9f:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx				# rdx = &(treeNode[k])
+  400aa3:	48 89 d6             	mov    %rdx,%rsi					# rsi = &(treeNode[k])
+  400aa6:	48 89 c7             	mov    %rax,%rdi					# rdi = root
+  400aa9:	e8 37 fe ff ff       	call   4008e5 <insert>				# 调用 insert 函数
+  
+  00000000004008e5 <insert>:
+  4008e5:	55                   	push   %rbp							# 正常的栈操作
+  4008e6:	48 89 e5             	mov    %rsp,%rbp
+  4008e9:	48 83 ec 10          	sub    $0x10,%rsp
+  4008ed:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)				# j = rdi = root
+  4008f1:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)				# K = &(treeNode[k])，待插入节点地址
+  4008f5:	48 83 7d f8 00       	cmpq   $0x0,-0x8(%rbp)				# root 和 0 比较
+  4008fa:	75 02                	jne    4008fe <insert+0x19>			# 不相等则继续
+  4008fc:	eb 7b                	jmp    400979 <insert+0x94>			# 意料外的 root = 0，退出函数
+  4008fe:	48 8b 45 f0          	mov    -0x10(%rbp),%rax				# rax = K
+  400902:	0f b6 50 01          	movzbl 0x1(%rax),%edx				# edx = K->val[3:2]
+  400906:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				# rax = root
+  40090a:	0f b6 40 01          	movzbl 0x1(%rax),%eax				# eax = root->val[3:2]
+  40090e:	38 c2                	cmp    %al,%dl						# eax 和 edx 比大小
+  400910:	7d 34                	jge    400946 <insert+0x61>			# 插入子树的分支
+  # k->val < root->val，则尝试插入左子树：
+  400912:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				# rax = root
+  400916:	48 8b 40 08          	mov    0x8(%rax),%rax				# rax = root->left
+  40091a:	48 85 c0             	test   %rax,%rax					# root->left 是否为空
+  40091d:	74 19                	je     400938 <insert+0x53>			# 为空就插入
+  	# 如果左子树不为空，递归至下一层，这期间的操作参考 400a98 的部分：
+  40091f:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				
+  400923:	48 8b 40 08          	mov    0x8(%rax),%rax
+  400927:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+  40092b:	48 89 d6             	mov    %rdx,%rsi
+  40092e:	48 89 c7             	mov    %rax,%rdi
+  400931:	e8 af ff ff ff       	call   4008e5 <insert>
+  400936:	eb 40                	jmp    400978 <insert+0x93>	
+    # 如果左子树为空，插入左子树：
+  400938:	48 8b 45 f8          	mov    -0x8(%rbp),%rax				# rax = root
+  40093c:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx				# rdx = K
+  400940:	48 89 50 08          	mov    %rdx,0x8(%rax)				# K 插入至左子树
+  400944:	eb 33                	jmp    400979 <insert+0x94>
+  # k->val >= root->val，则尝试插入右子树：
+  400946:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  40094a:	48 8b 40 10          	mov    0x10(%rax),%rax
+  40094e:	48 85 c0             	test   %rax,%rax
+  400951:	74 19                	je     40096c <insert+0x87>
+  	# 如果右子树不为空，递归至下一层，这期间的操作参考 400a98 的部分：
+  400953:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  400957:	48 8b 40 10          	mov    0x10(%rax),%rax
+  40095b:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+  40095f:	48 89 d6             	mov    %rdx,%rsi
+  400962:	48 89 c7             	mov    %rax,%rdi
+  400965:	e8 7b ff ff ff       	call   4008e5 <insert>
+  40096a:	eb 0c                	jmp    400978 <insert+0x93>
+    # 如果右子树为空，插入右子树：
+  40096c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  400970:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+  400974:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  400978:	90                   	nop
+  400979:	c9                   	leave  
+  40097a:	c3                   	ret
+```
+
+??? quote "摘自 OI-Wiki 的[二叉搜索树](https://oiwiki.org/ds/bst)相关知识" 
+
+    二叉搜索树是一种二叉树的树形数据结构，其定义如下：
+    
+    - 空树是二叉搜索树。
+    
+    - 若二叉搜索树的左子树不为空，则其左子树上所有点的附加权值均小于其根节点的值。
+    
+    - 若二叉搜索树的右子树不为空，则其右子树上所有点的附加权值均大于其根节点的值。
+    
+    - 二叉搜索树的左右子树均为二叉搜索树。
+    
+    **插入一个元素**
+    
+    在以 root 为根节点的二叉搜索树中插入一个值为 value 的节点。
+    
+    分类讨论如下：
+    
+    - 若 root 为空，直接返回一个值为 value 的新节点。
+    
+    - 若 root 的权值等于 value，该节点的附加域该值出现的次数自增 1
+    
+    - 若 root 的权值大于 value，在 root 的左子树中插入权值为 value 的节点。
+    
+    - 若 root 的权值小于 value，在 root 的右子树中插入权值为 value 的节点。
+
+以上我们明白了 `insert` 函数的功能就是在二叉搜索树上插入新的值
+
+这里需要尤其注意的是：在输入的单个字符与节点对应时，我们取的是节点值的最低八位；而在 `insert` 操作时，我们取的是 `val[3:2]`，也就是低十六位的高八位。因此我们在理解 `treeNode` 的 `val` 内容时，必须分开来看
+
+以下是 `val` 取低十六位时，低八位 ASCII 字符与高八位十六进制数的对应表：
+
+|  p   |  g   |  y   |  u   |  a   |  i   |  r   |  j   |  z   |  s   |  h   |  l   |  f   |  d   |  w   |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 0x4d | 0x55 | 0x4e | 0x46 | 0x56 | 0x57 | 0x48 | 0x4b | 0x52 | 0x45 | 0x50 | 0x44 | 0x53 | 0x43 | 0x58 |
+
+我们又知道，15 个节点的二叉树要求深度为 4，那么它必须是一个满二叉树。下面不加证明的给出一个结论：
+
+> 满二叉搜索树的中序遍历是节点值的递增序列
+
+我们给出这个递增序列对应的节点编号 `dlsurjpyhzfgaiw`，之后的计算过程略
+
+**Answer: `yugljzidsrphfaw`**
 

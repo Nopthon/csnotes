@@ -45,7 +45,7 @@ nav:
       - Lab04: course-notes/Network-attack-and-defense-in-action/lab04.md
       - Lab05: course-notes/Network-attack-and-defense-in-action/lab05.md
 
-    - ICS && CSAPP Labs sol:
+    - ICS && CSAPP Labs:
       - intro: course-notes/ICS&&CSAPP-Lab/intro.md
       - CSAPP Datalab: course-notes/ICS&&CSAPP-Lab/Datalab.md
       - CSAPP Bomblab: course-notes/ICS&&CSAPP-Lab/Bomblab.md
