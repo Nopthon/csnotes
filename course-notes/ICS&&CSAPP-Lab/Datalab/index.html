@@ -1,0 +1,2153 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../intro/">
+      
+      
+        <link rel="next" href="../Bomblab/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>CSAPP Datalab - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#csapp-datalab-solution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CSAPP Datalab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OI-learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OI-learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++ 面向对象
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL 算法库 ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    快速幂
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL vector ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈 && 单调栈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    队列 && 单调队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Course Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Course Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICSPA x86 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            ICSPA x86 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    i386 指令结构 for PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    网络攻防实战 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            网络攻防实战 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICS && CSAPP Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            ICS && CSAPP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CSAPP Datalab
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSAPP Datalab
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 仅用 &amp; 和 ~ 实现 x ^ y
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 返回最小的二进制补码整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 判断 x 是否为最大的二进制补码整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-x-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 判断 x 的所有奇数位是否均为 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 不使用 - 运算符返回 -x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-x-ascii-0x30-x-0x39" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 判断 x 是否为 ASCII 数字（0x30 ≤ x ≤ 0x39）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 实现三目运算符 x ? y : z 的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 判断 x 是否小于等于 y
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 不使用 ! 运算符实现 !x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 返回能完整表示 x 所需的最小位数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-2-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. 返回与表达式 2 * f 等价的二进制位表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. 将浮点数 f 转换为整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-20-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. 返回与表达式 2.0 ^ x 等价的二进制位表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datalab" class="md-nav__link">
+    <span class="md-ellipsis">
+      附 Datalab 题目限制
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bomblab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSAPP Bomblab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ICS Binalab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deep-Learning/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 仅用 &amp; 和 ~ 实现 x ^ y
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 返回最小的二进制补码整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 判断 x 是否为最大的二进制补码整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-x-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 判断 x 的所有奇数位是否均为 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 不使用 - 运算符返回 -x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-x-ascii-0x30-x-0x39" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 判断 x 是否为 ASCII 数字（0x30 ≤ x ≤ 0x39）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 实现三目运算符 x ? y : z 的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 判断 x 是否小于等于 y
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 不使用 ! 运算符实现 !x
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. 返回能完整表示 x 所需的最小位数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-2-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. 返回与表达式 2 * f 等价的二进制位表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. 将浮点数 f 转换为整数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-20-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. 返回与表达式 2.0 ^ x 等价的二进制位表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datalab" class="md-nav__link">
+    <span class="md-ellipsis">
+      附 Datalab 题目限制
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="csapp-datalab-solution">CSAPP Datalab Solution</h1>
+<p>使用 C 语言，在限定条件下，在 <code>bits.c</code> 文件中实现下列函数：</p>
+<p>具体的限制条件参考 <a href="https://csapp.cs.cmu.edu/3e/datalab-handout.tar">Self-Study Handout</a>，一个简略的限制条件说明放在了结尾</p>
+<table>
+<thead>
+<tr>
+<th>Func Name</th>
+<th>Description</th>
+<th>Max Ops Allowed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bitXor(x,y)</strong></td>
+<td>仅用 <code>&amp;</code> 和 <code>~</code> 实现 <code>x xor y</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td><strong>tmin()</strong></td>
+<td>返回最小的二进制补码整数</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>isTmax(x)</strong></td>
+<td>判断 <code>x</code> 是否为最大的二进制补码整数</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>allOddBits(x)</strong></td>
+<td>判断 <code>x</code> 的所有奇数位是否均为 1</td>
+<td>12</td>
+</tr>
+<tr>
+<td><strong>negate(x)</strong></td>
+<td>不使用 <code>-</code> 运算符返回 <code>-x</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>isAsciiDigit(x)</strong></td>
+<td>判断 <code>x</code> 是否为 ASCII 数字（<code>0x30 ≤ x ≤ 0x39</code>）</td>
+<td>15</td>
+</tr>
+<tr>
+<td><strong>conditional(x,y,z)</strong></td>
+<td>实现 <code>x ? y : z</code> 的功能</td>
+<td>16</td>
+</tr>
+<tr>
+<td><strong>isLessOrEqual(x, y)</strong></td>
+<td>判断 <code>x</code> 是否小于等于 <code>y</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><strong>logicalNeg(x)</strong></td>
+<td>不使用 <code>!</code> 运算符实现 <code>!x</code></td>
+<td>12</td>
+</tr>
+<tr>
+<td><strong>howManyBits(x)</strong></td>
+<td>返回表示 <code>x</code> 所需的最小位数</td>
+<td>90</td>
+</tr>
+<tr>
+<td><strong>floatScale2(uf)</strong></td>
+<td>返回与表达式 <code>2 * f</code> 等价的二进制位表示</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>floatFloat2Int(uf)</strong></td>
+<td>将浮点数转换为整数</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>floatPower2(x)</strong></td>
+<td>返回与表达式 <code>2.0 ^ x</code> 等价的二进制位表示</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="solution">Solution</h2>
+<h3 id="1-x-y">1. 仅用 <code>&amp;</code> 和 <code>~</code> 实现 <code>x ^ y</code></h3>
+<p>对 xor 式子进行变换，第一步拆开 xor 表达式为和或非形式，第二步使用德摩根律消去 <code>|</code> 运算</p>
+<p>--&gt; <code>x ^ y = ~( (~ (~x &amp; y)) &amp; (~ (x &amp; ~y)) )</code></p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">bitXor</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="2">2. 返回最小的二进制补码整数</h3>
+<p>要求中提到：整数常量只能设置在 0 到 255（ <code>0xff</code> ），不允许使用更大的常量（如 <code>0xffffffff</code>）</p>
+<p>我们知道最小的二进制补码整数是 <code>10000000 00000000 00000000 00000000</code> （题设使用 32 位二进制补码表示整数），可以选择将 <code>10000000</code> 左移 24 位实现</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">tmin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mh">0x80</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="3-x">3. 判断 <code>x</code> 是否为最大的二进制补码整数</h3>
+<p>不能使用控制函数，所以不能 <code>if</code> </p>
+<p>我们知道最大的二进制补码整数是 <code>01111111 11111111 11111111 11111111</code> ，这个数有一个特性： <code>+1</code> 操作与取反操作得到相同的值。</p>
+<p>总共有两个数符合这样的特性： <code>Tmax</code> 与 <code>-1</code> ，所以我们先通过 <code>!( (x+1) ^ (~x) )</code> 排除掉其他值，再通过 <code>!(!(~x))</code> 操作排除 <code>-1</code> 这个值（只有 <code>-1</code> 取反后为 <code>0</code>）</p>
+<p>当然，直接构造出 <code>0x80000000</code>，利用异或性质得到答案是更加简洁的选择，但是<strong>第一个函数不依赖 <code>int</code> 在不同环境下的位数限制，具有更好的可移植性</strong>；而第二个函数的 <code>0x80&lt;&lt;24</code> 操作只针对于 32 位 <code>int</code> （并且这一题禁止了移位操作，所以后者得不到分）</p>
+<div class="admonition tip">
+<p class="admonition-title"><code>!</code> 的作用</p>
+<p><code>!</code> 可以将所有非零数统一设置为 0，在没有 <code>if</code> <code>==</code> 操作的情况下，这很实用</p>
+<p><strong>判断 <code>a</code>,<code>b</code> 是否相等的一个简单操作是： <code>!(a^b)</code> ，相等值为 <code>1</code>，否则值为 <code>0</code></strong> </p>
+</div>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isTmax</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="4-x-1">4. 判断 <code>x</code> 的所有奇数位是否均为 1</h3>
+<p>也就是判断一个数和掩码 <code>01010101 01010101 01010101 01010101</code> 的按位或结果是否为 <code>0xffffffff</code> ，如果是，取反后就能得到 <code>0</code>，利用 <code>!</code> 操作就能解答</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">allOddBits</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x55</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mh">0x55</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="5-x">5. 不使用 <code>-</code> 运算符返回 <code>-x</code></h3>
+<p>对于补码数，取负操作等价为 “按位取反 + 1” ，据此给出解答</p>
+<div class="admonition tip">
+<p class="admonition-title">取负运算 <code>-</code> 和取反运算 <code>~</code></p>
+<p>取负操作 <code>-x</code> 的定义是使 <code>x+(-x)</code> 在模 $2^n$ 运算下为 0，$n$ 是数据长度</p>
+<p>不难得到 $x+(\sim x + 1) = 2^n \equiv 0 \pmod {2^n}$</p>
+</div>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">negate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="6-x-ascii-0x30-x-0x39">6. 判断 <code>x</code> 是否为 ASCII 数字（<code>0x30 ≤ x ≤ 0x39</code>）</h3>
+<p>首先得从 <code>0x30</code> ~ <code>0x39</code> 这几个二进制数的性质入手，这些数的二进制都满足右八位为 <code>0011xxxx</code>，且 <code>xxxx</code> 部分只能对应十六进制 <code>0~9</code> （具体来说是满足 <code>0xxx</code>（0~7）或者 <code>100x</code>（8~9）格式的值）</p>
+<p>总结一下就是这个数 <code>x</code> 必须能与 <code>00110xxx</code> 与 <code>0011100x</code> 中的某一项匹配。对于匹配 <code>00110xxx</code>，我们可以先将 <code>x</code> 右移三位，然后与 <code>00110</code> 进行比较（ <code>0011100x</code> 同理）</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isAsciiDigit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mh">0x06</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mh">0x1c</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="7-x-y-z">7. 实现三目运算符 <code>x ? y : z</code> 的功能</h3>
+<p>等价于 ：<code>if(x != 0) {return y;} else {return z;}</code> </p>
+<p>注意到对任意 32 位整数 <code>a</code>， <code>0 &amp; a == 0</code> 且 <code>0xffffffff &amp; a == a</code> ，我希望构造一个函数 <code>f(x)</code> ，满足 <code>x==0</code> 时 <code>f(x) == 0</code>；<code>x != 0</code> 时 <code>f(x) == 0xffffffff</code> ，这样的话我就可以通过这个函数构造三目运算符，大致原理是：</p>
+<p>--&gt; <code>return f(x) &amp; y | ~f(x) &amp; z</code></p>
+<p>考虑 <code>!x</code> 操作只会将 <code>x</code> 变为 <code>0</code> 或 <code>1</code> ，而这两个数减去一恰好对应 <code>0xffffffff</code> 与 <code>0</code> ，这就解决了构造函数的问题：<code>f(x) = (!x) - 1</code> （题目要求只能用加号，所以这里还需要构造 <code>-1</code> ）</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">conditional</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="mi">0</span><span class="p">);</span><span class="w">                  </span><span class="c1">// 也可以写成 ~(!!x) + 1</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">c</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="8-x-y">8. 判断 <code>x</code> 是否小于等于 <code>y</code></h3>
+<p>如果 <code>x &lt;= y</code> 返回 <code>1</code>，否则返回 <code>0</code> </p>
+<p>容易发现： <code>x &lt;= y</code> 有两种情况：<code>x</code> 负 <code>y</code> 非负；或者 <code>x</code> <code>y</code> 同正负且满足 <code>y-x</code> 符号位为 <code>0</code> </p>
+<p>--&gt; <code>return ( (x,y 同号) &amp; !((y-x) &gt;&gt; 31) ) | (x负且y非负)</code></p>
+<div class="admonition tip">
+<p class="admonition-title">为什么要加上对 <code>x</code> <code>y</code> 符号的讨论？</p>
+<p>防止溢出情况改变了符号位</p>
+</div>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isLessOrEqual</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">((</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">))</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="9-x">9. 不使用 <code>!</code> 运算符实现 <code>!x</code></h3>
+<p><code>!</code> 的运算解释：如果 <code>x</code> 非零，则 <code>!x = 0</code>，否则 <code>x == 0 → !x = 1</code> </p>
+<p>注意到对于任意非零数 <code>x</code> ，<code>x</code> 与 <code>-x</code> 总有一个符号位为 <code>1</code>，而 <code>x == 0</code> 时 <code>x == -x == 0</code>，符号位为 <code>0</code> ，根据这个符号位差异就可以写出函数</p>
+<div class="admonition tip">
+<p class="admonition-title"><strong>C 语言对于有符号数采用算术右移，所以 <code>x != 0</code> 时右移 31 位结果为 <code>-1</code></strong></p>
+</div>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">logicalNeg</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="10-x">10. 返回能完整表示 <code>x</code> 所需的最小位数</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>```C
+/*  Examples: howManyBits(12) = 5                   (0 1100)
+ *            howManyBits(298) = 10                 (0 100101010)
+ *            howManyBits(-5) = 4                   (1 011)
+ *            howManyBits(0)  = 1                   (0)
+ *            howManyBits(-1) = 1                   (1)
+ *            howManyBits(0x80000000) = 32          (1 + 31*0)
+ */
+```
+</code></pre></div></td></tr></table></div>
+<p><code>int</code> 部分题目的最难题，甚至给了最多 90 步的限制，是场恶战</p>
+<p>首先 <code>x</code> 的值为 <code>0</code> 和 <code>-1</code> 都是特殊情况（只需要符号位表示），先留意一下</p>
+<p>对于一般情况，如果 <code>x</code> 是正数，那么关键目的是要尝试找到最高有效位（该位为 <code>1</code> ，其左侧全为 <code>0</code> ），<strong>最小位数 = 最高有效位 + 一位符号位</strong></p>
+<p>如果 <code>x</code> 是负数，不能直接用上面的方案找最高有效位，因为补码额外有一个值为 <code>1</code> 的符号位，使得最终结果比正确结果多出一，因此必须先取绝对值化。这里可以选择对 <code>x</code> 取反，<code>~x</code> 和 <code>x</code> 的所需最小位数是相同的（比如 <code>1011</code> 取反后为 <code>0100</code> ，所需最小位数都是 <code>4</code> 位），注意 <code>-1</code> 是特例。</p>
+<p>如何判断一个数是不是负数？检查符号位：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sign</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">sign</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="c1">// 这里是三目运算符的一个运用</span>
+</code></pre></div></td></tr></table></div>
+<p>统一了 <code>x</code> 的正负性之后，符号位不再影响最高有效位的寻找。这里考虑二分查找找到最高有效位，下面是伪代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                    </span><span class="c1">// 记录最高有效位的数值</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">的高</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">位全为零</span><span class="p">){</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">          </span><span class="c1">// 只保留低 16 位，因为高 16 位已经没有信息提供了</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// 也就是说最高有效位出现在高 16 位中</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">                </span><span class="c1">// 把高 16 位当作低 16 位储存</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">             </span><span class="c1">// 后 16 位都贡献了最高有效位</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">的高</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">位全为零</span><span class="p">){</span><span class="w">           </span><span class="c1">// 对剩下的部分继续二分寻找</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 此处省略一部分查找过程</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">的高</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">位为零</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">           </span><span class="c1">// 最后计算剩下的一位的贡献</span>
+</code></pre></div></td></tr></table></div>
+<p>现在我们需要考虑如何实现上面的伪代码，我们聚焦于这一部分内容的实现：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">的高</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">位全为零</span><span class="p">){</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">          </span><span class="c1">// 只保留低 16 位，因为高 16 位已经没有信息提供了</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="c1">// 也就是说最高有效位出现在高 16 位中</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">             </span><span class="c1">// 后 16 位都贡献了最高有效位</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>给出这一部分的 C 语言实现：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xffff0000</span><span class="p">);</span><span class="w">     </span><span class="c1">// 高 16 位全零时值为 0，否则值为 1；</span>
+<span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">           </span><span class="c1">// 将 0 1 映射到了 0 16，这恰好满足对 Max 的增加情况</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">              </span><span class="c1">// 如果高 16 位不为 0，那就把高 16 位移到低 16 位的位置，否则不改变 x 的值</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">为什么要这么移动 <code>x</code> ？</p>
+<p>这几次查找用到的掩码值分别为 <code>0xffff0000</code> <code>0x0000ff00</code> <code>0x000000f0</code> <code>0b1100</code> <code>0b10</code> ，你可以从掩码的构造发现移位的目的</p>
+</div>
+<p>结合最开始提到的 <code>x</code> 的值为 <code>0</code> 和 <code>-1</code> 的特殊情况，可以给出代码</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">howManyBits</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 算术右移</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                      </span><span class="c1">// dlc 程序要求变量必须在最开始声明</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sign</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">sign</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">((</span><span class="mh">0xff</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mh">0xff</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">// 题目限制常量不大于0xff，需要额外构造</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">           </span><span class="c1">// 这里用 | 代替了 +，因为每次 Max 的变化都只涉及单一数位</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">    </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mh">0xff</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xf0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xc</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">check</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">check</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">!!</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="o">~!</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Max</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span><span class="w">    </span><span class="c1">// 对 x == -1 进行了特判（发现 x == 0 不需要特判） </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<blockquote>
+<p><em>接下来的三道题为浮点数题目，放开了 <code>if</code> <code>while</code> 控制语句，<code>||</code> <code>&amp;&amp;</code> <code>==</code> 的使用</em></p>
+</blockquote>
+<p><br></p>
+<h3 id="11-2-f">11. 返回与表达式 <code>2 * f</code> 等价的二进制位表示</h3>
+<p>把 <code>f</code> 理解为单精度浮点数，<strong>对于 <code>NaN</code> <code>Inf</code> 直接输出原数，对于规格化数将指数部分加 1，对于非规格化数将尾数部分左移一位</strong>。需要注意的是，对于非规格化数的底数左移，可能会使其变成规格化数，实际上直接将尾数部分左移即可，没有特殊影响</p>
+<p>code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="nf">floatScale2</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="n">uf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 提取指数位</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uf</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">23</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 特殊值</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xff</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">uf</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 非规格化数</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">uf</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x80000000</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">uf</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x007fffff</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 规格化数</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">uf</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x807fffff</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">uf</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x7f800000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0x00800000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="12-f">12. 将浮点数 <code>f</code> 转换为整数</h3>
+<p>对于 <code>NaN</code> <code>Inf</code> 输出 <code>0x80000000u</code> ，对于其他 <code>f</code>，进行强制类型转换为 <code>int</code> 操作</p>
+<p>对于非规格化数，其表示范围非常小（指数 <code>E = -126</code>），所以转换为 <code>int</code> 后一定近似为 <code>0</code> </p>
+<p>对于规格化数，指数 <code>E = exp - 127</code> ，当 <code>E &gt;= 31</code> 时，这个数一定超过了 <code>int</code> 范围，输出 <code>0x80000000u</code> ；当 <code>E &lt; 0</code> 时， <code>|f| &lt; 1</code>，考虑到<strong>强制类型转换是向零舍入</strong>（也就是抹去小数点），转换为 <code>int</code> 后一定近似为 <code>0</code> （这一情况可以与非规格化数的情况合并处理）</p>
+<p>对于规格化数，指数 <code>E</code> 在 <code>[0,30]</code> 之间，此时我们可以开始构造整数了：</p>
+<p>$$
+(-1)^S \times 1.xxx \times 2^E
+$$</p>
+<p>考虑非负数情况 <code>S == 0</code>（负数需要额外取反加一），先取尾数部分 <code>frac = uf &amp; 0x007fffff;</code> ，规格化补上前导 <code>1</code>： <code>frac = frac | 0x00800000</code> 。得到完整的规格化尾数之后，根据 <code>E</code> 的值进行位移：以 <code>23</code> 为位移分界线（尾数长度，也就是说在不移位的情况下，此时的 <code>frac</code> 表示的就是指数为 <code>23</code> 的结果），指数超过 <code>23</code> 说明需要左移，低于 <code>23</code> 说明需要右移（同时起到向零舍入的作用）</p>
+<p>最终加上符号位判断 <code>sign ? -frac : frac</code> ，完成实现</p>
+<p>code: </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">floatFloat2Int</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="n">uf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">uf</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">23</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">frac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uf</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x007fffff</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uf</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">157</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mh">0x80000000u</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">127</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">frac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frac</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mh">0x00800000</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">150</span><span class="p">){</span>
+<span class="w">        </span><span class="n">frac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frac</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">exp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">150</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">frac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frac</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">150</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">exp</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sign</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">~</span><span class="n">frac</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">frac</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><br></p>
+<h3 id="13-20-x">13. 返回与表达式 <code>2.0 ^ x</code> 等价的二进制位表示</h3>
+<p>“如果结果太小无法用非规格化数表示，则返回 <code>0</code>。如果结果太大，则返回 <code>+INF</code> ”</p>
+<p>最小的非规格化数（正数）是 <code>0x1</code> ，对应的值为 $2^{-23} \times 2^{-126} = 2 ^{-149}$，所以 <code>x &lt; -149</code> 时返回 <code>0</code> ；非规格化数的 <code>x</code> 的取值范围是 <code>[-149, -127]</code> ；规格化数的取值范围是 <code>[-126, 127]</code> ，<code>x &gt; 127</code> 时返回 <code>+INF = 0x7F800000</code> </p>
+<p>非规格化数采用 <code>1 &lt;&lt; (x + 149)</code> 构造；规格化数采用 <code>(x + 127) &lt;&lt; 23</code> 构造</p>
+<p>code: </p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="nf">floatPower2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-149</span><span class="p">){</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">127</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mh">0x7f800000</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">-127</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">127</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">149</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<br></p>
+<hr />
+<p>附： <code>driver.pl</code> 评测结果</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Correctness</span><span class="w"> </span><span class="n">Results</span><span class="w">     </span><span class="n">Perf</span><span class="w"> </span><span class="n">Results</span>
+<span class="n">Points</span><span class="w">  </span><span class="n">Rating</span><span class="w">  </span><span class="n">Errors</span><span class="w">  </span><span class="n">Points</span><span class="w">  </span><span class="n">Ops</span><span class="w">     </span><span class="n">Puzzle</span>
+<span class="mi">1</span><span class="w">       </span><span class="mi">1</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">8</span><span class="w">       </span><span class="n">bitXor</span>
+<span class="mi">1</span><span class="w">       </span><span class="mi">1</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">1</span><span class="w">       </span><span class="n">tmin</span>
+<span class="mi">1</span><span class="w">       </span><span class="mi">1</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">8</span><span class="w">       </span><span class="n">isTmax</span>
+<span class="mi">2</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">7</span><span class="w">       </span><span class="n">allOddBits</span>
+<span class="mi">2</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="n">negate</span>
+<span class="mi">3</span><span class="w">       </span><span class="mi">3</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">7</span><span class="w">       </span><span class="n">isAsciiDigit</span>
+<span class="mi">3</span><span class="w">       </span><span class="mi">3</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">7</span><span class="w">       </span><span class="n">conditional</span>
+<span class="mi">3</span><span class="w">       </span><span class="mi">3</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">14</span><span class="w">      </span><span class="n">isLessOrEqual</span>
+<span class="mi">4</span><span class="w">       </span><span class="mi">4</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">5</span><span class="w">       </span><span class="n">logicalNeg</span>
+<span class="mi">4</span><span class="w">       </span><span class="mi">4</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">54</span><span class="w">      </span><span class="n">howManyBits</span>
+<span class="mi">4</span><span class="w">       </span><span class="mi">4</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">12</span><span class="w">      </span><span class="n">floatScale2</span>
+<span class="mi">4</span><span class="w">       </span><span class="mi">4</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">14</span><span class="w">      </span><span class="n">floatFloat2Int</span>
+<span class="mi">4</span><span class="w">       </span><span class="mi">4</span><span class="w">       </span><span class="mi">0</span><span class="w">       </span><span class="mi">2</span><span class="w">       </span><span class="mi">9</span><span class="w">       </span><span class="n">floatPower2</span>
+
+<span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62</span><span class="o">/</span><span class="mi">62</span><span class="w"> </span><span class="p">[</span><span class="mi">36</span><span class="o">/</span><span class="mi">36</span><span class="w"> </span><span class="n">Corr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">26</span><span class="o">/</span><span class="mi">26</span><span class="w"> </span><span class="n">Perf</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="mi">148</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">operators</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="datalab">附 Datalab 题目限制</h2>
+<blockquote>
+<ul>
+<li>整数编码规则（前十题）</li>
+</ul>
+<p>替换每个函数中的 <code>return</code> 语句，用一行或多行 C 代码实现该函数。</p>
+<p>每个表达式 <code>Expr</code> 只能包含以下内容：（比如 <code>int var1 = Expr1;</code> 中的 <code>Expr1</code> 就是一个表达式）</p>
+<ol>
+<li><strong>整数常量</strong>：0 到 255（<code>0xff</code>），不允许使用更大的常量（如 <code>0xffffffff</code>）。</li>
+<li><strong>函数参数和局部变量</strong>：不能使用全局变量。</li>
+<li><strong>一元整数运算</strong>：<code>!</code>（逻辑非）、<code>~</code>（按位取反）。</li>
+<li>
+<p><strong>二元整数运算</strong>：<code>&amp;</code>（按位与）、<code>^</code>（按位异或）、<code>|</code>（按位或）、<code>+</code>（加法）、<code>&lt;&lt;</code>（左移）、<code>&gt;&gt;</code>（右移）。</p>
+</li>
+<li>
+<p>每个 <code>Expr</code> 可以包含多个运算符，不限制每行只能有一个运算符。</p>
+</li>
+</ol>
+<p>不能使用的：</p>
+<ol>
+<li><strong>控制结构</strong>：如 <code>if</code>、<code>do</code>、<code>while</code>、<code>for</code>、<code>switch</code> 等。</li>
+<li><strong>宏定义</strong>：不能定义或使用宏。</li>
+<li><strong>额外函数</strong>：不能在本文件中定义其他函数。</li>
+<li><strong>函数调用</strong>：不能调用任何函数。</li>
+<li><strong>其他运算符</strong>：如 <code>&amp;&amp;</code>、<code>||</code>、<code>-</code>、<code>?:</code>（三元运算符）。</li>
+<li><strong>类型转换</strong>：不能使用任何形式的强制类型转换。</li>
+<li><strong>其他数据类型</strong>：只能使用 <code>int</code>，不能使用数组、结构体或联合体</li>
+</ol>
+<p><strong>机器假设</strong></p>
+<ol>
+<li><strong>整数表示</strong>：使用 32 位二进制补码表示整数。</li>
+<li><strong>右移行为</strong>：算术右移（高位补符号位）。</li>
+<li><strong>移位异常</strong>：如果移位量 <code>&lt; 0</code> 或 <code>&gt; 31</code>，行为是未定义的。</li>
+</ol>
+<p>一个正确的函数实现例子：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 计算 2^x+4 的值</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">pow2plus4</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* 利用移位计算 2 的幂 */</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// 也可以直接写：return (1 &lt;&lt; x) + 4;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>浮点数编码规则（后三题）</li>
+</ul>
+<p>对于需要实现浮点数操作的题目，编码规则相对宽松。允许使用：</p>
+<ul>
+<li><strong>循环和条件控制</strong>（如 <code>if</code>、<code>while</code> 等）。</li>
+<li><strong><code>int</code> 和 <code>unsigned</code> 数据类型</strong>。</li>
+<li><strong>任意整数和无符号常量</strong>。</li>
+<li><strong>任何算术、逻辑或比较运算符</strong>（作用于 <code>int</code> 或 <code>unsigned</code> 数据）。</li>
+</ul>
+<p><strong>明确禁止的内容</strong></p>
+<ol>
+<li><strong>宏定义</strong>：不能定义或使用宏。</li>
+<li><strong>额外函数</strong>：不能在本文件中定义其他函数。</li>
+<li><strong>函数调用</strong>：不能调用任何函数。</li>
+<li><strong>类型转换</strong>：不能使用任何形式的强制类型转换。</li>
+<li><strong>其他数据类型</strong>：只能使用 <code>int</code> 或 <code>unsigned</code>，不能使用数组、结构体或联合体。</li>
+<li><strong>浮点数相关操作</strong>：</li>
+<li>不能使用浮点数据类型（如 <code>float</code>、<code>double</code>）。</li>
+<li>不能使用浮点运算符（如 <code>+</code>、<code>*</code> 等作用于浮点数）。</li>
+<li>不能使用浮点常量（如 <code>3.14</code>、<code>0.5f</code>）。</li>
+</ol>
+<p><strong>细化到每一题的注意事项可以在 <code>bits.c</code> 的每一题的注释中查看</strong></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
