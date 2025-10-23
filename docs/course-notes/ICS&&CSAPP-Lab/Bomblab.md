@@ -2,32 +2,15 @@
 
 二进制炸弹 `Bomb` 是一个由多个阶段组成的程序，每个阶段会要求用户在 `stdin` 输入特定字符串。若输入正确，该阶段即被拆除并进入下一阶段；否则程序将输出"BOOM! ! ! "后终止（即炸弹爆炸）。只有当所有阶段均被拆除后，炸弹才算彻底解除。
 
-Writeup文件有以下的指南：
+!!! quote "随笔"
 
-> **工具指南**：
->
-> - **gdb**：
->   GNU调试器，支持单步跟踪/内存检查/断点设置等功能。推荐使用CS:APP官网提供的单页速查表：
->   `http://csapp.cs.cmu.edu/public/students.html`
->
->   - 设置断点可防止错误输入导致的爆炸
->   - 通过`help`/`man gdb`/`info gdb`获取帮助文档
->
-> - **objdump**：
->
->   - `objdump -t`：查看炸弹符号表（含函数/全局变量地址）
->   - `objdump -d`：反汇编全部代码（注意系统调用会显示为晦涩格式，需结合gdb分析）
->
-> - **strings**：
->   提取炸弹中的可打印字符串
->
->   （AI翻译自[Writeup文件](http://csapp.cs.cmu.edu/3e/bomblab.pdf)）
+    暑假写 Bomblab 的时候我只接触过 RISC-V 的汇编语言，没有 i386 汇编的阅读经验。因此这篇题解的语言比较细碎，并且对于 “寄存器存储值” 与 “寄存器存储地址指向值” 的概念有些区分不清（希望不会过度影响理解）
+    
+    相比之下，Binalab 的题解显得更加熟练
 
 ---
 
-### Solution
-
-我们所需要做的就是通过反汇编找出六组密码，考虑到在线版的炸弹每一次引爆都会扣除分数，当然是  ~~追求无伤clear什么的~~ 
+## Solution
 
 为了锻炼个人阅读 x86-64 汇编代码的能力，我采用的拆弹方案是直接分析反汇编代码，因此下面的操作将很少使用 gdb 工具
 
@@ -52,13 +35,11 @@ printf("Phase 1 defused. How about the next one?\n");
 
 （有趣的是有一个 `<secret_phase>` 标记点，这对应了 `bomb.c` 中暗示的隐藏炸弹）
 
-> （题解中没有明显区分诸如 `%rbx` 和 `(%rbx)` 的写法，可能有一定混淆）
-
 ---
 
-## Phase 1
+### Phase 1
 
-```assembly
+```asm
 000000000400ee0 <phase_1>:
   400ee0:	48 83 ec 08          	sub    $0x8,%rsp					# 栈上分配 8byte 的空间（起对齐作用）
   400ee4:	be 00 24 40 00       	mov    $0x402400,%esi				# 将 0x402400 这个地址加载到 %esi 中
@@ -101,9 +82,9 @@ GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
     
     **`<address>`**：内存地址（可以是寄存器、变量名或直接地址）。
 
-## Phase 2
+### Phase 2
 
-```assembly
+```asm
 0000000000400efc <phase_2>:
   400efc:	55                   	push   %rbp
   400efd:	53                   	push   %rbx							# 被调用者保存寄存器
@@ -142,7 +123,7 @@ GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
 
 首先看最开始的这一部分：
 
-```assembly
+```asm
   400f0a:	83 3c 24 01          	cmpl   $0x1,(%rsp) 					# 根据 (%rsp) - 1 改变标志位
   400f0e:	74 20                	je     400f30 <phase_2+0x34> 		# 如果相等就跳转，否则下一步 BOOM!
   400f10:	e8 25 05 00 00       	call   40143a <explode_bomb>		# BOOM!
@@ -152,7 +133,7 @@ GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
 
 然后看这一部分
 
-```assembly
+```asm
   400f30:	48 8d 5c 24 04       	lea    0x4(%rsp),%rbx				# 从 400f0e 跳转；%rbx = %rsp+4
   400f35:	48 8d 6c 24 18       	lea    0x18(%rsp),%rbp				# %rbp = %rsp + 0x18
   400f3a:	eb db                	jmp    400f17 <phase_2+0x1b>		# 无条件跳转
@@ -164,7 +145,7 @@ GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
 
 接着是这一部分，看上去是个有限循环
 
-```assembly
+```asm
   400f17:	8b 43 fc             	mov    -0x4(%rbx),%eax				# 从 400f3a 跳转；将 (%rbx-4) 处数据存入 %eax
   400f1a:	01 c0                	add    %eax,%eax					# %eax *= 2
   400f1c:	39 03                	cmp    %eax,(%rbx)					# 根据(%rbx) - %eax 设置标志位
@@ -191,9 +172,9 @@ for (int i = 1; i < 6; i++){
 
 由此可见，接下来的五个数字都要求每个数字是上一个数字的两倍，因此第二个答案是 `1 2 4 8 16 32` 
 
-## Phase 3
+### Phase 3
 
-```assembly
+```asm
 0000000000400f43 <phase_3>:
   400f43:	48 83 ec 18          	sub    $0x18,%rsp					# 开辟栈空间
   400f47:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx				# %rcx = %rsp + 12（地址计算）
@@ -237,7 +218,7 @@ for (int i = 1; i < 6; i++){
 
 先看第一部分：
 
-```assembly
+```asm
   400f43:	48 83 ec 18          	sub    $0x18,%rsp					# 开辟栈空间
   400f47:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx				# %rcx = %rsp + 12
   400f4c:	48 8d 54 24 08       	lea    0x8(%rsp),%rdx				# %rdx = %rsp + 8
@@ -267,7 +248,7 @@ for (int i = 1; i < 6; i++){
 
 再看第二部分：
 
-```assembly
+```asm
   400f71:	8b 44 24 08          	mov    0x8(%rsp),%eax				# %eax = %rsp + 8
   400f75:	ff 24 c5 70 24 40 00 	jmp    *0x402470(,%rax,8)			# 这里是间接跳转中的跳转表跳转，是 switch 语句的实现
   400f7c:	b8 cf 00 00 00       	mov    $0xcf,%eax					# %eax = 207
@@ -308,7 +289,7 @@ for (int i = 1; i < 6; i++){
 
 最后看第三部分：
 
-```assembly
+```asm
   400fbe:	3b 44 24 0c          	cmp    0xc(%rsp),%eax				# 比较 %eax ~ (%rsp + 12)
   400fc2:	74 05                	je     400fc9 <phase_3+0x86>		# 若 “相等” 成立则成功拆弹
   400fc4:	e8 71 04 00 00       	call   40143a <explode_bomb>		# BOOM!
@@ -345,11 +326,11 @@ for (int i = 1; i < 6; i++){
 
 在上面的组合中随意选择一项作为答案就可以拆除第三个炸弹，比如 `2 707` 
 
-## Phase 4
+### Phase 4
 
 （减少了注释量）
 
-```assembly
+```asm
 000000000040100c <phase_4>:
   40100c:	48 83 ec 18          	sub    $0x18,%rsp
   401010:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
@@ -378,7 +359,7 @@ for (int i = 1; i < 6; i++){
 
 先看这部分：
 
-```assembly
+```asm
   40100c:	48 83 ec 18          	sub    $0x18,%rsp
   401010:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
   401015:	48 8d 54 24 08       	lea    0x8(%rsp),%rdx
@@ -398,7 +379,7 @@ for (int i = 1; i < 6; i++){
 
 再看另一部分：
 
-```assembly
+```asm
   40103a:	ba 0e 00 00 00       	mov    $0xe,%edx
   40103f:	be 00 00 00 00       	mov    $0x0,%esi
   401044:	8b 7c 24 08          	mov    0x8(%rsp),%edi
@@ -416,7 +397,7 @@ for (int i = 1; i < 6; i++){
 
 现在来看 `func4` ：（`%rdx` 与 `%rcx` 分别储存了两个输入的数的地址而不是值；`%edi` 储存了第一个数的值）
 
-```assembly
+```asm
 0000000000400fce <func4>:
   400fce:	48 83 ec 08          	sub    $0x8,%rsp				# 开辟了一个 int 大小的栈空间
   400fd2:	89 d0                	mov    %edx,%eax				# %eax = %edx
@@ -472,9 +453,9 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 也就是说 `7 0` `3 0` `1 0` `0 0` 都是正确答案
 
-## Phase 5
+### Phase 5
 
-```assembly
+```asm
 0000000000401062 <phase_5>:
   # Part 1
   401062:	53                   	push   %rbx
@@ -527,7 +508,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 先看这一部分：
 
-```assembly
+```asm
   # Part 1
   401073:	48 89 44 24 18       	mov    %rax,0x18(%rsp)			# 将 %rax 的值存入栈地址 %rsp + 24 处
   401078:	31 c0                	xor    %eax,%eax				# 利用异或操作清零 %eax
@@ -542,7 +523,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 接下来的一段可能不是很好理解，我们不妨先往后看：
 
-```assembly
+```asm
   # Part 3
   4010ae:	c6 44 24 16 00       	movb   $0x0,0x16(%rsp)			# *(%rsp+22) = 0x00，更直观的来说：rsp[22] = 0;
   4010b3:	be 5e 24 40 00       	mov    $0x40245e,%esi			# (gdb) x/s 0x40245e: "flyers"
@@ -563,7 +544,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 （注释部分进行了更加明显的修改，没错我用 AI 修正了一下）
 
-```assembly
+```asm
   # Part 2
   40108b:	0f b6 0c 03          	movzbl (%rbx,%rax,1),%ecx		# 从 %rbx + %rax 地址读取 1byte，零扩展至 32 位存入 %ecx
   40108f:	88 0c 24             	mov    %cl,(%rsp)				# 将 %cl（%ecx 的低 8 位）存入栈顶 %rsp
@@ -595,7 +576,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 当然事实不是这样，我们发现：
 
-```assembly
+```asm
   40108b:	0f b6 0c 03          	movzbl (%rbx,%rax,1),%ecx		# 从 %rbx + %rax 地址读取 1byte，零扩展至 32 位存入 %ecx
   40108f:	88 0c 24             	mov    %cl,(%rsp)				# 将 %cl（%ecx 的低 8 位）存入栈顶 %rsp
   401092:	48 8b 14 24          	mov    (%rsp),%rdx				# 从栈顶 %rsp 读取 8byte 到 %rdx，实际只用到低 1byte
@@ -604,7 +585,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 每个字符（作为 ASCII 形式）最终仅仅读取了最低的四位，也就是说只有最后四位是有用的
 
-```assembly
+```asm
   401099:	0f b6 92 b0 24 40 00 	movzbl 0x4024b0(%rdx),%edx		# 从地址 0x4024b0 + %rdx 读取 1byte，零扩展至 32 位
   4010a0:	88 54 04 10          	mov    %dl,0x10(%rsp,%rax,1)	# 将 %dl（%edx 的低 8 位）存入 %rsp + %rax + 16
 ```
@@ -619,9 +600,9 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 所以正确答案的六个字符的 ASCII 码低四位应该依次为 `1001` `1111` `1110` `0101` `0110` `0111` ，比如 `ionefg` `yonuvw` 
 
-## Phase 6
+### Phase 6
 
-```assembly
+```asm
 00000000004010f4 <phase_6>:
   # Part 1
   4010f4:	41 56                	push   %r14
@@ -731,7 +712,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 
 
-```assembly
+```asm
 00000000004010f4 <phase_6>:
   # Part 1
   4010f4:	41 56                	push   %r14						# 一些压栈操作，这些寄存器都是 “被调用者保存寄存器”
@@ -751,7 +732,7 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 
 
 
-```assembly
+```asm
   # Part 2
   401114:	4c 89 ed             	mov    %r13,%rbp
   401117:	41 8b 45 00          	mov    0x0(%r13),%eax
@@ -805,7 +786,7 @@ void check_1_to_6_permutation(int nums[6]) {	// 是否满足 1~6 的排列
 
 
 
-```assembly
+```asm
   # Part 3
   401153:	48 8d 74 24 18       	lea    0x18(%rsp),%rsi
   401158:	4c 89 f0             	mov    %r14,%rax
@@ -826,7 +807,7 @@ void check_1_to_6_permutation(int nums[6]) {	// 是否满足 1~6 的排列
 
 
 
-```assembly
+```asm
   # Part 4
   40116f:	be 00 00 00 00       	mov    $0x0,%esi
   401174:	eb 21                	jmp    401197 <phase_6+0xa3>
@@ -870,7 +851,7 @@ flowchart TD
 
 看不懂也不要紧，我们不妨先看一下 `0x6032d0` 的内容：
 
-```assembly
+```asm
 (gdb) x/24 0x6032d0
 0x6032d0 <node1>:	0x0000014c		0x00000001		0x006032e0		0x00000000
 0x6032e0 <node2>:	0x000000a8		0x00000002		0x006032f0		0x00000000
@@ -911,7 +892,7 @@ struct node{
 
 
 
-```assembly
+```asm
   # Part 5
   4011ab:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx			# 将上一个 Part 得到的地址数组的第一个地址存入 %rbx
   4011b0:	48 8d 44 24 28       	lea    0x28(%rsp),%rax			# %rax = %rsp + 40（第二个元素的地址）
@@ -949,7 +930,7 @@ Node* Part5(Node* addr[]) {
 
 
 
-```assembly
+```asm
   # Part 6
   4011da:	bd 05 00 00 00       	mov    $0x5,%ebp
   4011df:	48 8b 43 08          	mov    0x8(%rbx),%rax
@@ -968,7 +949,7 @@ Node* Part5(Node* addr[]) {
 
 
 
-```assembly
+```asm
   # Part 7
   4011f7:	48 83 c4 50          	add    $0x50,%rsp
   4011fb:	5b                   	pop    %rbx
@@ -981,13 +962,13 @@ Node* Part5(Node* addr[]) {
 
 清理栈帧并恢复被调用者保存的寄存器，不需要多分析
 
-## Secret Phase
+### Secret Phase
 
 结束六个常规的 Phase 后并没有发现任何触发 Secret Phase 的代码段，这里采用了一个比较投机的操作：搜索出现了 `401242` 地址的函数
 
 函数 `<phase_defused>` 的使用场景是：在 main 函数中，在每一个炸弹被拆除时被调用，而 `401630` 地址处出现了跳转至隐藏阶段的跳转函数，对这个函数的相关部分进行分析：
 
-```assembly
+```asm
   4015e1:	4c 8d 44 24 10       	lea    0x10(%rsp),%r8
   4015e6:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
   4015eb:	48 8d 54 24 08       	lea    0x8(%rsp),%rdx
@@ -1043,7 +1024,7 @@ Breakpoint 1, 0x0000000000401062 in phase_5 ()
 
 下面是隐藏阶段的代码：
 
-```assembly
+```asm
 0000000000401242 <secret_phase>:
   401242:	53                   	push   %rbx								# 被调用者保存寄存器
   401243:	e8 56 02 00 00       	call   40149e <read_line>				# 读取一行内容，返回值 %rax
@@ -1126,7 +1107,7 @@ flowchart TD
 
 在首次调用 `fun7` 前，被存入 `%edi` 的（`0x6030f0`）应该是一个数据结构的起点，可以用 gdb 进行访问
 
-```assembly
+```asm
 # 0x6030f0 处的内容，被存入 %edi 
 0x6030f0 <n1>:		0x00000024	0x00000000	0x00603110	0x00000000	0x00603130	0x00000000	0x00000000	0x00000000
 0x603110 <n21>:		0x00000008	0x00000000	0x00603190	0x00000000	0x00603150	0x00000000	0x00000000	0x00000000

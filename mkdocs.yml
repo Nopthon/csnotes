@@ -11,6 +11,8 @@ theme:
 
 plugins:
   - mermaid2
+  - statistics
+
 #   - blog
 
 nav: 
@@ -55,6 +57,7 @@ nav:
       - intro: Deep-Learning/intro.md
   
 markdown_extensions:
+  - md_in_html
   - admonition
   - pymdownx.details
   - pymdownx.superfences:
