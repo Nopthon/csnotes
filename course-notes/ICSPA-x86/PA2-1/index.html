@@ -405,6 +405,98 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trees
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Trees
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二叉树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
         
@@ -859,6 +951,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -890,7 +1005,7 @@
   
   
   <span class="md-ellipsis">
-    网络攻防实战 note
+    网络攻防实战 Labs
     
   </span>
   
@@ -901,7 +1016,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            网络攻防实战 note
+            网络攻防实战 Labs
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1378,7 +1493,7 @@
 
 <h1 id="pa2-1-note">PA2-1 note</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 2746 words  | 🐛 545 codelines  | ⏰ 16 min read | Enjoy 🎶</p>
+<p>✍ 2841 words  | 🐛 557 codelines  | ⏰ 16 min read | Enjoy 🎶</p>
 </div>
 <div class="admonition quote">
 <p class="admonition-title">可以先去看 i386 的指令结构 (for PA2) 了解一条指令的解析过程</p>
@@ -1387,10 +1502,10 @@
 <p class="admonition-title">由于 i386 手册上存在一些严重影响PA进行的笔误，所以请时刻注意<strong>手册是否存在笔误</strong>（尤其是出现难以理解的错误时）</p>
 <p>这里有一个修正后的 i386 手册 https://github.com/NJU-ProjectN/i386-manual </p>
 <p>上面的手册也会存在未修正的部分，你应该进行三方面验证：</p>
-<p>**手册 - PA 框架代码 - <a href="http://www.felixcloutier.com/x86/" target="_blank">这个链接</a></p>
+<p>手册 - PA 框架代码 - <a href="http://www.felixcloutier.com/x86/" target="_blank">这个链接</a></p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">本 note 基本不会给出代码实现，更接近于对实验手册的解读</p>
+<p class="admonition-title">本 note 接近于对实验手册的解读，而不是怎么完成 PA2-1 本身</p>
 </div>
 <h2 id="nemu">NEMU 如何执行指令？</h2>
 <blockquote>
@@ -2625,7 +2740,6 @@
 <summary>编译时出现了 <code>./include/cpu/instr_helper.h:14:31: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'int'</code> 之类的报错？</summary>
 <p><code>/nemu/src/cpu/instr</code> 里面的每一项头文件都检查一下 <code>make_instr_func();</code> 有没有漏加分号</p>
 <p>由于宏展开的神秘特性，报错所在的文件位置不一定正确</p>
-<p>个人经历：“<code>push.h</code> 没加分号怎么报错报在了 <code>div.h</code> 😨”（发送于凌晨三点）</p>
 </details>
 <details class="tip">
 <summary>我在某一个 testcase 出现了 <strong>HIT <font color="#FF0000">BAD</font> TRAP</strong>，但是我并不知道自己的函数实现中有哪些错误，如何排查</summary>
@@ -2635,13 +2749,43 @@
 <details class="tip">
 <summary>我在某一个 testcase 出现了 <code>invalid opcode</code> 报错</summary>
 <p>如果这个 opcode 是预期的，检查 <code>opcode_entry[]</code> 是否忘记添加函数</p>
-<p>如果这个 opcode 不是预期的，那么大概率是其他指令的实现有问题（比如返回了错误的 <code>len</code>）。你可以用上面一条提到的 <code>__ref_</code> 方案尝试找到错误的函数，也可以采用 monitor 的单步执行操作，定位出现 <code>invalid opcode</code> 前最后执行的 opcode</p>
-<p>（个人经历：我在实现 <code>and</code> 函数时没有注意符号扩展，导致 <code>quick-sort</code> 测试点出现数值溢出，地址在将近 1w 步执行后直接跳转到了 <code>0x0</code> 左右的位置，并最终 <code>invalid opcode</code> 。在这个不常见的经历中，<code>__ref_</code> 是最直接的排查方案）</p>
+<p>如果这个 opcode 不是预期的，那么大概率是其他指令的实现有问题（比如 <code>call</code> 指令实现有误；某条变长指令返回了错误的 <code>len</code>）。你可以用上面一条提到的 <code>__ref_</code> 方案尝试找到错误的函数，也可以采用 monitor 的单步执行 <code>si</code> 操作，定位出现 <code>invalid opcode</code> 前最后执行的 opcode</p>
+<p>（个人经历：我在实现 <code>and</code> 函数时没有注意 src 的扩展，导致 <code>quick-sort</code> 测试点出现数值溢出，地址在将近 1w 步执行后直接跳转到了 <code>0x0</code> 左右的位置，并最终 <code>invalid opcode</code> 。在这个不常见的经历中，<code>__ref_</code> 是最直接的排查方案）</p>
 </details>
 <details class="tip">
 <summary>我将全部的指令都 <code>__ref_</code> 了，但是依旧 <strong>HIT <font color="#FF0000">BAD</font> TRAP</strong></summary>
 <p>这不应该，根据测试，全部使用参考实现可以通过所有的 testcases（<code>test-float</code> 除外）</p>
 <p><del>需要思考自己是不是动过不该动的东西了</del>，或者再次确认有没有忘记 <code>__ref_</code> 化的函数</p>
+</details>
+<details class="tip">
+<summary>关于 call 实现的提醒</summary>
+<p>call 相比 jmp 指令只多了一步栈保存跳转前地址</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 多一步记录返回地址</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">return_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">data_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// eip + 1 + modrm_rm(eip + 1, &amp;dest)</span>
+
+<span class="c1">// 将返回地址压栈</span>
+<span class="n">cpu</span><span class="p">.</span><span class="n">esp</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">data_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+
+<span class="n">OPERAND</span><span class="w"> </span><span class="n">stk</span><span class="p">;</span>
+<span class="n">stk</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OPR_MEM</span><span class="p">;</span>
+<span class="n">stk</span><span class="p">.</span><span class="n">data_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data_size</span><span class="p">;</span>
+<span class="n">stk</span><span class="p">.</span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cpu</span><span class="p">.</span><span class="n">esp</span><span class="p">;</span>
+<span class="n">stk</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">return_addr</span><span class="p">;</span>
+<span class="n">operand_write</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stk</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>这似乎是重灾区，所以贴了一份参考实现代码</p>
+<p>以及个人建议把 <code>call</code> 指令实现的更加完善一些（两个子指令都实现），不然你可能会在 PA 2-2 遇到报错（kernel 用到了在 PA 2-1 中没有被测试的 <code>call_near_indirect</code> 指令 ）</p>
 </details>
 <details class="tip">
 <summary>我在 <code>make</code> 时没有看到红色的编译报错信息，但是我在调用 nemu 进行 test 时发现 <code>command not found</code>，没有生成 nemu 可执行文件</summary>

@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../../../OI-Learning/Data-Structure/hashmap/">
+        <link rel="prev" href="../../../Algorithm/fastpow/">
       
       
-        <link rel="next" href="../PA1/">
+        <link rel="next" href="../binatree/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>PA0 - CSNote</title>
+        <title>树基础 - CSNote</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pa0-note" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+    <a href="../../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PA0
+              树基础
             
           </span>
         </div>
@@ -152,7 +152,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+    <a href="../../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -170,7 +170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -189,18 +189,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -216,7 +218,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             OI-learning
@@ -230,7 +232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -253,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
+      <a href="../../../C%2B%2B%20OOP/" class="md-nav__link">
         
   
   
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
+      <a href="../../../Algorithm/STL_algorithm/" class="md-nav__link">
         
   
   
@@ -337,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
+      <a href="../../../Algorithm/fastpow/" class="md-nav__link">
         
   
   
@@ -365,18 +367,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -392,7 +396,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Data Structure
@@ -403,18 +407,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
@@ -430,7 +436,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4_1">
             <span class="md-nav__icon md-icon"></span>
             Trees
@@ -441,10 +447,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    树基础
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -455,6 +483,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      树定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      树概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      树抽象
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      树存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储父节点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储子节点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      “左孩子右兄弟”
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -467,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
+      <a href="../binatree/" class="md-nav__link">
         
   
   
@@ -498,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
+      <a href="../../linkedlist/" class="md-nav__link">
         
   
   
@@ -521,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/vector/" class="md-nav__link">
+      <a href="../../vector/" class="md-nav__link">
         
   
   
@@ -544,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/stack/" class="md-nav__link">
+      <a href="../../stack/" class="md-nav__link">
         
   
   
@@ -567,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/queue/" class="md-nav__link">
+      <a href="../../queue/" class="md-nav__link">
         
   
   
@@ -590,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
+      <a href="../../hashmap/" class="md-nav__link">
         
   
   
@@ -625,20 +742,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -654,7 +769,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Course Notes
@@ -665,20 +780,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -694,7 +807,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             ICSPA x86 note
@@ -705,32 +818,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    PA0
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/ICSPA-x86/PA0/" class="md-nav__link">
         
   
   
@@ -741,86 +832,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#beautify-your-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beautify your workspace
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Beautify your workspace">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vim-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vim User
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vscode-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      VSCode User
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-your-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backup your code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learn-git" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learn Git
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-the-fxxking-friendly-manual" class="md-nav__link">
-    <span class="md-ellipsis">
-      "Read The Fxxking Friendly Manual"
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -833,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PA1/" class="md-nav__link">
+      <a href="../../../../course-notes/ICSPA-x86/PA1/" class="md-nav__link">
         
   
   
@@ -856,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PA2-1/" class="md-nav__link">
+      <a href="../../../../course-notes/ICSPA-x86/PA2-1/" class="md-nav__link">
         
   
   
@@ -879,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../i386/" class="md-nav__link">
+      <a href="../../../../course-notes/ICSPA-x86/i386/" class="md-nav__link">
         
   
   
@@ -902,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PA2-2/" class="md-nav__link">
+      <a href="../../../../course-notes/ICSPA-x86/PA2-2/" class="md-nav__link">
         
   
   
@@ -925,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PA2-3/" class="md-nav__link">
+      <a href="../../../../course-notes/ICSPA-x86/PA2-3/" class="md-nav__link">
         
   
   
@@ -994,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+      <a href="../../../../course-notes/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
         
   
   
@@ -1017,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+      <a href="../../../../course-notes/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
         
   
   
@@ -1040,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+      <a href="../../../../course-notes/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
         
   
   
@@ -1063,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+      <a href="../../../../course-notes/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
         
   
   
@@ -1086,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+      <a href="../../../../course-notes/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
         
   
   
@@ -1155,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
+      <a href="../../../../course-notes/ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
         
   
   
@@ -1178,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
+      <a href="../../../../course-notes/ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
         
   
   
@@ -1201,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
+      <a href="../../../../course-notes/ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
         
   
   
@@ -1224,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
+      <a href="../../../../course-notes/ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
         
   
   
@@ -1300,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Deep-Learning/intro/" class="md-nav__link">
+      <a href="../../../../Deep-Learning/intro/" class="md-nav__link">
         
   
   
@@ -1350,28 +1361,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#beautify-your-workspace" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Beautify your workspace
+      树定义
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Beautify your workspace">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      树概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      树抽象
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      树存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树存储">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vim-user" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Vim User
+      存储父节点
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vscode-user" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      VSCode User
+      存储子节点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      “左孩子右兄弟”
     </span>
   </a>
   
@@ -1379,33 +1426,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-your-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backup your code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learn-git" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learn Git
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-the-fxxking-friendly-manual" class="md-nav__link">
-    <span class="md-ellipsis">
-      "Read The Fxxking Friendly Manual"
-    </span>
-  </a>
   
 </li>
       
@@ -1425,39 +1445,80 @@
 
 
 
-<h1 id="pa0-note">PA0 note</h1>
+<h1 id="_1">树基础</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 708 words  | ⏰ 2 min read | Enjoy 🎶</p>
+<p>✍ 817 words  | 🐛 18 codelines  | ⏰ 3 min read | Enjoy 🎶</p>
 </div>
-<p>PA0 的目的是熟悉 x86-PA 的实验环境</p>
-<p>当然，熟悉环境的同时也要做好一些准备</p>
-<h3 id="beautify-your-workspace">Beautify your workspace</h3>
-<p>实验环境是一个 Debian 服务器，PA 实验网站通过 Websocket 与远程 Shell 进行长期交互（不是很好用），我们希望搭建一个更加熟悉的实验环境</p>
-<p>这里考虑两个方向</p>
-<h4 id="vim-user">Vim User</h4>
-<p>在自己的 Shell 中进行 SSH 连接，使用 Vim 打开文件，此时使用的是本机的 Vim 配置，可以回到熟悉的 Vim 环境中</p>
-<h4 id="vscode-user">VSCode User</h4>
-<p>在 VSCode 中使用 SSH FS 插件（<strong>不要用官方的 SSH</strong>），可以实现在本地 VScode 进行实验</p>
-<p>不使用官方插件的原因是官方插件需要在远程服务器上下载一些配置，而远程服务器对 <code>pa_nju</code> 文件夹以外的写操作高度受限，VSCode 无法在远程服务器上下载这些配置内容</p>
-<h3 id="backup-your-code">Backup your code</h3>
-<p>如果想将一份完整的环境下载到本地进行备份，你可以使用 SFTP。在 Windows/Mac 上你可以使用 FileZilla，在 Linux 上直接 <code>sftp</code> 即可</p>
-<p>备份完整环境是非常重要的，比如 submit 的第二步会进行 Integrity Check（检测有没有修改不应该修改的文件），无意中修改文件（一个空格、换行符也算）会导致无法提交阶段作业，此时进行 git 回退会比较麻烦，此时利用 SFTP 上传一份之前的未经修改的备份可以解决问题</p>
-<div class="admonition note">
-<p class="admonition-title">当你在之后提交作业时，submit 程序通过 MD5 检验判断是否修改核心文件，“文件修改日期”等元数据不会影响 MD5 值，但是在部分 Windows 编辑器上打开并保存文件（换行符从 <code>\n</code> 自动变为 <code>\r\n</code>）会影响 md5 值，导致 Check Failed</p>
+<h2 id="_2">树定义</h2>
+<p>考虑一个有 $n$ 个节点，$n-1$ 条边的无向连通图，任取两个节点有且仅有一条简单路径，考虑这种图为无根树。</p>
+<p>在此基础上，指定某一个节点为根节点，节点之间出现了层级关系，称之为有根树</p>
+<p>之后的讨论都基于有根树，简称有根树为树</p>
+<hr />
+<h2 id="_3">树概念</h2>
+<p>对于树上的某个非根节点 $N$，定义其（唯一的）直接前驱为<strong>父节点</strong>，将 $N$ 与父节点断开后，剩余的以 $N$ 为根节点的树称为 $N$ 的<strong>子树</strong>；</p>
+<p>如果一个节点的父节点是 $N$，那么该节点为 $N$ 的<strong>子节点</strong>；一个父节点可以有多个子节点，这些并列关系的子节点互相为<strong>兄弟节点</strong>；</p>
+<p>某个节点的子节点个数称为该<strong>节点的度</strong>，所有节点的度的最大值称为<strong>树的度</strong>；</p>
+<p>度为 0 的节点称为<strong>叶节点</strong>，度不为 0 的节点称为<strong>分支节点</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">定义混乱的一些定义</p>
+<p><strong>节点的高度</strong>定义为：叶节点的高度为 1；一个节点的父节点高度为该节点高度加 1；<strong>树的高度</strong>为根节点的高度</p>
+<p><strong>节点的深度</strong>定义为：根节点的深度为 1；一个节点的子节点深度为该节点深度加 1；<strong>树的高度</strong>为所有节点的深度的最大值</p>
+<p>规定节点的层次和节点的深度等价；规定<strong>根节点的深度与层次均为 1</strong></p>
 </div>
-<h3 id="learn-git">Learn Git</h3>
-<p><code>pa_nju</code> 是一个 Git 仓库，每次 make 时都会进行一次 git commit，你也可以手动 commit，并且在手动 commit 时进行有意义的备注</p>
-<div class="admonition success">
-<p class="admonition-title">Git 的好处</p>
-<p>自动 commit 的好处：随时留后手</p>
-<p>比如你可以通过（自动）备注为 <code>make commit ...</code> 的 git commit 判断提交某次 PA 子任务前的最后修改版本</p>
-<p>手动 commit 的好处：留自己掌握范围内的后手</p>
-<p>因为自动 commit 的备注不能体现 commit 时的中间进度，你应该手动 commit 并添加有意义的备注（比如在 PA 1 的某次 commit 中备注 “完成了 sub 运算”），并在回退时（如果需要）优先回退到自己已知状态的 commit</p>
-</div>
-<p>个人建议在使用 Git 的同时保存一份完整的备份</p>
-<h3 id="read-the-fxxking-friendly-manual">"<font color = "#0e79a5">R</font>ead <font color= '#0e79a5'>T</font>he <del>Fxxking</del> <font color= '#0e79a5'>F</font>riendly <font color= '#0e79a5'>M</font>anual"</h3>
-<p>字面意思，以及很多手册其实并没有那么 friendly，甚至是 buggy 的（比如 i386 manual）</p>
-<p>隐忍。</p>
+<p>如果一棵树需要关心各个节点子树的顺序，那么这类数为<strong>有序树</strong>，否则为<strong>无序树</strong></p>
+<p>典型的有序树例子为二叉树，其严格要求左右子树的顺序</p>
+<hr />
+<h2 id="_4">树抽象</h2>
+<p>一个存储信息较为完整的树可以构造出这些常用的函数</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// pos 记录节点地址，可以是数组下标 / 链表指针等</span>
+<span class="n">pos</span><span class="w"> </span><span class="nf">BuildRoot</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">          </span><span class="c1">// 建立根节点，返回根节点地址</span>
+<span class="n">pos</span><span class="w"> </span><span class="nf">FirstChild</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                  </span><span class="c1">// 返回节点 p 的第一个子节点地址</span>
+<span class="n">pos</span><span class="w"> </span><span class="nf">NextSibling</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                 </span><span class="c1">// 返回节点 p 的下一个兄弟节点地址</span>
+<span class="n">pos</span><span class="w"> </span><span class="nf">Parent</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                      </span><span class="c1">// 返回节点 p 的父节点地址</span>
+<span class="n">T</span><span class="w"> </span><span class="nf">GetData</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">);</span><span class="w">                       </span><span class="c1">// 取出节点 p 的存放地址</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">InsertChild</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">      </span><span class="c1">// 在节点 p 处插入新子节点</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">DeleteChild</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">        </span><span class="c1">// 删除节点 p 的第 i 个子节点（递归删除子树）</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">DeleteSubTree</span><span class="w"> </span><span class="p">(</span><span class="n">position</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w">        </span><span class="c1">// 删除以节点 p 为根节点的子树</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">IsEmpty</span><span class="w"> </span><span class="p">();</span><span class="w">                        </span><span class="c1">// 判断树是否非空</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Traversal</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">pos</span><span class="w"> </span><span class="n">p</span><span class="p">));</span><span class="w">  </span><span class="c1">// 采用某种遍历方式遍历以节点 p 为根节点的子树</span>
+<span class="w">                                        </span><span class="c1">// visit 是一个指向函数的指针，指向具体的遍历方式</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="_5">树存储</h2>
+<h3 id="_6">存储父节点</h3>
+<p>因为任意节点的父节点唯一，所以用一维数组即可储存，只适用于自底向上的遍历</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 下标表示节点的标签，存储的值为父节点标签</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>在涉及树的自底向上递推 / DP 等操作，以及并查集构造中，这一存储方式简单实用</p>
+<h3 id="_7">存储子节点</h3>
+<p>因为任意节点的子节点不唯一，所以用二维邻接表储存，只适用于自顶向下的遍历</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 下标表示节点的标签，存储的子向量为所有子节点标签</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">adj</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>通常来说，将二维数组 <code>adj</code> 和一维数组 <code>parent</code> 结合使用，就可以较好地存储一张有向树</p>
+<h3 id="_8">“左孩子右兄弟”</h3>
+<p>我们发现邻接表的存储方案用到了开销大的二维数组，并且如果需要访问一个节点的兄弟节点，需要先访问父节点，再访问父节点对应的邻接表</p>
+<p>这里有一种内存开销更小的方案：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sib</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w">     </span><span class="c1">// 记录下一个兄弟节点</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">child</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w">   </span><span class="c1">// 记录第一个子节点</span>
+</code></pre></div></td></tr></table></div>
+<p>如果需要自底向上遍历可以直接加上 <code>parent</code> 数组</p>
+<p>不难发现通过这种存储方式，我们<strong>将任意的多叉树转化为了二叉树的存储（任何节点都只有 “下一个兄弟节点” 和 “第一个子节点” 两个分叉），因此可以直接对任意多叉树使用二叉树算法，并且将各种树形结构统一化存储</strong></p>
 
 
 
@@ -1509,12 +1570,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="../../../stylesheets/extra.js"></script>
+        <script src="../../../../stylesheets/extra.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
       

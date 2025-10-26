@@ -405,6 +405,98 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trees
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Trees
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二叉树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
         
@@ -722,6 +814,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -753,7 +868,7 @@
   
   
   <span class="md-ellipsis">
-    网络攻防实战 note
+    网络攻防实战 Labs
     
   </span>
   
@@ -764,7 +879,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            网络攻防实战 note
+            网络攻防实战 Labs
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1384,18 +1499,21 @@
 
 <h1 id="ics-binalab-solution">ICS Binalab Solution</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 3324 words  | 🐛 1011 codelines  | ⏰ 24 min read | Enjoy 🎶</p>
+<p>✍ 3148 words  | 🐛 1023 codelines  | ⏰ 23 min read | Enjoy 🎶</p>
 </div>
 <p>和 CSAPP Bomblab 的内容大致相同，Binalab 将每个 Phase 进行了拆分处理</p>
 <p>通过动态调试 / 静态分析二进制文件，为每个 Phase 的二进制文件构造一个正确的输入，就可以完成每个 Phase 的任务</p>
 <div class="admonition quote">
 <p class="admonition-title">随笔</p>
-<p>完成校内 ICS 课程的 Binalab 之前，我在暑假完成了 CSAPP 的 Bomblab，这两个 Lab 的内容没有明显区别，因此这里的 Solution 会相对简略</p>
-<p>比 Bomblab 难</p>
-<p>Update: 将每题的答案进行了折叠，确保在选择查看答案之前不会在文章中直接看到答案明文</p>
-<p>对于答案不唯一的题目，希望不要照抄文中的答案，而是自己尝试构造一个其他的正确答案</p>
+<p>完成校内 ICS 课程的 Binalab 之前，我在暑假完成了 CSAPP 的 Bomblab，这两个 Lab 的做法没有明显区别，因此这里的 Solution 会相对简略</p>
+<p><strong>比 Bomblab 难</strong></p>
+<p>Update: <del>将每题的答案进行了折叠，确保在选择查看答案之前不会在文章中直接看到答案明文</del></p>
+<p>发现每个人的作业都进行了随机化处理，没有折叠答案的必要了</p>
 </div>
 <h2 id="solution">Solution</h2>
+<div class="admonition tip">
+<p class="admonition-title">下发给每个人的二进制文件是不一样的，所以下面的代码仅供参考，可能会有常量上的不同</p>
+</div>
 <h3 id="before-start-how-main-works">Before Start: How <code>&lt;main&gt;</code> works</h3>
 <details class="quote">
 <summary>完整的 main 函数</summary>
@@ -1633,10 +1751,7 @@
 </code></pre></div></td></tr></table></div>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>Early PCs used physical addressing.</code></strong></p>
-</details>
 </details>
 <h3 id="phase-2">Phase 2: 浮点数表示</h3>
 <p>相比 CSAPP 特有的 Phase</p>
@@ -1724,15 +1839,12 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">lea</span><span class="w">    </span><span class="mi">0x4</span><span class="p">(</span><span class="nv">%rax</span><span class="p">),</span><span class="nv">%rcx</span><span class="w">               </span><span class="c1"># rcx 指向 -0xc(%rbp) 的地址</span>
 <span class="nf">lea</span><span class="w">    </span><span class="mi">-0</span><span class="no">x10</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%rdx</span><span class="w">             </span><span class="c1"># rdx 指向 -0x10(%rbp) 的地址，这两个地址恰好是连续的</span>
 </code></pre></div></td></tr></table></div>
-<p><code>movsd -0x10(%rbp),%xmm0</code> 需要一个 64 位的数字解释为浮点数传入 <code>%xmm0</code>，因此这两个整数会“拼接”为一个 64 位的数，（类型双关）解释为双精度浮点数之后再截断取整，结果与 <code>0xf3303938</code> 常数进行比较</p>
-<p>（注意 <code>movsd  -0x10(%rbp),%xmm0</code> 不是类型转换，它是从字节方向解释为了双精度浮点数，不会有精度损失）</p>
+<p><code class="highlight"><span class="nf">movsd</span><span class="w"> </span><span class="mi">-0</span><span class="no">x10</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%xmm0</span></code> 需要一个 64 位的数字解释为浮点数传入 <code>%xmm0</code>，因此这两个整数会“拼接”为一个 64 位的数，（类型双关）解释为双精度浮点数之后再截断取整，结果与 <code>0xf3303938</code> 常数进行比较</p>
+<p>（注意 <code class="highlight"><span class="nf">movsd</span><span class="w">  </span><span class="mi">-0</span><span class="no">x10</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%xmm0</span></code> 不是类型转换，它是从字节方向解释为了双精度浮点数，不会有精度损失）</p>
 <p>那么我们如何写出正确答案呢？逆向计算： <code>0xf3303938</code> 转换为有符号整数： <code>-214943432</code>，转换为浮点数 <code>-214943432.0</code>，这个浮点数用 IEEE 754 双精度浮点数表示为 <code>1 10000011010 100110011111100011011001000000000000</code>，即 <code>C1A99F8D 90000000</code>，拆开来用有符号十进制转换，得到 <code>ans1</code> 和 <code>ans2</code> 两个数字，考虑到栈上存储方向，这两个数字还要交换顺序</p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>-1879048192 -1045848179</code></strong></p>
-</details>
 </details>
 <h3 id="phase-3">Phase 3: 循环</h3>
 <p>为了方便阅读，将一段长代码的各个子部分通过换行符分隔</p>
@@ -1877,7 +1989,7 @@
 <span class="nf">jmp</span><span class="w">    </span><span class="err">&lt;</span><span class="no">an</span><span class="w"> </span><span class="no">address</span><span class="w"> </span><span class="no">where</span><span class="w"> </span><span class="err">&#39;</span><span class="no">leave</span><span class="err">&#39;</span><span class="w"> </span><span class="no">is</span><span class="w"> </span><span class="no">put</span><span class="err">&gt;</span><span class="w">        </span><span class="c1"># 跳转到 phase 函数结尾，输出失败结果</span>
 </code></pre></div></td></tr></table></div>
 <p>在分析循环语句时，我们重点关注是否有 <code>jle</code> 或者 <code>jne</code> 语句，并且这个跳转语句向回跳转，比如这句：</p>
-<p>--&gt; <code>400989: 7e 9b jle 400926 &lt;phase+0x47&gt;</code> </p>
+<p>--&gt; <code>#!asm 400989: jle 400926 &lt;phase+0x47&gt;</code> </p>
 <p>我们在这句指令之前可以找到：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1920,10 +2032,7 @@
 <p>--&gt; <code>input[4] = ((68 &gt;&gt; 1) + 32) ^ 4 = 66 ^ 4 = 0b01000110 = 70</code> </p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p>Answer: <code>wZODF</code></p>
-</details>
 </details>
 <h3 id="phase-4">Phase 4: 选择（条件分支）</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1985,7 +2094,19 @@
 <span class="normal">57</span>
 <span class="normal">58</span>
 <span class="normal">59</span>
-<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">00000000004008</span><span class="nf">a4</span><span class="w"> </span><span class="err">&lt;</span><span class="no">phase</span><span class="err">&gt;</span><span class="p">:</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">00000000004008</span><span class="nf">a4</span><span class="w"> </span><span class="err">&lt;</span><span class="no">phase</span><span class="err">&gt;</span><span class="p">:</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">a4:</span><span class="w">   </span><span class="err">55</span><span class="w">                      </span><span class="nf">push</span><span class="w">   </span><span class="nv">%rbp</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">a5:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">89</span><span class="w"> </span><span class="nf">e5</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="nv">%rsp</span><span class="p">,</span><span class="nv">%rbp</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">a8:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">89</span><span class="w"> </span><span class="err">7</span><span class="nf">d</span><span class="w"> </span><span class="no">e8</span><span class="w">             </span><span class="no">mov</span><span class="w">    </span><span class="nv">%rdi</span><span class="p">,-</span><span class="mi">0x18</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">             </span><span class="c1"># %rdi 入栈，记输入字符串为 input[]</span>
@@ -2001,37 +2122,49 @@
 <span class="w">  </span><span class="err">4008</span><span class="nl">ca:</span><span class="w">   </span><span class="err">83</span><span class="w"> </span><span class="nf">f8</span><span class="w"> </span><span class="mi">05</span><span class="w">                </span><span class="no">cmp</span><span class="w">    </span><span class="no">$0x5</span><span class="p">,</span><span class="nv">%eax</span><span class="w">                    </span><span class="c1"># input[i] - 65 &gt; 5，则跳转到 400916 </span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">cd:</span><span class="w">   </span><span class="err">77</span><span class="w"> </span><span class="err">47</span><span class="w">                   </span><span class="nf">ja</span><span class="w">     </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1">#（注意是无符号比较）</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">cf:</span><span class="w">   </span><span class="err">89</span><span class="w"> </span><span class="nf">c0</span><span class="w">                   </span><span class="no">mov</span><span class="w">    </span><span class="nv">%eax</span><span class="p">,</span><span class="nv">%eax</span><span class="w">                    </span><span class="c1"># 否则 input[i] &lt;= 70：</span>
-<span class="w">  </span><span class="err">4008</span><span class="nl">d1:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">04</span><span class="w"> </span><span class="no">c5</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">0</span><span class="no">b</span><span class="w"> </span><span class="mi">40</span><span class="w">    </span><span class="no">mov</span><span class="w">    </span><span class="mi">0x400b20</span><span class="p">(,</span><span class="nv">%rax</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="nv">%rax</span><span class="w">       </span><span class="c1"># rax = 0x4008db + 8 * (input[i] - 65)（存地址）</span>
-<span class="w">  </span><span class="err">4008</span><span class="nl">d8:</span><span class="w">   </span><span class="err">00</span><span class="w">                                                          </span><span class="c1"># （gdb 得到 0x400b20 处存储的是 0x4008db）</span>
+<span class="w">  </span><span class="err">4008</span><span class="nl">d1:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">04</span><span class="w"> </span><span class="no">c5</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">0</span><span class="no">b</span><span class="w"> </span><span class="mi">40</span><span class="w">    </span><span class="no">mov</span><span class="w">    </span><span class="mi">0x400b20</span><span class="p">(,</span><span class="nv">%rax</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="nv">%rax</span><span class="w">       </span><span class="c1"># rax = *(0x400b20 + 8 * (input[i] - 65))</span>
+<span class="w">  </span><span class="err">4008</span><span class="nl">d8:</span><span class="w">   </span><span class="err">00</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">d9:</span><span class="w">   </span><span class="nf">ff</span><span class="w"> </span><span class="no">e0</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="p">*</span><span class="nv">%rax</span><span class="w">                        </span><span class="c1"># 跳转到 rax 存储的地址</span>
 
+<span class="c1"># 下面的跳转表的六个元素分别对应了接下来的六处地址</span>
+<span class="c1"># 跳转表这种只读内容在程序运行的任何阶段打断点都存储相同的值</span>
+<span class="c1"># 相比之下，Phase 8 的二叉树就不是只读的</span>
+<span class="err">(</span><span class="nf">gdb</span><span class="p">)</span><span class="w"> </span><span class="no">x</span><span class="err">/</span><span class="mi">6</span><span class="no">xg</span><span class="w"> </span><span class="mi">0x400b20</span>
+<span class="err">0</span><span class="nl">x400b20:</span><span class="w">       </span><span class="err">0</span><span class="nf">x00000000004008db</span><span class="w">      </span><span class="mi">0x00000000004008e4</span>
+<span class="err">0</span><span class="nl">x400b30:</span><span class="w">       </span><span class="err">0</span><span class="nf">x00000000004008f1</span><span class="w">      </span><span class="mi">0x0000000000400900</span>
+<span class="err">0</span><span class="nl">x400b40:</span><span class="w">       </span><span class="err">0</span><span class="nf">x000000000040090d</span><span class="w">      </span><span class="mi">0x0000000000400912</span>
+<span class="w">                                                                        </span><span class="c1"># case 0:</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">db:</span><span class="w">   </span><span class="err">81</span><span class="w"> </span><span class="err">65</span><span class="w"> </span><span class="nf">f4</span><span class="w"> </span><span class="no">ff</span><span class="w"> </span><span class="no">ff</span><span class="w"> </span><span class="no">ff</span><span class="w"> </span><span class="mi">7</span><span class="no">f</span><span class="w">    </span><span class="no">andl</span><span class="w">   </span><span class="no">$0x7fffffff</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">       </span><span class="c1"># j 清除符号位为 0</span>
-<span class="w">  </span><span class="err">4008</span><span class="nl">e2:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">32</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916 </span>
+<span class="w">  </span><span class="err">4008</span><span class="nl">e2:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">32</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916，相当于 break;</span>
 
+<span class="w">                                                                        </span><span class="c1"># case 1:</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">e4:</span><span class="w">   </span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f4</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="mi">-0</span><span class="no">xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%eax</span><span class="w">              </span><span class="c1"># eax = j</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">e7:</span><span class="w">   </span><span class="err">0</span><span class="nf">d</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">00</span><span class="w"> </span><span class="mi">80</span><span class="w">          </span><span class="no">or</span><span class="w">     </span><span class="no">$0x80000000</span><span class="p">,</span><span class="nv">%eax</span><span class="w">             </span><span class="c1"># eax 符号位强制为 1</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">ec:</span><span class="w">   </span><span class="err">89</span><span class="w"> </span><span class="err">45</span><span class="w"> </span><span class="nf">f4</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="nv">%eax</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">              </span><span class="c1"># j 符号位强制为 1</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">ef:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">25</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916 </span>
 
+<span class="w">                                                                        </span><span class="c1"># case 2:</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">f1:</span><span class="w">   </span><span class="err">83</span><span class="w"> </span><span class="err">7</span><span class="nf">d</span><span class="w"> </span><span class="no">f4</span><span class="w"> </span><span class="mi">00</span><span class="w">             </span><span class="no">cmpl</span><span class="w">   </span><span class="no">$0x0</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">              </span><span class="c1"># j == 0 ?</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">f5:</span><span class="w">   </span><span class="err">0</span><span class="nf">f</span><span class="w"> </span><span class="mi">94</span><span class="w"> </span><span class="no">c0</span><span class="w">                </span><span class="no">sete</span><span class="w">   </span><span class="nv">%al</span><span class="w">                          </span><span class="c1"># (j == 0) ? al = 1 : al = 0;</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">f8:</span><span class="w">   </span><span class="err">0</span><span class="nf">f</span><span class="w"> </span><span class="no">b6</span><span class="w"> </span><span class="no">c0</span><span class="w">                </span><span class="no">movzbl</span><span class="w"> </span><span class="nv">%al</span><span class="p">,</span><span class="nv">%eax</span><span class="w">                     </span><span class="c1"># 零扩展</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">fb:</span><span class="w">   </span><span class="err">89</span><span class="w"> </span><span class="err">45</span><span class="w"> </span><span class="nf">f4</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="nv">%eax</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">              </span><span class="c1"># j = (j == 0) ? 1 : 0;</span>
 <span class="w">  </span><span class="err">4008</span><span class="nl">fe:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">16</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916 </span>
 
+<span class="w">                                                                        </span><span class="c1"># case 3:</span>
 <span class="w">  </span><span class="err">400900:</span><span class="w">   </span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f4</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="mi">-0</span><span class="no">xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%eax</span><span class="w">              </span><span class="c1"># eax = j</span>
 <span class="w">  </span><span class="err">400903:</span><span class="w">   </span><span class="err">35</span><span class="w"> </span><span class="err">00</span><span class="w"> </span><span class="err">00</span><span class="w"> </span><span class="err">00</span><span class="w"> </span><span class="err">80</span><span class="w">          </span><span class="nf">xor</span><span class="w">    </span><span class="no">$0x80000000</span><span class="p">,</span><span class="nv">%eax</span><span class="w">             </span><span class="c1"># eax = -eax</span>
 <span class="w">  </span><span class="err">400908:</span><span class="w">   </span><span class="err">89</span><span class="w"> </span><span class="err">45</span><span class="w"> </span><span class="nf">f4</span><span class="w">                </span><span class="no">mov</span><span class="w">    </span><span class="nv">%eax</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">              </span><span class="c1"># j 翻转符号位</span>
 <span class="w">  </span><span class="err">40090</span><span class="nl">b:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">09</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916</span>
 
+<span class="w">                                                                        </span><span class="c1"># case 4:</span>
 <span class="w">  </span><span class="err">40090</span><span class="nl">d:</span><span class="w">   </span><span class="nf">d1</span><span class="w"> </span><span class="mi">65</span><span class="w"> </span><span class="no">f4</span><span class="w">                </span><span class="no">shll</span><span class="w">   </span><span class="mi">-0</span><span class="no">xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">                   </span><span class="c1"># j &lt;&lt;= 1</span>
 <span class="w">  </span><span class="err">400910:</span><span class="w">   </span><span class="nf">eb</span><span class="w"> </span><span class="mi">04</span><span class="w">                   </span><span class="no">jmp</span><span class="w">    </span><span class="mh">400916</span> <span class="p">&lt;</span><span class="no">phase</span><span class="p">+</span><span class="mi">0x72</span><span class="p">&gt;</span><span class="w">          </span><span class="c1"># 跳转到 400916</span>
 
+<span class="w">                                                                        </span><span class="c1"># case 5:</span>
 <span class="w">  </span><span class="err">400912:</span><span class="w">   </span><span class="nf">d1</span><span class="w"> </span><span class="mi">7</span><span class="no">d</span><span class="w"> </span><span class="no">f4</span><span class="w">                </span><span class="no">sarl</span><span class="w">   </span><span class="mi">-0</span><span class="no">xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">                   </span><span class="c1"># j &gt;&gt;= 1 （算术右移）</span>
 <span class="w">  </span><span class="err">400915:</span><span class="w">   </span><span class="err">90</span><span class="w">                      </span><span class="nf">nop</span><span class="w">                                 </span><span class="c1"># 相当于跳转到 400916</span>
 
 <span class="w">  </span><span class="err">400916:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">83</span><span class="w"> </span><span class="err">45</span><span class="w"> </span><span class="nf">f8</span><span class="w"> </span><span class="mi">01</span><span class="w">          </span><span class="no">addq</span><span class="w">   </span><span class="no">$0x1</span><span class="p">,-</span><span class="mi">0x8</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">              </span><span class="c1"># i++</span>
-
 <span class="w">  </span><span class="err">40091</span><span class="nl">b:</span><span class="w">   </span><span class="err">48</span><span class="w"> </span><span class="err">8</span><span class="nf">b</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="no">f8</span><span class="w">             </span><span class="no">mov</span><span class="w">    </span><span class="mi">-0</span><span class="no">x8</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">),</span><span class="nv">%rax</span><span class="w">              </span><span class="c1"># rax = i</span>
 <span class="w">  </span><span class="err">40091</span><span class="nl">f:</span><span class="w">   </span><span class="err">0</span><span class="nf">f</span><span class="w"> </span><span class="no">b6</span><span class="w"> </span><span class="mi">00</span><span class="w">                </span><span class="no">movzbl</span><span class="w"> </span><span class="p">(</span><span class="nv">%rax</span><span class="p">),</span><span class="nv">%eax</span><span class="w">                  </span><span class="c1"># eax = *i</span>
 <span class="w">  </span><span class="err">400922:</span><span class="w">   </span><span class="err">84</span><span class="w"> </span><span class="nf">c0</span><span class="w">                   </span><span class="no">test</span><span class="w">   </span><span class="nv">%al</span><span class="p">,</span><span class="nv">%al</span><span class="w">                      </span><span class="c1"># eax 若不为 \0 就跳回循环（也就是需要遍历整个字符串）</span>
@@ -2095,38 +2228,38 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int32_t</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="n">j</span><span class="p">);</span><span class="w"> </span><span class="c1">// sign(j) 取 j 的符号位的引用</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int32_t</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="n">j</span><span class="p">);</span><span class="w"> </span><span class="c1">// sign(j) 函数取 j 的符号位的引用</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                              </span><span class="c1">// j 是有符号数</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">input</span><span class="p">){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">opr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">65</span><span class="p">;</span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">opr</span><span class="p">){</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
-<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                </span><span class="c1">// 符号位置 0</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
-<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                </span><span class="c1">// 符号位置 1</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
-<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// j = !j（逻辑非）</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
-<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+<span class="w">            </span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">sign</span><span class="p">(</span><span class="n">j</span><span class="p">);</span><span class="w">         </span><span class="c1">// 符号位取反</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
-<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                    </span><span class="c1">// 左移</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span>
-<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                    </span><span class="c1">// 算术右移</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="k">default</span><span class="o">:</span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>而最终 <code>cmpl $0x65579927,-0xc(%rbp)</code>，我们希望 <code>j</code> 在一轮计算后结果为 <code>0x65579927</code>，据此构造一个 opr 链，使得：</p>
+<p>而最终 <code class="highlight"><span class="nf">cmpl</span><span class="w"> </span><span class="no">$0x65579927</span><span class="p">,-</span><span class="mi">0xc</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span></code>，我们希望 <code>j</code> 在一轮计算后结果为 <code>0x65579927</code>，据此构造一个 opr 链，使得：</p>
 <p><code>0b0</code> --&gt; <code>0b 0110 0101 0101 0111 1001 1001 0010 0111</code></p>
-<p>这里给出一个只利用算数右移和翻转符号位来自定义任意数位的方法：</p>
+<p>这里给出一个只利用算数右移和翻转符号位来自定义任意数位的方法，具体操作参见下面的例子：</p>
 <p><code>opr = [3]</code> --&gt; <code>0b 1000 0000</code></p>
 <p><code>opr += [5,5,5]</code> --&gt; <code>0b 1111 0000</code></p>
 <p><code>opr += [3]</code> --&gt; <code>0b 0111 0000</code></p>
@@ -2180,10 +2313,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 </div>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>DFFFDFFDFDFFDFDFFDFFDFFDFFFFDFDFDFDFDFDFDFDFDFFDFFD</code></strong>（不唯一）</p>
-</details>
 </details>
 <h3 id="phase-5">Phase 5: 递归调用</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2387,14 +2517,11 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">seek</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">);</span><span class="w">      </span><span class="c1">// y 表示 “左半元素首地址”</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>递归结束后，我们需要比较的是 <code>cmp $0x2e,%eax</code>，对应了数组的最后一个元素。因此在递归二分时，我们应该确保每一次的 <code>(x &amp; 1)</code> 都成立</p>
+<p>递归结束后，我们需要比较的是 <code class="highlight"><span class="nf">cmp</span><span class="w"> </span><span class="no">$0x2e</span><span class="p">,</span><span class="nv">%eax</span></code>，对应了数组的最后一个元素。因此在递归二分时，我们应该确保每一次的 <code>(x &amp; 1)</code> 都成立</p>
 <p><code>z = 32</code>，因此需要 <code>x</code> 的低五位都为 <code>1</code>，而 <code>x</code> 的初始值为我的 16 进制输入，据此得到答案</p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>0x1f</code></strong>（不唯一）</p>
-</details>
 </details>
 <h3 id="phase-6">Phase 6: 数组</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2571,10 +2698,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <p>不难发现 <code>arr[0] == cmat[0][3]</code> <code>arr[1] == cmat[2][7]</code> <code>arr[2] == cmat[0][1]</code> ，据此得到答案</p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>0 3 2 7 0 1</code></strong></p>
-</details>
 </details>
 <h3 id="phase-7">Phase 7: 指针</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -3087,10 +3211,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <p>手搓一个 $O(n^3)$ 的函数遍历一下可以得到 <code>7</code> <code>13</code> <code>17</code> <code>47</code> <code>53</code> 这五个数（答案不唯一，随意挑一个），找到对应的 <code>opfunc</code> 序号得到答案</p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>1 4 11 13 15</code></strong> （不唯一，五个数字的顺序随意，也不一定必须是这五个数字） </p>
-</details>
 </details>
 <h3 id="phase-8">Phase 8: 结构与链表/树</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
@@ -3696,7 +3817,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 </ul>
 </details>
 <p>以上我们明白了 <code>insert</code> 函数的功能就是在二叉搜索树上插入新的值</p>
-<p>这里需要尤其注意的是：在输入的单个字符与节点对应时，我们取的是节点值的最低八位；而在 <code>insert</code> 操作时，我们取的是 <code>val[3:2]</code>，也就是低十六位的高八位。因此我们在理解 <code>treeNode</code> 的 <code>val</code> 内容时，必须分开来看</p>
+<p>这里需要尤其注意的是：对于节点值 <code>val</code>，在输入的单个字符与节点对应时，我们取的是节点值的最低八位；而在 <code>insert</code> 操作时，我们取的是 <code>val[3:2]</code>，也就是低十六位的高八位。因此我们在理解 <code>treeNode</code> 的 <code>val</code> 内容时，必须分开来看</p>
 <p>以下是 <code>val</code> 取低十六位时，低八位 ASCII 字符与高八位十六进制数的对应表：</p>
 <table>
 <thead>
@@ -3745,10 +3866,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <p>我们给出这个递增序列对应的节点编号 <code>dlsurjpyhzfgaiw</code>，之后的计算过程略</p>
 <details class="question">
 <summary>这里是答案</summary>
-<details class="warning">
-<summary>在查看答案前，请确保你已经认真思考过这道题目，并且确实需要核对答案。</summary>
 <p><strong>Answer: <code>yugljzidsrphfaw</code></strong></p>
-</details>
 </details>
 
 
