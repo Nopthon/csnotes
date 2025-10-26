@@ -1,3 +1,5 @@
+PA1 note
+
 // UNDER DESTRUCTION //
 
 还没写，这里先把我觉得最重要的两个 tips 写一下：

@@ -26,6 +26,9 @@ nav:
       - 快速幂: OI-Learning/Algorithm/fastpow.md
 
     - Data Structure:
+      - Trees:
+        - 树基础: OI-Learning/Data-Structure/Tree/tree-intro.md
+        - 二叉树基础: OI-Learning/Data-Structure/Tree/binatree.md
       - 链表: OI-Learning/Data-Structure/linkedlist.md
       - STL vector ref: OI-Learning/Data-Structure/vector.md
       - 栈 && 单调栈: OI-Learning/Data-Structure/stack.md
@@ -39,8 +42,9 @@ nav:
       - PA2-1: course-notes/ICSPA-x86/PA2-1.md
       - i386 指令结构 for PA2-1: course-notes/ICSPA-x86/i386.md
       - PA2-2: course-notes/ICSPA-x86/PA2-2.md
+      - PA2-3: course-notes/ICSPA-x86/PA2-3.md
 
-    - 网络攻防实战 note:
+    - 网络攻防实战 Labs:
       - Lab01: course-notes/Network-attack-and-defense-in-action/lab01.md
       - Lab02: course-notes/Network-attack-and-defense-in-action/lab02.md
       - Lab03: course-notes/Network-attack-and-defense-in-action/lab03.md
