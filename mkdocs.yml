@@ -50,6 +50,7 @@ nav:
       - Lab03: course-notes/Network-attack-and-defense-in-action/lab03.md
       - Lab04: course-notes/Network-attack-and-defense-in-action/lab04.md
       - Lab05: course-notes/Network-attack-and-defense-in-action/lab05.md
+      - Lab06: course-notes/Network-attack-and-defense-in-action/lab06.md
 
     - ICS && CSAPP Labs:
       - intro: course-notes/ICS&&CSAPP-Lab/intro.md

