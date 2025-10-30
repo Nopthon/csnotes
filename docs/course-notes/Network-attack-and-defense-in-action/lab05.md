@@ -2,7 +2,7 @@
 
 !!! quote "使用的靶机为 VulnHub IndiShell Lab: Billu_b0x"
 
-!!! success "目前为止最复杂 && 解法最多的靶机"
+!!! success "比前几个靶机难"
 
 ## 渗透目的
 
@@ -492,7 +492,7 @@ Linux indishell 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:50:54 UT
 获取版本为 Ubuntu 12.04.5 LTS，内核为 Linux 3.13.0，`searchsploit` 搜一下：
 
 ```
-> searchsploit Ubuntu 12.04.5        ✔  23:55:11   
+> searchsploit Ubuntu 12.04.5
 -------------------------------- ---------------------------------
  Exploit Title                  |  Path
 -------------------------------- ---------------------------------

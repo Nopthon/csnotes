@@ -12,6 +12,7 @@ theme:
 plugins:
   - mermaid2
   - statistics
+#  - privacy
 
 #   - blog
 
@@ -81,7 +82,8 @@ extra_css:
   - stylesheets/extra.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
   - https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css
+  - https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css
 
 extra_javascript:
   - stylesheets/extra.js

