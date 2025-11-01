@@ -1044,6 +1044,52 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/ICSPA-x86/PA3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA3-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/ICSPA-x86/PA3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PA3-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1652,7 +1698,7 @@
 
 <h1 id="_1">二叉树基础</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 3073 words  | 🐛 651 codelines  | ⏰ 18 min read | Enjoy 🎶</p>
+<p>✍ 3093 words  | 🐛 651 codelines  | ⏰ 18 min read | Enjoy 🎶</p>
 </div>
 <h2 id="_2">定义</h2>
 <p>二叉树是一类有序树，要求每个节点的子节点个数不超过 2，因此其结构形态共有五种：空树、无子树的根、只有左子树、只有右子树、有左右子树</p>
@@ -1690,6 +1736,7 @@
 <h2 id="_8">存储</h2>
 <p>二叉树有两种存储方法：更易实现的<strong>顺序存储</strong>；更加直观常用的<strong>链式存储</strong></p>
 <h3 id="_9">顺序存储</h3>
+<p>先看看 “堆式存储”：</p>
 <p>使用一个数组记录二叉树的节点，按照层次遍历（从上往下、从左往右）的顺序将节点值存入数组，通过数组下标计算体现节点之间的父子关系</p>
 <p>先以完全平衡树为例：</p>
 <p><img alt="array-store" src="../images/array-store.png" /></p>
@@ -2794,6 +2841,7 @@
 </code></pre></div></td></tr></table></div>
 <h2 id="_16">例题</h2>
 <p>直接把《数据结构》课上的课后作业搬过来了，三道题都是 LeetCode 原题</p>
+<p>输入和常规题非常不同，请注意。</p>
 <blockquote>
 <p><strong>原题来自 LeetCode 2477. 到达首都的最少油耗</strong>（输入、输出不同）</p>
 <p>给定一个根节点为 $1$ 的 $n$ 节点二叉树，表示 $n$ 个城市的地图路线，每个节点 $i$ 有 $a_i$ 个人。现在所有人要乘坐大巴车（每个城市都有足够多辆）前往城市 $1$（根节点），大巴车的座位数为 $k$，相邻城市过路费为 $1$ / 辆。求所有人抵达城市 $1$ 的最小花费</p>

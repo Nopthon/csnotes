@@ -1,1425 +1,622 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-        <link rel="prev" href="../PA2-2/">
-      
-      
-        <link rel="next" href="../../Network-attack-and-defense-in-action/lab01/">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
-    
-    
-      
-        <title>PA2-3 - CSNote</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
-      
-        
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-    
-      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap">
-    
-      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css">
-    
-      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css">
-    
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#pa-2-3-note" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../PA2-2/" rel="prev"/>
+<link href="../PA3-1/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.20" name="generator"/>
+<title>PA2-3 - CSNote</title>
+<link href="../../../assets/stylesheets/main.e53b48f4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet"/>
+<link href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css" rel="stylesheet"/>
+<link href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#pa-2-3-note">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="CSNote" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="CSNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             CSNote
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               PA2-3
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      
-    
-    
-    
-    
-    
-  </nav>
-  
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="CSNote" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="CSNote">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
     CSNote
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
     index
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
     OI-learning
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             OI-learning
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/">
+<span class="md-ellipsis">
     intro
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/C%2B%2B%20OOP/">
+<span class="md-ellipsis">
     C++ 面向对象
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
     Algorithm
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
             Algorithm
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Algorithm/STL_algorithm/">
+<span class="md-ellipsis">
     STL 算法库 ref
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Algorithm/fastpow/">
+<span class="md-ellipsis">
     快速幂
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
     Data Structure
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
             Data Structure
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+<span class="md-ellipsis">
     Trees
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4_1">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_4_1">
+<span class="md-nav__icon md-icon"></span>
             Trees
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/Tree/tree-intro/">
+<span class="md-ellipsis">
     树基础
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/Tree/binatree/">
+<span class="md-ellipsis">
     二叉树基础
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/linkedlist/">
+<span class="md-ellipsis">
     链表
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/vector/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/vector/">
+<span class="md-ellipsis">
     STL vector ref
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/stack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    栈 && 单调栈
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/stack/">
+<span class="md-ellipsis">
+    栈 &amp;&amp; 单调栈
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/queue/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    队列 && 单调队列
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/queue/">
+<span class="md-ellipsis">
+    队列 &amp;&amp; 单调队列
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../OI-Learning/Data-Structure/hashmap/">
+<span class="md-ellipsis">
     哈希表
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
     Course Notes
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
             Course Notes
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
     ICSPA x86 note
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
             ICSPA x86 note
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PA0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA0/">
+<span class="md-ellipsis">
     PA0
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PA1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA1/">
+<span class="md-ellipsis">
     PA1
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PA2-1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA2-1/">
+<span class="md-ellipsis">
     PA2-1
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../i386/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../i386/">
+<span class="md-ellipsis">
     i386 指令结构 for PA2-1
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PA2-2/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA2-2/">
+<span class="md-ellipsis">
     PA2-2
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     PA2-3
     
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     PA2-3
     
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
       表达式求值
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="表达式求值">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="表达式求值" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
       词法分析
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      语法分析与求值
+    </span>
+</a>
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      添加变量与函数名支持
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-my-implement">
+<span class="md-ellipsis">
+      Appendix : My implement
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA3-1/">
+<span class="md-ellipsis">
+    PA3-1
     
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../PA3-2/">
+<span class="md-ellipsis">
+    PA3-2
     
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
     网络攻防实战 Labs
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
             网络攻防实战 Labs
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab01/">
+<span class="md-ellipsis">
     Lab01
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab02/">
+<span class="md-ellipsis">
     Lab02
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab03/">
+<span class="md-ellipsis">
     Lab03
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab04/">
+<span class="md-ellipsis">
     Lab04
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab05/">
+<span class="md-ellipsis">
     Lab05
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Network-attack-and-defense-in-action/lab06/">
+<span class="md-ellipsis">
     Lab06
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    ICS && CSAPP Labs
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    ICS &amp;&amp; CSAPP Labs
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            ICS &amp;&amp; CSAPP Labs
           </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            ICS && CSAPP Labs
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ICS%26%26CSAPP-Lab/intro/">
+<span class="md-ellipsis">
     intro
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ICS%26%26CSAPP-Lab/Datalab/">
+<span class="md-ellipsis">
     CSAPP Datalab
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ICS%26%26CSAPP-Lab/Bomblab/">
+<span class="md-ellipsis">
     CSAPP Bomblab
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ICS%26%26CSAPP-Lab/Binalab/">
+<span class="md-ellipsis">
     ICS Binalab
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
     Deep Learning
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
             Deep Learning
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Deep-Learning/intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Deep-Learning/intro/">
+<span class="md-ellipsis">
     intro
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
       表达式求值
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="表达式求值">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="表达式求值" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
       词法分析
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      语法分析与求值
+    </span>
+</a>
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      添加变量与函数名支持
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-my-implement">
+<span class="md-ellipsis">
+      Appendix : My implement
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
 <h1 id="pa-2-3-note">PA 2-3 note</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 228 words  | 🐛 58 codelines  | ⏰ 1 min read | Enjoy 🎶</p>
+<p>✍ 1144 words  | 🐛 162 codelines  | ⏰ 6 min read | Enjoy 🎶</p>
 </div>
 <p>Bonus PA，实现了有奖励，不实现没有惩罚，而且可以部分实现获得小的 bonus</p>
 <p>内容参考 ICSPA (RISC-V ver) 1-2 ：<a href="https://nju-projectn.github.io/ics-pa-gitbook/ics2025/1.5.html#递归求值">表达式求值 · GitBook</a></p>
-<hr />
+<hr/>
 <h2 id="_1">表达式求值</h2>
 <p>让程序完成表达式的求值分两步：</p>
-<p>1- 词法分析：让程序理解表达式的内容</p>
-<p>2- 求值：根据词法分析掌握的内容进行实际求值</p>
+<p>1- 词法与语法分析：让程序理解表达式的内容</p>
+<p>2- 递归求值：根据分析掌握的内容进行实际求值</p>
 <h3 id="_2">词法分析</h3>
 <p>简单来说就是区分一个表达式的不同组成：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(x &gt;= 0) &amp;&amp; (y + 3 &lt;= (z &amp; 0xff))
 </code></pre></div></td></tr></table></div>
 <p>比如上面的随手写的表达式，如果你把它丢进 VSCode 中，设置语言为 C 语言，是这样的</p>
-<p><img alt="image-20251026153104751" src="../images/image-20251026153104751.png" /></p>
-<p>在 VSCode 的渲染下，运算符为紫色，常数为黄色（十六进制前缀为红色），逻辑符为蓝色，变量为白色，括号按照层级顺序逐层渲染为不同的颜色。这就是词法分析的结果</p>
+<p><img alt="image-20251026153104751" src="../images/image-20251026153104751.png"/></p>
+<p>在 VSCode 的渲染下，运算符为紫色，常数为黄色（十六进制前缀为红色），逻辑符为蓝色，变量为白色，括号按照层级顺序逐层渲染为不同的颜色。这就是词法分析（还包含一些语法分析）的结果</p>
 <p>每一个单元（一个运算符，一个常数，等等）被称为 <code>token</code>，而词法分析的作用就是识别每一个 <code>token</code> 对应了什么内容</p>
-<p>有哪些类型的 <code>token</code> ？<code>/nemu/src/monitor/expr.c</code> 中有枚举：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">NOTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">                   </span><span class="c1">// 空格</span>
-<span class="w">    </span><span class="n">EQ</span><span class="p">,</span><span class="w">                             </span><span class="c1">// 比较符 ==</span>
-<span class="w">    </span><span class="n">NUM</span><span class="p">,</span><span class="w">                            </span><span class="c1">// 数字字面量（十进制）</span>
-<span class="w">    </span><span class="n">REG</span><span class="p">,</span><span class="w">                            </span><span class="c1">// 寄存器</span>
-<span class="w">    </span><span class="n">SYMB</span><span class="w">                            </span><span class="c1">// 符号（之后再说）</span>
-
-<span class="w">    </span><span class="cm">/* TODO: Add more token types */</span>
-
-<span class="p">};</span>
-</code></pre></div></td></tr></table></div>
 <p>我们先实现最简单的四则运算 <code>token</code></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1442,28 +639,28 @@
 <span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">enum</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">NOTYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">                   </span><span class="c1">// whitespace</span>
-<span class="w">    </span><span class="n">EQ</span><span class="p">,</span><span class="w">                             </span><span class="c1">// &#39;==&#39;</span>
+<span class="w">    </span><span class="n">EQ</span><span class="p">,</span><span class="w">                             </span><span class="c1">// '=='</span>
 <span class="w">    </span><span class="n">NUM</span><span class="p">,</span><span class="w">                            </span><span class="c1">// num(base-10)</span>
-<span class="w">    </span><span class="n">REG</span><span class="p">,</span><span class="w">                            </span><span class="c1">// reg</span>
-<span class="w">    </span><span class="n">SYMB</span><span class="p">,</span><span class="w">                           </span><span class="c1">// symbol</span>
 
-<span class="w">    </span><span class="n">ADD</span><span class="p">,</span><span class="w">                            </span><span class="c1">// &#39;+&#39;</span>
-<span class="w">    </span><span class="n">SUB</span><span class="p">,</span><span class="w">                            </span><span class="c1">// &#39;-&#39; (not REG)</span>
-<span class="w">    </span><span class="n">MUL</span><span class="p">,</span><span class="w">                            </span><span class="c1">// &#39;*&#39; (not DEREF)</span>
-<span class="w">    </span><span class="n">DIV</span><span class="p">,</span><span class="w">                            </span><span class="c1">// &#39;/&#39;</span>
+<span class="w">    </span><span class="n">ADD</span><span class="p">,</span><span class="w">                            </span><span class="c1">// '+'</span>
+<span class="w">    </span><span class="n">SUB</span><span class="p">,</span><span class="w">                            </span><span class="c1">// '-' (not REG)</span>
+<span class="w">    </span><span class="n">MUL</span><span class="p">,</span><span class="w">                            </span><span class="c1">// '*' (not DEREF)</span>
+<span class="w">    </span><span class="n">DIV</span><span class="p">,</span><span class="w">                            </span><span class="c1">// '/'</span>
 
-<span class="w">    </span><span class="c1">// NEG,                         // &#39;-&#39; (not SUB)</span>
-<span class="w">    </span><span class="c1">// DEREF,                       // &#39;*&#39; (not MUL)</span>
+<span class="w">    </span><span class="c1">// NEG,                         // '-' (not SUB)</span>
+<span class="w">    </span><span class="c1">// DEREF,                       // '*' (not MUL)</span>
 
-<span class="w">    </span><span class="n">LPAREN</span><span class="p">,</span><span class="w">                         </span><span class="c1">// &#39;(&#39;</span>
-<span class="w">    </span><span class="n">RPAREN</span><span class="p">,</span><span class="w">                         </span><span class="c1">// &#39;)&#39;</span>
+<span class="w">    </span><span class="n">LPAREN</span><span class="p">,</span><span class="w">                         </span><span class="c1">// '('</span>
+<span class="w">    </span><span class="n">RPAREN</span><span class="p">,</span><span class="w">                         </span><span class="c1">// ')'</span>
+
+<span class="w">    </span><span class="n">TOKEN_COUNT</span><span class="w">                     </span><span class="c1">// 技巧，这个枚举量为 TOKEN 的总数量</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <div class="admonition tip">
-<p class="admonition-title">注意到减号和乘号有重复定义，应该如何处理？</p>
-<p>每一种不同的定义都应该分开枚举以避免解释时冲突；区分同一个符号的不同定义在之后完成，这个之后再说</p>
+<p class="admonition-title">部分符号在不同上下文中的解释不同，比如 <code>*</code> 既是乘号，又是解引用</p>
+<p>每一种不同的定义都应该进行枚举（上面注释的内容）；区分同一个符号的不同定义在之后的语法分析中完成，之后再说</p>
 </div>
-<p>接下来是定义这些 <code>token</code> 分别由哪些单元对应：</p>
+<p>接下来是定义这些 <code>token</code> 分别由哪些单元对应，以四则运算为例：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1482,28 +679,28 @@
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">regex</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">token_type</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">rules</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="cm">/* TODO: Add more rules.</span>
-<span class="cm">     * Pay attention to the precedence level of different rules.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="p">{</span><span class="s">&quot; +&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">},</span><span class="w"> </span><span class="c1">// white space</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">+&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADD</span><span class="p">},</span><span class="w">   </span><span class="c1">// add expr, i change it form {&quot;\\+&quot;, &#39;+&#39;} for my own enum</span>
-
+<span class="w">    </span><span class="p">{</span><span class="s">" +"</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">},</span><span class="w">             </span><span class="c1">// white space</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"[0-9]+"</span><span class="p">,</span><span class="w"> </span><span class="n">NUM</span><span class="p">},</span><span class="w">            </span><span class="c1">// 十进制整数</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">("</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">LPAREN</span><span class="err">'</span><span class="p">},</span><span class="w">          </span><span class="c1">// 左括号</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">)"</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">RPAREN</span><span class="err">'</span><span class="p">},</span><span class="w">          </span><span class="c1">// 右括号</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">*"</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">MUL</span><span class="err">'</span><span class="p">},</span><span class="w">             </span><span class="c1">// 乘法</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">/"</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">DIV</span><span class="err">'</span><span class="p">},</span><span class="w">             </span><span class="c1">// 除法</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">+"</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">ADD</span><span class="err">'</span><span class="p">},</span><span class="w">             </span><span class="c1">// 加法</span>
+<span class="w">    </span><span class="p">{</span><span class="s">"</span><span class="se">\\</span><span class="s">-"</span><span class="p">,</span><span class="w"> </span><span class="err">'</span><span class="n">SUB</span><span class="err">'</span><span class="p">},</span><span class="w">             </span><span class="c1">// 减法</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <details class="question">
-<summary>为什么这里填写的内容不是 <code class="highlight"><span class="p">{</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">}</span></code> 和 <code class="highlight"><span class="p">{</span><span class="s">&quot;+&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADD</span><span class="p">}</span></code>？</summary>
+<summary>为什么这里填写的内容不是 <code class="highlight"><span class="p">{</span><span class="s">" "</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">}</span></code> 和 <code class="highlight"><span class="p">{</span><span class="s">"+"</span><span class="p">,</span><span class="w"> </span><span class="n">ADD</span><span class="p">}</span></code>？</summary>
 <p>首先，为了识别 token 的便捷性（以及不必要的搓板子环节），我们使用了 POSIX regex 正则表达式来简化匹配的逻辑</p>
-<p>比如 <code class="highlight"><span class="p">{</span><span class="s">&quot; +&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">}</span></code>，其中 <code>+</code> 是一个元字符，表示“匹配它前面的字符至少一次（允许多次）”，因此 <code>" +"</code> 匹配的是任意长度的空格串</p>
-<p>为了使 <code>+</code> 表示为字面上的加号，需要 <code>\</code> 进行反斜杠转义，但是 C 语言的环境中我们还需要额外为单独的 <code>\</code> 进行转义，于是我们有了 <code>\\+</code> 匹配加号的写法</p>
+<p>比如 <code class="highlight"><span class="p">{</span><span class="s">" +"</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">}</span></code>，其中 <code>+</code> 是一个元字符，表示“匹配它前面的字符至少一次（允许多次）”，因此 <code>" +"</code> 匹配的是任意长度的空格串</p>
+<p>为了使 <code>+</code> 表示为字面上的加号，需要 <code>\</code> 进行反斜杠转义；在 C 语言的环境中我们还需要额外为单独的 <code>\</code> 进行转义，于是我们有了 <code>\\+</code> 匹配加号的写法</p>
 </details>
 <details class="warning" open="open">
 <summary> Pay attention to the precedence level of different rules. 如何理解这句提醒</summary>
 <p>举一个例子：{"==", EQ}（比较符等号）应该优先于 {"=", ASSIGN}（赋值）出现，因为能匹配 <code>==</code> 就一定能匹配 <code>=</code>，<u><strong>更长的模式必须要优先于更短的模式进行匹配</strong></u></p>
 <p>其他的例子包括：十六进制优先于十进制数；特定的关键字（<code>if</code> 等）优先于标识符</p>
 </details>
-<p>对于四则运算的 <code>token</code> 可以这样匹配：</p>
+<p>接下来我们需要识别定义的这些 <code>token</code> ，<code>make_token()</code> 函数将一个输入的字符串切割为 <code>tokens</code> 进行存储，其中需要完成的核心任务就是下面的代码：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1517,84 +714,341 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">rule</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">token</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">regex</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">token_type</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">rules</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot; +&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NOTYPE</span><span class="p">},</span><span class="w"> </span><span class="c1">// white space</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;[0-9]+&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">NUM</span><span class="p">},</span><span class="w">     </span><span class="c1">// 十进制整数</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">(&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">LPAREN</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 左括号</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">)&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">RPAREN</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 右括号</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">*&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">MUL</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 乘法</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">/&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">DIV</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 除法</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">+&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">ADD</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 加法</span>
-<span class="w">    </span><span class="p">{</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">-&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="n">SUB</span><span class="err">&#39;</span><span class="p">},</span><span class="w">           </span><span class="c1">// 减法</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Token</span><span class="p">;</span>
+
+<span class="n">Token</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">nr_token</span><span class="p">;</span>
+
+<span class="c1">// 从 rules 数组中取出一个 token 对应的枚举值存储</span>
+<span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rules</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">token_type</span><span class="p">;</span>
+<span class="c1">// 限制单个 token 长度</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">rlen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">substr_len</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">substr_len</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">31</span><span class="p">;</span>
+<span class="c1">// 拷贝 token 字面值</span>
+<span class="n">strncpy</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">substr_start</span><span class="p">,</span><span class="w"> </span><span class="n">rlen</span><span class="p">);</span>
+<span class="c1">// 字符串结尾 '\0'</span>
+<span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">rlen</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span>
+<span class="c1">// 索引 ++</span>
+<span class="n">nr_token</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>正确存入 tokens，词法分析的任务就完成了</p>
+<h3 id="_3">语法分析与求值</h3>
+<p>语法分析分两步</p>
+<p>首先需要判断多义 token 在上下文中的实际用法，比如 <code>*</code> <code>-</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">retokenlizer</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">success</span><span class="p">){</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nr_token</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="c1">// 解释一个多义 token 的实际用法只需要看前一个 token</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MUL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">is_deref</span><span class="p">[</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">].</span><span class="n">type</span><span class="p">]</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DEREF</span><span class="p">;</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SUB</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">is_neg</span><span class="p">[</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">].</span><span class="n">type</span><span class="p">]</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NEG</span><span class="p">;</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>这里为了避免 <code>if</code> 语句填过长的 <code>||</code> 链，不妨定义一个 <code>static</code> 数组，将所有满足条件的枚举项都设置为 <code>1</code>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">is_deref</span><span class="p">[</span><span class="n">TOKEN_COUNT</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// TOKEN_COUNT 是 emun 的最后一项</span>
+<span class="w">    </span><span class="c1">// [NOT_MENTIONED] = 0;                     // 没有列举出的枚举项都初始化为 0</span>
+<span class="w">    </span><span class="p">[</span><span class="n">ADD</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">SUB</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">MUL</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">DIV</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">[</span><span class="n">DEREF</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">NEG</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">LPAREN</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">ASSIGN</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<p>接下来我们需要识别定义的这些 <code>token</code> ，<code>make_token()</code> 函数将一个输入的字符串切割为 <code>tokens</code> 进行存储</p>
+<p>此时所有的 token 都完成了分析，我们接下来采用递归求值的方式解析 token 串：</p>
+<p>根据 BNF （巴科斯范式），一个表达式的递归定义是这样的：</p>
+<ul>
+<li>一个数是表达式</li>
+<li>一个表达式两侧加上一对括号也是表达式</li>
+<li>两个表达式之间插入一个运算符也是表达式</li>
+</ul>
+<p>根据上面的三条规则，我们尝试拆解下面的式子：<code>(12+34)*56/(78-90)</code></p>
+<pre class="mermaid"><code>graph TD
+A["(12+34)*56/(78-90)"] --&gt; B(("/"))
+B(("/")) --&gt; C["(12+34)*56"]
+B(("/")) --&gt; D["(78-90)"]
+C["(12+34)*56"] --&gt; E(("*"))
+E(("*")) --&gt; F["(12+34)"]
+E(("*")) --&gt; G["56"]
+F["(12+34)"] --&gt; H["12+34"]
+H["12+34"] --&gt; I(("+"))
+I(("+")) --&gt; J["12"]
+I(("+")) --&gt; K["34"]
+D["(78-90)"] --&gt; L["78-90"]
+L["78-90"] --&gt; M(("-"))
+M(("-")) --&gt; N["78"]
+M(("-")) --&gt; O["90"]
+</code></pre>
+<p>将 token 串自顶向下转化为语法树后，接下来只需要自底向上进行实际计算，就能正确得到表达式的值，而以上操作都可以通过递归自然实现。我们令 <code>eval(p,q)</code> 表示计算 token 串的 <code>[p,q]</code> 部分：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">*</span><span class="w"> </span><span class="n">success</span><span class="p">){</span>
+<span class="w">    </span><span class="c1">// p &gt; q 不应该发生</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="o">*</span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="c1">// 一个数是表达式</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">endptr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">strtol</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">endptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">*</span><span class="n">endptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\033</span><span class="s">[31m[TOKEN ERROR] Bad number convention: %s</span><span class="se">\033</span><span class="s">[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">);</span>
+<span class="w">            </span><span class="o">*</span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="c1">// 一个表达式两侧加上一对括号也是表达式</span>
+<span class="w">    </span><span class="c1">// check_parentheses 函数判断 p,q 是否为一对匹配的括号</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">check_parentheses</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">eval</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="c1">// 两个表达式之间插入一个运算符也是表达式</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// choose_op 函数找到用于二分的索引</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">op_place</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">choose_op</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">);</span>
 
+<span class="w">        </span><span class="c1">// 递归计算符号两边的表达式</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">val1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">op_place</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!*</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">val2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eval</span><span class="p">(</span><span class="n">op_place</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!*</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
+<span class="w">        </span><span class="c1">// 符号两侧的结果进行计算</span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">op_place</span><span class="p">].</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">ADD</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">val2</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">SUB</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">val2</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">MUL</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">val2</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">DIV</span><span class="p">:</span><span class="w"> </span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">val2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span><span class="w">  </span><span class="c1">// 除零操作</span>
+<span class="w">                    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\033</span><span class="s">[31m[EVAL ERROR] Divided by zero when %u / %u</span><span class="se">\033</span><span class="s">[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">val1</span><span class="p">,</span><span class="w"> </span><span class="n">val2</span><span class="p">);</span>
+<span class="w">                    </span><span class="o">*</span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">val1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">val2</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// ...</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>这里 <code>check_parentheses</code> 的实现略，我们主要关注 <code>choose_op</code> 函数是如何选择 <code>dominant op</code> ，即表达式二分的界线：一句话来说， <code>choose_op</code> 函数的作用就是找到当前表达式中优先级最小的运算符，具体而言：</p>
+<ul>
+<li>这个运算符不能在括号中，因为括号提升了其内部符号的整体优先级（换个角度看，你不能分开左右括号）</li>
+<li>在上文的基础上，这个运算符的算符优先级应该最小，这个不需要解释</li>
+<li>在上文的基础上，应该选择最右边的运算符，因为同级运算符从左往右进行计算</li>
+</ul>
+<p>为什么要选择优先级最低的符号？因为越早被选中的符号在递归时越晚被用来计算，可以参考后序遍历和上面的示例图</p>
+<p>总结一下能得到下面的函数</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">choose_op</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">*</span><span class="w"> </span><span class="n">success</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans_pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">paren_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
+<span class="w">    </span><span class="c1">// 从右往左搜索</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">){</span>
+<span class="w">        </span><span class="c1">// 这里记录括号的嵌套情况</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RPAREN</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">paren_count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LPAREN</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">paren_count</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-  
-  
+<span class="w">        </span><span class="c1">// 只有没有括号嵌套的情况下才尝试寻找 dominant op</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">paren_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">TOKEN_COUNT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">this_pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opr_pre</span><span class="p">[</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="p">];</span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">this_pre</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">this_pre</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ans_pre</span><span class="p">){</span>
+<span class="w">                    </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">ans_pre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this_pre</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\033</span><span class="s">[31m[EVAL ERROR] Cannot find 'dominant op' from token[%d] to token[%d]</span><span class="se">\033</span><span class="s">[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">);</span>
+<span class="w">        </span><span class="o">*</span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Congrats! 表达式求值就这样完成了</p>
+<p>当然，目前只完成了最基础的四则运算，你接下来还需要考虑：</p>
+<p>在十进制数字的基础上，引入其它进制的数字与寄存器</p>
+<p>扩展更多的运算符，不仅是二元运算符，还包括“取反”等一元运算符</p>
+<p>如果一个表达式是有问题的，你的程序只会返回一个 invalid expression，还是会提示出错的位置和原因？不妨建立一个完善的error机制</p>
+<p>... ...</p>
+<h2 id="_4">添加变量与函数名支持</h2>
+<p>添加 Symbol 的支持由于给出了非常完整的前置函数，因此难度很小</p>
+<p>NEMU 在启动时已经调用了 <code>load_elf_tables()</code> 加载符号表</p>
+<p><code>extern uint32_t look_up_symtab(char *sym, bool *success);</code> 这个已实现的函数可以实现根据符号表返回地址</p>
+<p>定义一个 SYMB 枚举项，当作 NUM 一样处理，仅多一个取地址操作，用 vaddr 即可</p>
+<hr/>
+<h2 id="appendix-my-implement">Appendix : My implement</h2>
+<p>将我的实现过程根据完成度分为以下几个阶段</p>
+<ul>
+<li>实现十进制数四则运算</li>
+<li>扩充到其它进制的数与寄存器、实现更多的二元（逻辑）运算</li>
+<li>实现右结合的一元运算，实现 <code>*</code> <code>-</code> 等多义符号的语法判断</li>
+<li>添加符号表读写支持（实现 <code>=</code> 操作）</li>
+<li>添加本地变量支持（我采用 <code>new var = nums</code> 的结构定义本地变量，可以和符号表的已知符号混合使用）</li>
+<li>Beautify（添加详细的 error 报错信息）</li>
+</ul>
+</article>
+</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-      
-        <script src="../../../stylesheets/extra.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+<script src="../../../stylesheets/extra.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    startOnLoad: false
+}};</script></body>
 </html>
