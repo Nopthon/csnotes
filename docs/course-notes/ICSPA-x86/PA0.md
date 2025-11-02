@@ -45,8 +45,10 @@ PA0 的目的是熟悉 x86-PA 的实验环境
 个人建议在使用 Git 的同时保存一份完整的备份
 
 
-### "<font color = "#0e79a5">R</font>ead <font color= '#0e79a5'>T</font>he <del>Fxxking</del> <font color= '#0e79a5'>F</font>riendly <font color= '#0e79a5'>M</font>anual"
+### "<font color = "#0e79a5">R</font>ead <font color= '#0e79a5'>T</font>he <del>Fxxking</del> <font color= '#0e79a5'>F</font>riendly <font color= '#0e79a5'>M</font>anual && Textbook"
 
-字面意思，以及很多手册其实并没有那么 friendly，甚至是 buggy 的（比如 i386 manual）
+字面意思
 
-隐忍。
+尤其是 PA3 和 PA4，我建议你在打开 PA 手册前先翻一遍教材有大概印象，这两个 Part 涉及的内容不是很浅显，read before action
+
+推荐一个 wiki 网站，可能会对实现 PA 的各个阶段都有所帮助： [wiki.osdev.org](https://wiki.osdev.org)，连 NEMU creator 都参考了这个
