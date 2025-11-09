@@ -807,7 +807,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="csapp-bomblab-solution">CSAPP Bomblab Solution</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 2245 words  | 🐛 703 codelines  | ⏰ 16 min read | Enjoy 🎶</p>
+<p>✍ 3160 words  | 🐛 703 codelines  | ⏰ 19 min read | Enjoy 🎶</p>
 </div>
 <p>二进制炸弹 <code>Bomb</code> 是一个由多个阶段组成的程序，每个阶段会要求用户在 <code>stdin</code> 输入特定字符串。若输入正确，该阶段即被拆除并进入下一阶段；否则程序将输出"BOOM! ! ! "后终止（即炸弹爆炸）。只有当所有阶段均被拆除后，炸弹才算彻底解除。</p>
 <div class="admonition quote">
@@ -837,6 +837,7 @@
 <p><code>❯ objdump bomb -d -j .text</code> 开始拆弹（反编译代码段），可以看到很多标记点，而我们目前需要关注的只有 <code>&lt;main&gt;</code> 部分和 <code>&lt;phase&gt;</code> 部分。其中 <code>main</code> 部分从 <code>bomb.c</code> 文件中就能理解意思（初始化炸弹，检测输入判断炸弹是否爆炸等等），所以直接看六个阶段的汇编代码即可：</p>
 <p>（有趣的是有一个 <code>&lt;secret_phase&gt;</code> 标记点，这对应了 <code>bomb.c</code> 中暗示的隐藏炸弹）</p>
 <hr/>
+<p><br/></p>
 <h3 id="phase-1">Phase 1</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -881,6 +882,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 <p><strong><code>U</code></strong>：单位大小（如字节、字、双字等）。</p>
 <p><strong><code>&lt;address&gt;</code></strong>：内存地址（可以是寄存器、变量名或直接地址）。</p>
 </div>
+<p><br/></p>
 <h3 id="phase-2">Phase 2</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1004,6 +1006,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>由此可见，接下来的五个数字都要求每个数字是上一个数字的两倍，因此第二个答案是 <code>1 2 4 8 16 32</code> </p>
+<p><br/></p>
 <h3 id="phase-3">Phase 3</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1207,6 +1210,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 </tr>
 </table>
 <p>在上面的组合中随意选择一项作为答案就可以拆除第三个炸弹，比如 <code>2 707</code> </p>
+<p><br/></p>
 <h3 id="phase-4">Phase 4</h3>
 <p>（减少了注释量）</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1392,6 +1396,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 <p>所以我的第一个输入必须可以直接在二分查找的时候被精准定位：</p>
 <p><code>14 // 2 = 7</code> <code>7 // 2 = 3</code> <code>3 // 2 = 1</code> <code>1 // 2 = 0</code> 这四次二分查找时出现的中间值 <code>mid</code> 就是所有成立的第一个输入</p>
 <p>也就是说 <code>7 0</code> <code>3 0</code> <code>1 0</code> <code>0 0</code> 都是正确答案</p>
+<p><br/></p>
 <h3 id="phase-5">Phase 5</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1663,6 +1668,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 </tbody>
 </table>
 <p>所以正确答案的六个字符的 ASCII 码低四位应该依次为 <code>1001</code> <code>1111</code> <code>1110</code> <code>0101</code> <code>0110</code> <code>0111</code> ，比如 <code>ionefg</code> <code>yonuvw</code> </p>
+<p><br/></p>
 <h3 id="phase-6">Phase 6</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2168,6 +2174,7 @@ GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Ub
 <span class="w">  </span><span class="err">401203:</span><span class="w">   </span><span class="nf">c3</span><span class="w">                      </span><span class="no">ret</span><span class="w"> </span>
 </code></pre></div></td></tr></table></div>
 <p>清理栈帧并恢复被调用者保存的寄存器，不需要多分析</p>
+<p><br/></p>
 <h3 id="secret-phase">Secret Phase</h3>
 <p>结束六个常规的 Phase 后并没有发现任何触发 Secret Phase 的代码段，这里采用了一个比较投机的操作：搜索出现了 <code>401242</code> 地址的函数</p>
 <p>函数 <code>&lt;phase_defused&gt;</code> 的使用场景是：在 main 函数中，在每一个炸弹被拆除时被调用，而 <code>401630</code> 地址处出现了跳转至隐藏阶段的跳转函数，对这个函数的相关部分进行分析：</p>
@@ -2428,16 +2435,16 @@ Breakpoint 1, 0x0000000000401062 in phase_5 ()
     n1["n1 (0x6030f0)<br>val: 36"]
 
     n1 --&gt; n21["n21 (0x603110)<br>val: 8"]
-    n1 --&gt; n22["n22 (0x603130)<br/>val: 50"]
+    n1 --&gt; n22["n22 (0x603130)<br>val: 50"]
 
-    n21 --&gt; n31["n31 (0x603190)<br/>val: 6"]
-    n21 --&gt; n32["n32 (0x603150)<br/>val: 22"]
+    n21 --&gt; n31["n31 (0x603190)<br>val: 6"]
+    n21 --&gt; n32["n32 (0x603150)<br>val: 22"]
 
-    n22 --&gt; n33["n33 (0x603170)<br/>val: 45"]
-    n22 --&gt; n34["n34 (0x6031b0)<br/>val: 107"]
+    n22 --&gt; n33["n33 (0x603170)<br>val: 45"]
+    n22 --&gt; n34["n34 (0x6031b0)<br>val: 107"]
 
-    n31 --&gt; n41["n41 (0x6031f0)<br/>val: 1"]
-    n31 --&gt; n42["n42 (0x603250)<br/>val: 7"]
+    n31 --&gt; n41["n41 (0x6031f0)<br>val: 1"]
+    n31 --&gt; n42["n42 (0x603250)<br>val: 7"]
 
     n32 --&gt; n43["n43 (0x603270)<br/>val: 20"]
     n32 --&gt; n44["n44 (0x603230)<br/>val: 35"]
@@ -2447,7 +2454,7 @@ Breakpoint 1, 0x0000000000401062 in phase_5 ()
 
     n34 --&gt; n47["n47 (0x603210)<br/>val: 99"]
     n34 --&gt; n48["n48 (0x6032b0)<br/>val: 1001"]
-</br></br></code></pre>
+</br></br></br></br></br></br></br></br></br></code></pre>
 <p>不难看出这是一个<a href="https://oiwiki.org/ds/bst/">二叉搜索树</a>，而 <code>fun7</code> 的作用可以用 C 语言这样表示：（参见<a href="https://oiwiki.org/ds/bst/#%E6%90%9C%E7%B4%A2%E5%85%83%E7%B4%A0">搜索元素</a>，代码非常相近）</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

@@ -1974,10 +1974,10 @@
 
 <h1 id="ics-binalab-solution">ICS Binalab Solution</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 3212 words  | 🐛 1023 codelines  | ⏰ 23 min read | Enjoy 🎶</p>
+<p>✍ 3298 words  | 🐛 1023 codelines  | ⏰ 24 min read | Enjoy 🎶</p>
 </div>
 <p>和 CSAPP Bomblab 的内容大致相同，Binalab 将每个 Phase 进行了拆分处理与随机化处理</p>
-<p>通过动态调试 / 静态分析二进制文件，为每个 Phase 的二进制文件构造一个正确的输入，就可以完成每个 Phase 的任务</p>
+<p>通过动态调试 / 静态分析二进制文件，<strong>为每个 Phase 的二进制文件构造一个正确的输入</strong>，就可以完成每个 Phase 的任务</p>
 <div class="admonition quote">
 <p class="admonition-title">随笔</p>
 <p>完成校内 ICS 课程的 Binalab 之前，我在暑假完成了 CSAPP 的 Bomblab，这两个 Lab 的做法没有明显区别，因此这里的 Solution 会相对简略</p>
@@ -2181,6 +2181,7 @@
 <p><code>&lt;fixinput&gt;</code> 函数用于将字符串输入结尾的 <code>\n</code> 替换为 <code>\0</code>，而在调用 <code>&lt;phase&gt;</code> 函数之前的 <code>mov</code> 操作将输入首地址 <code>$0x601140</code> 赋值给了 <code>%edi</code>，因此在接下来的 Phase 中，用户输入的首地址是由 <code>%rdi</code> 传入的（至于理解传入后的压栈等操作，那是 Phase 内的任务）</p>
 <p>另外，如果你看到了一些看上去把简单的事情复杂化的代码片段，那是编译器不执行任何优化的结果，比如 Phase 1 的 <code>%rdi</code> 传递</p>
 <p>另另外，如果你发现了 <code>&lt;__func_DumwPqNk&gt;</code> 这样的什么都不做的函数，那大概率是给每个学生的作业标记</p>
+<p><br></p>
 <h3 id="phase-1">Phase 1: 字符串比较</h3>
 <p>使用 <code>objdump -d phasex</code> 进行反汇编，给出 <code>&lt;phase&gt;</code> 函数与其他解题相关的函数的汇编（之后不再介绍）</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2228,6 +2229,7 @@
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>Early PCs used physical addressing.</code></strong>（随机）</p>
 </details>
+<p><br></p>
 <h3 id="phase-2">Phase 2: 浮点数表示</h3>
 <p>相比 CSAPP 特有的 Phase</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2318,6 +2320,7 @@
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>-1879048192 -1045848179</code></strong></p>
 </details>
+<p><br></p>
 <h3 id="phase-3">Phase 3: 循环</h3>
 <p>为了方便阅读，将一段长代码的各个子部分通过换行符分隔</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2506,6 +2509,7 @@
 <summary>这里是答案</summary>
 <p>Answer: <code>wZODF</code></p>
 </details>
+<p><br></p>
 <h3 id="phase-4">Phase 4: 选择（条件分支）</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2792,6 +2796,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>DFFFDFFDFDFFDFDFFDFFDFFDFFFFDFDFDFDFDFDFDFDFDFFDFFD</code></strong>（不唯一）</p>
 </details>
+<p><br></p>
 <h3 id="phase-5">Phase 5: 递归调用</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3000,6 +3005,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>0x1f</code></strong>（不唯一）</p>
 </details>
+<p><br></p>
 <h3 id="phase-6">Phase 6: 数组</h3>
 <div class="admonition question">
 <p class="admonition-title">前排提醒，这题的随机化非常随机，不同版本可能和下面的函数差别很大</p>
@@ -3180,6 +3186,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>0 3 2 7 0 1</code></strong></p>
 </details>
+<p><br></p>
 <h3 id="phase-7">Phase 7: 指针</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3693,6 +3700,7 @@ Congratulations! You&#39;ve completed phase 4 successfully.
 <summary>这里是答案</summary>
 <p><strong>Answer: <code>1 4 11 13 15</code></strong> （不唯一，五个数字的顺序随意，也不一定必须是这五个数字） </p>
 </details>
+<p><br></p>
 <h3 id="phase-8">Phase 8: 结构与链表/树</h3>
 <div class="admonition question">
 <p class="admonition-title">这里是二叉树版本，还有一个链表版本的</p>

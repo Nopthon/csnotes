@@ -1777,7 +1777,7 @@
         <li class="md-nav__item">
   <a href="#datalab" class="md-nav__link">
     <span class="md-ellipsis">
-      附 Datalab 题目限制
+      附：Datalab 题目限制
     </span>
   </a>
   
@@ -2037,7 +2037,7 @@
         <li class="md-nav__item">
   <a href="#datalab" class="md-nav__link">
     <span class="md-ellipsis">
-      附 Datalab 题目限制
+      附：Datalab 题目限制
     </span>
   </a>
   
@@ -2064,10 +2064,11 @@
 
 <h1 id="csapp-datalab-solution">CSAPP Datalab Solution</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 2502 words  | 🐛 183 codelines  | ⏰ 11 min read | Enjoy 🎶</p>
+<p>✍ 2525 words  | 🐛 183 codelines  | ⏰ 11 min read | Enjoy 🎶</p>
 </div>
 <p>使用 C 语言，在限定条件下，在 <code>bits.c</code> 文件中实现下列函数：</p>
 <p>具体的限制条件参考 <a href="https://csapp.cs.cmu.edu/3e/datalab-handout.tar">Self-Study Handout</a>，一个简略的限制条件说明放在了结尾</p>
+<p>下表中的 <code>Max Ops Allowed</code> 字段表示“最多可以使用的操作符个数”</p>
 <table>
 <thead>
 <tr>
@@ -2140,7 +2141,7 @@
 <tr>
 <td><strong>floatPower2(x)</strong></td>
 <td>返回与表达式 <code>2.0 ^ x</code> 等价的二进制位表示</td>
-<td>3</td>
+<td>30</td>
 </tr>
 </tbody>
 </table>
@@ -2278,17 +2279,13 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>```C
-/*  Examples: howManyBits(12) = 5                   (0 1100)
- *            howManyBits(298) = 10                 (0 100101010)
- *            howManyBits(-5) = 4                   (1 011)
- *            howManyBits(0)  = 1                   (0)
- *            howManyBits(-1) = 1                   (1)
- *            howManyBits(0x80000000) = 32          (1 + 31*0)
- */
-```
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/*  Examples: howManyBits(12) = 5                   (0 1100)</span>
+<span class="cm"> *            howManyBits(298) = 10                 (0 100101010)</span>
+<span class="cm"> *            howManyBits(-5) = 4                   (1 011)</span>
+<span class="cm"> *            howManyBits(0)  = 1                   (0)</span>
+<span class="cm"> *            howManyBits(-1) = 1                   (1)</span>
+<span class="cm"> *            howManyBits(0x80000000) = 32          (1 + 31*0)</span>
+<span class="cm"> */</span>
 </code></pre></div></td></tr></table></div>
 <p><code>int</code> 部分题目的最难题，甚至给了最多 90 步的限制，是场恶战</p>
 <p>首先 <code>x</code> 的值为 <code>0</code> 和 <code>-1</code> 都是特殊情况（只需要符号位表示），先留意一下</p>
@@ -2607,7 +2604,7 @@ $$</p>
 
 <span class="n">Score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62</span><span class="o">/</span><span class="mi">62</span><span class="w"> </span><span class="p">[</span><span class="mi">36</span><span class="o">/</span><span class="mi">36</span><span class="w"> </span><span class="n">Corr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">26</span><span class="o">/</span><span class="mi">26</span><span class="w"> </span><span class="n">Perf</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="mi">148</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">operators</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="datalab">附 Datalab 题目限制</h2>
+<h2 id="datalab">附：Datalab 题目限制</h2>
 <blockquote>
 <ul>
 <li>整数编码规则（前十题）</li>
