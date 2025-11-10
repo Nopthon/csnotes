@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../linkedlist/">
+        <link rel="prev" href="../course-notes/ICSPA-x86/">
       
       
-        <link rel="next" href="../stack/">
+        <link rel="next" href="../course-notes/Network-attack-and-defense-in-action/lab01/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>STL vector ref - CSNote</title>
+        <title>Closed temporaily - CSNote</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
@@ -56,7 +56,7 @@
     
       <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,11 +79,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#vector-reference" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +89,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+    <a href=".." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STL vector ref
+              Closed temporaily
             
           </span>
         </div>
@@ -159,7 +154,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -176,13 +171,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../OI-Learning/" class="md-tabs__link">
           
   
   
@@ -198,11 +191,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../course-notes/intro/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../course-notes/intro/" class="md-tabs__link">
           
   
   
@@ -236,7 +231,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+    <a href=".." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -266,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -285,29 +280,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -320,7 +310,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             OI-learning
@@ -334,7 +324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../OI-Learning/" class="md-nav__link">
         
   
   
@@ -357,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../C%2B%2B%20OOP/" class="md-nav__link">
+      <a href="../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
         
   
   
@@ -421,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/STL_algorithm/" class="md-nav__link">
+      <a href="../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
         
   
   
@@ -444,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/fastpow/" class="md-nav__link">
+      <a href="../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
         
   
   
@@ -472,8 +462,6 @@
                 
   
   
-    
-  
   
   
     
@@ -484,11 +472,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -504,7 +492,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Data Structure
@@ -559,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tree/tree-intro/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
         
   
   
@@ -582,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tree/binatree/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
         
   
   
@@ -605,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tree/binatree-template/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/Tree/binatree-template/" class="md-nav__link">
         
   
   
@@ -677,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Graph/union-find/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/Graph/union-find/" class="md-nav__link">
         
   
   
@@ -708,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linkedlist/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
         
   
   
@@ -728,19 +716,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../OI-Learning/Data-Structure/vector/" class="md-nav__link">
         
   
   
@@ -751,7 +730,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -764,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stack/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/stack/" class="md-nav__link">
         
   
   
@@ -787,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../queue/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/queue/" class="md-nav__link">
         
   
   
@@ -810,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hashmap/" class="md-nav__link">
+      <a href="../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
         
   
   
@@ -845,24 +823,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -875,7 +858,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Course Notes
@@ -889,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/intro/" class="md-nav__link">
+      <a href="../course-notes/intro/" class="md-nav__link">
         
   
   
@@ -909,6 +892,8 @@
                 
   
   
+    
+  
   
   
     
@@ -919,11 +904,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -939,7 +924,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             ICSPA x86 note
@@ -953,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICSPA-x86/" class="md-nav__link">
+      <a href="../course-notes/ICSPA-x86/" class="md-nav__link">
         
   
   
@@ -973,10 +958,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../404/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -987,6 +979,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1048,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
         
   
   
@@ -1071,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
         
   
   
@@ -1094,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
         
   
   
@@ -1117,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
         
   
   
@@ -1140,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
         
   
   
@@ -1163,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
         
   
   
@@ -1186,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
+      <a href="../course-notes/Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
         
   
   
@@ -1258,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
+      <a href="../course-notes/ICS%26%26CSAPP-Lab/intro/" class="md-nav__link">
         
   
   
@@ -1281,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
+      <a href="../course-notes/ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
         
   
   
@@ -1304,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
+      <a href="../course-notes/ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
         
   
   
@@ -1327,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
+      <a href="../course-notes/ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
         
   
   
@@ -1350,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Linklab/" class="md-nav__link">
+      <a href="../course-notes/ICS%26%26CSAPP-Lab/Linklab/" class="md-nav__link">
         
   
   
@@ -1398,8 +1391,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -1418,73 +1409,13 @@
   
 
 
-<h1 id="vector-reference"><code>&lt;vector&gt;</code> reference</h1>
+  <h1>Closed temporaily</h1>
+
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 15 words  | 🐛 30 codelines  | ⏰ &lt; 1 min read | Enjoy 🎶</p>
+<p>✍ 8 words  | ⏰ &lt; 1 min read | Enjoy 🎶</p>
 </div>
-<p>一个 <code>vector</code> 的 reference</p>
-<p>初始化方法</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">;</span><span class="w">                            </span><span class="c1">// 定义存储 int 类型数据的向量</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                    </span><span class="c1">// 定义长度为 len ，每个元素全部初始化为 x</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span><span class="w">                  </span><span class="c1">// 字面量初始化</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span><span class="w">                        </span><span class="c1">// 将 v1 复制给 vec</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="c1">// 将 v[0] ~ v[k] 初始化赋值给vec</span>
-</code></pre></div></td></tr></table></div>
-<p>内置函数</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 迭代器可以理解为容器的更智能的指针</span>
-<span class="c1">// 范围操作时，区间基本是左闭右开的</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">VALUE</span><span class="p">);</span><span class="w">                       </span><span class="c1">// 尾插值 VALUE</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span><span class="w">                             </span><span class="c1">// 删除尾端元素</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="w">                                </span><span class="c1">// 清空vec</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span><span class="w">                              </span><span class="c1">// 删除it指向的元素，返回值是被移除元素的后一个元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it1</span><span class="p">,</span><span class="w"> </span><span class="n">it2</span><span class="p">);</span><span class="w">                        </span><span class="c1">// 删除[it1, it2)之间的元素（左闭右开），返回值是被移除范围之后元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="p">);</span><span class="w">                      </span><span class="c1">// 在it指向的元素之前插入VALUE，返回值是被插入元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="p">);</span><span class="w">                   </span><span class="c1">// 在it指向的元素之前插入n个VALUE，返回值是被插入的首个元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">it1</span><span class="p">,</span><span class="w"> </span><span class="n">it2</span><span class="p">);</span><span class="w">                   </span><span class="c1">// 在it指向的元素之前插入[it1, it2)对应的元素，返回值同上</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w">                                 </span><span class="c1">// 相当于 vec[idx]，但是有越界检查，会 throw error（因此更慢）</span>
-
-<span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w">                                 </span><span class="c1">// 返回vec长度（int）</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span><span class="w">                                </span><span class="c1">// 返回vec是否为空（bool）</span>
-
-<span class="n">vec</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="w">                                </span><span class="c1">// 返回vec首元素的引用</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">back</span><span class="p">();</span><span class="w">                                 </span><span class="c1">// 返回vec尾元素的引用</span>
-
-<span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w">                                </span><span class="c1">// 指向vec首元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w">                                  </span><span class="c1">// 指向vec尾元素之后的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span><span class="w">                               </span><span class="c1">// 指向vec尾元素的迭代器</span>
-<span class="n">vec</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span><span class="w">                                 </span><span class="c1">// 指向vec首元素之前的迭代器</span>
-
-<span class="c1">// 在下面的例子中，++rit 表示反向前进一格，而不是正向前进</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">rit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">rbegin</span><span class="p">();</span><span class="w"> </span><span class="n">rit</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">rend</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">rit</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">rit</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-</code></pre></div></td></tr></table></div>
+<p>404 not found</p>
+<p>how did you find here?</p>
 
 
 
@@ -1542,12 +1473,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.cop", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.cop", "navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="../../../stylesheets/extra.js"></script>
+        <script src="../stylesheets/extra.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
       
