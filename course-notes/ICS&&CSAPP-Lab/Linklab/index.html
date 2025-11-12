@@ -1734,7 +1734,7 @@
 
 <h1 id="ics-linklab-solution">ICS Linklab Solution</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 4676 words  | 🐛 1779 codelines  | ⏰ 38 min read | Enjoy 🎶</p>
+<p>✍ 4704 words  | 🐛 1779 codelines  | ⏰ 38 min read | Enjoy 🎶</p>
 </div>
 <p><del>CSAPP 里没有直接对应的 Lab，是原创，win</del></p>
 <p>我怎么感觉很多学校都有这个 Lab</p>
@@ -4307,6 +4307,7 @@ X   F L             K     C   I           B A U     # 修改后的值原本对�
 <p>2- <code>generate_code</code>  中缺失的 <code>transform_code</code> 重定位也补上（1 条）</p>
 <p>3- 推测 <code>do_phase</code> 中的 <code>encode[?](stu_id);</code> 这一句对应的是哪个 <code>encode</code> 函数，补上对应的重定义信息；另外 <code>puts</code> 函数的入口参数也修正一下（2 条）</p>
 <p>​   除了重定位信息都不能修改，说明两个 <code>encode</code> 函数总有一个是可以输出预期结果的</p>
+<p>​   这里我的答案是 <code>encoder - 4</code> 表示 <code>encode_1</code> 函数，也有可能是 <code>encoder + 4</code> 表示 <code>encode_2</code> 函数</p>
 <p>4- 还有一处缺失的重定位信息在 <code>.rela.data</code> 段，我们过一会再说</p>
 <p>我们直接补上前三条步骤中缺失的重定位信息（补充的信息结尾加了 <code>·</code> 符号）：</p>
 <details class="abstract">

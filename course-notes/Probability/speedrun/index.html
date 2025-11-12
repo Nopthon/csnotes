@@ -1972,7 +1972,7 @@
           <li class="md-nav__item">
   <a href="#_41" class="md-nav__link">
     <span class="md-ellipsis">
-      柯西·施瓦兹不等式的概率论形式
+      柯西 · 施瓦兹不等式的概率论形式
     </span>
   </a>
   
@@ -1980,6 +1980,24 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩和协方差阵
+    </span>
+  </a>
   
 </li>
         
@@ -2505,7 +2523,7 @@
           <li class="md-nav__item">
   <a href="#_41" class="md-nav__link">
     <span class="md-ellipsis">
-      柯西·施瓦兹不等式的概率论形式
+      柯西 · 施瓦兹不等式的概率论形式
     </span>
   </a>
   
@@ -2513,6 +2531,24 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      矩和协方差阵
+    </span>
+  </a>
   
 </li>
         
@@ -2542,7 +2578,7 @@
 
 <h1 id="_1">知识点速通</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 4659 words  | ⏰ 16 min read | Enjoy 🎶</p>
+<p>✍ 5339 words  | ⏰ 18 min read | Enjoy 🎶</p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">太基础的知识点以至于高中就掌握熟练的不抄书了</p>
@@ -2820,7 +2856,7 @@ $$
 <h2 id="_17">第三章 二维随机变量及其分布</h2>
 <h3 id="_18">二维随机变量的分布函数</h3>
 <h4 id="_19">联合分布</h4>
-<p>$F(x,y)=P{X\leq x,Y\leq y}$ 为二维随机变量的（联合）分布函数。如果将 $(X, Y)$ 看成平面上随机点的坐标，则分布函数 $F(x, y)$ 在$ (x , y)$ 处的函数值就是随机点 $(X, Y)$ 落入以 $(x , y)$ 为右上顶点的无穷矩形区域的概率</p>
+<p>$F(x,y)=P\lbrace X\leq x,Y\leq y\rbrace$ 为二维随机变量的（联合）分布函数。如果将 $(X, Y)$ 看成平面上随机点的坐标，则分布函数 $F(x, y)$ 在$ (x , y)$ 处的函数值就是随机点 $(X, Y)$ 落入以 $(x , y)$ 为右上顶点的无穷矩形区域的概率</p>
 <p>二维随机变量的分布函数和一维的性质相近</p>
 <p>$F(x,y)$ 分别对于 $x,y$ 单调不减，$F(-\infty, y) = F(x, -\infty) = 0, \; F(+\infty, +\infty) = 1$ </p>
 <p>$F(x,y)$ 关于 $x,y$ 右连续</p>
@@ -2959,7 +2995,7 @@ $$</p>
 <details class="quote">
 <summary>完整的推导过程</summary>
 <p>$$
-\begin{aligned}F_{X|Y=y}(x)\;&amp;\begin{aligned}=\lim_{\varepsilon\to0}\frac{P(X\leqslant x,y\leqslant Y&lt;y+\varepsilon)}{P(y\leqslant Y&lt;y+\varepsilon)}=\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{F_Y(y+\varepsilon)-F_Y(y)}\end{aligned}\\&amp;=\frac{\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{\varepsilon}}{\lim_{\varepsilon\to0}\frac{F_Y(y+\varepsilon)-F_Y(y)}{\varepsilon}}=\frac{\frac{\partial F(x,y)}{\partial y}}{\frac{\mathrm{d}}{\mathrm{d}y}F_Y(y)}\\&amp;\begin{aligned}&amp;=\frac{\frac{\partial}{\partial y}\int_{-\infty}^x\int_{-\infty}^yp(u,v)\mathrm{d}u\mathrm{d}v}{p_Y(y)}=\frac{\int_{-\infty}^xp(u,y)\mathrm{d}u}{p_Y(y)}=\int_{-\infty}^x\frac{p(u,y)}{p_Y(y)}\mathrm{d}u\end{aligned}\end{aligned}
+\begin{aligned}F_{X|Y=y}(x)\;&amp;\begin{aligned}=\lim_{\varepsilon\to0}\frac{P(X\leqslant x,y\leqslant Y&lt;y+\varepsilon)}{P(y\leqslant Y&lt;y+\varepsilon)}=\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{F_Y(y+\varepsilon)-F_Y(y)}\end{aligned}\\&amp;=\frac{\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{\varepsilon}}{\lim_{\varepsilon\to0}\frac{F_Y(y+\varepsilon)-F_Y(y)}{\varepsilon}}=\frac{\frac{\partial F(x,y)}{\partial y}}{\frac{d}{dy}F_Y(y)}\\&amp;\begin{aligned}&amp;=\frac{\frac{\partial}{\partial y}\int_{-\infty}^x\int_{-\infty}^yp(u,v)dudv}{p_Y(y)}=\frac{\int_{-\infty}^xp(u,y)du}{p_Y(y)}=\int_{-\infty}^x\frac{p(u,y)}{p_Y(y)}du\end{aligned}\end{aligned}
 $$</p>
 </details>
 <p>因此
@@ -3064,23 +3100,23 @@ $$
 <li>几何分布 $X \sim g(p)$ </li>
 </ul>
 <p>$$
-EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} = \frac{1}{p} \\
-DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = \frac{1-p}{p^2}
+EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{yellow}{\frac{1}{p} }}\\
+DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = {\color{yellow}{\frac{1-p}{p^2}}}
 $$</p>
 <ul>
 <li>二项分布 $X \sim B(n,p)$ </li>
 </ul>
 <p>$$
-EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = np \\
-DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D(X_k) \right)= np(1-p)
+EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{yellow}{np}} \\
+DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D(X_k) \right)= {\color{yellow}{np(1-p)}}
 $$</p>
 <p>（括号里的内容为通过期望/方差的性质进行的简化运算）</p>
 <ul>
 <li>泊松分布 $X \sim P(\lambda)$ </li>
 </ul>
 <p>$$
-EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = \lambda \\
-D(X) = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = \lambda
+EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{yellow}{\lambda}} \\
+D(X) = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{yellow}{\lambda}}
 $$</p>
 <p><br></p>
 <h4 id="_35">连续型</h4>
@@ -3101,22 +3137,22 @@ $$
 <li>均匀分布 $X \sim U[a,b]$ </li>
 </ul>
 <p>$$
-EX = \frac{a+b}{2} \\
-DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = \frac{(b-a)^2}{12}
+EX = {\color{yellow}{\frac{a+b}{2}}} \\
+DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = {\color{yellow}{\frac{(b-a)^2}{12}}}
 $$</p>
 <ul>
 <li>指数分布 $X \sim E(\lambda)$ </li>
 </ul>
 <p>$$
-EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = \frac{1}{\lambda} \\
-DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = \frac{2}{\lambda^2}
+EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{yellow}{\frac{1}{\lambda} }}\\
+DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{yellow}{ \frac{2}{\lambda^2}}}
 $$</p>
 <ul>
 <li>正态分布 $X \sim N(\mu, \sigma^2)$ </li>
 </ul>
 <p>$$
-EX = \mu \\
-DX = \rho^2
+EX = {\color{yellow}{\mu}} \\
+DX = {\color{yellow}{\rho^2}}
 $$</p>
 <p>（计算量偏大，并且需要借助高斯积分归一化）</p>
 <p><br></p>
@@ -3132,12 +3168,14 @@ $$</p>
 <p>上述结论可以推广到 $Z = g(X,Y)$ 的数学期望，对应二重求和 / 积分</p>
 <p>对于任意随机变量</p>
 <ul>
+<li>$E(a) = a$ </li>
 <li>$E(aX+bY) = aEX+bEY$ </li>
 <li>$X,Y$ 相互独立 $\longrightarrow E(XY)=EX\cdot EY$ </li>
 </ul>
 <h3 id="_38">方差的性质</h3>
 <p>对于任意随机变量</p>
 <ul>
+<li>$D(a) = 0$</li>
 <li>$D(aX+b) = a^2DX$ </li>
 <li>$D(X ± Y) = DX + DY ± 2E[(X-EX)(Y-EY)]$，当 $X,Y$ 相互独立时化简为 $D(X ± Y) = DX + DY$ </li>
 </ul>
@@ -3151,9 +3189,7 @@ $$</p>
 <details class="abstract" open="open">
 <summary>Proof</summary>
 <p>$$
-P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\left{x:\left|x-EX\right|\geqslant\varepsilon\right}}p(x)\mathrm{d}x\leqslant\int\limits_{\left{x:\left|x-EX\right|\geqslant\varepsilon\right}}\frac{(x-EX)^2}{\varepsilon^2}p(x)\mathrm{d}x
-\\
-\leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)\mathrm{d}x=\frac{DX}{\varepsilon^2}
+P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
 $$</p>
 </details>
 <p>可以借助证明：$DX = 0 \longrightarrow X = c$ </p>
@@ -3177,7 +3213,7 @@ $$
 </li>
 </ul>
 <p><br></p>
-<h4 id="_41">柯西·施瓦兹不等式的概率论形式</h4>
+<h4 id="_41">柯西 · 施瓦兹不等式的概率论形式</h4>
 <p>若  $X,Y$ 方差存在，则
 $$
 [\text{cov}(X,Y)]^2 \leqslant DX\cdot DY
@@ -3195,6 +3231,53 @@ $$
 $$</p>
 <p>取等条件是存在 $a,b$ 不全为零，$af(x) = bg(x)$ 几乎处处成立</p>
 </div>
+<h3 id="_42">相关系数</h3>
+<div class="admonition abstract">
+<p>回顾：正态分布的标准化：$X\sim N(μ,σ^2) \to \frac{x-μ}{σ} \sim N(0,1)$，标准正态分布的期望为 $0$，方差为 $1$</p>
+</div>
+<p>已知随机变量 $X$ 的期望和方差，我们令</p>
+<p>$$
+X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
+$$</p>
+<p>计算得到 $EX^\ast = 0,\; DX^\ast = 1$， 此时称 $X^*$ 为 $X$ 的标准化随机变量</p>
+<p>上式中记 $EX = \mu,\;DX = \sigma^2$ </p>
+<p>在此基础上定义 $X,Y$ 的相关系数：设 $DX, DY &gt; 0$，则</p>
+<p>$$
+\rho_{X\,Y} = \dfrac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}} = \text{cov}(X^{\ast}, Y^{\ast})
+$$</p>
+<p>记 $\rho_{X\,Y}$ 为 $X,Y$ 的相关系数，根据柯西 · 施瓦兹不等式 $[\text{cov}(X,Y)]^2 \leqslant DX\cdot DY$，得到 $|\rho_{X\,Y}| \leqslant 1$，取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$ </p>
+<p>上面的性质表明，相关系数 $ρ_{X\,Y}$ 刻画了 $X$ 和 $Y$ 间的线性相关特征。 $|ρ_{X\,Y}|$ 越大，表明 $X$ 和 $Y$ 之间线性关系越密切，当 $|ρ_{X\,Y}| = 1$ 时表明 $X$ 和 $Y$ 以概率 $1$ 线性相关。反之，若 $|ρ_{X\,Y}|$ 越小，表明 $X$ 和 $Y$ 的线性关系越弱。</p>
+<div class="admonition abstract">
+<p>$\rho_{X\,Y}$ 描述了两个随机事件的线性相关特征；独立性描述了两个随机事件的相关性</p>
+</div>
+<p>特别地，若 $ρ_{X\,Y} = 0$，我们称 $X,Y$ 线性无关（不相关），容易得到以下等式</p>
+<p>$$
+ρ_{X\,Y} = 0 \Leftrightarrow \text{cov}(X,Y) = 0 \Leftrightarrow E(XY)=EX\cdot EY \Leftrightarrow D(X±Y) = DX ± D(Y)
+$$</p>
+<p>独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 $(X,Y)\sim N(\mu_!,\mu_2,\sigma_1^2, \sigma_2^2,\rho)$ 中 $\rho_{X\,Y} = \rho$，而 $X,Y$ 相互独立的充要条件即 $\rho = 0$ </p>
+<h3 id="_43">矩和协方差阵</h3>
+<div class="admonition warning">
+<p>考试不考，写的简单一点</p>
+</div>
+<p>矩可以看作期望的推广：对于随机变量 $X$，$X^k$ 的数学期望 $EX^k$ 为 $X$ 的 $k$ 阶（原点）矩；标准化后 $E(X-EX)^k$ 为 $X$ 的 $k$ 阶<strong>中心</strong>矩</p>
+<p>（矩的存在性类比 $EX$ 的存在性）</p>
+<p>将随机变量标准化后的三阶矩 $E\left(\dfrac{X-EX}{\sqrt{D(X)}}\right)^3 = \dfrac{E(X-\mu)^3}{\sigma^3}$ 记为偏度；$\dfrac{E(X-EX)^4}{\sigma^4}$ 记为峰度</p>
+<p><br></p>
+<p>对于 $n$ 维随机向量 $X = (X_1,\cdots,X_n)^T$，称</p>
+<p>$$
+EX = (EX_1,\cdots,EX_n)^T
+$$</p>
+<p>为 $X$ 的数学期望；记 $c_{ij} = \text{cov}(X_i, X_j)$ ，称矩阵</p>
+<p>$$
+\Sigma =
+\begin{pmatrix}
+c_{11} &amp; c_{12} &amp; \cdots &amp; c_{1n} \\
+c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+c_{n1} &amp; c_{n2} &amp; \cdots &amp; c_{nn}
+\end{pmatrix}
+$$</p>
+<p>为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\\sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}$ </p>
 
 
 
