@@ -1662,6 +1662,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1868,7 +1891,7 @@
 
 <h1 id="_1">二叉树基础</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 4094 words  | 🐛 651 codelines  | ⏰ 22 min read | Enjoy 🎶</p>
+<p>✍ 3031 words  | 🐛 651 codelines  | ⏰ 18 min read | Enjoy 🎶</p>
 </div>
 <h2 id="_2">定义</h2>
 <p>二叉树是一类有序树，要求每个节点的子节点个数不超过 2，因此其结构形态共有五种：空树、无子树的根、只有左子树、只有右子树、有左右子树</p>
@@ -1899,9 +1922,9 @@
 <li>
 <p>二叉树的第 $i$ 层最多有 $2^{i-1}$ 个节点（1-index）</p>
 </li>
-<li>深度为 $k$ 的二叉树最少有 $k$ 个节点（斜树），最多有 $2^k-1$ 个节点（满二叉树）</li>
-<li>xxxxxxxxxx138 1/<em> 前序遍历 </em>/2// 根节点 --&gt; 左子树 --&gt; 右子树3// 从根节点开始一路沿左子树向下遍历4// 期间直接 visit 沿路节点（确保根节点最先被 visit），栈存储沿路节点的右子节点5// 每次抵达尽头时，取出栈顶，转移到右子节点重复左子树遍历的过程6void PreOrder(treeNode<em> root, void (</em>visit)(treeNode<em> t)) {7    if (root == nullptr) return;8​9    stack<treeNode*> s;    // 存的是待处理的右子树节点10    treeNode</em> p = root;    // p 是遍历指针，初始化为 root11​12    while (p != nullptr || !s.empty()) {13        // DFS 遍历左子树14        // PreOrder(subTree-&gt;leftChild, visit);15        while (p != nullptr) {16            // 从根节点开始深入访问17            visit(p);18            // 右节点入栈19            // 因为栈先进后出的特性，最后进栈（递归最深）的右节点会最先出栈处理20            if (p-&gt;rightChild)21                s.push(p-&gt;rightChild);22            // 向左子树深入23            p = p-&gt;leftChild;24        }25        // 左节点遍历结束后，取栈顶元素（最近的右节点）26        // PreOrder(subTree-&gt;rightChild, visit);27        if (!s.empty()) {28            p = s.top();29            s.pop();30        }31    }32}33​34/<em> 中序遍历 </em>/35// 左子树 --&gt; 根节点 --&gt; 右子树36// 从根节点开始一路沿左子树向下遍历37// 期间存储所有的沿路节点（子树的根节点）38// 每次抵达尽头时，弹出栈顶的根节点 visit，然后转向该结点的右子树重复左子树遍历39void InOrder(treeNode<em> root, void (</em>visit)(treeNode<em> t)) {40    if (root == nullptr) return;41​42    stack<treeNode*> s;  // 存的是沿途的根节点路径43    treeNode</em> p = root;  // 遍历指针44​45    while (p != nullptr || !s.empty()) {46        // DFS 遍历到最左节点，沿途压入所有节点47        // InOrder(subTree-&gt;leftChild, visit);48        while (p != nullptr) {49            s.push(p);          // 为了在访问左子树后访问根节点，将 p 入栈50            p = p-&gt;leftChild;   // 继续向左深入51        }52​53        // 到达最左端，开始回溯访问54        if (!s.empty()) {55            p = s.top();        // 取出栈顶节点56            s.pop();57            visit(p);           // 中序遍历：在左子树之后访问根节点58​59            // 转向右子树继续中序遍历60            // InOrder(subTree-&gt;rightChild, visit);61            p = p-&gt;rightChild;62        }63    }64}65​66/<em> 后序遍历 </em>/67// 左子树 --&gt; 右子树 --&gt; 根节点68// 从根节点开始一路沿左子树向下遍历69// 期间存储所有的沿路节点（子树的根节点）70// 每次抵达尽头时，查看栈顶节点，根据 lastVisited 判断这个节点的右子树情况71// 如果右子树还未被访问，先转移到栈顶节点的右子树重复过程72// 如果右子树上一次被 visited 了或者没有右子树，visit 该节点并弹出73void PostOrder(treeNode<em> root, void (</em>visit)(treeNode<em> t)) {74    if (root == nullptr) return;75​76    stack<treeNode*> s;  // 暂存待处理的节点77    treeNode</em> p = root;  // 当前遍历指针78    treeNode<em> lastVisited = nullptr;     // 需要记录上次访问的节点79    // 为了判断某一个右子树是否已被遍历80​81    while (p != nullptr || !s.empty()) {82        // 深度优先遍历到最左节点，沿途压入所有节点83        // PostOrder(subTree-&gt;leftChild, visit);84        while (p != nullptr) {85            s.push(p);          // 当前节点入栈86            p = p-&gt;leftChild;   // 继续向左深入87        }88​89        // 查看栈顶节点（不立即弹出，因为接下来要转向右子树）90        if (!s.empty()) {91            p = s.top();92​93            // 如果右子树存在且未被访问，先处理右子树94            // PostOrder(subTree-&gt;rightChild, visit);95            if (p-&gt;rightChild != nullptr &amp;&amp; p-&gt;rightChild != lastVisited) {96                p = p-&gt;rightChild;  // 转向右子树97            } else {98                // 右子树已处理或不存在，可以访问当前节点99                visit(p);           // 后序遍历：在左右子树之后访问根节点100                s.pop();101                lastVisited = p;    // 记录上次访问的节点102                p = nullptr;        // 重置p，强制从栈中取下一个节点103            }104        }105    }106}107​108/</em> 层序遍历 <em>/109// 借助先进先出的队列实现逐层遍历110void LevelOrder(void (</em>visit)(treeNode<em> t)) {111    // 如果树为空，直接返回112    if (root == nullptr) return;113​114    // 使用队列进行层次遍历115    const int MAX_LEN = 100000;116    treeNode</em><em> Queue = new treeNode</em>[MAX_LEN];117    int front = 0, rear = 0;118    Queue[rear++] = root;  // 根节点入队119​120    while (front &lt; rear) {121        // 取出队首节点122        treeNode* cur = Queue[front++];123​124        // 访问当前节点125        visit(cur);126​127        // 将左子节点入队（如果存在）128        if (cur-&gt;leftChild != nullptr) {129            Queue[rear++] = cur-&gt;leftChild;130        }131​132        // 将右子节点入队（如果存在）133        if (cur-&gt;rightChild != nullptr) {134            Queue[rear++] = cur-&gt;rightChild;135        }136    }137    delete[] Queue;138}c++</li>
-<li>节点数为 $n$ 的完全二叉树的深度为 $\lceil \log_2(n+1) \rceil$（深度 $k$ 满足 $2^{n-1}-1 \leq k \leq 2^{n}-1$）</li>
+<li>
+<p>深度为 $k$ 的二叉树最少有 $k$ 个节点（斜树），最多有 $2^k-1$ 个节点（满二叉树）</p>
+</li>
 </ul>
 <h2 id="_8">存储</h2>
 <p>二叉树有两种存储方法：更易实现的<strong>顺序存储</strong>；更加直观常用的<strong>链式存储</strong></p>

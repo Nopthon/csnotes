@@ -12,6 +12,8 @@
         <link rel="prev" href="../">
       
       
+        <link rel="next" href="../tip/">
+      
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
@@ -1831,39 +1833,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见的一维函数 $Z=g(X,Y)$ 的分布">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#zxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z=X±Y$
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#z-xy-z-xy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z = XY ,\; Z = X/Y$
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#z-maxxy-z-minxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z = \max(X,Y),\; Z = \min(X,Y)$
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2010,6 +1979,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tip
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2382,39 +2374,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="常见的一维函数 $Z=g(X,Y)$ 的分布">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#zxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z=X±Y$
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#z-xy-z-xy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z = XY ,\; Z = X/Y$
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#z-maxxy-z-minxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      $Z = \max(X,Y),\; Z = \min(X,Y)$
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2578,7 +2537,7 @@
 
 <h1 id="_1">知识点速通</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 5339 words  | ⏰ 18 min read | Enjoy 🎶</p>
+<p>✍ 5691 words  | ⏰ 19 min read | Enjoy 🎶</p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">太基础的知识点以至于高中就掌握熟练的不抄书了</p>
@@ -3007,9 +2966,7 @@ $$
 <p><br></p>
 <h3 id="_30">二维随机变量函数的分布</h3>
 <p>考虑已知概率分布的二维随机变量 $(X,Y)$，求 $Z=g(X,Y)$ （连续实函数映射）的概率分布：</p>
-<ol>
-<li>$X,Y$ 为离散型随机变量，此时根据分布律带值计算即可</li>
-</ol>
+<p>1-  $X,Y$ 为离散型随机变量，此时根据分布律带值计算即可</p>
 <div class="admonition abstract">
 <ul>
 <li>这里有一个结论：<strong>泊松分布</strong>和<strong>二项分布</strong>具有可加性：</li>
@@ -3019,80 +2976,102 @@ $$
 \forall k = 1,\cdots,n,\;X_k \sim B(\lambda_k) \longrightarrow \sum_{i=1}^n X_i \sim B(\sum_{i=1}^n \lambda_i)
 $$</p>
 </div>
-<ol>
-<li>
-<p>$X,Y$ 为连续型随机变量，此时的常见做法依旧是分布函数法：</p>
-<ol>
-<li>
-<p>先求 $\displaystyle F_Z(z) = P(g(X,Y) \leq Z) = \iint\limits_{D_z} p(x,y)dxdy, \quad D_z = \lbrace(x,y)|g(x,y) \leq z\rbrace$ </p>
-</li>
-<li>
-<p>然后求 $p_Z(z) = F'_Z(z)$ </p>
-</li>
-</ol>
-</li>
-</ol>
+<p>2-  $X,Y$ 为连续型随机变量，此时的常见做法依旧是分布函数法：</p>
+<p>1) 先求 $\displaystyle F_Z(z) = P(g(X,Y) \leq Z) = \iint\limits_{D_z} p(x,y)dxdy, \quad D_z = \lbrace(x,y)|g(x,y) \leq z\rbrace$ （固定 $z$ 为一个常值，通常作图进行分类讨论）</p>
+<p>2) 然后求 $p_Z(z) = F'_Z(z)$ </p>
 <div class="admonition abstract">
 <ul>
 <li>这里有一个结论：<strong>正态分布</strong>具有可加性</li>
 </ul>
 </div>
-<ol>
-<li>
-<p>$X,Y$ 一个为离散型，一个为连续型</p>
-<p>依旧采用分布函数法，把离散型随机变量的所有取值，看成样本空间的划分，由全概率公式求解</p>
-</li>
-</ol>
+<p>3- $X,Y$ 一个为离散型，一个为连续型</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>依旧采用分布函数法，把离散型随机变量的所有取值，看成样本空间的划分，由全概率公式求解
+</code></pre></div></td></tr></table></div>
 <div class="admonition abstract">
 <p>比如 $X$ 为离散型，$Y$ 为连续型，$\displaystyle F_Z(z) = P(g(X,Y) \leq Z) = \sum_{k = 1}^{n} P(X = k)\cdot P(g(X,Y)\leq z | X = k)$</p>
 </div>
+<details class="info">
+<summary>一个具体的题目例子</summary>
+<div class="admonition question">
+<p>随机变量 $X,Y$ 相互独立，$P(X=1) = P(X=2) = 0.5,\;Y\sim E(1)$，求 $Z=X+Y$ 的概率密度函数</p>
+</div>
+<p>根据全概率公式：$\displaystyle p_Z(z) = \sum_x p_Y(z-x) \cdot P(X = x)$ （$z$ 视作常值，$y$ 换元为 $x$ 相关）</p>
+<p>带入 $X = 1,2$ 得 $\displaystyle p_Z(z) = P(X=1) \cdot p_Y(z-1) + P(X=2) \cdot p_Y(z-2) = \dfrac{1}{2} (p_Y(z-1) + p_Y(z-2))$</p>
+<p>因为 $p_Y(y) = e^{-y},\;y\geqslant 0$，因此分类讨论：</p>
+<p>$z \geqslant 2$，$p_Z(z) = \dfrac{1}{2}(e^{1-z} + e^{2-z})$ </p>
+<p>$1 \leqslant z &lt; 2$，$p_Z(z) = \dfrac{1}{2}(e^{1-z} + 0)$ </p>
+<p>$z &lt; 1$，$p_Z(z) = 0$ </p>
+</details>
 <p><br></p>
 <h3 id="zgxy">常见的一维函数 $Z=g(X,Y)$ 的分布</h3>
-<h4 id="zxy">$Z=X±Y$</h4>
-<p>对于 $Z = X+Y$，称下面的公式为<strong>卷积公式</strong></p>
+<p>--&gt; $Z=X±Y$ </p>
+<p><strong>连续型：</strong></p>
+<p>对于 $Z = X+Y$：</p>
 <p>$$
-p_Z(z) = \int_{-\infty}^{+\infty} p_X(x) \cdot p_Y(z-x)dx = \int_{-\infty}^{+\infty} p_Y(y) \cdot p_X(z-y)dy
+p_Z(z) = \int_{-\infty}^{+\infty} p(x,z-x)dx = \int_{-\infty}^{+\infty} p(z-y,y)dy
 $$</p>
-<p>对于 $Z=X-Y$ </p>
-<p>$$
+<p>如果 $X,Y$ 独立，还可以转换为：（称下面的公式为<strong>卷积公式</strong>）
+$$
+p_Z(z) = \int_{-\infty}^{+\infty} p_X(x) \cdot p_Y(z-x)dx = \int_{-\infty}^{+\infty} p_X(z-y) \cdot p_Y(y) dy
+$$
+同理对于 $Z=X-Y$：
+$$
 p_Z(z) = \int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy
 $$</p>
+<div class="admonition abstract">
+<p>推广： $Z = aX+bY$ 的分布：</p>
+<p>$$
+p_{Z}(z)= \frac{1}{{\color{yellow}{|b|}}} \int_{-\infty}^{+\infty} p\left( x, \frac{z - {\color{yellow}{a}} x}{{\color{yellow}{b}}} \right) dx= \frac{1}{{\color{yellow}{|a|}}} \int_{-\infty}^{+\infty} p\left( \frac{z - {\color{yellow}{b}} y}{{\color{yellow}{a}}}, y \right) dy
+$$</p>
+<p>$X,Y$ 独立时同理得到卷积公式的推广</p>
+</div>
+<p><strong>离散型：</strong></p>
+<p>考虑分布列 $P(X=i, Y=j) = p_{ij}$，则：</p>
+<p>$$
+P(X+Y = k) = \sum_{i=0}^{k} p_{i,k-i},\;k=0,1,2,\cdots
+$$</p>
+<p>如果 $X,Y$ 独立，考虑分布列 $P(X = k) = a_k,\;k = 0,1,2,\cdots;\;P(Y = k) = b_k,\;k = 0,1,2,\cdots$，则：</p>
+<p>$$
+P(X+Y = k) = \sum_{i=0}^k a_ib_{k-i} = \sum_{i=0}^k b_ia_{k-i},\;k=0,1,2,\cdots 
+$$</p>
 <p><br></p>
-<h4 id="z-xy-z-xy">$Z = XY ,\; Z = X/Y$</h4>
+<p>--&gt; $Z = XY ,\; Z = X/Y\;(Y/X)$</p>
 <p>对于 $Z = XY$ </p>
 <p>$$
 p_Z(z) = \int_{-\infty}^{+\infty} p \left( x, \frac{z}{x} \right) \frac{1}{|x|} \, dx = \int_{-\infty}^{+\infty} p \left( \frac{z}{y}, y \right) \frac{1}{|y|} \, dy
 $$</p>
-<p>对于 $Z =X/Y$ </p>
+<p>对于 $Z =X/Y\;(Y/X)$</p>
 <p>$$
-p_Z(z) = \int_{-\infty}^{+\infty} p(x, zx) |x| \, dx = \int_{-\infty}^{+\infty} p(zy, y) |y| \, dy
+\begin{aligned}
+p_Z(z) &amp;= \int_{-\infty}^{+\infty} p(x, zx) |x| \, dx \quad(Z = Y/X) \\ &amp;= \int_{-\infty}^{+\infty} p(zy, y) |y| \, dy \quad(Z = X/Y)
+\end{aligned}
 $$</p>
 <p><br></p>
-<h4 id="z-maxxy-z-minxy">$Z = \max(X,Y),\; Z = \min(X,Y)$</h4>
-<p>对于 $Z = \max(X,Y)$ 
-$$
+<p>--&gt; $Z = \max(X,Y),\; Z = \min(X,Y)$</p>
+<p>对于 $Z = \max(X,Y)$ </p>
+<p>$$
 F_Z(z) = F_X(z)F_Y(z)
-$$
-对于 $Z = \min(X,Y)$ 
-$$
+$$</p>
+<p>对于 $Z = \min(X,Y)$ </p>
+<p>$$
 F_Z(z) = 1-[1-F_X(z)][1-F_Y(z)]
-$$
-上面两个式子都可以进行 $n$ 维推广</p>
+$$</p>
+<p>上面两个式子都可以进行 $n$ 维推广</p>
 <p><br></p>
 <h2 id="_31">第四章 随机变量的数字特征</h2>
 <h3 id="_32">数学期望与方差</h3>
 <p>数学期望与方差通常针对的是单个随机变量</p>
 <h4 id="_33">离散型</h4>
-<p>我们记
-$$
+<p>我们记</p>
+<p>$$
 EX = \sum _ {i= 1} ^ {+\infty} x_i \cdot P(X = x_i)
-$$
-为 $X$ 的数学期望，存在的前提是 $\sum _ {i= 1} ^ {+\infty} |x_i| \cdot P(X = x_i)$ 级数收敛，否则期望不存在</p>
-<p>接下来记
-$$
+$$</p>
+<p>为 $X$ 的数学期望，存在的前提是 $\sum _ {i= 1} ^ {+\infty} |x_i| \cdot P(X = x_i)$ 级数收敛，否则期望不存在</p>
+<p>接下来记</p>
+<p>$$
 DX = E(X - EX)^2 = EX^2 - (EX)^2
-$$
-为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 &lt; +\infty$ </p>
+$$</p>
+<p>为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 &lt; +\infty$ </p>
 <p>方差 $DX$ 就是 $g(X) = (X-EX)^2$ 的数学期望</p>
 <p><br></p>
 <h4 id="_34">常见的离散型随机变量的数字特征</h4>
@@ -3145,7 +3124,7 @@ $$</p>
 </ul>
 <p>$$
 EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{yellow}{\frac{1}{\lambda} }}\\
-DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{yellow}{ \frac{2}{\lambda^2}}}
+DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{yellow}{ \frac{1}{\lambda^2}}}
 $$</p>
 <ul>
 <li>正态分布 $X \sim N(\mu, \sigma^2)$ </li>

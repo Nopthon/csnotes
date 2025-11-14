@@ -16,7 +16,7 @@
     
     
       
-        <title>Bst - CSNote</title>
+        <title>二叉搜索树 && 平衡树 - CSNote</title>
       
     
     
@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -105,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bst
+              二叉搜索树 &amp;&amp; 平衡树
             
           </span>
         </div>
@@ -1456,6 +1461,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1488,6 +1516,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      性质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1506,11 +1571,27 @@
   
 
 
-  <h1>Bst</h1>
-
+<h1 id="_1">二叉搜索树 &amp;&amp; 平衡树</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>✍ 0 words  | ⏰ &lt; 1 min read | Enjoy 🎶</p>
+<p>✍ 194 words  | ⏰ 1 min read | Enjoy 🎶</p>
 </div>
+<h2 id="_2">定义</h2>
+<p>二叉搜索树满足定义：</p>
+<ul>
+<li>
+<p>空树是二叉搜索树</p>
+</li>
+<li>
+<p>非空树的根节点的值大于左子节点的值（或者左子节点为空），小于右子节点的值（或者右子节点为空），并且整棵树的节点值通常各不相同</p>
+</li>
+<li>
+<p>任意节点的左子树和右子树也是二叉搜索树</p>
+</li>
+</ul>
+<p>（即：任意节点左子树的所有节点值 &lt; 该节点值 &lt; 右子树的所有节点值；空树自动满足条件）</p>
+<h2 id="_3">性质</h2>
+<p>二叉搜索树任意节点左子树的所有节点值 &lt; 该节点值 &lt; 右子树的所有节点值，因此如果中序遍历二叉搜索树，得到的序列是单调递增的</p>
+<h2 id="_4"></h2>
 
 
 
