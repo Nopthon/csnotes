@@ -427,6 +427,8 @@ add_record: setuid, setgid ELF 32-bit LSB executable, Intel 80386, version 1 (SY
 
 用 `gdb add_record` 先 run 一下
 
+（在此之前应该 `checksec` 一下确认保护机制）
+
 ```
 gdb-peda$ run
 run

@@ -14,6 +14,8 @@ PA0 的目的是熟悉 x86-PA 的实验环境
 
 在自己的 Shell 中进行 SSH 连接，使用 Vim 打开文件，此时使用的是本机的 Vim 配置，可以回到熟悉的 Vim 环境中
 
+插件等可以在远程服务器上配置一份
+
 #### VSCode User
 
 在 VSCode 中使用 SSH FS 插件（**不要用官方的 SSH**），可以实现在本地 VScode 进行实验

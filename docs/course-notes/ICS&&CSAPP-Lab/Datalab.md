@@ -4,6 +4,8 @@
 
 具体的限制条件参考 [Self-Study Handout](https://csapp.cs.cmu.edu/3e/datalab-handout.tar)，一个简略的限制条件说明放在了结尾
 
+下表中的 `Max Ops Allowed` 字段表示“最多可以使用的操作符个数”
+
 | Func Name               | Description                                     | Max Ops Allowed |
 | ----------------------- | ----------------------------------------------- | --------------- |
 | **bitXor(x,y)**         | 仅用 `&` 和 `~` 实现 `x xor y`                  | 14              |
@@ -18,7 +20,7 @@
 | **howManyBits(x)**      | 返回表示 `x` 所需的最小位数                     | 90              |
 | **floatScale2(uf)**     | 返回与表达式 `2 * f` 等价的二进制位表示         | 30              |
 | **floatFloat2Int(uf)**  | 将浮点数转换为整数                              | 30              |
-| **floatPower2(x)**      | 返回与表达式 `2.0 ^ x` 等价的二进制位表示       | 3               |
+| **floatPower2(x)**      | 返回与表达式 `2.0 ^ x` 等价的二进制位表示       | 30              |
 
 ---
 
@@ -197,15 +199,15 @@ int logicalNeg(int x) {
 
 ### 10. 返回能完整表示 `x` 所需的最小位数
 
-    ```C
-    /*  Examples: howManyBits(12) = 5					(0 1100)
-     *            howManyBits(298) = 10					(0 100101010)
-     *            howManyBits(-5) = 4					(1 011)
-     *            howManyBits(0)  = 1					(0)
-     *            howManyBits(-1) = 1					(1)
-     *            howManyBits(0x80000000) = 32			(1 + 31*0)
-     */
-    ```
+```c
+/*  Examples: howManyBits(12) = 5					(0 1100)
+ *            howManyBits(298) = 10					(0 100101010)
+ *            howManyBits(-5) = 4					(1 011)
+ *            howManyBits(0)  = 1					(0)
+ *            howManyBits(-1) = 1					(1)
+ *            howManyBits(0x80000000) = 32			(1 + 31*0)
+ */
+```
 
 `int` 部分题目的最难题，甚至给了最多 90 步的限制，是场恶战
 
@@ -450,7 +452,7 @@ Score = 62/62 [36/36 Corr + 26/26 Perf] (148 total operators)
 
 
 
-## 附 Datalab 题目限制
+## 附：Datalab 题目限制
 
 > - 整数编码规则（前十题）
 >

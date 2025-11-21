@@ -2,7 +2,7 @@
 
 和 CSAPP Bomblab 的内容大致相同，Binalab 将每个 Phase 进行了拆分处理与随机化处理
 
-通过动态调试 / 静态分析二进制文件，为每个 Phase 的二进制文件构造一个正确的输入，就可以完成每个 Phase 的任务
+通过动态调试 / 静态分析二进制文件，**为每个 Phase 的二进制文件构造一个正确的输入**，就可以完成每个 Phase 的任务
 
 !!! quote "随笔"
 
@@ -131,6 +131,8 @@ C 语言还是很好理解的，可以读取标准输入，也可以读取文件
 
 另另外，如果你发现了 `<__func_DumwPqNk>` 这样的什么都不做的函数，那大概率是给每个学生的作业标记
 
+<br>
+
 ### Phase 1: 字符串比较
 
 使用 `objdump -d phasex` 进行反汇编，给出 `<phase>` 函数与其他解题相关的函数的汇编（之后不再介绍）
@@ -169,6 +171,8 @@ C 语言还是很好理解的，可以读取标准输入，也可以读取文件
 ??? question "这里是答案"
 
     **Answer: `Early PCs used physical addressing.`**（随机）
+
+<br>
 
 ### Phase 2: 浮点数表示
 
@@ -254,6 +258,8 @@ lea    -0x10(%rbp),%rdx				# rdx 指向 -0x10(%rbp) 的地址，这两个地址�
 ??? question "这里是答案"
 
     **Answer: `-1879048192 -1045848179`**
+
+<br>
 
 ### Phase 3: 循环
 
@@ -390,6 +396,8 @@ SUCCEED();
 ??? question "这里是答案"
 
     Answer: `wZODF`
+
+<br>
 
 ### Phase 4: 选择（条件分支）
 
@@ -582,6 +590,8 @@ for(int &x : input){
 
     **Answer: `DFFFDFFDFDFFDFDFFDFFDFFDFFFFDFDFDFDFDFDFDFDFDFFDFFD`**（不唯一）
 
+<br>
+
 ### Phase 5: 递归调用
 
 ```asm
@@ -700,6 +710,8 @@ int seek(int x, int* y, int z) {
 
     **Answer: `0x1f`**（不唯一）
 
+<br>
+
 ### Phase 6: 数组
 
 !!! question "前排提醒，这题的随机化非常随机，不同版本可能和下面的函数差别很大"
@@ -799,6 +811,8 @@ int seek(int x, int* y, int z) {
 ??? question "这里是答案"
 
     **Answer: `0 3 2 7 0 1`**
+
+<br>
 
 ### Phase 7: 指针
 
@@ -1052,6 +1066,8 @@ int seek(int x, int* y, int z) {
 ??? question "这里是答案"
 
     **Answer: `1 4 11 13 15`** （不唯一，五个数字的顺序随意，也不一定必须是这五个数字） 
+
+<br>
 
 ### Phase 8: 结构与链表/树
 

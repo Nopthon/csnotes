@@ -37,6 +37,8 @@ printf("Phase 1 defused. How about the next one?\n");
 
 ---
 
+<br>
+
 ### Phase 1
 
 ```asm
@@ -81,6 +83,8 @@ GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
     **`U`**：单位大小（如字节、字、双字等）。
     
     **`<address>`**：内存地址（可以是寄存器、变量名或直接地址）。
+
+<br>
 
 ### Phase 2
 
@@ -171,6 +175,8 @@ for (int i = 1; i < 6; i++){
 ```
 
 由此可见，接下来的五个数字都要求每个数字是上一个数字的两倍，因此第二个答案是 `1 2 4 8 16 32` 
+
+<br>
 
 ### Phase 3
 
@@ -326,6 +332,8 @@ for (int i = 1; i < 6; i++){
 
 在上面的组合中随意选择一项作为答案就可以拆除第三个炸弹，比如 `2 707` 
 
+<br>
+
 ### Phase 4
 
 （减少了注释量）
@@ -452,6 +460,8 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 `14 // 2 = 7` `7 // 2 = 3` `3 // 2 = 1` `1 // 2 = 0` 这四次二分查找时出现的中间值 `mid` 就是所有成立的第一个输入
 
 也就是说 `7 0` `3 0` `1 0` `0 0` 都是正确答案
+
+<br>
 
 ### Phase 5
 
@@ -599,6 +609,8 @@ int func4(int edi, int esi, int edx){								// 更加易读的：func4(int targ
 | output | m    | a    | d    | u    | i    | e    | r    | s    | n    | f    | o    | t    | v    | b    | y    | l    |
 
 所以正确答案的六个字符的 ASCII 码低四位应该依次为 `1001` `1111` `1110` `0101` `0110` `0111` ，比如 `ionefg` `yonuvw` 
+
+<br>
 
 ### Phase 6
 
@@ -961,6 +973,8 @@ Node* Part5(Node* addr[]) {
 ```
 
 清理栈帧并恢复被调用者保存的寄存器，不需要多分析
+
+<br>
 
 ### Secret Phase
 

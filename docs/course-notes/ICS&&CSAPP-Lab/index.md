@@ -1,5 +1,3 @@
-# Intro
-
 校内开设的 ICS 和国际上有名的 CSAPP 都是计算机系统体系相关的课程，这两门课都有一系列的 Lab 可供完成
 
 有关 CSAPP 的 Lab 内容可以参考 [CS:APP3e, Bryant and O'Hallaron](https://csapp.cs.cmu.edu/3e/labs.html)（有线下评测版本）
@@ -8,5 +6,7 @@
 
 考虑到 ICS 的几个 Lab 都直接参考于 CSAPP 的某些 Lab（加强向的改编），因此直接将两门课的 Lab 解题笔记放在了一起
 
+!!! question "为什么汇编语句的语法高亮这么抽象，我还要坚持使用汇编语句的语法高亮？"
 
+    习惯语法高亮，不习惯看纯色的代码（
 

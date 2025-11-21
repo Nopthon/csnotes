@@ -43,9 +43,8 @@
 - 二叉树的节点数比边数多 1，每条边都是割边
 
 - 二叉树的第 $i$ 层最多有 $2^{i-1}$ 个节点（1-index）
+
 - 深度为 $k$ 的二叉树最少有 $k$ 个节点（斜树），最多有 $2^k-1$ 个节点（满二叉树）
-- 二叉树的叶节点个数比度为 2 的节点个数始终多 1
-- 节点数为 $n$ 的完全二叉树的深度为 $\lceil \log_2(n+1) \rceil$（深度 $k$ 满足 $2^{n-1}-1 \leq k \leq 2^{n}-1$）
 
 ## 存储
 
@@ -123,618 +122,619 @@ struct BinTreeNode{
 
 这个节点存储了一个节点的完整信息，其维护方式可参考维护链表（如果加上 `parent` 指针就是双向链表）
 
-## 类封装 && 函数实现
 
-### 二叉树节点类
+??? bug "## 类封装 && 函数实现"
 
-使用链式存储构造二叉树，我们先进行二叉树节点的类定义：
-
-```c++
-template <class T> 
-struct BinTreeNode {
-    T data;
-    BinTreeNode<T> *leftChild, *rightChild;
-    // 不含初始化的构造函数
-    BinTreeNode ()
-        { leftChild = NULL;  rightChild = NULL; }
-    // 含初始化的构造函数
-    BinTreeNode (T x, BinTreeNode<T> *l = NULL, BinTreeNode<T> *r = NULL)
-        { data = x;  leftChild = l;  rightChild = r; }
-};
-```
-
-接下来是各种函数的实现
-
-### 二叉树类
-
-在实现了二叉树节点类之后，我们实现一个管理二叉树的二叉树类：
-
-考虑到二叉树的很多函数是递归实现，为了隐藏一些递归细节，简化调用逻辑，（包括数据结构课给的类模板）采用 Public 域定义接口，Protected 域内部实现的方式设计二叉树类
-
-!!! question "什么是“隐藏递归细节”？"
-
-    举个例子：获取树高度的函数在 Public 的定义是 `#!c int Height() { return Height(root); }`，如果不隐藏递归细节的话，你在每次获取树的高度时，都必须写 `Height(root)`；单独在 Public 定义接口之后写 `Height()` 即可
+    这部分内容迁移到了“二叉树模板”
     
-    简单来说：递归函数需要引入额外的中间参数，这对于接口层没有必要
+    ### 二叉树节点类
     
-    （除非你真的需要求子树的高度）
-
-!!! question "如何设计不同的函数的实现方式？"
-
-    对于非常简单的函数，直接在 Public 域中实现即可，比如判断二叉树是否为空
+    使用链式存储构造二叉树，我们先进行二叉树节点的类定义：
     
-    对于涉及递归操作的简单函数，我们在 Public 域内定义接口，在 Protected 域递归实现
+    ```c++
+    template <class T> 
+    struct BinTreeNode {
+        T data;
+        BinTreeNode<T> *leftChild, *rightChild;
+        // 不含初始化的构造函数
+        BinTreeNode ()
+            { leftChild = NULL;  rightChild = NULL; }
+        // 含初始化的构造函数
+        BinTreeNode (T x, BinTreeNode<T> *l = NULL, BinTreeNode<T> *r = NULL)
+            { data = x;  leftChild = l;  rightChild = r; }
+    };
+    ```
     
-    对于复杂的函数，我们在 Public 域内定义接口，类外实现（把大段复杂代码写在 `binatree.h` 而不是 `binatree.c` 是坏的）
-
-我们先给出 Public 域的接口：
-
-```c++
-template <class T> 
-class BinaryTree {
-public:
-    // 构造函数
-    BinaryTree() : root(NULL) { }
+    接下来是各种函数的实现
     
-    // 析构函数
-    ~BinaryTree() { Destroy(root); }
+    ### 二叉树类
     
-    // 判断二叉树是否为空（直接实现）
-    bool IsEmpty() { return root == NULL; }
+    在实现了二叉树节点类之后，我们实现一个管理二叉树的二叉树类：
     
-    // 获取树高 / 树大小（Protected 实现）
-    int Height() { return Height(root); }
-    int Size() { return Size(root); }
+    考虑到二叉树的很多函数是递归实现，为了隐藏一些递归细节，简化调用逻辑，（包括数据结构课给的类模板）采用 Public 域定义接口，Protected 域内部实现的方式设计二叉树类
     
-    // 获取父节点 / 左右子节点
-    // 获取父节点在 Protected 实现，获取左右子节点直接实现
-    // 使用三指针节点（包含 *parentNode）可以简化 Parent 函数逻辑
-    // 但是会复杂化插入与删除函数逻辑
-    BinTreeNode<T>* Parent(BinTreeNode<T> *t) { 
-        return (root == NULL || root == t) ? NULL : Parent(root, t); 
-    }
+    !!! question "什么是“隐藏递归细节”？"
     
-    BinTreeNode<T>* LeftChild(BinTreeNode<T> *t) { 
-        return (t != NULL) ? t->leftChild : NULL; 
-    }
+        举个例子：获取树高度的函数在 Public 的定义是 `#!c int Height() { return Height(root); }`，如果不隐藏递归细节的话，你在每次获取树的高度时，都必须写 `Height(root)`；单独在 Public 定义接口之后写 `Height()` 即可
     
-    BinTreeNode<T>* RightChild(BinTreeNode<T> *t) { 
-        return (t != NULL) ? t->rightChild : NULL; 
-    }
+        简单来说：递归函数需要引入额外的中间参数，这对于接口层没有必要
     
-    // 获取根节点（直接实现）
-    BinTreeNode<T>* GetRoot() const { return root; }
+        （除非你真的需要求子树的高度）
     
-    // 前/中/后/层序遍历
-    // 前/中/后序遍历在 Protected 实现，层序遍历在类外实现
-    // 需要传入一个函数作为参数，比如下面的打印函数 printNode
-    // 作为遍历时输出数据的方式
-    void PreOrder(void (*visit)(BinTreeNode<T> *t)) { 
-        PreOrder(root, visit); 
-    }
+    !!! question "如何设计不同的函数的实现方式？"
     
-    void InOrder(void (*visit)(BinTreeNode<T> *t)) { 
-        InOrder(root, visit); 
-    }
+        对于非常简单的函数，直接在 Public 域中实现即可，比如判断二叉树是否为空
     
-    void PostOrder(void (*visit)(BinTreeNode<T> *t)) { 
-        PostOrder(root, visit); 
-    }
+        对于涉及递归操作的简单函数，我们在 Public 域内定义接口，在 Protected 域递归实现
     
-    void LevelOrder(void (*visit)(BinTreeNode<T> *t));
+        对于复杂的函数，我们在 Public 域内定义接口，类外实现（把大段复杂代码写在 `binatree.h` 而不是 `binatree.c` 是坏的）
     
-    // 最常用的输出函数，搭配遍历函数使用（直接实现）
-    void printNode(BinTreeNode<int>* node) {
-    	if (node != NULL) {
-    	    cout << node->data << " ";
-    	}
-	}
+    我们先给出 Public 域的接口：
     
-    // 查找函数，在类外实现
-    BinTreeNode<T>* Find(T item) const {
-    	return Find(root, item);
-	}
+    ```c++
+    template <class T> 
+    class BinaryTree {
+    public:
+        // 构造函数
+        BinaryTree() : root(NULL) { }
     
-    // 常规的插入节点函数
-    // 对于普通二叉树，基于层序遍历插入该节点
-    // 在类外实现
-    void Insert (T item);
+        // 析构函数
+        ~BinaryTree() { Destroy(root); }
     
-    // 各种不同的建二叉树函数，基于不同的遍历方式
-    // 这里的前序遍历 && 后序遍历都包含了空节点信息（null 表示空节点标识）
-    // 层序遍历建树在类外实现，其他的在 Protected 实现
-    void CreateBinTreeFromLevel(const vector<T>& data, T Null);
+        // 判断二叉树是否为空（直接实现）
+        bool IsEmpty() { return root == NULL; }
     
-    void CreateBinTreeFromPre(const vector<T>& data, T Null){
-        int index = 0;
-    	root = CreateBinTreeFromPre(data, Null, index);
-    }
+        // 获取树高 / 树大小（Protected 实现）
+        int Height() { return Height(root); }
+        int Size() { return Size(root); }
     
-    // 只通过中序遍历加空节点标记无法确认唯一二叉树
-    // void CreateBinTreeFromIn(const vector<T>& data, T Null)
-    
-    void CreateBinTreeFromPost(const vector<T>& data, T Null) {
-    	int index = data.size() - 1;
-    	root = CreateBinTreeFromPost(data, Null, index);
-	}
-    
-    // 删除指定节点的函数
-    // 在类外实现
-    bool Delete(T item) {
-    	if (root == NULL) return false;
-    	return Delete(root, item);
-	}
-    
-    // 摧毁一个节点及其子树（Protected 实现）
-    void Destroy(BinTreeNode<T>* subTree);
-    
-protected:
-    // ...
-private:
-    // 根节点
-    BinTreeNode<T>* root;
-};
-```
-
-然后给出 Protected 中简单递归函数的实现：
-
-```c++
-template <class T> 
-class BinaryTree {
-public:
-	// ...
-protected:
-    // 理解这里的函数大多需要先了解一些概念的递归定义
-    
-    // 递归求树高度
-    // 回顾递归定义：空树的高度为 0，否则树的高度为 max(左,右子树高度值) + 1
-    // 这是后序遍历的体现
-    int Height(BinTreeNode<T> *subTree) {
-        if (subTree == NULL) return 0;
-        int leftHeight = Height(subTree->leftChild);
-        int rightHeight = Height(subTree->rightChild);
-        return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
-    }
-    
-    // 递归求树大小（总结点数）
-    // 回顾递归定义：空树的大小为 0，否则树的大小为 左,右子树大小 + 1
-    // 这是后序遍历的体现
-    int Size(BinTreeNode<T> *subTree) {
-        if (subTree == NULL) return 0;
-        return 1 + Size(subTree->leftChild) + Size(subTree->rightChild);
-    }
-    
-    // 自顶向下搜索父节点的方式
-    // 没有定义 parent 指针的写法
-    BinTreeNode<T>* Parent(BinTreeNode<T>* subTree, BinTreeNode<T>* t) {
-        if (subTree == NULL) return NULL;
-        if (subTree->leftChild == t || subTree->rightChild == t) {
-            return subTree;
+        // 获取父节点 / 左右子节点
+        // 获取父节点在 Protected 实现，获取左右子节点直接实现
+        // 使用三指针节点（包含 *parentNode）可以简化 Parent 函数逻辑
+        // 但是会复杂化插入与删除函数逻辑
+        BinTreeNode<T>* Parent(BinTreeNode<T> *t) { 
+            return (root == NULL || root == t) ? NULL : Parent(root, t); 
         }
-        BinTreeNode<T>* p;
-        if ((p = Parent(subTree->leftChild, t)) != NULL) return p;
-        return Parent(subTree->rightChild, t);
-    }
     
-    // 三种遍历方式的递归实现
-    // 根据 visit 的位置就能看出来对应了什么遍历
-    // 出乎意料的简洁
-    void PreOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
-        if (subTree != NULL) {
-            visit(subTree);
-            PreOrder(subTree->leftChild, visit);
-            PreOrder(subTree->rightChild, visit);
+        BinTreeNode<T>* LeftChild(BinTreeNode<T> *t) { 
+            return (t != NULL) ? t->leftChild : NULL; 
         }
-    }
     
-    void InOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
-        if (subTree != NULL) {
-            InOrder(subTree->leftChild, visit);
-            visit(subTree);
-            InOrder(subTree->rightChild, visit);
+        BinTreeNode<T>* RightChild(BinTreeNode<T> *t) { 
+            return (t != NULL) ? t->rightChild : NULL; 
         }
-    }
     
-    void PostOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
-        if (subTree != NULL) {
-            PostOrder(subTree->leftChild, visit);
-            PostOrder(subTree->rightChild, visit);
-            visit(subTree);
+        // 获取根节点（直接实现）
+        BinTreeNode<T>* GetRoot() const { return root; }
+    
+        // 前/中/后/层序遍历
+        // 前/中/后序遍历在 Protected 实现，层序遍历在类外实现
+        // 需要传入一个函数作为参数，比如下面的打印函数 printNode
+        // 作为遍历时输出数据的方式
+        void PreOrder(void (*visit)(BinTreeNode<T> *t)) { 
+            PreOrder(root, visit); 
         }
-    }
     
-    // 带空节点标记的前序遍历 / 后序遍历建二叉树
-    BinTreeNode<T>* CreateBinTreeFromPre(const vector<T>& data, T Null, int& index) {
-	if (index >= data.size())
-        return NULL;
-        
-    if (data[index] == Null) {
+        void InOrder(void (*visit)(BinTreeNode<T> *t)) { 
+            InOrder(root, visit); 
+        }
+    
+        void PostOrder(void (*visit)(BinTreeNode<T> *t)) { 
+            PostOrder(root, visit); 
+        }
+    
+        void LevelOrder(void (*visit)(BinTreeNode<T> *t));
+    
+        // 最常用的输出函数，搭配遍历函数使用（直接实现）
+        void printNode(BinTreeNode<int>* node) {
+            if (node != NULL) {
+                cout << node->data << " ";
+            }
+        }
+    
+        // 查找函数，在类外实现
+        BinTreeNode<T>* Find(T item) const {
+            return Find(root, item);
+        }
+    
+        // 常规的插入节点函数
+        // 对于普通二叉树，基于层序遍历插入该节点
+        // 在类外实现
+        void Insert (T item);
+    
+        // 各种不同的建二叉树函数，基于不同的遍历方式
+        // 这里的前序遍历 && 后序遍历都包含了空节点信息（null 表示空节点标识）
+        // 层序遍历建树在类外实现，其他的在 Protected 实现
+        void CreateBinTreeFromLevel(const vector<T>& data, T Null);
+    
+        void CreateBinTreeFromPre(const vector<T>& data, T Null){
+            int index = 0;
+            root = CreateBinTreeFromPre(data, Null, index);
+        }
+    
+        // 只通过中序遍历加空节点标记无法确认唯一二叉树
+        // void CreateBinTreeFromIn(const vector<T>& data, T Null)
+    
+        void CreateBinTreeFromPost(const vector<T>& data, T Null) {
+            int index = data.size() - 1;
+            root = CreateBinTreeFromPost(data, Null, index);
+        }
+    
+        // 删除指定节点的函数
+        // 在类外实现
+        bool Delete(T item) {
+            if (root == NULL) return false;
+            return Delete(root, item);
+        }
+    
+        // 摧毁一个节点及其子树（Protected 实现）
+        void Destroy(BinTreeNode<T>* subTree);
+    
+    protected:
+        // ...
+    private:
+        // 根节点
+        BinTreeNode<T>* root;
+    };
+    ```
+    
+    然后给出 Protected 中简单递归函数的实现：
+    
+    ```c++
+    template <class T> 
+    class BinaryTree {
+    public:
+        // ...
+    protected:
+        // 理解这里的函数大多需要先了解一些概念的递归定义
+    
+        // 递归求树高度
+        // 回顾递归定义：空树的高度为 0，否则树的高度为 max(左,右子树高度值) + 1
+        // 这是后序遍历的体现
+        int Height(BinTreeNode<T> *subTree) {
+            if (subTree == NULL) return 0;
+            int leftHeight = Height(subTree->leftChild);
+            int rightHeight = Height(subTree->rightChild);
+            return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
+        }
+    
+        // 递归求树大小（总结点数）
+        // 回顾递归定义：空树的大小为 0，否则树的大小为 左,右子树大小 + 1
+        // 这是后序遍历的体现
+        int Size(BinTreeNode<T> *subTree) {
+            if (subTree == NULL) return 0;
+            return 1 + Size(subTree->leftChild) + Size(subTree->rightChild);
+        }
+    
+        // 自顶向下搜索父节点的方式
+        // 没有定义 parent 指针的写法
+        BinTreeNode<T>* Parent(BinTreeNode<T>* subTree, BinTreeNode<T>* t) {
+            if (subTree == NULL) return NULL;
+            if (subTree->leftChild == t || subTree->rightChild == t) {
+                return subTree;
+            }
+            BinTreeNode<T>* p;
+            if ((p = Parent(subTree->leftChild, t)) != NULL) return p;
+            return Parent(subTree->rightChild, t);
+        }
+    
+        // 三种遍历方式的递归实现
+        // 根据 visit 的位置就能看出来对应了什么遍历
+        // 出乎意料的简洁
+        void PreOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
+            if (subTree != NULL) {
+                visit(subTree);
+                PreOrder(subTree->leftChild, visit);
+                PreOrder(subTree->rightChild, visit);
+            }
+        }
+    
+        void InOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
+            if (subTree != NULL) {
+                InOrder(subTree->leftChild, visit);
+                visit(subTree);
+                InOrder(subTree->rightChild, visit);
+            }
+        }
+    
+        void PostOrder(BinTreeNode<T>* subTree, void (*visit)(BinTreeNode<T>* t)) {
+            if (subTree != NULL) {
+                PostOrder(subTree->leftChild, visit);
+                PostOrder(subTree->rightChild, visit);
+                visit(subTree);
+            }
+        }
+    
+        // 带空节点标记的前序遍历 / 后序遍历建二叉树
+        BinTreeNode<T>* CreateBinTreeFromPre(const vector<T>& data, T Null, int& index) {
+        if (index >= data.size())
+            return NULL;
+    
+        if (data[index] == Null) {
+            index++;
+            return NULL;
+        }
+    
+        BinTreeNode<T>* root = new BinTreeNode<T>(data[index]);
         index++;
-        return NULL;
+    
+        root->leftChild = CreateBinTreeFromPre(data, Null, index);
+        root->rightChild = CreateBinTreeFromPre(data, Null, index);
+    
+        return root;
     }
-
-    BinTreeNode<T>* root = new BinTreeNode<T>(data[index]);
-    index++;
-
-    root->leftChild = CreateBinTreeFromPre(data, Null, index);
-    root->rightChild = CreateBinTreeFromPre(data, Null, index);
     
-    return root;
-}
+        BinTreeNode<T>* CreateBinTreeFromPost(const vector<T>& data, T Null, int& index) {
+        if (index < 0)
+            return NULL;
+        if (data[index] == Null) {
+            index--;
+            return NULL;
+        }
     
-    BinTreeNode<T>* CreateBinTreeFromPost(const vector<T>& data, T Null, int& index) {
-	if (index < 0)
-        return NULL;
-    if (data[index] == Null) {
+        // 构建顺序：根节点 ← 右子树 ← 左子树
+    
+        BinTreeNode<T>* root = new BinTreeNode<T>(data[index]);
         index--;
-        return NULL;
+    
+        // （反向）先构建右子树，再构建左子树
+        root->rightChild = CreateBinTreeFromPost(data, Null, index);
+        root->leftChild = CreateBinTreeFromPost(data, Null, index);
+    
+        return root;
     }
-
-    // 构建顺序：根节点 ← 右子树 ← 左子树
     
-    BinTreeNode<T>* root = new BinTreeNode<T>(data[index]);
-    index--;
-
-    // （反向）先构建右子树，再构建左子树
-    root->rightChild = CreateBinTreeFromPost(data, Null, index);
-    root->leftChild = CreateBinTreeFromPost(data, Null, index);
-    
-    return root;
-}
-    
-    // 摧毁一个节点及其子树
-	void Destroy(BinTreeNode<T>* subTree) {
-    	if (subTree == NULL) return;
-    	Destroy(subTree->leftChild);
-    	Destroy(subTree->rightChild);
-    	delete subTree;
-	}
-
-};
-```
-
-??? abstract "非递归版的前/中/后序遍历实现"
-
-    ```c++
-    /* 前序遍历 */
-    // 根节点 --> 左子树 --> 右子树
-    // 从根节点开始一路沿左子树向下遍历
-    // 期间直接 visit 沿路节点（确保根节点最先被 visit），栈存储沿路节点的右子节点
-    // 每次抵达尽头时，取出栈顶，转移到右子节点重复左子树遍历的过程
-    void PreOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
-        if (root == NULL) return;
-    
-        stack<BinTreeNode<T>*> s;	// 存的是待处理的右子树节点
-        BinTreeNode<T>* p = root;	// p 是遍历指针，初始化为 root
-    
-        while (p != NULL || !s.empty()) {
-            // DFS 遍历左子树
-            // PreOrder(subTree->leftChild, visit);
-            while (p != NULL) {
-                // 从根节点开始深入访问
-                visit(p);
-                // 右节点入栈
-                // 因为栈先进后出的特性，最后进栈（递归最深）的右节点会最先出栈处理
-                if (p->rightChild)
-                    s.push(p->rightChild);
-                // 向左子树深入
-                p = p->leftChild;
-            }
-            // 左节点遍历结束后，取栈顶元素（最近的右节点）
-            // PreOrder(subTree->rightChild, visit);
-            if (!s.empty()) {
-                p = s.top();
-                s.pop();
-            }
+        // 摧毁一个节点及其子树
+        void Destroy(BinTreeNode<T>* subTree) {
+            if (subTree == NULL) return;
+            Destroy(subTree->leftChild);
+            Destroy(subTree->rightChild);
+            delete subTree;
         }
-    }
     
-    /* 中序遍历 */
-    // 左子树 --> 根节点 --> 右子树
-    // 从根节点开始一路沿左子树向下遍历
-    // 期间存储所有的沿路节点（子树的根节点）
-    // 每次抵达尽头时，弹出栈顶的根节点 visit，然后转向该结点的右子树重复左子树遍历
-    void InOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
-        if (root == NULL) return;
+    };
+    ```
     
-        stack<BinTreeNode<T>*> s;  // 存的是沿途的根节点路径
-        BinTreeNode<T>* p = root;  // 遍历指针
+    ??? abstract "非递归版的前/中/后序遍历实现"
     
-        while (p != NULL || !s.empty()) {
-            // DFS 遍历到最左节点，沿途压入所有节点
-            // InOrder(subTree->leftChild, visit);
-            while (p != NULL) {
-                s.push(p);          // 为了在访问左子树后访问根节点，将 p 入栈
-                p = p->leftChild;   // 继续向左深入
-            }
-            
-            // 到达最左端，开始回溯访问
-            if (!s.empty()) {
-                p = s.top();        // 取出栈顶节点
-                s.pop();
-                visit(p);           // 中序遍历：在左子树之后访问根节点
-                
-                // 转向右子树继续中序遍历
-                // InOrder(subTree->rightChild, visit);
-                p = p->rightChild;
-            }
-        }
-    }
+        ```c++
+        /* 前序遍历 */
+        // 根节点 --> 左子树 --> 右子树
+        // 从根节点开始一路沿左子树向下遍历
+        // 期间直接 visit 沿路节点（确保根节点最先被 visit），栈存储沿路节点的右子节点
+        // 每次抵达尽头时，取出栈顶，转移到右子节点重复左子树遍历的过程
+        void PreOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
+            if (root == NULL) return;
     
-    /* 后序遍历 */
-    // 左子树 --> 右子树 --> 根节点
-    // 从根节点开始一路沿左子树向下遍历
-    // 期间存储所有的沿路节点（子树的根节点）
-    // 每次抵达尽头时，查看栈顶节点，根据 lastVisited 判断这个节点的右子树情况
-    // 如果右子树还未被访问，先转移到栈顶节点的右子树重复过程
-    // 如果右子树上一次被 visited 了或者没有右子树，visit 该节点并弹出
-    void PostOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
-        if (root == NULL) return;
+            stack<BinTreeNode<T>*> s;	// 存的是待处理的右子树节点
+            BinTreeNode<T>* p = root;	// p 是遍历指针，初始化为 root
     
-        stack<BinTreeNode<T>*> s;  // 暂存待处理的节点
-        BinTreeNode<T>* p = root;  // 当前遍历指针
-        BinTreeNode<T>* lastVisited = NULL; 	// 需要记录上次访问的节点
-        										// 为了判断某一个右子树是否已被遍历
-    
-        while (p != NULL || !s.empty()) {
-            // 深度优先遍历到最左节点，沿途压入所有节点
-            // PostOrder(subTree->leftChild, visit);
-            while (p != NULL) {
-                s.push(p);          // 当前节点入栈
-                p = p->leftChild;   // 继续向左深入
-            }
-            
-            // 查看栈顶节点（不立即弹出，因为接下来要转向右子树）
-            if (!s.empty()) {
-                p = s.top();
-                
-                // 如果右子树存在且未被访问，先处理右子树
-                // PostOrder(subTree->rightChild, visit);
-                if (p->rightChild != NULL && p->rightChild != lastVisited) {
-                    p = p->rightChild;  // 转向右子树
-                } else {
-                    // 右子树已处理或不存在，可以访问当前节点
-                    visit(p);           // 后序遍历：在左右子树之后访问根节点
+            while (p != NULL || !s.empty()) {
+                // DFS 遍历左子树
+                // PreOrder(subTree->leftChild, visit);
+                while (p != NULL) {
+                    // 从根节点开始深入访问
+                    visit(p);
+                    // 右节点入栈
+                    // 因为栈先进后出的特性，最后进栈（递归最深）的右节点会最先出栈处理
+                    if (p->rightChild)
+                        s.push(p->rightChild);
+                    // 向左子树深入
+                    p = p->leftChild;
+                }
+                // 左节点遍历结束后，取栈顶元素（最近的右节点）
+                // PreOrder(subTree->rightChild, visit);
+                if (!s.empty()) {
+                    p = s.top();
                     s.pop();
-                    lastVisited = p;    // 记录上次访问的节点
-                    p = NULL;           // 重置p，强制从栈中取下一个节点
                 }
             }
         }
-    }
-    ```
-
-??? abstract "更加直观地，直接对输入流进行前序遍历建树"
-
-    （后序遍历建树需要反向读取输入，所以不能这么写）
+    
+        /* 中序遍历 */
+        // 左子树 --> 根节点 --> 右子树
+        // 从根节点开始一路沿左子树向下遍历
+        // 期间存储所有的沿路节点（子树的根节点）
+        // 每次抵达尽头时，弹出栈顶的根节点 visit，然后转向该结点的右子树重复左子树遍历
+        void InOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
+            if (root == NULL) return;
+    
+            stack<BinTreeNode<T>*> s;  // 存的是沿途的根节点路径
+            BinTreeNode<T>* p = root;  // 遍历指针
+    
+            while (p != NULL || !s.empty()) {
+                // DFS 遍历到最左节点，沿途压入所有节点
+                // InOrder(subTree->leftChild, visit);
+                while (p != NULL) {
+                    s.push(p);          // 为了在访问左子树后访问根节点，将 p 入栈
+                    p = p->leftChild;   // 继续向左深入
+                }
+    
+                // 到达最左端，开始回溯访问
+                if (!s.empty()) {
+                    p = s.top();        // 取出栈顶节点
+                    s.pop();
+                    visit(p);           // 中序遍历：在左子树之后访问根节点
+    
+                    // 转向右子树继续中序遍历
+                    // InOrder(subTree->rightChild, visit);
+                    p = p->rightChild;
+                }
+            }
+        }
+    
+        /* 后序遍历 */
+        // 左子树 --> 右子树 --> 根节点
+        // 从根节点开始一路沿左子树向下遍历
+        // 期间存储所有的沿路节点（子树的根节点）
+        // 每次抵达尽头时，查看栈顶节点，根据 lastVisited 判断这个节点的右子树情况
+        // 如果右子树还未被访问，先转移到栈顶节点的右子树重复过程
+        // 如果右子树上一次被 visited 了或者没有右子树，visit 该节点并弹出
+        void PostOrder(BinTreeNode<T>* root, void (*visit)(BinTreeNode<T>* t)) {
+            if (root == NULL) return;
+    
+            stack<BinTreeNode<T>*> s;  // 暂存待处理的节点
+            BinTreeNode<T>* p = root;  // 当前遍历指针
+            BinTreeNode<T>* lastVisited = NULL; 	// 需要记录上次访问的节点
+                                                    // 为了判断某一个右子树是否已被遍历
+    
+            while (p != NULL || !s.empty()) {
+                // 深度优先遍历到最左节点，沿途压入所有节点
+                // PostOrder(subTree->leftChild, visit);
+                while (p != NULL) {
+                    s.push(p);          // 当前节点入栈
+                    p = p->leftChild;   // 继续向左深入
+                }
+    
+                // 查看栈顶节点（不立即弹出，因为接下来要转向右子树）
+                if (!s.empty()) {
+                    p = s.top();
+    
+                    // 如果右子树存在且未被访问，先处理右子树
+                    // PostOrder(subTree->rightChild, visit);
+                    if (p->rightChild != NULL && p->rightChild != lastVisited) {
+                        p = p->rightChild;  // 转向右子树
+                    } else {
+                        // 右子树已处理或不存在，可以访问当前节点
+                        visit(p);           // 后序遍历：在左右子树之后访问根节点
+                        s.pop();
+                        lastVisited = p;    // 记录上次访问的节点
+                        p = NULL;           // 重置p，强制从栈中取下一个节点
+                    }
+                }
+            }
+        }
+        ```
+    
+    ??? abstract "更加直观地，直接对输入流进行前序遍历建树"
+    
+        ```c++
+        template<class T>
+        void CreateBinTreeFromPre(istream& in, BinTreeNode<T>*& subTree, T Null)     {
+            T item;
+            if (!(in >> item)) return;
+    
+            if (item == Null) {
+                subTree = nullptr;
+                return;
+            }
+    
+            subTree = new BinTreeNode<T>(item);
+            CreateBinTree(in, subTree->leftChild, Null);
+            CreateBinTree(in, subTree->rightChild, Null);
+        }
+        ```
+    
+    最后是实现复杂的函数，我们在类外单独实现：
+    
+    --> 层序遍历函数 `LevelOrder`
+    
+    基本原理是广度优先搜索，利用队列的先进先出特性实现：
+    
+    根节点入队 --> while(队列非空) {出队一个节点 --> visit 该节点 --> 左右子节点先后入队}
     
     ```c++
-    template<class T>
-    void CreateBinTreeFromPre(istream& in, BinTreeNode<T>*& subTree, T Null)     {
-        T item;
-        if (!(in >> item)) return;
+    template <class T>
+    void BinaryTree<T>::LevelOrder(void (*visit)(BinTreeNode<T>* t)) {
+        // 如果树为空，直接返回
+        if (root == NULL) return;
     
-        if (item == Null) {
-            subTree = nullptr;
-            return;
+        // 使用队列进行层次遍历
+        queue<BinTreeNode<T>*> q;
+        q.push(root);  // 根节点入队
+    
+        while (!q.empty()) {
+            // 取出队首节点
+            BinTreeNode<T>* current = q.front();
+            q.pop();
+    
+            // 访问当前节点
+            visit(current);
+    
+            // 将左孩子入队（如果存在）
+            if (current->leftChild != NULL) {
+                q.push(current->leftChild);
+            }
+    
+            // 将右孩子入队（如果存在）
+            if (current->rightChild != NULL) {
+                q.push(current->rightChild);
+            }
         }
-    
-        subTree = new BinTreeNode<T>(item);
-        CreateBinTree(in, subTree->leftChild, Null);
-        CreateBinTree(in, subTree->rightChild, Null);
     }
     ```
-
-最后是实现复杂的函数，我们在类外单独实现：
-
---> 层序遍历函数 `LevelOrder`
-
-基本原理是广度优先搜索，利用队列的先进先出特性实现：
-
-根节点入队 --> while(队列非空) {出队一个节点 --> visit 该节点 --> 左右子节点先后入队}
-
-```c++
-template <class T>
-void BinaryTree<T>::LevelOrder(void (*visit)(BinTreeNode<T>* t)) {
-    // 如果树为空，直接返回
-    if (root == NULL) return;
     
-    // 使用队列进行层次遍历
-    queue<BinTreeNode<T>*> q;
-    q.push(root);  // 根节点入队
+    --> 查找函数 `Find`
     
-    while (!q.empty()) {
-        // 取出队首节点
-        BinTreeNode<T>* current = q.front();
-        q.pop();
-        
-        // 访问当前节点
-        visit(current);
-        
-        // 将左孩子入队（如果存在）
-        if (current->leftChild != NULL) {
-            q.push(current->leftChild);
-        }
-        
-        // 将右孩子入队（如果存在）
-        if (current->rightChild != NULL) {
-            q.push(current->rightChild);
-        }
-    }
-}
-```
-
---> 查找函数 `Find`
-
-查找指定元素，返回其节点
-
-基于 DFS 的递归实现
-
-```c++
-template <class T>
-BinTreeNode<T>* BinaryTree<T>::Find(BinTreeNode<T>* subTree, T item) const {
-    // 空子树 --> 终止搜索
-    if (subTree == NULL) return NULL;
-    // 匹配 --> 返回节点
-    if (subTree->data == item) return subTree;
-    // 先递归检查左子树
-    BinTreeNode<T>* leftResult = Find(subTree->leftChild, item);
-    if (leftResult != NULL) return leftResult;
-    // 如果左子树没找到，再递归到右子树
-    return Find(subTree->rightChild, item);
-}
-```
-
---> 插入函数 `Insert`
-
-这里是根据层序遍历判断插入位置的插入函数，原理是栈实现 BFS
-
-注释参考 `CreateBinTreeFromLevel` 函数
-
-```c++
-template <class T>
-void BinaryTree<T>::Insert(T item) {
-    if (root == NULL) {
-        root = new BinTreeNode<T>(item);
-        return;
-    }
-    queue<BinTreeNode<T>*> q;
-    q.push(root);
-    while (!q.empty()) {
-        BinTreeNode<T>* current = q.front();
-        q.pop();
-        if (current->leftChild == NULL) {
-            current->leftChild = new BinTreeNode<T>(item);
-            return;
-        } else {
-            q.push(current->leftChild);
-        }
-        if (current->rightChild == NULL) {
-            current->rightChild = new BinTreeNode<T>(item);
-            return;
-        } else {
-            q.push(current->rightChild);
-        }
-    }
-}
-```
-
---> 层序遍历建树函数 `CreateBinTreeFromLevel`
-
-为基于层序遍历得到的二叉树节点数据进行一次性建树的函数，`T null` 是空节点标记
-
-是 `Insert` 函数的修改版
-
-核心的层序遍历流程还是一样的：
-
-根节点入队 --> while(队列非空) {出队一个节点 --> 处理该节点 --> 左右子节点先后入队}
-
-```c++
-template <class T>
-void BinaryTree<T>::CreateBinTreeFromLevel(const vector<T>& data, T null) {
-    // 非预期输入
-    if (data.empty() || data[0] == null) {
-        return;
-    }
+    查找指定元素，返回其节点
     
-    // 创建根节点
-    root = new BinTreeNode<T>(data[0]);
-    queue<BinTreeNode<T>*> q;				// 广度优先栈
-    q.push(root);
-    
-    // 处理子节点
-    int index = 1;
-    int n = data.size();
-    
-    while (!q.empty() && index < n) {
-        // 取数
-        BinTreeNode<T>* current = q.front();
-        q.pop();
-        
-        // 处理左子节点
-        if (index < n && data[index] != null) {
-            current->leftChild = new BinTreeNode<T>(data[index]);
-            q.push(current->leftChild);
-        }
-        
-        index++;
-        
-        // 处理右子节点
-        if (index < n && data[index] != null) {
-            current->rightChild = new BinTreeNode<T>(data[index]);
-            q.push(current->rightChild);
-        }
-        
-        index++;
-    }
-}
-```
-
-??? quote "一个比较简洁的，不使用 STL 容器，直接在函数内获取输入而不是传入数组，同时返回有效节点个数的版本"
-
-    （写 OJ 时使用的版本）
+    基于 DFS 的递归实现
     
     ```c++
-    int tree::create(int n, int Null) {
-        int rootval; cin >> rootval;
-        root = new treeNode(rootval);
-    
-        treeNode** queue = new treeNode*[n+1];
-        int front = 0, rear = 0;
-    
-        queue[rear++] = root;
-    
-        int index = 1, data, nodeCounter = 1;
-    
-        while(front < rear && index < n) {
-            treeNode* cur = queue[front++];
-    
-            if(index < n) {
-                cin >> data;
-                if(data != Null) {
-                    cur->leftChild = new treeNode(data);
-                    queue[rear++] = cur->leftChild;
-                    nodeCounter++;
-                }
-                index++;
-            }
-    
-            if(index < n) {
-                cin >> data;
-                if(data != Null) {
-                    cur->rightChild = new treeNode(data);
-                    queue[rear++] = cur->rightChild;
-                    nodeCounter++;
-                }
-                index++;
-            }
-        }
-        delete[] queue;
-        return nodeCounter;
+    template <class T>
+    BinTreeNode<T>* BinaryTree<T>::Find(BinTreeNode<T>* subTree, T item) const {
+        // 空子树 --> 终止搜索
+        if (subTree == NULL) return NULL;
+        // 匹配 --> 返回节点
+        if (subTree->data == item) return subTree;
+        // 先递归检查左子树
+        BinTreeNode<T>* leftResult = Find(subTree->leftChild, item);
+        if (leftResult != NULL) return leftResult;
+        // 如果左子树没找到，再递归到右子树
+        return Find(subTree->rightChild, item);
     }
     ```
-
---> 删除函数 `Delete`
-
-递归写法，比较显然
-
-```c++
-template <class T>
-bool BinaryTree<T>::Delete(BinTreeNode<T>*& subTree, T item) {
-    if (subTree == NULL) return false;
-    if (subTree->data == item) {
-        // 找到节点，删除
-        Destory(subTree);
-        subTree = NULL;
-        return true;
+    
+    --> 插入函数 `Insert`
+    
+    这里是根据层序遍历判断插入位置的插入函数，原理是栈实现 BFS
+    
+    注释参考 `CreateBinTreeFromLevel` 函数
+    
+    ```c++
+    template <class T>
+    void BinaryTree<T>::Insert(T item) {
+        if (root == NULL) {
+            root = new BinTreeNode<T>(item);
+            return;
+        }
+        queue<BinTreeNode<T>*> q;
+        q.push(root);
+        while (!q.empty()) {
+            BinTreeNode<T>* current = q.front();
+            q.pop();
+            if (current->leftChild == NULL) {
+                current->leftChild = new BinTreeNode<T>(item);
+                return;
+            } else {
+                q.push(current->leftChild);
+            }
+            if (current->rightChild == NULL) {
+                current->rightChild = new BinTreeNode<T>(item);
+                return;
+            } else {
+                q.push(current->rightChild);
+            }
+        }
     }
-    // 这里用到了 || 截断特性
-    if (Delete(subTree->leftChild, item) || Delete(subTree->rightChild, item)) {
-        return true;
+    ```
+    
+    --> 层序遍历建树函数 `CreateBinTreeFromLevel`
+    
+    为基于层序遍历得到的二叉树节点数据进行一次性建树的函数，`T null` 是空节点标记
+    
+    是 `Insert` 函数的修改版
+    
+    核心的层序遍历流程还是一样的：
+    
+    根节点入队 --> while(队列非空) {出队一个节点 --> 处理该节点 --> 左右子节点先后入队}
+    
+    ```c++
+    template <class T>
+    void BinaryTree<T>::CreateBinTreeFromLevel(const vector<T>& data, T null) {
+        // 非预期输入
+        if (data.empty() || data[0] == null) {
+            return;
+        }
+    
+        // 创建根节点
+        root = new BinTreeNode<T>(data[0]);
+        queue<BinTreeNode<T>*> q;				// 广度优先栈
+        q.push(root);
+    
+        // 处理子节点
+        int index = 1;
+        int n = data.size();
+    
+        while (!q.empty() && index < n) {
+            // 取数
+            BinTreeNode<T>* current = q.front();
+            q.pop();
+    
+            // 处理左子节点
+            if (index < n && data[index] != null) {
+                current->leftChild = new BinTreeNode<T>(data[index]);
+                q.push(current->leftChild);
+            }
+    
+            index++;
+    
+            // 处理右子节点
+            if (index < n && data[index] != null) {
+                current->rightChild = new BinTreeNode<T>(data[index]);
+                q.push(current->rightChild);
+            }
+    
+            index++;
+        }
     }
-    return false;
-}
-```
+    ```
+    
+    ??? quote "一个比较简洁的，不使用 STL 容器，直接在函数内获取输入而不是传入数组，同时返回有效节点个数的版本"
+    
+        （写 OJ 时使用的版本）
+    
+        ```c++
+        int tree::create(int n, int Null) {
+            int rootval; cin >> rootval;
+            root = new treeNode(rootval);
+    
+            treeNode** queue = new treeNode*[n+1];
+            int front = 0, rear = 0;
+    
+            queue[rear++] = root;
+    
+            int index = 1, data, nodeCounter = 1;
+    
+            while(front < rear && index < n) {
+                treeNode* cur = queue[front++];
+    
+                if(index < n) {
+                    cin >> data;
+                    if(data != Null) {
+                        cur->leftChild = new treeNode(data);
+                        queue[rear++] = cur->leftChild;
+                        nodeCounter++;
+                    }
+                    index++;
+                }
+    
+                if(index < n) {
+                    cin >> data;
+                    if(data != Null) {
+                        cur->rightChild = new treeNode(data);
+                        queue[rear++] = cur->rightChild;
+                        nodeCounter++;
+                    }
+                    index++;
+                }
+            }
+            delete[] queue;
+            return nodeCounter;
+        }
+        ```
+    
+    --> 删除函数 `Delete`
+    
+    递归写法，比较显然
+    
+    ```c++
+    template <class T>
+    bool BinaryTree<T>::Delete(BinTreeNode<T>*& subTree, T item) {
+        if (subTree == NULL) return false;
+        if (subTree->data == item) {
+            // 找到节点，删除
+            Destory(subTree);
+            subTree = NULL;
+            return true;
+        }
+        // 这里用到了 || 截断特性
+        if (Delete(subTree->leftChild, item) || Delete(subTree->rightChild, item)) {
+            return true;
+        }
+        return false;
+    }
+    ```
 
 ## 例题
 
