@@ -6,7 +6,7 @@
       
       
       
-        <link rel="prev" href="../lab06.5/">
+        <link rel="prev" href="../lab07%28PWN%29/">
       
       
         <link rel="next" href="../../ICS%26%26CSAPP-Lab/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Lab07 - CSNote</title>
+        <title>Lab08 - CSNote</title>
       
     
     
@@ -109,7 +109,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab07-writeup" class="md-skip">
+        <a href="#lab08-writeup" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lab07
+              Lab08
             
           </span>
         </div>
@@ -1794,6 +1794,8 @@
       
         
       
+        
+      
     
     
     
@@ -2046,6 +2048,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab07%28PWN%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab07(PWN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2065,7 +2095,7 @@
   <span class="md-ellipsis">
     
   
-    Lab07
+    Lab08
   
 
     
@@ -2083,7 +2113,7 @@
   <span class="md-ellipsis">
     
   
-    Lab07
+    Lab08
   
 
     
@@ -3661,9 +3691,12 @@
   
 
 
-<h1 id="lab07-writeup">网络攻防实战 Lab07 Writeup</h1>
+<h1 id="lab08-writeup">网络攻防实战 Lab08 Writeup</h1>
 <div class="admonition quote">
 <p class="admonition-title">使用的靶机为 VulnHub djinn:1</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">有趣的 Lab</p>
 </div>
 <h2 id="_1">渗透目的</h2>
 <p>取得目标靶机的 root 权限</p>
@@ -4988,10 +5021,10 @@ root@box7:/opt/80#
 <h2 id="_6">三次挖掘</h2>
 <p>结合之前的探索（加上一些额外的 <code>ls</code> 探索）我们发现：</p>
 <p>1- 端口 <code>1137</code> 的小游戏程序具有 root 权限</p>
-<p>2- 程序使用 Python 2.x 编写，已知 <code>input()</code> 函数存在漏洞，<del>我们需要假定作者写的代码具有风格相似性</del></p>
-<p>于是可以大胆猜测这里有代码注入的漏洞：</p>
+<p>2- 程序使用 Python 2.x 编写，已知 <code>input()</code> 函数存在代码注入漏洞，<del>我们需要假定作者写的代码具有风格相似性</del></p>
+<p>于是可以大胆猜测这里也有代码注入的漏洞：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251125231921313.png" data-desc-position="bottom"><img alt="image-20251125231921313" src="../images/image-20251125231921313.png"></a></p>
-<p>实践证明这是最快的得到 root 权限的方法，一步到位</p>
+<p><strong>实践证明这是最快的得到 root 权限的方法，一步到位</strong></p>
 <h2 id="_7">渗透结果</h2>
 <p>成功获得了 root 账户权限，修改密码在靶机登录</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251125224903001.png" data-desc-position="bottom"><img alt="image-20251125224903001" src="../images/image-20251125224903001.png"></a></p>
@@ -5005,7 +5038,7 @@ root@box7:/opt/80#
 <h2 id="_9">其他</h2>
 <p>用时 4h+1h（附加任务）</p>
 <hr>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-25T13:32:42.435929+08:00">2025-11-25</time></span><span data-tippy-content data-tippy-raw="2025-11-25"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-25T23:44:25.329573+08:00">2025-11-25</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-25T13:32:42.435929+08:00">2025-11-25</time></span><span data-tippy-content data-tippy-raw="2025-11-26"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-26T00:10:12.822342+08:00">2025-11-26</time></span></div></div>
 
 
 
