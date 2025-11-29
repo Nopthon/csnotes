@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3491,10 +3551,10 @@
 
 <h2 id="a">A. 小蓝鲸建树</h2>
 <p>--&gt; 题目描述</p>
-<p>小蓝鲸在学习树的数据结构过程中，看到了树的带权路径长度的概念： 树的带权路径长度规定为所有叶子结点的带权路径长度之和，记为WPL(weighted path length)，即每个叶子节点的权值乘以从根节点到此叶子节点的路径长度之和。 于是小蓝鲸想给定 $n$ 个权值作为 $n$个叶子节点，构造一棵二叉树，使得二叉树的WPL最小。请你帮助小蓝鲸实现这个目的。</p>
+<p>小蓝鲸在学习树的数据结构过程中，看到了树的带权路径长度的概念： 树的带权路径长度规定为所有叶子结点的带权路径长度之和，记为 WPL(weighted path length)，即每个叶子节点的权值乘以从根节点到此叶子节点的路径长度之和。 于是小蓝鲸想给定 $n$ 个权值作为 $n$ 个叶子节点，构造一棵二叉树，使得二叉树的WPL最小。请你帮助小蓝鲸实现这个目的。</p>
 <p>--&gt; Input</p>
-<p>第一行：一个正整数$n$，代表具有给定权值的叶子节点个数</p>
-<p>第二行：$n$个整数，代表$n$个权值的具体数值</p>
+<p>第一行：一个正整数 $n$，代表具有给定权值的叶子节点个数</p>
+<p>第二行：$n$ 个整数，代表 $n$ 个权值的具体数值</p>
 <p>--&gt; Output</p>
 <p>一个整数，代表最小的带权路径长度</p>
 <p>--&gt; 样例</p>
@@ -3506,6 +3566,7 @@
 <p><strong>输出1</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>35
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p><strong>解释</strong></p>
 <p>$7 \times 1 + 5 \times 2 + 2 \times 3 + 4 \times 3 = 35$</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3516,6 +3577,7 @@
               5  / \
                 2   4            
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <p><strong>输入2</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>2
@@ -3525,11 +3587,11 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 数据规模与约定</p>
-<p>$1 \leq 叶子节点的权值 \leq 2000$</p>
+<p>$1 \leq$ 叶子节点的权值 $\leq 2000$</p>
 <p>$2 \leq n \leq 1000$</p>
 <h3 id="solution">Solution</h3>
 <p>用一个最小堆实现 Huffman 树的构建，但是实际上不需要完成建树行为，只需要重复进行“从最小堆取出最小的两个值，累加后插入堆”的操作即可，期间累加插入的值，就能计算 WPL</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3708,7 +3770,7 @@
 <p>--&gt; 题目描述</p>
 <p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
 <p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
-<p>合并从根节点开始。输入输出均用前序遍历表示，其中空节点用-1表示。</p>
+<p>合并从根节点开始。输入输出均用前序遍历表示，其中空节点用 $-1$ 表示。</p>
 <p>--&gt; 输入格式</p>
 <p>共三行，第一行包括两个数字，分别代表两个二叉树的前序遍历表示的长度，第二行和第三行分别为两个二叉树的前序遍历表示</p>
 <p>--&gt; 输出格式</p>
@@ -3724,6 +3786,7 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3 4 5 -1 -1 4 -1 -1 5 -1 7 -1 -1
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 解释</p>
+<blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3737,14 +3800,14 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>Tree 1            Tree2                                  
-          1          2                                               
-         / \        / \                                           
-        3   2      1   3                                       
-       /           \    \                               
-      5             4    7
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code> Tree 1:            Tree2:
+          1                 2
+         / \               / \ 
+        3   2             1   3 
+       /                   \   \ 
+      5                     4   7
 
-合并后的tree
+合并后的 tree:
 
          3
         / \
@@ -3752,17 +3815,18 @@
       / \   \ 
      5   4   7
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <p>--&gt; 数据规模</p>
-<p>$1 \leq 节点的值 \leq 10^6$</p>
-<p>$0 \leq 二叉树非空节点数 \leq 10^4$</p>
-<p>时间限制： 1s</p>
-<p>空间限制： 128MB</p>
+<p>$1 \leq$ 节点的值 $\leq 10^6$</p>
+<p>$0 \leq$ 二叉树非空节点数 $\leq 10^4$</p>
+<p>时间限制：1s</p>
+<p>空间限制：128MB</p>
 <h3 id="solution_1">Solution</h3>
 <p>考虑将第二棵树接在第一棵树上，对两棵树同时进行前序遍历，首先将第二棵树的对应节点值加到第一棵树对应节点上，然后依次对左/右子树判断：</p>
 <p>1- 都有左/右子树：向下进行递归</p>
 <p>2- 第一棵树没有而第二棵树有：将第二棵树的对应子树接到第一棵子树下，结束向下的递归</p>
 <p>3- 第一棵树有而第二棵树没有：结束向下的递归</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3939,15 +4003,15 @@
 <hr>
 <h2 id="c">C. 小蓝鲸打怪</h2>
 <p>--&gt; 背景描述</p>
-<p>某日，小蓝鲸收到了一封没有署名的信件，里面夹带着一张卡片，在小蓝鲸念起卡片上的文字时，突然一道强光闪过，在这一瞬间，小蓝鲸穿越到了异世界。异世界充满着妖魔鬼怪，其中大BOSS是大魔王。小蓝鲸由于之前解决问题的优异表现，被赋予了勇者身份，使命是找到并打败大魔王。但是异世界冒险的路途必然充满艰难险阻，想要完成使命，小蓝鲸必须完成许多挑战。</p>
+<p>某日，小蓝鲸收到了一封没有署名的信件，里面夹带着一张卡片，在小蓝鲸念起卡片上的文字时，突然一道强光闪过，在这一瞬间，小蓝鲸穿越到了异世界。异世界充满着妖魔鬼怪，其中大 BOSS 是大魔王。小蓝鲸由于之前解决问题的优异表现，被赋予了勇者身份，使命是找到并打败大魔王。但是异世界冒险的路途必然充满艰难险阻，想要完成使命，小蓝鲸必须完成许多挑战。</p>
 <p>小蓝鲸开始冒险，但是异世界的征途会遇到各种妖魔鬼怪，小蓝鲸如果想要走得更远，必须提高自己的战力值。小蓝鲸为了能够存活下来并且继续冒险，来到了小怪的聚集地，决定通过打小怪的方式来积攒经验并且提升战力值。</p>
-<p>每当小蓝鲸击败一个小怪时，小蓝鲸的战力值都会发生改变。具体而言，每个小怪也同样具有一个战力值，假设已经有<code>x</code>个小怪被小蓝鲸战胜，那么小蓝鲸的战力值就会变为这些小怪中战力第<code>⌈x/M⌉</code>大的战力值。</p>
+<p>每当小蓝鲸击败一个小怪时，小蓝鲸的战力值都会发生改变。具体而言，每个小怪也同样具有一个战力值，假设已经有 $x$ 个小怪被小蓝鲸战胜，那么小蓝鲸的战力值就会变为这些小怪中战力第 $⌈x/M⌉$ 大的战力值。</p>
 <p>小蓝鲸需要知道每当他战胜一个小怪时，自己的战力值是多少？</p>
 <p>--&gt; Input</p>
-<p>第一行两个数字，<code>M</code>和<code>N</code>，<code>M</code>的含义如题目所示，<code>N</code>代表小蓝鲸总共战胜的小怪的数量</p>
-<p>第二行<code>N</code>个数字，代表每个被战胜的小怪的战力值</p>
+<p>第一行两个数字，<code>M</code> 和 <code>N</code>，<code>M</code> 的含义如题目所示，<code>N</code> 代表小蓝鲸总共战胜的小怪的数量</p>
+<p>第二行 <code>N</code> 个数字，代表每个被战胜的小怪的战力值</p>
 <p>--&gt; Output</p>
-<p><code>N</code>个数字，代表每次战胜一个小怪后，小蓝鲸的战力值</p>
+<p><code>N</code> 个数字，代表每次战胜一个小怪后，小蓝鲸的战力值</p>
 <p>--&gt; 样例1</p>
 <p><strong>输入</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3957,7 +4021,9 @@
 <p><strong>输出</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 2 3
 </code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong> 当数组为[1]，第<code>⌈1/2⌉</code>大的数就是1，当数组为[1,2]，第 <code>⌈2/2⌉</code> 大的数就是2，当数组为[1,2,4]，第<code>⌈3/2⌉</code>大的数就是2，当数组为[1,2,4,3]，第<code>⌈4/2⌉</code>大的数就是3</p>
+<blockquote>
+<p><strong>解释</strong> 当数组为 $[1]$，第 $⌈1/2⌉$ 大的数就是 $1$ ，当数组为 $[1,2]$，第 $⌈2/2⌉$ 大的数就是 $2$，当数组为 $[1,2,4]$，第 $⌈3/2⌉$ 大的数就是 $2$，当数组为 $[1,2,4,3]$，第 $⌈4/2⌉$ 大的数就是 $3$</p>
+</blockquote>
 <p>--&gt; 样例2</p>
 <p><strong>输入</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3967,16 +4033,18 @@
 <p><strong>输出</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 4 3 4
 </code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong></p>
-<p>当数组为[1]，第<code>⌈1/3⌉</code>大的数是1，当数组为[1,2]，第<code>⌈2/3⌉</code>大的数是2，当数组为[1,2,4]，第<code>⌈3/3⌉</code>大的数是4，当数组为[1,2,4,3]，第<code>⌈4/3⌉</code>大的数是3，当数组为[1,2,4,3,5]，第<code>⌈5/3⌉</code>大的数是4</p>
+<blockquote>
+<p><strong>解释</strong> 当数组为 $[1]$，第 $⌈1/3⌉$ 大的数是 $1$，当数组为 $[1,2]$，第 $⌈2/3⌉$ 大的数是 $2$，当数组为 $[1,2,4]$，第 $⌈3/3⌉$ 大的数是 $4$，当数组为 $[1,2,4,3]$，第 $⌈4/3⌉$ 大的数是 $3$，当数组为 $[1,2,4,3,5]$，第 $⌈5/3⌉$ 大的数是 $4$</p>
+</blockquote>
 <p>--&gt; 数据规模与约定</p>
-<p>对于100%的数据，$M \leq 5，N \leq 10^6，0 \leq 每个小怪的战力值 \leq 10^6$</p>
+<p>对于100%的数据，$M \leq 5,\;N \leq 10^6,\;0 \leq$ 每个小怪的战力值 $\leq 10^6$</p>
 <p>时间限制：2s</p>
 <p>空间限制：128MB</p>
 <h3 id="solution_2">Solution</h3>
-<p>第 k 大的数理解为 “前 k 大的数中的最小值”，据此维护一个对顶堆，确保最小堆的内容是前 k 大的数，堆顶为第 k 大的数</p>
+<p>第 k 大的数理解为 “前 k 大的数中的最小值”，据此维护一个对顶堆：最小堆的内容是前 k 大的数，堆顶为第 k 大的数，最大堆的堆顶始终给出未被纳入最小堆的数字中的最大值，在最小堆大小扩大时用于将之前未插入最小堆的值尝试补插入</p>
+<p>如果只使用最小堆，会因为 k 值的动态增大提前丢弃一些值（而不会再考虑重新加入）</p>
 <p>堆的函数写的比较抽象（</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

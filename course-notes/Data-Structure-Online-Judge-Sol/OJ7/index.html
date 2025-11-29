@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3497,13 +3557,10 @@
 <p>野区的资源点分布以二叉树的方式给出，每个资源点用一个数字表示，树中同一深度的节点代表野区中处于同一行的资源点，请你按照上述“Z”字形路线输出小蓝鲸”打野“时，访问各个资源点的顺序。</p>
 <p>约定树的根节点为第一行资源点，该行的遍历顺序为从左往右。</p>
 <p>--&gt; 输入</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>第一行为一个数字N，表示第二行中数字的个数。
-第二行为N个数字，用空格隔开，代表该二叉树的前序遍历结果，-1代表空结点，其余数字代表野区中的资源点。
-</code></pre></div></td></tr></tbody></table></div>
+<p>第一行为一个数字 $N$，表示第二行中数字的个数。</p>
+<p>第二行为 $N$ 个数字，用空格隔开，代表该二叉树的前序遍历结果，$-1$ 代表空结点，其余数字代表野区中的资源点。</p>
 <p>--&gt; 输出</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>多行，每行若干个数字用空格隔开，代表小蓝鲸访问一行各个资源点的顺序，空结点无需输出，从根节点所在行开始输出。
-</code></pre></div></td></tr></tbody></table></div>
+<p>多行，每行若干个数字用空格隔开，代表小蓝鲸访问一行各个资源点的顺序，空结点无需输出，从根节点所在行开始输出。</p>
 <p>--&gt; 示例 1：</p>
 <p>--&gt; 输入</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3515,6 +3572,7 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>1
 3 2
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释：树的形状如下</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3522,7 +3580,8 @@
    / \
   2   3
 </code></pre></div></td></tr></tbody></table></div>
-<p>从根结点开始，小蓝鲸先从左往右遍历第一行，输出1，然后从右往左遍历，依次访问3和2。</p>
+<p>从根结点开始，小蓝鲸先从左往右遍历第一行，输出1，然后从右往左遍历，依次访问3和&gt; 2。</p>
+</blockquote>
 <p>--&gt; 示例 2：</p>
 <p>--&gt; 输入</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3536,6 +3595,7 @@
 3 2
 4 5
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释：树的形状如下</p>
 <p>第一排：从左往右，输出1</p>
 <p>第二排：从右往左，输出3 2</p>
@@ -3547,16 +3607,17 @@
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>    1
    / \
   2   3
-       / \
-      4   5
+     / \
+    4   5
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <p>--&gt; 数据规模与约定</p>
 <p>$1 \leq n \leq 10^5$</p>
 <p>时间限制： <code>1s</code></p>
 <p>空间限制： <code>128MB</code></p>
 <h3 id="solution">Solution</h3>
 <p>层序遍历，添加 bool 转向变量标记，转向标记为 true 时调转队列的头尾，子节点入栈的顺序也要交换</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -3733,109 +3794,109 @@
 <span class="normal">175</span>
 <span class="normal">176</span>
 <span class="normal">177</span>
-<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream</span>
-<span class="cpf">using namespace std;</span>
+<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
-<span class="cpf">struct treeNode{</span>
-<span class="cpf">    int val;</span>
-<span class="cpf">    treeNode *leftChild, *rightChild;</span>
-<span class="cpf">    treeNode ()</span>
-<span class="cpf">        { val = 0; leftChild = NULL;  rightChild = NULL; }</span>
-<span class="cpf">    treeNode (int x, treeNode *l = NULL, treeNode *r = NULL)</span>
-<span class="cpf">        { val = x;  leftChild = l;  rightChild = r; }</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">treeNode</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">rightChild</span><span class="p">;</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w">  </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w">  </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="cpf">};</span>
+<span class="p">};</span>
 
-<span class="cpf">// treeNode 双向队列实现</span>
-<span class="cpf">class Deque {</span>
-<span class="cpf">private:</span>
-<span class="cpf">    static const int MAX_SIZE = 100000;</span>
-<span class="cpf">    treeNode* data[MAX_SIZE];</span>
-<span class="cpf">    int Front;</span>
-<span class="cpf">    int Back;</span>
-<span class="cpf">    int count;</span>
+<span class="c1">// treeNode 双向队列实现</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Deque</span><span class="w"> </span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100000</span><span class="p">;</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Front</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Back</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
 
-<span class="cpf">public:</span>
-<span class="cpf">    Deque() {</span>
-<span class="cpf">        Front = 0;</span>
-<span class="cpf">        Back = -1;</span>
-<span class="cpf">        count = 0;</span>
-<span class="cpf">    }</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Deque</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">    ~Deque() {}</span>
-
-
-<span class="cpf">    void push_front(treeNode* value) {</span>
-<span class="cpf">        if (!full()) {</span>
-<span class="cpf">            Front = (Front - 1 + MAX_SIZE) % MAX_SIZE;</span>
-<span class="cpf">            data[Front] = value;</span>
-<span class="cpf">            count++;</span>
-<span class="cpf">        }</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="o">~</span><span class="n">Deque</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
 
 
-<span class="cpf">    void push_back(treeNode* value) {</span>
-<span class="cpf">        if (!full()) {</span>
-<span class="cpf">            Back = (Back + 1) % MAX_SIZE;</span>
-<span class="cpf">            data[Back] = value;</span>
-<span class="cpf">            count++;</span>
-<span class="cpf">        }</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push_front</span><span class="p">(</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">full</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Front</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">;</span>
+<span class="w">            </span><span class="n">data</span><span class="p">[</span><span class="n">Front</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">            </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
 
-<span class="cpf">    void pop_front() {</span>
-<span class="cpf">        if (!empty()) {</span>
-<span class="cpf">            Front = (Front + 1) % MAX_SIZE;</span>
-<span class="cpf">            count--;</span>
-<span class="cpf">        }</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push_back</span><span class="p">(</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">full</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Back</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">;</span>
+<span class="w">            </span><span class="n">data</span><span class="p">[</span><span class="n">Back</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">            </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
 
-<span class="cpf">    void pop_back() {</span>
-<span class="cpf">        if (!empty()) {</span>
-<span class="cpf">            Back = (Back - 1 + MAX_SIZE) % MAX_SIZE;</span>
-<span class="cpf">            count--;</span>
-<span class="cpf">        }</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pop_front</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">;</span>
+<span class="w">            </span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
 
-<span class="cpf">    treeNode* front() {</span>
-<span class="cpf">        if (!empty()) {</span>
-<span class="cpf">            return data[Front];</span>
-<span class="cpf">        }</span>
-<span class="cpf">        return nullptr;</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pop_back</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Back</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">;</span>
+<span class="w">            </span><span class="n">count</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">    treeNode* back() {</span>
-<span class="cpf">        if (!empty()) {</span>
-<span class="cpf">            return data[Back];</span>
-<span class="cpf">        }</span>
-<span class="cpf">        return nullptr;</span>
-<span class="cpf">    }</span>
 
-<span class="cpf">    bool empty() {</span>
-<span class="cpf">        return count == 0;</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">Front</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">    bool full() {</span>
-<span class="cpf">        return count == MAX_SIZE;</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">back</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">Back</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">    int size() {</span>
-<span class="cpf">        return count;</span>
-<span class="cpf">    }</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">    void clear() {</span>
-<span class="cpf">        Front = 0;</span>
-<span class="cpf">        Back = -1;</span>
-<span class="cpf">        count = 0;</span>
-<span class="cpf">    }</span>
-<span class="cpf">};</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">full</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX_SIZE</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="cpf">// 根据前序遍历建树</span>
-<span class="cpf">void create(istream&amp; in, treeNode*&amp; subTree, int Null, int &amp;cnt) {</span>
-<span class="cpf">    int i;</span>
-<span class="cpf">    if(!(in &gt;</span><span class="c1">&gt; i)) return;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 根据前序遍历建树</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">istream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">subTree</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Null</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cnt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Null</span><span class="p">){</span>
 <span class="w">        </span><span class="n">subTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
@@ -3848,7 +3909,7 @@
 <span class="p">}</span>
 
 <span class="c1">// 层序遍历输出</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">Print</span><span class="p">(</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">){</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">){</span>
 <span class="w">    </span><span class="n">Deque</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
 <span class="w">    </span><span class="n">q</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_switch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
@@ -3889,7 +3950,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="n">solve</span><span class="p">(){</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -3898,7 +3959,7 @@
 <span class="p">}</span>
 
 
-<span class="kt">signed</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
+<span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
@@ -3920,8 +3981,8 @@
 <p>输入包含三行：</p>
 <ul>
 <li>第一行包含一个整数N ，$1 \leq N \leq 10^4$</li>
-<li>第二行输入前序序列 , 各结点值范围 $-10^4 \leq val \leq 10^4$且不重复</li>
-<li>第三行输入中序序列 , 各结点值范围 $-10^4 \leq val \leq 10^4$且不重复</li>
+<li>第二行输入前序序列 , 各结点值范围 $-10^4 \leq val \leq 10^4$ 且不重复</li>
+<li>第三行输入中序序列 , 各结点值范围 $-10^4 \leq val \leq 10^4$ 且不重复</li>
 </ul>
 <p>--&gt; 示例</p>
 <ol>
@@ -3936,17 +3997,19 @@
 <p>输出</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 4
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;    1 
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;      1 
        / \
--&gt;   2  3
-      /  / \
--&gt;   4  5  6
+-&gt;    2   3
+     /   / \
+-&gt;  4   5   6
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <ol>
 <li>输入</li>
 </ol>
@@ -3959,6 +4022,7 @@
 <p>输出</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 3 5
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3966,14 +4030,15 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;     1 
-         \
--&gt;      2
-         / \
--&gt;     3  4
-              \ 
--&gt;            5
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;   1 
+      \
+-&gt;     2
+      / \
+-&gt;   3   4
+          \ 
+-&gt;         5
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <ol>
 <li>输入</li>
 </ol>
@@ -3986,6 +4051,7 @@
 <p>输出</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 4 5
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3993,19 +4059,20 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;        1 
-         /  \
--&gt;     2 3
-             \
--&gt;           4
-              / 
--&gt;          5
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>-&gt;     1 
+      / \
+-&gt;   2   3
+          \
+-&gt;         4
+          / 
+-&gt;       5
 </code></pre></div></td></tr></tbody></table></div>
+</blockquote>
 <h3 id="solution_1">Solution</h3>
 <p>分两步：</p>
 <p>1- 根据前序遍历和中序遍历的结果建树</p>
 <p>2- 根据层序遍历输出，注意只输出每层第一个元素</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -4328,8 +4395,8 @@
 <p>--&gt; 题目描述</p>
 <p>给定一个二叉树，小蓝鲸需要在树的结点上安装摄像头。结点上的每个摄像头都可以监控其父结点，子结点和自己。为了能够监控树的所有结点，请计算小蓝鲸需要安装的最小摄像头数量。</p>
 <p>--&gt; Input</p>
-<p>第一行输入整数<code>n, (1&lt;=n&lt;=1000)</code> ，表示树中结点的个数。</p>
-<p>第二行按照层次遍历输入树的<code>n</code>个节点，<code>0</code>代表该结点存在，<code>-1</code>表示该结点为空。</p>
+<p>第一行输入整数 $n$，表示树中结点的个数。</p>
+<p>第二行按照层次遍历输入树的 $n$ 个节点，$0$ 代表该结点存在，$-1$ 表示该结点为空。</p>
 <p>--&gt; Output</p>
 <p>输出监控树的所有结点所需的最少摄像头数量</p>
 <p>--&gt; 样例</p>
@@ -4341,18 +4408,20 @@
 <p><strong>输出1</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>           0
-          /  
-        0 (camera)
-      /  \
-     0   0
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>      0
+     /     
+    0 (camera)
+   / \
+  0   &gt; 0
 </code></pre></div></td></tr></tbody></table></div>
 <p>（camera）为监控安装的位置</p>
+</blockquote>
 <p><strong>输入2</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>9
@@ -4361,6 +4430,7 @@
 <p><strong>输出1</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -4370,19 +4440,21 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>           0
-          /  
-        0 (camera)
-       /  
-     0
-    /
-   0 (camera)
-    \
-     0
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>        0
+       /   
+      0 (camera)
+     /  
+    0
+   /
+  0 (camera)
+   \
+    0
 </code></pre></div></td></tr></tbody></table></div>
 <p>（camera）为监控安装的位置</p>
+</blockquote>
 <p>--&gt; 限制约束</p>
 <ul>
+<li>$1 \leq n \leq 1000$</li>
 <li>时间: 1s</li>
 <li>空间: 256MB</li>
 </ul>
@@ -4390,7 +4462,7 @@
 <p>定义节点状态：</p>
 <p>0 - 未覆盖；1 - 被监控覆盖；2 - 安装了监控</p>
 <p>后序遍历进行状态转移更新即可，注意根节点需要多一次判断</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

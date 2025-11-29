@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3493,9 +3553,9 @@
 <p>--&gt; 题目描述</p>
 <p>小蓝鲸在学习过哈希表后，对哈希表的查找十分感兴趣，给定 $n$，$prime$，$m$ 分别表示哈希表的长度，取模的素数，$m$ 个数字，求线性探测法的平均查找长度，和失败查找长度.</p>
 <p>--&gt; 输入格式</p>
-<p>第一行为 $n$，$prime$, $m$；第二行为 $m$ 个数字(数字范围 $1$-$100000$ )</p>
+<p>第一行为 $n,prime,m$；第二行为 $m$ 个数字(数字范围 $1\sim 100000$)</p>
 <p>--&gt; 输出格式</p>
-<p>输出两个数字，一个是平均查找长度，一个是失败查找长度（均保留小数点后3位）</p>
+<p>输出两个数字，一个是平均查找长度，一个是失败查找长度（均保留小数点后 3 位）</p>
 <p>--&gt; 样例数据</p>
 <p><strong>input 1</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3503,22 +3563,73 @@
 2 4 5 6 7 9 12 14
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>output 1</strong></p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>1.500 6.000
-(解释：
-将8个数放入哈希表后
-哈希表： 7 14 2 9 4 5 6 12 - -
-查找失败9 8  7 6 5 4 3
-查找成功1 2  1 2 1 1 1 3 0 0
-平均查找长度=(1+2+1+2+1+1+1+3)/8=1.5
-失败查找长度=(9+8+7+6+5+4+3)/7=6
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1.500 6.000
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
+<p>解释：</p>
+<p>将 8 个数放入哈希表后：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">位置</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">3</th>
+<th style="text-align: left;">4</th>
+<th style="text-align: left;">5</th>
+<th style="text-align: left;">6</th>
+<th style="text-align: left;">7</th>
+<th style="text-align: left;">8</th>
+<th style="text-align: left;">9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>关键字</strong></td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>查找成功</strong></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>查找失败</strong></td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<p>平均查找长度 = (1+2+1+2+1+1+1+3)/8=1.5</p>
+<p>失败查找长度 = (9+8+7+6+5+4+3)/7=6</p>
+<p>（注意：本题中<em>查找失败</em>是对每个哈希地址 $(0 ≤ i &lt; prime)$ 的查找）</p>
+</blockquote>
 <p><strong>input 2</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>15 13 12
@@ -3536,13 +3647,13 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2.875 4.857
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 数据规模与约定</p>
-<p>$1 \leq prime &lt; n \leq 10000,\quad 1\leq m \leq n-1$</p>
+<p>$1 \leq prime &lt; n \leq 10000,\; 1\leq m \leq n-1$</p>
 <p>时间限制： <code>1s</code></p>
 <p>空间限制： <code>128MB</code></p>
 <h3 id="solution">Solution</h3>
 <p>线性探查法的应用</p>
 <p>平均成功查找长度 <code>success / m</code>，平均失败查找长度 <code>failure / prime</code></p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3688,12 +3799,12 @@
 <h2 id="b">B. 小蓝鲸分组</h2>
 <p>--&gt; 题目描述</p>
 <p>小蓝鲸要去旅游，现在要将他们分成任意大小的 <strong>两组</strong>。由于，每个小蓝鲸都有可能不喜欢其他小蓝鲸，这样的两个小蓝鲸不应该分到一个组里。</p>
-<p>现在需要你来判断给定的 $n$ 个小蓝鲸(编号为 $1, 2, \cdots, n$)是否能成功的分到两个组中。（提示：本题要采用并查集的方法）</p>
+<p>现在需要你来判断给定的 $n$ 个小蓝鲸（编号为 $1, 2, \cdots, n$）是否能成功的分到两个组中。（提示：本题要采用并查集的方法）</p>
 <p>--&gt; 输入格式</p>
-<p>第一行输入 $n,k$ ，分别表示小蓝鲸的个数和不能分在同一组的小蓝鲸对数</p>
+<p>第一行输入 $n,k$，分别表示小蓝鲸的个数和不能分在同一组的小蓝鲸对数</p>
 <p>接下来 $k$ 行每行两个整数，代表小蓝鲸的编号</p>
 <p>--&gt; 输出格式</p>
-<p>输出一行，若能成功分为两组则输出 $true$， 否则输出 $false$</p>
+<p>输出一行，若能成功分为两组则输出 $true$，否则输出 $false$</p>
 <p>--&gt; 样例数据</p>
 <p>--&gt; 样例1</p>
 <p><strong>输入</strong></p>
@@ -3737,8 +3848,8 @@
 <p>2- 如果某一个节点已被“染色”，另一个节点“染色”成不一样的值</p>
 <p>3- 如果两个节点都已被“染色”且颜色相同，说明无法划分，返回 <code>false</code></p>
 <p>否则完成所有结点的染色，返回 <code>true</code></p>
-<p>（并查集不会写）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>（并查集的写法先并后查即可）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3845,16 +3956,13 @@
 <p>--&gt; 题目描述</p>
 <p>临近期中，小蓝鲸面前有很多任务，每个任务都有一个可以完成的时间区间。</p>
 <p>具体来说，第 $i$ 个任务可以在第 $start_i$ 天到第 $end_i$ 天（包含两端）中的任意一天完成。</p>
-<p>但是小蓝鲸每天只能完成 <strong>一个</strong> 任务。</p>
+<p>但是小蓝鲸每天只能完成<strong>一个</strong>任务。</p>
 <p>现在，小蓝鲸想知道自己最多能完成多少个任务。请你帮小蓝鲸计算出他最多可以完成的任务数量。</p>
-<hr>
 <p>--&gt; 输入格式</p>
 <p>第一行输入一个整数 $n$，表示任务的数量。</p>
 <p>接下来 $n$ 行中，每行包含两个整数 $start_i$ 和 $end_i$，表示第 $i$ 个任务可以完成的起止日期。</p>
-<hr>
 <p>--&gt; 输出格式</p>
-<p>输出一个整数，表示小蓝鲸最多能完成的任务数量。</p>
-<hr>
+<p>输出一个整数，表示小蓝鲸最多能完成的任务数量</p>
 <p>--&gt; 样例数据</p>
 <p>--&gt; 样例1</p>
 <p><strong>输入</strong></p>
@@ -3870,6 +3978,8 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>解释</strong></p>
+<blockquote>
+<blockquote>
 <p>小蓝鲸可以：</p>
 <ul>
 <li>第 1 天完成任务 1</li>
@@ -3877,6 +3987,8 @@
 <li>第 3 天完成任务 3</li>
 </ul>
 <p>共完成 3 个任务。</p>
+</blockquote>
+</blockquote>
 <p>--&gt; 样例2</p>
 <p><strong>输入</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3893,6 +4005,7 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>4
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>解释</strong></p>
+<blockquote>
 <p>小蓝鲸可以：</p>
 <ul>
 <li>第 1 天完成任务 1</li>
@@ -3901,6 +4014,7 @@
 <li>第 4 天完成任务 3</li>
 </ul>
 <p>共完成 4 个任务。</p>
+</blockquote>
 <p>--&gt; 数据规模与约定</p>
 <p>$1 \leq n \leq 10^5 $</p>
 <p>$1\leq start_i \leq end_i \leq 10^5$</p>
@@ -3915,7 +4029,8 @@
 1 114
 2 2
 </code></pre></div></td></tr></tbody></table></div>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<p>（这题也可以对结束日期排序，然后维护并查集）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -4045,25 +4160,13 @@
 <span class="normal">128</span>
 <span class="normal">129</span>
 <span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span>
-<span class="normal">136</span>
-<span class="normal">137</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
-<span class="c1">// #define int long long</span>
-
+<span class="normal">131</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">event</span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
-
-
 
 <span class="kt">bool</span><span class="w"> </span><span class="nf">cmp</span><span class="p">(</span><span class="n">event</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">start</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">start</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">start</span><span class="p">;</span>

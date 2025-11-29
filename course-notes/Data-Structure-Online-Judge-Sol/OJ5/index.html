@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3491,11 +3551,12 @@
 
 <h2 id="a-kmp">A. KMP裸题</h2>
 <p>--&gt; 题目背景</p>
-<p>小蓝鲸疲于换马甲，所以来做一道KMP裸题放松放松，给定字符串s1="ababaa"，s2="aba"，则s2一共在s1中出现两次。给定任意一对字符串s1，s2，小蓝鲸要找出s2在s1中出现多少次，s1和s2均为小写字母a-z组成的字符串。</p>
+<p>小蓝鲸疲于换马甲，所以来做一道KMP裸题放松放松，例如给定字符串$s_1=\text{ababaa},\; s_2=\text{aba}$，则 $s_2$ 一共在 $s_1$ 中出现两次。</p>
+<p>给定任意一对字符串 $s_1$ ， $s_2$ ，小蓝鲸要找出 $s_2$ 在 $s_1$ 中出现多少次， $s_1$ 和 $s_2$ 均为小写字母 <code>a-z</code> 组成的字符串。</p>
 <p>--&gt; 输入格式</p>
-<p>输入的第一行给出字符串s1 输入第二行给出字符串s2</p>
+<p>输入的第一行给出字符串 $s_1$  输入第二行给出字符串 $s_2$ </p>
 <p>--&gt; 输出格式</p>
-<p>输出s2在s1中出现多少次</p>
+<p>输出 $s_2$ 在 $s_1$ 中出现多少次</p>
 <p>--&gt; 样例数据</p>
 <p><strong>input 1</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3514,12 +3575,12 @@ abc
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>4
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 数据范围及提示</p>
-<p>$ 1 \leq length(s1),length(s2) \leq 10^6 $</p>
+<p>$ 1 \leq length(s_1),length(s_2) \leq 10^6 $</p>
 <p>时间限制： <code>1s</code></p>
 <p>空间限制： <code>128MB</code></p>
 <h3 id="solution">Solution</h3>
 <p>KMP 裸题，按照 OI-Wiki 的做法实现，所以不是 next 数组</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3615,11 +3676,11 @@ abc
 <h2 id="b">B. 小蓝鲸破译密码</h2>
 <p>--&gt; 题目背景</p>
 <p>小蓝鲸在海底探险时发现了一个神秘的密码箱，上面刻着一种特殊的编码规则。这种编码规则能够将信息压缩存储，小蓝鲸需要你的帮助来破解这些密码！</p>
-<p>密码箱上的编码规则为：$k[encoded-string]$，表示方括号内部的 $encoded-string$ 需要重复 $k$ 次。其中 $k$ 保证为正整数。</p>
-<p>小蓝鲸发现输入字符串总是有效的，没有额外的空格，且方括号总是符合格式要求。原始数据不包含数字，所有的数字只表示重复的次数 k。</p>
+<p>密码箱上的编码规则为：$k[encoded_ string]$，表示方括号内部的 $encoded_ string$ 需要重复 $k$ 次。其中 $k$ 保证为正整数。</p>
+<p>小蓝鲸发现输入字符串总是有效的，没有额外的空格，且方括号总是符合格式要求。原始数据不包含数字，所有的数字只表示重复的次数 $k$。</p>
 <p>请你帮助小蓝鲸编写一个程序，将这些编码后的字符串解码还原。</p>
 <p>--&gt; 输入</p>
-<p>输入一个经过编码的字符串 $s$，且$s$由小写英文字母、数字和方括号 '[]' 组成。</p>
+<p>输入一个经过编码的字符串 $s$，且 $s$ 由小写英文字母、数字和方括号 <code>[]</code> 组成。</p>
 <p>--&gt; 输出</p>
 <p>输出解码后的字符串。</p>
 <p>--&gt; 样例输入 #1</p>
@@ -3629,7 +3690,9 @@ abc
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>aaabcbc
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 样例解释 #1</p>
-<p>a 重复 3 次，bc 重复 2 次。</p>
+<blockquote>
+<p>$a$ 重复 $3$ 次，$bc$ 重复 $2$ 次。</p>
+</blockquote>
 <p>--&gt; 样例输入 #2</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3[a2[c]]
 </code></pre></div></td></tr></tbody></table></div>
@@ -3637,7 +3700,9 @@ abc
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>accaccacc
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 样例解释 #2</p>
-<p>先解码内部的 2[c] 得到 cc，然后外部的 3[acc] 得到 accaccacc。</p>
+<blockquote>
+<p>先解码内部的 $2[c]$ 得到 $cc$，然后外部的 $3[acc]$ 得到 $accaccacc$。</p>
+</blockquote>
 <p>--&gt; 样例输入 #3</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2[abc]3[cd]ef
 </code></pre></div></td></tr></tbody></table></div>
@@ -3646,13 +3711,13 @@ abc
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 数据范围及提示</p>
 <ul>
-<li>对于100%的数据，$1 \le s.length \le 30$, $1 \le$ s中的整数 $\le 300$</li>
+<li>对于100%的数据，$1 \le s.length \le 30$, $1 \le s$ 中的整数 $\le 300$</li>
 </ul>
 <p>时间限制： <code>1s</code></p>
 <p>空间限制： <code>128MB</code></p>
 <h3 id="solution_1">Solution</h3>
 <p>准备一个字符栈（存储待处理字符）和一个数字栈（存储重复次数）进行解压操作</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3815,7 +3880,7 @@ abc
 <p>提示：时间复杂度需要尽量小哦。你能想到 $O(n)$ 的解法吗？</p>
 <p>--&gt; 输入</p>
 <p>第一行两个数字，分别是数据的个数 $n$，以及窗口大小 $k$</p>
-<p>第二行n个数字，表示数据的值</p>
+<p>第二行 $n$ 个数字，表示数据的值</p>
 <p>--&gt; 输出</p>
 <p>一行数字，表示每个窗口中的最大值</p>
 <p>--&gt; 样例</p>
@@ -3834,7 +3899,7 @@ abc
 <p>空间限制：$128 \text{MB}$</p>
 <h3 id="solution_2">Solution</h3>
 <p>滑动窗口板子</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>

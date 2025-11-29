@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3492,9 +3552,9 @@
 <h2 id="a">A. 小蓝鲸排队</h2>
 <p>--&gt; 题目描述</p>
 <p>小蓝鲸们在需要决定先后顺序时，都会采用一个奇怪的排队规则。</p>
-<p>$n$只小蓝鲸们（编号$1, 2, 3, ..., n$）围坐在一张圆桌周围。由编号为$1$的小蓝鲸开始依次报数，数到$m$的那个小蓝鲸出列；他的<strong>下一只</strong>小蓝鲸又从1开始报数，数到$m$的那只小蓝鲸又出列；此外，在编号为$k$的倍数的小蓝鲸出列之后，<strong>反转</strong>报数的方向。依此规律重复下去，直到圆桌周围的小蓝鲸全部出列，得到一个排队序列。请用<strong>双向循环链表</strong>模拟这个过程，并输出报数的结果。</p>
+<p>$n$ 只小蓝鲸们（编号 $1, 2, 3, ..., n$）围坐在一张圆桌周围。由编号为 $1$ 的小蓝鲸开始依次报数，数到 $m$ 的那个小蓝鲸出列；他的<strong>下一只</strong>小蓝鲸又从 $1$ 开始报数，数到 $m$ 的那只小蓝鲸又出列；此外，在编号为 $k$ 的倍数的小蓝鲸出列之后，<strong>反转</strong>报数的方向。依此规律重复下去，直到圆桌周围的小蓝鲸全部出列，得到一个排队序列。请用<strong>双向循环链表</strong>模拟这个过程，并输出报数的结果。</p>
 <p>--&gt; 输入格式</p>
-<p>每个测试用例包含一行，包含三个整数$n,m,k (1 \le n \le 10^3，1\leq m \leq 10^3，1\leq k \leq n)$，</p>
+<p>每个测试用例包含一行，包含三个整数 $n,m,k\,(1 \le n \le 10^3，1\leq m \leq 10^3，1\leq k \leq n)$，</p>
 <p>--&gt; 输出格式</p>
 <p>对于每个测试用例，输出一行，表示为按顺序出列的小蓝鲸编号序列，编号之间用空格分隔。</p>
 <p>--&gt; 样例1</p>
@@ -3505,6 +3565,7 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2 4 6 3 1 5
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 解释</p>
+<blockquote>
 <p>对于样例1，一共有$6$只小蓝鲸，编号$1, 2, 3, 4, 5, 6$。从编号为$1$的小蓝鲸开始报数，报到$2$的小蓝鲸出列，然后接着从头开始报数。并且当编号为$3$、$6$的小蓝鲸出列之后，反转报数的方向。</p>
 <ul>
 <li>从$1$号开始报数，$1$号报数$1$，$2$号报数$2$，$2$号出列。</li>
@@ -3514,9 +3575,10 @@
 <li>$5$号报数$1$，$1$号报数$2$，$1$号出列。</li>
 <li>$5$号出列。</li>
 </ul>
+</blockquote>
 <h3 id="solution">Solution</h3>
 <p>约瑟夫环问题，但是多了一个反转操作，并且要求使用双向循环链表（需要实现插入、删除）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3673,8 +3735,8 @@
 <p>--&gt; 题目描述</p>
 <p>小蓝鲸们在中秋节来到博物馆参观。小蓝鲸们会领到一个幸运数字，并且按幸运数的大小排队（<strong>递增序列</strong>）。为了便于管理，博物馆的管理员让大家合并为一列，而且要变为按幸运数字从高到低的顺序（<strong>递减序列</strong>）。现在请你为每个小蓝鲸找好在新队列的位置吧！</p>
 <p>--&gt; 输入格式</p>
-<p>输入的第一行给出了初始两列的幸运数字 $m$、$n$（$0 ≤ m，n ≤ 200$）</p>
-<p>接下来的两行（如果均存在）分别给出两列中每个小蓝鲸的幸运数字 $h$ （$0 ＜ h ＜ 1000$）</p>
+<p>输入的第一行给出了初始两列的幸运数字 $m,n$（$0 ≤ m,n ≤ 200$）</p>
+<p>接下来的两行（如果均存在）分别给出两列中每个小蓝鲸的幸运数字 $h$（$0 &lt; h &lt; 1000$）</p>
 <p>--&gt; 输出格式</p>
 <p>输出合并后的数组，一共 $1$ 行，共 $m + n$ 个数字，数字用空格分隔开</p>
 <p>--&gt; 输入样例1</p>
@@ -3702,7 +3764,7 @@
 </ul>
 <h3 id="solution_1">Solution</h3>
 <p>实现线性复杂度的 merge 操作，并且倒序输出，这里考虑从右往左进行 merge 操作</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3809,7 +3871,7 @@
 <hr>
 <h2 id="c">C. 小蓝鲸乘法</h2>
 <p>--&gt; 题目描述</p>
-<p>小蓝鲸们在玩一个乘法游戏。游戏玩法如下：小蓝鲸们初始组成一个队列，并且每个人有一个号码牌num(0&lt;=num&lt;=9)。希望将初始队列划分成2个队伍，给定一个划分值$x$，所有大于或者等于x的号码牌都放到所有小于$x$的后面，同时保证每个节点的初始相对位置不变。得到两个队伍后，将两个队伍对应的号码牌组成的值相乘，并输出。</p>
+<p>小蓝鲸们在玩一个乘法游戏。游戏玩法如下：小蓝鲸们初始组成一个队列，并且每个人有一个号码牌 $\text{num}\,(0\leq \text{num} \leq 9)$。希望将初始队列划分成 $2$ 个队伍，给定一个划分值 $x$，所有大于或者等于 $x$ 的号码牌都放到所有小于 $x$ 的后面，同时保证每个节点的初始相对位置不变。得到两个队伍后，将两个队伍对应的号码牌组成的值相乘，并输出。</p>
 <hr>
 <p>--&gt; 输入格式</p>
 <p>第一行为小蓝鲸人数$n$，第二行为划分值$x$，第三行为划分前初始号码牌队列，每两个数据之间用空格隔开。</p>
@@ -3824,10 +3886,11 @@
 1 4 3 2 5 2
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>output 1</strong></p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>53070
-(解释：初始队列根据划分值3划分为了两个队列（1,2,2）（4,3,5）两个队列对应的数字为122*435=53070)
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>53070
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
+<p>解释：初始队列根据划分值3划分为了两个队列 $(1,2,2),\,(4,3,5)$，两个队列对应的数字为 $122\times435=53070$ </p>
+</blockquote>
 <p><strong>input 2</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3836,17 +3899,18 @@
 5 1 2 8 1
 </code></pre></div></td></tr></tbody></table></div>
 <p><strong>output 2</strong></p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>7018
-(解释：初始队列根据划分值3划分为了两个队列（1,2,1）（5,8）两个队列对应的数字为121*58=7018)
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>7018
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
+<p>解释：初始队列根据划分值3划分为了两个队列 $(1,2,1),\,(5,8)$，两个队列对应的数字为 $121\times 58=7018$</p>
+</blockquote>
 <p>--&gt; 数据规模与约定</p>
-<p>（1 &lt;= n &lt;= 5000）</p>
+<p>$1 \leq n \leq 5000$</p>
 <p>时间限制： <code>2s</code></p>
 <p>空间限制： <code>128MB</code></p>
 <h3 id="solution_2">Solution</h3>
 <p>主要任务是实现高精度乘法</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>

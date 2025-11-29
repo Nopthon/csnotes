@@ -6,10 +6,10 @@
       
       
       
-        <link rel="prev" href="../OJ9/">
+        <link rel="prev" href="../Exam2/">
       
       
-        <link rel="next" href="../OJ10/">
+        <link rel="next" href="../../../blog/">
       
       
         
@@ -20,7 +20,7 @@
     
     
       
-        <title>第 2 次竞赛 - CSNote</title>
+        <title>第 10 次实验 - CSNote</title>
       
     
     
@@ -143,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第 2 次竞赛
+              第 10 次实验
             
           </span>
         </div>
@@ -2867,6 +2867,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exam2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2884,7 +2912,7 @@
   <span class="md-ellipsis">
     
   
-    第 2 次竞赛
+    第 10 次实验
   
 
     
@@ -2902,7 +2930,7 @@
   <span class="md-ellipsis">
     
   
-    第 2 次竞赛
+    第 10 次实验
   
 
     
@@ -2929,12 +2957,12 @@
   <a href="#a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. 建树
+        A. 小蓝鲸找数字
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="A. 建树">
+    <nav class="md-nav" aria-label="A. 小蓝鲸找数字">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2957,12 +2985,12 @@
   <a href="#b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        B. 翻转树
+        B. 小蓝鲸舞会
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="B. 翻转树">
+    <nav class="md-nav" aria-label="B. 小蓝鲸舞会">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2985,12 +3013,12 @@
   <a href="#c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C. 小蓝鲸组队
+        C. 奇怪的二叉搜索树
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="C. 小蓝鲸组队">
+    <nav class="md-nav" aria-label="C. 奇怪的二叉搜索树">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3013,34 +3041,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OJ10/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    第 10 次实验
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -3381,12 +3381,12 @@
   <a href="#a" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. 建树
+        A. 小蓝鲸找数字
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="A. 建树">
+    <nav class="md-nav" aria-label="A. 小蓝鲸找数字">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3409,12 +3409,12 @@
   <a href="#b" class="md-nav__link">
     <span class="md-ellipsis">
       
-        B. 翻转树
+        B. 小蓝鲸舞会
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="B. 翻转树">
+    <nav class="md-nav" aria-label="B. 小蓝鲸舞会">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3437,12 +3437,12 @@
   <a href="#c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        C. 小蓝鲸组队
+        C. 奇怪的二叉搜索树
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="C. 小蓝鲸组队">
+    <nav class="md-nav" aria-label="C. 奇怪的二叉搜索树">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3547,308 +3547,98 @@
   
 
 
-  <h1>第 2 次竞赛</h1>
+  <h1>第 10 次实验</h1>
 
-<h2 id="a">A. 建树</h2>
+<h2 id="a">A. 小蓝鲸找数字</h2>
 <p>--&gt; 题目描述</p>
-<p>请根据一棵树的后序和中序遍历顺序建树，并输出树的前序遍历顺序。</p>
+<p>$n$ 个小蓝鲸们每个人选择一个自己最喜欢的整数，小蓝鲸们选中的整数无序的存放在一个长度为 $n$ 的数组 $nums$ 内。小蓝鲸们很好奇不被大家喜欢的最小正整数是多少？</p>
+<p>请你找到给定数组 $nums$ 中未出现的最小正整数。</p>
+<p><strong>要求：</strong> 1. 时间复杂度为 $O(n)$；2. 只使用常数级别额外空间。</p>
+<p><strong>提示：</strong> 使用 <code>scanf</code> 进行输入。</p>
 <p>--&gt; 输入格式</p>
-<p>第一行有一个数字 $n$，表示节点的个数</p>
-<p>第二行有 $n$ 个数字 $a_i$，表示树的后序遍历顺序</p>
-<p>第三行有 $n$ 个数字 $b_i$，表示树的中序遍历顺序</p>
+<p>第一行 一个正整数 $n$ 表示 $nums$ 数组的长度</p>
+<p>第二行 $n$ 个以空格分隔的整数</p>
 <p>--&gt; 输出格式</p>
-<p>$n$ &gt; &gt; 个数字，以空格隔开，表示树的前序遍历顺序。</p>
-<p>--&gt; 样例输入 #1</p>
+<p>一个正整数，给定数组中未出现的最小正整数</p>
+<p>--&gt; 样例数据</p>
+<p>--&gt; 样例1</p>
+<p><strong>input</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>4
-4 2 3 1
-4 2 1 3
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>3
+1 2 0
 </code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输出 #1</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 4 3
-</code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong></p>
-<blockquote>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>树的结构如下所示
-     1
-    / \
-   2   3
-  /
- 4
-</code></pre></div></td></tr></tbody></table></div>
-</blockquote>
-<p>--&gt; 样例输入 #2</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>1
-10
-10
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输出 #2</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>10
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输入 #3</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>5
-2 4 5 3 1
-2 1 4 3 5
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输出 #1</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 2 3 4 5
-</code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong></p>
-<blockquote>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>树的结构如下所示
-     1
-    / \
-   2   3
-      / \
-     4   5
-</code></pre></div></td></tr></tbody></table></div>
-</blockquote>
-<p>--&gt; 数据范围</p>
-<ul>
-<li>$1 \leq a_i \leq 10^5$，且 $a_i$ 互不相同。</li>
-<li>$1 \leq n \leq 10^4$</li>
-</ul>
-<h3 id="solution">Solution</h3>
-<p>第 7 次竞赛 T2 （B. 树的左视角）要求根据前序序列 + 中序序列建树，根据这个模板修改即可（考场上你会发现“树的左视角”这题被锁定了，所以不能直接 copy，得自己提前准备）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-
-<span class="c1">// #define int long long</span>
-
-<span class="k">struct</span><span class="w"> </span><span class="nc">treeNode</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">rightChild</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">        </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">        </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
-<span class="w">        </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-
-
-<span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">postOrder</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">inOrder</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">treeNode</span><span class="p">(</span><span class="n">postOrder</span><span class="p">[</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]);</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// 这里有预查找优化空间，考场上懒得写优化了</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">inOrder</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">postOrder</span><span class="p">[</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">postOrder</span><span class="p">,</span><span class="w"> </span><span class="n">inOrder</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
-<span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">postOrder</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">inOrder</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">PreOrder</span><span class="p">(</span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">subTree</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">visit</span><span class="p">)(</span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">subTree</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">visit</span><span class="p">(</span><span class="n">subTree</span><span class="p">);</span>
-<span class="w">        </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">);</span>
-<span class="w">        </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">postOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">inOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">postOrder</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">inOrder</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-
-<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">postOrder</span><span class="p">,</span><span class="w"> </span><span class="n">inOrder</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
-
-<span class="w">    </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">){</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
-<span class="p">}</span>
-
-
-<span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="c1">// cin &gt;&gt; t;            // multi testcases</span>
-<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">              </span><span class="c1">// single testcase</span>
-
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
-<span class="w">        </span><span class="n">solve</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<hr>
-<h2 id="b">B. 翻转树</h2>
-<p>--&gt; 题目描述</p>
-<p>在一棵二叉树上有若干个节点，每个节点具有一个初始值 $a_i(-10^5 \leq a_i \leq 10^5, 且a_i \neq 0)$，现可对任意节点进行<strong>翻转</strong>操作：将当前节点及其所在子树所有节点的值均变为相反数。</p>
-<p>问：最少经过多少次<strong>翻转</strong>操作，可使树上所有结点的值均为正？</p>
-<p>--&gt; 输入格式</p>
-<p>第一行有一个数字 $n$，表示输入的长度</p>
-<p>第二行有 $n$ 个数字 $a_i$，表示树的前序遍历过程中每个节点的初始值，空节点用 <code>0</code> &gt; 表示</p>
-<p>--&gt; 输出格式</p>
-<p>输出一个整数，表示最少要进行的翻转次数。</p>
-<p>--&gt; 样例输入 #1</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>9
--1 2 4 0 0 0 -3 0 0
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输出 #1</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2
-</code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong>&gt; </p>
-<blockquote>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>树的结构如下所示
-    -1
-    / \
-   2  -3
-  /
- 4
-第一次翻转-1节点所在子树，此时树变成了
-     1
-    / \
-  -2   3
-  /
--4
-第二次翻转-2节点所在子树，此时树变成了
-     1
-    / \
-   2   3
-  /
- 4
-</code></pre></div></td></tr></tbody></table></div>
-</blockquote>
-<p>--&gt; 样例输入 #2</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>11
-1 -2 3 0 5 0 0 4 0 0 0
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 样例输出 #2</p>
+<p><strong>output</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3
 </code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong></p>
-<blockquote>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>--&gt; 样例2</p>
+<p><strong>input</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>4
+3 4 -1 2
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>output</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1
+</code></pre></div></td></tr></tbody></table></div>
+<p>--&gt; 样例3</p>
+<p><strong>input</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>13
+5 1 8 14 2 12 2 3 7 -6 4 8 0
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>output</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6
+</code></pre></div></td></tr></tbody></table></div>
+<p>--&gt; 数据规模与约定</p>
+<p>$1 \leq nums.length \leq 4 \times 10^6$ </p>
+<p>$-2^{31} \leq nums[i] \leq 2^{31} - 1$ </p>
+<p>时间限制：1s</p>
+<p>空间限制：32MB</p>
+<h3 id="solution">Solution</h3>
+<p>技巧题</p>
+<p>如果不考虑空间复杂度，可以将给定的数组的每一个元素存放到桶数组对应相等下标的位置（<code>bucket[i] = i</code>）</p>
+<p>因为 $n$ 个数最多占据 $1\sim n$ 的下标，所以设置 $arr[n+1]$ 即可</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">不考虑空间复杂度的思路</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 确保 arr[n] 存在</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>如果考虑空间复杂度限制，我们考虑原地交换而不是开额外数组：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]]);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>交换以后，<code>arr[arr[i]] = arr[i]</code> 相当于原来的 <code>bucket[i] = i</code>，并且原来处于 <code>arr[arr[i]]</code> 的值也没有被覆盖，而是交换到了 <code>arr[i]</code> 处，可以继续尝试交换：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">考虑空间复杂度的核心思路</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">    </span><span class="c1">// 注意这里是 while 而不是 if，因为从 arr[arr[i]] 被交换到 arr[i] 的值也可能处于 1~n 范围</span>
+</span><span class="hll"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span>
+</span><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>最终得到完整程序，时间复杂度 $O(n)$，空间复杂度 $O(1)$（不考虑原数组开销）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3879,49 +3669,271 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code>树的结构如下所示
-     1 
-    /
-  -2
- /  \
-3    4
- \
-  5
-第一次翻转-2节点所在子树，此时树变成了
-     1 
-    /
-   2
-  / \
--3   -4
-  \
-  -5
-第二次翻转-3节点所在子树，此时树变成了
-     1 
-    /
-   2
-  / \
- 3   -4
-  \
-   5
-第三次翻转-4节点所在子树，此时树变成了
-     1 
-    /
-   2
-  / \
- 3   4
-  \
-   5
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
+
+<span class="c1">// 利用异或运算实现两个数的原地交换</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// cin &gt;&gt; t;            // multi testcases</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">              </span><span class="c1">// single testcase</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
+<span class="w">        </span><span class="n">solve</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
+<hr>
+<h2 id="b">B. 小蓝鲸舞会</h2>
+<p>--&gt; 题目描述</p>
+<p>为了庆祝即将到来的感恩节，小蓝鲸们举行了盛大的广场舞会。在挑选舞伴时，小蓝鲸们要求配对的两人之间身高差不能太大，但也不能太小。设数对 $(a,b)$ 由整数 $a$ 和 $b$ 组成，其数对距离定义为 $a$ 和 $b$ 的绝对差值。</p>
+<p>给你一个<strong>从小到大排序好的</strong>小蓝鲸的身高数组 $nums$ 和一个整数 $k$ ，数对由 $nums[i]$ 和 $nums[j]$ 组成且满足 $0 \leq i &lt; j &lt; nums.length$。请返回所有数对距离中 第 $k$ 小的数对距离。</p>
+<p>--&gt; 输入格式</p>
+<p>第一行输入 $n$ 和 $k$，其中$n$表示数组长度。</p>
+<p>第二行输入 $n$ 个数，代表<strong>从小到大排序好的</strong>小蓝鲸的身高数组。</p>
+<p>--&gt; 输出格式</p>
+<p>输出所有数对距离中 第 $k$ 小的数对距离。</p>
+<p>--&gt; 样例数据</p>
+<p>--&gt;  样例1</p>
+<p><strong>输入</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>3 3
+1 2 3
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong>输出</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2
+</code></pre></div></td></tr></tbody></table></div>
+<blockquote>
+<p>解释： 数对和对应的距离如下：</p>
+<p>(1,2)~1 -&gt; (2,3)~1 -&gt; (1,3)~2  距离第3小的数对是 (1,3)，距离为2。</p>
 </blockquote>
-<p>--&gt; 数据范围</p>
-<ul>
-<li>$-10^5 \leq a_i \leq 10^5, a_i \neq 0$。</li>
-<li>$1 \leq n \leq 2 \times 10^5$</li>
-</ul>
+<p>--&gt; 数据规模与约定</p>
+<p>$ n = nums.length $</p>
+<p>$ 2 \leq n \leq 10^4 $</p>
+<p>$ 0 \leq nums[i] \leq 10^6 $</p>
+<p>$ 1 \leq k \leq n \times (n - 1) / 2 $</p>
+<p>时间限制：$1 \text{s}$</p>
+<p>空间限制：$64 \text{MB}$</p>
 <h3 id="solution_1">Solution</h3>
-<p>需要意识到：</p>
-<p>1- 问题可以自顶向下进行处理，因为每次反转操作对当前节点及其子树生效，不会再向上影响。因此遍历树采用前序遍历</p>
-<p>2- 虽然每次翻转影响到子树的节点，导致子树的状态看上去不是很好维护，但是事实上反转操作可以看作 “零次 or 一次” 的循环，在前序遍历时传递一个 <code>bool switch</code> 就可以很好的维护子树状态</p>
+<p>第一思路是使用大根堆存 $k$ 个小元素得到第 $k$ 小的元素，事实上枚举所有数对加上堆操作，时间复杂度可以达到 $O(n^2\log k)$，过不了这一题（而且 $k$ 很大时，大根堆的空间也超过了 $64 \text{MB}$ 限制）</p>
+<p>现在我们换一个思路，考虑<strong>对“数对距离”进行二分答案</strong>。对于一个给定的“数对距离”，我们通过计算其为第几小的数对距离（具体来说，有多少个数对的距离不超过该数对的距离，记这个值为 <code>res</code>），从而根据 <code>res</code> 和 <code>k</code> 的大小关系调整二分区间，最终得到答案</p>
+<p>核心是如何得到，对于数对距离 <code>mid</code>，数组中有多少个数对的距离不超过 <code>mid</code>：原数组有序，我们可以使用双指针法更加快速地获得结果，容易得到时间复杂度为 $O(n)$</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// i 和 p 都只向右移动，因此时间复杂度不会是 O(n^2)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 找到最小的 p，使得 arr[i] - arr[p] &lt;= mid</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// 对于当前的 arr[i]，从 arr[p] 到 arr[i-1] 的所有数与 arr[i] 的差值都不超过 mid</span>
+<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>加上二分框架即可得到正解，时间复杂度 $O(n\log r)$，其中 $r$ 为二分查找起始右边界：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 二分答案</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">n</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">){</span>
+<span class="w">            </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="w">    </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// cin &gt;&gt; t;            // multi testcases</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">              </span><span class="c1">// single testcase</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
+<span class="w">        </span><span class="n">solve</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
+<h2 id="c">C. 奇怪的二叉搜索树</h2>
+<p>--&gt; 题目描述</p>
+<p>小蓝鲸学习了二叉搜索树后，去 OJ 上找到了一个相关的题目练手。题目如下：</p>
+<p>输入 $N$ 个数字，你需要把这 $N$ 个数字依次按照二叉搜索树的插入方法插入到一个初始为空树的二叉搜索树中。你需要依次输出输入中的后 $N-1$ 个数字在二叉搜索树中的父节点中保存的数字。</p>
+<p>小蓝鲸觉得这个题目很简单，按照题意写了一发课上教的二叉搜索树，OJ 却提示 <code>Time Limit Exceeded</code>。机智的她马上想到：如果输入的数据是单调的，那么二叉搜索树就会退化成一条链，这样光插入所有输入数据就是 $O(N^2)$ 的复杂度了，肯定会超时呀。</p>
+<p>这让她很奇怪。于是，她向乐于助人的你寻求帮助。</p>
+<p><strong>注意：本题可以使用 STL，例如：<code>vector</code>、<code>queue</code>、<code>set</code>和<code>map</code>等。</strong></p>
+<p>--&gt; 输入格式</p>
+<p>第一行为一个正整数 $N$，第二行为 $N$ 个以空格分隔的两两不同的正整数 $a_i$。</p>
+<p>--&gt; 输出格式</p>
+<p>一行 $N-1$ 个以空格分隔的数字，代表输入中的后 $N-1$ 个数字在二叉搜索树中的父节点中保存的数字。</p>
+<p>--&gt; 示例</p>
+<p>--&gt; 输入</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>5
+3 1 5 2 4
+</code></pre></div></td></tr></tbody></table></div>
+<p>--&gt; 输出</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>3 3 1 5
+</code></pre></div></td></tr></tbody></table></div>
+<blockquote>
+<p>解释：生成的二叉搜索树为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>     1(3)
+   /      \
+2(1)       3(5)
+  \        /   
+ 4(2)    5(4)
+</code></pre></div></td></tr></tbody></table></div>
+<p>节点表示为：输入编号（输入数据）</p>
+</blockquote>
+<p>--&gt; 数据规模与约定</p>
+<p>$2 \leq N \leq 5 \times 10^4$</p>
+<p>$1 \leq a_i \leq 2\times10^9$</p>
+<p>时间限制： <code>1s</code></p>
+<p>空间限制： <code>128MB</code></p>
+<h3 id="solution_2">Solution</h3>
+<p>既然建树操作本身的最坏时间复杂度高，我们不妨跳过建树操作本身，通过二叉搜索树的建树逻辑判断找出每个节点的父节点（类比于求 WPL 的最小值并不需要真的建立哈夫曼树）</p>
+<p>注意到：</p>
+<p>(1) 二叉搜索树的中序遍历结果是单调递增的</p>
+<p>(2) 给定一个中序遍历序列，指定一个节点，其前驱/后继节点都不一定是该节点的父节点，但是对于叶节点来说，其父节点一定是中序遍历结果下的前驱 or 后继节点</p>
+<p>(3) 插入新的节点时，新节点一定是叶节点，所以满足 (2) 的后半句话，更具体地说：新节点要么是其插入位置前驱节点的右孩子，要么是后继节点的左孩子</p>
+<p>--&gt; 如何二选一判断呢？只要选择前驱/后继节点中更深的节点即可</p>
+<p>(4) 具体到代码实现上，采用 <code class="highlight"><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span></code> 使插入操作自动有序（其本质是红黑树，一种二叉平衡搜索树），<code>lower_bound</code> 用于寻找插入位置（找到前驱）；<code class="highlight"><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span></code> 记录每个值对应节点的深度</p>
+<details class="abstract" open="open">
+<summary>概括一下</summary>
+<p>每次插入新的权值 <code>val</code> 时，它在二叉搜索树中的父节点一定是当前已插入数字中“比 <code>val</code> 小的最大值（前驱）”或“比 <code>val</code> 大的最小值（后继）”，并且这两者中更晚插入的是父节点</p>
+</details>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3991,120 +4003,70 @@
 <span class="normal">67</span>
 <span class="normal">68</span>
 <span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span>
-<span class="normal">94</span>
-<span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-
-<span class="c1">// #define int long long</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
-
-<span class="c1">// 答案直接设置全局变量了，比较方便</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="k">struct</span><span class="w"> </span><span class="nc">treeNode</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">rightChild</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">        </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">        </span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
-<span class="w">        </span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="nf">create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Null</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">remain</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">remain</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">))</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="n">remain</span><span class="o">--</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Null</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">treeNode</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
-<span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">Null</span><span class="p">,</span><span class="w"> </span><span class="n">remain</span><span class="p">);</span>
-<span class="w">    </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="n">Null</span><span class="p">,</span><span class="w"> </span><span class="n">remain</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// 核心逻辑在这里</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">PreOrder</span><span class="p">(</span><span class="n">treeNode</span><span class="w"> </span><span class="o">*</span><span class="n">subTree</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">switched</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">subTree</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// 当前节点需要翻转</span>
-<span class="w">        </span><span class="c1">// if( switched ^ (subTree-&gt;val &lt; 0) )</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w">  </span><span class="p">(</span><span class="n">switched</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">switched</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
-<span class="w">            </span><span class="n">ans</span><span class="o">++</span><span class="p">;</span>
-<span class="w">            </span><span class="c1">// 子树也一起翻转，只需要反转 switched 即可</span>
-<span class="w">            </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="n">switched</span><span class="p">);</span>
-<span class="w">            </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">,</span><span class="w"> </span><span class="o">!</span><span class="n">switched</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">,</span><span class="w"> </span><span class="n">switched</span><span class="p">);</span>
-<span class="w">            </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">subTree</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">,</span><span class="w"> </span><span class="n">switched</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">remain</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tree</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 维护中序遍历</span>
+<span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">depth</span><span class="p">;</span><span class="w"> </span><span class="c1">// 记录深度</span>
 
-<span class="w">    </span><span class="n">PreOrder</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">tree</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">            </span><span class="n">depth</span><span class="p">[</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">     </span><span class="c1">// 根节点深度为 0</span>
+<span class="w">            </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// &gt;= val 的第一个元素</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">hasPred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">hasSucc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pred_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">succ_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// 有后继？</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">hasSucc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">            </span><span class="n">succ_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// 有前驱？</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">hasPred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">            </span><span class="n">pred_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasPred</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 没有前驱，只有后继</span>
+<span class="w">            </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">succ_val</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasSucc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 没有后继，只有前驱</span>
+<span class="w">            </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred_val</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// 前驱和后继都存在，选深度更大的作为父节点</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">depth</span><span class="p">[</span><span class="n">pred_val</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">depth</span><span class="p">[</span><span class="n">succ_val</span><span class="p">])</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pred_val</span><span class="p">;</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">succ_val</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="p">;</span>
+<span class="w">        </span><span class="n">depth</span><span class="p">[</span><span class="n">val</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">depth</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">tree</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-
 
 <span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="c1">// cin &gt;&gt; t;            // multi testcases</span>
-<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">              </span><span class="c1">// single testcase</span>
+<span class="w">    </span><span class="c1">// cin &gt;&gt; t;           // multi testcases</span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                </span><span class="c1">// single testcase</span>
 
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
 <span class="w">        </span><span class="n">solve</span><span class="p">();</span>
@@ -4113,324 +4075,8 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
-<h2 id="c">C. 小蓝鲸组队</h2>
-<p>--&gt; 题目背景</p>
-<p>在一年一度的 C++ 创新杯中，许多聪明的小蓝鲸报名参赛。比赛允许自由组队，但每只小蓝鲸都提出了一些关于组队的愿望：</p>
-<ul>
-<li>有些小蓝鲸彼此是好朋友，<strong>约定好一定要在同一队</strong>；</li>
-<li>有些小蓝鲸性格不合，<strong>明确表示不想和对方在同一队</strong>。</li>
-</ul>
-<p>现在，赛事组委会希望知道：是否存在一种分队方案，能够同时满足所有小蓝鲸的这些愿望？</p>
-<p>--&gt; 题目描述</p>
-<p>给定 $n$ 条约束，每条形如：</p>
-<ul>
-<li>小蓝鲸 $i$ 和 $j$ 约定好组队（记为 $e = 1$）</li>
-<li>小蓝鲸 $i$ 和 $j$ 不想与对方组队（记为 $e = 0$）</li>
-</ul>
-<p>判断是否存在一种分组方式，使得所有约束同时成立。</p>
-<p>输入包含 $t$ 个独立的问题。对每个问题，若存在合法方案，输出 <code>YES</code>，否则输出 <code>NO</code>。</p>
-<p>--&gt; 输入格式</p>
-<p>第一行包含一个正整数 $t$，表示需要判定的问题个数。</p>
-<p>对于每个问题：</p>
-<ul>
-<li>第一行包含一个正整数 $n$，表示该问题中的约束条件数量；</li>
-<li>接下来 $n$ 行，每行包含三个整数 $i, j, e$，表示一条约束：</li>
-<li>若 $e = 1$，表示小蓝鲸 $i$ 和 $j$ <strong>必须在同一队</strong>；</li>
-<li>若 $e = 0$，表示小蓝鲸 $i$ 和 $j$ <strong>不能在同一队</strong>。</li>
-</ul>
-<p>--&gt; 输出格式</p>
-<p>输出共 $t$ 行。 第 $k$ 行输出一个字符串 <code>YES</code> 或 <code>NO</code>（全部大写）：</p>
-<ul>
-<li><code>YES</code> 表示第 $k$ 个问题存在满足所有约束的分队方案；</li>
-<li><code>NO</code> 表示不存在。</li>
-</ul>
-<p>--&gt; 输入输出样例 #1</p>
-<p>--&gt; 输入</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>2
-2
-1 2 1
-1 2 0
-2
-1 2 1
-2 1 1
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 输出</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>NO
-YES
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 输入输出样例 #2</p>
-<p>--&gt; 输入</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>2
-3
-1 2 1
-2 3 1
-3 1 1
-4
-1 2 1
-2 3 1
-1 4 0
-3 4 1
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 输出</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>YES
-NO
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 输入输出样例 #3</p>
-<p>--&gt; 输入</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code>4
-9
-24 234 1
-2837 1 1
-242 78 0
-23 1 1
-223 977 0
-254 76 1
-235 877 0
-235 987 0
-877 987 0
-4
-8 2 0
-2 9 1
-2 7 1
-9 7 0
-2
-1 1 1
-2 2 1
-3
-9 2 0
-1 3 1
-2 3 1
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 输出</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>YES
-NO
-YES
-YES
-</code></pre></div></td></tr></tbody></table></div>
-<p>--&gt; 说明/提示</p>
-<p>--&gt; 样例解释</p>
-<blockquote>
-<ul>
-<li>
-<p>样例 1：</p>
-</li>
-<li>
-<p>第一个问题中，要求 1 和 2 同队，又要求不同队，矛盾 → <code>NO</code>。</p>
-</li>
-<li>
-<p>第二个问题中，两条约束均要求 1 和 2 同队，无冲突 → <code>YES</code>。</p>
-</li>
-<li>
-<p>样例 2：</p>
-</li>
-<li>
-<p>第一个问题：可全分到一队 → <code>YES</code>。</p>
-</li>
-<li>第二个问题：由 1,2,4 条可知 4 个小蓝鲸需要同队，但第 3 条要求 1 与 4 不同队，矛盾 → <code>NO</code>。</li>
-</ul>
-</blockquote>
-<p>--&gt; 数据范围</p>
-<ul>
-<li>对于 30% 的数据，$1 \le n \le 100$，$1 \le i, j \le 10^4$</li>
-<li>对于 60% 的数据，$1 \le n \le 10^5$，$1 \le i, j \le 10^4$</li>
-<li>对于 100% 的数据，$1 \le n \le 10^5$，$1 \le i, j \le 10^9$，$1 \le t \le 10$，$e \in {0,1}$</li>
-</ul>
-<p><strong>本题输入输出量较大，请使用高效的读写方式。</strong></p>
-<p>如果你使用 <code>cin</code>、<code>cout</code> 进行读写出现超时，可以考虑使用 <code>scanf</code>、 <code>printf</code> 或者在程序开头增加如下代码:</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 关闭 iostream 与 C 标准库的同步，加速 cin/cout</span>
-<span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"> </span>
-<span class="c1">// 解除 cin 与 cout 的绑定，避免每次输入前自动刷新输出，提高 IO 性能</span>
-<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</code></pre></div></td></tr></tbody></table></div>
-<p><strong>时间复杂度过高</strong>的程序无论使用哪种读写方式都会超时。</p>
-<h3 id="solution_2">Solution</h3>
-<p>利用并查集，先并后查</p>
-<p>具体来说，先把必须为同一队伍的人进行合并，然后根据不能在同一队伍的约束情况进行合法性判断。如果合并操作后出现了 “两个不应该在同一组的人被分到同一组” 的情况，输出 <code>NO</code>，否则输出 <code>YES</code> </p>
-<p>注意到数据范围 $1 \le i, j \le 10^9$ 不小，需要考虑<a href="https://oi-wiki.org/misc/discrete/">离散化</a>，或者用 <code>unordered_map</code> 存并查集（据说找个大质数用取模哈希也可以过，比如 998244353？）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unordered_map&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
-
-<span class="c1">// #define int long long</span>
-
-<span class="c1">// 并查集模板</span>
-<span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dsu</span><span class="p">;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">dsu</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dsu</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">dsu</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dsu</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">unite</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rx</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">dsu</span><span class="p">[</span><span class="n">rx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ry</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">Pair</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// 用两个数组分别存储 e=0 or e=1 的两种限制，方便先并后查</span>
-<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span><span class="w"> </span><span class="n">like</span><span class="p">;</span>
-<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dislike</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="o">++</span><span class="p">){</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="n">i</span><span class="o">&gt;&gt;</span><span class="n">j</span><span class="o">&gt;&gt;</span><span class="n">e</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">like</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">});</span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">dislike</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">});</span>
-<span class="w">        </span><span class="c1">// 并查集初始化在这里</span>
-<span class="w">        </span><span class="n">dsu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">dsu</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">like</span><span class="p">){</span>
-<span class="w">        </span><span class="n">unite</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">j</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">Pair</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dislike</span><span class="p">){</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">j</span><span class="p">)){</span>
-<span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"NO</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"YES</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-<span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">           </span><span class="c1">// multi testcases</span>
-<span class="w">    </span><span class="c1">// t = 1;               // single testcase</span>
-
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
-<span class="w">        </span><span class="n">solve</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></tbody></table></div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-22"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-22T16:22:14.964425+08:00">2025-11-22</time></span><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-29T23:05:05.205654+08:00">2025-11-29</time></span></div></div>
+<p>感觉上难度了，两个小时只写了第一题😰</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-29T00:40:14.437351+08:00">2025-11-29</time></span><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-29T23:01:07.341961+08:00">2025-11-29</time></span></div></div>
 
 
 

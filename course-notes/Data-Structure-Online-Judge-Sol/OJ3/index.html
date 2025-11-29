@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3492,13 +3552,13 @@
 <h2 id="a">A. 括号消消乐</h2>
 <p>--&gt; 题目描述</p>
 <p>小蓝鲸们正在玩一个名为"括号消消乐"的游戏，游戏规则如下：</p>
-<p>给定一个括号集合S，S只包含"("和")"，根据以下规则计算S的得分：</p>
-<p>1：()得1分。</p>
-<p>2：对于括号集合A和B，AB的得分为A的得分加上B的得分。</p>
-<p>3：对于括号集合A，(A)得分为两倍的A的得分。</p>
+<p>给定一个括号集合 <code>S</code>，S只包含 <code>(</code> 和 <code>)</code>，根据以下规则计算 <code>S</code> 的得分：</p>
+<p>1：<code>()</code>得1分。</p>
+<p>2：对于括号集合 <code>A</code> 和 <code>B</code>，<code>AB</code> 的得分为 <code>A</code> 的得分加上 <code>B</code> 的得分。</p>
+<p>3：对于括号集合 <code>A</code>，<code>(A)</code>得分为两倍的 <code>A</code> 的得分。</p>
 <p>来编写程序，给小蓝鲸们计分吧。</p>
 <p>--&gt; 输入格式</p>
-<p>输入包含两行，第一行是括号集合的长度len($0 \leq len \leq 30$ )，第二行是对应的括号集合。</p>
+<p>输入包含两行，第一行是括号集合的长度 $\text{len}\;(0 \leq \text{len} \leq 30)$，第二行是对应的括号集合。</p>
 <p>--&gt; 输出格式</p>
 <p>输出括号集合的得分</p>
 <p>--&gt; 样例 1</p>
@@ -3537,16 +3597,17 @@
 <p>输出：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6
 </code></pre></div></td></tr></tbody></table></div>
-<p>解释：(1+2)*2</p>
+<blockquote>
+<p>解释：score = (1+2)*2 = 6</p>
+</blockquote>
 <p>--&gt; 数据规模与约定</p>
-<p>len为括号集合的长度</p>
-<p>$0 \leq len \leq 30$</p>
+<p>$\text{len}$ 为括号集合的长度，$0 \leq \text{len} \leq 30$</p>
 <p>时间限制：$1 \text{s}$</p>
 <p>空间限制：$128 \text{MB}$</p>
 <h3 id="solution">Solution</h3>
 <p>栈应用题，准备一个数字栈，左括号记为 <code>-1</code>，在遇到右括号时，向左寻找最近的左括号弹出，期间处理 S 的得分</p>
 <p><del>注意下面的解法中的栈并不是严格定义的栈（</del></p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3644,13 +3705,13 @@
 <h2 id="b">B. 小蓝鲸要吃饭</h2>
 <p>--&gt; 题目背景</p>
 <p>学校的自助午餐提供米饭和面条，分别用数字 $0$ 和 $1$ 表示。所有学生站在一个队列里（初始队列学生的编号从头到尾依次编号 $(0\sim n-1$），每个学生要么喜欢米饭要么喜欢面条。 餐厅里自助午餐的数量与学生的数量相同。所有午餐都放在一个栈里，每一轮：</p>
-<p>如果队列最前面的学生喜欢栈顶的午餐，那么会拿走它并离开队列。否则，这名学生会放弃这个午餐并回到队列的尾部重新排队. 这个过程会一直持续到队列里所有学生都不喜欢栈顶的午餐为止。</p>
+<p>如果队列最前面的学生喜欢栈顶的午餐，那么会拿走它并离开队列。否则，这名学生会放弃这个午餐并回到队列的尾部重新排队。这个过程会一直持续到队列里所有学生都不喜欢栈顶的午餐为止。</p>
 <p>--&gt; 题目描述</p>
 <p>给你两个整数数组 <code>students</code> 和 <code>lunch</code>，其中 <code>lunch[i]</code> 是栈里面第 <code>i</code> 个午餐的类型（<code>i = 0</code> 是栈的顶部），<code>students[j]</code> 是初始队列里第 <code>j</code> 名学生对午餐的喜好（<code>j = 0</code> 是队列的最开始位置）。请你返回每个学生的排队次数（初始队列的排队次数为 <code>1</code>，回到队列尾部则次数 <code>+1</code>），若无法吃上午餐则次数为 <code>-1</code>。</p>
 <p>--&gt; 输入</p>
-<p>数字 <code>n</code> 表示学生人数和午餐数量,
-一个数字序列表示学生的喜好,数字之间用' '隔开
-一个数字序列表示午餐的栈，数字直接用' '隔开</p>
+<p>第一行一个数字 <code>n</code> 表示学生人数和午餐数量，</p>
+<p>第二行一个数字序列表示学生的喜好，数字之间用空格隔开，</p>
+<p>第三行一个数字序列表示午餐的栈，数字之间用空格隔开。</p>
 <p>--&gt; 输出</p>
 <p>每个学生的排队次数，若无法吃上午餐则次数为 <code>-1</code>。</p>
 <p>--&gt; 示例</p>
@@ -3669,7 +3730,7 @@
 <p>--&gt; 数据规模</p>
 <ul>
 <li><code>1 &lt;= n &lt;= 100</code></li>
-<li><code>students.length == lunch.length==n</code></li>
+<li><code>students.length == lunch.length == n</code></li>
 <li><code>students[i]</code> 要么是 <code>0</code>，要么是 <code>1</code></li>
 <li><code>lunch[i]</code> 要么是 <code>0</code>，要么是 <code>1</code></li>
 </ul>
@@ -3677,7 +3738,7 @@
 <p>直接用队列进行模拟，当某一轮模拟时队列中没有一个人吃上午餐，此时遍历结束</p>
 <p>或者直接遍历 <code>n</code> 次后输出结果，因为每次遍历的结果一定为：要么有人吃上了午餐；要么剩下的所有人都吃不上午餐，因此最多 <code>n</code> 轮遍历一定能得出结果</p>
 <p>另外我们发现，最终吃不上午餐的人数取决于 <code>students[]</code> 和 <code>lunch[]</code> 元素 <code>0</code> 个数的差值的绝对值（<code>1</code> 也可以），所以也可以在读入时记录这个差值 <code>diff</code>，如果某一轮遍历时发现了只剩下 <code>diff</code> 个人没有午餐吃（说明剩下的人都没有午餐吃），那么可以直接结束遍历</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3787,14 +3848,14 @@
 <h2 id="c">C. 中缀表达式求值</h2>
 <p>--&gt; 题目描述</p>
 <p>中缀表达式是人们常用的算术逻辑公式表达方法，算符以中缀形式处于操作数的中间。</p>
-<p>小蓝鲸想设计一个中缀表达式的求值器。除了常见的<strong>加法</strong>(<code>+</code>)、<strong>减法</strong>(<code>-</code>)、<strong>乘法</strong>(<code>*</code>)、<strong>整数除法</strong>(<code>/</code>)与<strong>左右括号</strong>(<code>(</code>、<code>)</code>)外，小蓝鲸还想支持<strong>单目取相反数</strong>运算符(<code>~</code>)和<strong>乘幂</strong>(<code>^</code>)运算符。</p>
-<p><strong>取相反数运算符</strong><code>~</code>如果作用在操作数$E$上，得到的结果$R$满足：$R = (-E)$</p>
-<p><strong>乘幂</strong>运算符<code>^</code>如果作用在左右操作数$E_1$、$E_2$上，得到的结果$R$满足：$R = E_1^{E_2}$</p>
-<p>求值器的算符优先级为：<code>括号表达式</code> &gt; <code>~</code> &gt; <code>^</code> &gt; <code>*</code> = <code>/</code> &gt; <code>+</code> = <code>-</code></p>
+<p>小蓝鲸想设计一个中缀表达式的求值器。除了常见的<strong>加法</strong>( <code>+</code> )、<strong>减法</strong>( <code>-</code> )、<strong>乘法</strong>( <code>*</code> )、<strong>整数除法</strong>( <code>/</code> )与<strong>左右括号</strong>( <code>(</code> , <code>)</code> )外，小蓝鲸还想支持<strong>单目取相反数</strong>运算符( <code>~</code> )和<strong>乘幂</strong>( <code>^</code> )运算符。</p>
+<p><strong>取相反数运算符</strong> <code>~</code> 如果作用在操作数 $E$ 上，得到的结果 $R$ 满足：$R = (-E)$</p>
+<p><strong>乘幂</strong>运算符 <code>^</code> 如果作用在左右操作数 $E_1,E_2$ 上，得到的结果 $R$ 满足：$R = E_1^{E_2}$</p>
+<p>求值器的算符优先级为：<em>括号表达式</em> &gt; <code>~</code> &gt; <code>^</code> &gt; <code>*</code> = <code>/</code> &gt; <code>+</code> = <code>-</code></p>
 <p>你可以帮助小蓝鲸设计出这个求值器吗？</p>
 <p>--&gt; 数据范围</p>
-<p>表达式长度$L$满足：$L &lt; 10^4$</p>
-<p>表达式中出现的数字$Num$满足：$ 0 \le Num \le 9 $ （表达式中出现的数字至多只有一位）</p>
+<p>表达式长度 $L$ 满足：$L &lt; 10^4$</p>
+<p>表达式中出现的数字 $Num$ 满足：$ 0 \le Num \le 9 $ （表达式中出现的数字至多只有一位）</p>
 <p>运算结果（包括中间结果）$Result$ 满足：$-2^{63} &lt; Result &lt; 2^{63}-1$</p>
 <p>--&gt; 输入格式</p>
 <p>一行，包含一个符合题目描述的中缀表达式。</p>
@@ -3807,8 +3868,9 @@
 <p><strong>输出</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>-6558
 </code></pre></div></td></tr></tbody></table></div>
-<p><strong>解释</strong></p>
-<p>对于该测试用例，可以转化为数学表达式：$8-(-(-6))+(1-(-9)^4)$，求值得$-6558$。</p>
+<blockquote>
+<p>解释：对于该测试用例，可以转化为数学表达式：$8-(-(-6))+(1-(-9)^4)$，求值得$-6558$。</p>
+</blockquote>
 <p>--&gt; 补充说明</p>
 <p>除数（包括中间结果）保证不为0。</p>
 <p>乘幂运算符的右操作数（指数）不会出现负数。</p>
@@ -3818,7 +3880,7 @@
 <p>中缀表达式求值一般的方案是：转后缀然后进行后缀表达式计算</p>
 <p>这里在转换过程中直接进行了求值，转换原理参考课件</p>
 <p>（话说在写 ICSPA 2-3 的时候还会学到一种递归求值的方法，那个我觉得很好用）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

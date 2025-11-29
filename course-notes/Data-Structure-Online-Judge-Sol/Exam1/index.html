@@ -863,6 +863,8 @@
       
         
       
+        
+      
     
     
     
@@ -921,6 +923,34 @@
     
   
     并查集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../OI-Learning/Data-Structure/Graph/graph-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图基础
   
 
     
@@ -2499,6 +2529,8 @@
       
         
       
+        
+      
     
     
     
@@ -2973,6 +3005,34 @@
     
   
     第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
   
 
     
@@ -3532,6 +3592,7 @@ M 2
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>1 3 4 2
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 样例解释 #1</p>
+<blockquote>
 <p>初始状态：循环链表为 <code>[1]</code>，指针指向编号为 <code>1</code> 的卡牌。</p>
 <ol>
 <li><code>I 2</code>：在位置 <code>1</code> 后面插入 <code>2</code>，链表变为 <code>[1, 2]</code>，指针仍指向 <code>1</code>。</li>
@@ -3541,6 +3602,7 @@ M 2
 <li><code>M -1</code>：指针向后移动 <code>1</code> 步，指向 <code>1</code>。</li>
 <li><code>O 4</code>：从 <code>1</code> 开始输出 <code>4</code> 张卡牌：<code>1, 3, 4, 2</code>。</li>
 </ol>
+</blockquote>
 <p>--&gt; 样例输入 #2</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3558,6 +3620,7 @@ M -3
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>5 1 10
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 样例解释 #2</p>
+<blockquote>
 <p>初始状态：循环链表为 <code>[1]</code>，指针指向编号为 <code>1</code> 的卡牌。</p>
 <ol>
 <li><code>I 5</code>：在位置 <code>1</code> 后面插入 <code>5</code>，链表变为 <code>[1, 5]</code>，指针仍指向 <code>1</code>。</li>
@@ -3565,6 +3628,7 @@ M -3
 <li><code>M 2</code>：指针向前移动 <code>2</code> 步，指向 <code>5</code>。</li>
 <li><code>O 3</code>：从 <code>5</code> 开始输出 <code>3</code> 张卡牌：<code>5, 1, 10</code>。</li>
 </ol>
+</blockquote>
 <p>--&gt; 样例输入 #3</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3582,6 +3646,7 @@ O 2
 1 100
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 样例解释 #3</p>
+<blockquote>
 <p>初始状态：循环链表为 <code>[1]</code>，指针指向编号为 <code>1</code> 的卡牌。</p>
 <ol>
 <li><code>M 0</code>：指针不移动，仍指向 <code>1</code>。</li>
@@ -3589,6 +3654,7 @@ O 2
 <li><code>I 100</code>：在位置 <code>1</code> 后面插入 <code>100</code>，链表变为 <code>[1, 100]</code>，指针仍指向 <code>1</code>。</li>
 <li><code>O 2</code>：从 <code>1</code> 开始输出 <code>2</code> 张卡牌：<code>1, 100</code>。</li>
 </ol>
+</blockquote>
 <p>--&gt; 数据范围</p>
 <ul>
 <li>对于前 50% 的数据，$1 \le n \le 10^3$，$1 \le x \le 10^3$，$\Sigma|k| \le 10^3$，$1 \le \Sigma m \le 10^3$</li>
@@ -3605,8 +3671,7 @@ O 2
 <p>空间限制：<code>256MB</code></p>
 <h3 id="solution">Solution</h3>
 <p>双向循环链表的实现，只需要实现基础构建和插入</p>
-<p>（<del>其实我不建议用 switch，因为有坑</del>）</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3765,7 +3830,7 @@ O 2
 <hr>
 <h2 id="b">B. 小蓝鲸比大小</h2>
 <p>--&gt; 题目描述</p>
-<p>小蓝鲸对数组中的数据大小产生了浓厚的兴趣，他希望为数组中的 <strong>每一个元素</strong> 找出对应的 <strong>下一个更大的元素</strong>。为了达成这个目标，他将数组的首尾连接，转化为一个循环数组，并规定如果不存在下一个更大的数字，就输出 -1。</p>
+<p>小蓝鲸对数组中的数据大小产生了浓厚的兴趣，他希望为数组中的 <strong>每一个元素</strong> 找出对应的 <strong>下一个更大的元素</strong>。为了达成这个目标，他将数组的首尾连接，转化为一个循环数组，并规定如果不存在下一个更大的数字，就输出 <code>-1</code>。</p>
 <p>现在，请你来帮助小蓝鲸想想如何才能实现这一目标吧！（提示：单调栈）</p>
 <p>--&gt; 输入格式</p>
 <p>第一行输入一个整数 $n$，表示数组的长度。</p>
@@ -3782,9 +3847,11 @@ O 2
 <p><strong>输出</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2 -1 2
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>解释： 第一个 1 的下一个更大的数是 2；</p>
 <p>数字 2 找不到下一个更大的数；</p>
 <p>第二个 1 的下一个最大的数经过循环搜索也是 2。</p>
+</blockquote>
 <p>--&gt;  样例2</p>
 <p><strong>输入</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3795,14 +3862,14 @@ O 2
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>2 3 4 -1 4
 </code></pre></div></td></tr></tbody></table></div>
 <p>--&gt; 数据规模与约定</p>
-<p>$ 1 \leq n \leq 2 * 10^6 $</p>
+<p>$ 1 \leq n \leq 2 \times 10^6 $</p>
 <p>$ -10^3 \leq num \leq 10^3 $</p>
 <p>时间限制：$1 \text{s}$</p>
 <p>空间限制：$64 \text{MB}$</p>
 <h3 id="solution_1">Solution</h3>
 <p>单调栈模板再就业</p>
 <p>注意数组是循环的，所以一轮遍历下来没退栈的需要再扫一遍</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3904,12 +3971,12 @@ O 2
 <h2 id="c">C. 小蓝鲸还排队</h2>
 <p>--&gt; 题目背景</p>
 <p>这天，小蓝鲸来银行办理业务。他发现银行总共有两类服务窗口，一类是对私窗口，用来处理普通客户的业务；一类是对公或外币窗口（这里统称为特殊窗口），用来处理特殊客户的业务。对私窗口只能办理普通业务，特殊窗口可以办理普通和特殊业务，但正常情况下不会对普通客户开放。</p>
-<p>每个客户（包括特殊客户）办理业务时长都为1个周期，客户只会在周期的开始到来。</p>
+<p>每个客户（包括特殊客户）办理业务时长都为 $1$ 个周期，客户只会在周期的开始到来。</p>
 <p>在某个周期中，银行办理业务的规则如下：</p>
-<p>1、根据当前普通用户的总人数确定可办理普通业务的窗口数。记对私窗口数为$a$，特殊窗口数为$b$，银行首先考虑只使用$a$个对私窗口来办理普通业务，<strong>如果此时$a$个窗口平均排队人数大于7人，则逐步征用特殊窗口来办理普通业务，直到办理普通业务的各窗口平均排队人数（不包含特殊客户）小于等于7人或所有特殊窗口均已被征用。</strong></p>
+<p>1、根据当前普通用户的总人数确定可办理普通业务的窗口数。记对私窗口数为 $a$，特殊窗口数为 $b$，银行首先考虑只使用 $a$ 个对私窗口来办理普通业务，<strong>如果此时 $a$ 个窗口平均排队人数大于 $7$ 人，则逐步征用特殊窗口来办理普通业务，直到办理普通业务的各窗口平均排队人数（不包含特殊客户）小于等于 $7$ 人或所有特殊窗口均已被征用。</strong></p>
 <p>2、当有特殊客户到来时，<strong>特殊窗口要优先服务特殊客户</strong>。具体的规则为：若当前有闲置的未被征用的特殊窗口，那么特殊客户优先到该窗口办理业务；若没有，那么<strong>特殊客户便“插队”到其中一个被征用的特殊窗口办理业务</strong>。特殊客户之间是平级关系，不能互相插队；注意，特殊客户只能在特殊窗口办理业务。</p>
 <p>3、银行的服务顺序按照<strong>先来先服务</strong>原则，普通客户按到来的先后顺序编号并按此顺序依次办理业务。</p>
-<p>4、银行只在前$n$个周期内允许新客户到来，在$n$个周期后，银行只办理仍在排队的客户的业务，不再接收新客户。</p>
+<p>4、银行只在前 $n$ 个周期内允许新客户到来，在 $n$ 个周期后，银行只办理仍在排队的客户的业务，不再接收新客户。</p>
 <p>请问，各个普通客户要等待多长时间？（即排队等待的周期数）</p>
 <p>--&gt; 输入格式</p>
 <ul>
@@ -3933,6 +4000,7 @@ O 2
 <p>Output</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>0 1 1 1 2 2 3 4 5 5 6 7
 </code></pre></div></td></tr></tbody></table></div>
+<blockquote>
 <p>说明：</p>
 <ul>
 <li>在第一周期，特殊客户直接在空闲的特殊窗口办理业务，1号普通客户在对私窗口办理业务，等待周期数为0，2号普通客户开始排队；</li>
@@ -3942,6 +4010,7 @@ O 2
 <li>在第五周期，普通客户人数为6 小于七人，停止使用临时征用的特殊窗口，只使用一个对私窗口来办理普通业务，第二周期到来的7号普通客户办理了业务，等待周期数为3；</li>
 <li>以此类推......</li>
 </ul>
+</blockquote>
 <p>--&gt;  样例 2</p>
 <p>Input</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -3959,9 +4028,9 @@ O 2
 <p>$0 \leq N_i \leq 100$, $N_i$ 为第 $i$ 周期的开始到来的普通客户人数</p>
 <p>$0 \leq M_i \leq 10$, $M_i$ 为第 $i$ 周期的开始到来的特殊客户人数</p>
 <h3 id="solution_2">Solution</h3>
-<p>根据四个规则直接进行模拟，非常纯粹，读题和写代码都挺难受的（</p>
-<p>一种比较直观的方案就是准备普通窗口和特殊窗口两个队列，由于题目不需要维护特殊客户的排队情况，因此特殊窗口的队列可以简化为一个 <code>int</code> 变量储存</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>根据四个规则直接进行模拟，非常纯粹，读题和写代码都挺难受的</p>
+<p>一种比较直观的方案就是准备普通窗口和特殊窗口两个队列进行每个周期的模拟，由于题目不需要维护特殊客户的排队情况，因此特殊窗口的队列可以简化为一个 <code>int</code> 变量储存</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -4131,7 +4200,7 @@ O 2
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-22"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-22T16:22:09.994144+08:00">2025-11-22</time></span><span data-tippy-content data-tippy-raw="2025-11-23"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-23T09:04:01.882162+08:00">2025-11-23</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-22"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-22T16:22:09.994144+08:00">2025-11-22</time></span><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-29T23:05:15.811768+08:00">2025-11-29</time></span></div></div>
 
 
 
