@@ -1824,6 +1824,8 @@
       
         
       
+        
+      
     
     
     
@@ -2115,6 +2117,34 @@
     
   
     Lab08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
   
 
     
@@ -3594,8 +3624,8 @@
 <p>时间限制：1s</p>
 <p>空间限制：32MB</p>
 <h3 id="solution">Solution</h3>
-<p>技巧题</p>
-<p>如果不考虑空间复杂度，可以将给定的数组的每一个元素存放到桶数组对应相等下标的位置（<code>bucket[i] = i</code>）</p>
+<p>技巧题，考虑原地哈希做法</p>
+<p>如果不考虑空间复杂度，可以将给定的数组的每一个元素存放到哈希桶对应相等下标的位置（<code>bucket[i] = i</code>）</p>
 <p>因为 $n$ 个数最多占据 $1\sim n$ 的下标，所以设置 $arr[n+1]$ 即可</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">不考虑空间复杂度的思路</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3631,7 +3661,7 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">    </span><span class="c1">// 注意这里是 while 而不是 if，因为从 arr[arr[i]] 被交换到 arr[i] 的值也可能处于 1~n 范围</span>
+<span class="hll"><span class="w">    </span><span class="c1">// 注意这里是 while 而不是 if</span>
 </span><span class="hll"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span>
 </span><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <span class="w">    </span><span class="p">}</span>
@@ -3728,6 +3758,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
+<p>这类题目一般被称为 mex 问题（Minimum Excluded value, mex）</p>
 <hr>
 <h2 id="b">B. 小蓝鲸舞会</h2>
 <p>--&gt; 题目描述</p>
@@ -4076,7 +4107,7 @@
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <p>感觉上难度了，两个小时只写了第一题😰</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-29T00:40:14.437351+08:00">2025-11-29</time></span><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-29T23:01:07.341961+08:00">2025-11-29</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-29T00:40:14.437351+08:00">2025-11-29</time></span><span data-tippy-content data-tippy-raw="2025-11-30"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-30T23:03:53.765460+08:00">2025-11-30</time></span></div></div>
 
 
 

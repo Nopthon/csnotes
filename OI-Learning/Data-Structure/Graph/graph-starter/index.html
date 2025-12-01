@@ -499,8 +499,26 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      
+        邻接多重表
+      
+    </span>
+</a>
+</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      
+        图的基础遍历
+      
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -949,6 +967,18 @@
     
   
     Lab08
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Network-attack-and-defense-in-action/lab09/">
+<span class="md-ellipsis">
+    
+  
+    Lab09
   
 
     
@@ -1457,8 +1487,26 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      
+        邻接多重表
+      
+    </span>
+</a>
+</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      
+        图的基础遍历
+      
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -1533,7 +1581,7 @@
 <p>--&gt; <strong>任意无向图的连通分量的并集（顶点与边）是原图本身，非连通无向图的连通分量的交集是空集；</strong></p>
 <p>--&gt; <strong>任意有向图的强连通分量的并集（顶点与边）<u>不一定是原图本身（顶点符合，但是会丢失跨 SCC 的单向边）</u>，非强连通有向图的强连通分量的交集为空</strong></p>
 <details class="question" open="open">
-<summary>一个最简单的，对“任意有向图的强连通分量的边集的并集不一定是原图本身” 成立的例子</summary>
+<summary>一个最简单的，对“任意有向图的强连通分量的边集的并集不一定是原图本身”成立的例子</summary>
 <pre class="mermaid"><code>flowchart LR
 A((a)) --&gt; B((b))
 </code></pre>
@@ -1547,8 +1595,8 @@ A((a)) --&gt; B((b))
 <p>对 $n$ 个顶点的图建立 $n\times n$ 的矩阵 $M$，如果存在 $v_i$ 到 $v_j$ 的直达边，则 $M[v_i][v_j] = 1$，否则为 $0$。</p>
 <p>对于带权图，如果存在 $v_i$ 到 $v_j$ 的直达边，则 $M[v_i][v_j] = \text{weight}$，否则记为 $+\infty$ （额外的，不考虑自环现象，则 $M[i][i] = 0$ 而不是 $+\infty$）</p>
 <p>无向图的邻接矩阵是对称的；有向图的邻接矩阵可能是不对称的。</p>
-<p>对有向图分别统计第 $i$ 行与第 $i$ 列的非零元素个数可以得到某个点的出度与入度；对无向图统计第 $i$ 行或第 $i$ 列的非零元素个数可以得到某个点的度</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>邻接矩阵相比邻接表具有数组 $O(1)$ 随机访问的优点；对有向图分别统计第 $i$ 行与第 $i$ 列的非零元素个数可以得到某个点的出度与入度；对无向图统计第 $i$ 行或第 $i$ 列的非零元素个数可以得到某个点的度</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th class="filename" colspan="2"><span class="filename">template</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1576,38 +1624,52 @@ A((a)) --&gt; B((b))
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Graph</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Graph</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vertices</span><span class="p">[</span><span class="n">MAX_VERTICES</span><span class="p">][</span><span class="n">MAX_VERTICES</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">vertices_cnt</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">edges_cnt</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">directed</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">weighted</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">initGraph</span><span class="p">(</span><span class="n">Graph</span><span class="o">*</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">directed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">initGraph</span><span class="p">(</span><span class="n">Graph</span><span class="o">*</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">directed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">weighted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices_cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">edges_cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">directed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">directed</span><span class="p">;</span>
+<span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">weighted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weighted</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">weighted</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">addEdge</span><span class="p">(</span><span class="n">Graph</span><span class="o">*</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">src</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices_cnt</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices_cnt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">src</span><span class="p">][</span><span class="n">dest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">directed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">dest</span><span class="p">][</span><span class="n">src</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">edges_cnt</span><span class="o">++</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">addEdge</span><span class="p">(</span><span class="n">Graph</span><span class="o">*</span><span class="w"> </span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">src</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices_cnt</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices_cnt</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">src</span><span class="p">][</span><span class="n">dest</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">directed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">vertices</span><span class="p">[</span><span class="n">dest</span><span class="p">][</span><span class="n">src</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">edges_cnt</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// ......</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="_6">邻接表</h3>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>当图较为稀疏时，我们可以使用链表替代邻接矩阵的第二维，根据点的出边个数灵活分配节点个数</p>
+<p>虽然失去了 $O(1)$ 随机访问的特性，但是均摊空间复杂度降低，对于非稠密图有较好的空间开销（如果图足够稠密，比如 $E \approx V^2$，此时用邻接矩阵更方便）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th class="filename" colspan="2"><span class="filename">template</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1648,7 +1710,9 @@ A((a)) --&gt; B((b))
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">AdjNode</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">AdjNode</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">dest</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
 <span class="w">    </span><span class="n">AdjNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
@@ -1690,8 +1754,44 @@ A((a)) --&gt; B((b))
 
 <span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">edges_cnt</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="c1">// ......</span>
 </code></pre></div></td></tr></tbody></table></div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-11-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-27T10:27:54.090277+08:00">2025-11-27</time></span><span data-tippy-content="" data-tippy-raw="2025-11-27"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-27T17:40:21.701957+08:00">2025-11-27</time></span></div></div>
+<p>邻接表的节点存储出边。如果想要像邻接矩阵一样快速查询 “有哪些边的 dst 为某一个节点”，我们还需要一个逆邻接表（节点存储入边），结构与上述相同</p>
+<h3 id="_7">邻接多重表</h3>
+<p>邻接表以点为存储核心，如果考虑存储完善的图信息（包括邻接表与逆邻接表），每条边会被存储两次。</p>
+<p>因此有了邻接多重表，采用边节点而不是点节点：</p>
+<table>
+<thead>
+<tr>
+<th>mark</th>
+<th>vertex1</th>
+<th>vertex2</th>
+<th>path1</th>
+<th>path2</th>
+<th>(weight)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中 <code>mark</code> 用于在各种算法中作为某条边是否访问过的标记；<code>vertex1</code> 和 <code>vertex2</code> 分别为边的起点与终点；<code>path1</code> 和 <code>path2</code> 分别为指向下一条依附于 <code>vertex1</code> / <code>vertex2</code> 的边的指针；<code>weight</code> 记录边的权值</p>
+<p>对于顶点结点需要存储 <code>data</code>（与该顶点相关的信息）和 <code>Firstout</code>（以该顶点为始顶点的出边表的第一条边），对于有向图还需要 <code>Firstin</code>（以该顶点为终顶点的入边表的第一条边）</p>
+<details class="quote">
+<summary>An example</summary>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251202034832177.png"><img alt="image-20251202034832177" src="../images/image-20251202034832177.png"></a></p>
+</details>
+<h2 id="_8">图的基础遍历</h2>
+<p>基础的图的遍历包含深度优先搜索 DFS 和广度优先搜索 BFS</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-11-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-27T10:27:54.090277+08:00">2025-11-27</time></span><span data-tippy-content="" data-tippy-raw="2025-12-02"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-02T03:56:16.172997+08:00">2025-12-02</time></span></div></div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

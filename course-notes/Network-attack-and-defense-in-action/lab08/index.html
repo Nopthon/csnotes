@@ -9,7 +9,7 @@
         <link rel="prev" href="../lab07%28PWN%29/">
       
       
-        <link rel="next" href="../../ICS%26%26CSAPP-Lab/">
+        <link rel="next" href="../lab09/">
       
       
         
@@ -1826,6 +1826,8 @@
       
         
       
+        
+      
     
     
     
@@ -2355,6 +2357,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3763,7 +3793,7 @@
 <p>了解 pyc 文件的逆向分析；了解 Python 2.x <code>input()</code> 相关漏洞；了解 Port Knocking 技术</p>
 <h2 id="_2">具体操作</h2>
 <h3 id="_3">信息收集</h3>
-<p>启动 VirtualBox 中的 Kali 攻击机与 Kioptix 靶机，网络采用 NAT 连接</p>
+<p>启动 VirtualBox 中的 Kali 攻击机与靶机，网络采用 NAT 连接</p>
 <p><code>ifconfig</code> 获取攻击机的 ip 为 <code>10.0.2.3</code>，使用 <code>nmap</code> 扫描 ip：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -5036,7 +5066,7 @@ drwx------ 3 sam  sam  4096 Oct 20  2019 .gnupg
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">(</span><span class="n">options</span><span class="p">())</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>当猜数游戏正确时，可以获得 Shell，或许就是 root Shell。由于运气不佳，连续猜了 50 多次也没猜对，于是考虑代码本身存在漏洞</p>
+<p>当猜数游戏正确时，可以获得 Shell，或许就是 root Shell。由于运气不佳，连续猜了 50 多次 <code>2</code> 都没猜对，于是考虑从代码本身存在的漏洞点入手</p>
 <p>根据 <a href="https://www.geeksforgeeks.org/python/vulnerability-input-function-python-2-x/">Vulnerability in input() function – Python 2.x - GeeksforGeeks</a> 所述，Python 2.x 中的 <code>input()</code> 函数会把用户输入当成 Python 代码执行（类似于 <code>eval()</code>），因此可以考虑指令注入：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -5062,7 +5092,7 @@ root@box7:/opt/80#
 <p>（之后发现也可以直接输入 <code>num</code>，把变量名当作变量解析，得到猜数正确的结果，从而提权）</p>
 <hr>
 <h2 id="_5">二次挖掘</h2>
-<p>在之前的算术小游戏中，我们获得了 <code>1356, 6784, 3409</code> 的神秘 gift，考虑到之前还有一个 SSH 服务（Filted，无法正常访问），这里在网上查询了相关的内容，得到了一些线索：（From <a href="https://wiki.archlinux.org.cn/title/Port_knocking">端口敲门 - ArchWiki - Arch Linux 百科</a>）</p>
+<p>在之前的算术小游戏中，我们获得了 <code>1356, 6784, 3409</code> 的神秘 gift，考虑到之前还有一个 SSH 服务（STATE: filtered，无法正常访问），这里在网上查询了相关的内容，得到了一些线索：（From <a href="https://wiki.archlinux.org.cn/title/Port_knocking">端口敲门 - ArchWiki - Arch Linux 百科</a>）</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251125232936973.png" data-desc-position="bottom"><img alt="image-20251125232936973" src="../images/image-20251125232936973.png"></a></p>
 <p>使用 knockd 打开 ssh 端口</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -5092,13 +5122,13 @@ root@box7:/opt/80#
 <h2 id="_8">问题分析/启示</h2>
 <ol>
 <li>在提权过程中，发现没有文件线索的时候，可以尝试通过检查可使用的指令来寻找线索</li>
-<li>Python 旧版本也会存在一些漏洞</li>
+<li>Python 旧版本会存在一些漏洞</li>
 </ol>
 <hr>
 <h2 id="_9">其他</h2>
 <p>用时 4h+1h（附加任务）</p>
 <hr>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-25T13:32:42.435929+08:00">2025-11-25</time></span><span data-tippy-content data-tippy-raw="2025-11-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-29T00:33:58.998492+08:00">2025-11-29</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-25T13:32:42.435929+08:00">2025-11-25</time></span><span data-tippy-content data-tippy-raw="2025-12-02"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-02T05:56:33.360198+08:00">2025-12-02</time></span></div></div>
 
 
 

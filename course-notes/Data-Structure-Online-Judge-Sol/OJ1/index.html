@@ -1824,6 +1824,8 @@
       
         
       
+        
+      
     
     
     
@@ -2115,6 +2117,34 @@
     
   
     Lab08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
   
 
     
@@ -3818,9 +3848,10 @@
 <p>我们展示 2，然后将 13 移到底部。牌组现在是 [3,11,5,17,7,13]。</p>
 <p>我们展示 3，然后将 11 移到底部。牌组现在是 [5,17,7,13,11]。</p>
 <p>我们展示 5，然后将 17 移到底部。牌组现在是 [7,13,11,17]。</p>
-<p>58&nbsp;1#include <bits stdc++.h>2#define MAX_SIZE 50003// #define int long long4using namespace std;5​6int a[MAX_SIZE+1], b[MAX_SIZE+1], c[MAX_SIZE+3];7​8signed main(){9    ios::sync_with_stdio(false);10    cin.tie(0); cout.tie(0);11    12    int n, x; cin &gt;&gt; n &gt;&gt; x;13    int atop = 0, btop = 0;14    // 输入与划分，采用 1-index15    for(int i = 0; i &lt; n; i++){16        int tmp; cin &gt;&gt; tmp;17        if(tmp &lt; x){18            a[++atop] = tmp;19            // 舍弃前导零20            if(a[1] == 0) atop--;21        }22        else {23            b[++btop] = tmp;24            if(b[1] == 0) btop--;25        }26    }27    28    // 特判：其中一个乘数为 0，结果为 029    if (a[1] == 0 || b[1] == 0){30        cout &lt;&lt; "0";31        return 0;32    }33    34    // 高精度乘法35    for(int i = btop; i &gt;= 1; i--){36        // 变量作用参考变量名37        int jinwei = 0;38        for(int j = atop; j &gt;= 1; j--){39            int tmp = a[j] * b[i] + jinwei + c[i+j];40            c[i+j] = tmp % 10;41            jinwei = tmp / 10;42        }43        if(jinwei != 0){44            c[i] += jinwei;45        }46    }47    int i = 0;48    // 跳过前导零49    while(c[i] == 0) i++;50    // 输出结果51    for(; i &lt;= atop+btop; i++){52        cout &lt;&lt; c[i];53    }54    55    56     57    return 0;58}c++ title="Solution"</bits></p>
+<p>我们展示 7，然后将 13 移到底部。牌组现在是 [11,17,13]。</p>
 <p>我们展示 11，然后将 17 移到底部。牌组现在是 [13,17]。</p>
-<p>我们展示 13，然后将 17 移到底部。牌组现在是 [17]。 我们展示 17。</p>
+<p>我们展示 13，然后将 17 移到底部。牌组现在是 [17]。</p>
+<p>最后我们展示 17。</p>
 <p>所有卡片都是按递增顺序排列展示的。</p>
 </blockquote>
 <p>--&gt; 数据说明</p>
