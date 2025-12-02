@@ -3310,6 +3310,73 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第七章 参数估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第七章 参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        极大似然估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        估计量的评价标准
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="估计量的评价标准">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无偏性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4897,6 +4964,73 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第七章 参数估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第七章 参数估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        极大似然估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        估计量的评价标准
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="估计量的评价标准">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无偏性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5539,7 +5673,7 @@ $$</p>
 </ul>
 <p>$$
 EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\
-D(X) = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{orange}{\lambda}}
+DX = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{orange}{\lambda}}
 $$</p>
 <p><br></p>
 <h4 id="_35">连续型</h4>
@@ -5700,7 +5834,7 @@ c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\
 c_{n1} &amp; c_{n2} &amp; \cdots &amp; c_{nn}
 \end{pmatrix}
 $$</p>
-<p>为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\\sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}$ </p>
+<p>为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}$ </p>
 <p><br></p>
 <h2 id="_44">第五章 极限理论</h2>
 <p>包含大数定律和中心极限定理两部分内容</p>
@@ -5793,7 +5927,7 @@ $$</p>
 $$</p>
 <p>随机变量的和 $\displaystyle \sum_{k=1}^{n} X_k$ 在标准化为 $Y_n$ 后，极限分布满足标准正态分布：</p>
 <p>$$
-Y_n \sim N(0,1) \
+Y_n \sim N(0,1) \\
 \sum_{k=1}^n X_k \sim N(n\mu, n\sigma ^2)
 $$
 对于 $n$ 重伯努利实验，我们有拉普拉斯中心极限定理的特例：</p>
@@ -5806,7 +5940,9 @@ $$</p>
 n\to \infty,\; \mu_n \sim B(n,p) \sim N(np, npq)
 $$</p>
 <p><br></p>
+<hr>
 <p>前面的内容属于概率论的基本内容，接下来的内容属于数理统计，偏向于实际应用</p>
+<hr>
 <p><br></p>
 <h2 id="_50">第六章 统计量与抽样分布</h2>
 <h3 id="_51">基础概念</h3>
@@ -5817,7 +5953,7 @@ $$</p>
 <p>样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 $(x_1, x_2, \cdot, x_n)$。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 $(X_1, X_2, \cdots, X_n)$ </p>
 <p>对于 $(X_1, X_2, \cdots, X_n)$，我们对随机分布有以下要求：</p>
 <p>(1) 代表性 样本能够代表总体.也就是说，样本的每个分量 $X_i$; 与总体 $X$ 具有相同的分布。</p>
-<p>(2) 独立性: X_1, X_2, \cdots, X_n 为相互独立的随机变量。</p>
+<p>(2) 独立性: $X_1, X_2, \cdots, X_n$ 为相互独立的随机变量。</p>
 <p>满足上述两点性质的样本称为简单随机样本，也简称为样本。之后的“样本”都默认指简单随机样本。（和之前的“独立同分布随机变量序列”定义在数学描述上相同）</p>
 <p><br></p>
 <h3 id="_52">样本统计与分布</h3>
@@ -5908,19 +6044,19 @@ $$</p>
 </details>
 <p><br></p>
 <h4 id="textf">$\text{F}$ 分布</h4>
-<p>设 $U \sim \chi^2(n_1),\;V \sim \chi^2(n_2)$，且 $U$ 与 $V$ 相互独立，则称随机变量
-$$
+<p>设 $U \sim \chi^2(n_1),\;V \sim \chi^2(n_2)$，且 $U$ 与 $V$ 相互独立，则称随机变量</p>
+<p>$$
 F = \frac{U/n_1}{V/n_2}
-$$
-为服从自由度为 $(n_1,n_2)$ 的 $\text{F}$ 分布，记为 $F \sim F(n_1,n_2)$，其密度函数为：
-$$
+$$</p>
+<p>为服从自由度为 $(n_1,n_2)$ 的 $\text{F}$ 分布，记为 $F \sim F(n_1,n_2)$，其密度函数为：</p>
+<p>$$
 p(x) = \frac{\Gamma\left(\frac{n_1+n_2}{2}\right)}
 {\Gamma\left(\frac{n_1}{2}\right)\Gamma\left(\frac{n_2}{2}\right)}
 \left(\frac{n_1}{n_2}\right)^{\frac{n_1}{2}}
 x^{\frac{n_1}{2} - 1}
 \left(1 + \frac{n_1}{n_2}x\right)^{-\frac{n_1+n_2}{2}}, \; x &gt; 0
-$$
-其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$$</p>
+$$</p>
+<p>其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$$</p>
 <details class="quote">
 <summary>给出不同自由度下的分布图像</summary>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/539952-20170304165826016-2056523954.jpg" data-desc-position="bottom"><img alt="img" src="../images/539952-20170304165826016-2056523954.jpg"></a></p>
@@ -5939,6 +6075,97 @@ $$
 <p>当 $X \sim F(n_1,n_2)$ 时，我们记 $\lambda_{\alpha}$ 为 $F_{\alpha}(n_1,n_2)$，有 $F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1$ </p>
 <p><br></p>
 <h3 id="_56">正态总体的相关分布</h3>
+<p>设 $X_1, X_2, \cdots, X_n$ 是来自正态总体 $N(\mu, \sigma^2)$ 的一个样本，则</p>
+<p>(1) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n})$</p>
+<p>(2) $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)$</p>
+<p>(3) $\overline{X}$ 与 $S^2$ 相互独立</p>
+<p>一些推论：</p>
+<p>(4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to {\color{orange}T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$ </p>
+<p>(5) 设 $X_1, X_2, \cdots, X_{n_1}$ 是来自正态总体 $N(\mu_1, \sigma_1^2)$ 的一个样本，$Y_1, Y_2, \cdots, Y_{n_2}$ 是来自正态总体 $N(\mu_2, \sigma_2^2)$ 的一个样本，两样本相互独立，样本方差分别为 $S_1, S_2$，则</p>
+<p>$$
+F = (\dfrac{S_1}{\sigma_1})^2 / (\dfrac{S_2}{\sigma_2})^2 = \dfrac{S_1^2 \sigma_2^2}{S_2^2 \sigma_1^2} \sim F(n_1 -1, n_2 - 1)
+$$</p>
+<p><br></p>
+<h2 id="_57">第七章 参数估计</h2>
+<p>利用样本构造合理的统计量对未知参数进行估计，这就是参数估计的主要任务</p>
+<p>参数估计包含点估计与区间估计：</p>
+<details class="abstract">
+<summary>点估计</summary>
+<p>设总体的分布为 $F(x;\theta)$，其中 $\theta = (\theta_1, \theta_2, \cdots, \theta_{k})'$ 为 $k$ 维向量。我们根据样本 $X_1, X_2, \cdots, X_n$ 构造一个统计量 $\hat{\theta}(X_1, X_2, \cdots, X_n)$ 作为 $\theta$ 的估计，则称 $\hat{\theta}(X_1, X_2, \cdots, X_n)$ 为 $\theta$ 的估计量。如果 $x_1, x_2, \cdots, x_n$ 是一组样本观察值，代入 $\hat{\theta}$ 后得到的具体值 $\hat{\theta}(x_1, x_2, \cdots, x_n)$ 称为 $\theta$ 的估计值。这样的估计称为点估计。</p>
+</details>
+<details class="abstract">
+<summary>区间估计</summary>
+<p>设总体的分布为 $F(x;\theta)$，其中 $\theta = (\theta_1, \theta_2, \cdots, \theta_{k})'$ 为 $k$ 维向量。我们根据样本 $X_1, X_2, \cdots, X_n$ 构造两个统计量 $\hat{\theta}_L(X_1, X_2, \cdots, X_n)$ 和 $\hat{\theta}_U(X_1, X_2, \cdots, X_n)$（$\hat{\theta}_L &lt; \hat{\theta}_U$），并称随机区间 $[\hat{\theta}_L(X_1, X_2, \cdots, X_n), \hat{\theta}_U(X_1, X_2, \cdots, X_n)]$ 为 $\theta$ 的区间估计量（或置信区间），其中下标 $L$ 和 $U$ 分别表示“下界”和“上界”。</p>
+<p>如果事先给定一个较大的概率值 $1-\alpha$（称为置信水平或置信系数），使得</p>
+<p>$$
+P\left(\hat{\theta}_L \leq \theta \leq \hat{\theta}_U\right) = 1-\alpha
+$$</p>
+<p>对任意的 $\theta$ 都成立，则称 $[\hat{\theta}_L, \hat{\theta}_U]$ 为 $\theta$ 的 $1-\alpha$ 置信区间。</p>
+<p>当取得一组具体样本观察值 $x_1, x_2, \cdots, x_n$ 后，代入计算得到的具体数值区间 $[\hat{\theta}_L, \hat{\theta}_U]$ 称为 $\theta$ 的区间估计值（或具体的置信区间）。这时我们说：“在 $1-\alpha$ 置信水平下，参数 $\theta$ 落在区间 $[\hat{\theta}_L, \hat{\theta}_U]$ 内”。</p>
+<p>与点估计只给出一个数值不同，区间估计给出了一个范围，同时明确指出了这个范围覆盖真实参数值的可信程度（概率为 $1-\alpha$）。这种估计方法称为区间估计或置信区间估计。</p>
+</details>
+<p>首先我们给出两种点估计</p>
+<h3 id="_58">矩估计</h3>
+<p>矩估计的恩想方法是用样本矩去作为总体矩的估计。设参数 $\theta = (\theta_1, \theta_2, \cdots, \theta_{k})'$ 可表示为总体矩 $\mu_1, \mu_2 ,\cdots, \mu_k$ 的函数 $\theta_i = h_i(\mu_1, \mu_2 ,\cdots, \mu_k)$，以样本矩 $A_1, A_2 ,\cdots, A_k$ 代替总体矩 $\mu_1, \mu_2 ,\cdots, \mu_k$ 所得的估计量就是矩估计量</p>
+<p>具体来说，我们先求出总体的各阶原点矩：</p>
+<p>$$
+\mu_i = E(X^i) = g_i(\theta_1,\cdots,\theta_k),\quad i = 1,2,\cdots,k
+$$</p>
+<p>解方程组得到：</p>
+<p>$$
+\theta_i = h_i(\mu_1,\cdots,\mu_k),\quad i = 1,2,\cdots,k
+$$</p>
+<p>样本矩替换总体矩得到矩估计：</p>
+<p>$$
+\theta_i = h_i(A_1,\cdots,A_k),\quad i = 1,2,\cdots,k
+$$</p>
+<p>根据大数定律，$A_j = \dfrac{1}{n} \displaystyle \sum _{i=1} ^{n} X_i^j \stackrel{P}{\longrightarrow} \mu_j,\quad j = 1,2,\cdots$</p>
+<p>若 $h$ 为已知的连续函数，则 $h(A_1,A_2, \cdots, A_k) \stackrel{P}{\longrightarrow} h(\mu_1, \mu_2, \cdots , \mu_k)$，称之为<strong>矩估计的相合性</strong></p>
+<p>一个矩估计的例子：对于总体 $X \sim N (\mu, \sigma^2)$，$X_1, X_2, \cdots, X_n$ 是总体 $X$ 的一个样本，我们得到：</p>
+<p>$$
+EX = \mu = \mu_1 \\
+DX = \sigma^2 = \mu_2 - \mu_1^2
+$$</p>
+<p>（$\sigma^2 = \mu_2 - \mu_1^2$ 对应的是 $DX=E(X^2) - (EX)^2$）</p>
+<p>将样本矩 $A_1, A_2$ 代入得</p>
+<p>$$
+\hat{\mu} = A_1 = \overline{X} \\
+\hat{\sigma^2} = A_2 - A_1^2 = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2
+$$</p>
+<p>也就是说：总体均值 $\mu$ 的矩估计是样本均值 $\overline{X}$；总体方差 $\sigma^2$ 的矩估计是样本二阶中心矩 $S^{\ast 2}$（不是样本方差 $S^2$）。注意上面的结论与总体分布无关，只要总体的一阶矩和二阶矩存在，上述结论就满足</p>
+<div class="admonition abstract">
+<p>总体均值 $\mu$ 的矩估计是样本均值 $\overline{X}$</p>
+<p>总体方差 $\sigma^2$ 的矩估计是样本二阶中心矩 $S^{\ast 2} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2$</p>
+<p>二维总体 $(X,Y)$ 相关系数 $\rho$ 的矩估计是样本相关系数 $r=\dfrac{S_{XY}}{S_{X}^{\ast}\cdot S_{Y}^{\ast}}$ </p>
+</div>
+<p>在实际运用时，我们更倾向于使用阶数更低的样本矩，比如：$X_1, X_2, \cdots, X_n$ 是总体 $X \sim P(\lambda)$ 的一个样本，那么 $\lambda$ 的矩估计选用一阶矩对应的 $\overline{X}$，而不是样本二阶中心矩 $S^{\ast 2}$ （泊松分布的 $EX = DX = \lambda$）</p>
+<p><br></p>
+<h3 id="_59">极大似然估计</h3>
+<p>如果说矩估计是利用部分分布信息进行数字特征匹配，满足相合性，那么极大似然估计就是利用完整分布形式进行概率最大化的估计：在已有样本的基础上，要选择参数的一个合理的估计值，就是要使得参数在取该估计值时样本发生的可能性达到最大，这就是极大似然估计的思想方法。</p>
+<p>设总体分布的密度函数为 $p(x;\theta)$，其中 $\theta$ 是未知参数。对于独立同分布样本 $(x_1,x_2,\cdots,x_n)$，定义似然函数：
+$$
+L(\theta) = \prod_{i=1}^n p(x_i;\theta)
+$$
+表示在参数 $\theta$ 下观测到当前样本的概率（概率密度乘积）</p>
+<p>极大似然估计 $\hat{\theta}$ 就是使似然函数 $L(\theta)$ 达到最大值的参数：$\displaystyle \hat{\theta} = \arg \max_{\theta \in \Theta} L(\theta)$，记最大值点 $\hat{\theta}(x_1,x_2,\cdots,x_n)$ 为 $\theta$ 的极大似然估计值，$\hat{\theta}(X_1,X_2,\cdots,X_n)$ 为极大似然估计量</p>
+<p>虽然可以直接求导计算 $L'(\theta) = 0$ 的解，但为了计算方便，通常取 $\ell (\theta) = \ln L(\theta)$，然后计算 $\ell '(\theta) = 0$ 的解，称</p>
+<p>$$
+\frac{\partial}{\partial\theta_j} \ell(\theta) = 0, \quad j = 1, 2, \dots, k
+$$</p>
+<p>为似然方程组（$k=1$ 时为似然方程）</p>
+<p>由于考虑到总体的分布，极大似然估计通常比矩估计优良。但极大似然估计的计算较复杂，往往需要计算机才能得到近似解。另外，极大似然估计还具有一个优良的性质：<strong>不变性原则</strong>。设 $\hat{\theta}$ 是参数 $\theta$ 的极大似然估计，$\varphi(\theta)$ 有单值反函数（每个 $\varphi(\theta)$ 唯一对应一个 $\theta$），则 $\varphi(\hat{\theta})$ 是 $\varphi(\theta)$ 的极大似然估计，即：</p>
+<p>$$
+\widehat{\varphi(\theta)} = \varphi(\hat{\theta})
+$$</p>
+<div class="admonition abstract">
+<p>如果 $\hat{\theta}$ 使 $L(\theta)$ 值最大，那么对于参数 $\eta = \varphi(\theta)$，由于一一对应关系，同样的 $\varphi(\hat{\theta})$ 也会使关于 $\eta$ 的似然函数最大</p>
+</div>
+<p>比如 $\sigma^2$ 的极大似然估计为 $S^{\ast 2}$，因为 $\varphi(\sigma) = \sigma^2(\sigma \geq 0)$ 有单值反函数，则 $\sigma$ 的极大似然估计为 $S^{\ast}$ </p>
+<p><br></p>
+<h3 id="_60">估计量的评价标准</h3>
+<p>由不同的方法可以得到不同的参数估计，这里引入常用的三种标准，用于对估计量进行评价</p>
+<h4 id="_61">无偏性</h4>
+<p>// UNDER CONSTRUCTION // </p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span></div></div>
 
 
