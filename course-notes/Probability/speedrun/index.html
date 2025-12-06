@@ -3367,6 +3367,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        均方误差准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一致性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区间估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区间估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何求区间估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一些常见的区间估计
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3433,6 +3494,8 @@
       
         
           
+        
+      
         
       
         
@@ -3847,6 +3910,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data-Structure-Online-Judge-Sol/OJ11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4001,7 +4092,7 @@
   <span class="md-ellipsis">
     
   
-    October 2025
+    December 2025
   
 
     
@@ -5021,6 +5112,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        均方误差准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一致性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区间估计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区间估计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        如何求区间估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一些常见的区间估计
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5346,7 +5498,7 @@ p(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}},x
 $$</p>
 <p>对于正态分布图像：</p>
 <p>$p(x)$ 图像以 $x=μ$ 为对称轴，$(μ,\frac{1}{\sigma\sqrt{2\pi}})$ 为极大值点，$x$ 轴为渐近线</p>
-<p>固定 $μ$ 时：$σ$ 越小，最大值越大，图形越高越陡峭； $σ$ 越大，最大值越小，图形越低越平缓</p>
+<p>固定 $μ$ 时：$σ$ 越小，最大值越大，图形越高越陡峭；$σ$ 越大，最大值越小，图形越低越平缓</p>
 <p>固定 $σ$：$μ$ 变小时，曲线沿对称轴 $x= μ$ 向左平移；$μ$ 变大时，曲线沿对称轴 $x= μ$ 向右平移</p>
 <p><br></p>
 <h4 id="_14">标准正态分布</h4>
@@ -5597,7 +5749,7 @@ $$
 p_Z(z) = \int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy
 $$</p>
 <div class="admonition abstract">
-<p>推广： $Z = aX+bY$ 的分布：</p>
+<p>推广：$Z = aX+bY$ 的分布：</p>
 <p>$$
 p_{Z}(z)= \frac{1}{{\color{orange}{|b|}}} \int_{-\infty}^{+\infty} p\left( x, \frac{z - {\color{orange}{a}} x}{{\color{orange}{b}}} \right) dx= \frac{1}{{\color{orange}{|a|}}} \int_{-\infty}^{+\infty} p\left( \frac{z - {\color{orange}{b}} y}{{\color{orange}{a}}}, y \right) dy
 $$</p>
@@ -5796,14 +5948,14 @@ $$</p>
 <p>$$
 X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
 $$</p>
-<p>计算得到 $EX^\ast = 0,\; DX^\ast = 1$， 此时称 $X^*$ 为 $X$ 的标准化随机变量</p>
+<p>计算得到 $EX^\ast = 0,\; DX^\ast = 1$，此时称 $X^*$ 为 $X$ 的标准化随机变量</p>
 <p>上式中记 $EX = \mu,\;DX = \sigma^2$ </p>
 <p>在此基础上定义 $X,Y$ 的相关系数：设 $DX, DY &gt; 0$，则</p>
 <p>$$
 \rho_{X\,Y} = \dfrac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}} = \text{cov}(X^{\ast}, Y^{\ast})
 $$</p>
 <p>记 $\rho_{X\,Y}$ 为 $X,Y$ 的相关系数，根据柯西 · 施瓦兹不等式 $[\text{cov}(X,Y)]^2 \leqslant DX\cdot DY$，得到 $|\rho_{X\,Y}| \leqslant 1$，取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$ </p>
-<p>上面的性质表明，相关系数 $ρ_{X\,Y}$ 刻画了 $X$ 和 $Y$ 间的线性相关特征。 $|ρ_{X\,Y}|$ 越大，表明 $X$ 和 $Y$ 之间线性关系越密切，当 $|ρ_{X\,Y}| = 1$ 时表明 $X$ 和 $Y$ 以概率 $1$ 线性相关。反之，若 $|ρ_{X\,Y}|$ 越小，表明 $X$ 和 $Y$ 的线性关系越弱。</p>
+<p>上面的性质表明，相关系数 $ρ_{X\,Y}$ 刻画了 $X$ 和 $Y$ 间的线性相关特征。$|ρ_{X\,Y}|$ 越大，表明 $X$ 和 $Y$ 之间线性关系越密切，当 $|ρ_{X\,Y}| = 1$ 时表明 $X$ 和 $Y$ 以概率 $1$ 线性相关。反之，若 $|ρ_{X\,Y}|$ 越小，表明 $X$ 和 $Y$ 的线性关系越弱。</p>
 <div class="admonition abstract">
 <p>$\rho_{X\,Y}$ 描述了两个随机事件的线性相关特征；独立性描述了两个随机事件的相关性</p>
 </div>
@@ -5813,9 +5965,6 @@ $$</p>
 $$</p>
 <p>独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2, \sigma_2^2,\rho)$ 中 $\rho_{X\,Y} = \rho$，而 $X,Y$ 相互独立的充要条件即 $\rho = 0$ </p>
 <h3 id="_43">矩和协方差阵</h3>
-<div class="admonition warning">
-<p>考试不考，写的简单一点</p>
-</div>
 <p>矩可以看作期望的推广：对于随机变量 $X$，$X^k$ 的数学期望 $EX^k$ 为 $X$ 的 $k$ 阶（原点）矩；标准化后 $E(X-EX)^k$ 为 $X$ 的 $k$ 阶<strong>中心</strong>矩</p>
 <p>（矩的存在性类比 $EX$ 的存在性）</p>
 <p>将随机变量标准化后的三阶矩 $E\left(\dfrac{X-EX}{\sqrt{D(X)}}\right)^3 = \dfrac{E(X-\mu)^3}{\sigma^3}$ 记为偏度；$\dfrac{E(X-EX)^4}{\sigma^4}$ 记为峰度</p>
@@ -5913,7 +6062,7 @@ $$</p>
 <p>$$
 X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
 $$</p>
-<p>计算得到 $EX^\ast = 0,\; DX^\ast = 1$， 此时称 $X^*$ 为 $X$ 的标准化随机变量</p>
+<p>计算得到 $EX^\ast = 0,\; DX^\ast = 1$，此时称 $X^*$ 为 $X$ 的标准化随机变量</p>
 </details>
 <p>中心极限定理 CLT 指出：当样本量足够大时，无论原始随机变量的分布形态如何，独立同分布的随机变量的均值（或总和）经过标准化后，其分布将趋近于标准正态分布。这意味着即使原始数据不是正态分布，样本均值的分布也会接近正态分布。</p>
 <p>给出独立同分布中心极限定理：</p>
@@ -5948,12 +6097,11 @@ $$</p>
 <h3 id="_51">基础概念</h3>
 <p>在数理统计中，我们将所研究的对象的全体称为总体，而将总体中每个成员称为个体。</p>
 <p>如果一个总体所包含的个体数量是有限的，则称之为有限总体，如果总体所包含的个体数量是无限的，则称之为无限总体（通常会将很大的有限总体近似看作无限总体，将总体分布取成连续型分布）</p>
-<p>为了对总体 $X$ 进行研究，通常要从总体中随机地抽取一些个体，这些个体就称为样本。
-抽得样本的过程称为抽样。样本中个体的数量称为样本容量。设对总体进行了 $n$ 次观测，得到一组数据 $(x_1, x_2, \cdots, x_n)$。我们称这组数据为样本观察值或样本值</p>
-<p>样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 $(x_1, x_2, \cdot, x_n)$。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 $(X_1, X_2, \cdots, X_n)$ </p>
+<p>为了对总体 $X$ 进行研究，通常要从总体中随机地抽取一些个体，这些个体就称为样本。抽得样本的过程称为抽样。样本中个体的数量称为样本容量。设对总体进行了 $n$ 次观测，得到一组数据 $(x_1, x_2, \cdots, x_n)$。我们称这组数据为样本观察值或样本值</p>
+<p>样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 $(x_1, x_2, \cdots, x_n)$。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 $(X_1, X_2, \cdots, X_n)$ </p>
 <p>对于 $(X_1, X_2, \cdots, X_n)$，我们对随机分布有以下要求：</p>
-<p>(1) 代表性 样本能够代表总体.也就是说，样本的每个分量 $X_i$; 与总体 $X$ 具有相同的分布。</p>
-<p>(2) 独立性: $X_1, X_2, \cdots, X_n$ 为相互独立的随机变量。</p>
+<p>(1) 代表性：样本能够代表总体.也就是说，样本的每个分量 $X_i$; 与总体 $X$ 具有相同的分布。</p>
+<p>(2) 独立性：$X_1, X_2, \cdots, X_n$ 为相互独立的随机变量。</p>
 <p>满足上述两点性质的样本称为简单随机样本，也简称为样本。之后的“样本”都默认指简单随机样本。（和之前的“独立同分布随机变量序列”定义在数学描述上相同）</p>
 <p><br></p>
 <h3 id="_52">样本统计与分布</h3>
@@ -6165,6 +6313,76 @@ $$</p>
 <h3 id="_60">估计量的评价标准</h3>
 <p>由不同的方法可以得到不同的参数估计，这里引入常用的三种标准，用于对估计量进行评价</p>
 <h4 id="_61">无偏性</h4>
+<p>无偏性的实际意义是，用估计量 $\hat{\theta}$ 对未知参数 ${\theta}$ 进行估计，有时会高于 ${\theta}$，有时会低于 $\theta$，但平均来说它等于未知参数 $\theta$，也就是说没有系统误差。</p>
+<p>设 $\hat{\theta}(X_1,X_2,\cdots,X_n)$ 为参数 $\theta$ 的一个估计量，如果：</p>
+<p>$$
+\forall \theta \in \Theta,\; E[\hat{\theta} (X_1,X_2,\cdots,X_n)] = \theta
+$$</p>
+<p>则 $\hat{\theta}$ 是 $\theta$ 的无偏估计量</p>
+<div class="admonition abstract">
+<p>比如 $k$ 阶样本原点矩 $A_k$ 是总体 $k$ 阶原点矩的无偏估计，样本方差 $S^2$ 是方差 $\sigma^2$ 的无偏估计</p>
+<p>样本二阶中心矩 $\displaystyle S^{\ast 2} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2$ 不是 $\sigma^2$ 的无偏估计，但是 $E(S^{\ast 2}) = \dfrac{n-1}{n} \sigma^2$ 在 $n \to \infty$ 时满足 $\dfrac{n-1}{n} \sigma^2 \to \sigma^2$，此时我们称 $S^{\ast 2}$ 为 $\sigma^2$ 的渐进无偏估计</p>
+</div>
+<div class="admonition warning">
+<p>当 $\hat{\theta}$ 是 $\theta$ 的无偏估计，未必有 $g(\hat{\theta})$ 是 $g(\theta)$ 的无偏估计</p>
+</div>
+<h4 id="_62">均方误差准则</h4>
+<p>我们希望 $\hat{\theta} - \theta$ 差值越小越好，用 $E(\hat{\theta} - \theta)^2$ 衡量估计量 $\hat\theta$ 的好坏，称 $M(\hat{\theta},\theta) = E(\hat{\theta} - \theta)^2$ 为均方误差</p>
+<p>根据均方误差准则，我们希望 $M(\hat{\theta},\theta)$ 越小越好。注意到：</p>
+<p>$$
+\begin{aligned}
+M(\hat{\theta},\theta) &amp;= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {\theta})^2 \\
+&amp;= D(\hat{\theta}) + (E\hat{\theta} - \theta)^2
+\end{aligned}
+$$</p>
+<p>均方误差 $M(\hat{\theta},\theta)$ 被分为两部分： $\hat{\theta}$ 的方差与估计量偏差 $\hat{\theta} - \theta$ 的平方。对于无偏估计，均方误差就是方差</p>
+<h4 id="_63">一致性</h4>
+<p>无偏性与均方误差都是在样本量 $n$ 固定的前提下对估计量进行研究，有时我们也可以考虑当样本量 $n \to \infty$ 时估计量的性质。从直观上，当样本量越来越多时，样本中含有的关于未知参数的信息也越来越多，因此估计也应该越准确。也就是说，估计量应越来越接近于真实参数，这就是一致性的概念</p>
+<p>设 $\hat{\theta}_n(X_1,X_2,\cdots,X_n)$ 为参数 $\theta$ 的一个估计量，如果：</p>
+<p>$$
+\forall \theta \in \Theta,\; \hat{\theta}_n\stackrel{P}{\longrightarrow} \theta
+$$</p>
+<p>则 $\hat{\theta}_n$ 是 $\theta$ 的已知估计量。</p>
+<p>一致性是估计量的大样本性质，也称为相合性。矩估计往往具有相合性</p>
+<h3 id="_64">区间估计</h3>
+<p>设 $\theta$ 是总体 $X$ 的未知参数，$X_1, X_2, \cdots, X_n$ 是来自总体 $X$ 的样本，如果事先给定一个概率常值 $1-\alpha$，存在两个统计量 $\hat{\theta}_1(X_1, X_2, \cdots, X_n)$ 和 $\hat{\theta}_2(X_1, X_2, \cdots, X_n)$（$\hat{\theta}_1 &lt; \hat{\theta}_2)$，使得：</p>
+<p>$$
+P\left(\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\right) = 1-\alpha
+$$</p>
+<p>对任意的 $\theta$ 都成立，则称区间 $(\hat{\theta}_1, \hat{\theta}_2)$ 为 $\theta$ 的 $1-\alpha$ 置信区间，$\hat{\theta}_1, \hat{\theta}_2$ 分别称为置信下限和置信上限，$1-\alpha$ 称为置信度或置信系数</p>
+<div class="admonition abstract">
+<p>$P\left(\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\right) = 1-\alpha$ 指的是：在重复取得多组样本的情况下，得到的多个区间 $(\hat{\theta}_1, \hat{\theta}_2)$ 大约有 $100(1-\alpha)\%$ 的区间包含 $\theta$。</p>
+<p>不能说某一组样本 $(\hat{\theta}_1', \hat{\theta}_2')$ 包含 $\theta$ 的概率为 $1-\alpha$，因为样本是确定的，要么确认包含，要么确认不包含</p>
+</div>
+<p>置信区间的长度可以看作区间估计的精度。不难发现区间精度和置信度是矛盾的。随机区间的长度越长，置信度就越高，但精度下降；反之，随机区间的长度越短，精度提高，但置信度下降。在实际问题中，我们总是在保证置信度的条件下，尽可能地提高精度</p>
+<p>置信区间包含上限与下限，有时我们只关注某一侧的限制，因此对于 $P\left(\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\right) = 1-\alpha$，我们进一步引出单侧置信区间：</p>
+<p>$$
+P(\hat{\theta}_1 &lt; \theta) = 1-\alpha
+$$</p>
+<p>此时 $(\hat{\theta}_1, +\infty)$ 是置信度为 $1-\alpha$ 的单侧置信区间， $\hat{\theta}_1$ 称为置信度为 $1-\alpha$ 的单侧置信下限</p>
+<p>$$
+P(\theta &lt; \hat{\theta}_2) = 1-\alpha
+$$</p>
+<p>此时 $(-\infty , \hat{\theta}_2)$ 是置信度为 $1-\alpha$ 的单侧置信区间， $\hat{\theta}_2$ 称为置信度为 $1-\alpha$ 的单侧置信上限</p>
+<h4 id="_65">如何求区间估计</h4>
+<p>采用枢轴变量法，以双侧置信区间为例：</p>
+<p>1- 先找一个样本函数 $U(X_1,X_2,\cdots,X_n;\theta)$。它包含待估参数 $\theta$，而不包含其他未知参数，且 $U$ 的分布己知，不依赖于任何未知参数。这样的函数称为枢轴变量（注意枢轴变量不是统计量，因为它含有未知参数）。</p>
+<p>构造枢轴变量往往采用点估计</p>
+<p>2- 对事先给定的置信度为 $1-\alpha$，根据 $U$ 的分布找到两个常数 $a,b$ 使得</p>
+<p>$$
+P(a&lt;U&lt;b) = 1-\alpha
+$$</p>
+<p>3- 由 $a &lt; U &lt; b$ 解出 $\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2$，$(\hat{\theta}_1, \hat{\theta}_2)$ 为 $\theta$ 的 $1-\alpha$ 置信区间</p>
+<h4 id="_66">一些常见的区间估计</h4>
+<p>关键就是寻找枢轴变量，现给出一些例子：</p>
+<p>--&gt; 正态总体 $N(\mu, \sigma^2)$ 中均值 $\mu$ 的置信区间</p>
+<p>(1) $\sigma^2$ 已知</p>
+<p>取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| &lt; u_{\alpha/2}) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
+$$</p>
+<p>(2) $\sigma^2$ 未知</p>
+<p>取枢轴变量 $T = \dfrac{\sqrt{n}(\overline{X} - \mu)}{S} \sim t(n-1)$，由 $P(|T| &lt; t_{\alpha/2}(n-1)) = 1 - \alpha$ 得置信区间：</p>
 <p>// UNDER CONSTRUCTION // </p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span></div></div>
 

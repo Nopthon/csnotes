@@ -2761,6 +2761,8 @@
       
         
       
+        
+      
     
     
     
@@ -3149,6 +3151,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../course-notes/Data-Structure-Online-Judge-Sol/OJ11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3303,7 +3333,7 @@
   <span class="md-ellipsis">
     
   
-    October 2025
+    December 2025
   
 
     
@@ -3774,7 +3804,7 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="_6">路径压缩</h4>
-<p>不难发现在向上寻找根节点的过程中，路径上每个节点对应的根节点都是同一个</p>
+<p>不难发现在向上寻找根节点的过程中，路径上每个节点对应的根节点都是最终找到的那一个</p>
 <p>并查集只依赖树形结构的连通性，因此我们将路径上所有的节点的根节点都一并更新，作扁平化处理</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -3798,11 +3828,11 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h4 id="_8">启发式合并</h4>
-<p>实际上，因为我们只考虑树形结构的连通性，正确性上并不需要区分哪个节点作为根节点 <code>dst</code>，但是为了降低并操作后树的深度（使得最坏时间复杂度更低），我们可以选择节点较少或深度较小的树作为 <code>src</code> </p>
+<p>实际上，因为我们只考虑树形结构的连通性，正确性上并不需要区分哪个节点作为根节点 <code>dst</code>，但是为了降低并操作后树的深度，我们可以选择节点较少或深度较小的树作为 <code>src</code> </p>
 <p>下面的两种方法中，按大小合并更加采用</p>
 <h5 id="union-by-size">按大小合并 (Union by Size)</h5>
 <p>我们需要额外记录一个 <code>size</code> 信息：每棵树的节点个数 / 集合的大小</p>
-<p>初始化时额外记录一个 <code>size</code> 数组，记录集合大小：</p>
+<p>初始化时额外记录一个 <code>sz</code> 数组，记录集合大小：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -3811,10 +3841,10 @@
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">dsu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">sz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">dsu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="n">size</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">sz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>合并时需要比较大小进行合并</p>
@@ -3839,17 +3869,17 @@
 <span class="w">    </span><span class="c1">// 如果两节点在同一集合，直接返回，否则会加倍 size 值</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">[</span><span class="n">y</span><span class="p">]){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">[</span><span class="n">y</span><span class="p">]){</span>
 <span class="w">        </span><span class="n">dsu</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<span class="w">        </span><span class="n">size</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">size</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"> </span>
+<span class="w">        </span><span class="n">sz</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"> </span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span>
 <span class="w">        </span><span class="n">dsu</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">        </span><span class="n">size</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">size</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"> </span>
+<span class="w">        </span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sz</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"> </span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h5 id="union-by-rank">按秩合并 (Union by Rank)</h5>
-<p>我们需要额外记录一个 <code>rank</code> 信息：每棵树的高度<strong>上界</strong></p>
+<p>我们需要额外记录一个 <code>rank</code> 信息：每棵树的高度<strong>上界</strong>（不是高度本身）</p>
 <p>初始化时额外记录一个 <code>rank</code> 数组：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
