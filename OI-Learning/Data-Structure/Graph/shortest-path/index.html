@@ -1149,6 +1149,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bellmanford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman–Ford 算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bellman–Ford 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPFA 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3577,6 +3605,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bellmanford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman–Ford 算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bellman–Ford 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPFA 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3693,10 +3749,10 @@
 <p>最短路指从 <code>u</code> 到 <code>v</code> 的边权和最小的路径，最短路问题一定不考虑负权环，但是会考虑负权值，正权环等特殊情况。不同的算法有不同的限制条件</p>
 <p>在给出最短路算法前，先提出一个概念：松弛</p>
 <h2 id="_2">松弛</h2>
-<p>考虑 <code>dis(s-&gt;v)</code> 为从某个起点 <code>s</code> 到 <code>v</code> 的距离，假设我们在求 <code>dis(s-&gt;v)</code> 的最小值过程中，发现存在另一个节点 <code>u</code>，有 <code>dis(s-&gt;u) + dis(u-&gt;v) &lt; dis(s-&gt;v)</code>，我们找到了一条从 <code>s</code> 到 <code>v</code> 更近的路线，此时我们更新 <code>dis(v) = dis(u) + dis(u-&gt;v)</code>，而原来的约束 <code>dis(v)_old</code> 不再是最紧的约束，因此得到了“松弛”</p>
+<p>考虑 <code>dis(s-&gt;v)</code> 为从某个起点 <code>s</code> 到 <code>v</code> 的距离，假设我们在求 <code>dis(s-&gt;v)</code> 的最小值过程中，发现存在另一个节点 <code>u</code>，有 <code>dis(s-&gt;u) + dis(u-&gt;v) &lt; dis(s-&gt;v)</code>，我们找到了一条从 <code>s</code> 到 <code>v</code> 更近的路线，此时我们更新 <code>dis(s-&gt;v) = dis(s-&gt;u) + dis(u-&gt;v)</code>，而原来的约束 <code>dis(v)_old</code> 不再是最紧的约束，因此得到了“松弛”</p>
 <p>（一种很物理的想法：思考一张起点为 <code>s</code>，终点 <code>v</code> 的弹性绳网，拉住 <code>s</code>，<code>v</code> 往两侧拉伸，最短路对应的绳会紧绷住，而其他的绳都是相对松弛的。现在我找到了一条更短的路径，在添加“路径对应的绳”后，原来紧绷的绳也会松弛，这就是一次“松弛化”操作）</p>
 <hr>
-<p>接下来给出几种求最短路的算法：</p>
+<p>接下来给出几种求最短的算法：</p>
 <h2 id="floyd">Floyd 算法</h2>
 <p>一种求全源最短路径的算法（能够得到任意两点的最短路），采用的是动态规划的思想：</p>
 <p>我们初始一个二元数组 <code>f[n][n]</code>：对于每对节点 <code>(x,y)</code>，记 <code>f[x][y]</code> 从 <code>x</code> 到 <code>y</code> 最短路径长度。</p>
@@ -3757,7 +3813,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>这就是 Floyd 算法的核心逻辑，可以在 $O(n^3)$ 的时间内得到全源最短路径，对应的空间复杂度 $O(n^2)$。但是注意到：Floyd 算法在遇到负环（环的权重和为负）时，其会不断在循环中降低权值，而不会主动发现负权环（相比之下，一些其他算法可以发现负权环的存在并主动停止）</p>
+<p>这就是 Floyd 算法的核心逻辑，可以在 $O(n^3)$ 的时间内得到全源最短路径，对应的空间复杂度 $O(n^2)$。但是注意到：Floyd 算法在遇到负环（环的权重和为负）时，其会不断在循环中降低权值，而不会主动发现负权环（相比之下，一些其他算法可以发现负权环的存在）</p>
 <p>附 Luogu 模板题：<a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd - 洛谷</a></p>
 <h3 id="floyd_1">Floyd 变种</h3>
 <p>如果一个全源问题可以被表达为 
@@ -3765,7 +3821,7 @@ $$
 f[x][y] = f[x][y]\odot(f[x][k] \oplus f[k][y])
 $$
 并且具有最优子结构的性质，就可以用 Floyd 的方式解决</p>
-<p>这里另外提一句：最长路径问题不能用</p>
+<p>这里另外提一句：DAG 的最长路径问题不能用这种方式解决</p>
 <h4 id="_3">传递闭包</h4>
 <p>对于 a-&gt;b &amp;&amp; b-&gt;c，我们容易根据传递性得到 a-&gt;c</p>
 <p>对于图上任意两点 <code>u</code> <code>v</code>，我们需要知道是否存在一条 <code>u-&gt;v</code> 的路径，此时就可以参考 Floyd 算法的思想，得到下面的程序：</p>
@@ -3817,7 +3873,7 @@ $$
 <p>注意这不是最优解，有借助最小生成树实现的更快做法</p>
 <hr>
 <h2 id="dijkstra">Dijkstra 算法</h2>
-<p>一种求<strong>非负权图</strong>的单源最短路径的算法，我们先来看这一个例子：</p>
+<p>一种求<strong>非负权图</strong>的单源最短路径的算法，我们先来看一个例子：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251207201831082.png" data-desc-position="bottom"><img alt="image-20251207201831082" src="../images/image-20251207201831082.png"></a></p>
 <p>考虑以 $a$ 为起点的单源最短路径，不难发现从 $a$ 能到达的最近的节点是 $c$</p>
 <table>
@@ -3918,7 +3974,7 @@ $$
 <p>换句话说：选择当前距离最小的节点 $u$，这一点和反设中 $dis[v] &lt; dis[u]$ 本身是矛盾的</p>
 <p>因此 Dijkstra 的正确性得证</p>
 </details>
-<p>这里给出具体的代码实现，注意取最短路使用了堆优化，时间复杂度：</p>
+<p>这里给出具体的代码实现，注意取最短路使用了堆优化，时间复杂度 $O(m \log m)$：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3952,14 +4008,14 @@ $$
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp"># define INF INT_MAX</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">edge</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="c1">// 邻接表读入边信息</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span><span class="w"> </span><span class="n">edges</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">edges</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="o">&gt;&gt;</span><span class="n">w</span><span class="p">;</span>
 <span class="w">    </span><span class="n">edges</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">({</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">});</span>
@@ -3969,7 +4025,7 @@ $$
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dis</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="p">);</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vis</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 <span class="c1">// 优先队列，权值放在前面方便排序</span>
-<span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">pq</span><span class="p">;</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">pq</span><span class="p">;</span>
 <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span><span class="n">s</span><span class="p">});</span>
 
 <span class="c1">// 松弛操作</span>
@@ -3988,7 +4044,147 @@ $$
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>附 Luogu 模板题：<a href="https://www.luogu.com.cn/problem/P4779">P4779 【模板】单源最短路径（标准版） - 洛谷</a></p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-07"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-07T00:20:10.776159+08:00">2025-12-07</time></span><span data-tippy-content data-tippy-raw="2025-12-08"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-08T01:21:12.064194+08:00">2025-12-08</time></span></div></div>
+<hr>
+<h2 id="bellmanford">Bellman–Ford 算法</h2>
+<p>和 Dijkstra 一样，都是求单源最短路径的算法。其优势在于允许负权边且能检测负环，劣势在于即使进行队列优化，最坏时间复杂度为 $O(mn)$，容易被某些神秘构造（菊花图）卡出最坏情况</p>
+<p>朴素 Bellman–Ford 的核心依旧是松弛操作：具体地说，由于 $n$ 个顶点的图任意两点之间的最短路一定不超过 $n-1$ 条边，因此对所有的边进行 $n-1$ 轮松弛操作，一定能得到单源最短路径</p>
+<p>换言之：第 $i$ 轮松弛可以得到从原点出发，最多经过 $i$ 条边到达其他顶点的最短路</p>
+<p>这种算法的好处在于松弛次数固定，如果在进行了 $n-1$ 轮松弛后还能继续松弛，则说明图中存在负环</p>
+<p>因为我们是对每条边进行松弛，因此使用边列表而不是邻接表存图</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">edge</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 边列表读入边信息</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span><span class="w"> </span><span class="n">edges</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="o">&gt;&gt;</span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">edges</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// 记起始点为 s</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dis</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="p">);</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// n-1 轮松弛操作</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">edges</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]){</span>
+<span class="w">            </span><span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 如果经过了 n-1 次松弛操作后，还能实现松弛</span>
+<span class="c1">// 说明路径存在负环，这就实现了负环检测</span>
+<span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">edges</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">v</span><span class="p">]){</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"-1"</span><span class="p">;</span><span class="w">       </span><span class="c1">// 存在负权环</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="spfa">SPFA 优化</h3>
+<p>朴素 Bellman–Ford 算法对所有边进行 $n-1$ 次松弛，我们发现，在通常情况下，大多数的边都不可能被松弛却尝试了松弛，这其中的很多次松弛操作是浪费的</p>
+<p>我们发现：只有当某个顶点的最短距离被松弛更新时，从该顶点出发的边才可能会对其他顶点产生影响。因此我们可以使用一个队列，存储那些待处理的顶点，这就是 SPFA (Shortest Path Faster Algorithm) 的思想</p>
+<p>因为我们需要获取从某个顶点出发的边，所以用邻接表而不是边列表</p>
+<p>额外需要注意的是，因为我们不再对每条边进行 $n-1$ 次松弛操作，因此判负环的逻辑需要修改：建立数组 $cnt[n]$ 记录每个节点的入队次数，如果某个节点入队超过 $n$ 次，说明这个节点在某条最短路中是负环的一部分</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">edge</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 邻接表读入边信息</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">edges</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="o">&gt;&gt;</span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">edges</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">push_back</span><span class="p">({</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// 记起始点为 s</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dis</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="p">);</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cnt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">              </span><span class="c1">// 记录节点入队次数</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">in_queue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w">    </span><span class="c1">// 防止节点在出队前重复入队</span>
+
+<span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+
+<span class="c1">// 起点初始化</span>
+<span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="n">in_queue</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="n">cnt</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+
+<span class="c1">// 基于队列的松弛优化</span>
+<span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">in_queue</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// TODO</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-07"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-07T00:20:10.776159+08:00">2025-12-07</time></span><span data-tippy-content data-tippy-raw="2025-12-08"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-08T13:37:52.986352+08:00">2025-12-08</time></span></div></div>
 
 
 

@@ -3498,6 +3498,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第八章 假设检验
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5243,6 +5254,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第八章 假设检验
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6067,6 +6089,7 @@ $$</p>
 <p>$|Y_n - a| \geq \varepsilon$ 不是单调递减的</p>
 </div>
 <p>有了随机变量收敛的定义，接下来给出三种常见的大数定律</p>
+<p><br></p>
 <h4 id="_47">切比雪夫大数定律</h4>
 <p>设 $X_1, X_2, \cdots $ 为两两互不相关的随机变量序列，其方差一致有界，即存在常数 $C$ 使得 $DX_k &lt; C$ 对一切 $k=1,2,\cdots$ 成立，则 $\lbrace X_n \rbrace$ 服从大数定律，即对任意给定的 $\varepsilon &gt; 0$ 有：</p>
 <p>$$
@@ -6115,6 +6138,7 @@ $$</p>
 </ul>
 <p>伯努利大数定律是独立同分布大数定律的特例（取 $X_k \sim B(p)$）</p>
 </div>
+<p><br></p>
 <h3 id="clt">中心极限定理 CLT</h3>
 <details class="abstract">
 <summary>标准化随机变量的定义</summary>
@@ -6176,7 +6200,7 @@ $$</p>
 <p>样本方差 $S^2 = \dfrac{1}{n-1} \displaystyle \sum_{i=1}^n (X_i - \overline{X})^2$，样本标准差 $S = \sqrt{\dfrac{1}{n-1} \displaystyle \sum_{i=1}^n (X_i - \overline{X})^2}$</p>
 </li>
 </ul>
-<p>（这样定义的样本方差具有无偏性，和样本二阶中心矩 $S^{*2}\text{ or } A_2$ 不同，这点之后会说）</p>
+<p>（这样定义的样本方差具有无偏性，和样本二阶中心矩 $S^{*2}\text{ or } B_2$ 不同，这点之后会说）</p>
 <ul>
 <li>样本 $k$ 阶原点矩 $A_k = \dfrac{1}{n} \displaystyle \sum _{i=1}^n X_i^k$，样本均值就是样本一阶原点矩</li>
 <li>样本 $k$ 阶中心矩 $B_k = \dfrac{1}{n} \displaystyle \sum _{i=1}^n (X_i-\overline{X})^k$</li>
@@ -6283,6 +6307,9 @@ $$</p>
 <p>当 $X \sim F(n_1,n_2)$ 时，我们记 $\lambda_{\alpha}$ 为 $F_{\alpha}(n_1,n_2)$，有 $F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1$ </p>
 <p><br></p>
 <h3 id="_56">正态总体的相关分布</h3>
+<div class="admonition abstract">
+<p>下面的内容在之后求正态总体的某个参数的置信区间时，经常作为构造枢轴变量的依据</p>
+</div>
 <p>设 $X_1, X_2, \cdots, X_n$ 是来自正态总体 $N(\mu, \sigma^2)$ 的一个样本，则</p>
 <p>(1) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n})$</p>
 <p>(2) $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)$</p>
@@ -6293,6 +6320,11 @@ $$</p>
 <p>$$
 F = (\dfrac{S_1}{\sigma_1})^2 / (\dfrac{S_2}{\sigma_2})^2 = \dfrac{S_1^2 \sigma_2^2}{S_2^2 \sigma_1^2} \sim F(n_1 -1, n_2 - 1)
 $$</p>
+<p>(6)  设 $X_1, X_2, \cdots, X_{n_1}$ 是来自正态总体 $N(\mu_1, \sigma_1^2)$ 的一个样本，$Y_1, Y_2, \cdots, Y_{n_2}$ 是来自正态总体 $N(\mu_2, \sigma_2^2)$ 的一个样本，两样本相互独立，则</p>
+<p>$$
+T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1 + n_2 - 2} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)
+$$</p>
+<p>通常会记 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 为合并标准差</p>
 <p><br></p>
 <h2 id="_57">第七章 参数估计</h2>
 <p>利用样本构造合理的统计量对未知参数进行估计，这就是参数估计的主要任务</p>
@@ -6312,7 +6344,7 @@ $$</p>
 <p>当取得一组具体样本观察值 $x_1, x_2, \cdots, x_n$ 后，代入计算得到的具体数值区间 $[\hat{\theta}_L, \hat{\theta}_U]$ 称为 $\theta$ 的区间估计值（或具体的置信区间）。这时我们说：“在 $1-\alpha$ 置信水平下，参数 $\theta$ 落在区间 $[\hat{\theta}_L, \hat{\theta}_U]$ 内”。</p>
 <p>与点估计只给出一个数值不同，区间估计给出了一个范围，同时明确指出了这个范围覆盖真实参数值的可信程度（概率为 $1-\alpha$）。这种估计方法称为区间估计或置信区间估计。</p>
 </details>
-<p>首先我们给出两种点估计</p>
+<p>首先我们给出两种点估计：</p>
 <h3 id="_58">矩估计</h3>
 <p>矩估计的恩想方法是用样本矩去作为总体矩的估计。设参数 $\theta = (\theta_1, \theta_2, \cdots, \theta_{k})'$ 可表示为总体矩 $\mu_1, \mu_2 ,\cdots, \mu_k$ 的函数 $\theta_i = h_i(\mu_1, \mu_2 ,\cdots, \mu_k)$，以样本矩 $A_1, A_2 ,\cdots, A_k$ 代替总体矩 $\mu_1, \mu_2 ,\cdots, \mu_k$ 所得的估计量就是矩估计量</p>
 <p>具体来说，我们先求出总体的各阶原点矩：</p>
@@ -6380,12 +6412,18 @@ $$</p>
 $$</p>
 <p>则 $\hat{\theta}$ 是 $\theta$ 的无偏估计量</p>
 <div class="admonition abstract">
-<p>比如 $k$ 阶样本原点矩 $A_k$ 是总体 $k$ 阶原点矩的无偏估计，样本方差 $S^2$ 是方差 $\sigma^2$ 的无偏估计</p>
+<p>比如 $k$ 阶样本原点矩 $A_k$ 是总体 $k$ 阶原点矩的无偏估计，样本方差 $S^2$ 是总体方差 $\sigma^2$ 的无偏估计</p>
 <p>样本二阶中心矩 $\displaystyle S^{\ast 2} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2$ 不是 $\sigma^2$ 的无偏估计，但是 $E(S^{\ast 2}) = \dfrac{n-1}{n} \sigma^2$ 在 $n \to \infty$ 时满足 $\dfrac{n-1}{n} \sigma^2 \to \sigma^2$，此时我们称 $S^{\ast 2}$ 为 $\sigma^2$ 的渐进无偏估计</p>
 </div>
 <div class="admonition warning">
 <p>当 $\hat{\theta}$ 是 $\theta$ 的无偏估计，未必有 $g(\hat{\theta})$ 是 $g(\theta)$ 的无偏估计</p>
+<p>一个可能反直觉的例子：样本方差 $S^2$ 是总体方差 $\sigma^2$ 的无偏估计，但是样本标准差 $S$ 并不是总体标准差 $\sigma$ 的无偏估计：</p>
+<p>$$
+E[S] = E[\sqrt{S^2}] \leq \sqrt{E[S^2]} = \sigma
+$$</p>
+<p>$S$ 低估了 $\sigma$</p>
 </div>
+<p><br></p>
 <h4 id="_62">均方误差准则</h4>
 <p>我们希望 $\hat{\theta} - \theta$ 差值越小越好，用 $E(\hat{\theta} - \theta)^2$ 衡量估计量 $\hat\theta$ 的好坏，称 $M(\hat{\theta},\theta) = E(\hat{\theta} - \theta)^2$ 为均方误差</p>
 <p>根据均方误差准则，我们希望 $M(\hat{\theta},\theta)$ 越小越好。注意到：</p>
@@ -6396,6 +6434,7 @@ M(\hat{\theta},\theta) &amp;= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {
 \end{aligned}
 $$</p>
 <p>均方误差 $M(\hat{\theta},\theta)$ 被分为两部分： $\hat{\theta}$ 的方差与估计量偏差 $\hat{\theta} - \theta$ 的平方。对于无偏估计，均方误差就是方差</p>
+<p><br></p>
 <h4 id="_63">一致性</h4>
 <p>无偏性与均方误差都是在样本量 $n$ 固定的前提下对估计量进行研究，有时我们也可以考虑当样本量 $n \to \infty$ 时估计量的性质。从直观上，当样本量越来越多时，样本中含有的关于未知参数的信息也越来越多，因此估计也应该越准确。也就是说，估计量应越来越接近于真实参数，这就是一致性的概念</p>
 <p>设 $\hat{\theta}_n(X_1,X_2,\cdots,X_n)$ 为参数 $\theta$ 的一个估计量，如果：</p>
@@ -6404,6 +6443,7 @@ $$</p>
 $$</p>
 <p>则 $\hat{\theta}_n$ 是 $\theta$ 的已知估计量。</p>
 <p>一致性是估计量的大样本性质，也称为相合性。矩估计往往具有相合性</p>
+<p><br></p>
 <h3 id="_64">区间估计</h3>
 <p>设 $\theta$ 是总体 $X$ 的未知参数，$X_1, X_2, \cdots, X_n$ 是来自总体 $X$ 的样本，如果事先给定一个概率常值 $1-\alpha$，存在两个统计量 $\hat{\theta}_1(X_1, X_2, \cdots, X_n)$ 和 $\hat{\theta}_2(X_1, X_2, \cdots, X_n)$（$\hat{\theta}_1 &lt; \hat{\theta}_2)$，使得：</p>
 <p>$$
@@ -6424,6 +6464,7 @@ $$</p>
 P(\theta &lt; \hat{\theta}_2) = 1-\alpha
 $$</p>
 <p>此时 $(-\infty , \hat{\theta}_2)$ 是置信度为 $1-\alpha$ 的单侧置信区间， $\hat{\theta}_2$ 称为置信度为 $1-\alpha$ 的单侧置信上限</p>
+<p><br></p>
 <h4 id="_65">如何求区间估计</h4>
 <p>采用枢轴变量法，以双侧置信区间为例：</p>
 <p>1- 先找一个样本函数 $U(X_1,X_2,\cdots,X_n;\theta)$。它包含待估参数 $\theta$，而不包含其他未知参数，且 $U$ 的分布己知，不依赖于任何未知参数。这样的函数称为枢轴变量（注意枢轴变量不是统计量，因为它含有未知参数）。</p>
@@ -6433,17 +6474,111 @@ $$</p>
 P(a&lt;U&lt;b) = 1-\alpha
 $$</p>
 <p>3- 由 $a &lt; U &lt; b$ 解出 $\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2$，$(\hat{\theta}_1, \hat{\theta}_2)$ 为 $\theta$ 的 $1-\alpha$ 置信区间</p>
+<p><br></p>
 <h4 id="_66">一些常见的区间估计</h4>
 <p>关键就是寻找枢轴变量，现给出一些例子：</p>
-<p>--&gt; 正态总体 $N(\mu, \sigma^2)$ 中均值 $\mu$ 的置信区间</p>
+<p>--&gt; <strong>正态总体 $N(\mu, \sigma^2)$ 中均值 $\mu$ 的置信区间</strong></p>
 <p>(1) $\sigma^2$ 已知</p>
+<p>使用已知的方差 $\sigma$</p>
 <p>取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| &lt; u_{\alpha/2}) = 1 - \alpha$ 得置信区间：</p>
 <p>$$
 \left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
 $$</p>
 <p>(2) $\sigma^2$ 未知</p>
-<p>取枢轴变量 $T = \dfrac{\sqrt{n}(\overline{X} - \mu)}{S} \sim t(n-1)$，由 $P(|T| &lt; t_{\alpha/2}(n-1)) = 1 - \alpha$ 得置信区间：</p>
-<p>// UNDER CONSTRUCTION // </p>
+<p>使用无偏估计的样本标准差 $\displaystyle S =\sqrt{ \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2}$</p>
+<p>取枢轴变量 $T = \dfrac{\overline{X} - \mu}{S/\sqrt{n}} \sim t(n-1)$，由 $P(|T| &lt; t_{\alpha/2}(n-1)) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \overline{X} - t_{\alpha/2}(n-1) \frac{S}{\sqrt{n}}, \overline{X} + t_{\alpha/2}(n-1) \frac{S}{\sqrt{n}} \right)
+$$</p>
+<div class="admonition abstract">
+<p>唯一的区别是一个采用了 $u_{\frac{\alpha}{2}}$，一个采用了 $t_{\frac{\alpha}{2}}(n-1)$</p>
+</div>
+<p><br></p>
+<p>--&gt; <strong>正态总体 $N(\mu, \sigma^2)$ 中方差 $\sigma^2$ 的置信区间</strong></p>
+<p>(1) $\mu$ 已知</p>
+<p>使用<strong>已知均值的</strong>样本二阶中心距 $\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2$ </p>
+<p>取枢轴变量 $U = \dfrac{nS^{\ast 2}}{\sigma ^2}\sim \chi^2(n)$，由$P(\chi^2_{1-\alpha/2}(n) &lt; U &lt; \chi^2_{\alpha/2}(n)) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \dfrac{nS^{\ast 2}}{\chi^2_{\alpha /2}(n)}, \dfrac{nS^{\ast 2}}{\chi^2_{1-\alpha /2}(n)} \right)
+$$</p>
+<details class="question">
+<summary>为什么这里使用的是分母为 $n$ 的方差？我应该如何使用不同分母的方差？</summary>
+<p>我们知道总体方差的定义如下，其分母为 $n$：</p>
+<p>$$
+\sigma^2 = \dfrac{\sum_{i=1}^{n}(x_i - \mu)^2}{n}
+$$</p>
+<p>当我们使用样本均值对总体均值进行估计时，不难意识到，因为样本数据的均值会受到样本数据本身的影响，所以在进行方差计算时，始终有 $\sum(X_i - \overline{X})^2 \leq \sum(X_i - \mu)^2$，换言之：样本均值对样本的集中程度一定高于总体均值</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251208193955865.png" data-desc-position="bottom"><img alt="image-20251208193955865" src="../images/image-20251208193955865.png"></a></p>
+<p>因此如果直接用样本均值估计总体均值，从而估计总体方差，那么总体方差一定是偏小的，我们称之为有偏估计</p>
+<p>接下来，我们从数学上证明，$E\left[ \sum(X_i - \overline{X})^2\right] = (n-1)\sigma^2$</p>
+<details class="success">
+<summary>具体证明</summary>
+<p>$$
+\begin{aligned}
+E\left[ \sum_{i=1}^n (X_i - \overline{X})^2 \right] 
+&amp;= E\left[ \sum_{i=1}^n X_i^2 - n\overline{X}^2 \right] \\
+&amp;= E\left( \sum_{i=1}^n X_i^2 \right) - nE\left( \overline{X}^2 \right) \\
+&amp;= n(\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \\
+&amp;= (n-1) \sigma^2
+\end{aligned}
+$$</p>
+</details>
+<p>当分母为 $n-1$ 而不是 $n$ 时，可以抵消掉样本均值带来的偏差，因此我们定义无偏方差：</p>
+<p>$$
+S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
+$$</p>
+<p>其满足 $E(S^2) = \sigma^2$，因此分母为 $n-1$ 的这一估计为无偏估计，对于区间估计，我们通常使用无偏估计</p>
+<p>但是当我们分别用矩估计和极大似然估计进行计算时，得到的都是分母为 $n$ 的结果，这是基于各自的计算公式得到的结果</p>
+<p>回到最开始：此处 $\mu$ 已知，因此我们使用 $\sum(X_i - \mu)^2$ 而不是 $\sum(X_i - \overline{X})^2$，这样不会存在样本均值带来的偏差，那么分母为 $n$ 在这里就是无偏估计</p>
+</details>
+<p>(2) $\mu$ 未知</p>
+<p>使用无偏估计的样本方差 $\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2$ </p>
+<p>取枢轴变量 $U = \dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$，由$P(\chi^2_{1-\alpha/2}(n-1) &lt; U &lt; \chi^2_{\alpha/2}(n-1)) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \dfrac{(n-1)S^2}{\chi^2_{\alpha /2}(n-1)}, \dfrac{(n-1)S^2}{\chi^2_{1- \alpha /2}(n-1)} \right)
+$$</p>
+<div class="admonition warning">
+<p>注意卡方分布是右偏的非对称分布，因此如果想让左右两侧尾部的概率为 $\alpha / 2$，上临界值 $\chi^2_{\alpha / 2}$ 对应的下临界值是 $\chi^2_{1 - \alpha / 2}$ 而不是对称情况下的 $-\chi^2_{\alpha / 2}$</p>
+<p>对非对称分布使用对称的分位点确定的置信区间不一定是最短的，但是计算足够方便</p>
+</div>
+<p><br></p>
+<p>--&gt; <strong>两个正态总体 $N(\mu_1, \sigma^2_1),\;N(\mu_2, \sigma^2_2)$ 中均值 $\mu_1 - \mu_2$ 的置信区间</strong></p>
+<p>(1) $\sigma^2_1,\;\sigma^2_2$ 均已知</p>
+<p>使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$ </p>
+<p>取枢轴变量 $U = \dfrac{(\overline{X} - \mu_1) - (\overline{Y} - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} \sim N(0,1)$，由 $P(|U| &lt; u_{\alpha/2}) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \overline{X} - \overline{Y} - u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}, \overline{X} - \overline{Y} + u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}} \right)
+$$</p>
+<p>(2) $\sigma^2_1=\sigma^2_2=\sigma^2$，但 $\sigma^2$ 未知</p>
+<p>使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ </p>
+<p>取枢轴变量 $T = \dfrac{(\overline{X} - \mu_1) - (\overline{Y} - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)$，由 $P(|T| &lt; t_{\alpha/2}(n_1 + n_2 - 2)) = 1 - \alpha$ 得置信区间：</p>
+<p>$$
+\left( \overline{X} - \overline{Y} - t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}, \overline{X} - \overline{Y} + t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}} \right)
+$$</p>
+<p><br></p>
+<p>--&gt; <strong>非正态的大样本总体的均值 $\mu$ 的区间估计</strong></p>
+<p>当样本足够大时（$n &gt; 50$ 即可），根据中心极限定理，$\overline{X} \sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，因此套用上述提到的内容，取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| &lt; u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
+$$
+\left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
+$$</p>
+<p>$\sigma$ 未知时，用样本标准差 $S$ 代替 $\sigma$： 
+$$
+\left( \overline{X} - u_{\alpha/2} \frac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{S}{\sqrt{n}} \right)
+$$</p>
+<p>比如：对于二项分布 $B(n,p)$ 的比例 $p$，我们近似为正态分布，使用 Wald 区间作为置信区间：
+$$
+\left(\hat{p} - u_{\alpha / 2}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}, \hat{p} + u_{\alpha / 2}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}\right)
+$$</p>
+<div class="admonition abstract">
+<p>$\hat{p}$ 和 $\overline{X}$ 是数值相等的，因为二项分布的样本均值 = 样本为 1 的比例</p>
+<p>注意到 $S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\overline{X})^2 = \overline{X}(1-\overline{X})$，</p>
+<p>因此只要将 $\left( \overline{X} - u_{\alpha/2} \dfrac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \dfrac{S}{\sqrt{n}} \right)$ 中的 $S$ 替换为 $S^{\ast}$，就可以得到 Wald 区间 </p>
+</div>
+<p><br></p>
+<h2 id="_67">第八章 假设检验</h2>
+<p>假设检验就是对总体的某些未知特征提出假设，并利用样本信息来推断该假设的正确性。</p>
+<p>比如说一批产品的预期次品率 $a_0$ 应该不超过 $\alpha$，那我从产品中抽取出一部分样品，根据这部分样品的实际次品率 $\alpha_1$ 去假设这批产品是否满足次品率要求。不难发现，我们不能通过 $\alpha_1$ 的值来确定 $\alpha$ 和 $\alpha_0$ 的大小关系，但是我们可以肯定的是，$\alpha_1$ 越大，$\alpha &gt; \alpha_0$ 的假设越可能成立，即 $\alpha \leq \alpha_0$ 的假设越不可能成立，此时我们更倾向于相信“次品率不达标”。当然，只要产品数足够大，哪怕 $\alpha_1$ 达到了 $100\%$，我们也不能断定 $\alpha &gt; \alpha_0$</p>
+<p>现在我们将 $\alpha \leq \alpha_0$ 称为原假设/零假设，记为 $H_0$；将 $\alpha &gt; \alpha_0$ 称为备择假设/对立假设，记为 $H_1$ </p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span><span data-tippy-content data-tippy-raw="2025-11-21"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-11-21T22:41:14+08:00">2025-11-21</time></span></div></div>
 
 
