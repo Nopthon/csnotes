@@ -79,13 +79,13 @@ public:
 
     // 获取队首元素
     int front() {
-        if (empty())
+        if (!empty())
         	return data[Front];
     }
 
     // 获取队尾元素
     int back() {
-        if (empty())
+        if (!empty())
         	return data[Back];
     }
 

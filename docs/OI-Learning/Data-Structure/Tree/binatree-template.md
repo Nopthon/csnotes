@@ -1,6 +1,6 @@
 # 二叉树 Template
 
-For Online Judge,  STL unused
+For Online Judge,  **STL used**
 
 ## 节点框架
 
@@ -29,53 +29,51 @@ struct treeNode{
 
 第二步是一个递归函数，根据前序遍历的第一个元素确定子树的根节点，找出其在中序遍历数组的位置，左右递归构造子树
 
-`preOrder + 1, inOrder, k` 表示左子树对应的遍历信息的指针起点与节点个数
-
-`preOrder + k + 1, inOrder + k + 1, size - k - 1` 表示右子树对应的遍历信息的指针起点与节点个数
-
 ```c++
-int* indexForMapping;
+unordered_map<int, int> indexMap;
 
 // subfunc: 建立中序遍历的逆映射
-void createIndex(int* inOrder, int size) {
-    indexForMapping = new int[size];
-    for (int i = 0; i < size; ++i) {
-        indexForMapping[inOrder[i]] = i;
+void createIndex(const vector<int>& in) {
+    indexMap.clear();
+    indexMap.reserve(in.size());
+    for (int i = 0; i < (int)in.size(); i++) {
+        indexMap[in[i]] = i;   // O(1) 插入
     }
 }
 
-treeNode* create(int* preOrder, int* inOrder, int size) {
+// l r 分别表示参与递归的区间范围
+treeNode* create(const vector<int>& pre, int preL, const vector<int>& in, int inL, int size){
     // 结束递归
-    if (size == 0) return nullptr;
+    if (size <= 0) return nullptr;
     // 根节点是前序遍历的第一个元素
-    treeNode* root = new treeNode(preOrder[0]);
-    // 获取根节点在中序遍历的位置，同时也是左子树的节点数
-    int k = indexForMapping[preOrder[0]];    // rootIndex
+    treeNode* root = new treeNode(pre[preL]);
+    // 获取左子树的节点个数
+    int k = indexMap[pre[preL]] - inL;
     // 构建左子树：
-    // - 前序：从preOrder+1开始，长度为k
-    // - 中序：从inOrder开始，长度为k
-    root->leftChild = create(preOrder + 1, inOrder, k);
+    root->leftChild = create(pre, preL + 1, in, inL, k);
     // 构建右子树：
-    // - 前序：从preOrder+k+1开始，长度为size-k-1
-    // - 中序：从inOrder+k+1开始，长度为size-k-1
-    root->rightChild = create(preOrder + k + 1, inOrder + k + 1, size - k - 1);
+    root->rightChild = create(pre, preL + k + 1, in, inL + k + 1, size - k - 1);
     return root;
 }
-
-delete[] indexForMapping;
 ```
 
 如果不追求时间复杂度（$O(n^2)$），只保留 `create` 函数
 
 ```c++
-treeNode* create(int* preOrder, int* inOrder, int size) {
-    if (size == 0) return nullptr;
-    treeNode* root = new treeNode(preOrder[0]);
+treeNode* create(const vector<int>& pre, int preL, const vector<int>& in, int inL, int size){
+    if (size <= 0) return nullptr;
+    treeNode* root = new treeNode(pre[preL]);
+
     int k = 0;
-    // 这里逆映射采用遍历搜索而不是预处理
-    while (k < size && inOrder[k] != preOrder[0]) k++;
-    root->leftChild = create(preOrder + 1, inOrder, k);
-    root->rightChild = create(preOrder + k + 1, inOrder + k + 1, size - k - 1);
+    for (int i = inL; i < inL + size; i++) {
+        if (in[i] == pre[preL]) {
+            k = i - inL;  // 计算左子树节点数
+            break;
+        }
+    }
+
+    root->leftChild = create(pre, preL + 1, in, inL, k);
+    root->rightChild = create(pre, preL + k + 1, in, inL + k + 1, size - k - 1);
     return root;
 }
 ```
@@ -108,7 +106,7 @@ treeNode* create(int Null, int& remain) {
     return root;
 }
 
-------------------------------------------------------------------------------
+------------------------------------------------------------------
 // 后序
 // 右子树 ← 左子树 ← 根节点
 int remain = n;  // n 是输入节点数，含空节点
@@ -147,25 +145,25 @@ treeNode* create(int n, int Null) {
     if (n <= 0) return nullptr;
     
     // 构建一个单向队列
-    treeNode** Queue = new treeNode*[(n + 1) / 2];
-    int front = 0, rear = 0;
+    queue<treeNode*> q;
     
     // 先将根节点入队
-    int rootval; cin >> rootval;
+    int rootval; if (!(cin >> rootval)) return nullptr;
     treeNode* root = new treeNode(rootval);
-    Queue[rear++] = root;
+    q.push(root);
     
     int index = 1, data;
-    while(front < rear && index < n) {
+    while(!q.empty() && index < n) {
         // 出队一个节点
-        treeNode* cur = Queue[front++];
+        treeNode* cur = q.front();
+        q.pop();
         
         // 链接并入队非空左节点
         if(index < n) {
             if (!(cin >> data)) break;
             if(data != Null) {
                 cur->leftChild = new treeNode(data);
-                Queue[rear++] = cur->leftChild;
+                q.push(cur->leftChild);
             }
             // 节点是否为空都要 index++
             index++;
@@ -175,12 +173,11 @@ treeNode* create(int n, int Null) {
             if (!(cin >> data)) break;
             if(data != Null) {
                 cur->rightChild = new treeNode(data);
-                Queue[rear++] = cur->rightChild;
+                q.push(cur->rightChild);
             }
             index++;
         }
     }
-    delete[] Queue;
     return root;
 }
 ```
@@ -260,6 +257,7 @@ void InOrder(treeNode* root, void (*visit)(treeNode* t)) {
         if (!s.empty()) {
             p = s.top();        // 取出栈顶节点
             s.pop();
+            
             visit(p);           // 中序遍历：在左子树之后访问根节点
 
             // 转向右子树继续中序遍历
@@ -302,7 +300,8 @@ void PostOrder(treeNode* root, void (*visit)(treeNode* t)) {
                 p = p->rightChild;  // 转向右子树
             } else {
                 // 右子树已处理或不存在，可以访问当前节点
-                visit(p);           // 后序遍历：在左右子树之后访问根节点
+                visit(p);
+                
                 s.pop();
                 lastVisited = p;    // 记录上次访问的节点
                 p = nullptr;        // 重置p，强制从栈中取下一个节点
@@ -318,28 +317,26 @@ void LevelOrder(void (*visit)(treeNode* t)) {
     if (root == nullptr) return;
 
     // 使用队列进行层次遍历
-    const int MAX_LEN = 100000;
-    treeNode** Queue = new treeNode*[MAX_LEN];
-    int front = 0, rear = 0;
-    Queue[rear++] = root;  // 根节点入队
+    queue<treeNode*> q;
+    q.push(root);
 
-    while (front < rear) {
+    while (!q.empty()) {
         // 取出队首节点
-        treeNode* cur = Queue[front++];
+        treeNode* cur = q.front();
+        q.pop();
 
         // 访问当前节点
         visit(cur);
 
         // 将左子节点入队（如果存在）
         if (cur->leftChild != nullptr) {
-            Queue[rear++] = cur->leftChild;
+            q.push(cur->leftChild);
         }
 
         // 将右子节点入队（如果存在）
         if (cur->rightChild != nullptr) {
-            Queue[rear++] = cur->rightChild;
+            q.push(cur->rightChild);
         }
     }
-    delete[] Queue;
 }
 ```

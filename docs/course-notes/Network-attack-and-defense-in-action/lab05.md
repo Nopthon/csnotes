@@ -14,7 +14,7 @@
 
 ### 信息收集
 
-启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接
+启动 VirtualBox 中的 Kali 攻击机与靶机，网络采用 NAT 连接
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
@@ -88,7 +88,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.80 seconds
 决定用 `dirb` 扫一下，扫出来东西不少，以下是精简后的内容：
 
 ```
-dirb http://10.0.2.5 /usr/share/dirb/wordlists/big.txt
+> dirb http://10.0.2.5 /usr/share/dirb/wordlists/big.txt
 -----------------
 DIRB v2.22    
 By The Dark Raver
@@ -168,7 +168,7 @@ DOWNLOADED: 61374 - FOUND: 37
 
 尝试上传一个 php 一句话木马 `shell.php`，用 BurpSuite 抓包一下：
 
-```
+```html
 POST /add HTTP/1.1
 Host: 10.0.2.5
 Content-Length: 609

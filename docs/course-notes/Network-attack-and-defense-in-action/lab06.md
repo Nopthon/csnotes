@@ -14,7 +14,7 @@
 
 ### 信息收集
 
-启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接
+启动 VirtualBox 中的 Kali 攻击机与靶机，网络采用 NAT 连接
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
@@ -141,7 +141,7 @@ Nmap done: 1 IP address (1 host up) scanned in 8.16 seconds
 在实际探索网站前用 dirb 爆破目录，收集一下基础信息：
 
 ```
-dirb http://10.0.2.6:80 /usr/share/dirb/wordlists/big.txt
+> dirb http://10.0.2.6:80 /usr/share/dirb/wordlists/big.txt
 
 ---- Scanning URL: http://10.0.2.6:80/ ----
 ==> DIRECTORY: http://10.0.2.6:80/data/                        

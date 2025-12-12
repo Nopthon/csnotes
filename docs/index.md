@@ -1,3 +1,7 @@
-Some notes.
+Some notes && blogs here.
 
-一个弥补和追赶的没有终点的故事
+---
+
+Site Total Visitors: <span id="vercount_value_site_uv">Loading</span>
+
+Omg who will visit this site, idk.

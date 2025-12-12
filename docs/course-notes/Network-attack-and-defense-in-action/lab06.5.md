@@ -14,7 +14,7 @@
 
 ### 信息收集
 
-启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接
+启动 VirtualBox 中的 Kali 攻击机与靶机，网络采用 NAT 连接
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
@@ -45,7 +45,7 @@ Not shown: 966 filtered tcp ports (no-response), 30 closed tcp ports (reset)
 
 // FTP 服务
 PORTSTATE SERVICE VERSION
-21/tcp   open  ftpvsftpd 2.0.8 or later
+21/tcp    open    ftpvsftpd 2.0.8 or later
 | ftp-syst: 
 |   STAT: 
 | FTP server status:
@@ -66,7 +66,7 @@ PORTSTATE SERVICE VERSION
 
 // SSH 服务
 PORTSTATE SERVICE VERSION
-22/tcp   open  sshOpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
+22/tcp    open    sshOpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
 |   2048 07:e3:5a:5c:c8:18:65:b0:5f:6e:f7:75:c7:7e:11:e0 (RSA)
 |   256 03:ab:9a:ed:0c:9b:32:26:44:13:ad:b0:b0:96:c3:1e (ECDSA)
@@ -74,12 +74,13 @@ PORTSTATE SERVICE VERSION
 
 // HTTP 服务
 PORTSTATE SERVICE VERSION
-80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+80/tcp    open    http    Apache httpd 2.4.18 ((Ubuntu))
 |_http-title: Apache2 Ubuntu Default Page: It works
 |_http-server-header: Apache/2.4.18 (Ubuntu)
 
 // SQL 服务
-3306/tcp open  mysql   MySQL (unauthorized)
+PORTSTATE SERVICE VERSION
+3306/tcp  open    mysql   MySQL (unauthorized)
 MAC Address: 08:00:27:7B:0C:7B (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 Service Info: Host: W1R3S.inc; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
@@ -105,17 +106,13 @@ ftp-anon: Anonymous FTP login allowed (FTP code 230)
 
 下载了一堆东西，
 
---> `01.txt`
-
-```
+```title="01.txt"
 New FTP Server For W1R3S.inc
 ```
 
 没有价值
 
---> `02.txt`
-
-```
+```title="02.txt"
 #
 #
 #
@@ -148,9 +145,7 @@ SXQgaXMgZWFzeSwgYnV0IG5vdCB0aGF0IGVhc3kuLg==
 
 没有价值
 
---> `03.txt`
-
-```
+```title="03.txt"
 ___________.__              __      __  ______________________   _________    .__               
 \__    ___/|  |__   ____   /  \    /  \/_   \______   \_____  \ /   _____/    |__| ____   ____  
   |    |   |  |  \_/ __ \  \   \/\/   / |   ||       _/ _(__  < \_____  \     |  |/    \_/ ___\ 
@@ -162,9 +157,7 @@ ___________.__              __      __  ______________________   _________    ._
 
 ASCII 艺术字，没有价值
 
---> `worktodo.txt`
-
-```
+```title="worktodo.txt"
 	ı pou,ʇ ʇɥıuʞ ʇɥıs ıs ʇɥǝ ʍɐʎ ʇo ɹooʇ¡
 
 ....punoɹɐ ƃuıʎɐןd doʇs ‘op oʇ ʞɹoʍ ɟo ʇoן ɐ ǝʌɐɥ ǝʍ
@@ -180,9 +173,7 @@ we have a lot of work to do, stop playing around....
 
 没有价值😡
 
---> `employee-names.txt`
-
-```
+```title="employee-names.txt"
 The W1R3S.inc employee list
 
 Naomi.W - Manager

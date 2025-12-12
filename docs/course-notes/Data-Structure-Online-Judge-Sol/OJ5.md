@@ -2,15 +2,17 @@
 
 --> 题目背景
 
-小蓝鲸疲于换马甲，所以来做一道KMP裸题放松放松，给定字符串s1="ababaa"，s2="aba"，则s2一共在s1中出现两次。给定任意一对字符串s1，s2，小蓝鲸要找出s2在s1中出现多少次，s1和s2均为小写字母a-z组成的字符串。
+小蓝鲸疲于换马甲，所以来做一道KMP裸题放松放松，例如给定字符串$s_1=\text{ababaa},\; s_2=\text{aba}$，则 $s_2$ 一共在 $s_1$ 中出现两次。
+
+给定任意一对字符串 $s_1$ ， $s_2$ ，小蓝鲸要找出 $s_2$ 在 $s_1$ 中出现多少次， $s_1$ 和 $s_2$ 均为小写字母 `a-z` 组成的字符串。
 
 --> 输入格式
 
-输入的第一行给出字符串s1 输入第二行给出字符串s2
+输入的第一行给出字符串 $s_1$  输入第二行给出字符串 $s_2$ 
 
 --> 输出格式
 
-输出s2在s1中出现多少次
+输出 $s_2$ 在 $s_1$ 中出现多少次
 
 --> 样例数据
 
@@ -42,7 +44,7 @@ abc
 
 --> 数据范围及提示
 
-$ 1 \leq length(s1),length(s2) \leq 10^6 $
+$ 1 \leq length(s_1),length(s_2) \leq 10^6 $
 
 时间限制： `1s`
 
@@ -52,7 +54,7 @@ $ 1 \leq length(s1),length(s2) \leq 10^6 $
 
 KMP 裸题，按照 OI-Wiki 的做法实现，所以不是 next 数组
 
-```c
+```c++ title="Solution"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -81,7 +83,7 @@ void solve() {
             j = pi[j - 1];
         }
     }
-	cout << ans;
+    cout << ans;
 }
 
 signed main() {
@@ -90,7 +92,7 @@ signed main() {
     cout.tie(0);
 
     int t;
-    // cin >> t;		// multi testcases
+    // cin >> t;        // multi testcases
     t = 1;  // single testcase
 
     while (t--) {
@@ -109,15 +111,15 @@ signed main() {
 
 小蓝鲸在海底探险时发现了一个神秘的密码箱，上面刻着一种特殊的编码规则。这种编码规则能够将信息压缩存储，小蓝鲸需要你的帮助来破解这些密码！
 
-密码箱上的编码规则为：$k[encoded-string]$，表示方括号内部的 $encoded-string$ 需要重复 $k$ 次。其中 $k$ 保证为正整数。
+密码箱上的编码规则为：$k[\text{encoded string}]$，表示方括号内部的 $\text{encoded string}$ 需要重复 $k$ 次。其中 $k$ 保证为正整数。
 
-小蓝鲸发现输入字符串总是有效的，没有额外的空格，且方括号总是符合格式要求。原始数据不包含数字，所有的数字只表示重复的次数 k。
+小蓝鲸发现输入字符串总是有效的，没有额外的空格，且方括号总是符合格式要求。原始数据不包含数字，所有的数字只表示重复的次数 $k$。
 
 请你帮助小蓝鲸编写一个程序，将这些编码后的字符串解码还原。
 
 --> 输入
 
-输入一个经过编码的字符串 $s$，且$s$由小写英文字母、数字和方括号 '[]' 组成。
+输入一个经过编码的字符串 $s$，且 $s$ 由小写英文字母、数字和方括号 `[]` 组成。
 
 --> 输出
 
@@ -137,7 +139,7 @@ aaabcbc
 
 --> 样例解释 #1
 
-a 重复 3 次，bc 重复 2 次。
+> $a$ 重复 $3$ 次，$bc$ 重复 $2$ 次。
 
 --> 样例输入 #2
 
@@ -153,7 +155,7 @@ accaccacc
 
 --> 样例解释 #2
 
-先解码内部的 2[c] 得到 cc，然后外部的 3[acc] 得到 accaccacc。
+> 先解码内部的 $2[c]$ 得到 $cc$，然后外部的 $3[acc]$ 得到 $accaccacc$。
 
 --> 样例输入 #3
 
@@ -169,7 +171,7 @@ abcabccdcdcdef
 
 --> 数据范围及提示
 
-- 对于100%的数据，$1 \le s.length \le 30$, $1 \le$ s中的整数 $\le 300$
+- 对于100%的数据，$1 \le s.length \le 30$, $1 \le s$ 中的整数 $\le 300$
 
 时间限制： `1s`
 
@@ -179,7 +181,7 @@ abcabccdcdcdef
 
 准备一个字符栈（存储待处理字符）和一个数字栈（存储重复次数）进行解压操作
 
-```c
+```c++ title="Solution"
 #include <bits/stdc++.h>
 #define MAX_SIZE 100000
 using namespace std;
@@ -274,7 +276,7 @@ signed main(){
 
 第一行两个数字，分别是数据的个数 $n$，以及窗口大小 $k$
 
-第二行n个数字，表示数据的值
+第二行 $n$ 个数字，表示数据的值
 
 --> 输出
 
@@ -309,7 +311,7 @@ $ 1 \leq k \leq n$
 
 滑动窗口板子
 
-```c
+```c++ title="Solution"
 #include <bits/stdc++.h>
 #define MAX_SIZE 1000000
 using namespace std;

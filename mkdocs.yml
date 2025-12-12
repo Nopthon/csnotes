@@ -8,7 +8,8 @@ theme:
     - content.code.cop
     - navigation.tabs
     - navigation.top
-
+    - navigation.indexes
+    - navigation.path
     # - navigation.prune
   palette:
     # Palette toggle for automatic mode
@@ -42,9 +43,17 @@ repo_url: https://github.com/Nopthon/csnotes
 repo_name: CSNote repo
 
 plugins:
-  - mermaid2
-  - statistics
+  - search
+  - mermaid2:
+  #    javascript: https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js
+  # - statistics
   - glightbox
+  - blog:
+      # archive_date_format: MMMM yyyy
+      post_readtime: true
+      post_url_format: "{categories}/{slug}"
+      post_url_max_categories: 2
+
   - document-dates:
       position: bottom # top
       type: date
@@ -53,8 +62,10 @@ plugins:
       time_format: '%H:%M:%S'
       show_author: false
 #  - privacy
+  - encryptcontent: {}
+      
 
-#   - blog
+
 
 nav: 
   - intro: index.md
@@ -71,34 +82,52 @@ nav:
         - 树基础: OI-Learning/Data-Structure/Tree/tree-intro.md
         - 二叉树基础: OI-Learning/Data-Structure/Tree/binatree.md
         - 二叉树模板: OI-Learning/Data-Structure/Tree/binatree-template.md
+        - BST && 平衡树: OI-Learning/Data-Structure/Tree/bst.md
       - Graphs:
         - 并查集: OI-Learning/Data-Structure/Graph/union-find.md
+        - 图基础: OI-Learning/Data-Structure/Graph/graph-starter.md
+        - 最小生成树: OI-Learning/Data-Structure/Graph/mst.md
+        - 最短路: OI-Learning/Data-Structure/Graph/shortest-path.md
+        - 拓扑排序 && 关键路径: OI-Learning/Data-Structure/Graph/topo-sort.md
       - 链表: OI-Learning/Data-Structure/linkedlist.md
       - STL vector ref: OI-Learning/Data-Structure/vector.md
       - 栈 && 单调栈: OI-Learning/Data-Structure/stack.md
       - 队列 && 单调队列: OI-Learning/Data-Structure/queue.md
       - 散列表/哈希表: OI-Learning/Data-Structure/hashmap.md
     
+  - CTF-Learning:
+    - intro: CTF-Learning/index.md
+    - MISC:
+      - intro: CTF-Learning/MISC/index.md
+    - CRYPTO:
+      - intro: CTF-Learning/CRYPTO/index.md
+    - PWN:
+      - intro: CTF-Learning/PWN/index.md
+    - WEB:
+      - intro: CTF-Learning/WEB/index.md
+    - RE:
+      - intro: CTF-Learning/RE/index.md
+
   - Course Notes:
     - intro: course-notes/index.md
     - ICSPA x86 note: 
       - README FIRST: course-notes/ICSPA-x86/README.md
-      - Closed temporaily: 404.md
-      # - PA0: course-notes/ICSPA-x86/PA0.md
-      # - PA1: course-notes/ICSPA-x86/PA1.md
-      # - PA2-1: course-notes/ICSPA-x86/PA2-1.md
-      # - i386 指令结构 for PA2-1: course-notes/ICSPA-x86/i386.md
-      # - PA2-2: course-notes/ICSPA-x86/PA2-2.md
-      # - PA2-3: course-notes/ICSPA-x86/PA2-3.md
-      # - Before PA3&&4: course-notes/ICSPA-x86/Before_PA3_&&_4.md
-      # - PA3-1: course-notes/ICSPA-x86/PA3-1.md
-      # - PA3-2: course-notes/ICSPA-x86/PA3-2.md
-      # - PA3-3: course-notes/ICSPA-x86/PA3-3.md
-      # - PA4-0: course-notes/ICSPA-x86/PA4-0.md
-      # - PA4-1: course-notes/ICSPA-x86/PA4-1.md
-      # - PA4-2: course-notes/ICSPA-x86/PA4-2.md
-      # - PA4-3: course-notes/ICSPA-x86/PA4-3.md
-      # - A journey of debugging: course-notes/ICSPA-x86/A_journey_of_debug.md
+      # - Closed temporaily: 404.md
+      - PA0: course-notes/ICSPA-x86/PA0.md
+      - PA1: course-notes/ICSPA-x86/PA1.md
+      - PA2-1: course-notes/ICSPA-x86/PA2-1.md
+      - i386 指令结构 for PA2-1: course-notes/ICSPA-x86/i386.md
+      - PA2-2: course-notes/ICSPA-x86/PA2-2.md
+      - PA2-3: course-notes/ICSPA-x86/PA2-3.md
+      - Before PA3&&4: course-notes/ICSPA-x86/Before_PA3_&&_4.md
+      - PA3-1: course-notes/ICSPA-x86/PA3-1.md
+      - PA3-2: course-notes/ICSPA-x86/PA3-2.md
+      - PA3-3: course-notes/ICSPA-x86/PA3-3.md
+      - PA4-0: course-notes/ICSPA-x86/PA4-0.md
+      - PA4-1: course-notes/ICSPA-x86/PA4-1.md
+      - PA4-2: course-notes/ICSPA-x86/PA4-2.md
+      - PA4-3: course-notes/ICSPA-x86/PA4-3.md
+      - A journey of debugging: course-notes/ICSPA-x86/A_journey_of_debug.md
 
     - 网络攻防实战 Labs:
       - intro: course-notes/Network-attack-and-defense-in-action/index.md
@@ -109,6 +138,9 @@ nav:
       - Lab05: course-notes/Network-attack-and-defense-in-action/lab05.md
       - Lab06: course-notes/Network-attack-and-defense-in-action/lab06.md
       - Lab06.5: course-notes/Network-attack-and-defense-in-action/lab06.5.md
+      - Lab07(PWN): course-notes/Network-attack-and-defense-in-action/lab07(PWN).md
+      - Lab08: course-notes/Network-attack-and-defense-in-action/lab08.md
+      - Lab09: course-notes/Network-attack-and-defense-in-action/lab09.md
 
     - ICS && CSAPP Labs:
       - intro: course-notes/ICS&&CSAPP-Lab/index.md
@@ -120,7 +152,14 @@ nav:
 
     - Probability: 
       - intro: course-notes/Probability/index.md
-      - speedrun: course-notes/Probability/speedrun.md
+      - 随机事件与概率: course-notes/Probability/ch1.md
+      - 随机变量及其概率分布: course-notes/Probability/ch2.md
+      - 二维随机变量及其分布: course-notes/Probability/ch3.md
+      - 随机变量的数字特征: course-notes/Probability/ch4.md
+      - 极限理论: course-notes/Probability/ch5.md
+      - 统计量与抽样分布: course-notes/Probability/ch6.md
+      - 参数估计: course-notes/Probability/ch7.md
+      - 假设检验: course-notes/Probability/ch8.md
       - tip: course-notes/Probability/tip.md
 
     - 数据结构 OJ Ans: 
@@ -130,16 +169,26 @@ nav:
       - 第 3 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ3.md
       - 第 4 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ4.md
       - 第 5 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ5.md
-      #- 第 1 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam1.md
+      - 第 1 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam1.md
       - 第 6 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ6.md
       - 第 7 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ7.md
       - 第 8 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ8.md
       - 第 9 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ9.md
+      - 第 2 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam2.md
+      - 第 10 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ10.md
+      - 第 11 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ11.md
+      - 第 12 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ12.md
 
 
   # - Deep Learning:
   #     - intro: Deep-Learning/intro.md
   
+
+
+  - Blog:
+    - blog/index.md
+
+
 markdown_extensions:
   - md_in_html
   - admonition
@@ -164,6 +213,7 @@ extra_css:
   - https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css
 
 extra_javascript:
+  - https://events.vercount.one/js
   - stylesheets/extra.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js

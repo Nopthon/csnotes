@@ -32,7 +32,7 @@
 
 --> 样例解释 #1
 
-以 1 为基的 `NJUdata`，数列前 6 个分别为：$1,3,4,7,9,10\cdots$，则第 6 个元素为 10。
+> 以 1 为基的 `NJUdata`，数列前 6 个分别为：$1,3,4,7,9,10\cdots$，则第 6 个元素为 10。
 
 --> 样例输入 #2
 
@@ -58,7 +58,7 @@
 
 两个队列分别存储 $2x+1$ 和 $3x+1$ 的生成元素，每次取两个队列尾部的较小值（`cur` 的值），生成新的元素置于对应的队首，重复直到取到了第 `n` 小的值
 
-```c
+```c++ title="Solution"
 #include <bits/stdc++.h>
 #define MAX_SIZE 100000
 using namespace std;
@@ -206,7 +206,7 @@ $k$ 不重复元素组合顺序生成器
 
 通过迭代的方法，从第一个组合 `[1,2,...,k]` 出发进行迭代生成，使用栈进行回溯
 
-```c
+```c++ title="Solution 1"
 #include <bits/stdc++.h>
 #define MAX_SIZE 50
 using namespace std;
@@ -279,7 +279,7 @@ signed main(){
 
 或者采用递归思路进行生成，函数递归栈也是栈
 
-```c
+```c++ title="Solution 2"
 void dfs(int arr[], int pos, int start, int n, int k) {
     // 完成了 k 个元素的选择，输出
     if (pos == k) {
@@ -315,7 +315,7 @@ void dfs(int arr[], int pos, int start, int n, int k) {
 
 第一行包含一个整数 $n$，表示小蓝鲸的数量。
 
-第二行包含 $n$ 个用空格分隔的整数 $a_i$，表示从前到后每只小蓝鲸的身高。
+46 1#include <bits/stdc++.h>2#define MAX_SIZE 10000003using namespace std;4​5int arr[MAX_SIZE+1], que[MAX_SIZE+1];6​7void solve()8{9    int n, k;10    cin >> n >> k;11    for (int i = 0; i < n; i++) {12        cin >> arr[i];13    }14    int head = 0, tail = -1;15    for (int i = 0; i < n; i++)16    {17        // 维护单调性18        while (head <= tail && arr[que[tail]] <= arr[i])19            tail--;20        que[++tail] = i;21        // 输出最大值22        if (i >= k - 1)23        {24            while (que[head] <= i - k)25                head++;26            printf("%d ", arr[que[head]]);27        }28    }29}30​31signed main()32{33    ios::sync_with_stdio(false);34    cin.tie(0);35    cout.tie(0);36​37    int t;38    // cin >> t;            // multi testcases39    t = 1;              // single testcase40​41    while (t--)42    {43        solve();44    }45    return 0;46}c++ title="Solution"
 
 --> 输出
 
@@ -336,10 +336,10 @@ void dfs(int arr[], int pos, int start, int n, int k) {
 
 --> 样例解释 #1
 
-- 位置 1 前方无人，答案为 0
-- 位置 2,3,4,5 前方的第一个小蓝鲸都不矮于自身，答案为 1
-- 位置 6 前方的小蓝鲸都矮于 6，答案为 5
-- 剩余位置前方的第一个小蓝鲸都不矮于自身，答案为 1
+> - 位置 1 前方无人，答案为 0
+> - 位置 2,3,4,5 前方的第一个小蓝鲸都不矮于自身，答案为 1
+> - 位置 6 前方的小蓝鲸都矮于 6，答案为 5
+> - 剩余位置前方的第一个小蓝鲸都不矮于自身，答案为 1
 
 --> 数据范围及提示
 
@@ -350,7 +350,7 @@ void dfs(int arr[], int pos, int start, int n, int k) {
 
 如果你使用 `cin`、`cout` 进行读写出现超时，可以考虑使用 `scanf`、 `printf` 或者在程序开头增加如下代码:
 
-```c
+```c++
 // 关闭 iostream 与 C 标准库的同步，加速 cin/cout
 ios::sync_with_stdio(false); 
 // 解除 cin 与 cout 的绑定，避免每次输入前自动刷新输出，提高 IO 性能
@@ -367,7 +367,7 @@ cin.tie(0);
 
 单调栈板子，维护单调递减栈（存下标），弹出下标时与待插入下标取差值作为答案
 
-```c
+```c++ title="Solution"
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -12,7 +12,7 @@
 
 ### 信息收集
 
-启动 VirtualBox 中的 Kali 攻击机（用于进行渗透攻击）与 Kioptix 靶机，网络采用 NAT 连接
+启动 VirtualBox 中的 Kali 攻击机与 Kioptix 靶机，网络采用 NAT 连接
 
 `ifconfig` 获取攻击机的 ip 为 `10.0.2.3`，使用 `nmap` 扫描 ip：
 
