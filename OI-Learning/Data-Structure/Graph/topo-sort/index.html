@@ -397,6 +397,18 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Tree/bst/">
+<span class="md-ellipsis">
+    
+  
+    BST &amp;&amp; 平衡树
+  
+
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -904,7 +916,6 @@
 
     
   </span>
-<span class="md-status md-status--encrypted"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -917,7 +928,6 @@
 
     
   </span>
-<span class="md-status md-status--encrypted"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -930,7 +940,6 @@
 
     
   </span>
-<span class="md-status md-status--encrypted"></span>
 </a>
 </li>
 <li class="md-nav__item">
@@ -1269,11 +1278,95 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../course-notes/Probability/speedrun/">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch1/">
 <span class="md-ellipsis">
     
   
-    speedrun
+    随机事件与概率
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch2/">
+<span class="md-ellipsis">
+    
+  
+    随机变量及其概率分布
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch3/">
+<span class="md-ellipsis">
+    
+  
+    二维随机变量及其分布
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch4/">
+<span class="md-ellipsis">
+    
+  
+    随机变量的数字特征
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch5/">
+<span class="md-ellipsis">
+    
+  
+    极限理论
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch6/">
+<span class="md-ellipsis">
+    
+  
+    统计量与抽样分布
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch7/">
+<span class="md-ellipsis">
+    
+  
+    参数估计
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Probability/ch8/">
+<span class="md-ellipsis">
+    
+  
+    假设检验
   
 
     
@@ -1472,6 +1565,18 @@
     
   
     第 11 次实验
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../course-notes/Data-Structure-Online-Judge-Sol/OJ12/">
+<span class="md-ellipsis">
+    
+  
+    第 12 次实验
   
 
     
@@ -1789,6 +1894,7 @@ $$</p>
 <p>也正是因为晚发生的事件的 $ve$ 计算依赖早发生的事件的 $ve$，我们<strong>必须按照拓扑序来完成上面的递推操作</strong>，这也正是为什么要先介绍拓扑排序</p>
 <p>“求最长路” 一般只考虑 DAG 图，否则是 NP-Hard 问题</p>
 </div>
+<p><br></p>
 <ul>
 <li>事件 $v_i$ 的最迟发生时间 $vl(i)$，即：在终点事件的触发不会被延迟的前提下，事件 $v_i$ 最晚要在 $vl(i)$ 时被触发</li>
 </ul>
@@ -1800,10 +1906,12 @@ $$</p>
 $$
 vl(i) = \min_{p = 1,\cdots,m} \lbrace vl(j_p) - w_{j_p} \rbrace
 $$</p>
+<p><br></p>
 <ul>
 <li>活动 $a_k$ 的最早开始时间 $e(k)$，或者记为 $e(u,v)$</li>
 </ul>
 <p>容易得到 $e(k) = ve(u)$</p>
+<p><br></p>
 <ul>
 <li>活动 $a_k$ 的最迟开始时间 $l(k)$，或者记为 $l(u,v)$</li>
 </ul>
@@ -1816,11 +1924,11 @@ $$</p>
 <p>我们记关键路径上的活动为关键活动，找出关键路径就是找出关键活动。定义活动 $a_k$ 的时间余量 $d(k) = l(k) - e(k)$，时间余量为 $0$ 的活动就是关键活动。</p>
 <p>因此求关键路径的步骤也就是求上述四个时间描述的内容：</p>
 <p>1- 求 AOE 网络的拓扑序</p>
-<p>2- 根据拓扑序计算每个事件的最早发生时间和最迟发生时间</p>
-<p>3- 根据逆拓扑序计算每个活动的最早开始时间和最迟开始时间</p>
+<p>2- 根据（逆）拓扑序计算每个事件的最早发生时间和最迟发生时间</p>
+<p>3- 根据（逆）拓扑序计算每个活动的最早开始时间和最迟开始时间</p>
 <p>4- 计算每个活动的时间余量，确定关键活动</p>
 <p>关键路径不唯一，但是关键路径长度是确定的</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-12-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-09T10:46:22.982044+08:00">2025-12-09</time></span><span data-tippy-content="" data-tippy-raw="2025-12-10"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-10T11:54:41.527875+08:00">2025-12-10</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-12-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-09T10:46:22.982044+08:00">2025-12-09</time></span><span data-tippy-content="" data-tippy-raw="2025-12-11"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-11T10:22:14.338348+08:00">2025-12-11</time></span></div></div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
