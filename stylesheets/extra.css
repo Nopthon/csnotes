@@ -1,5 +1,5 @@
 body {
-    font-family: "JetBrains Mono", "LXGW WenKai";
+    font-family: "LXGW WenKai", "JetBrains Mono";
 }
 
 :root {
@@ -9,4 +9,9 @@ body {
 
 :root > * {
     --md-code-hl-comment-color: #38b228;
+}
+
+.katex .mord.text,
+.katex .text .mord {
+    font-family: "LXGW WenKai", "JetBrains Mono", KaTeX_Main, sans-serif;
 }
