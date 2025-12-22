@@ -5046,8 +5046,8 @@
 <p>比如将 0 1 分别对应到概率 <span class="arithmatex">\(p = 50\%\)</span>。在上述情境（抛硬币）下，分布函数是：</p>
 <div class="arithmatex">\[
 F(x) = \begin{cases}
-0 &amp; \text{if } x &lt; 0 \\\\
-0.5 &amp; \text{if } 0 \leq x &lt; 1 \\\\
+0 &amp; \text{if } x &lt; 0 \\
+0.5 &amp; \text{if } 0 \leq x &lt; 1 \\
 1 &amp; \text{if } x \geq 1
 \end{cases}
 \]</div>
@@ -5069,13 +5069,13 @@ F(x) = \begin{cases}
 <p>分布律也可以用表格方式给出，有时也会以矩阵的方式出现，还是以抛硬币为例：</p>
 <div class="arithmatex">\[
 \begin{array}{c|cc}
-X &amp; 0 &amp; 1 \\\\
+X &amp; 0 &amp; 1 \\
 \hline
-P &amp; 0.5 &amp; 0.5 \\\\
+P &amp; 0.5 &amp; 0.5 \\
 \end{array}
 \qquad
 X \sim \begin{pmatrix}
-0  &amp; 1\\\\
+0  &amp; 1\\
 0.5  &amp; 0.5
 \end{pmatrix}
 \]</div>
@@ -5128,13 +5128,13 @@ P(a &lt; X &lt; b) = P(a \leq X &lt; b) = P(a &lt; X \leq b) = P(a \leq X \leq b
 </ul>
 <div class="arithmatex">\[
 p(x) = \begin{cases}
-{\color{orange}\frac{1}{b-a}},  &amp; \text{ if } a&lt;x&lt;b\\\\
+{\color{orange}\frac{1}{b-a}},  &amp; \text{ if } a&lt;x&lt;b\\
 0  ,&amp; \text{ if } else
 \end{cases}
 \qquad
 F(x) = \begin{cases}
-0,  &amp; \text{ if } x&lt;a\\\\
-{\color{orange}\frac{x-a}{b-a}}  ,&amp; \text{ if } a\leq x &lt; b\\\\
+0,  &amp; \text{ if } x&lt;a\\
+{\color{orange}\frac{x-a}{b-a}}  ,&amp; \text{ if } a\leq x &lt; b\\
 1, &amp; \text{ if }x \geq b
 \end{cases}
 \]</div>
@@ -5143,12 +5143,12 @@ F(x) = \begin{cases}
 </ul>
 <div class="arithmatex">\[
 p(x) = \begin{cases}
-{\color{orange}\lambda e ^{-\lambda x}},  &amp; \text{ if } x\geq 0\\\\
+{\color{orange}\lambda e ^{-\lambda x}},  &amp; \text{ if } x\geq 0\\
 0  ,&amp; \text{ if } x &lt; 0
 \end{cases}
 \qquad
 F(x) = \begin{cases}
-{\color{orange}1- e ^{-\lambda x}}  ,&amp; \text{ if } x \geq 0\\\\
+{\color{orange}1- e ^{-\lambda x}}  ,&amp; \text{ if } x \geq 0\\
 0, &amp; \text{ if } else
 \end{cases}
 \]</div>
@@ -5199,7 +5199,7 @@ $$
 $$
 p_Y(y) = 
 \begin{cases} 
-p_X[g^{-1}(y)] \cdot |[g^{-1}(y)]'|, &amp; \alpha &lt; y &lt; \beta \\
+p_X[g^{-1}(y)] \cdot |[g^{-1}(y)]'|, &amp; \alpha &lt; y &lt; \beta \
 0, &amp; \text{else}
 \end{cases}
 $$

@@ -5144,14 +5144,14 @@ DX = E(X - EX)^2 = EX^2 - (EX)^2
 <li>几何分布 <span class="arithmatex">\(X \sim g(p)\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\\\
+EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\
 DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = {\color{orange}{\frac{1-p}{p^2}}}
 \]</div>
 <ul>
 <li>二项分布 <span class="arithmatex">\(X \sim B(n,p)\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\\\
+EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\
 DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D(X_k) \right)= {\color{orange}{np(1-p)}}
 \]</div>
 <p>（括号里的内容为通过期望/方差的性质进行的简化运算）</p>
@@ -5159,7 +5159,7 @@ DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D
 <li>泊松分布 <span class="arithmatex">\(X \sim P(\lambda)\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\\\
+EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\
 DX = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{orange}{\lambda}}
 \]</div>
 <p><br></p>
@@ -5181,21 +5181,21 @@ $$
 <li>均匀分布 <span class="arithmatex">\(X \sim U[a,b]\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = {\color{orange}{\frac{a+b}{2}}} \\\\
+EX = {\color{orange}{\frac{a+b}{2}}} \\
 DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = {\color{orange}{\frac{(b-a)^2}{12}}}
 \]</div>
 <ul>
 <li>指数分布 <span class="arithmatex">\(X \sim E(\lambda)\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\\\
+EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\
 DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{orange}{ \frac{1}{\lambda^2}}}
 \]</div>
 <ul>
 <li>正态分布 <span class="arithmatex">\(X \sim N(\mu, \sigma^2)\)</span> </li>
 </ul>
 <div class="arithmatex">\[
-EX = {\color{orange}{\mu}} \\\\
+EX = {\color{orange}{\mu}} \\
 DX = {\color{orange}{\rho^2}}
 \]</div>
 <p>（计算量偏大，并且需要借助高斯积分归一化）</p>
@@ -5233,7 +5233,7 @@ $$</p>
 <details class="abstract" open="open">
 <summary>Proof</summary>
 <div class="arithmatex">\[
-P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
+P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
 \]</div>
 </details>
 <p>可以借助证明：<span class="arithmatex">\(DX = 0 \longrightarrow X = c\)</span> </p>
@@ -5312,13 +5312,13 @@ EX = (EX_1,\cdots,EX_n)^T
 <div class="arithmatex">\[
 \Sigma =
 \begin{pmatrix}
-c_{11} &amp; c_{12} &amp; \cdots &amp; c_{1n} \\\\
-c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\\\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\\\
+c_{11} &amp; c_{12} &amp; \cdots &amp; c_{1n} \\
+c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 c_{n1} &amp; c_{n2} &amp; \cdots &amp; c_{nn}
 \end{pmatrix}
 \]</div>
-<p>为 <span class="arithmatex">\(X\)</span> 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 <span class="arithmatex">\(\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\\\ \sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}\)</span> </p>
+<p>为 <span class="arithmatex">\(X\)</span> 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 <span class="arithmatex">\(\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}\)</span> </p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span><span data-tippy-content data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span></div></div>
 
 

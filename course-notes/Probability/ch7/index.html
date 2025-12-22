@@ -5094,13 +5094,13 @@ P\left(\hat{\theta}_L \leq \theta \leq \hat{\theta}_U\right) = 1-\alpha
 <p>若 <span class="arithmatex">\(h\)</span> 为已知的连续函数，则 <span class="arithmatex">\(h(A_1,A_2, \cdots, A_k) \stackrel{P}{\longrightarrow} h(\mu_1, \mu_2, \cdots , \mu_k)\)</span>，称之为<strong>矩估计的相合性</strong></p>
 <p>一个矩估计的例子：对于总体 <span class="arithmatex">\(X \sim N (\mu, \sigma^2)\)</span>，<span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 是总体 <span class="arithmatex">\(X\)</span> 的一个样本，我们得到：</p>
 <div class="arithmatex">\[
-EX = \mu = \mu_1 \\\\
+EX = \mu = \mu_1 \\
 DX = \sigma^2 = \mu_2 - \mu_1^2
 \]</div>
 <p>（<span class="arithmatex">\(\sigma^2 = \mu_2 - \mu_1^2\)</span> 对应的是 <span class="arithmatex">\(DX=E(X^2) - (EX)^2\)</span>）</p>
 <p>将样本矩 <span class="arithmatex">\(A_1, A_2\)</span> 代入得</p>
 <div class="arithmatex">\[
-\hat{\mu} = A_1 = \overline{X} \\\\
+\hat{\mu} = A_1 = \overline{X} \\
 \hat{\sigma^2} = A_2 - A_1^2 = \frac{1}{n} \left(\sum_{i=1}^{n} X_i^2 - n\overline{X}^2\right) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2
 \]</div>
 <p>也就是说：总体均值 <span class="arithmatex">\(\mu\)</span> 的矩估计是样本均值 <span class="arithmatex">\(\overline{X}\)</span>；总体方差 <span class="arithmatex">\(\sigma^2\)</span> 的矩估计是样本二阶中心矩 <span class="arithmatex">\(S^{\ast 2}\)</span>（不是样本方差 <span class="arithmatex">\(S^2\)</span>）。注意上面的结论与总体分布无关，只要总体的一阶矩和二阶矩存在，上述结论就满足</p>
@@ -5160,7 +5160,7 @@ E[S] = E[\sqrt{S^2}] \leq \sqrt{E[S^2]} = \sigma
 <p>根据均方误差准则，我们希望 <span class="arithmatex">\(M(\hat{\theta},\theta)\)</span> 越小越好。注意到：</p>
 <div class="arithmatex">\[
 \begin{aligned}
-M(\hat{\theta},\theta) &amp;= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {\theta})^2 \\\\
+M(\hat{\theta},\theta) &amp;= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {\theta})^2 \\
 &amp;= D(\hat{\theta}) + (E\hat{\theta} - \theta)^2
 \end{aligned}
 \]</div>
@@ -5247,9 +5247,9 @@ P(a&lt;U&lt;b) = 1-\alpha
 <div class="arithmatex">\[
 \begin{aligned}
 E\left[ \sum_{i=1}^n (X_i - \overline{X})^2 \right] 
-&amp;= E\left[ \sum_{i=1}^n X_i^2 - n\overline{X}^2 \right] \\\\
-&amp;= E\left( \sum_{i=1}^n X_i^2 \right) - nE\left( \overline{X}^2 \right) \\\\
-&amp;= n(\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \\\\
+&amp;= E\left[ \sum_{i=1}^n X_i^2 - n\overline{X}^2 \right] \\
+&amp;= E\left( \sum_{i=1}^n X_i^2 \right) - nE\left( \overline{X}^2 \right) \\
+&amp;= n(\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \\
 &amp;= (n-1) \sigma^2
 \end{aligned}
 \]</div>
