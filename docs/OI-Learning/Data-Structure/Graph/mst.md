@@ -55,7 +55,7 @@ void kruskal(int n, int m){
     for(int i = 0; i < m; i++){
         int u = edges[i].u, v = edges[i].v, w = edges[i].w;
         // 不成环则加边
-        if(find(u) !+= find(v)){
+        if(find(u) != find(v)){
             unite(u, v);
             total += w;
             edge_cnt++;

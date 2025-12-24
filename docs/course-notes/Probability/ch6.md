@@ -24,7 +24,7 @@
 
 ### 统计量
 
-对于总体 $X$ 的一个样本 $(X_1, X_2, \cdots, X_n)$，$T(x_1, x_2, \cdots, x_n)$ 为不含任何位置参数的函数，则称 $T(X_1, X_2, \cdots, X_n)$ 为一个统计量。一句话来说就是，统计量是样本的函数，不含任何未知量。统计量只需要样本即可计算出
+对于总体 $X$ 的一个样本 $(X_1, X_2, \cdots, X_n)$，$T(x_1, x_2, \cdots, x_n)$ 为不含任何未知参数的函数，则称 $T(X_1, X_2, \cdots, X_n)$ 为一个统计量。一句话来说就是，统计量是样本的函数，不含任何未知量。统计量只需要样本即可计算出
 
 常见的统计量包含：
 
@@ -52,7 +52,7 @@ $\dfrac{\sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} = Y_n \sim N(0,1) \longright
 
 根据中心极限定理得到的结论，总体分布的样本均值可近似服从正态分布。现在我们给出正态总体的定义，其总体分布**精确**服从正态分布：$X \sim N(\mu, \sigma^2)$
 
-先给出三种著名分布：
+先给出三种著名分布，这三种分布的意义会在之后解释：
 
 ### $\chi^2$ 分布
 
@@ -74,11 +74,13 @@ $$
 
 $\chi^2$ 分布具有一些相关性质：
 
-1- 可加性：$X \sim \chi^2(m),\;Y \sim \chi^2(n)$，若 $X,Y$ 相互独立，则 $X+Y \sim \chi^2(m+n)$
+1- 对于单个 $X \sim N(0,1)$，$X^2 \sim \chi^2(1)$
 
-2- 对于 $X \sim \chi^2(n)$，$E(X) = n,\;D(X) = 2n$
+2- 可加性：$X \sim \chi^2(m),\;Y \sim \chi^2(n)$，若 $X,Y$ 相互独立，则 $X+Y \sim \chi^2(m+n)$
 
-3- 科赫伦分解定理：
+3- 对于 $X \sim \chi^2(n)$，${\color{orange}E(X) = n,\;D(X) = 2n}$
+
+4- 科赫伦分解定理：
 
 设 $X_1, X_2, \cdots, X_n$ 为独立同分布的随机变量，且均服从标准正态分布，另设 $Q_1, Q_2, \cdots, Q_k$ 分别是秩为 $n_1, n_2, \cdots, n_k$ 的 $X_1, X_2, \cdots,X_n$ 的非负二次型，满足 $\displaystyle \sum_{i=1}^{k} Q_i = \sum_{i=1}^{n} X_i^2$
 
@@ -153,6 +155,12 @@ $$
 
     ![img](images/539952-20170304165826016-2056523954.jpg)
 
+$F$ 分布具有一些相关性质：
+
+1- $F \sim F(n_1, n_2) \to \dfrac{1}{F} \sim F(n_2, n_1)$
+
+2- $T \sim t(n) \to T^2 \sim F(1, n)$
+
 <br>
 
 ## 上 $\alpha$ 分位点
@@ -185,24 +193,29 @@ $$
 
 (1) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n})$
 
-(2) $\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)$
+(2) ${\color{orange}\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)}$
+
+- 这说明正态总体的样本方差经过一定的缩放后服从卡方分布
 
 (3) $\overline{X}$ 与 $S^2$ 相互独立
 
 一些推论：
 
-(4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to {\color{orange}T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$ 
+(4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$ 
+
+- 这说明在对小样本均值进行推断时，用样本标准差代替总体标准差会得到一个和正态分布相近的 $t$ 分布。事实上 $n\to \infty$ 时 $t$ 分布近似成为标准正态分布
 
 (5) 设 $X_1, X_2, \cdots, X_{n_1}$ 是来自正态总体 $N(\mu_1, \sigma_1^2)$ 的一个样本，$Y_1, Y_2, \cdots, Y_{n_2}$ 是来自正态总体 $N(\mu_2, \sigma_2^2)$ 的一个样本，两样本相互独立，样本方差分别为 $S_1, S_2$，则
 
 $$
-F = (\dfrac{S_1}{\sigma_1})^2 / (\dfrac{S_2}{\sigma_2})^2 = \dfrac{S_1^2 \sigma_2^2}{S_2^2 \sigma_1^2} \sim F(n_1 -1, n_2 - 1)
+{\color{orange}F = (\dfrac{S_1}{\sigma_1})^2 / (\dfrac{S_2}{\sigma_2})^2 = \dfrac{S_1^2 \sigma_2^2}{S_2^2 \sigma_1^2} \sim F(n_1 -1, n_2 - 1)}
 $$
+
+- 方差分析的基础
 
 (6)  设 $X_1, X_2, \cdots, X_{n_1}$ 是来自正态总体 $N(\mu_1, \sigma_1^2)$ 的一个样本，$Y_1, Y_2, \cdots, Y_{n_2}$ 是来自正态总体 $N(\mu_2, \sigma_2^2)$ 的一个样本，两样本相互独立，则
-
 $$
-T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1 + n_2 - 2} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)
+{\color{orange}T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)}
 $$
 
 通常会记 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 为合并标准差

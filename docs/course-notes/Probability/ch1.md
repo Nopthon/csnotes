@@ -3,7 +3,7 @@
 ## De Morgan 律推广
 
 $$
-\overline{A_1 \cup A_2 \cup \cdots \cup A_n} = \overline{A_1} \cap \overline{A_2} \cap \cdots \cap \overline{A_n} \\\\{}\\\\
+\overline{A_1 \cup A_2 \cup \cdots \cup A_n} = \overline{A_1} \cap \overline{A_2} \cap \cdots \cap \overline{A_n} \\{}\\
 \overline{A_1 \cap A_2 \cap \cdots \cap A_n} = \overline{A_1} \cup \overline{A_2} \cup \cdots \cup \overline{A_n}
 $$
 
@@ -98,7 +98,7 @@ $$
 也就是满足总共 $2^n - n - 1$ 个条件
 
 $$
-\begin{cases}P\left(A_{i}A_{j}\right)=P\left(A_{i}\right)P\left(A_{j}\right),&1\leqslant i<j\leqslant n\\\\P\left(A_{i}A_{j}A_{k}\right)=P\left(A_{i}\right)P\left(A_{j}\right)P\left(A_{k}\right),&1\leqslant i<j<k\leqslant n\\\\\cdots\cdots\\\\P\left(A_{i_{1}}A_{i_{2}}\cdots A_{i_{m}}\right)=P\left(A_{i_{1}}\right)P\left(A_{i_{2}}\right)\cdots P\left(A_{i_{m}}\right),&1\leqslant i_{1}<i_{2}<\cdots<i_{m}\leqslant n\\\\\cdots\cdots\\\\P\left(A_{1}A_{2}\cdots A_{n}\right)=P\left(A_{1}\right)P\left(A_{2}\right)\cdots P\left(A_{n}\right)\end{cases}
+\begin{cases}P\left(A_{i}A_{j}\right)=P\left(A_{i}\right)P\left(A_{j}\right),&1\leqslant i<j\leqslant n\\P\left(A_{i}A_{j}A_{k}\right)=P\left(A_{i}\right)P\left(A_{j}\right)P\left(A_{k}\right),&1\leqslant i<j<k\leqslant n\\\cdots\cdots\\P\left(A_{i_{1}}A_{i_{2}}\cdots A_{i_{m}}\right)=P\left(A_{i_{1}}\right)P\left(A_{i_{2}}\right)\cdots P\left(A_{i_{m}}\right),&1\leqslant i_{1}<i_{2}<\cdots<i_{m}\leqslant n\\\cdots\cdots\\P\left(A_{1}A_{2}\cdots A_{n}\right)=P\left(A_{1}\right)P\left(A_{2}\right)\cdots P\left(A_{n}\right)\end{cases}
 $$
 
 则这 $n$ 个事件相互独立
@@ -127,5 +127,5 @@ $$
 
 泊松分布的应用：$n$ 很大 $p$ 很小时，二项分布可近似看作泊松分布，简化运算：
 $$
-\displaystyle C_n^k p^k (1-p)^{n-k} ≈ \frac{\lambda^k}{k!}e^{-\lambda}
+\color{orange}\displaystyle C_n^k p^k (1-p)^{n-k} ≈ \frac{\lambda^k}{k!}e^{-\lambda}
 $$

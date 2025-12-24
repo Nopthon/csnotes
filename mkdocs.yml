@@ -38,9 +38,9 @@ theme:
         
   custom_dir: overrides
 
-repo_url: https://github.com/Nopthon/csnotes
+# repo_url: https://github.com/Nopthon/csnotes
 
-repo_name: CSNote repo
+# repo_name: CSNote repo
 
 plugins:
   - search
@@ -76,13 +76,18 @@ nav:
     - Algorithm: 
       - STL 算法库 ref: OI-Learning/Algorithm/STL_algorithm.md
       - 快速幂: OI-Learning/Algorithm/fastpow.md
+      - 排序: OI-Learning/Algorithm/sort.md
 
     - Data Structure:
       - Trees:
         - 树基础: OI-Learning/Data-Structure/Tree/tree-intro.md
         - 二叉树基础: OI-Learning/Data-Structure/Tree/binatree.md
         - 二叉树模板: OI-Learning/Data-Structure/Tree/binatree-template.md
-        - BST && 平衡树: OI-Learning/Data-Structure/Tree/bst.md
+        - 二叉搜索树 BST: OI-Learning/Data-Structure/Tree/bst.md
+        - 平衡树:
+          - intro: OI-Learning/Data-Structure/Tree/balanced-tree\index.md
+          - AVL 树: OI-Learning/Data-Structure/Tree/balanced-tree\AVL.md
+
       - Graphs:
         - 并查集: OI-Learning/Data-Structure/Graph/union-find.md
         - 图基础: OI-Learning/Data-Structure/Graph/graph-starter.md
@@ -110,24 +115,48 @@ nav:
 
   - Course Notes:
     - intro: course-notes/index.md
-    - ICSPA x86 note: 
-      - README FIRST: course-notes/ICSPA-x86/README.md
-      # - Closed temporaily: 404.md
-      - PA0: course-notes/ICSPA-x86/PA0.md
-      - PA1: course-notes/ICSPA-x86/PA1.md
-      - PA2-1: course-notes/ICSPA-x86/PA2-1.md
-      - i386 指令结构 for PA2-1: course-notes/ICSPA-x86/i386.md
-      - PA2-2: course-notes/ICSPA-x86/PA2-2.md
-      - PA2-3: course-notes/ICSPA-x86/PA2-3.md
-      - Before PA3&&4: course-notes/ICSPA-x86/Before_PA3_&&_4.md
-      - PA3-1: course-notes/ICSPA-x86/PA3-1.md
-      - PA3-2: course-notes/ICSPA-x86/PA3-2.md
-      - PA3-3: course-notes/ICSPA-x86/PA3-3.md
-      - PA4-0: course-notes/ICSPA-x86/PA4-0.md
-      - PA4-1: course-notes/ICSPA-x86/PA4-1.md
-      - PA4-2: course-notes/ICSPA-x86/PA4-2.md
-      - PA4-3: course-notes/ICSPA-x86/PA4-3.md
-      - A journey of debugging: course-notes/ICSPA-x86/A_journey_of_debug.md
+    - ICS:
+      - intro: course-notes/ICS/index.md
+      
+      - ICS Theory:
+        - intro: course-notes/ICS/ICS-Theory/index.md
+        - 计算机系统概述: course-notes/ICS/ICS-Theory/ch1.md
+        - 数据的机器级表示与处理: course-notes/ICS/ICS-Theory/ch2.md
+        - 程序转换与指令系统: course-notes/ICS/ICS-Theory/ch3.md
+        - 程序的机器级表示: course-notes/ICS/ICS-Theory/ch4.md
+        - 程序的链接与加载执行: course-notes/ICS/ICS-Theory/ch5.md
+        - 存储器层次结构: course-notes/ICS/ICS-Theory/ch6.md
+        - 虚拟存储器: course-notes/ICS/ICS-Theory/ch7.md
+        - 进程与异常控制流: course-notes/ICS/ICS-Theory/ch8.md
+        - I/O 操作的实现: course-notes/ICS/ICS-Theory/ch9.md
+
+      - ICS-Labs:
+        - ICS Binalab: course-notes/ICS/ICS-Labs/Binalab.md
+        - ICS Linklab: course-notes/ICS/ICS-Labs/Linklab.md
+        - ICS Bufolab: course-notes/ICS/ICS-Labs/Bufolab.md
+
+      - ICSPA x86 note: 
+        - README FIRST: course-notes/ICS/ICSPA-x86/README.md
+        # - Closed temporaily: 404.md
+        - PA0: course-notes/ICS/ICSPA-x86/PA0.md
+        - PA1: course-notes/ICS/ICSPA-x86/PA1.md
+        - PA2-1: course-notes/ICS/ICSPA-x86/PA2-1.md
+        - i386 指令结构 for PA2-1: course-notes/ICS/ICSPA-x86/i386.md
+        - PA2-2: course-notes/ICS/ICSPA-x86/PA2-2.md
+        - PA2-3: course-notes/ICS/ICSPA-x86/PA2-3.md
+        - Before PA3&&4: course-notes/ICS/ICSPA-x86/Before_PA3_&&_4.md
+        - PA3-1: course-notes/ICS/ICSPA-x86/PA3-1.md
+        - PA3-2: course-notes/ICS/ICSPA-x86/PA3-2.md
+        - PA3-3: course-notes/ICS/ICSPA-x86/PA3-3.md
+        - PA4-0: course-notes/ICS/ICSPA-x86/PA4-0.md
+        - PA4-1: course-notes/ICS/ICSPA-x86/PA4-1.md
+        - PA4-2: course-notes/ICS/ICSPA-x86/PA4-2.md
+        - PA4-3: course-notes/ICS/ICSPA-x86/PA4-3.md
+        - A journey of debugging: course-notes/ICS/ICSPA-x86/A_journey_of_debug.md
+
+      
+
+      
 
     - 网络攻防实战 Labs:
       - intro: course-notes/Network-attack-and-defense-in-action/index.md
@@ -141,14 +170,6 @@ nav:
       - Lab07(PWN): course-notes/Network-attack-and-defense-in-action/lab07(PWN).md
       - Lab08: course-notes/Network-attack-and-defense-in-action/lab08.md
       - Lab09: course-notes/Network-attack-and-defense-in-action/lab09.md
-
-    - ICS && CSAPP Labs:
-      - intro: course-notes/ICS&&CSAPP-Lab/index.md
-      - CSAPP Datalab: course-notes/ICS&&CSAPP-Lab/Datalab.md
-      - CSAPP Bomblab: course-notes/ICS&&CSAPP-Lab/Bomblab.md
-      - ICS Binalab: course-notes/ICS&&CSAPP-Lab/Binalab.md
-      - ICS Linklab: course-notes/ICS&&CSAPP-Lab/Linklab.md
-      - ICS Bufolab: course-notes/ICS&&CSAPP-Lab/Bufolab.md
 
     - Probability: 
       - intro: course-notes/Probability/index.md
@@ -178,7 +199,11 @@ nav:
       - 第 10 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ10.md
       - 第 11 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ11.md
       - 第 12 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ12.md
+      - 第 3 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam3.md
 
+    - CSAPP:
+      - Datalab: course-notes/CSAPP/Datalab.md
+      - Bomblab: course-notes/CSAPP/Bomblab.md
 
   # - Deep Learning:
   #     - intro: Deep-Learning/intro.md
@@ -203,6 +228,8 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
       linenums_style: pymdownx.inline
+  - pymdownx.arithmatex:
+      generic: true
   
 
 extra_css:
@@ -217,3 +244,4 @@ extra_javascript:
   - stylesheets/extra.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
+  # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

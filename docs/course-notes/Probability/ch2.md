@@ -16,8 +16,8 @@
     
     $$
     F(x) = \begin{cases}
-    0 & \text{if } x < 0 \\\\
-    0.5 & \text{if } 0 \leq x < 1 \\\\
+    0 & \text{if } x < 0 \\
+    0.5 & \text{if } 0 \leq x < 1 \\
     1 & \text{if } x \geq 1
     \end{cases}
     $$
@@ -48,13 +48,13 @@
 
 $$
 \begin{array}{c|cc}
-X & 0 & 1 \\\\
+X & 0 & 1 \\
 \hline
-P & 0.5 & 0.5 \\\\
+P & 0.5 & 0.5 \\
 \end{array}
 \qquad
 X \sim \begin{pmatrix}
-0  & 1\\\\
+0  & 1\\
 0.5  & 0.5
 \end{pmatrix}
 $$
@@ -63,19 +63,19 @@ $$
 
 - 0-1 分布：$X \in \{0,1\}$ 
 
-- 二项分布 $B(n, p)$ ：$p_k = C_n^kp^k(1-p)^{n-k},\;k = 0,1,\cdots,n$
+- 二项分布 $B(n, p)$ ：${\color{orange}p_k = C_n^kp^k(1-p)^{n-k}},\;k = 0,1,\cdots,n$
 
 !!! abstract ""
 
     二项分布是独立进行了 $n$ 次 0-1 分布实验的结果
 
-- 泊松分布 $P(\lambda)$ ：$p_k = \dfrac{\lambda^k}{k!}e^{-\lambda},\;k = 0,1,\cdots,$
+- 泊松分布 $P(\lambda)$ ：${\color{orange}p_k = \dfrac{\lambda^k}{k!}e^{-\lambda}},\;k = 0,1,\cdots,$
 
 !!! abstract ""
 
     泊松分布可以看作进行了**大量的 0-1 分布实验**的**近似描述**结果，虽然泊松分布对应描述的是泊松过程
 
-- 几何分布 $g(p)$ ：$p_k = (1-p)^{k-1}p,\;k=1,2,\cdots,$
+- 几何分布 $g(p)$ ：${\color{orange}p_k = (1-p)^{k-1}p},\;k=1,2,\cdots,$
 
 对于二项分布 $B(n, p)$，计算得到：
 
@@ -117,13 +117,13 @@ $$
 
 $$
 p(x) = \begin{cases}
-\frac{1}{b-a},  & \text{ if } a<x<b\\\\
+{\color{orange}\frac{1}{b-a}},  & \text{ if } a<x<b\\
 0  ,& \text{ if } else
 \end{cases}
 \qquad
 F(x) = \begin{cases}
-0,  & \text{ if } x<a\\\\
-\frac{x-a}{b-a}  ,& \text{ if } a\leq x < b\\\\
+0,  & \text{ if } x<a\\
+{\color{orange}\frac{x-a}{b-a}}  ,& \text{ if } a\leq x < b\\
 1, & \text{ if }x \geq b
 \end{cases}
 $$
@@ -132,12 +132,12 @@ $$
 
 $$
 p(x) = \begin{cases}
-\lambda e ^{-\lambda x},  & \text{ if } x\geq 0\\\\
+{\color{orange}\lambda e ^{-\lambda x}},  & \text{ if } x\geq 0\\
 0  ,& \text{ if } x < 0
 \end{cases}
 \qquad
 F(x) = \begin{cases}
-1- e ^{-\lambda x}  ,& \text{ if } x \geq 0\\\\
+{\color{orange}1- e ^{-\lambda x}}  ,& \text{ if } x \geq 0\\
 0, & \text{ if } else
 \end{cases}
 $$
@@ -145,7 +145,7 @@ $$
 - 正态分布 $N(μ,σ^2)$：
 
 $$
-p(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}},x\in\R\qquad F(x) = \int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}}dt
+p(x) = {\color{orange}\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}}},x\in\R\qquad F(x) = \int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}}dt
 $$
 
 对于正态分布图像：
@@ -205,7 +205,7 @@ $$
 $$
 p_Y(y) = 
 \begin{cases} 
-p_X[g^{-1}(y)] \cdot |[g^{-1}(y)]'|, & \alpha < y < \beta \\\\
+p_X[g^{-1}(y)] \cdot |[g^{-1}(y)]'|, & \alpha < y < \beta \\
 0, & \text{else}
 \end{cases}
 $$

@@ -38,7 +38,7 @@ $$
 
 ### 切比雪夫大数定律
 
-设 $X_1, X_2, \cdots $ 为两两互不相关的随机变量序列，其方差一致有界，即存在常数 $C$ 使得 $DX_k < C$ 对一切 $k=1,2,\cdots$ 成立，则 $\lbrace X_n \rbrace$ 服从大数定律，即对任意给定的 $\varepsilon > 0$ 有：
+设 $X_1, X_2, \cdots $ 为两两互不相关（协方差为 0 即可）的随机变量序列，其方差一致有界，即存在常数 $C$ 使得 $DX_k < C$ 对一切 $k=1,2,\cdots$ 成立，则 $\lbrace X_n \rbrace$ 服从大数定律，即对任意给定的 $\varepsilon > 0$ 有：
 
 $$
 \lim_{n \to \infty} P\left( \left| \frac{1}{n} \sum_{k=1}^n X_k - \frac{1}{n} \sum_{k=1}^n EX_k \right| \geq \varepsilon \right) = 0
@@ -137,10 +137,10 @@ $$
 随机变量的和 $\displaystyle \sum_{k=1}^{n} X_k$ 在标准化为 $Y_n$ 后，极限分布满足标准正态分布：
 
 $$
-Y_n \sim N(0,1) \\\\
+Y_n \sim N(0,1) \\
 \sum_{k=1}^n X_k \sim N(n\mu, n\sigma ^2)
 $$
-对于 $n$ 重伯努利实验，我们有拉普拉斯中心极限定理的特例：
+对于 $n$ 重伯努利实验，我们有**拉普拉斯中心极限定理**的特例：
 
 设 $\mu_n$ 是 $n$ 重伯努利试验中 $A$ 发生的次数，每次实验中 $A$ 发生的概率为 $p$，不发生的概率为 $q = 1- p$，则对任意 $x$ 有
 

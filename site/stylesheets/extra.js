@@ -1,3 +1,5 @@
+// KaTeX
+
 document$.subscribe(({ body }) => {
  renderMathInElement(body, {
    delimiters: [
@@ -8,3 +10,25 @@ document$.subscribe(({ body }) => {
    ],
  });
 });
+
+// MathJax
+
+// window.MathJax = {
+//   tex: {
+//     inlineMath: [["\\(", "\\)"]],
+//     displayMath: [["\\[", "\\]"]],
+//     processEscapes: true,
+//     processEnvironments: true
+//   },
+//   options: {
+//     ignoreHtmlClass: ".*|",
+//     processHtmlClass: "arithmatex"
+//   }
+// };
+
+// document$.subscribe(() => { 
+//   MathJax.startup.output.clearCache()
+//   MathJax.typesetClear()
+//   MathJax.texReset()
+//   MathJax.typesetPromise()
+// })

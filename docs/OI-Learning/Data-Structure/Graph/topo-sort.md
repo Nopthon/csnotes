@@ -36,7 +36,7 @@
 
 ```c++
 // 邻接表读入边信息，入度数组方便找出入度为 0 的节点
-vector<vertor<int>> edges(n);
+vector<vector<int>> edges(n);
 vector<int> indeg(n, 0);
 for(int i = 0; i < m; i++){
     int u, v; cin >> u >> v;
@@ -57,13 +57,13 @@ while (!q.empty()){
     /* 这里可以对 u 进行额外操作，比如输出或存入结果数组 */
     
     cnt++;
-    for(int &v: edge[u]){
+    for(int &v: edges[u]){
         if(--indeg[v] == 0) q.push(v);
     }
 }
 
 if(cnt != n) {
-    cout >> "-1";		// 说明有环
+    cout << "-1";		// 说明有环
 }
 ```
 

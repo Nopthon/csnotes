@@ -214,7 +214,7 @@ for(int i = 0; i < m; i++){
 vector<int> dis(n, INF); dis[s] = 0;
 vector<bool> vis(n, false);
 // 优先队列，权值放在前面方便排序
-priority_queue<pair<int, int>, vector<pair<int, int>>>, greater<pair<int, int>> pq;
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 pq.push({0,s});
 
 // 松弛操作
@@ -265,7 +265,7 @@ struct edge{
 }
 
 // 边列表读入边信息
-vector<edge> edges(n);
+vector<edge> edges(m);
 for(int i = 0; i < m; i++){
     int u,v,w; cin>>u>>v>>w;
     edges.push_back({u, v, w});

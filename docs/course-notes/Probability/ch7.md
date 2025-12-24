@@ -55,7 +55,7 @@ $$
 一个矩估计的例子：对于总体 $X \sim N (\mu, \sigma^2)$，$X_1, X_2, \cdots, X_n$ 是总体 $X$ 的一个样本，我们得到：
 
 $$
-EX = \mu = \mu_1 \\\\
+EX = \mu = \mu_1 \\
 DX = \sigma^2 = \mu_2 - \mu_1^2
 $$
 
@@ -64,8 +64,8 @@ $$
 将样本矩 $A_1, A_2$ 代入得
 
 $$
-\hat{\mu} = A_1 = \overline{X} \\\\
-\hat{\sigma^2} = A_2 - A_1^2 = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2
+\hat{\mu} = A_1 = \overline{X} \\
+\hat{\sigma^2} = A_2 - A_1^2 = \frac{1}{n} \left(\sum_{i=1}^{n} X_i^2 - n\overline{X}^2\right) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2
 $$
 
 也就是说：总体均值 $\mu$ 的矩估计是样本均值 $\overline{X}$；总体方差 $\sigma^2$ 的矩估计是样本二阶中心矩 $S^{\ast 2}$（不是样本方差 $S^2$）。注意上面的结论与总体分布无关，只要总体的一阶矩和二阶矩存在，上述结论就满足
@@ -120,7 +120,7 @@ $$
 
 由不同的方法可以得到不同的参数估计，这里引入常用的三种标准，用于对估计量进行评价
 
-#### 无偏性
+### 无偏性
 
 无偏性的实际意义是，用估计量 $\hat{\theta}$ 对未知参数 ${\theta}$ 进行估计，有时会高于 ${\theta}$，有时会低于 $\theta$，但平均来说它等于未知参数 $\theta$，也就是说没有系统误差。
 
@@ -161,12 +161,12 @@ $$
 
 $$
 \begin{aligned}
-M(\hat{\theta},\theta) &= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {\theta})^2 \\\\
+M(\hat{\theta},\theta) &= E(\hat{\theta} - E\hat{\theta} + E\hat{\theta} - {\theta})^2 \\
 &= D(\hat{\theta}) + (E\hat{\theta} - \theta)^2
 \end{aligned}
 $$
 
-均方误差 $M(\hat{\theta},\theta)$ 被分为两部分： $\hat{\theta}$ 的方差与估计量偏差 $\hat{\theta} - \theta$ 的平方。对于无偏估计，均方误差就是方差
+均方误差 $M(\hat{\theta},\theta)$ 被分为两部分： $\hat{\theta}$ 的方差与估计量偏差 $E\hat{\theta} - \theta$ 的平方。对于无偏估计，均方误差就是方差
 
 <br>
 
@@ -248,7 +248,7 @@ $$
 
 使用已知的方差 $\sigma$
 
-取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
+取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ ，化简为 $P(a < \mu< b)$ 的形式，得置信区间：
 
 $$
 \left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
@@ -303,9 +303,9 @@ $$
         $$
         \begin{aligned}
         E\left[ \sum_{i=1}^n (X_i - \overline{X})^2 \right] 
-        &= E\left[ \sum_{i=1}^n X_i^2 - n\overline{X}^2 \right] \\\\
-        &= E\left( \sum_{i=1}^n X_i^2 \right) - nE\left( \overline{X}^2 \right) \\\\
-        &= n(\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \\\\
+        &= E\left[ \sum_{i=1}^n X_i^2 - n\overline{X}^2 \right] \\
+        &= E\left( \sum_{i=1}^n X_i^2 \right) - nE\left( \overline{X}^2 \right) \\
+        &= n(\sigma^2 + \mu^2) - n\left( \frac{\sigma^2}{n} + \mu^2 \right) \\
         &= (n-1) \sigma^2
         \end{aligned}
         $$
@@ -360,6 +360,18 @@ $$
 
 $$
 \left( \overline{X} - \overline{Y} - t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}, \overline{X} - \overline{Y} + t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}} \right)
+$$
+
+<br>
+
+--> **两个正态总体 $N(\mu_1, \sigma^2_1),\;N(\mu_2, \sigma^2_2)$ 中方差比 $\sigma_1^2 / \sigma_2^2$ 的置信区间**
+
+只考虑 $\mu_1, \mu_2$ 未知，使用各自的样本标准差 $S_1,S_2$
+
+取枢轴变量 $F = \left(\dfrac{S_1}{\sigma_1}\right)^2 / \left(\dfrac{S_2}{\sigma_2}\right)^2$，由 $P(F_{1-\alpha/2}(n_1-1, n_2-1) <F< F_{\alpha/2}(n_1-1, n_2-1))$ 得置信区间：
+
+$$
+\left( \left(\dfrac{S_1}{S_2}\right)^2 \cdot \dfrac{1}{F_{\alpha/2}(n_1-1, n_2-1)} , \left(\dfrac{S_1}{S_2}\right)^2 \cdot \dfrac{1}{F_{1-\alpha/2}(n_1-1, n_2-1)}\right)
 $$
 
 <br>

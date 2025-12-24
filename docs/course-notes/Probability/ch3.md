@@ -25,7 +25,7 @@ $$
 对于二维随机变量 $(X,Y)$，若只考虑其中一个变量的相关分布，称之为边缘分布：
 
 $$
-F_X(x) = F(x, +\infty) = \lim_{y \to + \infty} F(x,y) \\\\
+F_X(x) = F(x, +\infty) = \lim_{y \to + \infty} F(x,y) \\
 F_Y(y) = F(+\infty, y) = \lim_{x \to + \infty} F(x,y)
 $$
 
@@ -62,6 +62,7 @@ $$
 同理也有边缘分布律，容易得到边缘分布律满足一维随机变量分布律的性质
 
 这里给出二维离散型随机变量 $(X,Y)$ 的独立性条件
+
 $$
 \forall i ,j=1,2,\cdots,\quad P(X= x_i, y= y_j) = P(X = x_i)P(Y = y_j)
 $$
@@ -73,8 +74,9 @@ $$
 - 三项分布 $T(n, p_1, p_2)$
 
 从 $n$ 次 0-1 分布实验上升为 $n$ 次 "0-1-2" 分布实验
+
 $$
-P(X=i,Y=j)=\frac{n!}{i!j!(n-i-j)!}p_1^ip_2^j(1-p_1-p_2)^{n-i-j}\\\\i,j=0,1,\cdots,n,\quad i+j\leqslant n
+P(X=i,Y=j)=\frac{n!}{i!j!(n-i-j)!}p_1^ip_2^j(1-p_1-p_2)^{n-i-j}\\i,j=0,1,\cdots,n,\quad i+j\leqslant n
 $$
 
 其实不是很常见，但是值得注意的是：三项分布的边缘分布是二项分布
@@ -112,7 +114,7 @@ $p(x, y)$ 的大小反映了 $(X,Y)$ 落在点 $(x, y)$ 附近的概率大小。
 ### 边缘密度及独立性条件
 
 $$
-p_X(x) = F^\prime_X(x) = \int_{-\infty}^{+\infty} p(x,y) dy \\\\
+p_X(x) = F^\prime_X(x) = \int_{-\infty}^{+\infty} p(x,y) dy \\
 p_Y(y) = F^\prime_Y(y) = \int_{-\infty}^{+\infty} p(x,y) dx
 $$
 
@@ -121,6 +123,7 @@ $$
 $$
 p(x, y) = p_X(x) \cdot p_Y(y)
 $$
+
 这也是等价的独立性条件，可推广至 $n$ 维随机变量
 
 <br>
@@ -131,7 +134,7 @@ $$
 
 $$
 p(x) = \begin{cases}
-\frac{1}{S_D},  & \text{ if } (x,y) \in D\\\\
+\frac{1}{S_D},  & \text{ if } (x,y) \in D\\
 0  ,& \text{ if } else
 \end{cases}
 \qquad
@@ -145,7 +148,7 @@ $$
     这是一维正态分布：$p(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)^2}{2\sigma}},x\in\R$
 
 $$
-\begin{aligned}p(x,y)&=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\bigg(-\frac{1}{2(1-\rho^2)}\bigg[ \bigg(\frac{x-\mu_1}{\sigma_1}\bigg)^2\\\\&-2\rho\left(\frac{x-\mu_1}{\sigma_1}\right)\left(\frac{y-\mu_2}{\sigma_2}\right)+\left(\frac{y-\mu_2}{\sigma_2}\right)^2\bigg]\bigg)\end{aligned}
+\begin{aligned}p(x,y)&=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\bigg(-\frac{1}{2(1-\rho^2)}\bigg[ \bigg(\frac{x-\mu_1}{\sigma_1}\bigg)^2\\&-2\rho\left(\frac{x-\mu_1}{\sigma_1}\right)\left(\frac{y-\mu_2}{\sigma_2}\right)+\left(\frac{y-\mu_2}{\sigma_2}\right)^2\bigg]\bigg)\end{aligned}
 $$
 
 $X, Y$ 服从二维正态分布，则相互独立的充要条件是 $\rho  = 0$ 
@@ -189,7 +192,7 @@ $$
 ??? quote "完整的推导过程"
 
     $$
-    \begin{aligned}F_{X|Y=y}(x)\;&\begin{aligned}=\lim_{\varepsilon\to0}\frac{P(X\leqslant x,y\leqslant Y<y+\varepsilon)}{P(y\leqslant Y<y+\varepsilon)}=\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{F_Y(y+\varepsilon)-F_Y(y)}\end{aligned}\\\\&=\frac{\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{\varepsilon}}{\lim_{\varepsilon\to0}\frac{F_Y(y+\varepsilon)-F_Y(y)}{\varepsilon}}=\frac{\frac{\partial F(x,y)}{\partial y}}{\frac{d}{dy}F_Y(y)}\\\\&\begin{aligned}&=\frac{\frac{\partial}{\partial y}\int_{-\infty}^x\int_{-\infty}^yp(u,v)dudv}{p_Y(y)}=\frac{\int_{-\infty}^xp(u,y)du}{p_Y(y)}=\int_{-\infty}^x\frac{p(u,y)}{p_Y(y)}du\end{aligned}\end{aligned}
+    \begin{aligned}F_{X|Y=y}(x)\;&\begin{aligned}=\lim_{\varepsilon\to0}\frac{P(X\leqslant x,y\leqslant Y<y+\varepsilon)}{P(y\leqslant Y<y+\varepsilon)}=\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{F_Y(y+\varepsilon)-F_Y(y)}\end{aligned}\\&=\frac{\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{\varepsilon}}{\lim_{\varepsilon\to0}\frac{F_Y(y+\varepsilon)-F_Y(y)}{\varepsilon}}=\frac{\frac{\partial F(x,y)}{\partial y}}{\frac{d}{dy}F_Y(y)}\\&\begin{aligned}&=\frac{\frac{\partial}{\partial y}\int_{-\infty}^x\int_{-\infty}^yp(u,v)dudv}{p_Y(y)}=\frac{\int_{-\infty}^xp(u,y)du}{p_Y(y)}=\int_{-\infty}^x\frac{p(u,y)}{p_Y(y)}du\end{aligned}\end{aligned}
     $$
 
 因此
@@ -212,9 +215,11 @@ $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p
 
     - 这里有一个结论：**泊松分布**和**二项分布**具有可加性：
     
+    对于相互独立的随机变量 $X_1, X_2, \cdots, X_n$，有
+    
     $$
-    \forall k = 1,\cdots,n,\;X_k \sim P(\lambda_k) \longrightarrow \sum_{i=1}^n X_i \sim P(\sum_{i=1}^n \lambda_i) \\\\
-    \forall k = 1,\cdots,n,\;X_k \sim B(\lambda_k) \longrightarrow \sum_{i=1}^n X_i \sim B(\sum_{i=1}^n \lambda_i)
+    \forall k = 1,\cdots,n,\;X_k \sim P(\lambda_k) \longrightarrow \sum_{i=1}^n X_i \sim P(\sum_{i=1}^n \lambda_i) \\
+    \forall k = 1,\cdots,n,\;X_k \sim B(n_k, p) \longrightarrow \sum_{i=1}^n X_i \sim B(\sum_{i=1}^n n_i, p)
     $$
 
 2-  $X,Y$ 为连续型随机变量，此时的常见做法依旧是分布函数法：
@@ -226,6 +231,12 @@ $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p
 !!! abstract ""
 
     - 这里有一个结论：**正态分布**具有可加性
+    
+    对于相互独立的随机变量 $X_1, X_2, \cdots, X_n$，有
+    
+    $$
+    \forall k = 1,\cdots,n,\;X_k \sim N(\mu_k, \sigma_k^2) \longrightarrow \sum_{i=1}^n X_i \sim P(\sum_{i=1}^n \mu_i, \sum_{i=1}^n \sigma_i^2)
+    $$
 
 3- $X,Y$ 一个为离散型，一个为连续型
 
@@ -264,7 +275,7 @@ $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p
 对于 $Z = X+Y$：
 
 $$
-p_Z(z) = \int_{-\infty}^{+\infty} p(x,z-x)dx = \int_{-\infty}^{+\infty} p(z-y,y)dy
+p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,z-x)dx = \int_{-\infty}^{+\infty} p(z-y,y)dy}
 $$
 
 如果 $X,Y$ 独立，还可以转换为：（称下面的公式为**卷积公式**）
@@ -273,7 +284,7 @@ p_Z(z) = \int_{-\infty}^{+\infty} p_X(x) \cdot p_Y(z-x)dx = \int_{-\infty}^{+\in
 $$
 同理对于 $Z=X-Y$：
 $$
-p_Z(z) = \int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy
+p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy}
 $$
 
 !!! abstract ""
@@ -307,14 +318,14 @@ $$
 对于 $Z = XY$ 
 
 $$
-p_Z(z) = \int_{-\infty}^{+\infty} p \left( x, \frac{z}{x} \right) \frac{1}{|x|} \, dx = \int_{-\infty}^{+\infty} p \left( \frac{z}{y}, y \right) \frac{1}{|y|} \, dy
+p_Z(z) ={\color{orange} \int_{-\infty}^{+\infty} p \left( x, \frac{z}{x} \right) \frac{1}{|x|} \, dx = \int_{-\infty}^{+\infty} p \left( \frac{z}{y}, y \right) \frac{1}{|y|} \, dy}
 $$
 
 对于 $Z =X/Y\;(Y/X)$
 
 $$
 \begin{aligned}
-p_Z(z) &= \int_{-\infty}^{+\infty} p(x, zx) |x| \, dx \quad(Z = Y/X) \\\\ &= \int_{-\infty}^{+\infty} p(zy, y) |y| \, dy \quad(Z = X/Y)
+p_Z(z) &= \int_{-\infty}^{+\infty} p(x, zx) |x| \, dx \quad(Z = Y/X) \\ &= \int_{-\infty}^{+\infty} p(zy, y) |y| \, dy \quad(Z = X/Y)
 \end{aligned}
 $$
 
@@ -327,13 +338,13 @@ $$
 对于 $Z = \max(X,Y)$ 
 
 $$
-F_Z(z) = F_X(z)F_Y(z)
+{\color{orange}F_Z(z) = F_X(z)F_Y(z)}
 $$
 
 对于 $Z = \min(X,Y)$ 
 
 $$
-F_Z(z) = 1-[1-F_X(z)][1-F_Y(z)]
+{\color{orange}F_Z(z) = 1-[1-F_X(z)][1-F_Y(z)]}
 $$
 
 上面两个式子都可以进行 $n$ 维推广

@@ -31,14 +31,14 @@ $$
 - 几何分布 $X \sim g(p)$ 
 
 $$
-EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\\\
+EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\
 DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = {\color{orange}{\frac{1-p}{p^2}}}
 $$
 
 - 二项分布 $X \sim B(n,p)$ 
 
 $$
-EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\\\
+EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\
 DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D(X_k) \right)= {\color{orange}{np(1-p)}}
 $$
 
@@ -47,7 +47,7 @@ $$
 - 泊松分布 $X \sim P(\lambda)$ 
 
 $$
-EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\\\
+EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\
 DX = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{orange}{\lambda}}
 $$
 
@@ -76,21 +76,21 @@ $$
 - 均匀分布 $X \sim U[a,b]$ 
 
 $$
-EX = {\color{orange}{\frac{a+b}{2}}} \\\\
+EX = {\color{orange}{\frac{a+b}{2}}} \\
 DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = {\color{orange}{\frac{(b-a)^2}{12}}}
 $$
 
 - 指数分布 $X \sim E(\lambda)$ 
 
 $$
-EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\\\
+EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\
 DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{orange}{ \frac{1}{\lambda^2}}}
 $$
 
 - 正态分布 $X \sim N(\mu, \sigma^2)$ 
 
 $$
-EX = {\color{orange}{\mu}} \\\\
+EX = {\color{orange}{\mu}} \\
 DX = {\color{orange}{\rho^2}}
 $$
 
@@ -136,13 +136,13 @@ $$
 
 设随机变量 $X$ 的期望 $EX$ 和方差 $DX$ 均存在，则对任意 $ε > 0$：
 $$
-P(|X - EX| \geq ε) \leq \dfrac{DX}{ε^2}
+{\color{orange}P(|X - EX| \geq ε) \leq \dfrac{DX}{ε^2}}
 $$
 
 ???+ abstract "Proof"
 
     $$
-    P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
+    P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
     $$
 
 可以借助证明：$DX = 0 \longrightarrow X = c$ 
@@ -252,11 +252,11 @@ $$
 $$
 \Sigma =
 \begin{pmatrix}
-c_{11} & c_{12} & \cdots & c_{1n} \\\\
-c_{21} & c_{22} & \cdots & c_{2n} \\\\
-\vdots & \vdots & \ddots & \vdots \\\\
+c_{11} & c_{12} & \cdots & c_{1n} \\
+c_{21} & c_{22} & \cdots & c_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
 c_{n1} & c_{n2} & \cdots & c_{nn}
 \end{pmatrix}
 $$
 
-为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 & \sigma_1 \sigma_2 \rho \\\\ \sigma_1 \sigma_2 \rho & \sigma_2^2\end{bmatrix}$ 
+为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2\end{bmatrix}$ 
