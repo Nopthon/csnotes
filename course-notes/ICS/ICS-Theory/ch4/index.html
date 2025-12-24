@@ -5214,8 +5214,8 @@
     |     |-----------------|
     |     |        a        |
     |     |-----------------|
-    ↓     |  ret_addr of P  |
-    |     |-----------------| &lt;=== ESP
+    |     |  ret_addr of P  |
+    ↓     |-----------------| &lt;=== ESP
  low addr
 </code></pre></div></td></tr></tbody></table></div>
 <p>之后 EIP 被修改为 Q 的初地址</p>
@@ -5497,7 +5497,7 @@
 <h3 id="_9">联合体</h3>
 <p>联合体的所有成员共享同一段内存，大小为<strong>最大成员的大小</strong>，并按照最宽成员对齐。访问不同成员时，机器级代码使用相同的起始地址，但可能使用不同的数据宽度和寄存器。</p>
 <p>注意机器级代码并不区分联合体内存中存储的数据是什么类型，本质上都是 0/1 序列，因此如果对一个 <code>union {float f; int i}</code> 初始化为单精度浮点数 <code>f</code>，然后访问 <code>i</code>，实际上是将 IEEE 754 浮点数的 32 位值强行以 int 值的形式访问，而不是取整操作</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-17"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-17T11:54:34.367871+08:00">2025-12-17</time></span><span data-tippy-content data-tippy-raw="2025-12-23"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-23T00:24:03.112287+08:00">2025-12-23</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
 
 
