@@ -108,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ch8" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2244,6 +2249,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程与异常控制流
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2261,6 +2286,64 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逻辑控制流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上下文切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2854,13 +2937,6 @@
 
     
   </span>
-  
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
   
   
 
@@ -4701,6 +4777,55 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逻辑控制流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上下文切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4801,8 +4926,30 @@
 
 
 
-  <h1>进程与异常控制流</h1>
-
+<h1 id="ch8">Ch.8 进程与异常控制流</h1>
+<h2 id="_1">进程</h2>
+<p>程序是代码 + 数据的集合，是静态的。当程序被加载运行时，这一过程是动态的。我们称程序的一次运行过程为进程。具体来说，进程是一个程序给定某个数据集合作为输入的一次运行活动，是操作系统对处理器中程序运行过程的一种抽象，因而进程具有动态的含义。</p>
+<p>计算机系统中常见的“任务”往往指的是进程，每个进程通过进程描述符进行描述，所有进程通过任务列表来描述（本质是一个存储了进程描述符的双向循环链表）</p>
+<h3 id="_2">逻辑控制流</h3>
+<p>对于一个启动执行的程序，其代码段中每条指令的 PC 值都是确定的，对于给定的输入，进程的一串 PC 序列也是确定的，我们称之为进程的逻辑控制流</p>
+<p>现在考虑单核 CPU，其在同一时间内只能“完成一件事”。当多个进程在某一时间段同时运行时，CPU 会让这些进程轮流进行，也就是说，CPU 的物理控制流是由多个逻辑控制流交织组成的</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226185458463.png" data-desc-position="bottom"><img alt="image-20251226185458463" src="../images/image-20251226185458463.png"></a></p>
+<p>以上图为例，只要多个逻辑控制流在时间上交错或重叠，就会采用<strong>并发</strong>的方式进行交织处理。相对应的，对于多（核）处理器，操作系统能够让多个进程在同一时间内执行，我们称之为<strong>并行</strong></p>
+<p>我们定义连续执行同一个进程的时间段为时间片（参考上图中的每一个处于同一进程的 <span class="arithmatex">\(t_n\sim t_{n+1}\)</span> 时间段，比如 <span class="arithmatex">\(t_0 \sim t_2\)</span>）</p>
+<p><br></p>
+<h3 id="_3">上下文切换</h3>
+<div class="admonition quote">
+<p class="admonition-title">只考虑进程上下文</p>
+</div>
+<p>既然 CPU 采用并发的方式同时处理多条任务，就需要设置相对应的上下文机制，比如说，不同进程对寄存器的使用需要分别进行保存，否则会造成寄存器调用混乱。我们引入上下文切换的过程</p>
+<p>首先需要介绍上下文：一个进程在 CPU 上运行时所依赖的所有状态信息的总和。当我们进行多线程并发执行时，不同进程依靠各自的上下文就可以以不被打扰的方式完整执行</p>
+<p>上下文包含三个部分：</p>
+<ul>
+<li>CPU 上下文：包括通用寄存器、EIP、EFLAGS 等内容</li>
+<li>内存管理上下文：包含 CR3（页表基地址），段寄存器等描述进程虚拟空间的上下文</li>
+<li>内核态资源上下文：操作系统管理的与进程有关的所有资源，比如打开了什么文件</li>
+</ul>
+<p>上下文切换是操作系统保存当前进程的状态，并恢复另一个进程状态的过程，目的是实现并发效果。</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
 

@@ -2949,13 +2949,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5001,7 +4994,7 @@
 <h2 id="_1">实现</h2>
 <p>对 <code>config.h</code> 和 <code>Makefile</code> 的修改简单来说就是建立虚拟内存地址空间的布局，将内核的虚拟地址从 <code>0x30000</code> 修改为 <code>0xc0030000</code>，对应的物理地址不变，同时将用户程序的虚拟地址统一为 <code>0x8048000</code>（物理地址依旧是分散的），这是为了还原真实的 Linux 内存机制</p>
 <p>Kernel 的行为改变参照 PA 手册，这里只介绍如何完善 NEMU 的代码层：</p>
-<p>首先完成对 <code>CR3</code> 寄存器的实现，其存储了页表的根目录物理地址</p>
+<p>首先完成对 <code>CR3</code> 寄存器的实现，其存储了页目录的物理基地址</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>

@@ -3077,13 +3077,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5287,8 +5280,10 @@
 <p>图中的只读代码段和可读写数据段都需要装入内存并分配存储空间，因此称之为可装入段</p>
 <p><br></p>
 <h3 id="_4">存储器映像</h3>
-<p>磁盘文件的各个可装入段信息向虚拟地址的映射如图所示，程序映像从 <code>0x8048000</code> 开始装填，内核地址从 <code>0xC0000000</code> 开始</p>
+<p>磁盘文件的各个可装入段信息向虚拟地址的映射如图所示</p>
+<p>对于 IA-32 程序，程序映像从 <code>0x8048000</code> 开始装填，内核地址从 <code>0xC0000000</code> 开始；对于 x86-64 程序，程序映像从 <code>0x400000</code> 开始装填，对于 PIE（位置无关可执行文件），代码起始地址会在 <code>0</code> 附近</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251222032403334.png" data-desc-position="bottom"><img alt="image-20251222032403334" src="../images/image-20251222032403334.png"></a></p>
+<p>（这张图会在第七章具体描述）</p>
 <p><strong>程序在加载过程中，仅仅创建了可装入段对应的页表项，只有在第一次遇到缺页异常时，才会真正加载代码和数据到主存</strong>，这点之后会说</p>
 <p><br></p>
 <h3 id="_5">符号表</h3>
@@ -5375,8 +5370,8 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>遍历命令行中的每个输入文件 f:
-    if f 是可重定位文件 (.o):
-        1. 将 f 加入 E
+<span class="hll">    if f 是可重定位文件 (.o):
+</span>        1. 将 f 加入 E
         2. 处理 f 中的符号：
            - 对于 f 中定义的每个符号 s:
                if s 已经在 D 中: 报错（重复定义）
@@ -5385,8 +5380,8 @@
                if s 在 D 中: 已解析，什么也不做
                else: 将 s 加入 U
 
-    else if f 是静态库文件 (.a):
-        1. 遍历库中的每个目标模块 m:
+<span class="hll">    else if f 是静态库文件 (.a):
+</span>        1. 遍历库中的每个目标模块 m:
            - 检查 m 中定义的符号是否能解决 U 中的未解析符号
            - 如果 m 定义了某个 U 中的符号 s:
                * 将 m 加入 E
