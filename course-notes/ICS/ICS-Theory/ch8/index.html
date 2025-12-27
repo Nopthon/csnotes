@@ -2341,6 +2341,117 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常与中断
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="异常与中断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中断
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        响应
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ia-32x86-64-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IA-32/x86-64 Linux 的异常/中断机制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IA-32/x86-64 Linux 的异常/中断机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保护模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常与中断的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统调用的细化处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4825,6 +4936,117 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常与中断
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="异常与中断">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中断
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        响应
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ia-32x86-64-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IA-32/x86-64 Linux 的异常/中断机制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IA-32/x86-64 Linux 的异常/中断机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保护模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常与中断的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统调用的细化处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4942,14 +5164,560 @@
 <p class="admonition-title">只考虑进程上下文</p>
 </div>
 <p>既然 CPU 采用并发的方式同时处理多条任务，就需要设置相对应的上下文机制，比如说，不同进程对寄存器的使用需要分别进行保存，否则会造成寄存器调用混乱。我们引入上下文切换的过程</p>
-<p>首先需要介绍上下文：一个进程在 CPU 上运行时所依赖的所有状态信息的总和。当我们进行多线程并发执行时，不同进程依靠各自的上下文就可以以不被打扰的方式完整执行</p>
-<p>上下文包含三个部分：</p>
+<p>首先需要介绍上下文：一个进程在 CPU 上运行时所依赖的所有状态信息（代码、数据、环节）的总和。当我们进行多线程并发执行时，不同进程依靠各自的上下文就可以以不被打扰的方式完整执行</p>
+<p>上下文可以（不按照教材的划分方式）简单包含三个部分：</p>
 <ul>
 <li>CPU 上下文：包括通用寄存器、EIP、EFLAGS 等内容</li>
 <li>内存管理上下文：包含 CR3（页表基地址），段寄存器等描述进程虚拟空间的上下文</li>
 <li>内核态资源上下文：操作系统管理的与进程有关的所有资源，比如打开了什么文件</li>
 </ul>
-<p>上下文切换是操作系统保存当前进程的状态，并恢复另一个进程状态的过程，目的是实现并发效果。</p>
+<details class="quote">
+<summary>教材的进程上下文划分</summary>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226200442083.png" data-desc-position="bottom"><img alt="image-20251226200442083" src="../images/image-20251226200442083.png"></a></p>
+</details>
+<p>上下文切换是操作系统保存当前进程的状态，并恢复另一个进程状态的过程，目的是实现并发效果。下图表示的就是通过 shell 运行 hello 程序时，hello 程序和 shell 程序的系统上下文切换</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226200313804.png" data-desc-position="bottom"><img alt="image-20251226200313804" src="../images/image-20251226200313804.png"></a></p>
+<p>在一个进程的完整生命周期中，运行时消耗的时间可以分为用户时间和系统时间，分别代表在用户态执行代码的时间和在系统态执行代码的时间，加和在一起为实际时间 / 挂钟时间。</p>
+<blockquote>
+<p>比如之后我们会提到 <code>printf</code> 函数调用，<code>printf</code> 调用系统函数 <code>write</code> 期间属于用户时间，而从 <code>write</code> 函数执行 <code>int $0x80</code>，切换到内核态执行 <code>syscall</code> 等指令开始，这部分时间属于系统时间</p>
+<p>可以使用 <code>time ./program</code> 指令获取这三种时间（图中演示的是朴素实现的求斐波那契数列的第 10w 项，这是一个用户时间远大于系统时间的计算密集型程序）：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226204901531.png" data-desc-position="bottom"><img alt="image-20251226204901531" src="../images/image-20251226204901531.png"></a></p>
+</blockquote>
+<p><br></p>
+<h2 id="_4">异常与中断</h2>
+<p>系统中有多个进程并发执行时，操作系统内核通过某种算法策略决定在何时进行进程的切换，这被称为处理器调度。一个进程在正常执行的过程中，其逻辑控制流会因为处理器调度打断</p>
+<p>不仅如此，还有一些其他时间会导致逻辑流被打断，比如发送 Ctrl+C，出现无法继续执行的意外事件，等等。这些特殊事件统称为异常 / 中断。上下文切换和异常 / 中断都会造成异常控制流</p>
+<p>我们细分 Intel 体系结构中，异常与中断的定义：</p>
+<ul>
+<li>
+<p>异常是处理器执行一条指令时，由处理器在其内部检测到的，与正在执行的指令相关的同步事件。</p>
+<ul>
+<li>异常包括三种类型：硬故障中断、程序性异常、陷阱，前者表示硬连线路出错，中者表示一系列“程序不应发生”的异常事件，后者是一种预先安排的事件</li>
+<li>
+<p>中断是一种由 I/O 设备触发的、与当前正在该执行的指令无关的典型异步事件</p>
+</li>
+<li>
+<p>比如用户按下 Ctrl+C 中断程序</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>为了强调特殊事件的来源，我们又称异常为内部异常，中断为外部中断</p>
+</blockquote>
+<p>对异常和中断的处理过程是大致相同的，其大致的异常控制流如图所示</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226213035129.png" data-desc-position="bottom"><img alt="image-20251226213035129" src="../images/image-20251226213035129.png"></a></p>
+<p>CPU 在执行完第 <span class="arithmatex">\(i\)</span> 条指令时检测到异常，或者在执行完第 <span class="arithmatex">\(i\)</span> 条指令后收到中断，就会停下当前用户进程，转到相应的异常 / 中断处理程序去执行。具体的操作如图</p>
+<p><br></p>
+<h3 id="_5">异常</h3>
+<p>让 AI 给出一个省流版总结：</p>
+<details class="warning">
+<summary>在 CSAPP 中，异常和中断统一为异常，中断是异常的一个分类</summary>
+<p>考虑到异步发生的中断和其他三种不一样，因此教材分离出了中断</p>
+</details>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">中文名称</th>
+<th style="text-align: left;">触发时机</th>
+<th style="text-align: left;">是否可恢复</th>
+<th style="text-align: left;">异常返回后程序执行位置</th>
+<th style="text-align: left;">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Fault</strong></td>
+<td style="text-align: left;">故障</td>
+<td style="text-align: left;">异常发生时，CPU 检测到错误，指令还未完全执行完</td>
+<td style="text-align: left;">❓可能可恢复</td>
+<td style="text-align: left;">异常处理后返回到<strong>原指令</strong>重新执行<br>也有可能中止相应的程序</td>
+<td style="text-align: left;">缺页异常<br>整数除 0、段错误、非法操作码</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trap</strong></td>
+<td style="text-align: left;">陷阱</td>
+<td style="text-align: left;">指令执行<strong>结束后</strong>主动触发</td>
+<td style="text-align: left;">✅ 可恢复</td>
+<td style="text-align: left;">异常处理后返回到<strong>下一条指令</strong></td>
+<td style="text-align: left;">系统调用、断点、单步调试</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abort</strong></td>
+<td style="text-align: left;">终止</td>
+<td style="text-align: left;">严重错误导致 CPU 无法确定故障点</td>
+<td style="text-align: left;">❌ 不可恢复</td>
+<td style="text-align: left;">程序通常被强制终止</td>
+<td style="text-align: left;">双重错误、机器检查错误<br><em>电脑蓝屏</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>故障可能恢复，也可能会终止程序</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227150727914.png" data-desc-position="bottom"><img alt="image-20251227150727914" src="../images/image-20251227150727914.png"></a></p>
+<details class="example">
+<summary>Examples</summary>
+<p>缺页故障往往可以恢复，一个例子：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226214825725.png" data-desc-position="bottom"><img alt="image-20251226214825725" src="../images/image-20251226214825725.png"></a></p>
+<p>在 Linux 中，不可恢复的访存故障（如地址越界和访问越权）都称为段故障（11 号 SIGSEGV 信号）</p>
+<p>段故障不能恢复，一个例子：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226214904701.png" data-desc-position="bottom"><img alt="image-20251226214904701" src="../images/image-20251226214904701.png"></a></p>
+<details class="quote">
+<summary>这是 ICS Lab&amp;PA 头号杀手，你敢和它对视十秒吗</summary>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/good-news.png" data-desc-position="bottom"><img alt="good-news" src="../images/good-news.png"></a></p>
+</details>
+</details>
+<hr>
+<ul>
+<li>陷阱指令是预先安排的异常，称为编程异常。其一个重要作用是在用户层和内核层之间提供一个接口（系统调用），另一个作用是设置单步执行和断点，用于调试。</li>
+</ul>
+<p>通常将 <code>INT n</code> 指令称为软中断指令，对应的异常为软中断</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227150605085.png" data-desc-position="bottom"><img alt="image-20251227150605085" src="../images/image-20251227150605085.png"></a></p>
+<hr>
+<ul>
+<li>终止意味着出现了 CPU 无法处理的严重问题，只能选择中止当前程序，更严重的会导致 “死机”</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227150820500.png" data-desc-position="bottom"><img alt="image-20251227150820500" src="../images/image-20251227150820500.png"></a></p>
+<p><br></p>
+<h3 id="_6">中断</h3>
+<p>中断请求是由 CPU 外部的 I/O 设备需要 CPU 进行某种处理时发出的一种请求信号，I/O 设备通过特定的中断请求信号线向CPU提出中断申请。</p>
+<p>CPU在执行指令的过程中，每执行完一条指令都会检查中断请求引脚，如果中断请求引脚信号有效，则进入中断响应周期。通常，在中断响应周期中，CPU 先将当前 PC 值（称为断点）和当前的机器状态保存到栈或特定的寄存器中，并切换至关中断状态，然后跳转到统一中断服务程序执行。中断响应过程由硬件完成，具体的中断处理工作由 CPU 执行统一的中断服务程序完成，包括读取中断类型号，并根据中断类型号跳转到具体的中断服务程序执行。中断处理完成后，再回到被打断程序的断点处继续执行。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226220949268.png" data-desc-position="bottom"><img alt="image-20251226220949268" src="../images/image-20251226220949268.png"></a></p>
+<p>中断分为可屏蔽中断和不可屏蔽中断，前者可能不会被 CPU 响应，后者一定会被响应（不响应会出大问题的那种）</p>
+<p><br></p>
+<h3 id="_7">响应</h3>
+<p>异常和中断的处理逻辑，从基本原理上来说大致相同：</p>
+<blockquote>
+<p>保护断点（返回地址）和程序状态</p>
+</blockquote>
+<p>断点指的是当前指令 / 下一条指令的地址</p>
+<p>程序状态字保存程序的运行状态，存放在程序状态字寄存器 PSWR 中，比如 IA-32 的 PSWR 就是 EFLAGS。</p>
+<p>对于支持嵌套处理的处理器，断点和程序状态字存储在栈上，否则存入特定的寄存器中</p>
+<blockquote>
+<p>关中断（仅中断，不包括异常）</p>
+</blockquote>
+<p>中断使能位指示当前是否接受新的（可屏蔽）中断响应，对于 IA-32，中断使能位为 <code>EFLAGS.IF</code>。当 <code>IF = 0</code> 时表示关中断，当 <code>IF = 1</code> 时表示开中断</p>
+<p>为了避免在处理已有中断时被新的中断打扰，我们需要在接手当前中断后关中断，来”专心完成这一件事“</p>
+<blockquote>
+<p>识别异常 / 中断并跳转处理程序</p>
+</blockquote>
+<p>内部异常：CPU将异常类型记录在特定寄存器中，供操作系统查询。</p>
+<p>外部中断：由中断控制器根据设备请求和优先级识别中断类型号，并传给CPU。</p>
+<p>对中断/异常类型的识别也分两种模式：</p>
+<ul>
+<li>软件识别：通过查询原因寄存器判断异常类型，再跳转处理程序</li>
+<li><strong>硬件识别</strong>：每个异常 / 中断有唯一类型号，对应中断向量表中的入口地址，CPU据此直接跳转。</li>
+</ul>
+<p>IA-32/x86-64 Linux 就采用硬件识别</p>
+<p><br></p>
+<h2 id="ia-32x86-64-linux">IA-32/x86-64 Linux 的异常/中断机制</h2>
+<p>IA-32/x86-64 对中断 / 异常类型的识别采用硬件方式。每个异常/中断有唯一类型号（称为中断类型号），其中前 32 个中断类型为处理器保留值，后面的类型可以由操作系统定义。</p>
+<p>指令 <code>INT n</code> 可以使 CPU 自动跳转到中断类型号 <span class="arithmatex">\(n\)</span> 对应的处理程序执行</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227145959549.png" data-desc-position="bottom"><img alt="image-20251227145959549" src="../images/image-20251227145959549.png"></a></p>
+<p>类似于段机制，异常/中断机制在实模式和保护模式下是不一样的：</p>
+<details class="success">
+<summary>建议结合段式虚拟存储管理机制食用，两者挺像的</summary>
+</details>
+<h3 id="_8">实模式</h3>
+<details class="quote">
+<summary>实模式没有分页机制，地址空间 1 MB，主要采用段机制</summary>
+</details>
+<p>实地址模式下，异常 / 中断处理程序的入口地址由高 16 位段地址和低 16 位偏移地址组成，称为中断向量。我们使用中断向量表 IVT 来存储每种类型的入口地址</p>
+<p>IVT 固定在物理地址 <code>0x0000 ~ 0x03FF</code>，共 256 个表项，每项 4 Bytes（段地址 &amp; 偏移地址）</p>
+<p>当异常 / 中断发生时，我们需要保存现场：保护断点（返回地址）和程序状态，关中断，然后根据中断号 <code>n</code> 计算处理程序的入口地址：</p>
+<ol>
+<li>将中断号乘上中断向量的大小 4 Byte，得到 index</li>
+<li>读取段地址和偏移地址，然后拼接成物理地址：<code>paddr = ((uint32_t)cs &lt;&lt; 4) + ip</code>（这件事你在段式虚拟存储器的实模式下已经干过了</li>
+</ol>
+<p>实模式下的运用还是很有必要的，一个系统在开机时，默认在实地址下工作，通过 BIOS 程序进行初始化（包括中断向量表和响应中断服务程序的建立），提供基本 I/O 系统的调用。在一切初始化完成后，我们才会进入保护模式，使用接下来的内容：</p>
+<h3 id="_9">保护模式</h3>
+<p>我们引入一个（听上去非常熟悉的）中断描述符表 IDT，用来存放各个”门描述符“，总共 256 个</p>
+<details class="question">
+<summary>如何找到中断描述符表？</summary>
+<p>中断描述符表的首地址存储在特殊寄存器 <code>IDTR</code> 中，储存了下列的信息：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">32-bit</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span><span class="w">  </span><span class="c1">// IDT 大小 - 1，最大 0xFFFF（即 64KB）</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w">   </span><span class="c1">// IDT 基地址（线性地址，32 位模式下）</span>
+<span class="p">}</span><span class="w"> </span><span class="n">IDTR32</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>指令集中，<code>lidt</code> 指令负责从内存加载 IDTR 的内容</p>
+</details>
+<p>门描述符分为中断门描述符、陷阱门描述符、任务门描述符</p>
+<blockquote>
+<p>其中陷阱门描述符对故障都使用，任务门描述符只在双重故障发生时使用</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227154951061.png" data-desc-position="bottom"><img alt="image-20251227154951061" src="../images/image-20251227154951061.png"></a></p>
+<p>P = Present，Linux 总会置为 1</p>
+<p>DPL 表示访问本段内容的最低特权等级（0 是权限最高的内核态，3 是任何进程都允许访问的态），和 CPL 比较</p>
+<p>DPL 后面两位开始的 ”<code>1110</code>“ 指示门描述符的类型：</p>
+<table>
+<thead>
+<tr>
+<th>TYPE</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1110</code></td>
+<td>中断门</td>
+</tr>
+<tr>
+<td><code>1111</code></td>
+<td>陷阱门</td>
+</tr>
+<tr>
+<td><code>0101</code></td>
+<td>任务门</td>
+</tr>
+</tbody>
+</table>
+<p>段选择符用来从全局描述符表 GDT 中找到对应的段描述符，取出基地址，偏移地址进一步给出偏移量，得到入口程序的线性地址（至于之后的内容，那是分页机制的内容）</p>
+<p>因为异常 / 中断处理程序属于内核代码段，因此所有中断门和陷阱门的段选择符都指向 GDT 中的内核代码段描述符（还是这张图）</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226150815916-1766823532285-2.png" data-desc-position="bottom"><img alt="image-20251226150815916" src="../images/image-20251226150815916-1766823532285-2.png"></a></p>
+<p>之前我们也提到了，Linux 在扁平化段机制之后，门描述符的段选择符的功能几乎是用不上了。</p>
+<div class="admonition quote">
+<p class="admonition-title">任务门描述符只包含 TSS 段选择符，指向 GDT 的 TSS 段描述符，此处略</p>
+</div>
+<p><br></p>
+<h3 id="_10">异常与中断的处理</h3>
+<p>（我们只考虑保护模式下的步骤）</p>
+<blockquote>
+<p>以下是 CPU 需要完成的事情</p>
+</blockquote>
+<ol>
+<li>确定类型号，根据 IDTR 找到对应的 IDT 表项 IDTi，获取异常/中断的类型信息</li>
+<li>根据 IDTi 中的段选择符，从 GDT 中取出对应的段描述符，得到异常 / 中断处理程序所在的代码段基址，以及段 DPL</li>
+<li>将当前代码段的特权级 CPL 和 DPL 比较，<strong>当 CPL &lt; DPL 时触发 13 号异常。因为异常 / 中断处理程序属于内核代码段，而触发异常 / 中断的<u>可能</u>属于用户代码段，所以 CPL ≥ DPL 反而是大概率发生的</strong><ul>
+<li>对于陷阱（编程异常），我们为了防止恶意进入内核，会比较 IDTi 门描述符的 DPL，<strong>当 CPL &gt; DPL 时触发 13 号异常</strong></li>
+</ul>
+</li>
+<li>对于用户代码段触发的异常 / 中断（CPL = 3, DPL = 0），我们需要从用户态切换到内核态：<ul>
+<li>读 TR 寄存器来访问当前进程的 TSS 段，将 TSS 段中保存的内核段的段选择符和栈指针分别装入寄存器 SS 和 ESP ，然后在内核栈中保存原来用户栈的 SS 和 ESP</li>
+<li>如果发生的是故障，我们还需要将发生故障指令的逻辑地址存入 CS 和 EIP，确保可以返回</li>
+</ul>
+</li>
+<li>接下来我们开始布置 TrapFrame：在当前的栈中依次保存 EFLAGS，CS，EIP，对于中断门还要清零 IF 表示关中断，如果存在硬件出错码也要保存到内核栈</li>
+<li>将 IDTi 的段选择符装入 CS，偏移地址装入 EIP，进入异常 / 中断处理程序</li>
+<li>完成处理后，通过 <code>iret</code> 指令回到原进程，首先需要弹栈恢复状态<ul>
+<li>如果之前是用户态 → 内核态，现在我们要回到用户态：弹出 SS ESP，检测 DS ES FS GS 段寄存器内容若其中有某个寄存器的段选择符指向一个段描述符，且其 DPL 小于 CPL，则将该段寄存器清零。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>以下是操作系统需要完成的事情</p>
+</blockquote>
+<p>首先，操作系统需要对 IDT 初始化，我们知道总共有三种门描述符，而 Linux 在此格式基础上构造了 5 种实际的门描述符，以满足不同特权空间内的使用需求</p>
+<ul>
+<li>中断门：DPL = 0</li>
+<li>系统中断门：DPL = 3，对应的是 <code>int 3</code> 指令，用于打断点。DPL = 3 使得用户态下可使用相应内核服务</li>
+<li>陷阱门：DPL = 0</li>
+<li>系统门：DPL = 3，属于陷阱异常，对应 <code>into</code> <code>bound</code> <code>int $0x80</code> 三个程序。DPL = 3 使得用户态下可使用相应内核服务</li>
+<li>任务门：DPL = 0，对应双重故障（8 号中断）</li>
+</ul>
+<p>Linux 会对 GDT GDTR IDT IDTR 都进行初始化设置</p>
+<hr>
+<p>CPU 引导进入异常 / 中断处理程序后，由操作系统确定程序的处理逻辑</p>
+<p><strong>对于异常处理</strong>，我们进行以下三步操作：</p>
+<ol>
+<li>CPU 只保存了 EFLAGS，CS，EIP，而操作系统定义的程序需要在内核栈中保存所有通用寄存器的内容</li>
+<li>进行具体的处理操作</li>
+</ol>
+<details class="quote">
+<summary>一张表</summary>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227170453353.png" data-desc-position="bottom"><img alt="image-20251227170453353" src="../images/image-20251227170453353.png"></a></p>
+</details>
+<ol>
+<li>恢复通用寄存器内容，通过 <code>iret</code> 切换到用户态</li>
+</ol>
+<p><strong>对于中断处理</strong>，分为 I/O 中断，时钟中断，处理器中断，会在下一章介绍</p>
+<p><br></p>
+<h3 id="_11">系统调用的细化处理</h3>
+<p>系统调用属于异常→陷阱，因为我懒了，所以我直接使用了 NEMU 实验报告的思考题，NEMU 是基于 x86 的，但是省略了一些内容，需要结合上述的处理过程解决</p>
+<p>（虽然）</p>
+<blockquote>
+<p>详细描述从测试用例中的 <code>int $0x80</code> 开始一直到 <code>HIT_GOOD_TRAP</code> 为止的详细的系统行为（完整描述控制的转移过程，即相关函数的调用和关键参数传递过程），可以通过文字或画图的方式来完成</p>
+</blockquote>
+<p>针对于 NEMU CPU，读取指令通过 <code>exec(uint32_t n)</code> 进行，调用 opcode 表中对应的函数：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">make_instr_func</span><span class="p">(</span><span class="n">int_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 获取中断号</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">intr_no</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 响应自陷</span>
+<span class="w">    </span><span class="n">raise_sw_intr</span><span class="p">(</span><span class="n">intr_no</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>在得到中断号 <code>0x80</code> 后，调用软件自陷对应的函数 <code>raise_sw_intr(0x80)</code>（相比非自陷指令，其需要额外将 EIP 设置为下一条指令的地址，方便回到用户态后继续执行剩余的指令），然后调用 <code>raise_intr(0x80)</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">raise_intr</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">intr_no</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="cp">#ifdef IA32_INTR</span>
+
+<span class="w">    </span><span class="c1">// step 1: 将 EFLAGS CS EIP 入栈保存上下文（开始构造 TrapFrame，代码略）</span>
+<span class="w">    </span><span class="c1">// step 2: 关中断（代码略）</span>
+<span class="w">    </span><span class="c1">// step 3: 得到异常或中断号，查询`IDT`，提取出处理程序的入口地址并跳转</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">gate</span><span class="p">.</span><span class="n">offset_31_16</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">gate</span><span class="p">.</span><span class="n">offset_15_0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cpu</span><span class="p">.</span><span class="n">segReg</span><span class="p">[</span><span class="n">SREG_CS</span><span class="p">].</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gate</span><span class="p">.</span><span class="n">selector</span><span class="p">;</span>
+<span class="w">    </span><span class="n">load_sreg</span><span class="p">(</span><span class="n">SREG_CS</span><span class="p">);</span>
+<span class="w">    </span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span><span class="w">     </span><span class="c1">// 这里修改了跳转地址为中断向量表中对应的地址</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">raise_sw_intr</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">intr_no</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// return address is the next instruction</span>
+<span class="w">    </span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">raise_intr</span><span class="p">(</span><span class="n">intr_no</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>接下来 NEMU 进入内核态，这里 NEMU 简化了这一实现，<strong>对于真实的 IA-32，我们通过 <code>sysenter</code> 指令从用户态切换到内核态，用 MSR 寄存器存放内核代码段的 CS、EIP、ESP</strong></p>
+<p>在 <code>do_irq.S</code> 中，我们为每一个中断号定义了一个入口，其中 <strong><code>int $0x80</code> 调用系统服务对应的是 <code>versys</code> 入口</strong>：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>#----|-----entry------|-errorcode-|-----id-----|---handler---|
+.globl vec0;    vec0:   pushl $0;  pushl    $0; jmp asm_do_irq
+.globl vec1;    vec1:   pushl $0;  pushl    $1; jmp asm_do_irq
+# 省略一部分
+.globl vec13;   vec13:             pushl   $13; jmp asm_do_irq
+.globl vec14;   vec14:             pushl   $14; jmp asm_do_irq
+
+.globl vecsys; vecsys:  pushl $0;  pushl $0x80; jmp asm_do_irq
+
+.globl irq0;     irq0:  pushl $0;  pushl $1000; jmp asm_do_irq
+.globl irq1;     irq1:  pushl $0;  pushl $1001; jmp asm_do_irq
+.globl irq2;     irq2:  pushl $0;  pushl $1002; jmp asm_do_irq
+.globl irq14;   irq14:  pushl $0;  pushl $1014; jmp asm_do_irq
+.globl irq_empty;
+            irq_empty:  pushl $0;  pushl   $-1; jmp asm_do_irq
+</code></pre></div></td></tr></tbody></table></div>
+<p>将所需的参数（<code>errorcode</code> <code>id</code>）入栈，然后调用 <code>asm_do_irq</code> 函数</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">asm_do_irq:</span>
+<span class="w">    </span><span class="nf">pushal</span><span class="w">          </span><span class="c1"># 保存 GPRs</span>
+<span class="w">    </span><span class="nf">pushl</span><span class="w"> </span><span class="nv">%esp</span><span class="w">      </span><span class="c1"># 把当前栈指针压入栈，作为参数传递给 irq_hangdle()</span>
+<span class="w">                    </span><span class="c1"># 当前的栈顶保存了较为完整的现场，即 TrapFrame 地址</span>
+<span class="w">    </span><span class="nf">call</span><span class="w"> </span><span class="no">irq_handle</span>
+<span class="c1"># --------------------------------------------------------------------------------</span>
+<span class="w">    </span><span class="nf">addl</span><span class="w"> </span><span class="no">$4</span><span class="p">,</span><span class="w"> </span><span class="nv">%esp</span>
+<span class="w">    </span><span class="nf">popal</span>
+<span class="w">    </span><span class="nf">addl</span><span class="w"> </span><span class="no">$8</span><span class="p">,</span><span class="w"> </span><span class="nv">%esp</span>
+<span class="w">    </span><span class="nf">iret</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>接下来到达 <code>irq_handle</code> 函数，其中有这样的内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">irq_handle</span><span class="p">(</span><span class="n">TrapFrame</span><span class="w"> </span><span class="o">*</span><span class="n">tf</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">irq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tf</span><span class="o">-&gt;</span><span class="n">irq</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ... ...</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">irq</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x80</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">do_syscall</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// ... ...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>根据中断号 <code>0x80</code>，执行系统调用 <code>do_syscall</code>，在 <code>do_syscall</code> 中根据中断号跳转到对应的系统服务，调用相关的系统服务。在 Linux 中，系统调用处理程序 <code>system_call</code> 是系统调用的统一入口</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251227175226257.png" data-desc-position="bottom"><img alt="image-20251227175226257" src="../images/image-20251227175226257.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>系统调用号 syscall ID</th>
+<th><code>EAX</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 参数</td>
+<td><code>EBX</code></td>
+</tr>
+<tr>
+<td>第 2 参数</td>
+<td><code>ECX</code></td>
+</tr>
+<tr>
+<td>第 3 参数</td>
+<td><code>EDX</code></td>
+</tr>
+<tr>
+<td>第 4 参数</td>
+<td><code>ESI</code></td>
+</tr>
+<tr>
+<td>第 5 参数</td>
+<td><code>EDI</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">do_syscall</span><span class="p">(</span><span class="n">TrapFrame</span><span class="w"> </span><span class="o">*</span><span class="n">tf</span><span class="p">){</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">tf</span><span class="o">-&gt;</span><span class="n">eax</span><span class="p">){</span><span class="w">               </span><span class="c1">// TrapFrame 中存储的 EAX</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="n">cli</span><span class="p">();</span><span class="w"> </span><span class="n">add_irq_handle</span><span class="p">(</span><span class="n">tf</span><span class="o">-&gt;</span><span class="n">ebx</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">tf</span><span class="o">-&gt;</span><span class="n">ecx</span><span class="p">);</span><span class="w"> </span><span class="n">sti</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_brk</span><span class="p">:</span><span class="w"> </span><span class="n">sys_brk</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_open</span><span class="p">:</span><span class="w"> </span><span class="n">sys_open</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_read</span><span class="p">:</span><span class="w"> </span><span class="n">sys_read</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_write</span><span class="p">:</span><span class="w"> </span><span class="n">sys_write</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_lseek</span><span class="p">:</span><span class="w"> </span><span class="n">sys_lseek</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">SYS_close</span><span class="p">:</span><span class="w"> </span><span class="n">sys_close</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">panic</span><span class="p">(</span><span class="s">"Unhandled system call: id = %d"</span><span class="p">,</span><span class="w"> </span><span class="n">tf</span><span class="o">-&gt;</span><span class="n">eax</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>在完成了内核函数 <code>sys_write()</code> 的调用后，打印出了 <code>Hello, world!</code> 的内容，然后把返回值写回 <code>tf-&gt;eax</code>，回到 <code>asm_do_irq</code> 退栈弹出之前保存的通用寄存器的值（但是 ESP 丢掉了），调用 <code>iret</code> 指令 pop 出 <code>raise_intr</code> 储存的 EIP CS EFLAGS，最后回到用户空间，继续执行之后的指令，直到触发 <code>HIT GOOD TRAP</code></p>
+<p>这里顺便给出调用内核函数前的栈结构：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">栈 高地址</th>
+<th style="text-align: center;">入栈时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">EFLAGS</td>
+<td style="text-align: center;">raise_intr</td>
+</tr>
+<tr>
+<td style="text-align: center;">CS</td>
+<td style="text-align: center;">raise_intr</td>
+</tr>
+<tr>
+<td style="text-align: center;">EIP</td>
+<td style="text-align: center;">raise_intr</td>
+</tr>
+<tr>
+<td style="text-align: center;">error_code: 0</td>
+<td style="text-align: center;">vecsys</td>
+</tr>
+<tr>
+<td style="text-align: center;">id : 0x80</td>
+<td style="text-align: center;">vecsys</td>
+</tr>
+<tr>
+<td style="text-align: center;">EAX</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">ECX</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">EDX</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">EBX</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">ESP（旧值）</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">EBP</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">ESI</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">EDI</td>
+<td style="text-align: center;">asm_do_irq: pushal</td>
+</tr>
+<tr>
+<td style="text-align: center;">ESP（新值）</td>
+<td style="text-align: center;"><em>ESP 指针现在指向的地址</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>栈 低地址</strong></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>上表中的系统栈内容（EFLAGS ~ EDI 的部分）就表示 TrapFrame 的内容</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">TrapFrame</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">edi</span><span class="p">,</span><span class="w"> </span><span class="n">esi</span><span class="p">,</span><span class="w"> </span><span class="n">ebp</span><span class="p">,</span><span class="w"> </span><span class="n">xxx</span><span class="p">,</span><span class="w"> </span><span class="n">ebx</span><span class="p">,</span><span class="w"> </span><span class="n">edx</span><span class="p">,</span><span class="w"> </span><span class="n">ecx</span><span class="p">,</span><span class="w"> </span><span class="n">eax</span><span class="p">;</span><span class="w"> </span><span class="c1">// GPRs</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w">  </span><span class="n">irq</span><span class="p">;</span><span class="w">                                    </span><span class="c1">// #irq</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">error_code</span><span class="p">;</span><span class="w">                             </span><span class="c1">// error code</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">eip</span><span class="p">,</span><span class="w"> </span><span class="n">cs</span><span class="p">,</span><span class="w"> </span><span class="n">eflags</span><span class="p">;</span><span class="w">                        </span><span class="c1">// execution state saved by hardware</span>
+<span class="p">}</span><span class="w"> </span><span class="n">TrapFrame</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
 

@@ -5157,34 +5157,20 @@
 <p>&lt;1&gt; 对于实模式，我们用段寄存器存储每个段的起始地址（的高 16 位），计算<strong>物理地址 = 段基址 × 16 + 偏移量</strong>。乘以 16（左移 4 位）是为了把 16 位段寄存器的值扩展成 20 位地址空间的一部分，从而用 16 位寄存器实现对 1MB 内存的寻址。</p>
 <p>（以防忘记，实模式的寄存器只使用低 16 位）</p>
 <p>&lt;2&gt; 对于保护模式，我们首先引入一个新的概念：段描述符表。它是操作系统维护的一张表，用于存放各个“段描述符”</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>??? question "如何找到段表？"
-
-各个段表的首地址存储在特殊寄存器中：`GDTR` `LDTR` `IDTR`，储存了下列的信息：
-
-```c
-typedef struct {
- uint16_t limit;  // _DT limit（最大字节数，2^16 B = 64 KB）
- uint32_t base;   // _DT base address, which is linear addr
-} _DTR;
-```
-
-指令集中，`lgdt` 指令负责从内存加载 _DTR 的内容
-
-另外描述符也有 cache，毕竟段表在主存中，加载到 cache 后访问速度更快
+<details class="question">
+<summary>如何找到段表？</summary>
+<p>各个段表的首地址存储在特殊寄存器中：<code>GDTR</code> <code>LDTR</code> （之后会提到<code>IDTR</code>），储存了下列的信息：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">32-bit</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">limit</span><span class="p">;</span><span class="w">  </span><span class="c1">// _DT limit（最大字节数，2^16 B = 64 KB）</span>
+<span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w">   </span><span class="c1">// _DT base address, which is linear addr</span>
+<span class="p">}</span><span class="w"> </span><span class="n">_DTR</span><span class="p">;</span>
 </code></pre></div></td></tr></tbody></table></div>
+<p>指令集中，<code>lgdt</code> 指令负责从内存加载 GDTR 的内容</p>
+<p>另外描述符也有 cache，毕竟段表在主存中，加载到 cache 后访问速度更快</p>
+</details>
 <p>段描述符记录了某个内存段的基址，段的大小，以及其他属性</p>
 <details class="quote">
 <summary>单个段描述符的具体内容（以 IA-32 为例）</summary>
@@ -5272,11 +5258,11 @@ typedef struct {
 <p>事实上，对于 IA-32，虽然从硬件角度上来说依旧是段页式虚拟存储机制，但是从操作系统层面（比如 Linux），通常将段机制 “平坦化”：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226150815916.png" data-desc-position="bottom"><img alt="image-20251226150815916" src="../images/image-20251226150815916.png"></a></p>
 <p>不难发现这和废弃段机制没有什么区别了，此时我们认为虚拟地址 == 线性地址</p>
-<p>当然，IA-32 的实模式只支持段机制，并且也没有进行 “平坦化”，这个时候段机制还是虚拟存储的核心机制</p>
+<p>当然，IA-32 的实模式只支持段机制，并且也没有进行 “平坦化”，这个时候段机制还是虚拟存储的核心机制（物理地址 = 段基址 × 16 + 偏移量）</p>
 <p><br></p>
 <h2 id="tlb">TLB</h2>
 <p>访存时 MMU 先到主存查页表，然后才能得到物理地址，如果缺页还需要进行更多操作，这反而增加了 CPU 执行单条指令的访存次数。</p>
-<p>所以我们把页表中最活跃的几个页表项装入一个特殊的高速缓存中，得到一个缓存页表，称为转换旁查缓冲器，即快表 TLB（）相对应的，主存中的页表为慢表 TLB</p>
+<p>所以我们把页表中最活跃的几个页表项装入一个特殊的高速缓存中，得到一个缓存页表，称为转换旁查缓冲器，即快表 (TLB)。相对应的，主存中的页表为慢表</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226145450044.png" data-desc-position="bottom"><img alt="image-20251226145450044" src="../images/image-20251226145450044.png"></a></p>
 <p>TLB 的设计与 cache 非常相似，cache 加速的是从物理地址到实际内存（DRAM）的访问，而 TLB 加速的是从线性地址到物理地址的转换</p>
 <p>现在我们得到了一个线性地址，我们优先在 TLB 中查找：我们将 20 位的虚拟页号（线性地址高 20 位）分成标记和组索引两个部分。由组索引指定查找 TLB 的某一个组，然后用组索引遍历组内表项，寻找有没有组索引相同，并且 Present = 1 的 TLB 项。如果 TLB hit，那么直接取出对应的物理地址，否则我们通过二级页表获取物理地址，然后将其更新到 TLB 中。</p>
