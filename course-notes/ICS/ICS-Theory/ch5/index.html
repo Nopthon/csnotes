@@ -5209,8 +5209,8 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251222024555370.png" data-desc-position="bottom"><img alt="image-20251222024555370" src="../images/image-20251222024555370.png"></a></p>
 <p>链接器需要完成两件事：</p>
 <p>1- 符号解析：编译时编译器将全局变量名、静态变量名、函数名存放到符号表中（非静态局部变量不是符号），而符号解析操作将每个符号的引用与一个确定的符号定义建立关联</p>
-<p>比如 <code>main.c</code> 引用了 <code>test.c</code> 的函数 <code>add</code>，就需要将 <code>main.c</code> 和 <code>test.c</code> 中的 <code>add</code> 符号建立关联</p>
-<p>2- 重定位：可重定位文件的代码区和数据区从地址 0 开始，在合并若干重定位文件后，得到的可执行文件满足 ABI 规范下的虚拟地址空间划分（比如只读代码段从 <code>0x8048000</code> 开始，可读写代码段从只读代码段后的第一个 4 KB 对其的地址处开始），因此需要重新确定代码和数据的地址，更新指令中被引用符号地址，这就是重定位</p>
+<p>比如 <code>main.c</code> 引用了 <code>test.c</code> 的函数 <code>add</code>，就需要将 <code>main.o</code> 和 <code>test.o</code> 中的 <code>add</code> 符号建立关联</p>
+<p>2- 重定位：可重定位文件的代码区和数据区从地址 0 开始，在合并若干重定位文件后，得到的可执行文件满足 ABI 规范下的虚拟地址空间划分（比如只读代码段从 <code>0x8048000</code> 开始，可读写代码段从只读代码段后的第一个 4 KB 对齐的地址处开始），因此需要重新确定代码和数据的地址，更新指令中被引用符号地址，这就是重定位</p>
 <p><br></p>
 <h2 id="_1">前置知识</h2>
 <h3 id="elf">ELF 文件结构</h3>

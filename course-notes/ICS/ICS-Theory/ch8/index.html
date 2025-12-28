@@ -5499,7 +5499,7 @@
 <span class="w">    </span><span class="n">raise_intr</span><span class="p">(</span><span class="n">intr_no</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>接下来 NEMU 进入内核态，这里 NEMU 简化了这一实现，<strong>对于真实的 IA-32，我们通过 <code>sysenter</code> 指令从用户态切换到内核态，用 MSR 寄存器存放内核代码段的 CS、EIP、ESP</strong></p>
+<p>接下来 NEMU 进入内核态，这里 NEMU 简化了这一实现，<strong>对于真实的 IA-32，我们从用户态切换到内核态需要额外处理，用 MSR 寄存器存放内核代码段的 CS、EIP、ESP</strong></p>
 <p>在 <code>do_irq.S</code> 中，我们为每一个中断号定义了一个入口，其中 <strong><code>int $0x80</code> 调用系统服务对应的是 <code>versys</code> 入口</strong>：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>

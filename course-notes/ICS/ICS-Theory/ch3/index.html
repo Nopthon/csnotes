@@ -2338,10 +2338,27 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="运算指令">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        乘法/除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         按位运算指令
@@ -2352,7 +2369,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         跳转指令
@@ -2363,7 +2380,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         条件指令
@@ -2374,7 +2391,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         其他指令
@@ -5150,10 +5167,27 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="运算指令">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        乘法/除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         按位运算指令
@@ -5164,7 +5198,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         跳转指令
@@ -5175,7 +5209,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         条件指令
@@ -5186,7 +5220,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         其他指令
@@ -5801,7 +5835,85 @@
 <p><code>lea</code> 指令相当于 <code>mov</code> 指令的操作数地址减少了取地址操作</p>
 <h3 id="_14">运算指令</h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251220105454866.png" data-desc-position="bottom"><img alt="image-20251220105454866" src="../images/image-20251220105454866.png"></a></p>
-<h3 id="_15">按位运算指令</h3>
+<h4 id="_15">乘法/除法</h4>
+<p>这里需要额外指出的是：</p>
+<p><code>(i)mul</code> 指令会隐式指定操作数，并将运算结果存入指定寄存器：</p>
+<table>
+<thead>
+<tr>
+<th>操作数大小</th>
+<th>隐式寄存器（被乘数）</th>
+<th>结果寄存器</th>
+<th>结果高位寄存器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 位 (<code>mul r/m8</code>)</td>
+<td>AL</td>
+<td>AX</td>
+<td>—</td>
+</tr>
+<tr>
+<td>16 位 (<code>mul r/m16</code>)</td>
+<td>AX</td>
+<td>AX</td>
+<td>DX</td>
+</tr>
+<tr>
+<td>32 位 (<code>mul r/m32</code>)</td>
+<td>EAX</td>
+<td>EAX</td>
+<td>EDX</td>
+</tr>
+<tr>
+<td>64 位 (<code>mul r/m64</code>)</td>
+<td>RAX</td>
+<td>RAX</td>
+<td>RDX</td>
+</tr>
+</tbody>
+</table>
+<p>两个 <span class="arithmatex">\(n\)</span> 位数相乘最多能得到 <span class="arithmatex">\(2n\)</span> 位数字，因此我们指定：运算结果的低位存入 <code>_AX</code>，高位存入 <code>_DX</code></p>
+<hr>
+<p>同理，除法运算 <code>(i)div</code> 也只有一个显式操作数（除数），并将运算结果存入指定寄存器：</p>
+<table>
+<thead>
+<tr>
+<th>操作数大小</th>
+<th>被除数所在寄存器</th>
+<th>商</th>
+<th>余数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 位 (<code>div r/m8</code>)</td>
+<td>AX（= AH:AL ）</td>
+<td>AL</td>
+<td>AH</td>
+</tr>
+<tr>
+<td>16 位 (<code>div r/m16</code>)</td>
+<td>DX:AX</td>
+<td>AX</td>
+<td>DX</td>
+</tr>
+<tr>
+<td>32 位 (<code>div r/m32</code>)</td>
+<td>EDX:EAX</td>
+<td>EAX</td>
+<td>EDX</td>
+</tr>
+<tr>
+<td>64 位 (<code>div r/m64</code>)</td>
+<td>RDX:RAX</td>
+<td>RAX</td>
+<td>RDX</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">按位运算指令</h3>
 <p>常见的不写了</p>
 <p><code>test</code> 指令对两个操作数进行<strong>按位与</strong>运算但是不保存运算结果，只修改对应的 EFLAGS，比如：通过 <code class="highlight"><span class="nf">testb</span><span class="w"> </span><span class="nv">%al</span><span class="p">,</span><span class="w"> </span><span class="nv">%al</span></code> 的自按位与运算判断 AL 的正负情况：</p>
 <details class="abstract">
@@ -5812,17 +5924,18 @@
 </details>
 <p>移位指令：</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251220190507836.png" data-desc-position="bottom"><img alt="image-20251220190507836" src="../images/image-20251220190507836.png"></a></p>
-<h3 id="_16">跳转指令</h3>
+<h3 id="_17">跳转指令</h3>
 <p>jmp 是无条件跳转</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251220190607236.png" data-desc-position="bottom"><img alt="image-20251220190607236" src="../images/image-20251220190607236.png"></a></p>
+<p>通常结合 <code>cmp b, a</code> 指令使用，注意 <code>cmp</code> 运算的是目的操作数 - 源操作数，所以我交换了 <code>a</code> 和 <code>b</code> 的位置，这样就符合上表的内容了</p>
 <p>对于无符号整数，我们通过助记符第二个字母为 a / b 表示 a / b 是二者更大的</p>
 <p>对于有符号整数，我们通过助记符第二个字母为 g / l 表示 a 比 b 更大（greater）或更小（less）</p>
 <p>助记符第三个字母 e 表示是否加等号</p>
-<h3 id="_17">条件指令</h3>
+<h3 id="_18">条件指令</h3>
 <p>除了条件跳转指令，还有其他常用的条件指令</p>
 <p>条件设置指令 <code>set__</code> 指定将一个通用寄存器的值设置为 1 / 0，其助记符后两个字母的设置与 <code>j</code> 系列指令一样</p>
 <p>条件传送指令 <code>cmov__</code> 相当于为传输指令添加了条件操作，要求目的操作数必须是 16/32/64 位寄存器（因为 <code>cmov</code> 指令没有了大小后缀，因此只能由寄存器大小来辅助判断操作数大小）</p>
-<h3 id="_18">其他指令</h3>
+<h3 id="_19">其他指令</h3>
 <p><code>call</code> 指令也是无条件跳转，其先将当前的 EIP / RIP 的内容（下一条指令的地址）入栈，然后将被调用的子函数的地址写入 EIP / RIP，相当于 C 语言调用子函数</p>
 <p><code>ret</code> 指令和 <code>call</code> 指令配套使用，会取出 <code>call</code> 指令入栈的原返回地址，使得子函数调用完成后能够回到主逻辑</p>
 <p><code>ret</code> 可以携带一个字节数 <span class="arithmatex">\(n\)</span>，在弹出返回地址再进行一次 R[esp] ← R[esp] + n（或 RSP）操作，修改栈指针 ESP / RSP，目的是进行栈清理</p>
