@@ -2305,10 +2305,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="符号解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         重定位
@@ -2331,7 +2348,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         绝对寻址
@@ -2347,7 +2364,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         动态链接
@@ -2386,7 +2403,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         可执行文件的加载
@@ -3104,13 +3121,6 @@
 
     
   </span>
-  
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
   
   
 
@@ -5012,10 +5022,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="符号解析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         重定位
@@ -5038,7 +5065,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         绝对寻址
@@ -5054,7 +5081,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         动态链接
@@ -5093,7 +5120,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         可执行文件的加载
@@ -5399,7 +5426,39 @@
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>gcc<span class="w"> </span>-static<span class="w"> </span>-o<span class="w"> </span>myfunc<span class="w"> </span>func.o<span class="w"> </span>libx.a<span class="w"> </span>liby.a<span class="w"> </span>libx.a<span class="w">   </span><span class="c1"># 两个静态库文件循环依赖</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p><br></p>
-<h2 id="_7">重定位</h2>
+<h3 id="_7">类型匹配</h3>
+<p>这里需要注意一件事情：链接器进行符号链接时，只关注符号名是否匹配，<strong>并不检查定义和引用的符号类型是否匹配</strong>。符号类型由强符号进行定义，因此有时会产生意想不到的结果，这边举个作业题为例：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* m1.c */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">p1</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* m2.c */</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">;</span><span class="w">           </span><span class="c1">// main 不是保留字，但是除非拿来出题目真的不能这样写</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">p1</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>我们发现 <code>m2.c</code> 中有一个神秘 COMMON 符号 <code>main</code>，并且它真的和 <code>m1.c</code> 中的 <code>main</code> 定义进行了绑定。根据强符号优先，<code>main</code> 确实是函数，但是 <code>p1</code> 函数中我们令 <code>main = 1</code>，这直接修改了 <code>main</code> 函数的一部分机器码（如果没有任何保护的话） </p>
+<p><br></p>
+<h2 id="_8">重定位</h2>
 <p>在符号解析完成后，我们需要将所有相关的目标模块（即集合 E 中的目标文件）合并，并确定每个符号在虚拟地址空间中的最终位置，使所有引用该符号的指令或数据都能正确指向它。这就是重定位需要完成的事情，具体分为两个方面：</p>
 <ul>
 <li>节和定义符号的重定位</li>
@@ -5524,7 +5583,7 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251222214714798.png" data-desc-position="bottom"><img alt="image-20251222214714798" src="../images/image-20251222214714798.png"></a></p>
 </details>
 <p><br></p>
-<h3 id="_8">绝对寻址</h3>
+<h3 id="_9">绝对寻址</h3>
 <p>还是举一个例子：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -5566,7 +5625,7 @@
 <p>最后附一张重定位图片</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251222235541299.png" data-desc-position="bottom"><img alt="image-20251222235541299" src="../images/image-20251222235541299.png"></a></p>
 <p><br></p>
-<h2 id="_9">动态链接</h2>
+<h2 id="_10">动态链接</h2>
 <p>与静态链接相比，动态链接在运行时才会将程序和所需的共享库进行链接。</p>
 <p>这样得到的可执行程序依赖外部的共享库 <code>.so</code>（Windows 中为 <code>.dll</code>），但是共享库可以由多个程序使用，因此节省了内存空间，并且可执行程序本体可以变得更小。同时动态库更新不影响原程序</p>
 <p><br></p>
@@ -5575,7 +5634,7 @@
 <p>后面看的头昏，打个断点插个桩，GOT 表什么的之后补</p>
 <h5 id="breakpoint">Breakpoint</h5>
 <p><br></p>
-<h2 id="_10">可执行文件的加载</h2>
+<h2 id="_11">可执行文件的加载</h2>
 <p>在 Linux 系统中，执行命令时，会调用 <strong><code>execve()</code></strong> 系统调用，用于加载并执行一个可执行文件（比如 <code>./test</code>）。</p>
 <ul>
 <li>

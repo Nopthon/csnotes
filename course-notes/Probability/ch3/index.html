@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5329,11 +5322,11 @@ P(X \leq x|Y = y) = F_{X|Y = y}(x) = \int_{-\infty}^{x} \dfrac{p(u,y)}{p_Y(y)} d
 \begin{aligned}F_{X|Y=y}(x)\;&amp;\begin{aligned}=\lim_{\varepsilon\to0}\frac{P(X\leqslant x,y\leqslant Y&lt;y+\varepsilon)}{P(y\leqslant Y&lt;y+\varepsilon)}=\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{F_Y(y+\varepsilon)-F_Y(y)}\end{aligned}\\&amp;=\frac{\lim_{\varepsilon\to0}\frac{F(x,y+\varepsilon)-F(x,y)}{\varepsilon}}{\lim_{\varepsilon\to0}\frac{F_Y(y+\varepsilon)-F_Y(y)}{\varepsilon}}=\frac{\frac{\partial F(x,y)}{\partial y}}{\frac{d}{dy}F_Y(y)}\\&amp;\begin{aligned}&amp;=\frac{\frac{\partial}{\partial y}\int_{-\infty}^x\int_{-\infty}^yp(u,v)dudv}{p_Y(y)}=\frac{\int_{-\infty}^xp(u,y)du}{p_Y(y)}=\int_{-\infty}^x\frac{p(u,y)}{p_Y(y)}du\end{aligned}\end{aligned}
 \]</div>
 </details>
-<p>因此
-$$
+<p>因此</p>
+<div class="arithmatex">\[
 p_{X|Y= y} = \dfrac{p(u,y)}{p_Y(y)}
-$$
-很像随机事件的条件概率式 <span class="arithmatex">\(P(A|B) = \frac{P(AB)}{P(B)}\)</span></p>
+\]</div>
+<p>很像随机事件的条件概率式 <span class="arithmatex">\(P(A|B) = \frac{P(AB)}{P(B)}\)</span></p>
 <p><span class="arithmatex">\(X,Y\)</span> 相互独立时，<span class="arithmatex">\(p(x, y) = p_X(x) \cdot p_Y(y)\)</span>，因此 <span class="arithmatex">\(p_{X|Y= y} = p_X(x), \; p_{Y|X= x} = p_Y(y)\)</span></p>
 <p><br></p>
 <h2 id="_14">二维随机变量函数的分布</h2>
@@ -5386,14 +5379,14 @@ $$
 <div class="arithmatex">\[
 p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,z-x)dx = \int_{-\infty}^{+\infty} p(z-y,y)dy}
 \]</div>
-<p>如果 <span class="arithmatex">\(X,Y\)</span> 独立，还可以转换为：（称下面的公式为<strong>卷积公式</strong>）
-$$
+<p>如果 <span class="arithmatex">\(X,Y\)</span> 独立，还可以转换为：（称下面的公式为<strong>卷积公式</strong>）</p>
+<div class="arithmatex">\[
 p_Z(z) = \int_{-\infty}^{+\infty} p_X(x) \cdot p_Y(z-x)dx = \int_{-\infty}^{+\infty} p_X(z-y) \cdot p_Y(y) dy
-$$
-同理对于 <span class="arithmatex">\(Z=X-Y\)</span>：
-$$
+\]</div>
+<p>同理对于 <span class="arithmatex">\(Z=X-Y\)</span>：</p>
+<div class="arithmatex">\[
 p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy}
-$$</p>
+\]</div>
 <div class="admonition abstract">
 <p>推广：<span class="arithmatex">\(Z = aX+bY\)</span> 的分布：</p>
 <div class="arithmatex">\[

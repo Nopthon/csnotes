@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5157,16 +5150,16 @@ DX = EX^2 - (EX)^2 = (\lambda^2 + \lambda) - (\lambda)^2 = {\color{orange}{\lamb
 \]</div>
 <p><br></p>
 <h3 id="_5">连续型</h3>
-<p>我们记
-$$
+<p>我们记</p>
+<div class="arithmatex">\[
 EX = \int_{-\infty}^{+\infty} xp(x)dx
-$$
-为 <span class="arithmatex">\(X\)</span> 的数学期望，存在的前提是 $ \int_{-\infty}^{+\infty} |x|p(x)dx$ 级数收敛，否则期望不存在</p>
-<p>接下来记
-$$
+\]</div>
+<p>为 <span class="arithmatex">\(X\)</span> 的数学期望，存在的前提是 $ \int_{-\infty}^{+\infty} |x|p(x)dx$ 级数收敛，否则期望不存在</p>
+<p>接下来记</p>
+<div class="arithmatex">\[
 DX = E(X - EX)^2 = EX^2 - (EX)^2
-$$
-为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span> </p>
+\]</div>
+<p>为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span> </p>
 <p>方差 <span class="arithmatex">\(DX\)</span> 就是 <span class="arithmatex">\(g(X) = (X-EX)^2\)</span> 的数学期望</p>
 <p><br></p>
 <h3 id="_6">常见连续型随机变量的数字特征</h3>
@@ -5219,10 +5212,10 @@ DX = {\color{orange}{\rho^2}}
 <p>（<span class="arithmatex">\(D(X ± Y) = DX + DY ± 2 \text{cov}(X,Y)\)</span>）</p>
 <p>上面的结论可扩展到 <span class="arithmatex">\(n\)</span> 维</p>
 <h2 id="_9">切比雪夫不等式</h2>
-<p>设随机变量 <span class="arithmatex">\(X\)</span> 的期望 <span class="arithmatex">\(EX\)</span> 和方差 <span class="arithmatex">\(DX\)</span> 均存在，则对任意 <span class="arithmatex">\(ε &gt; 0\)</span>：
-$$
+<p>设随机变量 <span class="arithmatex">\(X\)</span> 的期望 <span class="arithmatex">\(EX\)</span> 和方差 <span class="arithmatex">\(DX\)</span> 均存在，则对任意 <span class="arithmatex">\(ε &gt; 0\)</span>：</p>
+<div class="arithmatex">\[
 {\color{orange}P(|X - EX| \geq ε) \leq \dfrac{DX}{ε^2}}
-$$</p>
+\]</div>
 <details class="abstract" open="open">
 <summary>Proof</summary>
 <div class="arithmatex">\[
@@ -5231,11 +5224,11 @@ P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left
 </details>
 <p>可以借助证明：<span class="arithmatex">\(DX = 0 \longrightarrow X = c\)</span> </p>
 <h2 id="_10">协方差</h2>
-<p>如果 <span class="arithmatex">\(EX, EY, E(XY)\)</span> 存在，则
-$$
+<p>如果 <span class="arithmatex">\(EX, EY, E(XY)\)</span> 存在，则</p>
+<div class="arithmatex">\[
 \text{cov}(X,Y) = E[(X-EX)(Y-EY)] = E(XY) - EX\cdot EY
-$$
-为 <span class="arithmatex">\(X,Y\)</span> 的协方差</p>
+\]</div>
+<p>为 <span class="arithmatex">\(X,Y\)</span> 的协方差</p>
 <p>有以下性质和结论：</p>
 <ul>
 <li><span class="arithmatex">\(\text{cov} (X,X) = D(X)\)</span> </li>
@@ -5251,16 +5244,16 @@ $$
 </ul>
 <p><br></p>
 <h3 id="_11">柯西 · 施瓦兹不等式的概率论形式</h3>
-<p>若  <span class="arithmatex">\(X,Y\)</span> 方差存在，则
-$$
+<p>若  <span class="arithmatex">\(X,Y\)</span> 方差存在，则</p>
+<div class="arithmatex">\[
 [\text{cov}(X,Y)]^2 \leqslant DX\cdot DY
-$$
-取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span> </p>
-<p>一个更基础的形式是：若  <span class="arithmatex">\(X^2,Y^2\)</span> 期望存在，则
-$$
+\]</div>
+<p>取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span> </p>
+<p>一个更基础的形式是：若  <span class="arithmatex">\(X^2,Y^2\)</span> 期望存在，则</p>
+<div class="arithmatex">\[
 [E(XY)]^2 \leqslant E(X^2)\cdot E(Y^2)
-$$
-取等条件是存在 <span class="arithmatex">\(t_0\)</span> 不为零，<span class="arithmatex">\(P(Y= t_0X) = 1\)</span> </p>
+\]</div>
+<p>取等条件是存在 <span class="arithmatex">\(t_0\)</span> 不为零，<span class="arithmatex">\(P(Y= t_0X) = 1\)</span> </p>
 <div class="admonition abstract">
 <p>积分形式：若 <span class="arithmatex">\(\displaystyle \int_a^b f^2 dx, \int_a^b g^2 dx\)</span> 存在，则</p>
 <div class="arithmatex">\[

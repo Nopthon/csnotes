@@ -3093,13 +3093,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5296,10 +5289,10 @@
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251224152531292.png" data-desc-position="bottom"><img alt="image-20251224152531292" src="../images/image-20251224152531292.png"></a></p>
 <p>行缓冲每次缓存一整行的数据，也是局部性原理的体现，在 Internal row buffer Hit 的情况下，也可以达到一定的加速访存效果</p>
 <details class="tip">
-<summary>以上的 DRAM 是不包含 bank 结构的构造，ICS 也不考虑</summary>
+<summary>以上的 DRAM 是不包含位平面 (bank) 结构的构造，ICS 也不考虑</summary>
 <p>现代 DRAM 会在行列基础上添加 bank，以提高并行性、隐藏延迟、提高吞吐率、降低单次操作功耗</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251224152840132.png" data-desc-position="bottom"><img alt="image-20251224152840132" src="../images/image-20251224152840132.png"></a></p>
-<p>上面的图来自某本计组的著名教材</p>
+<p>但是课后习题是会出现 bank 的？</p>
 </details>
 <p><br></p>
 <h2 id="_4">磁盘</h2>
@@ -5356,9 +5349,6 @@
 <p>（磁头移动到指定磁道的时间 + 指定扇区旋转到磁头下方的时间 + 传输一个扇区的时间）</p>
 <p>（旋转等待时间通常平均为磁头旋转半圈的用时，即 <span class="arithmatex">\(\dfrac{60\text{ s}}{\text{转速}} \div 2\)</span>）</p>
 <h2 id="cache">cache</h2>
-<div class="admonition quote">
-<p class="admonition-title">因为 ICSPA 进行了对 cache 的代码实现，所以这一部分会用代码代替一部分图片</p>
-</div>
 <p>cache 是一种小容量的高速缓冲存储器，由快速的 SRAM 存储元组成，直接集成在 CPU 芯片中。cache 是介于 CPU 和主存之间的特殊存储层次（可以参考那张金字塔图）</p>
 <h3 id="_7">局部性原理</h3>
 <p>简单分为两种：</p>

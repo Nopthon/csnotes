@@ -3077,13 +3077,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5180,7 +5173,7 @@
 <p>在一个进程的完整生命周期中，运行时消耗的时间可以分为用户时间和系统时间，分别代表在用户态执行代码的时间和在系统态执行代码的时间，加和在一起为实际时间 / 挂钟时间。</p>
 <blockquote>
 <p>比如之后我们会提到 <code>printf</code> 函数调用，<code>printf</code> 调用系统函数 <code>write</code> 期间属于用户时间，而从 <code>write</code> 函数执行 <code>int $0x80</code>，切换到内核态执行 <code>syscall</code> 等指令开始，这部分时间属于系统时间</p>
-<p>可以使用 <code>time ./program</code> 指令获取这三种时间（图中演示的是朴素实现的求斐波那契数列的第 10w 项，这是一个用户时间远大于系统时间的计算密集型程序）：</p>
+<p>可以使用 <code>time ./program</code> 指令获取这三种时间（图中演示的是朴素实现的求斐波那契数列的第 10w 项并取模，这是一个用户时间远大于系统时间的计算密集型程序）</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251226204901531.png" data-desc-position="bottom"><img alt="image-20251226204901531" src="../images/image-20251226204901531.png"></a></p>
 </blockquote>
 <p><br></p>
@@ -5253,6 +5246,7 @@
 </tr>
 </tbody>
 </table>
+<p>附带一些大致的分类介绍：</p>
 <ul>
 <li>故障可能恢复，也可能会终止程序</li>
 </ul>
@@ -5387,6 +5381,7 @@
 <p><br></p>
 <h3 id="_10">异常与中断的处理</h3>
 <p>（我们只考虑保护模式下的步骤）</p>
+<p>异常与中断的处理是硬件（CPU）和软件（操作系统）协同完成的复杂处理：</p>
 <blockquote>
 <p>以下是 CPU 需要完成的事情</p>
 </blockquote>
@@ -5439,7 +5434,7 @@
 <p><br></p>
 <h3 id="_11">系统调用的细化处理</h3>
 <p>系统调用属于异常→陷阱，因为我懒了，所以我直接使用了 NEMU 实验报告的思考题，NEMU 是基于 x86 的，但是省略了一些内容，需要结合上述的处理过程解决</p>
-<p>（虽然）</p>
+<p>（还是看书吧）</p>
 <blockquote>
 <p>详细描述从测试用例中的 <code>int $0x80</code> 开始一直到 <code>HIT_GOOD_TRAP</code> 为止的详细的系统行为（完整描述控制的转移过程，即相关函数的调用和关键参数传递过程），可以通过文字或画图的方式来完成</p>
 </blockquote>

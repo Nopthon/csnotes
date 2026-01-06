@@ -2300,7 +2300,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数组
+        栈上对齐
       
     </span>
   </a>
@@ -2311,7 +2311,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结构体
+        数组
       
     </span>
   </a>
@@ -2320,6 +2320,17 @@
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         联合体
@@ -3070,13 +3081,6 @@
 
     
   </span>
-  
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
   
   
 
@@ -5001,7 +5005,7 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数组
+        栈上对齐
       
     </span>
   </a>
@@ -5012,7 +5016,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结构体
+        数组
       
     </span>
   </a>
@@ -5021,6 +5025,17 @@
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         联合体
@@ -5405,20 +5420,25 @@
 </blockquote>
 <p>6 个之后的参数采用栈存储；返回参数指定为 RAX（或者对应数据宽度的寄存器）</p>
 <p>同理，对于前 8 个浮点参数，我们依次通过 XMM0 ~ XMM7 传递，对应的浮点数返回值用 XMM0 传递。所有的 XMM 寄存器都是 Caller-saved</p>
-<p>x86-64 对应的 AMD64 System V ABI 规定：栈中参数按 8 Bytes 的对齐，比如通过栈传递更多的参数时，1/2/4/8 Bytes 的参数在内存的起始地址必须是 8 的倍数</p>
-<p>但是在存储非静态局部变量时，我们发现有时 8 Bytes 的单层栈中存入了多个变量，比如：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251221153851984.png" data-desc-position="bottom"><img alt="image-20251221153851984" src="../images/image-20251221153851984.png"></a></p>
-<p>这是编译器栈空间优化的结果，这些变量（不是栈上的参数变量）对对齐的要求较小，因此编译器选择较为紧凑的排列方式</p>
-<p>（比如将多个局部变量按照从大到小的顺序紧凑存入栈上，这是完全可以的，因为 <strong>C 标准规范中没有规定必须按照特定的顺序为非静态局部变量进行存储分配</strong>，这是未定义行为）</p>
 <p><br></p>
 <h2 id="_5">复杂内存分配与访问</h2>
 <p>均以 C 语言为例</p>
 <h3 id="_6">对齐操作</h3>
 <p>考虑存储器按字节编址，如果每次访存只能读取 64 位（内存总线宽度为 64-Bit），即 8 Bytes，这说明第 <code>0</code> ~ 第 <code>7</code> Byte 的内容是一起读写的， 第 <code>8i</code> ~ 第 <code>8i + 7</code> Byte 的内容是一起读写的</p>
-<p>如果某个 8 Bytes 的数据不按照八字节宽的对齐方式进行存储，那么读取一个 8 Bytes 的数据就可能需要两次访存，使得指令的执行效率降低</p>
+<p>如果某个 8 Bytes 的数据不按照 8 字节宽的对齐方式进行存储，那么读取一个 8 Bytes 的数据就可能需要两次访存，使得指令的执行效率降低</p>
 <p>（另外，内存总线宽度和 CPU 位数不一定相等）</p>
+<p>因此我们需要对内存中的内容进行一定的对齐操作</p>
 <p><br></p>
-<h3 id="_7">数组</h3>
+<h3 id="_7">栈上对齐</h3>
+<p>x86-64 对应的 AMD64 System V ABI 规定：栈上的参数按 8 Bytes 对齐，没有对齐的部分采用留空处理</p>
+<p>而 IA-32 的参数对齐策略非常不一样：IA-32 在进行 push 操作时，会将低于 4 Bytes 的数据扩展到 4 Bytes 再存入栈中，因此除了起始地址需要 4 Bytes 对齐外，其他的入口参数不需要进行复杂的对齐操作</p>
+<hr>
+<p>但是在存储非静态局部变量（而不是入口参数）时，我们发现有时单个 8 Bytes 栈空间内存入了多个变量，比如图中的 RSP+24 处：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251221153851984.png" data-desc-position="bottom"><img alt="image-20251221153851984" src="../images/image-20251221153851984.png"></a></p>
+<p>这是编译器栈空间优化的结果，这些变量（不是栈上的参数变量）对对齐的要求较小，因此编译器选择较为紧凑的排列方式</p>
+<p>（比如将多个局部变量按照从大到小的顺序紧凑存入栈上，这是完全可以的，因为 <strong>C 标准规范中没有规定必须按照特定的顺序为非静态局部变量进行存储分配</strong>，这是未定义行为）</p>
+<p><br></p>
+<h3 id="_8">数组</h3>
 <p>数组连续存储，元素按序存放，占据空间相同</p>
 <p>数组访问地址 = 基地址 + i * sizeof(元素类型)，比如 <code>(%rdx, %rcx, 4)</code> 表示对 <code>int a[%rcx]</code> 的访问</p>
 <p>对于多位数组，C 语言采用行优先存储，本质上是 <code>mat[0][]</code> ~ <code>mat[n][]</code> 连续存储</p>
@@ -5448,15 +5468,15 @@
 <span class="w">    </span><span class="nf">movl</span><span class="w">    </span><span class="no">$60</span><span class="p">,</span><span class="w"> </span><span class="mi">-8</span><span class="p">(</span><span class="nv">%rbp</span><span class="p">)</span><span class="w">       </span><span class="c1"># a[5] = 60（高地址）</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p><br></p>
-<h3 id="_8">结构体</h3>
-<p>结构体在内存中一定是按照声明顺序依次存储的，但为了对齐需要进行一些填充来实现对齐（和存储非静态局部变量不一样，后者不要求按照某种顺序存储）</p>
-<p>对于 x86-64 System V ABI，结构体对齐满足下面的条件：</p>
+<h3 id="_9">结构体</h3>
+<p>结构体在内存中一定是按照声明顺序依次存储的，但为了对齐需要进行一些填充来实现对齐</p>
+<p><strong>对于 <u>x86-64</u> System V ABI</strong>，结构体对齐满足下面的条件：</p>
 <ul>
-<li>结构体<strong>起始地址</strong>对齐到其<strong>最宽基本类型成员大小</strong>的整数倍。</li>
-<li>每个成员放在<strong>其类型大小整数倍</strong>的偏移地址上。</li>
-<li>结构体总大小为其最宽成员大小的整数倍。</li>
+<li>结构体<strong>起始地址</strong>对齐到其<strong>最宽基本类型成员大小</strong>的整数倍（也就是说会出现开头填充）。</li>
+<li>每个成员放在<strong>其类型大小整数倍</strong>的偏移地址上（也就是说会出现中间填充）。</li>
+<li>结构体总大小为其最宽成员大小的整数倍（也就是说会出现尾部填充）。</li>
 </ul>
-<p>比如：</p>
+<p>我们以 x86-64 为例，比如：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -5470,13 +5490,15 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>对应的空间是：</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">内存规划示意图</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>--------------------------------&gt;
-| c |   |   |   | i | i | i | i |
-| d | d | d | d | d | d | d | d |
-| s | s |   |   |   |   |   |   |
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>   --------------------------------&gt;
+     0   1   2   3   4   5   6   7
+ 8 | c |   |   |   | i | i | i | i |
+16 | d | d | d | d | d | d | d | d |
+24 | s | s |   |   |   |   |   |   |
 </code></pre></div></td></tr></tbody></table></div>
 <ul>
 <li>首先存入 <code>c</code>，对齐要求 1 Byte</li>
@@ -5486,8 +5508,34 @@
 <li>整个结构体需要按照 double 的 8 Bytes 对齐，因此最后填充 6 Bytes，结构体的总大小为 24 Bytes</li>
 </ul>
 <p>访问结构体时，编译器在编译时已知每个成员的偏移量，因此采用基址 + 偏移的方式就可以访问结构体的元素</p>
+<details class="question">
+<summary>对于上面的例子，你会发现</summary>
+<p>如果我换一种声明方式：</p>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">example</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+那么对应的结构体的内存会更加紧凑，最终得到占空间更小的结构体，这确实没错。<p></p>
+<p>刚刚我们提到，结构体在内存中一定是按照声明顺序依次存储的，编译器不会去优化这一行为（和栈上存储变量不同，后者允许编译器进行栈空间优化），因此<strong>优化结构体布局是程序员应该做的事情（？）</strong></p>
+</details>
+<p>IA-32 和 x86-64 的对齐规定有一定的不同，体现在两个方面：</p>
+<ol>
+<li>相对于 IA-32，x86-64 的 <code>long</code> 从 4 Bytes 增大到 8 Bytes，指针大小从 4 Bytes 增大到 8 Bytes。因此在对齐方面需求不同</li>
+<li>IA-32 在对齐方面更加宽松（超过 4 Bytes 的数据也按照 4 Bytes 对齐，也就是说最大对齐要求为 4 Bytes），而 x86-64 的结构体成员严格按照自身的数据大小对齐</li>
+</ol>
+<div class="admonition abstract">
+<p>根据往年卷的题目来看，IA-32 和 x86-64 的规定都会考，甚至还是结构体套联合体 + 数组 + 指针 + ... 这种逆天题目</p>
+</div>
 <p><br></p>
-<h3 id="_9">联合体</h3>
+<h3 id="_10">联合体</h3>
 <p>联合体的所有成员共享同一段内存，大小为<strong>最大成员的大小</strong>，并按照最宽成员对齐。访问不同成员时，机器级代码使用相同的起始地址，但可能使用不同的数据宽度和寄存器。</p>
 <p>注意机器级代码并不区分联合体内存中存储的数据是什么类型，本质上都是 0/1 序列，因此如果对一个 <code>union {float f; int i}</code> 初始化为单精度浮点数 <code>f</code>，然后访问 <code>i</code>，实际上是将 IEEE 754 浮点数的 32 位值强行以 int 值的形式访问，而不是取整操作</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>

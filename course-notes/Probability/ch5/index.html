@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5009,10 +5002,10 @@
 </div>
 <p><br></p>
 <h3 id="_5">独立同分布大数定律</h3>
-<p>设 $X_1, X_2, \cdots $ 为相互独立且分布相同的随机变量序列，数学期望存在，<span class="arithmatex">\(EX_N = \mu\)</span>，则 <span class="arithmatex">\(\lbrace X_n \rbrace\)</span> 服从大数定律，即对任意给定的 <span class="arithmatex">\(\varepsilon &gt; 0\)</span> 有：
-$$
+<p>设 $X_1, X_2, \cdots $ 为相互独立且分布相同的随机变量序列，数学期望存在，<span class="arithmatex">\(EX_N = \mu\)</span>，则 <span class="arithmatex">\(\lbrace X_n \rbrace\)</span> 服从大数定律，即对任意给定的 <span class="arithmatex">\(\varepsilon &gt; 0\)</span> 有：</p>
+<div class="arithmatex">\[
 \lim_{n \to \infty} P\left( \left| \frac{1}{n} \sum_{k=1}^n X_k- \mu \right| \geq \varepsilon \right) = 0
-$$</p>
+\]</div>
 <p>按照依概率收敛的表示方法，等价于：</p>
 <div class="arithmatex">\[
 \frac{1}{n} \sum_{k=1}^n X_k \stackrel{P}{\longrightarrow} \mu
@@ -5057,18 +5050,25 @@ X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
 <p>给出独立同分布中心极限定理：</p>
 <p>设 $X_1, X_2, \cdots $ 为相互独立且分布相同的随机变量序列，数学期望和方差都存在，<span class="arithmatex">\(EX_k = \mu,\;DX_k = \rho ^ 2 &gt; 0\)</span>，则对任意 <span class="arithmatex">\(x\)</span> 有：</p>
 <div class="arithmatex">\[
-\lim_{n\to \infty} P \left( \dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} \leq x \right) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \text{d} t = \varPhi (x)
+\lim_{n\to \infty} P \left( \dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} \leq x \right) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \text{d} t = \varPhi (x)\\
 \]</div>
-<p>不难发现 <span class="arithmatex">\(\dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma}\)</span> 为 <span class="arithmatex">\(\displaystyle \sum_{k=1}^{n} X_k\)</span> 的标准化随机变量（记为 <span class="arithmatex">\(Y_n\)</span>），也就是说：</p>
+<div class="admonition abstract">
+<p>也即：</p>
 <div class="arithmatex">\[
-\lim_{n\to \infty} F_n(x) = \lim_{n\to \infty} P(Y_n \leq x) = \varPhi(x)
+\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \, \sigma} \stackrel{P}{\longrightarrow} N(0,1), \quad n \to \infty \\
+\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \stackrel{P}{\longrightarrow} N(0,1), \quad n \to \infty
 \]</div>
-<p>随机变量的和 <span class="arithmatex">\(\displaystyle \sum_{k=1}^{n} X_k\)</span> 在标准化为 <span class="arithmatex">\(Y_n\)</span> 后，极限分布满足标准正态分布：</p>
-<p>$$
-Y_n \sim N(0,1) \
-\sum_{k=1}^n X_k \sim N(n\mu, n\sigma ^2)
+</div>
+<p>不难发现 <span class="arithmatex">\(\dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma}\)</span> 为 <span class="arithmatex">\(\displaystyle \sum_{k=1}^{n} X_k\)</span> 的标准化随机变量（记为 <span class="arithmatex">\(Y_n\)</span>），也就是说：
 $$
-对于 <span class="arithmatex">\(n\)</span> 重伯努利实验，我们有<strong>拉普拉斯中心极限定理</strong>的特例：</p>
+\lim_{n\to \infty} F_n(x) = \lim_{n\to \infty} P(Y_n \leq x) = \varPhi(x)
+$$</p>
+<p>随机变量的和 <span class="arithmatex">\(\displaystyle \sum_{k=1}^{n} X_k\)</span> 在标准化为 <span class="arithmatex">\(Y_n\)</span> 后，极限分布满足标准正态分布：</p>
+<div class="arithmatex">\[
+Y_n \sim N(0,1) \\
+\sum_{k=1}^n X_k \sim N(n\mu, n\sigma ^2)
+\]</div>
+<p>对于 <span class="arithmatex">\(n\)</span> 重伯努利实验，我们有<strong>拉普拉斯中心极限定理</strong>的特例：</p>
 <p>设 <span class="arithmatex">\(\mu_n\)</span> 是 <span class="arithmatex">\(n\)</span> 重伯努利试验中 <span class="arithmatex">\(A\)</span> 发生的次数，每次实验中 <span class="arithmatex">\(A\)</span> 发生的概率为 <span class="arithmatex">\(p\)</span>，不发生的概率为 <span class="arithmatex">\(q = 1- p\)</span>，则对任意 <span class="arithmatex">\(x\)</span> 有</p>
 <div class="arithmatex">\[
 \lim_{n\to \infty} P \left( \dfrac{\mu_n - np}{\sqrt{npq}} \leq x \right) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \text{d} t = \varPhi (x)

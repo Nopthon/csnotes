@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5297,7 +5290,6 @@
 <p>一种很朴实无华的想法是使用 Floyd 求全源最短路，然后求 <span class="arithmatex">\(\displaystyle \sum_{i=1}^{n} f[i][1] + f[1][i]\)</span> 的值</p>
 <p>提交后会发现 1 TLE 90pts，原因在于 Floyd 对所有的点求出了最短路径，这对于 <span class="arithmatex">\(f[i][1]\)</span> 部分的计算是非常多余的。因此我们需要一个能够剪枝的最短路算法，在得到 <span class="arithmatex">\(f[i][1]\)</span> 的值后可以及时停止多余的运算。考虑到数据规模中所有的边权为正，并且 Dijkstra 算法每次松弛操作都可以确定一个点的最短路，因此我们选择 <span class="arithmatex">\(n\)</span> 轮 Dijkstra 算法，并进行一定的剪枝操作</p>
 <p>（<span class="arithmatex">\(n\)</span> 轮 SPFA 场上也试过，也是 1 TLE 90pts，可能并不是因为喜闻乐见的 “SPFA 似了”，而是 SPFA 需要逐渐求出所有终点的最短路本身依旧带来了巨大开销；相比 SPFA 对“何时确定最短路”的不确定性，Dijkstra 可以保证每轮松弛都确定一个最短路，方便剪枝）</p>
-<p><strong>接下来的题解代码都是 0-index 节点</strong></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Solution</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5484,6 +5476,11 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
+<details class="tip" open="open">
+<summary>后记</summary>
+<p><span class="arithmatex">\(\displaystyle \sum_{i=1}^{n} + f[1][i]\)</span> 的一种更快的计算方法是对原图建立逆向图（所有的单向边全部反向），然后一轮 Dijkstra 求出从起点出发的单源最短路径，加和对应到原图就是 <span class="arithmatex">\(\displaystyle \sum_{i=1}^{n} + f[1][i]\)</span> 的值</p>
+<p>考场上没想到，写的 <span class="arithmatex">\(n\)</span> 轮 Dijkstra 剪枝，感谢没有更逆天的数据点</p>
+</details>
 <hr>
 <h2 id="c">C. 逆序对数量</h2>
 <blockquote>

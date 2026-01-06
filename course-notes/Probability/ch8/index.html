@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5063,10 +5056,10 @@
 P(|\overline{X} - \mu_0| \geq k) = \alpha
 \]</div>
 <p>对于上面的例子，我们利用标准化变量进行解答：</p>
-<p>$$
+<div class="arithmatex">\[
 P\left( \left|\frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}\right| \geq \frac{k}{\sigma / \sqrt{n}} \right) = \alpha
-$$
-<span class="arithmatex">\(\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}\)</span>，得到 <span class="arithmatex">\(k = \dfrac{\sigma}{\sqrt{n}} u_{\alpha / 2}\)</span> </p>
+\]</div>
+<p><span class="arithmatex">\(\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}\)</span>，得到 <span class="arithmatex">\(k = \dfrac{\sigma}{\sqrt{n}} u_{\alpha / 2}\)</span> </p>
 <blockquote>
 <ul>
 <li>由样本算出统计量的观察值，若落在拒绝域，则拒绝 <span class="arithmatex">\(H_0\)</span>；若落在接受域，则接受 <span class="arithmatex">\(H_0\)</span></li>
@@ -5079,11 +5072,11 @@ $$
 <p><br></p>
 <h3 id="_4">一些常见的假设检验</h3>
 <p>--&gt; <strong>正态总体 <span class="arithmatex">\(N(\mu, \sigma^2)\)</span> 中均值 <span class="arithmatex">\(\mu\)</span> 的假设检验</strong></p>
-<p>设给定显著性水平 <span class="arithmatex">\(\alpha\)</span>，<span class="arithmatex">\(X_1,X_2,\cdots,X_n\)</span> 为来自总体 <span class="arithmatex">\(X\sim N(\mu, σ^2)\)</span> 的一组样本。检验问题为：
-$$
+<p>设给定显著性水平 <span class="arithmatex">\(\alpha\)</span>，<span class="arithmatex">\(X_1,X_2,\cdots,X_n\)</span> 为来自总体 <span class="arithmatex">\(X\sim N(\mu, σ^2)\)</span> 的一组样本。检验问题为：</p>
+<div class="arithmatex">\[
 H_0:\mu= \mu_0,\quad H_1 : \mu \ne \mu_0
-$$
-(1) <span class="arithmatex">\(\sigma^2\)</span> 已知 </p>
+\]</div>
+<p>(1) <span class="arithmatex">\(\sigma^2\)</span> 已知 </p>
 <p>使用已知的方差 <span class="arithmatex">\(\sigma\)</span></p>
 <p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} = \dfrac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}\)</span>，</p>
 <p>有 <span class="arithmatex">\(U \sim N(0,1)\)</span>，拒绝域
@@ -5105,10 +5098,10 @@ H_0:\mu \leq \mu_0,\quad H_1 : \mu &gt; \mu_0 \\
 <p>(2) <span class="arithmatex">\(\sigma^2\)</span> 未知 </p>
 <p>使用使用无偏估计的样本标准差 <span class="arithmatex">\(\displaystyle S =\sqrt{ \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2}\)</span></p>
 <p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(T = \dfrac{\overline{X} - \mu}{S / \sqrt{n}} = \dfrac{\overline{X} - \mu_0}{S / \sqrt{n}}\)</span>，</p>
-<p>有 <span class="arithmatex">\(T \sim t(n-1)\)</span>，拒绝域
-$$
+<p>有 <span class="arithmatex">\(T \sim t(n-1)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace |T| = \left| \dfrac{\overline{X} - \mu_0}{S / \sqrt{n}} \right| \geq t_{\alpha / 2}(n-1) \rbrace
-$$</p>
+\]</div>
 <p>称这种检验方式为 <span class="arithmatex">\(t\)</span> 检验法</p>
 <p><br></p>
 <p>--&gt; <strong>基于成对数据（二维总体）均值差 <span class="arithmatex">\(\mu\)</span> 的假设检验</strong></p>
@@ -5119,10 +5112,10 @@ H_0:\mu= \mu_0,\quad H_1 : \mu \ne \mu_0
 <p>只考虑方差未知的情况，也采用 <span class="arithmatex">\(t\)</span> 检验法：</p>
 <p>使用无偏估计的样本标准差 <span class="arithmatex">\(\displaystyle S_Z =\sqrt{ \dfrac{1}{n-1} \sum_{i=1}^{n}(Z_i-\overline{Z})^2}\)</span></p>
 <p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(T = \dfrac{\overline{Z} - \mu}{S_Z / \sqrt{n}} = \dfrac{\overline{Z} - \mu_0}{S_Z / \sqrt{n}}\)</span>，</p>
-<p>有 <span class="arithmatex">\(T \sim t(n-1)\)</span>，拒绝域
-$$
+<p>有 <span class="arithmatex">\(T \sim t(n-1)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace |T| = \left| \dfrac{\overline{Z} - \mu_0}{S / \sqrt{n}} \right| \geq t_{\alpha / 2}(n-1) \rbrace
-$$</p>
+\]</div>
 <p>我们发现，相对于来自一个总体的样本，我们将来自相关两组的成对观测值进行差值计算，得到差值样本构成差值总体，得到一个新的总体及对应样本，然后进行单样本的 <span class="arithmatex">\(t\)</span> 检验。</p>
 <p>我们称之为成对 <span class="arithmatex">\(t\)</span> 检验</p>
 <p><br></p>
@@ -5133,18 +5126,18 @@ H_0:\mu_1= \mu_2,\quad H_1 : \mu_1 \ne \mu_2
 \]</div>
 <p>(1) <span class="arithmatex">\(\sigma^2_1,\;\sigma^2_2\)</span> 均已知</p>
 <p>使用各自已知的方差 <span class="arithmatex">\(\sigma^2_1,\;\sigma^2_2\)</span> </p>
-<p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(U = \dfrac{(\overline{X} - \mu_1)  - (\overline{Y} - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} = \dfrac{\overline{X}  - \overline{Y}}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}}\)</span>，</p>
-<p>有<span class="arithmatex">\(U \sim N(0,1)\)</span>，拒绝域
-$$
+<p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} = \dfrac{\overline{X}  - \overline{Y}}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}}\)</span>，</p>
+<p>有<span class="arithmatex">\(U \sim N(0,1)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace |U| \geq u_{\alpha / 2} \rbrace
-$$</p>
+\]</div>
 <p>(2) <span class="arithmatex">\(\sigma^2_1=\sigma^2_2=\sigma^2\)</span>，但 <span class="arithmatex">\(\sigma^2\)</span> 未知</p>
 <p>使用合并标准差 <span class="arithmatex">\(S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}\)</span> </p>
-<p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(T = \dfrac{(\overline{X} - \mu_1)  - (\overline{Y} - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} = \dfrac{\overline{X}  - \overline{Y}}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}}\)</span>，</p>
-<p>有 <span class="arithmatex">\(T \sim t(n_1 + n_2 - 2)\)</span>，拒绝域
-$$
+<p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} = \dfrac{\overline{X}  - \overline{Y}}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}}\)</span>，</p>
+<p>有 <span class="arithmatex">\(T \sim t(n_1 + n_2 - 2)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace |T| \geq t_{\alpha / 2}(n_1+n_2 - 2) \rbrace
-$$</p>
+\]</div>
 <p><br></p>
 <p>--&gt; <strong>正态总体 <span class="arithmatex">\(N(\mu, \sigma^2)\)</span> 中方差 <span class="arithmatex">\(\sigma^2\)</span> 的置信区间</strong></p>
 <p>设给定显著性水平 <span class="arithmatex">\(\alpha\)</span>，<span class="arithmatex">\(X_1,X_2,\cdots,X_n\)</span> 为来自总体 <span class="arithmatex">\(X\sim N(\mu, σ^2)\)</span> 的一组样本。检验问题为：</p>
@@ -5154,17 +5147,17 @@ $$</p>
 <p>(1) <span class="arithmatex">\(\mu\)</span> 已知</p>
 <p>使用<strong>已知均值的</strong>样本二阶中心距 <span class="arithmatex">\(\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2\)</span> </p>
 <p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(\chi ^ 2 = \dfrac{nS^{\ast 2}}{\sigma ^2} = \dfrac{nS^{\ast 2}}{\sigma_0 ^2}\)</span>，</p>
-<p>有 <span class="arithmatex">\(\chi ^2 \sim \chi^2(n)\)</span>，拒绝域
-$$
+<p>有 <span class="arithmatex">\(\chi ^2 \sim \chi^2(n)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace \chi^2 \leq \chi^2_{1-\alpha / 2}(n) \rbrace \cap \lbrace \chi^2 \geq \chi^2_{\alpha / 2}(n) \rbrace
-$$</p>
+\]</div>
 <p>(2) <span class="arithmatex">\(\mu\)</span> 未知</p>
 <p>使用无偏估计的样本方差 <span class="arithmatex">\(\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2\)</span> </p>
 <p>在原假设 <span class="arithmatex">\(H_0\)</span> 成立的情况下，取检验统计量 <span class="arithmatex">\(\chi ^ 2 = \dfrac{(n-1)S^2}{\sigma^2} = \dfrac{(n-1)S^2}{\sigma_0^2}\)</span>，</p>
-<p>有 <span class="arithmatex">\(\chi ^2 \sim \chi^2(n-1)\)</span>，拒绝域
-$$
+<p>有 <span class="arithmatex">\(\chi ^2 \sim \chi^2(n-1)\)</span>，拒绝域</p>
+<div class="arithmatex">\[
 W = \lbrace \chi^2 \leq \chi^2_{1-\alpha / 2}(n-1) \rbrace \cap \lbrace \chi^2 \geq \chi^2_{\alpha / 2}(n-1) \rbrace
-$$</p>
+\]</div>
 <p><br></p>
 <p>--&gt; <strong>两个正态总体 <span class="arithmatex">\(N(\mu_1, \sigma^2_1),\;N(\mu_2, \sigma^2_2)\)</span> 中方差比 <span class="arithmatex">\(\sigma_1^2 / \sigma_2^2\)</span> 的假设检验</strong></p>
 <p>设给定显著性水平 <span class="arithmatex">\(\alpha\)</span>，<span class="arithmatex">\(X_1,X_2,\cdots,X_n\)</span> 为来自总体 <span class="arithmatex">\(X\sim N(\mu_1, σ^2_1)\)</span> 的一组样本，<span class="arithmatex">\(Y_1,Y_2,\cdots,Y_n\)</span> 为来自总体 <span class="arithmatex">\(Y\sim N(\mu_2, σ_2^2)\)</span> 的一组样本。检验问题为：</p>
@@ -5241,10 +5234,10 @@ W = \lbrace \chi^2 \geq \chi^2_{\alpha}(k-1) \rbrace
 <p><br></p>
 <h2 id="_7">独立性检验</h2>
 <p>设 <span class="arithmatex">\((X_1, Y_1),(X_2, Y_2),\cdots,(X_n, Y_n)\)</span> 为来自二维总体 <span class="arithmatex">\((X,Y)\)</span> 的一个样本，要检验</p>
-<p>$$
+<div class="arithmatex">\[
 H_0: X \text{ 与 } Y \text{ 独立}
-$$
-我们采用皮尔逊 <span class="arithmatex">\(\chi ^2\)</span> 独立性检验：</p>
+\]</div>
+<p>我们采用皮尔逊 <span class="arithmatex">\(\chi ^2\)</span> 独立性检验：</p>
 <p>首先针对数据给出 <span class="arithmatex">\(r\times c\)</span> 列联表：</p>
 <table>
 <thead>

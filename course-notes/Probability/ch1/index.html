@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -4966,21 +4959,20 @@
 \overline{A_1 \cup A_2 \cup \cdots \cup A_n} = \overline{A_1} \cap \overline{A_2} \cap \cdots \cap \overline{A_n} \\{}\\
 \overline{A_1 \cap A_2 \cap \cdots \cap A_n} = \overline{A_1} \cup \overline{A_2} \cup \cdots \cup \overline{A_n}
 \]</div>
-<p><br></p>
 <h2 id="_2">事件的概率及性质</h2>
 <p>随机事件 <span class="arithmatex">\(A\)</span> 的频率 <span class="arithmatex">\(f_n(A) = \dfrac{n_A}{n}\)</span> ，定义样本空间 <span class="arithmatex">\(\Omega\)</span> </p>
 <p>如果集合函数 <span class="arithmatex">\(P(·)\)</span> 满足非负性（<span class="arithmatex">\(P(A) \geq 0\)</span>），规范性（<span class="arithmatex">\(P(\Omega) = 1\)</span>）与可列可加性，可称 <span class="arithmatex">\(P(A)\)</span> 为 <span class="arithmatex">\(A\)</span> 的概率</p>
 <div class="admonition abstract">
 <p>可列可加性：对于概率空间中<strong>两两互不相容</strong>（即互斥）的<strong>可数无穷个</strong>随机事件，这些事件<strong>至少有一个发生</strong>的概率，等于每个事件发生的概率之和</p>
 </div>
-<p>集合论中有容斥原理
-$$
+<p>集合论中有容斥原理</p>
+<div class="arithmatex">\[
 \left| \bigcup_{i=1}^{n} A_i \right| = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1 &lt; \cdots &lt; i_k \leq n} \left| A_{i_1} \cap \cdots \cap A_{i_k} \right|
-$$
-相应的，概率论中有加法原理
-$$
-P\left(\bigcup_{i=1}^{n} A_i\right) = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1 &lt; \cdots &lt; i_k \leq n} P\left( A_{i_1} \cap \cdots \cap A_{i_k} \right)\
-$$</p>
+\]</div>
+<p>相应的，概率论中有加法原理</p>
+<div class="arithmatex">\[
+P\left(\bigcup_{i=1}^{n} A_i\right) = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1 &lt; \cdots &lt; i_k \leq n} P\left( A_{i_1} \cap \cdots \cap A_{i_k} \right)\\
+\]</div>
 <p><br></p>
 <h2 id="_3">古典概型常见模型</h2>
 <ul>
@@ -5055,10 +5047,10 @@ P(A_i|B)= \frac{P(A_i)P(B|A_i)}{\sum^{n}_{k=1} P(A_k)P(B|A_k)} \Big( = \frac{P(A
 <p>对后两部分进行极限分析即可</p>
 <p>另外，不难发现 <span class="arithmatex">\(\frac{\lambda^k}{k!}\)</span> 满足 <span class="arithmatex">\(e^x\)</span> 的麦克劳林展开</p>
 </details>
-<p>泊松分布的应用：<span class="arithmatex">\(n\)</span> 很大 <span class="arithmatex">\(p\)</span> 很小时，二项分布可近似看作泊松分布，简化运算：
-$$
+<p>泊松分布的应用：<span class="arithmatex">\(n\)</span> 很大 <span class="arithmatex">\(p\)</span> 很小时，二项分布可近似看作泊松分布，简化运算：</p>
+<div class="arithmatex">\[
 \color{orange}\displaystyle C_n^k p^k (1-p)^{n-k} ≈ \frac{\lambda^k}{k!}e^{-\lambda}
-$$</p>
+\]</div>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
 

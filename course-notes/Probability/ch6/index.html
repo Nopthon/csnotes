@@ -2876,13 +2876,6 @@
     
   </span>
   
-    
-  
-  
-    <span class="md-status md-status--encrypted"></span>
-  
-
-  
   
 
       </a>
@@ -5111,14 +5104,14 @@
 <p>先给出三种著名分布，这三种分布的意义会在之后解释：</p>
 <h3 id="chi2"><span class="arithmatex">\(\chi^2\)</span> 分布</h3>
 <p>设 <span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 为独立同分布的随机变量，且均服从标准正态分布 <span class="arithmatex">\(N(0,1)\)</span>，则</p>
-<p>$$
+<div class="arithmatex">\[
 \chi_n^2 = \sum_{i=1}^n X_i^2
-$$
-为服从自由度为 <span class="arithmatex">\(n\)</span> 的 <span class="arithmatex">\(\chi^2\)</span> 分布，记为 <span class="arithmatex">\(\chi^2_n \sim \chi ^2(n)\)</span>，其密度函数为：</p>
+\]</div>
+<p>为服从自由度为 <span class="arithmatex">\(n\)</span> 的 <span class="arithmatex">\(\chi^2\)</span> 分布，记为 <span class="arithmatex">\(\chi^2_n \sim \chi ^2(n)\)</span>，其密度函数为：</p>
 <div class="arithmatex">\[
 p(x) = \dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})} e^{-\frac{x}{2}}x^{\frac{n}{2}-1} , \quad x &gt; 0
-$$
-其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\]</div>
+\]</div>
+<p>其中 Gamma 函数：<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span></p>
 <details class="quote">
 <summary>给出不同自由度下的分布图像</summary>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/539952-20170304154614391-1923543374.jpg" data-desc-position="bottom"><img alt="img" src="../images/539952-20170304154614391-1923543374.jpg"></a></p>
@@ -5165,7 +5158,7 @@ T = \frac{X}{\sqrt{Y/n}}
 p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)} 
 \left(1 + \frac{x^2}{n}\right)^{-\frac{n+1}{2}}
 \]</div>
-<p>其中 Gamma 函数：<span class="arithmatex">\(<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span>\)</span></p>
+<p>其中 Gamma 函数：<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span></p>
 <details class="quote">
 <summary>给出不同自由度下的分布图像</summary>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/539952-20170304163140751-824359933.jpg" data-desc-position="bottom"><img alt="img" src="../images/539952-20170304163140751-824359933.jpg"></a></p>
@@ -5184,7 +5177,7 @@ p(x) = \frac{\Gamma\left(\frac{n_1+n_2}{2}\right)}
 x^{\frac{n_1}{2} - 1}
 \left(1 + \frac{n_1}{n_2}x\right)^{-\frac{n_1+n_2}{2}}, \; x &gt; 0
 \]</div>
-<p>其中 Gamma 函数：<span class="arithmatex">\(<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span>\)</span></p>
+<p>其中 Gamma 函数：<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span></p>
 <details class="quote">
 <summary>给出不同自由度下的分布图像</summary>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/539952-20170304165826016-2056523954.jpg" data-desc-position="bottom"><img alt="img" src="../images/539952-20170304165826016-2056523954.jpg"></a></p>
@@ -5228,10 +5221,10 @@ x^{\frac{n_1}{2} - 1}
 <ul>
 <li>方差分析的基础</li>
 </ul>
-<p>(6)  设 <span class="arithmatex">\(X_1, X_2, \cdots, X_{n_1}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_1, \sigma_1^2)\)</span> 的一个样本，<span class="arithmatex">\(Y_1, Y_2, \cdots, Y_{n_2}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_2, \sigma_2^2)\)</span> 的一个样本，两样本相互独立，则
-$$
+<p>(6)  设 <span class="arithmatex">\(X_1, X_2, \cdots, X_{n_1}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_1, \sigma_1^2)\)</span> 的一个样本，<span class="arithmatex">\(Y_1, Y_2, \cdots, Y_{n_2}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_2, \sigma_2^2)\)</span> 的一个样本，两样本相互独立，则</p>
+<div class="arithmatex">\[
 {\color{orange}T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)}
-$$</p>
+\]</div>
 <p>通常会记 <span class="arithmatex">\(S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}\)</span> 为合并标准差</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
