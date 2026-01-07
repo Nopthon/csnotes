@@ -4622,6 +4622,8 @@
       
         
       
+        
+      
     
     
     
@@ -4674,6 +4676,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../blog/archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
@@ -4711,6 +4743,8 @@
   
     
     
+      
+        
       
         
       
@@ -4758,6 +4792,36 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/not-sorted-yet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Not-sorted-yet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5185,6 +5249,10 @@ x^{\frac{n_1}{2} - 1}
 <p><span class="arithmatex">\(F\)</span> 分布具有一些相关性质：</p>
 <p>1- <span class="arithmatex">\(F \sim F(n_1, n_2) \to \dfrac{1}{F} \sim F(n_2, n_1)\)</span></p>
 <p>2- <span class="arithmatex">\(T \sim t(n) \to T^2 \sim F(1, n)\)</span></p>
+<details class="tip">
+<summary>对性质 2 的证明</summary>
+<p><span class="arithmatex">\(T = \dfrac{X}{\sqrt{Y/n}}\)</span>，平方后 <span class="arithmatex">\(T^2 = \dfrac{X^2 / 1}{Y / n}\)</span>，注意到 <span class="arithmatex">\(X^2 \sim \chi^2(1), \; Y \sim \chi^2(n)\)</span>，带入到 <span class="arithmatex">\(F\)</span> 分布的形式即可</p>
+</details>
 <p><br></p>
 <h2 id="alpha">上 <span class="arithmatex">\(\alpha\)</span> 分位点</h2>
 <p>设 <span class="arithmatex">\(X\)</span> 是一个随机变量，对于 <span class="arithmatex">\(\alpha \in (0,1)\)</span>，我们令满足 <span class="arithmatex">\(P(X &gt; \lambda_{\alpha}) = \alpha\)</span> 的实数 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(X\)</span> 的上 <span class="arithmatex">\(\alpha\)</span> 分位点</p>
@@ -5204,12 +5272,12 @@ x^{\frac{n_1}{2} - 1}
 </div>
 <p>设 <span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu, \sigma^2)\)</span> 的一个样本，则</p>
 <p>(1) <span class="arithmatex">\(\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n})\)</span></p>
-<p>(2) <span class="arithmatex">\({\color{orange}\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)}\)</span></p>
+<p>(2) <span class="arithmatex">\({\color{orange}\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)}\)</span>，等价为 <span class="arithmatex">\(\displaystyle \dfrac{1}{\sigma^2} \sum_{i=1}^{n} (X_i - \overline{X})^2 \sim \chi^2 (n-1)\)</span></p>
 <ul>
 <li>这说明正态总体的样本方差经过一定的缩放后服从卡方分布</li>
 </ul>
 <p>(3) <span class="arithmatex">\(\overline{X}\)</span> 与 <span class="arithmatex">\(S^2\)</span> 相互独立</p>
-<p>一些推论：</p>
+<p>一些其他的推论：</p>
 <p>(4) <span class="arithmatex">\(\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}\)</span> </p>
 <ul>
 <li>这说明在对小样本均值进行推断时，用样本标准差代替总体标准差会得到一个和正态分布相近的 <span class="arithmatex">\(t\)</span> 分布。事实上 <span class="arithmatex">\(n\to \infty\)</span> 时 <span class="arithmatex">\(t\)</span> 分布近似成为标准正态分布</li>
@@ -5220,6 +5288,7 @@ x^{\frac{n_1}{2} - 1}
 \]</div>
 <ul>
 <li>方差分析的基础</li>
+<li>用推论 2 即证</li>
 </ul>
 <p>(6)  设 <span class="arithmatex">\(X_1, X_2, \cdots, X_{n_1}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_1, \sigma_1^2)\)</span> 的一个样本，<span class="arithmatex">\(Y_1, Y_2, \cdots, Y_{n_2}\)</span> 是来自正态总体 <span class="arithmatex">\(N(\mu_2, \sigma_2^2)\)</span> 的一个样本，两样本相互独立，则</p>
 <div class="arithmatex">\[
