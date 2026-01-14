@@ -61,12 +61,14 @@ $\dfrac{\sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} = Y_n \sim N(0,1) \longright
 $$
 \chi_n^2 = \sum_{i=1}^n X_i^2
 $$
+
 为服从自由度为 $n$ 的 $\chi^2$ 分布，记为 $\chi^2_n \sim \chi ^2(n)$，其密度函数为：
 
 $$
 p(x) = \dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})} e^{-\frac{x}{2}}x^{\frac{n}{2}-1} , \quad x > 0
 $$
-其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$$
+
+其中 Gamma 函数：$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$
 
 ??? quote "给出不同自由度下的分布图像"
 
@@ -123,7 +125,7 @@ p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}
 \left(1 + \frac{x^2}{n}\right)^{-\frac{n+1}{2}}
 $$
 
-其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$$
+其中 Gamma 函数：$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$
 
 ??? quote "给出不同自由度下的分布图像"
 
@@ -149,7 +151,7 @@ x^{\frac{n_1}{2} - 1}
 \left(1 + \frac{n_1}{n_2}x\right)^{-\frac{n_1+n_2}{2}}, \; x > 0
 $$
 
-其中 Gamma 函数：$$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$$
+其中 Gamma 函数：$\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt$
 
 ??? quote "给出不同自由度下的分布图像"
 
@@ -160,6 +162,10 @@ $F$ 分布具有一些相关性质：
 1- $F \sim F(n_1, n_2) \to \dfrac{1}{F} \sim F(n_2, n_1)$
 
 2- $T \sim t(n) \to T^2 \sim F(1, n)$
+
+??? tip "对性质 2 的证明"
+
+    $T = \dfrac{X}{\sqrt{Y/n}}$，平方后 $T^2 = \dfrac{X^2 / 1}{Y / n}$，注意到 $X^2 \sim \chi^2(1), \; Y \sim \chi^2(n)$，带入到 $F$ 分布的形式即可
 
 <br>
 
@@ -193,13 +199,13 @@ $F$ 分布具有一些相关性质：
 
 (1) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n})$
 
-(2) ${\color{orange}\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)}$
+(2) ${\color{orange}\dfrac{(n-1)S^2}{\sigma^2}\sim \chi^2 (n-1)}$，等价为 $\displaystyle \dfrac{1}{\sigma^2} \sum_{i=1}^{n} (X_i - \overline{X})^2 \sim \chi^2 (n-1)$
 
 - 这说明正态总体的样本方差经过一定的缩放后服从卡方分布
 
 (3) $\overline{X}$ 与 $S^2$ 相互独立
 
-一些推论：
+一些其他的推论：
 
 (4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$ 
 
@@ -212,8 +218,10 @@ $$
 $$
 
 - 方差分析的基础
+- 用推论 2 即证
 
 (6)  设 $X_1, X_2, \cdots, X_{n_1}$ 是来自正态总体 $N(\mu_1, \sigma_1^2)$ 的一个样本，$Y_1, Y_2, \cdots, Y_{n_2}$ 是来自正态总体 $N(\mu_2, \sigma_2^2)$ 的一个样本，两样本相互独立，则
+
 $$
 {\color{orange}T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)}
 $$

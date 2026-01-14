@@ -95,6 +95,8 @@ void kruskal(int n, int m){
         J --> E
     ```
 
+代码没写，会补的
+
 ### 时间复杂度分析
 
 Kruskal 的时间开销分为三部分：

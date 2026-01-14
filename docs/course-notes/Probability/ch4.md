@@ -56,15 +56,19 @@ $$
 ### 连续型
 
 我们记
+
 $$
 EX = \int_{-\infty}^{+\infty} xp(x)dx
 $$
+
 为 $X$ 的数学期望，存在的前提是 $ \int_{-\infty}^{+\infty} |x|p(x)dx$ 级数收敛，否则期望不存在
 
 接下来记
+
 $$
 DX = E(X - EX)^2 = EX^2 - (EX)^2
 $$
+
 为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 < +\infty$ 
 
 方差 $DX$ 就是 $g(X) = (X-EX)^2$ 的数学期望
@@ -106,7 +110,7 @@ $$
 
 对于连续型随机变量
 
-- $\displaystyle E(g(X)) EX = \int_{-\infty}^{+\infty} g(x)p(x)dx$ 
+- $\displaystyle E(g(X)) = \int_{-\infty}^{+\infty} g(x)p(x)dx$ 
 
 上述结论可以推广到 $Z = g(X,Y)$ 的数学期望，对应二重求和 / 积分
 
@@ -115,8 +119,6 @@ $$
 - $E(a) = a$ 
 - $E(aX+bY) = aEX+bEY$ 
 - $X,Y$ 相互独立 $\longrightarrow E(XY)=EX\cdot EY$ 
-
-
 
 ## 方差的性质
 
@@ -130,11 +132,10 @@ $$
 
 上面的结论可扩展到 $n$ 维
 
-
-
 ## 切比雪夫不等式
 
 设随机变量 $X$ 的期望 $EX$ 和方差 $DX$ 均存在，则对任意 $ε > 0$：
+
 $$
 {\color{orange}P(|X - EX| \geq ε) \leq \dfrac{DX}{ε^2}}
 $$
@@ -152,9 +153,11 @@ $$
 ## 协方差
 
 如果 $EX, EY, E(XY)$ 存在，则
+
 $$
 \text{cov}(X,Y) = E[(X-EX)(Y-EY)] = E(XY) - EX\cdot EY
 $$
+
 为 $X,Y$ 的协方差
 
 有以下性质和结论：
@@ -172,15 +175,19 @@ $$
 ### 柯西 · 施瓦兹不等式的概率论形式
 
 若  $X,Y$ 方差存在，则
+
 $$
 [\text{cov}(X,Y)]^2 \leqslant DX\cdot DY
 $$
+
 取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$ 
 
 一个更基础的形式是：若  $X^2,Y^2$ 期望存在，则
+
 $$
 [E(XY)]^2 \leqslant E(X^2)\cdot E(Y^2)
 $$
+
 取等条件是存在 $t_0$ 不为零，$P(Y= t_0X) = 1$ 
 
 !!! abstract ""

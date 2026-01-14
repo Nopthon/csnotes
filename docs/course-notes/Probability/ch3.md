@@ -196,9 +196,11 @@ $$
     $$
 
 因此
+
 $$
 p_{X|Y= y} = \dfrac{p(u,y)}{p_Y(y)}
 $$
+
 很像随机事件的条件概率式 $P(A|B) = \frac{P(AB)}{P(B)}$
 
 $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p_X(x), \; p_{Y|X= x} = p_Y(y)$
@@ -279,10 +281,13 @@ p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,z-x)dx = \int_{-\infty}^{+\
 $$
 
 如果 $X,Y$ 独立，还可以转换为：（称下面的公式为**卷积公式**）
+
 $$
 p_Z(z) = \int_{-\infty}^{+\infty} p_X(x) \cdot p_Y(z-x)dx = \int_{-\infty}^{+\infty} p_X(z-y) \cdot p_Y(y) dy
 $$
+
 同理对于 $Z=X-Y$：
+
 $$
 p_Z(z) = {\color{orange}\int_{-\infty}^{+\infty} p(x,x-z)dx = \int_{-\infty}^{+\infty} p(z+y,y)dy}
 $$
@@ -328,8 +333,6 @@ $$
 p_Z(z) &= \int_{-\infty}^{+\infty} p(x, zx) |x| \, dx \quad(Z = Y/X) \\ &= \int_{-\infty}^{+\infty} p(zy, y) |y| \, dy \quad(Z = X/Y)
 \end{aligned}
 $$
-
-
 
 <br>
 

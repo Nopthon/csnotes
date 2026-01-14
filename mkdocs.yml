@@ -2,6 +2,7 @@ site_name: CSNote
 
 theme:
   name: material
+  logo: assets/burger.svg
   features:
     - content.code.select
     - content.code.copy
@@ -45,14 +46,17 @@ theme:
 plugins:
   - search
   - mermaid2:
-  #    javascript: https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js
+    # javascript: https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js
   # - statistics
-  - glightbox
+  - glightbox:
+      width: 80%
   - blog:
+      archive: false
       # archive_date_format: MMMM yyyy
       post_readtime: true
       post_url_format: "{categories}/{slug}"
       post_url_max_categories: 2
+      
 
   - document-dates:
       position: bottom # top
@@ -61,9 +65,10 @@ plugins:
       date_format: '%Y-%m-%d'
       time_format: '%H:%M:%S'
       show_author: false
-#  - privacy
+  # - privacy
   - encryptcontent: {}
-      
+
+  # - build-cache
 
 
 

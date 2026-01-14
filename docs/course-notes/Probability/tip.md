@@ -14,8 +14,8 @@ $F_Y(y) = P(F_X(X) \leqslant y) = P(X \leqslant F_X^{-1}(y)) = F_X(F_X^{-1}(y)) 
 $$
 F_Y(y) = 
 \begin{cases}
-0, & y \leqslant 0 \\\\
-y, & 0 < y \leqslant 1 \\\\
+0, & y \leqslant 0 \\
+y, & 0 < y \leqslant 1 \\
 1, & y > 1
 \end{cases}
 $$

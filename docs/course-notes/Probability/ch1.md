@@ -7,8 +7,6 @@ $$
 \overline{A_1 \cap A_2 \cap \cdots \cap A_n} = \overline{A_1} \cup \overline{A_2} \cup \cdots \cup \overline{A_n}
 $$
 
-<br>
-
 ## 事件的概率及性质
 
 随机事件 $A$ 的频率 $f_n(A) = \dfrac{n_A}{n}$ ，定义样本空间 $\Omega$ 
@@ -21,10 +19,13 @@ $$
 
 
 集合论中有容斥原理
+
 $$
 \left| \bigcup_{i=1}^{n} A_i \right| = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1 < \cdots < i_k \leq n} \left| A_{i_1} \cap \cdots \cap A_{i_k} \right|
 $$
+
 相应的，概率论中有加法原理
+
 $$
 P\left(\bigcup_{i=1}^{n} A_i\right) = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1 < \cdots < i_k \leq n} P\left( A_{i_1} \cap \cdots \cap A_{i_k} \right)\\
 $$
@@ -126,6 +127,7 @@ $$
     另外，不难发现 $\frac{\lambda^k}{k!}$ 满足 $e^x$ 的麦克劳林展开
 
 泊松分布的应用：$n$ 很大 $p$ 很小时，二项分布可近似看作泊松分布，简化运算：
+
 $$
 \color{orange}\displaystyle C_n^k p^k (1-p)^{n-k} ≈ \frac{\lambda^k}{k!}e^{-\lambda}
 $$

@@ -59,6 +59,7 @@ $$
 ### 独立同分布大数定律
 
 设 $X_1, X_2, \cdots $ 为相互独立且分布相同的随机变量序列，数学期望存在，$EX_N = \mu$，则 $\lbrace X_n \rbrace$ 服从大数定律，即对任意给定的 $\varepsilon > 0$ 有：
+
 $$
 \lim_{n \to \infty} P\left( \left| \frac{1}{n} \sum_{k=1}^n X_k- \mu \right| \geq \varepsilon \right) = 0
 $$
@@ -125,11 +126,19 @@ $$
 设 $X_1, X_2, \cdots $ 为相互独立且分布相同的随机变量序列，数学期望和方差都存在，$EX_k = \mu,\;DX_k = \rho ^ 2 > 0$，则对任意 $x$ 有：
 
 $$
-\lim_{n\to \infty} P \left( \dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} \leq x \right) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \text{d} t = \varPhi (x)
+\lim_{n\to \infty} P \left( \dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma} \leq x \right) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \text{d} t = \varPhi (x)\\
 $$
 
-不难发现 $\dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma}$ 为 $\displaystyle \sum_{k=1}^{n} X_k$ 的标准化随机变量（记为 $Y_n$），也就是说：
+!!! abstract ""
 
+    也即：
+    
+    $$
+    \frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \, \sigma} \stackrel{P}{\longrightarrow} N(0,1), \quad n \to \infty \\
+    \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \stackrel{P}{\longrightarrow} N(0,1), \quad n \to \infty
+    $$
+
+不难发现 $\dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma}$ 为 $\displaystyle \sum_{k=1}^{n} X_k$ 的标准化随机变量（记为 $Y_n$），也就是说：
 $$
 \lim_{n\to \infty} F_n(x) = \lim_{n\to \infty} P(Y_n \leq x) = \varPhi(x)
 $$
@@ -140,6 +149,7 @@ $$
 Y_n \sim N(0,1) \\
 \sum_{k=1}^n X_k \sim N(n\mu, n\sigma ^2)
 $$
+
 对于 $n$ 重伯努利实验，我们有**拉普拉斯中心极限定理**的特例：
 
 设 $\mu_n$ 是 $n$ 重伯努利试验中 $A$ 发生的次数，每次实验中 $A$ 发生的概率为 $p$，不发生的概率为 $q = 1- p$，则对任意 $x$ 有

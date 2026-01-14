@@ -45,6 +45,7 @@ $$
 $$
 P\left( \left|\frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}\right| \geq \frac{k}{\sigma / \sqrt{n}} \right) = \alpha
 $$
+
 $\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}$，得到 $k = \dfrac{\sigma}{\sqrt{n}} u_{\alpha / 2}$ 
 
 > - 由样本算出统计量的观察值，若落在拒绝域，则拒绝 $H_0$；若落在接受域，则接受 $H_0$
@@ -64,9 +65,11 @@ $\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}$，得到 $k = \dfrac{\sigma}{\sq
 --> **正态总体 $N(\mu, \sigma^2)$ 中均值 $\mu$ 的假设检验**
 
 设给定显著性水平 $\alpha$，$X_1,X_2,\cdots,X_n$ 为来自总体 $X\sim N(\mu, σ^2)$ 的一组样本。检验问题为：
+
 $$
 H_0:\mu= \mu_0,\quad H_1 : \mu \ne \mu_0
 $$
+
 (1) $\sigma^2$ 已知 
 
 使用已知的方差 $\sigma$
@@ -100,6 +103,7 @@ $$
 在原假设 $H_0$ 成立的情况下，取检验统计量 $T = \dfrac{\overline{X} - \mu}{S / \sqrt{n}} = \dfrac{\overline{X} - \mu_0}{S / \sqrt{n}}$，
 
 有 $T \sim t(n-1)$，拒绝域
+
 $$
 W = \lbrace |T| = \left| \dfrac{\overline{X} - \mu_0}{S / \sqrt{n}} \right| \geq t_{\alpha / 2}(n-1) \rbrace
 $$
@@ -123,6 +127,7 @@ $$
 在原假设 $H_0$ 成立的情况下，取检验统计量 $T = \dfrac{\overline{Z} - \mu}{S_Z / \sqrt{n}} = \dfrac{\overline{Z} - \mu_0}{S_Z / \sqrt{n}}$，
 
 有 $T \sim t(n-1)$，拒绝域
+
 $$
 W = \lbrace |T| = \left| \dfrac{\overline{Z} - \mu_0}{S / \sqrt{n}} \right| \geq t_{\alpha / 2}(n-1) \rbrace
 $$
@@ -145,9 +150,10 @@ $$
 
 使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$ 
 
-在原假设 $H_0$ 成立的情况下，取检验统计量 $U = \dfrac{(\overline{X} - \mu_1)  - (\overline{Y} - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} = \dfrac{\overline{X}  - \overline{Y}}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}}$，
+在原假设 $H_0$ 成立的情况下，取检验统计量 $U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} = \dfrac{\overline{X}  - \overline{Y}}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}}$，
 
 有$U \sim N(0,1)$，拒绝域
+
 $$
 W = \lbrace |U| \geq u_{\alpha / 2} \rbrace
 $$
@@ -156,9 +162,10 @@ $$
 
 使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 
 
-在原假设 $H_0$ 成立的情况下，取检验统计量 $T = \dfrac{(\overline{X} - \mu_1)  - (\overline{Y} - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} = \dfrac{\overline{X}  - \overline{Y}}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}}$，
+在原假设 $H_0$ 成立的情况下，取检验统计量 $T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} = \dfrac{\overline{X}  - \overline{Y}}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}}$，
 
 有 $T \sim t(n_1 + n_2 - 2)$，拒绝域
+
 $$
 W = \lbrace |T| \geq t_{\alpha / 2}(n_1+n_2 - 2) \rbrace
 $$
@@ -180,6 +187,7 @@ $$
 在原假设 $H_0$ 成立的情况下，取检验统计量 $\chi ^ 2 = \dfrac{nS^{\ast 2}}{\sigma ^2} = \dfrac{nS^{\ast 2}}{\sigma_0 ^2}$，
 
 有 $\chi ^2 \sim \chi^2(n)$，拒绝域
+
 $$
 W = \lbrace \chi^2 \leq \chi^2_{1-\alpha / 2}(n) \rbrace \cap \lbrace \chi^2 \geq \chi^2_{\alpha / 2}(n) \rbrace
 $$
@@ -191,6 +199,7 @@ $$
 在原假设 $H_0$ 成立的情况下，取检验统计量 $\chi ^ 2 = \dfrac{(n-1)S^2}{\sigma^2} = \dfrac{(n-1)S^2}{\sigma_0^2}$，
 
 有 $\chi ^2 \sim \chi^2(n-1)$，拒绝域
+
 $$
 W = \lbrace \chi^2 \leq \chi^2_{1-\alpha / 2}(n-1) \rbrace \cap \lbrace \chi^2 \geq \chi^2_{\alpha / 2}(n-1) \rbrace
 $$
@@ -326,6 +335,7 @@ $$
 $$
 H_0: X \text{ 与 } Y \text{ 独立}
 $$
+
 我们采用皮尔逊 $\chi ^2$ 独立性检验：
 
 首先针对数据给出 $r\times c$ 列联表：

@@ -87,9 +87,11 @@ $$
 如果说矩估计是利用部分分布信息进行数字特征匹配，满足相合性，那么极大似然估计就是利用完整分布形式进行概率最大化的估计：在已有样本的基础上，要选择参数的一个合理的估计值，就是要使得参数在取该估计值时样本发生的可能性达到最大，这就是极大似然估计的思想方法。
 
 设总体分布的密度函数为 $p(x;\theta)$，其中 $\theta$ 是未知参数。对于独立同分布样本 $(x_1,x_2,\cdots,x_n)$，定义似然函数：
+
 $$
 L(\theta) = \prod_{i=1}^n p(x_i;\theta)
 $$
+
 表示在参数 $\theta$ 下观测到当前样本的概率（概率密度乘积）
 
 极大似然估计 $\hat{\theta}$ 就是使似然函数 $L(\theta)$ 达到最大值的参数：$\displaystyle \hat{\theta} = \arg \max_{\theta \in \Theta} L(\theta)$，记最大值点 $\hat{\theta}(x_1,x_2,\cdots,x_n)$ 为 $\theta$ 的极大似然估计值，$\hat{\theta}(X_1,X_2,\cdots,X_n)$ 为极大似然估计量
@@ -346,17 +348,21 @@ $$
 
 使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$ 
 
-取枢轴变量 $U = \dfrac{(\overline{X} - \mu_1) - (\overline{Y} - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
+取枢轴变量 $U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
 
 $$
 \left( \overline{X} - \overline{Y} - u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}, \overline{X} - \overline{Y} + u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}} \right)
 $$
 
+!!! abstract ""
+
+    根据正态分布的可加性，有 $\overline{aX}-\overline{bY} \sim N\left(a\mu_1-b\mu_2, \dfrac{a^2 \sigma_1^2}{n_1}+\dfrac{b^2 \sigma_2^2}{n_2}\right)$
+
 (2) $\sigma^2_1=\sigma^2_2=\sigma^2$，但 $\sigma^2$ 未知
 
 使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 
 
-取枢轴变量 $T = \dfrac{(\overline{X} - \mu_1) - (\overline{Y} - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)$，由 $P(|T| < t_{\alpha/2}(n_1 + n_2 - 2)) = 1 - \alpha$ 得置信区间：
+取枢轴变量 $T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)$，由 $P(|T| < t_{\alpha/2}(n_1 + n_2 - 2)) = 1 - \alpha$ 得置信区间：
 
 $$
 \left( \overline{X} - \overline{Y} - t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}, \overline{X} - \overline{Y} + t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}} \right)
@@ -379,19 +385,23 @@ $$
 --> **非正态的大样本总体的均值 $\mu$ 的区间估计**
 
 当样本足够大时（$n > 50$ 即可），根据中心极限定理，$\overline{X} \sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，因此套用上述提到的内容，取枢轴变量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
+
 $$
 \left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
 $$
 
 $\sigma$ 未知时，用样本标准差 $S$ 代替 $\sigma$： 
+
 $$
 \left( \overline{X} - u_{\alpha/2} \frac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{S}{\sqrt{n}} \right)
 $$
 
 比如：对于二项分布 $B(n,p)$ 的比例 $p$，我们近似为正态分布，使用 Wald 区间作为置信区间：
+
 $$
 \left(\hat{p} - u_{\alpha / 2}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}, \hat{p} + u_{\alpha / 2}\sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}\right)
 $$
+
 !!! abstract ""
 
     $\hat{p}$ 和 $\overline{X}$ 是数值相等的，因为二项分布的样本均值 = 样本为 1 的比例

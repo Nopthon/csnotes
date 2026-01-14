@@ -186,7 +186,7 @@ f[x][y] = max(f[x][y], min(f[x][k], f[k][y]));
 
     考虑反证法：
     
-    假设我们选择了当前距离最小的节点 $u$，但存S在另一条真正最短路径 $s → ... → v → u$，此时我们有 $dis[v] < dis[u]$
+    假设我们选择了当前距离最小的节点 $u$，但存在另一条真正最短路径 $s → ... → v → u$，此时我们有 $dis[v] < dis[u]$
     
     但是我们在选择节点时，$dis[u]$ 已经是未处理节点中最小的，因此 $v$ 已经被处理过了，不应该再有 $dis[v] < dis[u]$
     
@@ -265,7 +265,7 @@ struct edge{
 }
 
 // 边列表读入边信息
-vector<edge> edges(m);
+vector<edge> edges;
 for(int i = 0; i < m; i++){
     int u,v,w; cin>>u>>v>>w;
     edges.push_back({u, v, w});

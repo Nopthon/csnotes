@@ -1,5 +1,23 @@
-// KaTeX
+/* 将所有的链接设定为新标签页打开 */
+document.addEventListener("DOMContentLoaded", function() {
+  const externalLinks = document.querySelectorAll('a[href^="http://"], a[href^="https://"]');
 
+  const currentHost = window.location.hostname;
+  
+  externalLinks.forEach(link => {
+    try {
+      const url = new URL(link.href);
+      if (url.hostname !== currentHost) {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    } catch (e) {
+      // neglect
+    }
+  });
+});
+
+/* KaTeX 设置 */
 document$.subscribe(({ body }) => {
  renderMathInElement(body, {
    delimiters: [
@@ -11,8 +29,8 @@ document$.subscribe(({ body }) => {
  });
 });
 
-// MathJax
-
+/* MathJax 设置 */
+/* 没 KaTeX 好用，所以最后没用这个 */
 // window.MathJax = {
 //   tex: {
 //     inlineMath: [["\\(", "\\)"]],

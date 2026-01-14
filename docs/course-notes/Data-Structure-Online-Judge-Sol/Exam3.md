@@ -233,8 +233,6 @@ signed main(){
 
 （$n$ 轮 SPFA 场上也试过，也是 1 TLE 90pts，可能并不是因为喜闻乐见的 “SPFA 似了”，而是 SPFA 需要逐渐求出所有终点的最短路本身依旧带来了巨大开销；相比 SPFA 对“何时确定最短路”的不确定性，Dijkstra 可以保证每轮松弛都确定一个最短路，方便剪枝）
 
-**接下来的题解代码都是 0-index 节点**
-
 ```c++ title="Solution"
 #include <iostream>
 #include <vector>
@@ -330,6 +328,14 @@ signed main(){
     return 0;
 }
 ```
+
+???+ tip "后记"
+
+    $\displaystyle \sum_{i=1}^{n} + f[1][i]$ 的一种更快的计算方法是对原图建反图（所有的单向边全部反向），然后一轮 Dijkstra 求出从起点出发的单源最短路径，加和对应到原图就是 $\displaystyle \sum_{i=1}^{n} + f[1][i]$ 的值
+    
+    考场上没想到，写的 $n$ 轮 Dijkstra 剪枝，感谢没有更逆天的数据点
+    
+    （后后记：期末笔试的压轴题做法就涉及到了反图😰）
 
 ---
 
