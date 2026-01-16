@@ -125,8 +125,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../../assets/burger.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -379,8 +378,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../../assets/burger.svg" alt="logo">
 
     </a>
     CSNote
@@ -4529,8 +4527,6 @@
       
         
       
-        
-      
     
     
     
@@ -4596,6 +4592,8 @@
       
         
       
+        
+      
     
     
     
@@ -4617,7 +4615,7 @@
   <span class="md-ellipsis">
     
   
-    Archive
+    Categories
   
 
     
@@ -4633,167 +4631,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Archive
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../blog/archive/2026/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2026
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../blog/archive/2025/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2025
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
-        
-          
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Categories
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
     Categories
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../blog/category/not-sorted-yet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Not-sorted-yet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4842,6 +4684,36 @@
     
   
     🔍 RE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/-not-sorted-yet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
   
 
     
@@ -5441,7 +5313,7 @@ bash: ./exploit: No such file or directory
 <p>发现脚本尝试执行 <code>https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c</code> 对应的一个脚本（或许是尝试进一步的提权操作，而在 Github 上的搜索也证明了这一点）</p>
 <p>于是 HTTP 上传一份到靶机，在靶机上执行指令，成功获取 root 权限：</p>
 <p>（左侧为攻击机 HTTP 上传脚本文件，右侧为靶机接收并编译运行文件）</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251013020459639.png" data-desc-position="bottom"><img alt="image-20251013020459639" src="../images/image-20251013020459639.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251013020459639.png" data-desc-position="bottom"><img alt="image-20251013020459639" src="../images/image-20251013020459639.png"></a></p>
 <hr>
 <h3 id="samba">Samba 方向攻击</h3>
 <p>虽然 Samba 服务在 nmap 扫描时并没有给出版本号，但是根据靶机上 Apache 与 OpenSSH 的版本对应的发布时间（2001~2002），考虑 Samba 服务也为同时期的版本。搜索发现此时的 Samba 的版本发布为 2.2.x 系列，并且在 2003 年之前发布的最晚版本为 2.2.8，据此尝试搜索漏洞：<code>searchsploit Samba 2.2</code></p>
@@ -5570,7 +5442,7 @@ uid=0(root) gid=0(root) groups=99(nobody)
 whoami
 root
 </code></pre></div></td></tr></tbody></table></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251013130338994.png" data-desc-position="bottom"><img alt="image-20251013130338994" src="../images/image-20251013130338994.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251013130338994.png" data-desc-position="bottom"><img alt="image-20251013130338994" src="../images/image-20251013130338994.png"></a></p>
 <hr>
 <h2 id="_4">渗透结果</h2>
 <p>成功获取了 root 权限并且修改了 root 密码：</p>
@@ -5589,7 +5461,7 @@ Changing password for user root
 passwd: all authentication tokens updated successfully
 </code></pre></div></td></tr></tbody></table></div>
 <p>登录靶机界面，输入新密码进入 root 账号：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251013130845432.png" data-desc-position="bottom"><img alt="image-20251013130845432" src="../images/image-20251013130845432.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251013130845432.png" data-desc-position="bottom"><img alt="image-20251013130845432" src="../images/image-20251013130845432.png"></a></p>
 <hr>
 <h2 id="_5">问题分析</h2>
 <ul>

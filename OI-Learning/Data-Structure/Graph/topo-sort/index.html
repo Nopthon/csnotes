@@ -51,7 +51,7 @@
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="CSNote" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="CSNote">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+<img alt="logo" src="../../../../assets/burger.svg">
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -189,7 +189,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="CSNote" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="CSNote">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+<img alt="logo" src="../../../../assets/burger.svg">
 </a>
     CSNote
   </label>
@@ -1856,7 +1856,7 @@
 <span class="md-ellipsis">
     
   
-    Archive
+    Categories
   
 
     
@@ -1868,73 +1868,11 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Archive
-  
-
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../blog/archive/2026/">
-<span class="md-ellipsis">
-    
-  
-    2026
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../blog/archive/2025/">
-<span class="md-ellipsis">
-    
-  
-    2025
-  
-
-    
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox">
-<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-<span class="md-ellipsis">
-    
-  
-    Categories
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_3">
-<span class="md-nav__icon md-icon"></span>
-            
-  
     Categories
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../blog/category/not-sorted-yet/">
-<span class="md-ellipsis">
-    
-  
-    Not-sorted-yet
-  
-
-    
-  </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../blog/category/-ctf/">
 <span class="md-ellipsis">
@@ -1953,6 +1891,18 @@
     
   
     🔍 RE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../blog/category/-not-sorted-yet/">
+<span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
   
 
     
@@ -2044,7 +1994,7 @@
 <p>现在我们需要解决两个问题：</p>
 <p>1- 如何得到事件之间的依赖顺序</p>
 <p>2- 如何判断 AOV 网络是否存在循环依赖（即存在环），此时这个有向图不能被称为 AOV 网络</p>
-<p>由此我们引入拓扑排序。拓扑排序将 AOV 网络络中所有的顶点排序，保证对于任意的 <span class="arithmatex">\((u \to v)\)</span>，<span class="arithmatex">\(u\)</span> 一定在 <span class="arithmatex">\(v\)</span> 之前出现在序列中。拓扑序不唯一。</p>
+<p>由此我们引入拓扑排序。拓扑排序将 AOV 网络中所有的顶点排序，保证对于任意的 <span class="arithmatex">\((u \to v)\)</span>，<span class="arithmatex">\(u\)</span> 一定在 <span class="arithmatex">\(v\)</span> 之前出现在序列中。拓扑序不唯一。</p>
 <p>实现拓扑排序的一种常见算法为 Kahn 算法（本质上是个 BFS），其基于点的入度进行排序，思路非常简单，正确性不难证明；Kahn 对每条边和每个顶点进行一次处理，因此时间复杂度 <span class="arithmatex">\(O(V + E)\)</span></p>
 <p>附 Luogu 模板题：<a href="https://www.luogu.com.cn/problem/P1347">P1347 排序 - 洛谷</a></p>
 <div class="admonition abstract">
@@ -2158,7 +2108,7 @@ ve(i) = \max_{p = 1,\cdots,m} \lbrace ve(j_p) + w_{j_p} \rbrace
 </ul>
 <p>由对 <span class="arithmatex">\(ve(i)\)</span> 的分析可知，对于终点 <span class="arithmatex">\(v_n\)</span>，<span class="arithmatex">\(ve(n)\)</span> 的值为从起点到终点的最长路径，也就是最紧约束。我们称这条路径为<strong>关键路径</strong>，关键路径上的所有事件 <span class="arithmatex">\(v_k\)</span> 一旦被前驱活动触发就必须立即进行后继活动，满足 <span class="arithmatex">\(ve(k) = vl(k)\)</span>（否则就会延迟终点事件的触发）；</p>
 <p>而对于非关键路径上的事件，不难意识到，我们可以在关键路径上找到两个事件点 <span class="arithmatex">\(v_{st},\;v_{ed}\)</span>，从 <span class="arithmatex">\(v_{st}\)</span> 向非关键路径分支，通过 <span class="arithmatex">\(v_{ed}\)</span> 回到关键路径的总体。非关键路径上的活动可以进行一定的延迟进行，但是不能影响到 <span class="arithmatex">\(v_{ed}\)</span> 的触发，也就是说 <span class="arithmatex">\(v_{ed}\)</span> 的非关键路径上的前驱活动不能晚于关键路径上的前驱活动完成进行</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251210104821981.png"><img alt="image-20251210104821981" src="../images/image-20251210104821981.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251210104821981.png"><img alt="image-20251210104821981" src="../images/image-20251210104821981.png"></a></p>
 <p>（当然，计算 <span class="arithmatex">\(vl(i)\)</span> 并不需要关心事件/活动是否处于关键路径）</p>
 <p>计算 <span class="arithmatex">\(vl(i)\)</span> 的本质依旧是递推，不过这一次是从后往前推（因为事件的最迟发生时间的约束体现在其后继事件的 <span class="arithmatex">\(vl\)</span>，而不是前驱事件）：我们假设以 <span class="arithmatex">\(v_i\)</span> 为起点的边有 <span class="arithmatex">\(\lbrace v_i, v_{j_1}, w_{j_1}\rbrace,\cdots,\lbrace v_i, v_{j_m}, w_{j_m}\rbrace\)</span> ，那么有：
 $$
@@ -2176,7 +2126,7 @@ $$</p>
 <p>容易得到 <span class="arithmatex">\(l(k) = vl(v) - w_{a_k}\)</span> </p>
 <div class="admonition abstract">
 <p class="admonition-title">概括</p>
-<p>最早发生时间按照拓扑序从前往后递推；最早发生时间按照拓扑序从后往前递推</p>
+<p>最早开始时间按照拓扑序从前往后递推；最晚开始时间按照拓扑序从后往前递推</p>
 </div>
 <p>在理解了以上的概念后，我们可以找出 AOE 网络的关键路径：</p>
 <p>我们记关键路径上的活动为关键活动，找出关键路径就是找出关键活动。定义活动 <span class="arithmatex">\(a_k\)</span> 的时间余量 <span class="arithmatex">\(d(k) = l(k) - e(k)\)</span>，时间余量为 <span class="arithmatex">\(0\)</span> 的活动就是关键活动。</p>
@@ -2186,7 +2136,12 @@ $$</p>
 <p>3- 根据（逆）拓扑序计算每个活动的最早开始时间和最迟开始时间</p>
 <p>4- 计算每个活动的时间余量，确定关键活动</p>
 <p>关键路径不唯一，但是关键路径长度是确定的</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span><span data-tippy-content="" data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p>任意一个关键活动被延迟，终点事件的发生一定延迟</p>
+<p>只有所有关键路径上都存在被提前的活动，终点事件的发生才一定会提前</p>
+</div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content="" data-tippy-raw="2025-12-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-12T17:28:19+08:00">2025-12-12</time></span><span data-tippy-content="" data-tippy-raw="2026-01-14"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-01-14T17:19:39+08:00">2026-01-14</time></span></div></div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

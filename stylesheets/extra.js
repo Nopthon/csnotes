@@ -1,4 +1,4 @@
-// external-links
+/* 将所有的链接设定为新标签页打开 */
 document.addEventListener("DOMContentLoaded", function() {
   const externalLinks = document.querySelectorAll('a[href^="http://"], a[href^="https://"]');
 
@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// KaTeX
-
+/* KaTeX 设置 */
 document$.subscribe(({ body }) => {
  renderMathInElement(body, {
    delimiters: [
@@ -30,8 +29,8 @@ document$.subscribe(({ body }) => {
  });
 });
 
-// MathJax
-
+/* MathJax 设置 */
+/* 没 KaTeX 好用，所以最后没用这个 */
 // window.MathJax = {
 //   tex: {
 //     inlineMath: [["\\(", "\\)"]],

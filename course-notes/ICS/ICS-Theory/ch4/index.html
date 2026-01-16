@@ -125,8 +125,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../../../assets/burger.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -379,8 +378,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+  <img src="../../../../assets/burger.svg" alt="logo">
 
     </a>
     CSNote
@@ -4592,8 +4590,6 @@
       
         
       
-        
-      
     
     
     
@@ -4659,6 +4655,8 @@
       
         
       
+        
+      
     
     
     
@@ -4680,7 +4678,7 @@
   <span class="md-ellipsis">
     
   
-    Archive
+    Categories
   
 
     
@@ -4696,167 +4694,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Archive
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../blog/archive/2026/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2026
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../blog/archive/2025/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2025
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
-        
-          
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Categories
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
     Categories
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../blog/category/not-sorted-yet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Not-sorted-yet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -4905,6 +4747,36 @@
     
   
     🔍 RE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/-not-sorted-yet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
   
 
     
@@ -5465,13 +5337,13 @@
 </code></pre></div></td></tr></tbody></table></div>
 <p>容易得到 <code>swap1</code> 函数不能按照预期工作，从汇编角度考虑：</p>
 <p>外层过程 main 将 <code>b</code>, <code>a</code> 的值存入栈上（哪怕它们在 main 的栈帧上已经存过一次了），在 swap1 获得控制权之后，将栈上的两个入口参数的值存入寄存器中，进行交换操作，然后写回<strong>入口参数的 <code>a</code>, <code>b</code></strong>，返回 main，自始至终我们都没有改变 main 栈帧上那两个地址处的内容（改变的是下图粗体字的入口参数，而不是高地址的原始存储地址）</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251220232301674.png" data-desc-position="bottom"><img alt="image-20251220232301674" src="../images/image-20251220232301674.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251220232301674.png" data-desc-position="bottom"><img alt="image-20251220232301674" src="../images/image-20251220232301674.png"></a></p>
 <p>而 <code>swap2</code> 就可以正确实现，因为 <code>xor</code> 操作的操作数是对 <code>&amp;a</code> 和 <code>&amp;b</code> 取内存的值，取的就是 main 栈帧上 <code>a</code>, <code>b</code> 的地址</p>
 <p><br></p>
 <h3 id="_3">递归 &amp; 栈溢出</h3>
 <p>过程调用涉及函数栈的分配，而对于递归这样的特殊函数，很容易形成更深的栈</p>
 <p>（下图表示 P 过程调用递归函数 <code>nn_sum(n)</code> 的递归栈）</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251221133456819.png" data-desc-position="bottom"><img alt="image-20251221133456819" src="../images/image-20251221133456819.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251221133456819.png" data-desc-position="bottom"><img alt="image-20251221133456819" src="../images/image-20251221133456819.png"></a></p>
 <p>以上图为例，单个 <code>nn_sum</code> 函数栈帧（对齐后）为 16 Bytes，假定栈的大小为 2 MB，那么当递归深度 <span class="arithmatex">\(n \approx 2^{17}\)</span> 时，就会发生栈溢出 (<a href="https://stackoverflow.com/">Stack Overflow</a>)</p>
 <p><br></p>
 <h3 id="_4">非静态局部变量</h3>
@@ -5498,7 +5370,7 @@
 <p>而 IA-32 的参数对齐策略非常不一样：IA-32 在进行 push 操作时，会将低于 4 Bytes 的数据扩展到 4 Bytes 再存入栈中，因此除了起始地址需要 4 Bytes 对齐外，其他的入口参数不需要进行复杂的对齐操作</p>
 <hr>
 <p>但是在存储非静态局部变量（而不是入口参数）时，我们发现有时单个 8 Bytes 栈空间内存入了多个变量，比如图中的 RSP+24 处：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/image-20251221153851984.png" data-desc-position="bottom"><img alt="image-20251221153851984" src="../images/image-20251221153851984.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251221153851984.png" data-desc-position="bottom"><img alt="image-20251221153851984" src="../images/image-20251221153851984.png"></a></p>
 <p>这是编译器栈空间优化的结果，这些变量（不是栈上的参数变量）对对齐的要求较小，因此编译器选择较为紧凑的排列方式</p>
 <p>（比如将多个局部变量按照从大到小的顺序紧凑存入栈上，这是完全可以的，因为 <strong>C 标准规范中没有规定必须按照特定的顺序为非静态局部变量进行存储分配</strong>，这是未定义行为）</p>
 <p><br></p>
@@ -5602,7 +5474,7 @@
 <h3 id="_10">联合体</h3>
 <p>联合体的所有成员共享同一段内存，大小为<strong>最大成员的大小</strong>，并按照最宽成员对齐。访问不同成员时，机器级代码使用相同的起始地址，但可能使用不同的数据宽度和寄存器。</p>
 <p>注意机器级代码并不区分联合体内存中存储的数据是什么类型，本质上都是 0/1 序列，因此如果对一个 <code>union {float f; int i}</code> 初始化为单精度浮点数 <code>f</code>，然后访问 <code>i</code>，实际上是将 IEEE 754 浮点数的 32 位值强行以 int 值的形式访问，而不是取整操作</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2026-01-14"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-01-14T17:19:39+08:00">2026-01-14</time></span></div></div>
 
 
 

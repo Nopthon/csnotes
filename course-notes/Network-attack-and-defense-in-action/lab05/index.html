@@ -51,7 +51,7 @@
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="CSNote" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="CSNote">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+<img alt="logo" src="../../../assets/burger.svg">
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -189,7 +189,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="CSNote" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="CSNote">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+<img alt="logo" src="../../../assets/burger.svg">
 </a>
     CSNote
   </label>
@@ -1958,7 +1958,7 @@
 <span class="md-ellipsis">
     
   
-    Archive
+    Categories
   
 
     
@@ -1970,73 +1970,11 @@
 <span class="md-nav__icon md-icon"></span>
             
   
-    Archive
-  
-
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../blog/archive/2026/">
-<span class="md-ellipsis">
-    
-  
-    2026
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../blog/archive/2025/">
-<span class="md-ellipsis">
-    
-  
-    2025
-  
-
-    
-  </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox">
-<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
-<span class="md-ellipsis">
-    
-  
-    Categories
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_3">
-<span class="md-nav__icon md-icon"></span>
-            
-  
     Categories
   
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../blog/category/not-sorted-yet/">
-<span class="md-ellipsis">
-    
-  
-    Not-sorted-yet
-  
-
-    
-  </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../blog/category/-ctf/">
 <span class="md-ellipsis">
@@ -2055,6 +1993,18 @@
     
   
     🔍 RE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../blog/category/-not-sorted-yet/">
+<span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
   
 
     
@@ -2333,7 +2283,7 @@ Nmap done: 1 IP address (1 host up) scanned in 9.80 seconds
 <p>同时确定靶机操作系统为 <code>Ubuntu</code></p>
 <hr>
 <h3 id="1-http">尝试方向 1: HTTP</h3>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021084739779.png"><img alt="image-20251021084739779" src="../images/image-20251021084739779.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021084739779.png"><img alt="image-20251021084739779" src="../images/image-20251021084739779.png"></a></p>
 <p>发现需要账号和密码，sqlmap 扫不到注入点，但是此处 “Show me your SQLI skills” 说明应该有注入点；随意输入账号密码登录，抓包内容也没什么线索</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2412,22 +2362,22 @@ DOWNLOADED: 61374 - FOUND: 37
 <p>10.0.2.5/add</p>
 <p>一个上传图片的入口，怀疑可以上传图片马（比如 php 一句话木马）</p>
 </blockquote>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021104214819.png"><img alt="image-20251021104214819" src="../images/image-20251021104214819.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021104214819.png"><img alt="image-20251021104214819" src="../images/image-20251021104214819.png"></a></p>
 <blockquote>
 <p>10.0.2.5/test</p>
 <p>缺少一个 file 字段，怀疑可以在 /add 网站上传图片马后在这里访问，也有可能是任意文件读取漏洞</p>
 </blockquote>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021104628374.png"><img alt="image-20251021104628374" src="../images/image-20251021104628374.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021104628374.png"><img alt="image-20251021104628374" src="../images/image-20251021104628374.png"></a></p>
 <blockquote>
 <p>10.0.2.5/in</p>
 <p>PHP 环境与配置一览无遗，最核心的是 System 字段，展示了靶机系统和内核版本</p>
 </blockquote>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021104434863.png"><img alt="image-20251021104434863" src="../images/image-20251021104434863.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021104434863.png"><img alt="image-20251021104434863" src="../images/image-20251021104434863.png"></a></p>
 <blockquote>
 <p>10.0.2.5/phpmy</p>
 <p>php 登录页面，默认密码不正确</p>
 </blockquote>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021104524680.png"><img alt="image-20251021104524680" src="../images/image-20251021104524680.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021104524680.png"><img alt="image-20251021104524680" src="../images/image-20251021104524680.png"></a></p>
 <blockquote>
 <p>10.0.2.5/index</p>
 <p>默认的登录网站，我真的不相信没有 SQL 注入点</p>
@@ -2514,16 +2464,16 @@ upload
 ------WebKitFormBoundarySAc3kUlEiXINjlY8--
 </code></pre></div></td></tr></tbody></table></div>
 <p>把 <code>application/octet-stream</code> 修改为 <code>image-jpeg</code> （后来发现都不需要改），上传上去发现 <strong>200 OK</strong> 了，但是好像什么响应都没有，<code>/uploaded_images</code> 也没有出现内容，应该是没有用（或者说是一个缺乏具体应用场景的空壳）</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021111245151.png"><img alt="image-20251021111245151" src="../images/image-20251021111245151.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021111245151.png"><img alt="image-20251021111245151" src="../images/image-20251021111245151.png"></a></p>
 <h5 id="test">/test 子页面</h5>
 <p>页面的内容是：</p>
 <blockquote>
 <p>'file' parameter is empty. Please provide file path in 'file' parameter</p>
 </blockquote>
 <p>一开始我推测这里可以运行 <code>/add</code> 上传的文件，但是发现没有实际上传，于是推测这里可以远程文件读取，但是 file 字段似乎始终不可用，BurpSuite 抓包一下</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021113852274.png"><img alt="image-20251021113852274" src="../images/image-20251021113852274.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021113852274.png"><img alt="image-20251021113852274" src="../images/image-20251021113852274.png"></a></p>
 <p>GET 一直没有反应（不应该🤔，以及为什么是 GET），考虑到一般接发文件都使用 POST，改成 POST 试试：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021114536140.png"><img alt="image-20251021114536140" src="../images/image-20251021114536140.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021114536140.png"><img alt="image-20251021114536140" src="../images/image-20251021114536140.png"></a></p>
 <p>（挺震撼的）</p>
 <p>发现通过 <code>test.php</code> 的远程文件下载可以远程下载大多数文件（需要 root 读权限的不行），不如从 phpMyAdmin 入手获取内容</p>
 <p>这里放一段 STFW 的内容：</p>
@@ -2677,7 +2627,7 @@ root@indishell:~#
 <span class="nv">basedir</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>/usr
 </code></pre></div></td></tr></tbody></table></div>
 <p>以管理员身份进入了 phpMyAdmin：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021122336065.png"><img alt="image-20251021122336065" src="../images/image-20251021122336065.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021122336065.png"><img alt="image-20251021122336065" src="../images/image-20251021122336065.png"></a></p>
 <p>（权限似乎有点混乱，个人认为 <code>root-roottoor</code> 账密应该用于 php 后台登录，而不是 ssh 登录）</p>
 <h5 id="indexphp">/index.php 根页面</h5>
 <p>最常用的万能密码不能使用，而这里又有 SQL 注入的暗示，考虑是屏蔽了一些 SQL 语句符号，比如单引号 <code>'</code> </p>
@@ -2735,14 +2685,14 @@ root@indishell:~#
 <blockquote>
 <p>后来发现在远程文件下载时，可以下载 <code>c.php</code>，内容中包含了一个低权限的 phpMyAdmin 的账密，登录后可以查看 panel 页面的账密，就不需要 SQL 注入了</p>
 </blockquote>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021132151591.png"><img alt="image-20251021132151591" src="../images/image-20251021132151591.png"></a></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021132253248.png"><img alt="image-20251021132253248" src="../images/image-20251021132253248.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021132151591.png"><img alt="image-20251021132151591" src="../images/image-20251021132151591.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021132253248.png"><img alt="image-20251021132253248" src="../images/image-20251021132253248.png"></a></p>
 <p>发现 Add User 界面使用的是 /add 页面的框架，依旧是上传一句话木马 <code>shell.php</code> ，抓包改 <code>Content-Type: application/x-php</code> 为 <code>Content-Type: image/png</code>，结果是：</p>
 <blockquote>
 <p>only png,jpg and gif file are allowed</p>
 </blockquote>
 <p>考虑伪装文件头，将一张随手截屏的 png 图片和 php 代码拼接，以 <code>.png</code> 格式上传成功（似乎会硬检查后缀名，改 request 也无效）</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021141244303.png"><img alt="image-20251021141244303" src="../images/image-20251021141244303.png"></a> </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021141244303.png"><img alt="image-20251021141244303" src="../images/image-20251021141244303.png"></a> </p>
 <p>再次打开 Add User 界面时一定会读取刚刚上传的照片，抓一下包：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -3023,7 +2973,7 @@ root
 <hr>
 <h2 id="_4">渗透结果</h2>
 <p>成功获取了 root 权限并且修改了 root 密码，登录靶机界面，输入新密码进入 root 账号：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../images/image-20251021121744187.png"><img alt="image-20251021121744187" src="../images/image-20251021121744187.png"></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../images/image-20251021121744187.png"><img alt="image-20251021121744187" src="../images/image-20251021121744187.png"></a></p>
 <p>另外获得 root 权限后可以搜索获得 phpMyAdmin 的管理员账号搜集信息</p>
 <hr>
 <h2 id="_5">渗透全过程图示</h2>
