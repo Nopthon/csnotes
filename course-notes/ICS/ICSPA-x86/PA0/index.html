@@ -1670,6 +1670,8 @@
           
         
       
+        
+      
     
     
     
@@ -1702,6 +1704,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
@@ -1715,6 +1722,126 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2">
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CTF-Learning/WEB/SQL/SQL-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CTF-Learning/WEB/SQL/SQL-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL 注入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
               
             
           </ul>
@@ -2664,6 +2791,17 @@
     <span class="md-ellipsis">
       
         Learn Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check your score
       
     </span>
   </a>
@@ -4574,6 +4712,8 @@
       
         
       
+        
+      
     
     
     
@@ -4707,6 +4847,36 @@
 
               
             
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/-hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 HPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4803,6 +4973,17 @@
     <span class="md-ellipsis">
       
         Learn Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check your score
       
     </span>
   </a>
@@ -4928,31 +5109,39 @@
 <p>实验环境是一个 Debian 服务器，PA 实验网站通过 Websocket 与远程 Shell 进行长期交互（不是很好用），我们希望搭建一个更加熟悉的实验环境</p>
 <p>这里考虑两个方向</p>
 <h4 id="vim-user">Vim User</h4>
+<p>（我不用 Vim，所以下面的内容我没测试）</p>
 <p>在自己的 Shell 中进行 SSH 连接，使用 Vim 打开文件，此时使用的是本机的 Vim 配置，可以回到熟悉的 Vim 环境中</p>
 <p>插件等可以在远程服务器上配置一份</p>
 <h4 id="vscode-user">VSCode User</h4>
 <p>在 VSCode 中使用 SSH FS 插件（<strong>不要用官方的 SSH</strong>），可以实现在本地 VScode 进行实验</p>
+<blockquote>
 <p>不使用官方插件的原因是官方插件需要在远程服务器上下载一些配置，而远程服务器对 <code>pa_nju</code> 文件夹以外的写操作高度受限，VSCode 无法在远程服务器上下载这些配置内容</p>
+</blockquote>
 <h3 id="backup-your-code">Backup your code</h3>
 <p>如果想将一份完整的环境下载到本地进行备份，你可以使用 SFTP。在 Windows/Mac 上你可以使用 FileZilla，在 Linux 上直接 <code>sftp</code> 即可</p>
-<p>备份完整环境是非常重要的，比如 submit 的第二步会进行 Integrity Check（检测有没有修改不应该修改的文件），无意中修改文件（一个空格、换行符也算）会导致无法提交阶段作业，此时进行 git 回退会比较麻烦，此时利用 SFTP 上传一份之前的未经修改的备份可以解决问题</p>
+<p>备份完整环境是非常重要的，比如 submit 的第二步会进行 Integrity Check（检测有没有修改不应该修改的文件），无意中修改文件（一个空格、换行符也算）会导致无法提交阶段作业，此时进行 git 回退会比较麻烦，利用 SFTP 上传一份之前的未经修改的备份可以解决问题</p>
 <div class="admonition note">
-<p class="admonition-title">当你在之后提交作业时，submit 程序通过 MD5 检验判断是否修改核心文件，“文件修改日期”等元数据不会影响 MD5 值，但是在部分 Windows 编辑器上打开并保存文件（换行符从 <code>\n</code> 自动变为 <code>\r\n</code>）会影响 md5 值，导致 Check Failed</p>
+<p class="admonition-title">当你在之后提交作业时，submit 程序通过 MD5 检验判断是否修改核心文件。“文件修改日期”等元数据不会影响 MD5 值，但是在部分 Windows 编辑器上打开并保存文件（换行符从 <code>\n</code> 自动变为 <code>\r\n</code>）会影响 MD5 值，导致 Check Failed</p>
 </div>
 <h3 id="learn-git">Learn Git</h3>
 <p><code>pa_nju</code> 是一个 Git 仓库，每次 make 时都会进行一次 git commit，你也可以手动 commit，并且在手动 commit 时进行有意义的备注</p>
 <div class="admonition success">
 <p class="admonition-title">Git 的好处</p>
-<p>自动 commit 的好处：随时留后手</p>
+<p>自动 commit 的好处：随时留后手。比如 submit 这些操作都会有自动的 git 备注</p>
 <p>比如你可以通过（自动）备注为 <code>make commit ...</code> 的 git commit 判断提交某次 PA 子任务前的最后修改版本</p>
 <p>手动 commit 的好处：留自己掌握范围内的后手</p>
 <p>因为自动 commit 的备注不能体现 commit 时的中间进度，你应该手动 commit 并添加有意义的备注（比如在 PA 1 的某次 commit 中备注 “完成了 sub 运算”），并在回退时（如果需要）优先回退到自己已知状态的 commit</p>
 </div>
 <p>个人建议在使用 Git 的同时保存一份完整的备份</p>
+<h3 id="check-your-score">Check your score</h3>
+<p>在提交<strong>每一个</strong>子 PA 时，在 <code>scripts/.scores</code> 文件夹内会生成一个对应的 score 文件，通过 Base64 解码后可以导出这个子 PA 的分数情况（具体来说就是 <code>make test</code> 的原始结果，包含 <code>GOOD_TRAP</code> / <code>BAD_TRAP</code> 等信息）。有时这个文件不会生成，需要多 submit 几次</p>
+<p>这个文件是直接决定 PA 分数的，确保每一个子 PA 都生成了一个 score 文件</p>
 <h3 id="read-the-fxxking-friendly-manual-textbook">"<font color="#0e79a5">R</font>ead <font color="#0e79a5">T</font>he <del>Fxxking</del> <font color="#0e79a5">F</font>riendly <font color="#0e79a5">M</font>anual &amp;&amp; Textbook"</h3>
 <p>字面意思</p>
 <p>尤其是 PA3 和 PA4，我建议你在打开 PA 手册前先翻一遍教材有大概印象，这两个 Part 涉及的内容不是很浅显，read before action</p>
 <p>推荐一个 wiki 网站，可能会对实现 PA 的各个阶段都有所帮助： <a href="https://wiki.osdev.org">wiki.osdev.org</a>，连 NEMU creator 都参考了这个</p>
+<hr>
+<p>最后还有一点建议：不建议踩 DDL 完成每个 PA；建议在寒假回家之前完成所有的 PA</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span><span data-tippy-content data-tippy-raw="2025-12-24"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-12-24T15:56:46+08:00">2025-12-24</time></span></div></div>
 
 
