@@ -5592,7 +5592,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
                           <span class="md-ellipsis">
                             
-                              20 min read
+                              21 min read
                             
                           </span>
                         </div>
@@ -5936,9 +5936,58 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
 0             0x0             PNG image, 298 x 298, 8-bit/color RGB, non-interlaced
 </code></pre></div></td></tr></tbody></table></div>
-<p>各种常见的隐写都没有收获（Zsteg 一把梭什么的），仔细观察一下图像，应该是一个二维码经过了某种置乱算法的处理（中间扭曲的部分像一个 QR Code 定位图案），让 LLM 列出了一份可能使用的图片置乱算法清单，一个个试吧</p>
+<p>各种常见的隐写都没有收获（Zsteg 一把梭什么的），仔细观察一下图像，应该是一个二维码经过了某种置乱算法的处理（中间扭曲的部分像一个 QR Code 定位图案）</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/chal.png" data-desc-position="bottom"><img alt="real_sign_in" src="../../images/chal.png"></a></p>
-<p>Arnold 变换没有收获，Fibonacci 变换没有收获，...，转机来到 Zigzag 扫描，通过 Zigzag 逆算法能够得到原始图像</p>
+<p>难道真的一点提示都没有吗？不妨回到最开始的 <code>challenge.zip</code> 文件 <code>binwalk</code> 一下：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>❯ binwalk challenge.zip
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             Zip archive data, encrypted at least v2.0 to extract, compressed size: 45939, uncompressed size: 45927, name: challenge.png
+46077         0xB3FD          End of Zip archive, footer length: 22
+46099         0xB413          7-zip archive data, version 0.3
+
+❯ dd if=challenge.zip of=another.7z bs=1 skip=46099
+258+0 records in
+258+0 records out
+258 bytes copied, 0.104523 s, 2.5 kB/s
+</code></pre></div></td></tr></tbody></table></div>
+<p>嗯？还有个 7z 压缩包？提取出来，发现里面有一个 <code>tip.md</code>，内容是：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">tip.md</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>R[37 116  72  99]                                [[37 116 236 107]
+ [236   8 131 218]            --&gt;                 [8  72  99 131]
+ [107 219  75 254]                                [ 219 128 180  75]
+ [128 180  75 230]]                               [218 254  75 230]]
+</code></pre></div></td></tr></tbody></table></div>
+<p>提示表示的是一种方阵置换，具体地说，这是一种之字形变换：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>37  → 116   72  → 99  
+    ↙    ↗    ↙
+236    8    131   218
+ ↓  ↗    ↙    ↗  ↓
+107   219   75    254
+    ↙    ↗    ↙
+128 → 180   75  → 230
+</code></pre></div></td></tr></tbody></table></div>
+<p>这种置换方式叫做 Zigzag 置换，有了置换方式就好办了，写一个反向复原的脚本：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">exp.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6005,9 +6054,6 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 <p>扫描结果为 <code>I_love_DesCTF</code>，发给比赛公众号得到 Flag：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>DesCTF{Have fun and enjoy the challenges ahead!!!}
 </code></pre></div></td></tr></tbody></table></div>
-<blockquote>
-<p>没碰过 Zigzag 的话应该是只能一个一个图片置乱算法尝试了吧😰</p>
-</blockquote>
 <hr>
 <p>最后那个<em>张三的秘密</em>让我用百度网盘下 10GB 的数据，第一步就挑战失败了</p>
 <h2 id="re">🔍 RE</h2>
@@ -7639,7 +7685,7 @@ Done.
 <hr>
 <h2 id="appendix">Appendix</h2>
 <p>比上次 DASCTF 强 10 倍甚至 9 倍</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-08"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-08T12:48:02.771412+08:00">2026-03-08</time></span><span data-tippy-content data-tippy-raw="2026-03-10"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-10T22:30:21.010943+08:00">2026-03-10</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-08"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-08T12:48:02.771412+08:00">2026-03-08</time></span><span data-tippy-content data-tippy-raw="2026-03-11"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-11T01:50:37.917265+08:00">2026-03-11</time></span></div></div>
 
 
 
