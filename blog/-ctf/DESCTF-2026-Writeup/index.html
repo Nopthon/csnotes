@@ -5987,7 +5987,8 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
     ↙    ↗    ↙
 128 → 180   75  → 230
 </code></pre></div></td></tr></tbody></table></div>
-<p>这种置换方式叫做 Zigzag 置换，有了置换方式就好办了，写一个反向复原的脚本：</p>
+<p>这种置换方式叫做 Zigzag 置换，有了置换方式就好办了，如果见过 Zigzag 置换的话，其实 <code>challenge.png</code> 的置换特征挺明显的</p>
+<p>写一个反向复原的脚本：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">exp.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -6710,7 +6711,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 <blockquote>
 <p>小🐯在做汽车黑客的时候突然收到了群友小m发来的不知名程序，并告诉他：“小🐯，快看看这段报文，看看能不能解开！”</p>
 </blockquote>
-<p>下发一个 AARCH64 架构的 ELF 文件，采用 UPX (4.22) 打包，以及一个 <code>tr.log</code> 文件：</p>
+<p>下发一个 AARCH64 架构的 ELF 文件（明摆着不想让我动态运行），采用 UPX (4.22) 打包，以及一个 <code>tr.log</code> 文件：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">tr.log</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -7659,9 +7660,9 @@ Done.
     (Heur)保护: Generic[Strange sections]
     (Heur)打包工具: Compressed or packed data[Last section EP + Sections like Themida (v3.X) + Section names repeating + High entropy + Section 0 ("        ") compressed]
 </code></pre></div></td></tr></tbody></table></div>
-<p>Themida 壳，要么脱壳，要么 ScyllaHide 附加动态调试。后者发现依旧能被检测到 Debugger 而退出。于是用 unlicense 将源程序提取出来，绕过对 Debugger 和 Monitor 的检测</p>
+<p>Themida 壳，要么脱壳，要么 ScyllaHide 附加动态调试。后者发现依旧能被检测到 Debugger 而退出。用 unlicense 将源程序提取出来，绕过对 Debugger 和 Monitor 的检测</p>
 <p>脱壳后的程序双击运行后立刻退出，没有交互，考虑需要手动提供输入（文件输入？命令行参数？），静态分析和动态调试程序并没有发现程序需要什么输入才能有对应的输出（太菜了），搜字符串能看到 <code>fopen</code> <code>fread</code> 等函数标签，于是猜测是同级文件夹内的文件读写</p>
-<p>使用 Process Monitor 进行对进程的监控，最终有了收获（下图是创建了随机文本文件 <code>secrect</code> 的结果，否则在第一步 <code>NAME_NOT_FOUND</code>）：</p>
+<p>突发奇想，用 Process Monitor 对进程监控，有了收获（下图是创建了随机文本文件 <code>secrect</code> 的结果，否则在第一步 <code>NAME_NOT_FOUND</code>）：</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/image-20260309165542756.png" data-desc-position="bottom"><img alt="image-20260309165542756" src="../../images/image-20260309165542756.png"></a></p>
 <p>程序检测同级文件夹下是否存在 <code>secrect</code> 文件，并且是否有内容，如果有就执行加密算法对内容加密，重命名为 <code>secrect.enc</code> 输出；手动文件输入和命令行参数都没有作用</p>
 <p>在 string 搜索时还注意到，存在硬编码字符串：</p>
@@ -7684,8 +7685,8 @@ Done.
 <p>最后一个 Devil 看不懂，题目核心应该是白盒魔改 AES 加密，不会，遂放弃</p>
 <hr>
 <h2 id="appendix">Appendix</h2>
-<p>比上次 DASCTF 强 10 倍甚至 9 倍</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-08"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-08T12:48:02.771412+08:00">2026-03-08</time></span><span data-tippy-content data-tippy-raw="2026-03-11"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-11T01:50:37.917265+08:00">2026-03-11</time></span></div></div>
+<p>比上次 DASCTF 的解题成果强 10 倍甚至 9 倍</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-08"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-08T12:48:02.771412+08:00">2026-03-08</time></span><span data-tippy-content data-tippy-raw="2026-03-11"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-11T13:19:56.443815+08:00">2026-03-11</time></span></div></div>
 
 
 

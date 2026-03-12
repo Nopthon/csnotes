@@ -1334,6 +1334,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根的敏感性分析
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5586,6 +5597,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根的敏感性分析
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5759,7 +5781,7 @@ f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)
 <p>对于这种根求解问题，可以通过迭代的方法得到一个近似解，首先下一些定义：</p>
 <ul>
 <li>
-<p>假设真实的解为 <span class="arithmatex">\(x^*\)</span>，第 <span class="arithmatex">\(i\)</span> 步迭代得到的近似值为 <span class="arithmatex">\(x_i\)</span>，则第 <span class="arithmatex">\(i\)</span> 步迭代的绝对误差为 <span class="arithmatex">\(e_i=|x_i-x^*|\)</span>。该误差又叫做前向误差，我们另外定义 <span class="arithmatex">\(|f(x_i) - 0|\)</span> 为后向误差</p>
+<p>假设真实的解为 <span class="arithmatex">\(x^{\ast}\)</span>，第 <span class="arithmatex">\(i\)</span> 步迭代得到的近似值为 <span class="arithmatex">\(x_i\)</span>，则第 <span class="arithmatex">\(i\)</span> 步迭代的绝对误差为 <span class="arithmatex">\(e_i=|x_i-x^{\ast}|\)</span>。该误差又叫做前向误差，我们另外定义 <span class="arithmatex">\(|f(x_i) - 0|\)</span> 为后向误差</p>
 </li>
 <li>
 <p>我们记收敛速度 <span class="arithmatex">\(\displaystyle S=\lim_{i\to \infty} \dfrac{e_{i+1}}{e_{i}}\)</span>。 <span class="arithmatex">\(S\)</span> 越接近 0 收敛越快，并记 <span class="arithmatex">\(S &lt; 1\)</span> 的收敛为线性收敛</p>
@@ -5900,7 +5922,39 @@ f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)
 <p>割线法的优势在于：相对于牛顿迭代法有更少的计算量（考虑到 <span class="arithmatex">\(f'(x_i)\)</span> 的数值计算量），并且和牛顿法的收敛阶数相近</p>
 <hr>
 <p>割线法是局部收敛的</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-05"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-05T17:28:34.957275+08:00">2026-03-05</time></span><span data-tippy-content data-tippy-raw="2026-03-06"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-06T16:49:33.854219+08:00">2026-03-06</time></span></div></div>
+<h2 id="_6">根的敏感性分析</h2>
+<p>考虑原问题为 <span class="arithmatex">\(f(x) = 0\)</span>，精确根为 <span class="arithmatex">\(r\)</span>；在实际的数值计算时，<span class="arithmatex">\(f\)</span> 存在一定的误差，实际用于计算的函数为 <span class="arithmatex">\(\hat{f}(x) = f(x) + \varepsilon g(x)\)</span>，其中 <span class="arithmatex">\(\varepsilon g(x)\)</span> 是误差函数</p>
+<p>现在需要分析误差函数对根的计算影响，记实际得到的计算根 <span class="arithmatex">\(\hat{r} = r + \Delta r\)</span>，满足
+$$
+f(r + \Delta r) + \varepsilon g(r + \Delta r) = 0
+$$
+考虑两种推导方法：</p>
+<p>1- 将 <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(g\)</span> 进行泰勒展开，得到
+$$
+f(r) + f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r + O((\Delta r)^2) = 0
+$$</p>
+<p>代入 <span class="arithmatex">\(f(r) = 0\)</span>，忽略 <span class="arithmatex">\(O((\Delta r)^2)\)</span> 高阶项，得到
+$$
+f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r \approx 0
+$$
+当 <span class="arithmatex">\(\varepsilon\)</span> 很小，使得 <span class="arithmatex">\(\varepsilon g'(r)\)</span> 相对 <span class="arithmatex">\(f'(r)\)</span> 可以被忽略时，有
+$$
+\Delta r \approx - \varepsilon \dfrac{g(r)}{f'(r)}
+$$
+将其记为根对函数误差的敏感度，发现 <span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得 <span class="arithmatex">\(\Delta r\)</span> 可能很大</p>
+<p>2- 隐函数求导，考虑 <span class="arithmatex">\(f(x(\varepsilon)) + \varepsilon g(x(\varepsilon)) = 0\)</span>，其中 <span class="arithmatex">\(x(\varepsilon)\)</span> 是依赖于 <span class="arithmatex">\(\varepsilon\)</span> 的根</p>
+<p>当 <span class="arithmatex">\(\varepsilon = 0\)</span> 时，方程退化为 <span class="arithmatex">\(f(x(0)) = 0\)</span>，因此记 <span class="arithmatex">\(x(0) = x^{\ast}\)</span>，得到 <span class="arithmatex">\(f(x^{\ast}) = 0\)</span></p>
+<p>我们假定 <span class="arithmatex">\(f'(x^{\ast}) \ne 0\)</span>，在 <span class="arithmatex">\(x^{\ast}\)</span> 附近的根唯一且光滑依赖于 <span class="arithmatex">\(\varepsilon\)</span></p>
+<p>将整个方程对 <span class="arithmatex">\(\varepsilon\)</span> 求导，之后代入 <span class="arithmatex">\(\varepsilon = 0\)</span> 得到：
+$$
+f'(x^{\ast}) \cdot x'(0) + g(x^{\ast}) =0
+$$
+移项得到
+$$
+x'(0) = \dfrac{\mathrm{d}x}{\mathrm{d}\varepsilon}\biggr| _{\varepsilon=0} = -\dfrac{g(x^{\ast})}{f'(x^{\ast})}
+$$
+这和第一种方法得到的结果是一样的：<span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得误差可能很大</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-05"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-05T17:28:34.957275+08:00">2026-03-05</time></span><span data-tippy-content data-tippy-raw="2026-03-11"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-11T15:07:15.278583+08:00">2026-03-11</time></span></div></div>
 
 
 
