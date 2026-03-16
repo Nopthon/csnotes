@@ -45,160 +45,6 @@ DASCTF{W3lc0me_t0_DASCTF_2025_H4lf_Y34r!}
 
 ---
 
-## 🔍 RE
-
-###ezmac
-
-> 简单的加密逻辑
-
-IDA Pro 打开，汇编语句有一些神秘混淆，F5 看反汇编，从 ` _start` 开始
-
-```c
-__int64 __fastcall start(__int64 a1, __int64 a2, __int64 a3, void *a4, void *a5, void *a6, void *a7, void *a8)
-{
-  signed __int64 v8; // x0
-  signed __int64 v9; // x0
-  _BYTE *v11; // x5
-
-  v8 = mac_syscall(33554436, (void *)1, aInputYourFlag, (void *)0x11, a4, a5, a6, a7, a8);
-  v9 = mac_syscall(33554435, 0, &unk_10000403B, (void *)0x40, a4, a5, a6, a7, a8);
-  if ( v9 )
-  {
-    v11 = (char *)&unk_10000403B + v9 - 1;
-    if ( *v11 == 10 )
-      *v11 = 0;
-  }
-  return sub_1000003F4();
-}
-```
-
-依次调用了 `sub_1000003F4()` `sub_100000410()` `sub_10000045C()`：
-
-```c
-__int64 sub_1000003F4()
-{
-  return sub_100000410();
-}
-```
-
-```c
-__int64 sub_100000410()
-{
-  __int64 v0; // x12
-  __int64 v1; // x13
-
-  do
-    v0 += v1--;
-  while ( v1 );
-  __yield();
-  __wfe();
-  return sub_10000045C();
-}
-```
-
-```c
-__int64 __fastcall sub_10000045C(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
-{
-  return sub_100000634(a1, a2, a3, a4, a5, 57);
-}
-
-// 在汇编语句中还有这样的内容：
-// ADRL X21, unk_100004022
-// 加载了一串数据
-```
-
-接下来调用 `sub_100000634(a1, a2, a3, a4, a5, 57);`，考虑为加密操作：
-
-```c
-__int64 __fastcall sub_100000634(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)
-{
-  unsigned __int8 *v6; // x21，对应 ADRL X21, unk_100004022
-  char v7; // w3
-  unsigned __int8 *v8; // x21
-  int v9; // t1
-  unsigned __int8 v11; // w3
-  unsigned __int8 *v12; // x21
-
-  while ( 1 )
-  {
-    v9 = *v6;			// v6 指向的地址读取一个字节到 v9
-    v8 = v6 + 1;		// 指针右移
-    v7 = v9;			// v7 = v9 = *v6
-    if ( !v9 )			// 字符串截止 \0
-      break;
-    v11 = v7 ^ a6++;	// v7 与 a6 异或，然后 a6++
-      					// a6 初始为 57
-    v12 = v8 - 1;		// v12 = v8 - 1 = v6
-    *v12 = v11;			// 结果写回原地址
-    v6 = v12 + 1;		// 指针右移
-  }
-  return sub_100000654();
-}
-```
-
-`flag` 输入的每个字节与一个自增的数字 `a` 进行异或加密，`a` 从 `57` 开始自增
-
-然后继续调用 `sub_100000654()` 和 `sub_100000660(qword_10000403B)`，后者是一个判断逻辑
-
-```c++
-_QWORD *sub_100000654()
-{
-  return sub_100000660(qword_10000403B);
-}
-```
-
-```c
-__int64 __usercall sub_100000660@<X0>(unsigned __int8 *a1@<X8>)
-{
-  unsigned __int8 *v1; // x9
-  int v2; // w0
-  int v3; // t1
-  int v4; // t1
-
-  do	// 逐字节进行比较输入和
-  {
-    v3 = *a1++;
-    v2 = v3;
-    v4 = *v1++;
-    if ( v2 != v4 )
-      return sub_100000678();	// Wrong
-  }
-  while ( v2 );
-  return sub_100000694();	// Right
-}
-```
-
-因此考虑对 `unk_100004022` 的数据进行加密模拟
-
-![image-20251206205953631](images/image-20251206205953631.png)
-
-```python title="exp.py"
-hexcode = "7d 7b 68 7f 69 78 44 78 72 21 74 76 75 22 26 7b 7c 7e 78 7a 2e 2d 7f 2d"
-xor_key = 57
-
-original_bytes = bytes.fromhex(hexcode.replace(' ', ''))
-
-flag = ""
-for b in original_bytes:
-    if b == 0:
-        break
-    flag_char = chr(b ^ xor_key)
-    flag += flag_char
-    xor_key += 1
-
-print("Flag:", flag)
-```
-
-得到 Flag
-
-```
-DASCTF{83c720da35436cc0}
-```
-
-（这题接入 IDA Pro MCP，让 Trae 一把过了，AI 真强大。）
-
----
-
 ## 🕸️ WEB
 
 ### SecretPhotoGallery
@@ -232,7 +78,7 @@ Warning: SQLite3::query(): Unable to prepare statement: 1, SELECTs to the left a
 ???+ question "为什么 UNION 注入有效？"
 
     因为用户表是空表，万能密码这种得不到有效输出
-
+    
     UNION 创建新的结果集，即使 UNION 前的内容因为表为空而不能返回正确结果，UNION 后的查询总是有数据的（比如查询 sqlite_master 是系统表，永远存在），经 UNION 合并后一定可以返回有效数据
     
     后端可能只要“返回了有效数据”就成功登录，而不是返回“账密正确”的严格约束
@@ -419,6 +265,160 @@ if (strpos($filepath_lower, 'base64') !== false) {
 ```
 DASCTF{2d4a07d5-3dab-4440-a791-3a0d24faad2f}
 ```
+
+---
+
+## 🔍 RE
+
+###ezmac
+
+> 简单的加密逻辑
+
+IDA Pro 打开，汇编语句有一些神秘混淆，F5 看反汇编，从 ` _start` 开始
+
+```c
+__int64 __fastcall start(__int64 a1, __int64 a2, __int64 a3, void *a4, void *a5, void *a6, void *a7, void *a8)
+{
+  signed __int64 v8; // x0
+  signed __int64 v9; // x0
+  _BYTE *v11; // x5
+
+  v8 = mac_syscall(33554436, (void *)1, aInputYourFlag, (void *)0x11, a4, a5, a6, a7, a8);
+  v9 = mac_syscall(33554435, 0, &unk_10000403B, (void *)0x40, a4, a5, a6, a7, a8);
+  if ( v9 )
+  {
+    v11 = (char *)&unk_10000403B + v9 - 1;
+    if ( *v11 == 10 )
+      *v11 = 0;
+  }
+  return sub_1000003F4();
+}
+```
+
+依次调用了 `sub_1000003F4()` `sub_100000410()` `sub_10000045C()`：
+
+```c
+__int64 sub_1000003F4()
+{
+  return sub_100000410();
+}
+```
+
+```c
+__int64 sub_100000410()
+{
+  __int64 v0; // x12
+  __int64 v1; // x13
+
+  do
+    v0 += v1--;
+  while ( v1 );
+  __yield();
+  __wfe();
+  return sub_10000045C();
+}
+```
+
+```c
+__int64 __fastcall sub_10000045C(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  return sub_100000634(a1, a2, a3, a4, a5, 57);
+}
+
+// 在汇编语句中还有这样的内容：
+// ADRL X21, unk_100004022
+// 加载了一串数据
+```
+
+接下来调用 `sub_100000634(a1, a2, a3, a4, a5, 57);`，考虑为加密操作：
+
+```c
+__int64 __fastcall sub_100000634(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)
+{
+  unsigned __int8 *v6; // x21，对应 ADRL X21, unk_100004022
+  char v7; // w3
+  unsigned __int8 *v8; // x21
+  int v9; // t1
+  unsigned __int8 v11; // w3
+  unsigned __int8 *v12; // x21
+
+  while ( 1 )
+  {
+    v9 = *v6;			// v6 指向的地址读取一个字节到 v9
+    v8 = v6 + 1;		// 指针右移
+    v7 = v9;			// v7 = v9 = *v6
+    if ( !v9 )			// 字符串截止 \0
+      break;
+    v11 = v7 ^ a6++;	// v7 与 a6 异或，然后 a6++
+      					// a6 初始为 57
+    v12 = v8 - 1;		// v12 = v8 - 1 = v6
+    *v12 = v11;			// 结果写回原地址
+    v6 = v12 + 1;		// 指针右移
+  }
+  return sub_100000654();
+}
+```
+
+`flag` 输入的每个字节与一个自增的数字 `a` 进行异或加密，`a` 从 `57` 开始自增
+
+然后继续调用 `sub_100000654()` 和 `sub_100000660(qword_10000403B)`，后者是一个判断逻辑
+
+```c++
+_QWORD *sub_100000654()
+{
+  return sub_100000660(qword_10000403B);
+}
+```
+
+```c
+__int64 __usercall sub_100000660@<X0>(unsigned __int8 *a1@<X8>)
+{
+  unsigned __int8 *v1; // x9
+  int v2; // w0
+  int v3; // t1
+  int v4; // t1
+
+  do	// 逐字节进行比较输入和
+  {
+    v3 = *a1++;
+    v2 = v3;
+    v4 = *v1++;
+    if ( v2 != v4 )
+      return sub_100000678();	// Wrong
+  }
+  while ( v2 );
+  return sub_100000694();	// Right
+}
+```
+
+因此考虑对 `unk_100004022` 的数据进行加密模拟
+
+![image-20251206205953631](images/image-20251206205953631.png)
+
+```python title="exp.py"
+hexcode = "7d 7b 68 7f 69 78 44 78 72 21 74 76 75 22 26 7b 7c 7e 78 7a 2e 2d 7f 2d"
+xor_key = 57
+
+original_bytes = bytes.fromhex(hexcode.replace(' ', ''))
+
+flag = ""
+for b in original_bytes:
+    if b == 0:
+        break
+    flag_char = chr(b ^ xor_key)
+    flag += flag_char
+    xor_key += 1
+
+print("Flag:", flag)
+```
+
+得到 Flag
+
+```
+DASCTF{83c720da35436cc0}
+```
+
+（这题接入 IDA Pro MCP，让 Trae 一把过了，AI 真强大。）
 
 ---
 

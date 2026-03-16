@@ -45,8 +45,6 @@ theme:
 
 plugins:
   - search
-  - mermaid2:
-    # javascript: https://cdn.jsdelivr.net/npm/mermaid@10.4.0/dist/mermaid.min.js
   # - statistics
   - glightbox:
       width: 80%
@@ -70,155 +68,6 @@ plugins:
 
   # - build-cache
 
-
-
-nav: 
-  - intro: index.md
-  - OI-learning: 
-    - intro: OI-Learning/index.md
-    - C++ 面向对象: OI-Learning/C++ OOP.md
-
-    - Algorithm: 
-      - STL 算法库 ref: OI-Learning/Algorithm/STL_algorithm.md
-      - 快速幂: OI-Learning/Algorithm/fastpow.md
-      - 排序: OI-Learning/Algorithm/sort.md
-
-    - Data Structure:
-      - Trees:
-        - 树基础: OI-Learning/Data-Structure/Tree/tree-intro.md
-        - 二叉树基础: OI-Learning/Data-Structure/Tree/binatree.md
-        - 二叉树模板: OI-Learning/Data-Structure/Tree/binatree-template.md
-        - 二叉搜索树 BST: OI-Learning/Data-Structure/Tree/bst.md
-        - 平衡树:
-          - intro: OI-Learning/Data-Structure/Tree/balanced-tree\index.md
-          - AVL 树: OI-Learning/Data-Structure/Tree/balanced-tree\AVL.md
-
-      - Graphs:
-        - 并查集: OI-Learning/Data-Structure/Graph/union-find.md
-        - 图基础: OI-Learning/Data-Structure/Graph/graph-starter.md
-        - 最小生成树: OI-Learning/Data-Structure/Graph/mst.md
-        - 最短路: OI-Learning/Data-Structure/Graph/shortest-path.md
-        - 拓扑排序 && 关键路径: OI-Learning/Data-Structure/Graph/topo-sort.md
-      - 链表: OI-Learning/Data-Structure/linkedlist.md
-      - STL vector ref: OI-Learning/Data-Structure/vector.md
-      - 栈 && 单调栈: OI-Learning/Data-Structure/stack.md
-      - 队列 && 单调队列: OI-Learning/Data-Structure/queue.md
-      - 散列表/哈希表: OI-Learning/Data-Structure/hashmap.md
-    
-  - CTF-Learning:
-    - intro: CTF-Learning/index.md
-    - MISC:
-      - intro: CTF-Learning/MISC/index.md
-    - CRYPTO:
-      - intro: CTF-Learning/CRYPTO/index.md
-    - PWN:
-      - intro: CTF-Learning/PWN/index.md
-    - WEB:
-      - intro: CTF-Learning/WEB/index.md
-    - RE:
-      - intro: CTF-Learning/RE/index.md
-
-  - Course Notes:
-    - intro: course-notes/index.md
-    - ICS:
-      - intro: course-notes/ICS/index.md
-      
-      - ICS Theory:
-        - intro: course-notes/ICS/ICS-Theory/index.md
-        - 计算机系统概述: course-notes/ICS/ICS-Theory/ch1.md
-        - 数据的机器级表示与处理: course-notes/ICS/ICS-Theory/ch2.md
-        - 程序转换与指令系统: course-notes/ICS/ICS-Theory/ch3.md
-        - 程序的机器级表示: course-notes/ICS/ICS-Theory/ch4.md
-        - 程序的链接与加载执行: course-notes/ICS/ICS-Theory/ch5.md
-        - 存储器层次结构: course-notes/ICS/ICS-Theory/ch6.md
-        - 虚拟存储器: course-notes/ICS/ICS-Theory/ch7.md
-        - 进程与异常控制流: course-notes/ICS/ICS-Theory/ch8.md
-        - I/O 操作的实现: course-notes/ICS/ICS-Theory/ch9.md
-
-      - ICS-Labs:
-        - ICS Binalab: course-notes/ICS/ICS-Labs/Binalab.md
-        - ICS Linklab: course-notes/ICS/ICS-Labs/Linklab.md
-        - ICS Bufolab: course-notes/ICS/ICS-Labs/Bufolab.md
-
-      - ICSPA x86 note: 
-        - README FIRST: course-notes/ICS/ICSPA-x86/README.md
-        # - Closed temporaily: 404.md
-        - PA0: course-notes/ICS/ICSPA-x86/PA0.md
-        - PA1: course-notes/ICS/ICSPA-x86/PA1.md
-        - PA2-1: course-notes/ICS/ICSPA-x86/PA2-1.md
-        - i386 指令结构 for PA2-1: course-notes/ICS/ICSPA-x86/i386.md
-        - PA2-2: course-notes/ICS/ICSPA-x86/PA2-2.md
-        - PA2-3: course-notes/ICS/ICSPA-x86/PA2-3.md
-        - Before PA3&&4: course-notes/ICS/ICSPA-x86/Before_PA3_&&_4.md
-        - PA3-1: course-notes/ICS/ICSPA-x86/PA3-1.md
-        - PA3-2: course-notes/ICS/ICSPA-x86/PA3-2.md
-        - PA3-3: course-notes/ICS/ICSPA-x86/PA3-3.md
-        - PA4-0: course-notes/ICS/ICSPA-x86/PA4-0.md
-        - PA4-1: course-notes/ICS/ICSPA-x86/PA4-1.md
-        - PA4-2: course-notes/ICS/ICSPA-x86/PA4-2.md
-        - PA4-3: course-notes/ICS/ICSPA-x86/PA4-3.md
-        - A journey of debugging: course-notes/ICS/ICSPA-x86/A_journey_of_debug.md
-
-      
-
-      
-
-    - 网络攻防实战 Labs:
-      - intro: course-notes/Network-attack-and-defense-in-action/index.md
-      - Lab01: course-notes/Network-attack-and-defense-in-action/lab01.md
-      - Lab02: course-notes/Network-attack-and-defense-in-action/lab02.md
-      - Lab03: course-notes/Network-attack-and-defense-in-action/lab03.md
-      - Lab04: course-notes/Network-attack-and-defense-in-action/lab04.md
-      - Lab05: course-notes/Network-attack-and-defense-in-action/lab05.md
-      - Lab06: course-notes/Network-attack-and-defense-in-action/lab06.md
-      - Lab06.5: course-notes/Network-attack-and-defense-in-action/lab06.5.md
-      - Lab07(PWN): course-notes/Network-attack-and-defense-in-action/lab07(PWN).md
-      - Lab08: course-notes/Network-attack-and-defense-in-action/lab08.md
-      - Lab09: course-notes/Network-attack-and-defense-in-action/lab09.md
-
-    - Probability: 
-      - intro: course-notes/Probability/index.md
-      - 随机事件与概率: course-notes/Probability/ch1.md
-      - 随机变量及其概率分布: course-notes/Probability/ch2.md
-      - 二维随机变量及其分布: course-notes/Probability/ch3.md
-      - 随机变量的数字特征: course-notes/Probability/ch4.md
-      - 极限理论: course-notes/Probability/ch5.md
-      - 统计量与抽样分布: course-notes/Probability/ch6.md
-      - 参数估计: course-notes/Probability/ch7.md
-      - 假设检验: course-notes/Probability/ch8.md
-      - tip: course-notes/Probability/tip.md
-
-    - 数据结构 OJ Ans: 
-      - intro: course-notes/Data-Structure-Online-Judge-Sol/index.md
-      - 第 1 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ1.md
-      - 第 2 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ2.md
-      - 第 3 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ3.md
-      - 第 4 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ4.md
-      - 第 5 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ5.md
-      - 第 1 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam1.md
-      - 第 6 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ6.md
-      - 第 7 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ7.md
-      - 第 8 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ8.md
-      - 第 9 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ9.md
-      - 第 2 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam2.md
-      - 第 10 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ10.md
-      - 第 11 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ11.md
-      - 第 12 次实验: course-notes/Data-Structure-Online-Judge-Sol/OJ12.md
-      - 第 3 次竞赛: course-notes/Data-Structure-Online-Judge-Sol/Exam3.md
-
-    - CSAPP:
-      - Datalab: course-notes/CSAPP/Datalab.md
-      - Bomblab: course-notes/CSAPP/Bomblab.md
-
-  # - Deep Learning:
-  #     - intro: Deep-Learning/intro.md
-  
-
-
-  - Blog:
-    - blog/index.md
-
-
 markdown_extensions:
   - md_in_html
   - admonition
@@ -227,7 +76,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
+          #format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.highlight:
@@ -250,3 +99,216 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
   # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+# ------------------------------------------------------------#
+#               <-. (`-')_ (`-')  _       (`-')               # ------------------------------------------------------------------------------------
+#                  \( OO) )(OO ).-/      _(OO )               # ------------------------------------------------------------------------------------
+#               ,--./ ,--/ / ,---.  ,--.(_/,-.\               # ------------------------------------------------------------------------------------
+#               |   \ |  | | \ /`.\ \   \ / (_/               # ------------------------------------------------------------------------------------
+#               |  . '|  |)'-'|_.' | \   /   /                # ------------------------------------------------------------------------------------
+#               |  |\    |(|  .-.  |_ \     /_)               # ------------------------------------------------------------------------------------
+#               |  | \   | |  | |  |\-'\   /                  # ------------------------------------------------------------------------------------
+#               `--'  `--' `--' `--'    `-'                   # ------------------------------------------------------------------------------------
+# ------------------------------------------------------------#
+
+nav: 
+  - intro: index.md
+    
+  - Study-notes:
+    - intro: study-notes/index.md
+
+    - In-class: 
+      - OS:
+        - intro: study-notes/in-class/OS/index.md
+        - OS Theory:
+          - intro: study-notes/in-class/OS/OS-Theory/index.md
+          - 操作系统概论: study-notes/in-class/OS/OS-Theory/ch1.md
+        - OS Labs:
+          - intro: study-notes/in-class/OS/OS-Labs/index.md
+
+      - jyyOS:
+        - intro: study-notes/in-class/jyyOS/index.md
+        - OS Theory:
+          - intro: study-notes/in-class/jyyOS/OS-Theory/index.md
+          - 01 - Agentic AI 时代的操作系统课：绪论: study-notes/in-class/jyyOS/OS-Theory/ch1.md
+          - 02 - 应用视角的操作系统: study-notes/in-class/jyyOS/OS-Theory/ch2.md
+        - OS Labs:
+          - intro: study-notes/in-class/jyyOS/OS-Labs/index.md
+        
+
+      - 计算方法:
+        - intro: study-notes/in-class/Numerical-method/index.md
+        - 函数求根，牛顿法: study-notes/in-class/Numerical-method/ch1.md
+        - 插值，秘密分享，自纠错码: study-notes/in-class/Numerical-method/ch2.md
+
+
+      - 机器学习导论:
+        - intro: study-notes/in-class/ML/index.md
+        - ch1: study-notes/in-class/ML/ch1.md
+        - ch2: study-notes/in-class/ML/ch2.md
+
+      - ICS:
+        - intro: study-notes/in-class/ICS/index.md
+        - ICS Theory:
+          - intro: study-notes/in-class/ICS/ICS-Theory/index.md
+          - 计算机系统概述: study-notes/in-class/ICS/ICS-Theory/ch1.md
+          - 数据的机器级表示与处理: study-notes/in-class/ICS/ICS-Theory/ch2.md
+          - 程序转换与指令系统: study-notes/in-class/ICS/ICS-Theory/ch3.md
+          - 程序的机器级表示: study-notes/in-class/ICS/ICS-Theory/ch4.md
+          - 程序的链接与加载执行: study-notes/in-class/ICS/ICS-Theory/ch5.md
+          - 存储器层次结构: study-notes/in-class/ICS/ICS-Theory/ch6.md
+          - 虚拟存储器: study-notes/in-class/ICS/ICS-Theory/ch7.md
+          - 进程与异常控制流: study-notes/in-class/ICS/ICS-Theory/ch8.md
+          - I/O 操作的实现: study-notes/in-class/ICS/ICS-Theory/ch9.md
+
+        - ICS Labs:
+          - ICS Binalab: study-notes/in-class/ICS/ICS-Labs/Binalab.md
+          - ICS Linklab: study-notes/in-class/ICS/ICS-Labs/Linklab.md
+          - ICS Bufolab: study-notes/in-class/ICS/ICS-Labs/Bufolab.md
+
+        - ICSPA x86 note: 
+          - README FIRST: study-notes/in-class/ICS/ICSPA-x86/README.md
+          # - Closed temporaily: 404.md
+          - PA0: study-notes/in-class/ICS/ICSPA-x86/PA0.md
+          - PA1: study-notes/in-class/ICS/ICSPA-x86/PA1.md
+          - PA2-1: study-notes/in-class/ICS/ICSPA-x86/PA2-1.md
+          - i386 指令结构 for PA2-1: study-notes/in-class/ICS/ICSPA-x86/i386.md
+          - PA2-2: study-notes/in-class/ICS/ICSPA-x86/PA2-2.md
+          - PA2-3: study-notes/in-class/ICS/ICSPA-x86/PA2-3.md
+          - Before PA3&&4: study-notes/in-class/ICS/ICSPA-x86/Before_PA3_&&_4.md
+          - PA3-1: study-notes/in-class/ICS/ICSPA-x86/PA3-1.md
+          - PA3-2: study-notes/in-class/ICS/ICSPA-x86/PA3-2.md
+          - PA3-3: study-notes/in-class/ICS/ICSPA-x86/PA3-3.md
+          - PA4-0: study-notes/in-class/ICS/ICSPA-x86/PA4-0.md
+          - PA4-1: study-notes/in-class/ICS/ICSPA-x86/PA4-1.md
+          - PA4-2: study-notes/in-class/ICS/ICSPA-x86/PA4-2.md
+          - PA4-3: study-notes/in-class/ICS/ICSPA-x86/PA4-3.md
+          - A journey of debugging: study-notes/in-class/ICS/ICSPA-x86/A_journey_of_debug.md
+
+      - 网络攻防实战 Labs:
+        - intro: study-notes/in-class/Network-attack-and-defense-in-action/index.md
+        - Lab01: study-notes/in-class/Network-attack-and-defense-in-action/lab01.md
+        - Lab02: study-notes/in-class/Network-attack-and-defense-in-action/lab02.md
+        - Lab03: study-notes/in-class/Network-attack-and-defense-in-action/lab03.md
+        - Lab04: study-notes/in-class/Network-attack-and-defense-in-action/lab04.md
+        - Lab05: study-notes/in-class/Network-attack-and-defense-in-action/lab05.md
+        - Lab06: study-notes/in-class/Network-attack-and-defense-in-action/lab06.md
+        - Lab06.5: study-notes/in-class/Network-attack-and-defense-in-action/lab06.5.md
+        - Lab07(PWN): study-notes/in-class/Network-attack-and-defense-in-action/lab07(PWN).md
+        - Lab08: study-notes/in-class/Network-attack-and-defense-in-action/lab08.md
+        - Lab09: study-notes/in-class/Network-attack-and-defense-in-action/lab09.md
+
+      - Probability: 
+        - intro: study-notes/in-class/Probability/index.md
+        - 随机事件与概率: study-notes/in-class/Probability/ch1.md
+        - 随机变量及其概率分布: study-notes/in-class/Probability/ch2.md
+        - 二维随机变量及其分布: study-notes/in-class/Probability/ch3.md
+        - 随机变量的数字特征: study-notes/in-class/Probability/ch4.md
+        - 极限理论: study-notes/in-class/Probability/ch5.md
+        - 统计量与抽样分布: study-notes/in-class/Probability/ch6.md
+        - 参数估计: study-notes/in-class/Probability/ch7.md
+        - 假设检验: study-notes/in-class/Probability/ch8.md
+        - tip: study-notes/in-class/Probability/tip.md
+
+      - 数据结构 OJ Ans: 
+        - intro: study-notes/in-class/DS/index.md
+        - 第 1 次实验: study-notes/in-class/DS/OJ1.md
+        - 第 2 次实验: study-notes/in-class/DS/OJ2.md
+        - 第 3 次实验: study-notes/in-class/DS/OJ3.md
+        - 第 4 次实验: study-notes/in-class/DS/OJ4.md
+        - 第 5 次实验: study-notes/in-class/DS/OJ5.md
+        - 第 1 次竞赛: study-notes/in-class/DS/Exam1.md
+        - 第 6 次实验: study-notes/in-class/DS/OJ6.md
+        - 第 7 次实验: study-notes/in-class/DS/OJ7.md
+        - 第 8 次实验: study-notes/in-class/DS/OJ8.md
+        - 第 9 次实验: study-notes/in-class/DS/OJ9.md
+        - 第 2 次竞赛: study-notes/in-class/DS/Exam2.md
+        - 第 10 次实验: study-notes/in-class/DS/OJ10.md
+        - 第 11 次实验: study-notes/in-class/DS/OJ11.md
+        - 第 12 次实验: study-notes/in-class/DS/OJ12.md
+        - 第 3 次竞赛: study-notes/in-class/DS/Exam3.md
+
+
+
+    - Self-study:
+      - CSAPP:
+        - Datalab: study-notes/self-study/CSAPP/Datalab.md
+        - Bomblab: study-notes/self-study/CSAPP/Bomblab.md
+
+      - CS188:
+        - intro: study-notes/self-study/CS188/index.md
+        - Lectures:
+          - Introduction to Artificial Intelligence: study-notes/self-study/CS188/Lectures/Lecture-1.md
+          - Uninformed Search: study-notes/self-study/CS188/Lectures/Lecture-2.md
+          - A* Search and Heuristics: study-notes/self-study/CS188/Lectures/Lecture-3.md
+          - CSPs I: study-notes/self-study/CS188/Lectures/Lecture-4.md
+          - CSPs II: study-notes/self-study/CS188/Lectures/Lecture-5.md
+
+        - HWs & PROJs: 
+          - Project 0: study-notes/self-study/CS188/HWs&PROJs/proj0.md
+          - Project 1: study-notes/self-study/CS188/HWs&PROJs/proj1.md
+          - Homework 0: study-notes/self-study/CS188/HWs&PROJs/hw0.md
+          - Homework 1: study-notes/self-study/CS188/HWs&PROJs/hw1.md
+
+      - Rust:
+        - intro: study-notes/self-study/Rust/index.md
+
+
+
+  - CTF-Learning:
+    - intro: CTF-Learning/index.md
+    - MISC:
+      - intro: CTF-Learning/MISC/index.md
+    - CRYPTO:
+      - intro: CTF-Learning/CRYPTO/index.md
+    - PWN:
+      - intro: CTF-Learning/PWN/index.md
+    - WEB:
+      - SQL:
+        - SQL 基础: CTF-Learning/WEB/SQL/SQL-intro.md
+        - SQL 注入: CTF-Learning/WEB/SQL/SQL-injection.md
+      - Insecure File Upload: CTF-Learning/WEB/Insecure-File-Upload.md
+    - RE:
+      - intro: CTF-Learning/RE/index.md
+
+
+  - 杂项:
+    - intro: gadgets/index.md
+    - 奇奇怪怪的网站推荐: gadgets/websites.md
+
+
+
+  - Blog:
+    - blog/index.md
+
+  # # 写的一坨，不放出来了，想看的可以改 URL 看
+  # - OI-learning: 
+  #   - intro: OI-Learning/index.md
+  #   - C++ 面向对象: OI-Learning/C++ OOP.md
+
+  #   - Algorithm: 
+  #     - STL 算法库 ref: OI-Learning/Algorithm/STL_algorithm.md
+  #     - 快速幂: OI-Learning/Algorithm/fastpow.md
+  #     - 排序: OI-Learning/Algorithm/sort.md
+
+  #   - Data-Structure:
+  #     - Trees:
+  #       - 树基础: OI-Learning/Data-Structure/Tree/tree-intro.md
+  #       - 二叉树基础: OI-Learning/Data-Structure/Tree/binatree.md
+  #       - 二叉树模板: OI-Learning/Data-Structure/Tree/binatree-template.md
+  #       - 二叉搜索树 BST: OI-Learning/Data-Structure/Tree/bst.md
+  #       - 平衡树:
+  #         - intro: OI-Learning/Data-Structure/Tree/balanced-tree/index.md
+  #         - AVL 树: OI-Learning/Data-Structure/Tree/balanced-tree/AVL.md
+
+  #     - Graphs:
+  #       - 并查集: OI-Learning/Data-Structure/Graph/union-find.md
+  #       - 图基础: OI-Learning/Data-Structure/Graph/graph-starter.md
+  #       - 最小生成树: OI-Learning/Data-Structure/Graph/mst.md
+  #       - 最短路: OI-Learning/Data-Structure/Graph/shortest-path.md
+  #       - 拓扑排序 && 关键路径: OI-Learning/Data-Structure/Graph/topo-sort.md
+  #     - 链表: OI-Learning/Data-Structure/linkedlist.md
+  #     - STL vector ref: OI-Learning/Data-Structure/vector.md
+  #     - 栈 && 单调栈: OI-Learning/Data-Structure/stack.md
+  #     - 队列 && 单调队列: OI-Learning/Data-Structure/queue.md
+  #     - 散列表/哈希表: OI-Learning/Data-Structure/hashmap.md

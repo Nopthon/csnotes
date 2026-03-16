@@ -1,0 +1,30 @@
+# actually idk if requirements.txt works right
+# i made it manually lol
+mkdocs-material
+mkdocs
+markdown
+Pygments
+pymdown-extensions
+mkdocs-material-extensions
+
+mkdocs-glightbox
+mkdocs-statistics-plugin
+mkdocs-document-dates
+mkdocs-encryptcontent-plugin
+mkdocs_build_cache_plugin
+
+Jinja2
+MarkupSafe
+PyYAML
+click
+ghp-import
+mergedeep
+packaging
+pathspec
+platformdirs
+watchdog
+pyyaml_env_tag
+mkdocs-get-deps
+babel
+colorama
+paginate
