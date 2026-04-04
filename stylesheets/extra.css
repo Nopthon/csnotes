@@ -17,7 +17,7 @@ body {
 /* KaTeX 相关 */
 .katex .mord.text,
 .katex .text .mord {
-    font-family: "KaTeX_Main, LXGW WenKai", "JetBrains Mono",, sans-serif;
+    font-family: "KaTeX_Main", "LXGW WenKai", "JetBrains Mono", "sans-serif";
 }
 
 /* 为 Blog 页面的每一个 article 块添加一个圆角边框 */
