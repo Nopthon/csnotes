@@ -6,12 +6,11 @@ date:
 categories:
   - 🏴‍☠️ CTF
 slug: "DESCTF-2026-Writeup"
-
 ---
 
 # DesCTF 2026 Writeup
 
-好玩捏
+周末不想学习于是自己报了个名，好玩捏
 
 冲刺了一下 MISC 和 RE 题，都是 5 题解出 4 题，别的都没动（其实是不会）
 
@@ -42,7 +41,7 @@ print(type(data))
 # 输出：<class 'dict'>
 ```
 
-经过深入调查（指把能输出的都输出一遍），Flag 被编码在了缓存矩阵 `cache` 中，大小为 `[39,64]`，每个 64 维向量可存储一个字符
+经过深入调查（指让 LLM 写脚本把能输出的都输出一遍），Flag 被编码在了缓存矩阵 `cache` 中，大小为 `[39,64]`，每个 64 维向量可存储一个字符
 
 具体地说：`embedding` 存储了每个字符的特征向量，而 `cache` 中的每个向量被设置为接近某个特定字符的特征
 
@@ -176,7 +175,7 @@ address: 00 BF 00 00
 
 ![image-20260310214918288](images/image-20260310214918288.png)
 
-其实拿到这道题，思路已经很明显了：
+其实拿到这道题，思路已经很明显了（这句话写出来怎么像 GPT4）：
 
 - 将红外信号转化为具体的按键操作
 - 在上面的键盘中模拟执行
@@ -187,7 +186,7 @@ address: 00 BF 00 00
 
 有了信号表就可以模拟键盘按下了。这里引出了这道题最难绷的点：上面那张图中的“清空”键和“删除”键是需要考虑的，否则得到的按键序列是有问题的（其实也有暗示了，图中的按钮起点在删除键，而不是自以为的左上角的 `A`）
 
-写了个有点缺陷的脚本，前四个字母删除操作没实现，手动处理一下就好
+写了个有点缺陷的脚本，应该是因为有边界回环机制，我没写，手动处理一下就好
 
 ```python title="exp.py"
 import re
@@ -228,7 +227,7 @@ def solve():
 if __name__ == "__main__":
     solve()
     
-# 输出为 ekag1nfr4r3disfun，忽视最开头四个字母就好
+# 输出为 ekag1nfr4r3disfun，忽视最开头四个字母就好，应该是 flag
 ```
 
 得到 Flag（Infrared is fun）
@@ -364,7 +363,7 @@ DesCTF{Have fun and enjoy the challenges ahead!!!}
 
 ---
 
-最后那个*张三的秘密*让我用百度网盘下 10GB 的数据，第一步就挑战失败了
+最后那个*张三的秘密*让我用百度网盘下 10GB 的数据，第一步就挑战失败了，因此取证题碰都没碰，倒是从题干能看出来是 Shamir 秘密分享
 
 ## 🔍 RE
 
@@ -550,7 +549,7 @@ private void handleSubmit() {
             // 结果是 MySecretKey123!@#MySecretKey123!@#...，直到总长度超过 0xFF
             std::string::append((int)&v42, v8, v9);
         }
-        strcpy((char *)v41, "\"AndroidNative2024");						// 这里将原始 VIN 前加上了 AndroidNative2024 前缀
+        strcpy((char *)v41, "\"AndroidNative2024");						// 这里将原始 VIN 前加上了 AndroidNative2024 盐值
         sub_630AC(&v39, v41, a1);
         if ( (v39 & 1) != 0 )
         {

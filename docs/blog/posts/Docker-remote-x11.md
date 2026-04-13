@@ -43,7 +43,7 @@ paxxxxxxxxx@340b0f9adc9f:~$ echo $DISPLAY
 paxxxxxxxxx@340b0f9adc9f:~$
 ```
 
-如果自己搭建一个完整的 X11 服务，并且在 `sshd_config` 中设置 X11 相关服务为 `True`，那么 `DISPLAY` 的值应该是自动设置好的，而不是像上面的输出一样，`DISPLAY` 为空，这就和常规的 X11 服务不一样了。
+如果自己搭建一个完整的 X11 服务，并且在 `sshd_config` 中设置 X11 相关服务为 `True`，那么 `DISPLAY` 的值应该是自动设置好的，而不是像上面的输出一样，`DISPLAY` 为空，这就和常规的 X11 服务不一样了
 
 对于以上的 X11 转发配置问题，先从服务器的配置开始分析
 

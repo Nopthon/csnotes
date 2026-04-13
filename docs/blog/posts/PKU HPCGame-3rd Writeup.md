@@ -2,7 +2,7 @@
 draft: false
 date:
   created: 2026-02-08
-  updated: 2026-02-10
+  updated: 2026-03-26
 categories:
   - 🚀 HPC
 slug: "HPCGame-3rd-Writeup"
@@ -10,11 +10,11 @@ slug: "HPCGame-3rd-Writeup"
 
 # PKU HPCGame 3rd Writeup
 
-一开始还只是在用 LLM 写写代码，后来发现几乎要成为 Agent 大赛了
+一开始还只是在用 LLM 写写代码，后来发现整个赛场几乎要成为 Agent 大赛了
 
-LLM 使用：DeepSeek V3.2 && Gemini 3 Flash（没钱氪付费模型说是）
+LLM 用了 DeepSeek V3.2 && Gemini 3 Flash（没那么强也没那么菜）
 
-题目 From [HPCGame](https://hpcgame.pku.edu.cn)
+比赛结束后两个月出了结果，最终是外校榜 rk34，晕晕
 
 <!-- more -->
 
@@ -25,6 +25,8 @@ LLM 使用：DeepSeek V3.2 && Gemini 3 Flash（没钱氪付费模型说是）
 DeepSeek V3.2 大抵是挺不住一两题，Gemini 3 Flash 也很难评，重在参与了
 
 感觉收获最大的是 H 题，把几个得分高的题目稍微整理了一下
+
+题目 From [HPCGame](https://hpcgame.pku.edu.cn)
 
 ## A. 签到
 
@@ -507,7 +509,7 @@ a=0x459730, lda=32, beta=0, c=0x4e3100, ldc=32) at syrk.c:403
 
 。。。
 
-实在是不会改了，忽然意识到，既然 `TARGET=ARMV8` 能过，那么直接在 Makefile 里强覆盖 `TARGET=ARMV8` 可不可以呢？虽然拿不到性能分，但是可以拿到运行通过分。于是我在 Makefile 里加上了 `override TARGET = ARMV8`，提交拿到 50pts，告辞
+实在是不会改了，忽然意识到，既然 `TARGET=ARMV8` 能过，那么直接在 Makefile 里强覆盖 `TARGET=ARMV8` 可不可以呢？虽然拿不到性能分，但是可以拿到运行通过分。于是我在 Makefile 里加上了 `override TARGET = ARMV8`，提交拿到 50pts
 
 ```
 Test Results
@@ -517,7 +519,7 @@ SSYRK Performance: ✗ Failed (15.04s, 108.92 GFLOPS, need <10s)
 SSYR2K Performance: ✗ Failed (29.06s, 112.77 GFLOPS, need <20s)
 ```
 
-UPDATE：对 `KERNEL.ARMV8SVE` 上的部分配置进行回退操作（回退到 ARMV8 版本），最终发现（以下是 `KERNEL.ARMV9SME` 文件，对部分配置进行覆盖）：
+继续分析对 `KERNEL.ARMV8SVE` 上的部分配置进行回退操作（回退到 ARMV8 版本），最终发现（以下是 `KERNEL.ARMV9SME` 文件，对部分配置进行覆盖）：
 
 ```makefile
 include $(KERNELDIR)/KERNEL.ARMV8SVE
@@ -528,7 +530,7 @@ SGEMMKERNEL    = sgemm_kernel_8x8.S
 SGEMMITCOPY    = sgemm_tcopy_$(SGEMM_UNROLL_N).S
 ```
 
-在这种情况下，得到的运行结果和上面的 Test Results 是一模一样的，这说明问题就出现在这两个文件内
+在这种情况下，得到的运行结果和上面的 Test Results 是一模一样的，这说明问题就出现在这两个文件内，但是按道理说这些文件的内容不会有问题，所以有问题的地方
 
 。。。
 

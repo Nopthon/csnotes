@@ -46,10 +46,8 @@ Python 的 `math.fsum` 函数采用 [Shewchuk 算法](http://www-2.cs.cmu.edu/af
 
 ??? success "中值定理"
 
-    $$
-    f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\\
-    f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)
-    $$
+    $$f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\\
+    f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)$$
 
 计算误差 $f(x+\Delta x) - f(x) \approx \Delta x f'(x)$，对应绝对误差 $\Delta x$ 的放大比例近似为 $f'(x)$
 

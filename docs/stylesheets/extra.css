@@ -17,7 +17,7 @@ body {
 /* KaTeX 相关 */
 .katex .mord.text,
 .katex .text .mord {
-    font-family: "LXGW WenKai", "JetBrains Mono", KaTeX_Main, sans-serif;
+    font-family: "KaTeX_Main", "LXGW WenKai", "JetBrains Mono", "sans-serif";
 }
 
 /* 为 Blog 页面的每一个 article 块添加一个圆角边框 */
@@ -26,4 +26,9 @@ body {
     border-radius: 8px; /* 圆角大小 */
     padding: 16px;
     margin-bottom: 20px;
+}
+
+/* Adnomition 块的字体稍微调大了一点 */
+.md-typeset .admonition, .md-typeset details {
+    font-size: .7rem;
 }

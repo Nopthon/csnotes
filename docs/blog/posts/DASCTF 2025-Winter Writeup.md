@@ -6,7 +6,6 @@ date:
 categories:
   - 🏴‍☠️ CTF
 slug: "DASCTF-2025-Winter-Writeup"
-
 ---
 
 # DASCTF 2025-Winter Writeup

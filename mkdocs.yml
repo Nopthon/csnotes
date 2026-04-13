@@ -44,7 +44,7 @@ theme:
 # repo_name: CSNote repo
 
 plugins:
-  - search
+  # - search
   # - statistics
   - glightbox:
       width: 80%
@@ -123,29 +123,56 @@ nav:
         - OS Theory:
           - intro: study-notes/in-class/OS/OS-Theory/index.md
           - 操作系统概论: study-notes/in-class/OS/OS-Theory/ch1.md
+          - 处理器管理: study-notes/in-class/OS/OS-Theory/ch2.md
+          - 并发进程控制: study-notes/in-class/OS/OS-Theory/ch3.md
+          - 文件系统: study-notes/in-class/OS/OS-Theory/ch4.md
+          - 存储管理: study-notes/in-class/OS/OS-Theory/ch5.md
+          - 设备管理: study-notes/in-class/OS/OS-Theory/ch6.md
         - OS Labs:
           - intro: study-notes/in-class/OS/OS-Labs/index.md
+          - Lab 1 - 引导程序: study-notes/in-class/OS/OS-Labs/lab1.md
+          - Lab 2 - 系统调用: study-notes/in-class/OS/OS-Labs/lab2.md
+          - Lab 3 - 进程管理与调度: study-notes/in-class/OS/OS-Labs/lab3.md
+          - Lab 4 - 进程通信与同步: study-notes/in-class/OS/OS-Labs/lab4.md
+          - Lab 5 - 文件系统: study-notes/in-class/OS/OS-Labs/lab5.md
 
-      - jyyOS:
-        - intro: study-notes/in-class/jyyOS/index.md
-        - OS Theory:
-          - intro: study-notes/in-class/jyyOS/OS-Theory/index.md
-          - 01 - Agentic AI 时代的操作系统课：绪论: study-notes/in-class/jyyOS/OS-Theory/ch1.md
-          - 02 - 应用视角的操作系统: study-notes/in-class/jyyOS/OS-Theory/ch2.md
-        - OS Labs:
-          - intro: study-notes/in-class/jyyOS/OS-Labs/index.md
+      # - jyyOS:
+      #   - intro: study-notes/in-class/jyyOS/index.md
+      #   - OS Theory:
+      #     - intro: study-notes/in-class/jyyOS/OS-Theory/index.md
+      #     - 01 - Agentic AI 时代的操作系统课：绪论: study-notes/in-class/jyyOS/OS-Theory/ch1.md
+      #     - 02 - 应用视角的操作系统: study-notes/in-class/jyyOS/OS-Theory/ch2.md
+      #   - OS Labs:
+      #     - intro: study-notes/in-class/jyyOS/OS-Labs/index.md
         
 
       - 计算方法:
         - intro: study-notes/in-class/Numerical-method/index.md
         - 函数求根，牛顿法: study-notes/in-class/Numerical-method/ch1.md
         - 插值，秘密分享，自纠错码: study-notes/in-class/Numerical-method/ch2.md
+        - Chebyshev 插值与 Chebyshev 多项式，范数: study-notes/in-class/Numerical-method/ch3.md
+        - 最小二乘法，Gram-Schmidt 正交化与 QR 分解: study-notes/in-class/Numerical-method/ch4.md
+        - FFT，高斯消元与LU分解: study-notes/in-class/Numerical-method/ch5.md
+        - 算子范数，条件数和迭代法: study-notes/in-class/Numerical-method/ch6.md
 
 
       - 机器学习导论:
         - intro: study-notes/in-class/ML/index.md
-        - ch1: study-notes/in-class/ML/ch1.md
-        - ch2: study-notes/in-class/ML/ch2.md
+        - 绪论: study-notes/in-class/ML/ch0.md
+        - 数学基础-1: study-notes/in-class/ML/ch1-1.md
+        - 数学基础-2: study-notes/in-class/ML/ch1-2.md
+        - 数学基础-Extra: study-notes/in-class/ML/ch1-3.md
+        - 模型评估与选择: study-notes/in-class/ML/ch2.md
+        - 线性模型: study-notes/in-class/ML/ch3.md
+
+
+      - 数理逻辑:
+        - intro: study-notes/in-class/Mathlogic/index.md
+        - 朴素命题逻辑: study-notes/in-class/Mathlogic/ch1.md
+        - 形式化命题逻辑: study-notes/in-class/Mathlogic/ch2.md
+        - 形式化推理系统: study-notes/in-class/Mathlogic/ch3.md
+        - coq 入门: study-notes/in-class/Mathlogic/ch4.md
+
 
       - ICS:
         - intro: study-notes/in-class/ICS/index.md
@@ -162,9 +189,9 @@ nav:
           - I/O 操作的实现: study-notes/in-class/ICS/ICS-Theory/ch9.md
 
         - ICS Labs:
-          - ICS Binalab: study-notes/in-class/ICS/ICS-Labs/Binalab.md
-          - ICS Linklab: study-notes/in-class/ICS/ICS-Labs/Linklab.md
-          - ICS Bufolab: study-notes/in-class/ICS/ICS-Labs/Bufolab.md
+          - Binalab: study-notes/in-class/ICS/ICS-Labs/Binalab.md
+          - Linklab: study-notes/in-class/ICS/ICS-Labs/Linklab.md
+          - Bufolab: study-notes/in-class/ICS/ICS-Labs/Bufolab.md
 
         - ICSPA x86 note: 
           - README FIRST: study-notes/in-class/ICS/ICSPA-x86/README.md
@@ -252,6 +279,9 @@ nav:
 
       - Rust:
         - intro: study-notes/self-study/Rust/index.md
+        - Part1: study-notes/self-study/Rust/part1.md
+        - Part2: study-notes/self-study/Rust/part1.md
+
 
 
 
