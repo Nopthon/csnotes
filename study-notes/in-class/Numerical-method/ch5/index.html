@@ -1294,6 +1294,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT，高斯消元与LU分解
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1310,6 +1328,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式乘法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复数与单位根
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        傅里叶变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        离散傅里叶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速傅里叶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩阵表达形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5992,6 +6101,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式乘法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复数与单位根
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        傅里叶变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="傅里叶变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        离散傅里叶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速傅里叶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩阵表达形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6100,7 +6289,109 @@
 
 
 <h1 id="lecture-5-fftlu">Lecture 5: FFT，高斯消元与LU分解</h1>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-08"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-08T19:05:48.461503+08:00">2026-04-08</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:31:04.443109+08:00">2026-04-13</time></span></div></div>
+<h2 id="_1">多项式乘法</h2>
+<p>考虑一个多项式乘法任务：给定两个系数最多为 <span class="arithmatex">\(n\)</span> 次的多项式 <span class="arithmatex">\(p(x), q(x)\)</span>，求 <span class="arithmatex">\(r(x) = p(x) \cdot q(x)\)</span></p>
+<p>通常，我们已知的是两个多项式的系数，对系数进行乘积计算，朴素的时间复杂度为 <span class="arithmatex">\(O(n^{2})\)</span></p>
+<p>如果，我们得到的是两个多项式在 <span class="arithmatex">\(n+1\)</span> 个 <span class="arithmatex">\(x\)</span> 取值对应的点对 <span class="arithmatex">\((x_{i}, p(x_i), q(x_i))\)</span>，那么利用多项式插值的唯一性，我们可以计算出最多 <span class="arithmatex">\(2n+1\)</span> 个 <span class="arithmatex">\(r(x)\)</span> 上的点，从而唯一确定 <span class="arithmatex">\(r(x)\)</span>，时间复杂度为 <span class="arithmatex">\(O(n)\)</span></p>
+<p>可见，多项式的系数表示法和点值表示法对于多项式乘法的时间复杂度不同。我们希望借助点值表示法加速系数表示法下的多项式乘法，但朴素情况下，系数表示与点值表示之间的转换非常耗时（点值表示 → 系数表示需要解线性方程组，时间复杂度达到 <span class="arithmatex">\(O(n^{3})\)</span>）</p>
+<p>注意到点值选择是任意的 <span class="arithmatex">\(n+1\)</span> 个不同点，我们是否可以精心选择一些特殊的点，使得计算过程可以被压缩？</p>
+<hr>
+<p>我们的想法是，已知 <span class="arithmatex">\(p(x),q(x)\)</span> 的系数不超过 <span class="arithmatex">\(n\)</span></p>
+<ul>
+<li>令 <span class="arithmatex">\(m \geq 2n+1\)</span>，选定 <span class="arithmatex">\(x_{0}, \cdots, x_{m}\)</span>，计算 <span class="arithmatex">\(p(x_{0}),\cdots, p(x_{m})\)</span> 和 <span class="arithmatex">\(q(x_{0}), \cdots, q(x_{m})\)</span><ul>
+<li>时间复杂度 <span class="arithmatex">\(O((m+1)n) = O(n^2)\)</span></li>
+</ul>
+</li>
+<li>计算这 <span class="arithmatex">\(m\)</span> 对 <span class="arithmatex">\(r(x_{j}) = p(x_{j}) \cdot q(x_{j})\)</span><ul>
+<li>时间复杂度 <span class="arithmatex">\(O(m) = O(n)\)</span></li>
+</ul>
+</li>
+<li>对 <span class="arithmatex">\(\lbrace r(x_{j}) \rbrace\)</span> 插值，得到 <span class="arithmatex">\(r(x) = p(x)q(x)\)</span> 的系数<ul>
+<li>拉格朗日插值时间复杂度 <span class="arithmatex">\(O(m^{3}) = O(n^{3})\)</span>，牛顿法为 <span class="arithmatex">\(O(m^{2}) = O(n^{2})\)</span></li>
+</ul>
+</li>
+</ul>
+<p>看来时间瓶颈出现在第一步和第三步，有没有什么方法能够将这两步的时间复杂度下降到 <span class="arithmatex">\(O(n\log n)\)</span> 呢？</p>
+<h2 id="_2">复数与单位根</h2>
+<p>一个复数在代数形式和极坐标形式下分别表示为 <span class="arithmatex">\(z = a+bi = re^{i\theta}\)</span></p>
+<p>指定 <span class="arithmatex">\(n\)</span>，我们定义关于 <span class="arithmatex">\(z\)</span> 的方程 <span class="arithmatex">\(z^{n} = 1\)</span> 的解集合为 <span class="arithmatex">\(n\)</span> 次单位根，比如：</p>
+<ul>
+<li>2 次单位根为 <span class="arithmatex">\(±1\)</span></li>
+<li>4 次单位根为 <span class="arithmatex">\(±1,±i\)</span></li>
+</ul>
+<p><span class="arithmatex">\(n\)</span> 个单位根在复平面单位圆上呈等距分布，更具体的，可以通过欧拉公式求解：
+$$
+e^{\frac{2\pi l}{n}i} = \cos\frac{2\pi l}{n} + i\sin\frac{2\pi l}{n}
+$$
+我们需要关注 <span class="arithmatex">\(n=2^{k}\)</span> 的情况，此时可以得出一个性质：</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/b.png" data-desc-position="bottom"><img alt="b" src="../images/b.png"></a></p>
+<p>从上往下为 <span class="arithmatex">\(2^{k}\)</span> 次单位根的树形表示，注意到 <span class="arithmatex">\(k&gt;0\)</span> 时：</p>
+<ul>
+<li><strong>如果 <span class="arithmatex">\(x\)</span> 是一个 <span class="arithmatex">\(2^{k}\)</span> 次单位根，则 <span class="arithmatex">\(-x\)</span> 也是一个 <span class="arithmatex">\(2^{k}\)</span> 次单位根（并且 <span class="arithmatex">\(x, -x\)</span> 是 <span class="arithmatex">\(2^{k+1}\)</span> 次单位根）</strong></li>
+</ul>
+<h2 id="_3">傅里叶变换</h2>
+<h3 id="_4">离散傅里叶变换</h3>
+<p>先从典型的离散傅里叶变换开始：</p>
+<details class="success" open="open">
+<summary>Definition: 离散傅里叶变换（Discrete Fourier Transform, DFT）</summary>
+<p>给定输入：多项式 <span class="arithmatex">\(p(x)\)</span> 的系数 <span class="arithmatex">\(a_{0},\cdots, a_{n}\)</span></p>
+<p>输出：选定 <span class="arithmatex">\(x_{0}, \cdots, x_{m}\)</span> 为 <span class="arithmatex">\(m+1\)</span> 次单位根，并计算 <span class="arithmatex">\(p(x_{0}), p(x_{m})\)</span> 的值作为输出：<span class="arithmatex">\(\lbrace(x_{i}, p(x_{i}))\rbrace\)</span></p>
+<p>同时也有逆变换，交换输入和输出，利用插值法求算</p>
+<p>（这里给出的定义没有进行归一化，否则会将计算结果 <span class="arithmatex">\(p(x_{i})\)</span> 除以 <span class="arithmatex">\(\sqrt{n+1}\)</span> 进行归一化）</p>
+</details>
+<p>我们用一个式子表示 DFT 的计算：
+$$
+p(w^{l}) = \sum_{j=0}^{n} a_{j} \omega^{lj}
+$$
+以及逆运算：
+$$
+a_{l} = \frac{1}{n+1} \sum_{j=0}^{n} p(\omega^{j}) \omega^{-lj}
+$$
+注意到，离散傅里叶变换及其逆变换，对应了多项式求值时的两步计算瓶颈过程。如果我们能结合 <span class="arithmatex">\(2^{k}\)</span> 次单位根的树形性质，写出更快的傅里叶变换，就能降低多项式求值的计算量</p>
+<h3 id="_5">快速傅里叶变换</h3>
+<p>首先，我们改写 <span class="arithmatex">\(p(x)\)</span>。令：</p>
+<ul>
+<li><span class="arithmatex">\(E(x) = a_{0} + a_{2}x + a_{4}x^{2} + \cdots + a_{n-2}x^{\frac{n}{2}-1}\)</span></li>
+<li><span class="arithmatex">\(O(x) = a_{1} + a_{3}x + a_{5}x^{2} + \cdots + a_{n-1}x^{\frac{n}{2}-1}\)</span><ul>
+<li>它们的系数都是确定的</li>
+</ul>
+</li>
+</ul>
+<p>得到 <span class="arithmatex">\(p(x) = E(x^{2}) + xO(x^{2})\)</span>，同理，<span class="arithmatex">\(p(-x) = E(x^{2}) - xO(x^{2})\)</span></p>
+<p>可见，只要计算 <span class="arithmatex">\(E(x^{2}),O(x^{2})\)</span>，就可以通过一次加法、减法分别计算出 <span class="arithmatex">\(p(x), p(-x)\)</span> 的值。我们已经发现，如果 <span class="arithmatex">\(x\)</span> 是 <span class="arithmatex">\(2^{k}\)</span> 次单位根，则 <span class="arithmatex">\(-x\)</span> 也是 <span class="arithmatex">\(2^{k}\)</span> 次单位根，因此在这里对 <span class="arithmatex">\(p(-x)\)</span> 的计算也是必要的</p>
+<p>现在我们将对 <span class="arithmatex">\(p(x)\)</span> 与 <span class="arithmatex">\(p(-x)\)</span> 的计算转换成了两个新的问题：如何计算 <span class="arithmatex">\(E(x^{2}), O(x^{2})\)</span>？比较显然的，如果 <span class="arithmatex">\(x\)</span> 是 <span class="arithmatex">\(2^{k}\)</span> 次单位根，则 <span class="arithmatex">\(x^{2}\)</span> 是 <span class="arithmatex">\(2^{k-1}\)</span> 次单位根。因此，我们可以继续分解问题，这个计算过程最终成为了一个递归的树结构（或者说，分治操作）</p>
+<p>我们直接给出 FFT 的伪代码：</p>
+<details class="success" open="open">
+<summary>快速傅里叶变换</summary>
+<div class="arithmatex">\[
+\begin{array}{l}
+\textbf{The fast Fourier transform (polynomial formulation)} \newline
+\hline
+\texttt{function FFT}(A, \omega) \newline
+\textbf{Input: } \text{Coefficient representation of a polynomial } A(x) \text{ of degree } \le n-1, \newline
+\phantom{\textbf{Input:}} \text{where } n \text{ is a power of 2; } \omega \text{, an } n\text{th root of unity} \newline
+\textbf{Output: } \text{Value representation } A(\omega^0), \dots, A(\omega^{n-1}) \newline
+\newline
+\textbf{if } \omega = 1 \textbf{: return } A(1) \newline
+\text{express } A(x) \text{ in the form } A_e(x^2) + x A_o(x^2) \newline
+\textbf{call } \text{FFT}(A_e, \omega^2) \text{ to evaluate } A_e \text{ at even powers of } \omega \newline
+\textbf{call } \text{FFT}(A_o, \omega^2) \text{ to evaluate } A_o \text{ at even powers of } \omega \newline
+\textbf{for } j = 0 \textbf{ to } n-1 \textbf{:} \newline
+\quad \text{compute } A(\omega^j) = A_e(\omega^{2j}) + \omega^j A_o(\omega^{2j}) \newline \newline
+\textbf{return } A(\omega^0), \dots, A(\omega^{n-1})
+\end{array}
+\]</div>
+</details>
+<p>简单来说，我们递归分解多项式计算出各个 <span class="arithmatex">\(E(x^k), O(x^k)\)</span> 的值，然后借助 <span class="arithmatex">\(p(x) = E(x^{2}) + xO(x^{2})\)</span> 合并计算出 <span class="arithmatex">\(p(x_{i})\)</span> 的值。</p>
+<p>能够证明，记 <span class="arithmatex">\(T(n)\)</span> 为 <span class="arithmatex">\(n\)</span> 阶 FFT 需要的操作次数，则 <span class="arithmatex">\(T(n) = 2T\left( \dfrac{n}{2} \right) + C_n\)</span>（其中 <span class="arithmatex">\(C_n\)</span> 是与阶数相关的常数），最终可以计算证明：<span class="arithmatex">\(T(n) = O (n\log n)\)</span></p>
+<hr>
+<p>我们记 DFT 的计算结果 <span class="arithmatex">\(p(w^{l}) = \sum_{j=0}^{n} a_{j} \omega^{lj}\)</span>，逆运算 <span class="arithmatex">\(a_{l} = \frac{1}{n+1} \sum_{j=0}^{n} p(\omega^{j}) \omega^{-lj}\)</span>，区别在于把 <span class="arithmatex">\(\omega \to \omega^{-1}\)</span>，且系数多了 <span class="arithmatex">\(\frac{1}{n+1}\)</span>。这对 FFT 也是正确的。</p>
+<p>逆 FFT 也只要在 FFT 的基础上，修改上述两处内容即可</p>
+<h3 id="_6">矩阵表达形式</h3>
+<blockquote>
+<p>挖坑</p>
+</blockquote>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
 
 
 
