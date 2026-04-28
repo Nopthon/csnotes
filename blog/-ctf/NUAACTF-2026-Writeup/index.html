@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
       
@@ -1400,6 +1400,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1607,6 +1613,90 @@
     
   
     线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch3-extra.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维：主成分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch4.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch5.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
   
 
     
@@ -6676,6 +6766,10 @@
 
 <p>为了凑内容，把赛后补的题也塞进去</p>
 <hr>
+<blockquote>
+<p>官方 wp：<a href="https://docs.asuri.club/s/513c5603-e914-4d7a-b7b8-6b3b3bd570a2">NUAACTF 10th Writeup - Asuri Team Wiki</a></p>
+</blockquote>
+<hr>
 <h2 id="misc">🧩 MISC</h2>
 <h3 id="asuri">Asuri周年摇奖机</h3>
 <blockquote>
@@ -7841,7 +7935,7 @@ Content-Length: 63
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>在 <code>check_password</code> 函数中加一个对 <code>decrypted_password</code> 的输出即可</p>
+<p>源码都给了，在 <code>check_password</code> 函数中加一个对 <code>decrypted_password</code> 的输出即可</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -7938,13 +8032,13 @@ Please enter your password: qwq
 <p>得到 Flag：</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>flag{ez_reverse_of_function_pointers}
 </code></pre></div></td></tr></tbody></table></div>
-<p>（Flag 中提到函数指针，是因为程序使用了一个种子固定为 1444 的线性同余生成器，对六个操作函数进行伪随机调用。不过这些函数只能提供一个“没有用高级密码学算法”的提示）</p>
+<p>（Flag 中提到函数指针，是因为程序使用了一个种子固定为 1444 的线性同余生成器，对六个操作函数进行伪随机调用。正解是这么做的，只不过一系列操作后恰好对上 ROR 5 了）</p>
 <hr>
 <h2 id="appendix">Appendix</h2>
 <p>给队友跪下了，PWN 题被一个专攻二进制漏洞的队友 AK 了，难一点的题目被队长解决了</p>
 <p>左上角那个贡献最少的就是我😭</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/image-20260426145138274.png" data-desc-position="bottom"><img alt="image-20260426145138274" src="../../images/image-20260426145138274.png"></a></p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-24T13:15:26.144963+08:00">2026-04-24</time></span><span data-tippy-content data-tippy-raw="2026-04-26"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-26T15:13:49.467912+08:00">2026-04-26</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-24"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-24T13:15:26.144963+08:00">2026-04-24</time></span><span data-tippy-content data-tippy-raw="2026-04-27"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-27T21:52:09.546651+08:00">2026-04-27</time></span></div></div>
 
 
 

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
       
@@ -1409,6 +1409,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1857,6 +1863,90 @@
     
   
     线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3-extra.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维：主成分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
   
 
     
@@ -6988,7 +7078,7 @@ $$
 <p>进行 <span class="arithmatex">\(p\)</span> 次交叉验证，每次从 <span class="arithmatex">\(k\)</span> 个互斥集合中取出 <span class="arithmatex">\(1\)</span> 个作为测试集，其他的 <span class="arithmatex">\(k-1\)</span> 个作为训练集。将测试结果进行平均，则得到返回结果</p>
 <p>以下为 <span class="arithmatex">\(p = k = 10\)</span> 的交叉验证</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260330102822860.png" data-desc-position="bottom"><img alt="image-20260330102822860" src="../images/image-20260330102822860.png"></a></p>
-<p>总样本数为 <span class="arithmatex">\(m\)</span>，若 <span class="arithmatex">\(k = m\)</span>，则得到“留一法”（因为每个互斥子集的元素都只有一个）</p>
+<p>总样本数为 <span class="arithmatex">\(m\)</span>。若 <span class="arithmatex">\(k = m\)</span>，则得到“留一法”（因为每个互斥子集的元素都只有一个）</p>
 <h3 id="bootstrap">自助法（bootstrap）</h3>
 <p>对数据集 <span class="arithmatex">\(D\)</span>（总样本数为 <span class="arithmatex">\(m\)</span>）进行 <span class="arithmatex">\(m\)</span> 次有放回采样，则每个样本不会被抽到的概率为 <span class="arithmatex">\(\left( 1-\dfrac{1}{m} \right)^{m}\)</span>，在样本数足够多的情况下：
 $$
@@ -7119,10 +7209,11 @@ $$</p>
 <p>具体的比较检验方式略</p>
 </blockquote>
 <h3 id="-">偏差-方差分解</h3>
+<p>如何考虑机器学习时，“误差”涉及的多个因素？</p>
 <p>首先形式化引入定义：</p>
 <ul>
 <li>训练集 <span class="arithmatex">\(D\)</span></li>
-<li>训练样本的特征为 <span class="arithmatex">\(\mathbf{x}\)</span>，真实标记为 <span class="arithmatex">\(y\)</span>；由于噪声，数据集中的实际标记为 <span class="arithmatex">\(y_{D}\)</span>。约定噪声期望 <span class="arithmatex">\(\mathbb{E}_{D}[(y_{D} - y)^{2}] = 0\)</span></li>
+<li>训练样本的特征为 <span class="arithmatex">\(\mathbf{x}\)</span>，真实标记为 <span class="arithmatex">\(y\)</span>；由于噪声，数据集中的实际标记为 <span class="arithmatex">\(y_{D}\)</span>。约定噪声期望 <span class="arithmatex">\(\mathbb{E}_{D}[y_{D} - y] = 0\)</span></li>
 <li>算法的预测输出 <span class="arithmatex">\(f(\mathbf{x};D)\)</span></li>
 <li>算法的期望输出 <span class="arithmatex">\(\bar{f}(\mathbf{x}) = \mathbb{E}_{D}[f(\mathbf{x};D)]\)</span></li>
 </ul>
