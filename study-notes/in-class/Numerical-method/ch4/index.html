@@ -1156,6 +1156,22 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1527,6 +1543,230 @@
     
   
     算子范数，条件数和迭代法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值与幂迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值的其它迭代方法，SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    迭代法解线性方程组：梯度下降方法与共轭梯度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    幂迭代的特例：随机游走与马尔可夫链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    谱图论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电阻电路网络，碰撞时间和遍历时间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性规划入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LP 顶点，对偶性和零和游戏
   
 
     
@@ -6951,6 +7191,10 @@ A^{T}A\hat{x} = A^{T}b
 $$
 法线方程的解表示对应最小二乘问题的最优平方逼近</p>
 </details>
+<blockquote>
+<p>法线方程 <span class="arithmatex">\(A^{T}A\hat{x} = A^{T}b\)</span> 相比原方程 <span class="arithmatex">\(A\hat{x} = b\)</span> 只相差了一个左乘的 <span class="arithmatex">\(A^{T}\)</span></p>
+<p>由于 <span class="arithmatex">\(A^{T}A\)</span> 是对称半正定方阵，这一系列优秀性质使得法线方程一定是可解的。进一步的，如果 <span class="arithmatex">\(A^{T}A\)</span> 是正定的，则法线方程具有唯一解</p>
+</blockquote>
 <p>这个式子还可以从微积分角度进行解释：</p>
 <details class="question">
 <summary>法线方程的微积分表示</summary>
@@ -6999,7 +7243,7 @@ $$
 <ul>
 <li>条件数 <span class="arithmatex">\(\kappa\)</span> 描述了数值问题 <span class="arithmatex">\(f\)</span> 对输入误差的敏感程度。当 <span class="arithmatex">\(\kappa\)</span> 非常大时，称 <span class="arithmatex">\(f\)</span> 是病态的；当 <span class="arithmatex">\(\kappa\)</span> 接近 1 时，称 <span class="arithmatex">\(f\)</span> 是良态的。条件数 <span class="arithmatex">\(\kappa\)</span> 是数值问题本身的属性，与算法实现基本无关</li>
 </ul>
-<p>注意到：<span class="arithmatex">\(\kappa(A^{T}A) = \kappa^{2}(A)\)</span>，在直接对 <span class="arithmatex">\(A^{T}A\)</span> 进行计算时，输入扰动会被平方级别放大，这导致计算可能会出大问题</p>
+<p>注意到：<span class="arithmatex">\(\kappa(A^{T}A) = \kappa^{2}(A)\)</span>，在直接对 <span class="arithmatex">\(A^{T}A\)</span> 进行计算时，输入扰动会被平方级别放大，这导致数值稳定性显著下降</p>
 </blockquote>
 <p>有没有什么方法可以避免构造 <span class="arithmatex">\(A^{T}A\)</span> 的方法呢？设想一下，如果 <span class="arithmatex">\(A\)</span> 的每一列都是正规化的：
 $$

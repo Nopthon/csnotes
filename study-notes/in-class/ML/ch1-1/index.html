@@ -1154,6 +1154,22 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1361,6 +1377,230 @@
     
   
     算子范数，条件数和迭代法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值与幂迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值的其它迭代方法，SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    迭代法解线性方程组：梯度下降方法与共轭梯度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    幂迭代的特例：随机游走与马尔可夫链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    谱图论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电阻电路网络，碰撞时间和遍历时间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性规划入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LP 顶点，对偶性和零和游戏
   
 
     
@@ -7530,11 +7770,11 @@ $$
 \lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}_{p}\rVert}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
 $$</p>
 </details>
-<p>矩阵算子范数衡量矩阵对向量的最大放大作用，比如：</p>
+<p>矩阵算子范数衡量矩阵对向量的最大化放大能力，比如：</p>
 <ul>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></li>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩；<span class="arithmatex">\(\lVert A \rVert_{\text{op}, 2}\)</span> 又称为谱范数</li>
+<li>列和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
+<li>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></li>
+<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩</li>
 </ul>
 <h4 id="_15">分量范数</h4>
 <p>把矩阵当做一个长向量，其定义基于向量范数</p>
@@ -7549,7 +7789,7 @@ $$</p>
 <ul>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 1} = \sum_{i=1}^{m} \sum_{j=1}^{n} |A_{ij}|\)</span></li>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, \infty} = \max_{i \in [m]} \max_{j \in [n]}  |A_{ij}|\)</span></li>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 2} = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij}^{2}}\)</span>，又记为 <span class="arithmatex">\(\lVert A \rVert_{F}\)</span></li>
+<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 2} = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij}^{2}}\)</span>，又记为 Frobenius 范数 <span class="arithmatex">\(\lVert A \rVert_{F}\)</span></li>
 </ul>
 <h4 id="schatten">Schatten 范数</h4>
 <p>基于奇异值的范数定义</p>
