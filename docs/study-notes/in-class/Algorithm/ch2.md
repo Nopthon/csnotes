@@ -187,4 +187,3 @@ A graph $G = (V,E)$ is 2-(vertex-)connected (or biconnected) if for every $u,v â
 > A graph $G=(V,E)$ with $|V| â‰¥ 3$ does not contain a cut vertex, if and only if it is biconnected.
 
 ### Find cut vertex
-

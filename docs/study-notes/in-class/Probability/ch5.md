@@ -164,4 +164,3 @@ $$
 $$
 n\to \infty,\; \mu_n \sim B(n,p) \sim N(np, npq)
 $$
-

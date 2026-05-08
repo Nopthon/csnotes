@@ -191,7 +191,7 @@ return (a+b)/2
 - 反复计算 $x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}$
 - 如果 $\lbrace x_n \rbrace$ 逐渐收敛到某值，收敛值即为近似解
 
-可以直观地用图像表示这一过程，发现对于 $x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}$ 这一步，相当于取 $f(x_i)$ 切线交 $x$ 轴于 $x_{i+1}$ 
+可以直观地用图像表示这一过程，发现对于 $x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}$ 这一步，相当于取 $f(x_i)$ 切线交 $x$ 轴于 $x_{i+1}$
 
 ![image-20260306150346723](images/image-20260306150346723.png)
 
@@ -248,38 +248,53 @@ return (a+b)/2
 考虑原问题为 $f(x) = 0$，精确根为 $r$；在实际的数值计算时，$f$ 存在一定的误差，实际用于计算的函数为 $\hat{f}(x) = f(x) + \varepsilon g(x)$，其中 $\varepsilon g(x)$ 是误差函数
 
 现在需要分析误差函数对根的计算影响，记实际得到的计算根 $\hat{r} = r + \Delta r$，满足
+
 $$
 f(r + \Delta r) + \varepsilon g(r + \Delta r) = 0
 $$
+
 考虑两种推导方法：
 
+
 1- 将 $f$ 与 $g$ 进行泰勒展开，得到
+
 $$
 f(r) + f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r + O((\Delta r)^2) = 0
 $$
 
+
 代入 $f(r) = 0$，忽略 $O((\Delta r)^2)$ 高阶项，得到
+
 $$
 f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r \approx 0
 $$
+
+
 当 $\varepsilon$ 很小，使得 $\varepsilon g'(r)$ 相对 $f'(r)$ 可以被忽略时，有
+
 $$
 \Delta r \approx - \varepsilon \dfrac{g(r)}{f'(r)}
 $$
+
 将其记为根对函数误差的敏感度，发现 $f'(r)$ 越小，根对误差更加敏感，使得 $\Delta r$ 可能很大
 
 2- 隐函数求导，考虑 $f(x(\varepsilon)) + \varepsilon g(x(\varepsilon)) = 0$，其中 $x(\varepsilon)$ 是依赖于 $\varepsilon$ 的根
 
 当 $\varepsilon = 0$ 时，方程退化为 $f(x(0)) = 0$，因此记 $x(0) = x^{\ast}$，得到 $f(x^{\ast}) = 0$
 
+
 我们假定 $f'(x^{\ast}) \ne 0$，在 $x^{\ast}$ 附近的根唯一且光滑依赖于 $\varepsilon$
 
 将整个方程对 $\varepsilon$ 求导，之后代入 $\varepsilon = 0$ 得到：
+
 $$
 f'(x^{\ast}) \cdot x'(0) + g(x^{\ast}) =0
 $$
+
 移项得到
+
 $$
 x'(0) = \dfrac{\mathrm{d}x}{\mathrm{d}\varepsilon}\biggr| _{\varepsilon=0} = -\dfrac{g(x^{\ast})}{f'(x^{\ast})}
 $$
+
 这和第一种方法得到的结果是一样的：$f'(r)$ 越小，根对误差更加敏感，使得误差可能很大

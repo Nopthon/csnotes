@@ -445,4 +445,3 @@ slug: "Steam-FakeAuth-RE"
 初步分析一下，`legit64` 应该是主恶意程序，DLL 文件应该是引导项，VDF 文件没见过，STFW 发现是 "The Vavle Data File"，应该是配置相关
 
 继续搜索一下，发现 [SteamTools](https://www.steamtools.net/) 这个网站，其注入流程 `irm steam.run | iex` 和上文几乎一致
-

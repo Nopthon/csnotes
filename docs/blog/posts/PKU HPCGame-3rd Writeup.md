@@ -1023,9 +1023,11 @@ Testcase 1 passed, num_cycles: 53244 (92.3% of MXM's peak), score: 100.0	# goal 
 相比任务 2，添加对缩放因子的处理，这意味着 MXM 和 VXM 都将参与计算：
 
 （$Ab$ 和 $As$ 分别表示 $A$ 的基准矩阵和缩放矩阵）
+
 $$
 C[i, j] = \sum_{k=0}^{K-1} Ab[i, k] \cdot As\left[i, \left\lfloor \frac{k}{64} \right\rfloor\right] \cdot Bb[k, j] \cdot Bs\left[\left\lfloor \frac{k}{64} \right\rfloor, j\right]
 $$
+
 一开始尝试 128 × 128 ＋ 双缓冲，两个测试点都是 50% 的分数；换成 256 × 128 后对于 $(M,N,K) = (512, 1024, 2560)$ 的测试点性能下跌一半，对于 $(M,N,K) = (2048, 512, 3072)$ 性能上涨一半，才意识到前者的 Job 数只有 SM 数的一半，而后者是吃满的
 
 依旧采用双缓冲机制，最终发现分块 $K$ 的选取是很关键的。如果 $K = 128$，那么加上 $T_{VXM}$ 后 MXM 的计算周期数 $T = 1537 < L_{mem} + T_{VXM}$，会有约 200 Ticks 的约束等待；如果 $K = 256$，那么双缓冲区（512 KB）加上结果矩阵 C （64 KB）的容量就已经超过了 SPM 的大小，因此决定 $K = 3 \times 64 = 192$ 

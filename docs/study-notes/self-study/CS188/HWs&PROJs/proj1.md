@@ -245,4 +245,3 @@ def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
 ```
 
 ## Q5 (3 pts): Finding All the Corners
-

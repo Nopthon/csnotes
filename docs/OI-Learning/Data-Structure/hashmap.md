@@ -143,4 +143,3 @@ struct MyHash {
 
 __gnu_pbds::gp_hash_table <int, int, MyHash> Table;
 ```
-

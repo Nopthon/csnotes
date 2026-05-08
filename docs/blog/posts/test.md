@@ -190,4 +190,3 @@ return 1;
     - 这说明写个视觉脚本把 256 关刷完也是可以的
 - `HandleBoardChanged` → `CapsuleSyncLevel` 时，计算当前 8x8 grid 的 board mask，通过 XOR 检测变化，调用 `ApplyBoardDelta` 更新胶囊数据中对应关卡的棋盘状态
 - `CapsulePrepareReveal` 进行打印回放数据前的验证，调用 `LayoutLoad` 从胶囊数据偏移 0x648 加载布局流，验证 CRC16，如果验证通过则说明打印流正确，可以输出 Flag 图像了
-

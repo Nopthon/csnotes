@@ -1,4 +1,4 @@
-# Lab01 
+# Lab01
 
 Shell 教程关，题目来源 [MIT - The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/course-shell/)
 
@@ -19,7 +19,7 @@ mkdir test
 
 ---
 
-> 2) 用命令man查看命令touch的使用手册。
+> 1) 用命令man查看命令touch的使用手册。
 
 ```bash
 man touch
@@ -27,7 +27,7 @@ man touch
 
 没有配图
 
-> 3) 用命令touch在test目录中新建一个名为test的文件。
+> 1) 用命令touch在test目录中新建一个名为test的文件。
 
 ```bash
 cd ./test
@@ -36,7 +36,7 @@ touch test
 
 ---
 
-> 4) 用命令echo将以下内容一行一行地写入test文件。
+> 1) 用命令echo将以下内容一行一行地写入test文件。
 
 ```bash
 echo -e '#!/bin/sh\ncurl --head --silent https://www.nju.edu.cn' > test
@@ -49,7 +49,7 @@ echo -e '#!/bin/sh\ncurl --head --silent https://www.nju.edu.cn' > test
 
 ---
 
-> 5) 尝试执行这个文件，即将该脚本的路径（./test）输入到您的shell中并回车。如果程序无法执行，请使用ls命令来获取信息并给出其不能执行的原因。
+> 1) 尝试执行这个文件，即将该脚本的路径（./test）输入到您的shell中并回车。如果程序无法执行，请使用ls命令来获取信息并给出其不能执行的原因。
 
 ```bash
 nopthon@nopes-computer:/tmp/test$ ./test
@@ -68,7 +68,7 @@ total 4
 
 ---
 
-> 6) 查看命令chmod的手册，使用命令chmod改变test文件的权限，使 ./test 能够成功执行，不要使用sh test来执行该程序。
+> 1) 查看命令chmod的手册，使用命令chmod改变test文件的权限，使 ./test 能够成功执行，不要使用sh test来执行该程序。
 
 ```bash
 nopthon@nopes-computer:/tmp/test$ man chmod
@@ -79,14 +79,14 @@ total 4
 ```
 
 !!! note "chmod"
-    
+
     `chmod` 指令采用八进制数表示 `Owner-Group-Others` 三级权限的设置
     
     比如 `5 = 4 + 0 + 1 = 101` 对应 `r-x`；`7 = 4 + 2 + 1 = 111` 对应 `rwx` 
 
 ---
 
-> 7) 请问你的shell是如何知道这个文件需要使用sh来解析的。请通过网络搜索“unix shebang”来了解更多信息。
+> 1) 请问你的shell是如何知道这个文件需要使用sh来解析的。请通过网络搜索“unix shebang”来了解更多信息。
 
 `test` 作为bash脚本，其第一行 `#!/bin/sh` （其中 `#!` 就是 SheBang 符号）指定该程序使用 `/bin/sh` 处的 `sh` 进行解析（必须指定绝对路径）。如果缺少这一行，则会以当前默认 Shell 执行该脚本（由环境变量 `$SHELL` 决定）
 
@@ -96,7 +96,7 @@ total 4
 
 ---
 
-> 8) 请使用 | 和 > ，将test文件输出的最后5行内容写入自己**主目录**下的last-5-lines.txt文件中。
+> 1) 请使用 | 和 > ，将test文件输出的最后5行内容写入自己**主目录**下的last-5-lines.txt文件中。
 
 ```bash
 ./test | tail -n 5 > ~/last-5-lines.txt
@@ -109,4 +109,3 @@ total 4
     `>` 写入的文件不存在时，会自动创建新文件
 
 ---
-

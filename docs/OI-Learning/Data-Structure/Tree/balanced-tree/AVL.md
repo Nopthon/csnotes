@@ -841,4 +841,3 @@ treeNode* deleteAVL(treeNode* root, int key, bool& shorter) {
     }
     
     ```
-

@@ -4,8 +4,8 @@
 
 $$
 a_n = \begin{cases}
-1 & n = 0 \\\\
-a^{\frac{n}{2}} \cdot a^{\frac{n}{2}} & n \bmod 2 = 0 \\\\
+1 & n = 0 \newline
+a^{\frac{n}{2}} \cdot a^{\frac{n}{2}} & n \bmod 2 = 0 \newline
 a \cdot a^{\frac{n-1}{2}} \cdot a^{\frac{n-1}{2}} & n \bmod 2 \neq 0
 \end{cases}
 $$
@@ -137,17 +137,17 @@ Matrix matrix_pow(Matrix base, long long exp) {
 学过线性代数之后不难计算，对于斐波那契数列 $F_n$ 有：
 
 $$
-\begin{aligned}\begin{pmatrix}F_n \\\\ F_{n-1}\end{pmatrix}=\begin{pmatrix}1 & 1 \\\\1 &0 \end{pmatrix}\begin{pmatrix}F_{n-1} \\\\ F_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
+\begin{aligned}\begin{pmatrix}F_n \newline F_{n-1}\end{pmatrix}=\begin{pmatrix}1 & 1 \newline1 &0 \end{pmatrix}\begin{pmatrix}F_{n-1} \newline F_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
 $$
 
 进一步得到
 
 $$
-\begin{aligned}\begin{pmatrix}F_n \\\\ F_{n-1}\end{pmatrix}=\begin{pmatrix}1 & 1 \\\\1 & 0\end{pmatrix}^{n-1}
-\begin{pmatrix}F_{1} \\\\ F_{0}\end{pmatrix},\ n\geq 3\end{aligned}
+\begin{aligned}\begin{pmatrix}F_n \newline F_{n-1}\end{pmatrix}=\begin{pmatrix}1 & 1 \newline1 & 0\end{pmatrix}^{n-1}
+\begin{pmatrix}F_{1} \newline F_{0}\end{pmatrix},\ n\geq 3\end{aligned}
 $$
 
-对于 $\begin{pmatrix}1 & 1 \\\\1 & 0\end{pmatrix}^{n-1}$ 的计算，我们采用矩阵快速幂，然后进行一轮矩阵运算就可以得到单个 $F_n$ 的计算结果，时间复杂度 $O(\log n)$
+对于 $\begin{pmatrix}1 & 1 \newline1 & 0\end{pmatrix}^{n-1}$ 的计算，我们采用矩阵快速幂，然后进行一轮矩阵运算就可以得到单个 $F_n$ 的计算结果，时间复杂度 $O(\log n)$
 
 ```c++
 // Luogu P1962 斐波那契数列
@@ -172,8 +172,9 @@ void solve(){
 ```
 
 对于广义的斐波那契数列：$a_n = p \times a_{n-1} + q \times a_{n-2}$ 也有：
-$$
-\begin{aligned}\begin{pmatrix}a_n \\\\ a_{n-1}\end{pmatrix}=\begin{pmatrix}p & q \\\\1 &0 \end{pmatrix}\begin{pmatrix}a_{n-1} \\\\ a_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
-$$
-也有一道对应的 [P1349 广义斐波那契数列 - 洛谷](https://www.luogu.com.cn/problem/P1349) 
 
+$$
+\begin{aligned}\begin{pmatrix}a_n \newline a_{n-1}\end{pmatrix}=\begin{pmatrix}p & q \newline1 &0 \end{pmatrix}\begin{pmatrix}a_{n-1} \newline a_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
+$$
+
+也有一道对应的 [P1349 广义斐波那契数列 - 洛谷](https://www.luogu.com.cn/problem/P1349) 

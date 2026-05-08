@@ -129,6 +129,7 @@ $$
 （当然，计算 $vl(i)$ 并不需要关心事件/活动是否处于关键路径）
 
 计算 $vl(i)$ 的本质依旧是递推，不过这一次是从后往前推（因为事件的最迟发生时间的约束体现在其后继事件的 $vl$，而不是前驱事件）：我们假设以 $v_i$ 为起点的边有 $\lbrace v_i, v_{j_1}, w_{j_1}\rbrace,\cdots,\lbrace v_i, v_{j_m}, w_{j_m}\rbrace$ ，那么有：
+
 $$
 vl(i) = \min_{p = 1,\cdots,m} \lbrace vl(j_p) - w_{j_p} \rbrace
 $$

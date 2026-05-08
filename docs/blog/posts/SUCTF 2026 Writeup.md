@@ -606,4 +606,3 @@ __int64 __fastcall sub_120007FF8(_QWORD *a1)	// a1 就是 Part 1 中的 v43
     return 0;
 }
 ```
-

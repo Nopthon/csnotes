@@ -160,10 +160,14 @@ We can notice an interesting relationship between $n \log n$ and $\Theta(\log (n
     **Lower bound estimate**
     
     Scale the original expression (using n/2 term):
+    
     $$
     \log (n!) = \sum_{k=1}^{n} \log k \geq \sum_{k=\lceil n/2 \rceil}^{n} \log k \geq (n - \lceil \dfrac{n}{2} + 1 \rceil ) (\log n - \log 2)
     $$
+    
+    
     i.e.
+    
     $$
     \log (n!) \geq \dfrac{n}{2} (\log n - \log 2)
     $$
@@ -175,11 +179,13 @@ We can notice an interesting relationship between $n \log n$ and $\Theta(\log (n
     
     So for all $n \geq 4$, $\log (n!) \geq c \cdot n \log n$, where $c = \dfrac{1}{4}$
     
+    
     Therefore, for all $n \ge 4$, we have
+    
     $$
     \frac{1}{4} \, n \log n \;\le\; \log (n!) \;\le\; n \log n,
     $$
+    
     which proves $n \log n = \Theta(\log (n!))$.
     
     Q.E.D.
-

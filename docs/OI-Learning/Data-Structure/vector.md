@@ -41,4 +41,3 @@ vec.rend();									// 指向vec首元素之前的迭代器
 // 在下面的例子中，++rit 表示反向前进一格，而不是正向前进
 for (auto rit = vec.rbegin(); rit != vec.rend(); ++rit) cout << *rit << " ";
 ```
-

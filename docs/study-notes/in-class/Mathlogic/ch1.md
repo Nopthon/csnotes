@@ -23,6 +23,7 @@
 
 - 对于简单命题 $P = p_{i}$，则 $[P](\sigma(p_1), \cdots, \sigma(p_{n})) =\sigma(p_{i})$
 - 定义 $[P_1], [P_2]$，则任意选定一种连接符 $\ast$：
+
 $$
 ⟦P_{1} \ast P_2⟧(\sigma) = H^{\ast}(⟦P_1⟧, ⟦P_2⟧)(\sigma) = ⟦P_1⟧(\sigma) \ast_{\text{bool}} ⟦P_2⟧(\sigma)
 $$
@@ -40,9 +41,11 @@ $$
 已知命题 $P,Q$
 
 如果 $(P \leftrightarrow Q)$ 为重言式，则 $P,Q$ 逻辑等价，记为 $P \Leftrightarrow Q$ 或 $P \equiv Q$。逻辑等价是 $(F, ¬,∧, ∨,→, \leftrightarrow)$ 上的一个同余关系：对于任意运算 $f$（如 $\land, \lor, \to$ 等），如果 $a_1 \equiv b_1, a_2 \equiv b_2$，则：
+
 $$
 f(a_1, a_2) \equiv f(b_1, b_2)
 $$
+
 如果 $(P \to Q)$ 为重言式，则称 $P$ 逻辑蕴涵于 $Q$，记为 $P \Rightarrow Q$
 
 ---

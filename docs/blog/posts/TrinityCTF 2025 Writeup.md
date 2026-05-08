@@ -97,7 +97,7 @@ def exit_gate():
 
 ```shell
 imagedata           .. text: ".55/4.,-)"
-b1,g,lsb,xy         .. text: "-M$ED%LtLm\\\\uT"
+b1,g,lsb,xy         .. text: "-M$ED%LtLm\newlineuT"
 b1,b,lsb,xy         .. text: "5m,5$5l4ee}----("
 b2,r,lsb,xy         .. text: "D@@EDkDD"
 b2,rgb,lsb,xy       .. text: "L0DDTAA@E"

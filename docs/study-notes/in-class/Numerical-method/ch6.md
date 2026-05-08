@@ -11,6 +11,7 @@
 ???+ success "Definition：矩阵算子范数（Matrix Operator Norm）"
 
     给定矩阵 $A\in \mathbb{R}^{m \times n}$，记矩阵算子范数为 $\lVert \cdot \rVert_{\text{op}, p}$，有：
+    
     $$
     \lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
     $$
@@ -36,6 +37,7 @@
 ???+ success "Definition：矩阵分量范数（Matrix Entrywise Norm）"
 
     给定矩阵 $A\in \mathbb{R}^{m \times n}$，记矩阵分量范数为 $\lVert \cdot \rVert_{\text{en}, p}$，有：
+    
     $$
     \lVert A \rVert_{\text{en}, p} \triangleq \left( \sum_{i=1}^{m} \sum_{j=1}^{n} |A_{ij}^{p}|\right)^{1/p}
     $$
@@ -69,10 +71,13 @@ $$
     $$
     
     对 A 作奇异值分解 $A = U \Sigma V^{\ast}$，代入得
+    
     $$
     A^{\ast} A = V \Sigma^{\ast} \Sigma V^{\ast}, \quad \text{tr}(A^{\ast} A) = \text{tr}(\Sigma^{\ast} \Sigma) = \sum_{i=1}^r \sigma_i^2
     $$
+
     所以
+    
     $$
     \lVert A \rVert_F = \sqrt{\sigma_1^2 + \cdots + \sigma_r^2}
     $$
@@ -96,8 +101,9 @@ $$
     $$
     \frac{\|A\mathbf{x}\|_2}{\|\mathbf{x}\|_2} \leq \sigma_{\max}
     $$
-    
+
     取 $\mathbf{x} = \mathbf{v}_1$（最大奇异值对应的右奇异向量），则等号成立，故
+    
     $$
     \lVert A \rVert_2 = \sigma_{\max}(A)
     $$
@@ -125,10 +131,13 @@ $$
 
 假设我们要求 $Ax=b$ 的解，其中 $A$ 可逆。在数值计算中，输入数据（$A,b$ 等）会产生误差，我们需要判断，这个较小的误差会不会导致 $x$ 的解出现大的误差
 
+
 我们定义矩阵 $A$ 的条件数：
+
 $$
 \text{cond}(A) = \lVert A \rVert \cdot \lVert A^{-1} \rVert
 $$
+
 这里我们使用**算子范数**，$\lVert A \rVert$ 衡量矩阵对向量的最大放大能力，$\lVert A^{-1} \rVert$ 衡量矩阵对向量的最大缩小能力。条件数越大，矩阵越病态（ill-conditioned），意味着小的输入误差会导致大的输出误差
 
 条件数最小为 $1$，对应正交矩阵
@@ -136,12 +145,15 @@ $$
 ???+ question "条件数的定义"
 
     假设 $b$ 的数值存在误差，变成了 $b+e$，则 $x = A^{-1}b$ 变成 $x = A^{-1} (b+e)$
-    
+
     条件数的原始定义是相对误差的放大比例，即
+    
     $$
     \text{cond} (A) = \dfrac{x \text{ 的相对误差}}{b \text{ 的相对误差}}
     $$
+    
     代入
+    
     $$
     \begin{aligned}
     \mathrm{cond}(A) 
@@ -151,6 +163,7 @@ $$
     = \max_{e \neq 0} \frac{\|A^{-1} e\|}{\lVert e \rVert} \cdot \max_{x \neq 0} \frac{\|A x\|}{\|x\|}
     \end{aligned}
     $$
+    
     代入算子范数的定义，则 $\text{cond}(A) = \lVert A \rVert \cdot \lVert A^{-1} \rVert$
 
 条件数有一个性质
@@ -161,26 +174,34 @@ $$
 
 ## 线性迭代方法
 
+
 线性迭代方法的核心是将解方程组的问题转化为寻找一个映射的不动点问题
 
 在根求解问题问题中，我们构造过迭代式。对于线性方程组的计算，我们也有类似的写法：
+
 $$
 A\mathbf{x}=\mathbf{b} \to \mathbf{x} = T\mathbf{x} + \mathbf{c}
 $$
+
+
 因此 $\mathbf{x}_{k+1} = T\mathbf{x}_{k} + \mathbf{c}$ 就是一个迭代式。如果迭代收敛，满足 $\mathbf{x}_{\ast} = T\mathbf{x}_{\ast} + \mathbf{c}$ 的解就是一个不动点
 
 ### Jacobi 迭代法
 
 将矩阵 $A$ 拆解为
+
 $$
 A = L+D+U
 $$
+
 其中 $D$ 是对角矩阵，$L,U$ 是严格下 / 上三角矩阵
 
 因此我们有
+
 $$
 \mathbf{x} = D^{-1} (\mathbf{b} - (L+U) \mathbf{x})
 $$
+
 得到迭代式（前提是 $a_{ii} \ne 0$）
 
 $$
@@ -188,14 +209,17 @@ $$
 $$
 
 即：
+
 $$
 x_{i}^{(k+1)} = \dfrac{1}{a_{ii}} \left( b_{i} - \sum_{j\ne i} a_{ij} x_{j}^{(k)} \right)
 $$
 
 > 把线性方程组的第 $i$ 行方程：
+>
 > $$
 > a_{i1}x_1 + \dots + a_{ii}x_i + \dots + a_{in}x_n = b_i
 > $$
+> 
 > 进行移项，就是上面的结果
 >
 > 因此 Jacobi 迭代法的对于每一个 $x_{i}^{(k+1)}$，都用全部的 $\mathbf{x}^{(k)}$ 去迭代计算
@@ -203,19 +227,23 @@ $$
 ### Gauss-Seidel
 
 回顾 Jacobi 迭代法（将 $i\ne j$ 的范围拆成两个部分）
+
 $$
 x_i^{(k+1)} =
 \frac{1}{a_{ii}}\Bigl(b_i - \sum_{j < i} a_{ij} {x_j^{(k)}} - \sum_{j > i} a_{ij} {x_j^{(k)}}\Bigr)
 $$
+
 注意到，Jacobi 迭代法的对于每一个 $x_{i}^{(k+1)}$，都只用上一轮的全部的 $\mathbf{x}^{(k)}$ 去迭代计算。事实上，当计算第 $k+1$ 轮迭代的 $x_{i}^{(k+1)}$，其中 $i$ 较大时，对应 $i$ 更小的迭代结果已经算出来了（也就是 $\displaystyle \sum_{j < i} a_{ij} {x_j^{(k)}}$ 的部分）
 
 如果能直接用本轮已经迭代的值代替上一轮已经迭代的值，则迭代效率会有很大的提升
 
 这就是 Gauss-Seidel 的改进之处：
+
 $$
-x_i^{(k+1)} = 
+x_i^{(k+1)} =
 \frac{1}{a_{ii}} \left( b_i - \sum_{j < i} a_{ij} x_j^{\textcolor{orange}{(k+1)}} - \sum_{j > i} a_{ij} x_j^{(k)} \right)
 $$
+
 对应的迭代式中，$\mathbf{x}_{k}$ 只与 $U$ 左乘
 
 $$
@@ -223,6 +251,7 @@ $$
 $$
 
 Gauss-Seidel 迭代法有一个非常良好的定理：
+
 
 ???+ success "定理"
 
@@ -232,31 +261,37 @@ Gauss-Seidel 迭代法有一个非常良好的定理：
     2. 对任意右端向量 $\mathbf{b}$ 和任意初始猜测 $\mathbf{x}^{(0)}$，解 $A\mathbf{x} = \mathbf{b}$ 的 Gauss–Seidel 迭代都收敛到唯一解
     
     其中严格对角占优指每行的对角线元素在绝对值上严格大于该行其余所有元素绝对值之和
+        
     $$
     |a_{ii}| > \sum_{j \neq i} |a_{ij}|, \quad \forall i = 1, 2, \dots, n
     $$
-    
+
     ??? question "证明"
     
         对于第一个性质，证明采用反证法，假设存在 $\mathbf{x} \ne \mathbf{0}$ 使 $A\mathbf{x} = \mathbf{0}$
     
         考虑 $|x_{k}|$ 为 $\mathbf{x}$ 中绝对值最大的分量，第 $k$ 个方程满足
+        
         $$
         a_{kk}x_{k} = - \sum_{j\ne k} a_{kj}x_{j}
         $$
+        
         取绝对值，放缩
+        
         $$
         |a_{kk}| \cdot |x_k| = \left| \sum_{j \neq k} a_{kj} x_j \right|
         \le \sum_{j \neq k} |a_{kj}| \cdot |x_j|
         \le \sum_{j \neq k} |a_{kj}| \cdot |x_k|
         $$
+        
         约去 $|x_{k}|$ 发现 $|a_{kk}| \le \sum_{j \neq k} |a_{kj}|$，产生矛盾
     
         ---
-    
+
         对于第二个性质，需要借助之后的谱半径分析
 
 ## 线性迭代的收敛性
+
 
 我们已知不动点满足（$A$ 不是原系数矩阵，而是迭代矩阵）
 
@@ -265,10 +300,13 @@ $$
 $$
 
 我们令计算误差项 $e_{k} = x_{k} - x^{\ast}$，则递归下的误差传播为
+
 $$
 e_{k} = A^{k} (x_{0} - x^{\ast})
 $$
+
 以上，我们给出一个对于任意初始值 $x_{0}$，迭代都收敛的充分必要条件
+
 $$
 k\to \infty \text{ 时 }, A^{k} \to \mathbf{0}
 $$
@@ -278,9 +316,11 @@ $$
 ---
 
 如何判断矩阵幂 $A^{k}$ 是否趋于 0？我们定义谱半径为矩阵所有特征值的模的最大值
+
 $$
 \rho(A) := \max \lbrace |\lambda_{1}|, \cdots, |\lambda_{n}| \rbrace
 $$
+
 并指出，$\displaystyle \lim_{k \to \infty} A^k = 0$ 的充分必要条件是 $\rho(A) < 1$
 
 > 如果 $A$ 可以对角化，则 $A = P \Lambda P^{-1}$，$A^k = P \Lambda^k P^{-1}$。当且仅当对角阵 $\Lambda$ 上的每个特征值的 $k$ 次幂趋于 0（即 $|\lambda_i| < 1$）时，$A^k$ 趋于 0
@@ -299,9 +339,11 @@ $$
 
 我们很难求出等价地充要条件，但是好消息是，我们可以给出一个充分条件：
 
+
 > **对角占优保证收敛**
 
 ??? question "证明：若原矩阵严格对角占优，则 Jacobi 迭代的谱半径小于1"
+
 
     设 $\lambda$ 为 $A = -D^{-1}(L+U)$ 的特征值，$v$ 为对应的特征向量，并令 $\lVert v \rVert_{\infty} = 1$
     
@@ -310,14 +352,19 @@ $$
     $$
     \sum_{j \neq m} a_{mj} v_j = \lambda a_{mm} v_m = \lambda a_{mm}
     $$
+    
     左边取绝对值：
+    
     $$
     \left|\sum_{j \neq m} a_{mj} v_j\right| \leq \sum_{j \neq m} |a_{mj}| \cdot |v_j| \leq \sum_{j \neq m} |a_{mj}|
     $$
+    
     根据严格对角占优：
+    
     $$
     \sum_{j \neq m} |a_{mj}| < |a_{mm}|
     $$
+    
     所以 $|\lambda a_{mm}| < |a_{mm}|$，即 $|\lambda| < 1$ 对任意特征值都满足，故 $\rho < 1$
 
 对于 Gauss-Seidel 的收敛性，性质完全相同，此处略

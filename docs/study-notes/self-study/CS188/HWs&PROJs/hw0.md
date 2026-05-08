@@ -66,12 +66,14 @@ E 正确，这是边缘概率的定义
 ## Q5 Linear Equations
 
 已知
+
 $$
 \begin{cases}
 x = \dfrac{1}{2}y + \dfrac{1}{2}(x+1)\\
 y = \dfrac{1}{3}y + \dfrac{1}{3}(x+2)
 \end{cases}
 $$
+
 求解 $x, y$
 
 ### Answer

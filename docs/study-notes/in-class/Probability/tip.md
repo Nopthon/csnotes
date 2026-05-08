@@ -9,6 +9,7 @@
 $F_Y(y) = P(F_X(X) \leqslant y) = P(X \leqslant F_X^{-1}(y)) = F_X(F_X^{-1}(y)) = y$ 
 
 因此
+
 $$
 F_Y(y) = 
 \begin{cases}

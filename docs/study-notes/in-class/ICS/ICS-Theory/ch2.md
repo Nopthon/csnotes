@@ -31,25 +31,25 @@ $$
 比如：$({123.45})_{10}$ 拆分为整数部分 $123$ 和小数部分 $0.45$
 
 $$
-123 \div 2 = 61 \cdots {{\color{orange}1}} \\\\
-61 \div 2 = 30 \cdots {{\color{orange}1}} \\\\
-30 \div 2 = 15 \cdots {\color{orange}0} \\\\
-15 \div 2 = 7 \cdots {\color{orange}1} \\\\
-7 \div 2 = 3 \cdots {\color{orange}1} \\\\
-3 \div 2 = 1 \cdots {\color{orange}1} \\\\
-1 \div 2 = 0 \cdots {\color{orange}1} \\\\
+123 \div 2 = 61 \cdots {{\color{orange}1}} \newline
+61 \div 2 = 30 \cdots {{\color{orange}1}} \newline
+30 \div 2 = 15 \cdots {\color{orange}0} \newline
+15 \div 2 = 7 \cdots {\color{orange}1} \newline
+7 \div 2 = 3 \cdots {\color{orange}1} \newline
+3 \div 2 = 1 \cdots {\color{orange}1} \newline
+1 \div 2 = 0 \cdots {\color{orange}1} \newline
 $$
 
 因此 $123 = (1111011)_{2}$，同理计算小数部分：
 
 $$
-0.45 \times 2 = {\color{orange}0} + 0.90 \\\\
-0.90 \times 2 = {\color{orange}1} + 0.80 \\\\
-0.80 \times 2 = {\color{orange}1} + 0.60 \\\\
-0.60 \times 2 = {\color{orange}1} + 0.20 \\\\
-0.20 \times 2 = {\color{orange}0} + 0.40 \\\\
-0.40 \times 2 = {\color{orange}0} + 0.80 \\\\
-0.80 \times 2 = {\color{orange}1} + 0.60 \\\\
+0.45 \times 2 = {\color{orange}0} + 0.90 \newline
+0.90 \times 2 = {\color{orange}1} + 0.80 \newline
+0.80 \times 2 = {\color{orange}1} + 0.60 \newline
+0.60 \times 2 = {\color{orange}1} + 0.20 \newline
+0.20 \times 2 = {\color{orange}0} + 0.40 \newline
+0.40 \times 2 = {\color{orange}0} + 0.80 \newline
+0.80 \times 2 = {\color{orange}1} + 0.60 \newline
 \cdots\;\cdots
 $$
 
@@ -64,6 +64,7 @@ $$
 $$
 (11001.11)\_{2} = (0001\;1001.1100)\_{2} = (19.C)\_{16}
 $$
+
 <br>
 
 ## 浮点数表示
@@ -335,4 +336,3 @@ z = 1.5e-30f;
 (x * y) * z == -INF;		// true
 x * (y * z) == -1.5e30f;	// true
 ```
-

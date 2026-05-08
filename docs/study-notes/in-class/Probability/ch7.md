@@ -409,4 +409,3 @@ $$
     注意到 $S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\overline{X})^2 = \overline{X}(1-\overline{X})$，
     
     因此只要将 $\left( \overline{X} - u_{\alpha/2} \dfrac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \dfrac{S}{\sqrt{n}} \right)$ 中的 $S$ 替换为 $S^{\ast}$，就可以得到 Wald 区间 
-

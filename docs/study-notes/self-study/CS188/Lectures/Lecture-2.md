@@ -94,4 +94,3 @@
 > Conceptually, all fringes are priority queues
 
 边缘本质上是一个优先队列，每个节点都有优先级，分别以“越晚加入” / “越早加入” / “代价越小” 作为高优先级的标志
-

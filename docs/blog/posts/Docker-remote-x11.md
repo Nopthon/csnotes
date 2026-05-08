@@ -179,4 +179,3 @@ wobuqingchu.
 ??? quote "这是一张截图，展示了通过 `termux-x11` 进行图形化转发的操作"
 
     ![acdc3ba9c1b8b6f20d30a81a6fc05dbe_720](images/acdc3ba9c1b8b6f20d30a81a6fc05dbe_720.jpg)
-

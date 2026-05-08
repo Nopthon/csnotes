@@ -627,4 +627,3 @@ uid=0(root) gid=0(root) groups=0(root)
 ![image-20251104152621276](images/image-20251104152621276.png)
 
 ---
-

@@ -42,7 +42,7 @@ void insertSort(vector<int>& data, int l, int r){
 考虑**最坏**情形，原数组完全逆序时，每次插入操作都需要对前面所有的元素进行比较，每次插入到最左端，此时有
 
 $$
-KCN = \sum _{i=1}^{n-1} i = \dfrac{n(n-1)}{2} \\\\
+KCN = \sum _{i=1}^{n-1} i = \dfrac{n(n-1)}{2} \newline
 RMN = \sum _{i=1}^{n-1} (i+2) = \dfrac{(n+4)(n-1)}{2}
 $$
 
@@ -88,9 +88,11 @@ void binaryInsertSort(vector<int>& data, int l, int r) {
 ```
 
 此时 KCN 与待排序元素序列的初始值排列无关，仅依赖于元素个数，有：
+
 $$
 KCN = \sum_{i=1}^{n-1} \left(\lfloor  \log_2 i \rfloor + 1 \right) = O (n \log_2 n)
 $$
+
 RMN 和直接插入排序一样，最坏情况下依旧为 $RMN = \sum _{i=1}^{n-1} (i+2)$ 
 
 注意折半插入排序的平均时间复杂度依旧是 $O(n^2)$，因为 RMN 没有变化，对 KCN 的优化并没有改变时间复杂度。在**比较操作的开销较大**时，才会带来较为明显的优化 
@@ -164,7 +166,7 @@ void bubbleSort(vector<int>& data, int l, int r){
 考虑**最坏**情形，原数组完全逆序时，每次比较操作都需要进行 swap 操作，此时有
 
 $$
-KCN = \sum _{i=1}^{n-1} (n-i) = \dfrac{1}{2}n(n-1) \\\\
+KCN = \sum _{i=1}^{n-1} (n-i) = \dfrac{1}{2}n(n-1) \newline
 RMN = 3 \sum _{i=1}^{n-1} (n-i) = \dfrac{3}{2}n(n-1)
 $$
 
