@@ -115,9 +115,9 @@ $$
     接下来，对于第 $k+1$ 行，代入 $T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)$ 的递推式得到：
     $$
     \begin{cases}
-    \quad A_{k+1, i} = -A_{k-1, 0}, \quad & i = 0\\
-    \quad A_{k+1, i} = 2A_{k, i-1} - A_{k-1, i}, \quad &\forall i \in [1, k]\\
-    \quad A_{k+1, i} = 2A_{k, k}, \quad & i = k+1\\
+    \quad A_{k+1, i} = -A_{k-1, 0}, \quad & i = 0\newline
+    \quad A_{k+1, i} = 2A_{k, i-1} - A_{k-1, i}, \quad &\forall i \in [1, k]\newline
+    \quad A_{k+1, i} = 2A_{k, k}, \quad & i = k+1\newline
     \quad  A_{k+1, i} = 0 ,\quad &\forall i \in (k+1, n]
     \end{cases}
     $$

@@ -8,7 +8,7 @@ $F(x,y)=P\lbrace X\leq x,Y\leq y\rbrace$ 为二维随机变量的（联合）分
 
 二维随机变量的分布函数和一维的性质相近
 
-$F(x,y)$ 分别对于 $x,y$ 单调不减，$F(-\infty, y) = F(x, -\infty) = 0, \; F(+\infty, +\infty) = 1$ 
+$F(x,y)$ 分别对于 $x,y$ 单调不减，$F(-\infty, y) = F(x, -\infty) = 0, \; F(+\infty, +\infty) = 1$
 
 $F(x,y)$ 关于 $x,y$ 右连续
 
@@ -35,13 +35,13 @@ $$
 
 先回顾事件的独立性
 
-> - $A,\;B$ 两事件相互独立当且仅当 $P(AB)=P(A)P(B)$，或者说 $P(A|B) = P(A)$ 
+> - $A,\;B$ 两事件相互独立当且仅当 $P(AB)=P(A)P(B)$，或者说 $P(A|B) = P(A)$
 >
 > - 如果 $\{A_i\}$ 之间相互独立，那么将 $n$ 个事件划分为 $k$ 组，每组内进行任意事件运算，得到的新的 $k$ 个事件也互相独立
 
 同理我们也有：
 
-- $X, Y$ 两随机变量相互独立当且仅当 $F(x, y) = F_X(x) \cdot F_Y(y)$ 
+- $X, Y$ 两随机变量相互独立当且仅当 $F(x, y) = F_X(x) \cdot F_Y(y)$
 
 -->（这个结论只考虑连续型随机变量与离散型随机变量）
 
@@ -51,7 +51,7 @@ $$
 
 ## 二维离散型随机变量
 
-对于离散型随机变量 $X,Y$（有限个/可列无限个取值对），称 
+对于离散型随机变量 $X,Y$（有限个/可列无限个取值对），称
 
 $$
 P(X = x_i,\;Y = y_j)=p_{ij},\;i,j=1,2,\cdots
@@ -103,7 +103,7 @@ $$
 P(X < x, Y < y)=F(x,y) = \int_{-\infty}^x \int_{-\infty}^y p(u,v)dudv
 $$
 
-其中 $p(x,y)$ 为联合概率密度函数，一定有 $\displaystyle \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)dxdy = 1$ 
+其中 $p(x,y)$ 为联合概率密度函数，一定有 $\displaystyle \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p(x,y)dxdy = 1$
 
 性质大致参考一维情形，有一条 $\displaystyle P((X,Y)\in D) = \iint\limits_{D} p(x,y) dxdy$ 比较常用
 
@@ -141,7 +141,7 @@ p(x) = \begin{cases}
 P((X,Y)\in D_k) = \dfrac{S_{D_k}}{S_D} (D_k \subseteq D)
 $$
 
-- 二维正态分布 $N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$ 
+- 二维正态分布 $N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$
 
 !!! abstract ""
 
@@ -151,7 +151,7 @@ $$
 \begin{aligned}p(x,y)&=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\bigg(-\frac{1}{2(1-\rho^2)}\bigg[ \bigg(\frac{x-\mu_1}{\sigma_1}\bigg)^2\\&-2\rho\left(\frac{x-\mu_1}{\sigma_1}\right)\left(\frac{y-\mu_2}{\sigma_2}\right)+\left(\frac{y-\mu_2}{\sigma_2}\right)^2\bigg]\bigg)\end{aligned}
 $$
 
-$X, Y$ 服从二维正态分布，则相互独立的充要条件是 $\rho  = 0$ 
+$X, Y$ 服从二维正态分布，则相互独立的充要条件是 $\rho  = 0$
 
 ???+ question "如果真的需要记忆二维正态分布的密度函数表达式？"
 
@@ -228,7 +228,7 @@ $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p
 
 1) 先求 $\displaystyle F_Z(z) = P(g(X,Y) \leq Z) = \iint\limits_{D_z} p(x,y)dxdy, \quad D_z = \lbrace(x,y)|g(x,y) \leq z\rbrace$ （固定 $z$ 为一个常值，通常作图进行分类讨论）
 
-2) 然后求 $p_Z(z) = F'_Z(z)$ 
+2) 然后求 $p_Z(z) = F'_Z(z)$
 
 !!! abstract ""
 
@@ -270,7 +270,7 @@ $X,Y$ 相互独立时，$p(x, y) = p_X(x) \cdot p_Y(y)$，因此 $p_{X|Y= y} = p
 
 ## 常见的一维函数 $Z=g(X,Y)$ 的分布
 
---> $Z=X±Y$ 
+--> $Z=X±Y$
 
 **连续型：**
 
@@ -313,14 +313,14 @@ $$
 如果 $X,Y$ 独立，考虑分布列 $P(X = k) = a_k,\;k = 0,1,2,\cdots;\;P(Y = k) = b_k,\;k = 0,1,2,\cdots$，则：
 
 $$
-P(X+Y = k) = \sum_{i=0}^k a_ib_{k-i} = \sum_{i=0}^k b_ia_{k-i},\;k=0,1,2,\cdots 
+P(X+Y = k) = \sum_{i=0}^k a_ib_{k-i} = \sum_{i=0}^k b_ia_{k-i},\;k=0,1,2,\cdots
 $$
 
 <br>
 
 --> $Z = XY ,\; Z = X/Y\;(Y/X)$
 
-对于 $Z = XY$ 
+对于 $Z = XY$
 
 $$
 p_Z(z) ={\color{orange} \int_{-\infty}^{+\infty} p \left( x, \frac{z}{x} \right) \frac{1}{|x|} \, dx = \int_{-\infty}^{+\infty} p \left( \frac{z}{y}, y \right) \frac{1}{|y|} \, dy}
@@ -338,13 +338,13 @@ $$
 
 --> $Z = \max(X,Y),\; Z = \min(X,Y)$
 
-对于 $Z = \max(X,Y)$ 
+对于 $Z = \max(X,Y)$
 
 $$
 {\color{orange}F_Z(z) = F_X(z)F_Y(z)}
 $$
 
-对于 $Z = \min(X,Y)$ 
+对于 $Z = \min(X,Y)$
 
 $$
 {\color{orange}F_Z(z) = 1-[1-F_X(z)][1-F_Y(z)]}

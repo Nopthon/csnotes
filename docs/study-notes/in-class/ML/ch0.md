@@ -102,9 +102,11 @@
 ## PAC 模型
 
 PAC（Probably Approximately Correct，概率近似正确）学习模型是计算学习理论中最重要的理论模型：
+
 $$
 P(|f(\mathbf{x}) - y| \leq \epsilon) \geq 1 - \delta
 $$
+
 其中：
 
 - $f(\mathbf{x})$ 是训练的模型 $f$ 对输入 $\mathbf{x}$ 做出的预测

@@ -22,7 +22,7 @@
 
 > - 根据问题提出原假设 $H_0$ 和对立假设 $H_1$
 
-我们的原假设是 $H_0: \mu = \mu_0$，对立假设是 $H_1: \mu \ne \mu_0$ 
+我们的原假设是 $H_0: \mu = \mu_0$，对立假设是 $H_1: \mu \ne \mu_0$
 
 > - 构造一个合适的统计量（往往由参数估计而来），并在 $H_0$ 成立的条件下推导出该统计量的分布
 
@@ -30,7 +30,7 @@
 
 我们知道统计量的分布 $\overline{X} \sim N(\mu_0, \dfrac{\sigma ^2}{n})$
 
-> - 给出小概率 $\alpha$，确定临界值 $k$ 和拒绝域 $W$ 
+> - 给出小概率 $\alpha$，确定临界值 $k$ 和拒绝域 $W$
 
 我们给出一个临界值 $k$，当 $|\overline{X} - \mu_0| \geq k$ 时，判定原假设不成立，对立假设成立。
 
@@ -46,7 +46,7 @@ $$
 P\left( \left|\frac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}\right| \geq \frac{k}{\sigma / \sqrt{n}} \right) = \alpha
 $$
 
-$\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}$，得到 $k = \dfrac{\sigma}{\sqrt{n}} u_{\alpha / 2}$ 
+$\dfrac{k}{\sigma / \sqrt{n}} = u_{\alpha / 2}$，得到 $k = \dfrac{\sigma}{\sqrt{n}} u_{\alpha / 2}$
 
 > - 由样本算出统计量的观察值，若落在拒绝域，则拒绝 $H_0$；若落在接受域，则接受 $H_0$
 
@@ -70,13 +70,14 @@ $$
 H_0:\mu= \mu_0,\quad H_1 : \mu \ne \mu_0
 $$
 
-(1) $\sigma^2$ 已知 
+(1) $\sigma^2$ 已知
 
 使用已知的方差 $\sigma$
 
 在原假设 $H_0$ 成立的情况下，取检验统计量 $U = \dfrac{\overline{X} - \mu}{\sigma / \sqrt{n}} = \dfrac{\overline{X} - \mu_0}{\sigma / \sqrt{n}}$，
 
 有 $U \sim N(0,1)$，拒绝域
+
 $$
 W = \lbrace |U| = \left| \dfrac{\overline{X} - \mu_0}{\sigma / \sqrt{n}} \right| \geq u_{\alpha / 2} \rbrace
 $$
@@ -96,7 +97,7 @@ $$
     
     ![image-20251213233445927](images/image-20251213233445927.png)
 
-(2) $\sigma^2$ 未知 
+(2) $\sigma^2$ 未知
 
 使用使用无偏估计的样本标准差 $\displaystyle S =\sqrt{ \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2}$
 
@@ -148,7 +149,7 @@ $$
 
 (1) $\sigma^2_1,\;\sigma^2_2$ 均已知
 
-使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$ 
+使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$
 
 在原假设 $H_0$ 成立的情况下，取检验统计量 $U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} = \dfrac{\overline{X}  - \overline{Y}}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}}$，
 
@@ -160,7 +161,7 @@ $$
 
 (2) $\sigma^2_1=\sigma^2_2=\sigma^2$，但 $\sigma^2$ 未知
 
-使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 
+使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$
 
 在原假设 $H_0$ 成立的情况下，取检验统计量 $T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} = \dfrac{\overline{X}  - \overline{Y}}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}}$，
 
@@ -182,7 +183,7 @@ $$
 
 (1) $\mu$ 已知
 
-使用**已知均值的**样本二阶中心距 $\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2$ 
+使用**已知均值的**样本二阶中心距 $\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2$
 
 在原假设 $H_0$ 成立的情况下，取检验统计量 $\chi ^ 2 = \dfrac{nS^{\ast 2}}{\sigma ^2} = \dfrac{nS^{\ast 2}}{\sigma_0 ^2}$，
 
@@ -194,7 +195,7 @@ $$
 
 (2) $\mu$ 未知
 
-使用无偏估计的样本方差 $\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2$ 
+使用无偏估计的样本方差 $\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2$
 
 在原假设 $H_0$ 成立的情况下，取检验统计量 $\chi ^ 2 = \dfrac{(n-1)S^2}{\sigma^2} = \dfrac{(n-1)S^2}{\sigma_0^2}$，
 
@@ -284,7 +285,7 @@ $$
 H_0: F(x) = F_0(x;\theta)
 $$
 
-其中 $F_0$ 是某个已知的分布函数，$\theta = (\theta_1, \theta_2, \cdots, \theta_r)'$ 为未知参数 
+其中 $F_0$ 是某个已知的分布函数，$\theta = (\theta_1, \theta_2, \cdots, \theta_r)'$ 为未知参数
 
 ### 皮尔逊 $\chi^2$ 拟合优度检验
 
@@ -316,7 +317,7 @@ $$
 
 1- 获取较多的样本（通常 $n \geq 50$），划分样本空间为 $k$ 个互不相交的事件（通常 $k \in [4,20]$），对于离散数据，每个可能的取值可以是一个类别；对于连续数据，人为分为若干区间
 
-2- 计算 $O_i = \left|\lbrace X_j \in A_i | j = 1,2,\cdots, n  \rbrace \right|$ 
+2- 计算 $O_i = \left|\lbrace X_j \in A_i | j = 1,2,\cdots, n  \rbrace \right|$
 
 3- 计算 $E_i = N \times P(X \in A_i | \theta = \hat{\theta})$，其中 $\hat\theta$ 是对 $\theta$ 的极大似然估计，通常 $E_i \geq 5$，否则我们认为之前的事件划分过细，应该合并相邻事件
 

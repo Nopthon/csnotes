@@ -114,7 +114,7 @@ $$
 
     如果 $\hat{\theta}$ 使 $L(\theta)$ 值最大，那么对于参数 $\eta = \varphi(\theta)$，由于一一对应关系，同样的 $\varphi(\hat{\theta})$ 也会使关于 $\eta$ 的似然函数最大
 
-比如 $\sigma^2$ 的极大似然估计为 $S^{\ast 2}$，因为 $\varphi(\sigma) = \sigma^2(\sigma \geq 0)$ 有单值反函数，则 $\sigma$ 的极大似然估计为 $S^{\ast}$ 
+比如 $\sigma^2$ 的极大似然估计为 $S^{\ast 2}$，因为 $\varphi(\sigma) = \sigma^2(\sigma \geq 0)$ 有单值反函数，则 $\sigma$ 的极大似然估计为 $S^{\ast}$
 
 <br>
 
@@ -276,7 +276,7 @@ $$
 
 (1) $\mu$ 已知
 
-使用**已知均值的**样本二阶中心距 $\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2$ 
+使用**已知均值的**样本二阶中心距 $\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2$
 
 取枢轴变量 $U = \dfrac{nS^{\ast 2}}{\sigma ^2}\sim \chi^2(n)$，由$P(\chi^2_{1-\alpha/2}(n) < U < \chi^2_{\alpha/2}(n)) = 1 - \alpha$ 得置信区间：
 
@@ -326,7 +326,7 @@ $$
 
 (2) $\mu$ 未知
 
-使用无偏估计的样本方差 $\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2$ 
+使用无偏估计的样本方差 $\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2$
 
 取枢轴变量 $U = \dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$，由$P(\chi^2_{1-\alpha/2}(n-1) < U < \chi^2_{\alpha/2}(n-1)) = 1 - \alpha$ 得置信区间：
 
@@ -346,7 +346,7 @@ $$
 
 (1) $\sigma^2_1,\;\sigma^2_2$ 均已知
 
-使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$ 
+使用各自已知的方差 $\sigma^2_1,\;\sigma^2_2$
 
 取枢轴变量 $U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} \sim N(0,1)$，由 $P(|U| < u_{\alpha/2}) = 1 - \alpha$ 得置信区间：
 
@@ -360,7 +360,7 @@ $$
 
 (2) $\sigma^2_1=\sigma^2_2=\sigma^2$，但 $\sigma^2$ 未知
 
-使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$ 
+使用合并标准差 $S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}$
 
 取枢轴变量 $T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)$，由 $P(|T| < t_{\alpha/2}(n_1 + n_2 - 2)) = 1 - \alpha$ 得置信区间：
 
@@ -390,7 +390,7 @@ $$
 \left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
 $$
 
-$\sigma$ 未知时，用样本标准差 $S$ 代替 $\sigma$： 
+$\sigma$ 未知时，用样本标准差 $S$ 代替 $\sigma$：
 
 $$
 \left( \overline{X} - u_{\alpha/2} \frac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{S}{\sqrt{n}} \right)

@@ -3,6 +3,7 @@ site_name: CSNote
 theme:
   name: material
   logo: assets/burger.svg
+  favicon: assets/burger.svg
   features:
     - content.code.select
     - content.code.copy
@@ -44,7 +45,7 @@ theme:
 # repo_name: CSNote repo
 
 plugins:
-  # - search
+  - search
   # - statistics
   - glightbox:
       width: 80%
@@ -154,6 +155,15 @@ nav:
         - 最小二乘法，Gram-Schmidt 正交化与 QR 分解: study-notes/in-class/Numerical-method/ch4.md
         - FFT，高斯消元与LU分解: study-notes/in-class/Numerical-method/ch5.md
         - 算子范数，条件数和迭代法: study-notes/in-class/Numerical-method/ch6.md
+        - 特征值与幂迭代: study-notes/in-class/Numerical-method/ch7.md
+        - 特征值的其它迭代方法，SVD: study-notes/in-class/Numerical-method/ch8.md
+        - 迭代法解线性方程组：梯度下降方法与共轭梯度: study-notes/in-class/Numerical-method/ch9.md
+        - 幂迭代的特例：随机游走与马尔可夫链: study-notes/in-class/Numerical-method/ch10.md
+        - 谱图论: study-notes/in-class/Numerical-method/ch11.md
+        - 电阻电路网络，碰撞时间和遍历时间: study-notes/in-class/Numerical-method/ch12.md
+        - 线性规划入门: study-notes/in-class/Numerical-method/ch13.md
+        - LP 顶点，对偶性和零和游戏: study-notes/in-class/Numerical-method/ch14.md
+
 
 
       - 机器学习导论:
@@ -164,6 +174,23 @@ nav:
         - 数学基础-Extra: study-notes/in-class/ML/ch1-3.md
         - 模型评估与选择: study-notes/in-class/ML/ch2.md
         - 线性模型: study-notes/in-class/ML/ch3.md
+        - 降维：主成分分析: study-notes/in-class/ML/ch3-extra.md
+        - 决策树: study-notes/in-class/ML/ch4.md
+        - 支持向量机: study-notes/in-class/ML/ch5.md
+
+      - 算法设计与分析:
+        - intro: study-notes/in-class/Algorithm/index.md
+        - Introduction: study-notes/in-class/Algorithm/ch1.md
+        - Basic Graph Algorithms: study-notes/in-class/Algorithm/ch2.md
+        - Data Structures: study-notes/in-class/Algorithm/ch3.md
+        - Divide and Conque: study-notes/in-class/Algorithm/ch4.md
+        - Greedy Algorithms: study-notes/in-class/Algorithm/ch5.md
+        - Dynamic Programming: study-notes/in-class/Algorithm/ch6.md
+        - Graph Algorithms: study-notes/in-class/Algorithm/ch7.md
+        - Network Flow: study-notes/in-class/Algorithm/ch8.md
+        - NP-Completeness: study-notes/in-class/Algorithm/ch9.md
+        - Advanced Topics: study-notes/in-class/Algorithm/ch10.md
+
 
 
       - 数理逻辑:
@@ -280,7 +307,7 @@ nav:
       - Rust:
         - intro: study-notes/self-study/Rust/index.md
         - Part1: study-notes/self-study/Rust/part1.md
-        - Part2: study-notes/self-study/Rust/part1.md
+        - Part2: study-notes/self-study/Rust/part2.md
 
 
 

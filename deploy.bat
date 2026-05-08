@@ -1,2 +1,2 @@
 @echo off
-mkdocs gh-deploy
+properdocs gh-deploy

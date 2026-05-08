@@ -865,7 +865,7 @@ if (iStack_4c == iVar2) {
 
 于是得到了 Flag: `flag{c0ngr4tul4t1ons_th1s_1s_3z_lucknumb3r_4nd_xte4}`
 
-（其实我也关注了一下 Flag 是怎么解码得到的，似乎包含 TEA 加密过程，但是我一直没有进展，于是选择了改汇编码的方案）
+（其实我也关注了一下 Flag 是怎么解码得到的，似乎包含 XTEA 加密过程，但是我一直没有进展，于是选择了改汇编码的 patch 方案）
 
 （为了拿到 Flag 不择手段了 😈）
 

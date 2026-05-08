@@ -139,6 +139,7 @@ $$
     $$
 
 不难发现 $\dfrac{\displaystyle \sum_{k=1}^{n} X_k - n \mu}{\sqrt{n}\sigma}$ 为 $\displaystyle \sum_{k=1}^{n} X_k$ 的标准化随机变量（记为 $Y_n$），也就是说：
+
 $$
 \lim_{n\to \infty} F_n(x) = \lim_{n\to \infty} P(Y_n \leq x) = \varPhi(x)
 $$

@@ -1,2 +1,2 @@
 @echo off
-mkdocs serve --dirtyreload --livereload
+properdocs serve --dirtyreload --livereload

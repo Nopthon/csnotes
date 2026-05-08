@@ -8,7 +8,7 @@
 
 为了对总体 $X$ 进行研究，通常要从总体中随机地抽取一些个体，这些个体就称为样本。抽得样本的过程称为抽样。样本中个体的数量称为样本容量。设对总体进行了 $n$ 次观测，得到一组数据 $(x_1, x_2, \cdots, x_n)$。我们称这组数据为样本观察值或样本值
 
-样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 $(x_1, x_2, \cdots, x_n)$。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 $(X_1, X_2, \cdots, X_n)$ 
+样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 $(x_1, x_2, \cdots, x_n)$。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 $(X_1, X_2, \cdots, X_n)$
 
 对于 $(X_1, X_2, \cdots, X_n)$，我们对随机分布有以下要求：
 
@@ -90,7 +90,7 @@ $\chi^2$ 分布具有一些相关性质：
 
 - $Q_i$ 相互独立，从而分别服从自由度为 $n_i$ 的 $\chi^2$ 分布（这符合卡方分布的可加性）
 
-- $Q_i$ 的秩的和  $\displaystyle \sum_{i=1}^{k} n_i = n$ 
+- $Q_i$ 的秩的和  $\displaystyle \sum_{i=1}^{k} n_i = n$
 
 ???+ abstract "换种语言描述"
 
@@ -121,7 +121,7 @@ $$
 为服从自由度为 $n$ 的 $\text{t}$ 分布，记为 $T \sim t(n)$，其密度函数为：
 
 $$
-p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)} 
+p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)}
 \left(1 + \frac{x^2}{n}\right)^{-\frac{n+1}{2}}
 $$
 
@@ -179,13 +179,13 @@ $F$ 分布具有一些相关性质：
     
     ![image-20251201141457092](images/image-20251201141457092.png)
 
-当 $X \sim N(0,1)$ 时，我们记 $\lambda_{\alpha}$ 为 $u_{\alpha}$，有 $u_{1-\alpha} = -u_{\alpha}$ 
+当 $X \sim N(0,1)$ 时，我们记 $\lambda_{\alpha}$ 为 $u_{\alpha}$，有 $u_{1-\alpha} = -u_{\alpha}$
 
 当 $X \sim \chi^2(n)$ 时，我们记 $\lambda_{\alpha}$ 为 $\chi^2_{\alpha}(n)$
 
 当 $X \sim t(n)$ 时，我们记 $\lambda_{\alpha}$ 为 $t_{\alpha}(n)$，有 $t_{1-\alpha}(n) = -t_{\alpha}(n)$  
 
-当 $X \sim F(n_1,n_2)$ 时，我们记 $\lambda_{\alpha}$ 为 $F_{\alpha}(n_1,n_2)$，有 $F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1$ 
+当 $X \sim F(n_1,n_2)$ 时，我们记 $\lambda_{\alpha}$ 为 $F_{\alpha}(n_1,n_2)$，有 $F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1$
 
 <br>
 
@@ -207,7 +207,7 @@ $F$ 分布具有一些相关性质：
 
 一些其他的推论：
 
-(4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$ 
+(4) $\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}$
 
 - 这说明在对小样本均值进行推断时，用样本标准差代替总体标准差会得到一个和正态分布相近的 $t$ 分布。事实上 $n\to \infty$ 时 $t$ 分布近似成为标准正态分布
 

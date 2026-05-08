@@ -20,7 +20,7 @@ $$
 DX = E(X - EX)^2 = EX^2 - (EX)^2
 $$
 
-为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 < +\infty$ 
+为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 < +\infty$
 
 方差 $DX$ 就是 $g(X) = (X-EX)^2$ 的数学期望
 
@@ -28,14 +28,14 @@ $$
 
 ### 常见离散型随机变量的数字特征
 
-- 几何分布 $X \sim g(p)$ 
+- 几何分布 $X \sim g(p)$
 
 $$
 EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\
 DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = {\color{orange}{\frac{1-p}{p^2}}}
 $$
 
-- 二项分布 $X \sim B(n,p)$ 
+- 二项分布 $X \sim B(n,p)$
 
 $$
 EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\
@@ -44,7 +44,7 @@ $$
 
 （括号里的内容为通过期望/方差的性质进行的简化运算）
 
-- 泊松分布 $X \sim P(\lambda)$ 
+- 泊松分布 $X \sim P(\lambda)$
 
 $$
 EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\
@@ -69,7 +69,7 @@ $$
 DX = E(X - EX)^2 = EX^2 - (EX)^2
 $$
 
-为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 < +\infty$ 
+为 $X$ 的方差，同时记 $\sqrt{DX} = \sigma(X)$ 为标准差，存在的前提是 $EX^2 < +\infty$
 
 方差 $DX$ 就是 $g(X) = (X-EX)^2$ 的数学期望
 
@@ -77,21 +77,21 @@ $$
 
 ### 常见连续型随机变量的数字特征
 
-- 均匀分布 $X \sim U[a,b]$ 
+- 均匀分布 $X \sim U[a,b]$
 
 $$
 EX = {\color{orange}{\frac{a+b}{2}}} \\
 DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = {\color{orange}{\frac{(b-a)^2}{12}}}
 $$
 
-- 指数分布 $X \sim E(\lambda)$ 
+- 指数分布 $X \sim E(\lambda)$
 
 $$
 EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\
 DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{orange}{ \frac{1}{\lambda^2}}}
 $$
 
-- 正态分布 $X \sim N(\mu, \sigma^2)$ 
+- 正态分布 $X \sim N(\mu, \sigma^2)$
 
 $$
 EX = {\color{orange}{\mu}} \\
@@ -106,27 +106,27 @@ $$
 
 对于离散型随机变量
 
-- $\displaystyle E(g(X))  = \sum _ {i= 1} ^ {+\infty} g(x_i) \cdot P(X = x_i)$ 
+- $\displaystyle E(g(X))  = \sum _ {i= 1} ^ {+\infty} g(x_i) \cdot P(X = x_i)$
 
 对于连续型随机变量
 
-- $\displaystyle E(g(X)) = \int_{-\infty}^{+\infty} g(x)p(x)dx$ 
+- $\displaystyle E(g(X)) = \int_{-\infty}^{+\infty} g(x)p(x)dx$
 
 上述结论可以推广到 $Z = g(X,Y)$ 的数学期望，对应二重求和 / 积分
 
 对于任意随机变量
 
-- $E(a) = a$ 
-- $E(aX+bY) = aEX+bEY$ 
-- $X,Y$ 相互独立 $\longrightarrow E(XY)=EX\cdot EY$ 
+- $E(a) = a$
+- $E(aX+bY) = aEX+bEY$
+- $X,Y$ 相互独立 $\longrightarrow E(XY)=EX\cdot EY$
 
 ## 方差的性质
 
 对于任意随机变量
 
 - $D(a) = 0$
-- $D(aX+b) = a^2DX$ 
-- $D(X ± Y) = DX + DY ± 2E[(X-EX)(Y-EY)]$，当 $X,Y$ 相互独立时化简为 $D(X ± Y) = DX + DY$ 
+- $D(aX+b) = a^2DX$
+- $D(X ± Y) = DX + DY ± 2E[(X-EX)(Y-EY)]$，当 $X,Y$ 相互独立时化简为 $D(X ± Y) = DX + DY$
 
 （$D(X ± Y) = DX + DY ± 2 \text{cov}(X,Y)$）
 
@@ -146,7 +146,7 @@ $$
     P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
     $$
 
-可以借助证明：$DX = 0 \longrightarrow X = c$ 
+可以借助证明：$DX = 0 \longrightarrow X = c$
 
 
 
@@ -162,13 +162,13 @@ $$
 
 有以下性质和结论：
 
-- $\text{cov} (X,X) = D(X)$ 
-- $\text{cov} (X,Y) = \text{cov}(Y,X)$ 
-- $\text{cov} (aX+c,bY+d) = ab\text{cov}(X,Y)$ 
-- $\text{cov} (X_1 + X_2,Y) = \text{cov}(X_1,Y) + \text{cov}(X_2,Y)$ 
-- $X,Y$ 相互独立 $\longrightarrow \text{cov}(X,Y) = E(XY) - EX\cdot EY = 0$ 
+- $\text{cov} (X,X) = D(X)$
+- $\text{cov} (X,Y) = \text{cov}(Y,X)$
+- $\text{cov} (aX+c,bY+d) = ab\text{cov}(X,Y)$
+- $\text{cov} (X_1 + X_2,Y) = \text{cov}(X_1,Y) + \text{cov}(X_2,Y)$
+- $X,Y$ 相互独立 $\longrightarrow \text{cov}(X,Y) = E(XY) - EX\cdot EY = 0$
 
-- 二维正态分布 $(X,Y)\sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$ 的协方差为 $\sigma_1\sigma_2\rho$ 
+- 二维正态分布 $(X,Y)\sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)$ 的协方差为 $\sigma_1\sigma_2\rho$
 
 <br>
 
@@ -180,7 +180,7 @@ $$
 [\text{cov}(X,Y)]^2 \leqslant DX\cdot DY
 $$
 
-取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$ 
+取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$
 
 一个更基础的形式是：若  $X^2,Y^2$ 期望存在，则
 
@@ -188,7 +188,7 @@ $$
 [E(XY)]^2 \leqslant E(X^2)\cdot E(Y^2)
 $$
 
-取等条件是存在 $t_0$ 不为零，$P(Y= t_0X) = 1$ 
+取等条件是存在 $t_0$ 不为零，$P(Y= t_0X) = 1$
 
 !!! abstract ""
 
@@ -214,7 +214,7 @@ $$
 
 计算得到 $EX^\ast = 0,\; DX^\ast = 1$，此时称 $X^*$ 为 $X$ 的标准化随机变量
 
-上式中记 $EX = \mu,\;DX = \sigma^2$ 
+上式中记 $EX = \mu,\;DX = \sigma^2$
 
 在此基础上定义 $X,Y$ 的相关系数：设 $DX, DY > 0$，则
 
@@ -222,7 +222,7 @@ $$
 \rho_{X\,Y} = \dfrac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}} = \text{cov}(X^{\ast}, Y^{\ast})
 $$
 
-记 $\rho_{X\,Y}$ 为 $X,Y$ 的相关系数，根据柯西 · 施瓦兹不等式 $[\text{cov}(X,Y)]^2 \leqslant DX\cdot DY$，得到 $|\rho_{X\,Y}| \leqslant 1$，取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$ 
+记 $\rho_{X\,Y}$ 为 $X,Y$ 的相关系数，根据柯西 · 施瓦兹不等式 $[\text{cov}(X,Y)]^2 \leqslant DX\cdot DY$，得到 $|\rho_{X\,Y}| \leqslant 1$，取等条件是存在 $a,b$ 不全为零，$P(Y= aX+b) = 1$
 
 上面的性质表明，相关系数 $ρ_{X\,Y}$ 刻画了 $X$ 和 $Y$ 间的线性相关特征。$|ρ_{X\,Y}|$ 越大，表明 $X$ 和 $Y$ 之间线性关系越密切，当 $|ρ_{X\,Y}| = 1$ 时表明 $X$ 和 $Y$ 以概率 $1$ 线性相关。反之，若 $|ρ_{X\,Y}|$ 越小，表明 $X$ 和 $Y$ 的线性关系越弱。
 
@@ -236,7 +236,7 @@ $$
 ρ_{X\,Y} = 0 \Leftrightarrow \text{cov}(X,Y) = 0 \Leftrightarrow E(XY)=EX\cdot EY \Leftrightarrow D(X±Y) = DX ± D(Y)
 $$
 
-独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2, \sigma_2^2,\rho)$ 中 $\rho_{X\,Y} = \rho$，而 $X,Y$ 相互独立的充要条件即 $\rho = 0$ 
+独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 $(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2, \sigma_2^2,\rho)$ 中 $\rho_{X\,Y} = \rho$，而 $X,Y$ 相互独立的充要条件即 $\rho = 0$
 
 ## 矩和协方差阵
 
@@ -266,4 +266,4 @@ c_{n1} & c_{n2} & \cdots & c_{nn}
 \end{pmatrix}
 $$
 
-为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2\end{bmatrix}$ 
+为 $X$ 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 $\begin{bmatrix}\sigma_1^2 & \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho & \sigma_2^2\end{bmatrix}$
