@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5814,14 +5814,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7138,7 +7138,7 @@
 <p>在数理统计中，我们将所研究的对象的全体称为总体，而将总体中每个成员称为个体。</p>
 <p>如果一个总体所包含的个体数量是有限的，则称之为有限总体，如果总体所包含的个体数量是无限的，则称之为无限总体（通常会将很大的有限总体近似看作无限总体，将总体分布取成连续型分布）</p>
 <p>为了对总体 <span class="arithmatex">\(X\)</span> 进行研究，通常要从总体中随机地抽取一些个体，这些个体就称为样本。抽得样本的过程称为抽样。样本中个体的数量称为样本容量。设对总体进行了 <span class="arithmatex">\(n\)</span> 次观测，得到一组数据 <span class="arithmatex">\((x_1, x_2, \cdots, x_n)\)</span>。我们称这组数据为样本观察值或样本值</p>
-<p>样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 <span class="arithmatex">\((x_1, x_2, \cdots, x_n)\)</span>。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 <span class="arithmatex">\((X_1, X_2, \cdots, X_n)\)</span> </p>
+<p>样本具有二重性：样本观察值是确定的，因此样本有具体数的属性；样本受随机因素的影响，因此样本有随机变量的属性。在具体计算中，我们通常将样本看成一组数，通常用小写字母表示，记为 <span class="arithmatex">\((x_1, x_2, \cdots, x_n)\)</span>。而在考虑一般问题时，我们谈到样本，往往将其看做一组随机变量，通常用大写字母表示，记为 <span class="arithmatex">\((X_1, X_2, \cdots, X_n)\)</span></p>
 <p>对于 <span class="arithmatex">\((X_1, X_2, \cdots, X_n)\)</span>，我们对随机分布有以下要求：</p>
 <p>(1) 代表性：样本能够代表总体.也就是说，样本的每个分量 <span class="arithmatex">\(X_i\)</span>; 与总体 <span class="arithmatex">\(X\)</span> 具有相同的分布。</p>
 <p>(2) 独立性：<span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 为相互独立的随机变量。</p>
@@ -7196,7 +7196,7 @@ p(x) = \dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})} e^{-\frac{x}{2}}x^{\frac{n}
 <p><span class="arithmatex">\(Q_i\)</span> 相互独立，从而分别服从自由度为 <span class="arithmatex">\(n_i\)</span> 的 <span class="arithmatex">\(\chi^2\)</span> 分布（这符合卡方分布的可加性）</p>
 </li>
 <li>
-<p><span class="arithmatex">\(Q_i\)</span> 的秩的和  <span class="arithmatex">\(\displaystyle \sum_{i=1}^{k} n_i = n\)</span> </p>
+<p><span class="arithmatex">\(Q_i\)</span> 的秩的和  <span class="arithmatex">\(\displaystyle \sum_{i=1}^{k} n_i = n\)</span></p>
 </li>
 </ul>
 <details class="abstract" open="open">
@@ -7223,7 +7223,7 @@ T = \frac{X}{\sqrt{Y/n}}
 \]</div>
 <p>为服从自由度为 <span class="arithmatex">\(n\)</span> 的 <span class="arithmatex">\(\text{t}\)</span> 分布，记为 <span class="arithmatex">\(T \sim t(n)\)</span>，其密度函数为：</p>
 <div class="arithmatex">\[
-p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)} 
+p(x) = \frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\,\Gamma\left(\frac{n}{2}\right)}
 \left(1 + \frac{x^2}{n}\right)^{-\frac{n+1}{2}}
 \]</div>
 <p>其中 Gamma 函数：<span class="arithmatex">\(\Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt\)</span></p>
@@ -7265,10 +7265,10 @@ x^{\frac{n_1}{2} - 1}
 <p>图中 <span class="arithmatex">\(p(x)\)</span> 为 <span class="arithmatex">\(X\)</span> 的密度函数，阴影部分面积为 <span class="arithmatex">\(\alpha\)</span></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251201141457092.png" data-desc-position="bottom"><img alt="image-20251201141457092" src="../images/image-20251201141457092.png"></a></p>
 </details>
-<p>当 <span class="arithmatex">\(X \sim N(0,1)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(u_{\alpha}\)</span>，有 <span class="arithmatex">\(u_{1-\alpha} = -u_{\alpha}\)</span> </p>
+<p>当 <span class="arithmatex">\(X \sim N(0,1)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(u_{\alpha}\)</span>，有 <span class="arithmatex">\(u_{1-\alpha} = -u_{\alpha}\)</span></p>
 <p>当 <span class="arithmatex">\(X \sim \chi^2(n)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(\chi^2_{\alpha}(n)\)</span></p>
 <p>当 <span class="arithmatex">\(X \sim t(n)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(t_{\alpha}(n)\)</span>，有 <span class="arithmatex">\(t_{1-\alpha}(n) = -t_{\alpha}(n)\)</span>  </p>
-<p>当 <span class="arithmatex">\(X \sim F(n_1,n_2)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(F_{\alpha}(n_1,n_2)\)</span>，有 <span class="arithmatex">\(F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1\)</span> </p>
+<p>当 <span class="arithmatex">\(X \sim F(n_1,n_2)\)</span> 时，我们记 <span class="arithmatex">\(\lambda_{\alpha}\)</span> 为 <span class="arithmatex">\(F_{\alpha}(n_1,n_2)\)</span>，有 <span class="arithmatex">\(F_{1-\alpha}(n_1,n_2) \cdot F_{\alpha}(n_2,n_1) = 1\)</span></p>
 <p><br></p>
 <h2 id="_7">正态总体的相关分布</h2>
 <div class="admonition abstract">
@@ -7282,7 +7282,7 @@ x^{\frac{n_1}{2} - 1}
 </ul>
 <p>(3) <span class="arithmatex">\(\overline{X}\)</span> 与 <span class="arithmatex">\(S^2\)</span> 相互独立</p>
 <p>一些其他的推论：</p>
-<p>(4) <span class="arithmatex">\(\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}\)</span> </p>
+<p>(4) <span class="arithmatex">\(\overline{X} \sim N(\mu, \dfrac{\sigma^2}{n}) \to {\color{orange}\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1) \to T =\dfrac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)}\)</span></p>
 <ul>
 <li>这说明在对小样本均值进行推断时，用样本标准差代替总体标准差会得到一个和正态分布相近的 <span class="arithmatex">\(t\)</span> 分布。事实上 <span class="arithmatex">\(n\to \infty\)</span> 时 <span class="arithmatex">\(t\)</span> 分布近似成为标准正态分布</li>
 </ul>
@@ -7299,7 +7299,7 @@ x^{\frac{n_1}{2} - 1}
 {\color{orange}T = \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)} \cdot \left( \frac{1}{n_1} + \frac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)}
 \]</div>
 <p>通常会记 <span class="arithmatex">\(S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}\)</span> 为合并标准差</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

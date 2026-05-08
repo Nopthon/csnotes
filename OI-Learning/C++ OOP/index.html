@@ -11,7 +11,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5630,14 +5630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6818,7 +6818,7 @@
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createNode</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">114</span><span class="p">;</span><span class="w">        </span><span class="c1">// exposed</span>
-<span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span><span class="w">   </span><span class="c1">// 直接对数据操作</span>
+<span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span><span class="w">   </span><span class="c1">// 直接对数据操作</span>
 </code></pre></div></td></tr></tbody></table></div>
 <div class="admonition quote">
 <p class="admonition-title">以防自己忘记：<code class="highlight"><span class="n">pointer</span><span class="o">-&gt;</span><span class="n">member</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="p">(</span><span class="o">*</span><span class="n">pointer</span><span class="p">).</span><span class="n">member</span></code> ，这里和接下来的 <code class="highlight"><span class="n">node</span></code> 都是指针</p>
@@ -6847,7 +6847,7 @@
 <span class="k">protected</span><span class="o">:</span><span class="w">  </span><span class="c1">// 受限制成员，可以被本类 &amp;&amp; 子类访问</span>
 
 <span class="k">public</span><span class="o">:</span><span class="w">     </span><span class="c1">// 公共成员，可任意访问</span>
-<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数，花括号里可以写其他函数，比如 cout &lt;&lt; "created!";</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数，花括号里可以写其他函数，比如 cout &lt;&lt; "created!";</span>
 <span class="w">    </span><span class="o">~</span><span class="n">ListNode</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 析构函数</span>
 <span class="w">    </span><span class="c1">// 具体的函数实现</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                 </span><span class="c1">// 取值函数</span>
@@ -6882,7 +6882,7 @@
 <span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w">        </span><span class="c1">// 和前面的实现不相同，这里的 data 采用了与 val 不一样的存储方式，指针指向堆内存</span>
 <span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">    </span><span class="c1">// 构造函数时为动态分配内存</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">    </span><span class="c1">// 构造函数时为动态分配内存</span>
 <span class="w">    </span><span class="o">~</span><span class="n">Node</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                                  </span><span class="c1">// 析构函数中也要释放对应的内存</span>
 
 <span class="w">    </span><span class="c1">// 额外的提醒：在这个例子中如果想拷贝数据，必须使用深拷贝，否则使用浅拷贝会导致多个指针指向同一块数据的问题</span>
@@ -6937,7 +6937,7 @@
 <span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">ListNode</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">                              </span><span class="c1">// 虚析构函数（这是个啥）</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                 </span><span class="c1">// 取值函数</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setNext</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">       </span><span class="c1">// 连接函数</span>
@@ -6964,12 +6964,12 @@
 <span class="k">private</span><span class="o">:</span>
 <span class="w">    </span><span class="n">DoublyListNode</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w">  </span><span class="c1">// 指向前一个节点的指针</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">DoublyListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">prev</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="n">DoublyListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">prev</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 构造函数</span>
 <span class="w">    </span><span class="n">DoublyListNode</span><span class="o">*</span><span class="w"> </span><span class="n">getPrev</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setPrev</span><span class="p">(</span><span class="n">DoublyListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setNext</span><span class="p">(</span><span class="n">DoublyListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">ListNode</span><span class="o">::</span><span class="n">setNext</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w">  </span><span class="c1">// 调用基类的 setNext</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">setPrev</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w">  </span><span class="c1">// 新节点的 prev 指向当前节点</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -7022,7 +7022,7 @@
 <span class="w">    </span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">      </span><span class="c1">// 构造函数</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">ListNode</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">                              </span><span class="c1">// 虚析构函数</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                 </span><span class="c1">// 取值函数</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setNext</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">       </span><span class="c1">// 连接函数</span>
@@ -7050,7 +7050,7 @@
 <span class="w">    </span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">        </span><span class="c1">// 构造函数</span>
+<span class="w">    </span><span class="n">ListNode</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">        </span><span class="c1">// 构造函数</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">ListNode</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">                              </span><span class="c1">// 虚析构函数</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">getData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                   </span><span class="c1">// 取值函数</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setNext</span><span class="p">(</span><span class="n">ListNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="c1">// 连接函数</span>
@@ -7096,7 +7096,7 @@ ListNode&lt;string&gt;* node3 = new ListNode&lt;string&gt;("hm");
 <span class="w">    </span><span class="n">BaseListNode</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// 没有 val 变量，这个变量应该在模板子类中定义</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">BaseListNode</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">   </span><span class="c1">// 构造函数，注意这个函数并没有实现初始化</span>
+<span class="w">    </span><span class="n">BaseListNode</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">   </span><span class="c1">// 构造函数，注意这个函数并没有实现初始化</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">BaseListNode</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">          </span><span class="c1">// 虚析构函数</span>
 <span class="w">                                        </span><span class="c1">// 注意没有取值函数，因为这个函数需要 template 下实现</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">setNext</span><span class="p">(</span><span class="n">BaseListNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// 连接函数</span>

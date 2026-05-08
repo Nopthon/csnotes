@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5736,14 +5736,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6988,25 +6988,25 @@
 <p>（左图表示等距插值，右图大致表示切比雪夫插值，注意到后者插值间隔随 <span class="arithmatex">\(|x|\)</span> 增大而减小）</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260318142756317.png" data-desc-position="bottom"><img alt="image-20260318142756317" src="../images/image-20260318142756317.png"></a></p>
 <h2 id="_1">插值误差</h2>
-<p>记 <span class="arithmatex">\(P(x)\)</span> 是满足 <span class="arithmatex">\(P(x_i) = y_i\)</span> 的 Lagrange 插值多项式，对任意 <span class="arithmatex">\(x\in [a,b],x\ne x_i\)</span>，存在 <span class="arithmatex">\(c\)</span> 在包含 <span class="arithmatex">\(x, x_1, \cdots, x_n\)</span> 的最小闭区间内，我们定义多项式插值误差为（在上一节已经提出）：
-$$
+<p>记 <span class="arithmatex">\(P(x)\)</span> 是满足 <span class="arithmatex">\(P(x_i) = y_i\)</span> 的 Lagrange 插值多项式，对任意 <span class="arithmatex">\(x\in [a,b],x\ne x_i\)</span>，存在 <span class="arithmatex">\(c\)</span> 在包含 <span class="arithmatex">\(x, x_1, \cdots, x_n\)</span> 的最小闭区间内，我们定义多项式插值误差为（在上一节已经提出）：</p>
+<div class="arithmatex">\[
 f(x) - P(x) = \dfrac{(x-x_1)(x-x_2)\cdots(x-x_n)}{n!} f^{(n)}(c)
-$$
-不失一般性，现在我们假设 <span class="arithmatex">\(f\)</span> 是定义在 <span class="arithmatex">\([-1, 1]\)</span> 上的函数，为了从插值点选择上最小化误差，我们需要给出目标：选择 <span class="arithmatex">\(x_1, \cdots, x_n\)</span>，使得下面的式子最小化
-$$
+\]</div>
+<p>不失一般性，现在我们假设 <span class="arithmatex">\(f\)</span> 是定义在 <span class="arithmatex">\([-1, 1]\)</span> 上的函数，为了从插值点选择上最小化误差，我们需要给出目标：选择 <span class="arithmatex">\(x_1, \cdots, x_n\)</span>，使得下面的式子最小化</p>
+<div class="arithmatex">\[
 \max_{x\in [-1, 1]} |(x-x_1)(x-x_2)\cdots(x-x_n)| \qquad (*)
-$$
-我们先给出结论，在之后给出证明：令 <span class="arithmatex">\(x_{i} = \cos \dfrac{(2i-1)\pi}{2n}\)</span>，使 <span class="arithmatex">\((*)\)</span> 得到最小值 <span class="arithmatex">\(\dfrac{1}{2^{n-1}}\)</span></p>
+\]</div>
+<p>我们先给出结论，在之后给出证明：令 <span class="arithmatex">\(x_{i} = \cos \dfrac{(2i-1)\pi}{2n}\)</span>，使 <span class="arithmatex">\((*)\)</span> 得到最小值 <span class="arithmatex">\(\dfrac{1}{2^{n-1}}\)</span></p>
 <p>这些节点 <span class="arithmatex">\(x_1, \cdots, x_n\)</span> 正是切比雪夫节点，也即第一类切比雪夫多项式 <span class="arithmatex">\(T_n(x)\)</span> 的全部根</p>
 <h2 id="_2">切比雪夫多项式</h2>
 <p>切比雪夫多项式有两类，我们给出最常用的第一类：</p>
 <details class="success" open="open">
 <summary>第一类切比雪夫不等式</summary>
-<p>对于 <span class="arithmatex">\(n \ge 0, x\in [-1, 1]\)</span>，我们定义：
-$$
+<p>对于 <span class="arithmatex">\(n \ge 0, x\in [-1, 1]\)</span>，我们定义：</p>
+<div class="arithmatex">\[
 T_{n}(x) = \cos (n \arccos x)
-$$
-为第一类切比雪夫多项式</p>
+\]</div>
+<p>为第一类切比雪夫多项式</p>
 <details class="question" open="open">
 <summary>如何证明这是一个多项式？</summary>
 <p>令 <span class="arithmatex">\(x = \cos \theta\)</span>，则 <span class="arithmatex">\(T_{n}(x) = \cos (n \theta)\)</span></p>
@@ -7021,7 +7021,7 @@ $$
 <p>两式相加得到 <span class="arithmatex">\(T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)\)</span>，这就是切比雪夫多项式的递推版本。可以通过切比雪夫多项式的递推式计算出 <span class="arithmatex">\(T_{n}(x)\)</span> 的多项式写法</p>
 </details>
 <p>给出切比雪夫多项式的图像</p>
-<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260318214857998.png" data-desc-position="bottom"><img alt="image-20260318214857998" src="../images/image-20260318214857998.png"></a>    </p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260318214857998.png" data-desc-position="bottom"><img alt="image-20260318214857998" src="../images/image-20260318214857998.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260318214949336.png" data-desc-position="bottom"><img alt="image-20260318214949336" src="../images/image-20260318214949336.png"></a></p>
 <p>观察图像，并且结合递推式，可以得到一些 <span class="arithmatex">\(T_{n}(x)\)</span> 有关的结论：</p>
 <ul>
@@ -7042,11 +7042,11 @@ $$
 <summary>证明：第一类切比雪夫多项式 <span class="arithmatex">\(T_n(x)\)</span> 的全部根 <span class="arithmatex">\(x_1 \sim x_n\)</span> 使得 <span class="arithmatex">\(\max_{x\in [-1, 1]} |(x-x_1)(x-x_2)\cdots(x-x_n)|\)</span> 的值最小化</summary>
 <p>首先，<span class="arithmatex">\(T_{n}\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，最高次项的系数为 <span class="arithmatex">\(2^{n-1}\)</span>，因此 <span class="arithmatex">\(\dfrac{T_{n}}{2^{n-1}}\)</span> 的首项为 <span class="arithmatex">\(1\)</span></p>
 <p><span class="arithmatex">\(|T_{n}(x)| \leq 1 \to \left|\dfrac{T_{n}(x)}{2^{n-1}}\right| \leq \dfrac{1}{2^{n-1}}\)</span></p>
-<p>我们不妨直接证明下面的内容，即这个最优多项式为缩放后的切比雪夫多项式：
-$$
+<p>我们不妨直接证明下面的内容，即这个最优多项式为缩放后的切比雪夫多项式：</p>
+<div class="arithmatex">\[
 \min_{[x_i]}\max_{x\in [-1, 1]} |(x-x_1)(x-x_2)\cdots(x-x_n)| = \max_{x\in [-1, 1]} \dfrac{T_{n}(x)}{2^{n-1}} = \dfrac{1}{2^{n-1}}
-$$
-我们记 <span class="arithmatex">\(\hat{T_{n}}(x)= \dfrac{T_{n}(x)}{2^{n-1}}\)</span>，现在反设还存在另一个首项为 1 的多项式 <span class="arithmatex">\(Q_{n}(x)\)</span> 比 <span class="arithmatex">\(\hat{T_{n}}(x)\)</span> 更优</p>
+\]</div>
+<p>我们记 <span class="arithmatex">\(\hat{T_{n}}(x)= \dfrac{T_{n}(x)}{2^{n-1}}\)</span>，现在反设还存在另一个首项为 1 的多项式 <span class="arithmatex">\(Q_{n}(x)\)</span> 比 <span class="arithmatex">\(\hat{T_{n}}(x)\)</span> 更优</p>
 <p>构造差值函数 <span class="arithmatex">\(R_{n}(x) = \hat{T_{n}}(x) - Q_{n}(x)\)</span>，注意到 <span class="arithmatex">\(\hat{T_{n}}(x)\)</span> 在 <span class="arithmatex">\(n+1\)</span> 个极值点处是正负交替的，<span class="arithmatex">\(Q_{n}(x)\)</span> 因为最值始终小于 <span class="arithmatex">\(\hat{T_{n}}(x)\)</span> 不改变整体 <span class="arithmatex">\(R_{n}(x)\)</span> 的正负性，因此 <span class="arithmatex">\(R_n(x)\)</span> 一定有 <span class="arithmatex">\(n\)</span> 个零点</p>
 <p><span class="arithmatex">\(\hat{T_{n}}(x)\)</span> 和 <span class="arithmatex">\(Q_{n}(x)\)</span> 都是首项为 1 的多项式，因此 <span class="arithmatex">\(R_{n}(x)\)</span> 的次数最多为 <span class="arithmatex">\(n-1\)</span> 次</p>
 <p>“ <span class="arithmatex">\(R_n(x)\)</span> 一定有 <span class="arithmatex">\(n\)</span> 个零点” 和 “<span class="arithmatex">\(R_{n}(x)\)</span> 的次数最多为 <span class="arithmatex">\(n-1\)</span> 次” 是矛盾的，因此反设不成立</p>
@@ -7061,16 +7061,16 @@ $$
 <p>已知 <span class="arithmatex">\(T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)\)</span>，首先初始化 <span class="arithmatex">\(A\)</span> 的前两行，假设矩阵是 0-index 的：</p>
 <p>第 0 行：<span class="arithmatex">\(A_{0, 0} = 1\)</span>，其余 <span class="arithmatex">\(A_{0, i} = 0\)</span>；</p>
 <p>第 1 行：<span class="arithmatex">\(A_{1, 1} = 1\)</span>，其余 <span class="arithmatex">\(A_{1, i} = 0\)</span>；</p>
-<p>接下来，对于第 <span class="arithmatex">\(k+1\)</span> 行，代入 <span class="arithmatex">\(T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)\)</span> 的递推式得到：
-$$
+<p>接下来，对于第 <span class="arithmatex">\(k+1\)</span> 行，代入 <span class="arithmatex">\(T_{n+1}(x) = 2xT_{n}(x) - T_{n-1}(x)\)</span> 的递推式得到：</p>
+<div class="arithmatex">\[
 \begin{cases}
 \quad A_{k+1, i} = -A_{k-1, 0}, \quad &amp; i = 0\newline
 \quad A_{k+1, i} = 2A_{k, i-1} - A_{k-1, i}, \quad &amp;\forall i \in [1, k]\newline
 \quad A_{k+1, i} = 2A_{k, k}, \quad &amp; i = k+1\newline
 \quad  A_{k+1, i} = 0 ,\quad &amp;\forall i \in (k+1, n]
 \end{cases}
-$$
-最终可以构造出一个下三角矩阵 <span class="arithmatex">\(A\)</span></p>
+\]</div>
+<p>最终可以构造出一个下三角矩阵 <span class="arithmatex">\(A\)</span></p>
 <p>根据 <span class="arithmatex">\(A\)</span> 是一个对角线元素非零的下三角矩阵，可以得到 <span class="arithmatex">\(|A| \ne 0\)</span>，因此 <span class="arithmatex">\(A\)</span> <u>是可逆矩阵</u></p>
 <p>因此单项式基 <span class="arithmatex">\(\mathbf{x}\)</span> 和切比雪夫基 <span class="arithmatex">\(\mathbf{t}\)</span> 可以互相线性表示，它们张成的空间完全相同，即</p>
 <div class="arithmatex">\[
@@ -7082,22 +7082,22 @@ $$
 <p>首先再次给出 Weierstrass 定理：</p>
 <details class="success" open="open">
 <summary> Weierstrass 定理</summary>
-<p>对于连续函数 <span class="arithmatex">\(f\)</span>，多项式可以任意地逼近。换句话说，无论一个连续函数有多么复杂，总能找到一个多项式 <span class="arithmatex">\(p\)</span>，使得误差任意小。误差定义为无穷范数：
-$$
+<p>对于连续函数 <span class="arithmatex">\(f\)</span>，多项式可以任意地逼近。换句话说，无论一个连续函数有多么复杂，总能找到一个多项式 <span class="arithmatex">\(p\)</span>，使得误差任意小。误差定义为无穷范数：</p>
+<div class="arithmatex">\[
 \lVert f-p \rVert_{\infty} := \sup_{x}|f(x)-p(x)|
-$$
-该情境下，整个区间上差值最大的点的绝对值即误差</p>
+\]</div>
+<p>该情境下，整个区间上差值最大的点的绝对值即误差</p>
 </details>
 <p>一般来说，要找最佳一致逼近的多项式是比较困难的，但是通过 Chebyshev 点得到的 <span class="arithmatex">\(n\)</span> 次多项式，与最佳一致逼近的 <span class="arithmatex">\(n\)</span> 次多项式之间，在<u>无穷范数</u>上只相差 <span class="arithmatex">\(O(\log n)\)</span></p>
 <p>因此我们记 Chebyshev 逼近为拟最佳逼近</p>
 <h2 id="_4">向量范数</h2>
 <details class="success" open="open">
 <summary>Definition：向量范数</summary>
-<p>对于向量 <span class="arithmatex">\(\mathbf{x}\)</span>，我们定义：
-$$
+<p>对于向量 <span class="arithmatex">\(\mathbf{x}\)</span>，我们定义：</p>
+<div class="arithmatex">\[
 \lVert \mathbf{x} \rVert_{p} = (|x_1|^{p} + |x_2|^{p} + \cdots + |x_d|^{p})^{1/p}
-$$
-为向量的 <span class="arithmatex">\(p\)</span>-范数，其中：</p>
+\]</div>
+<p>为向量的 <span class="arithmatex">\(p\)</span>-范数，其中：</p>
 <ul>
 <li><span class="arithmatex">\(ℓ_1\)</span>-范数 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{1} = |x_1| + |x_2| + \cdots + |x_d|\)</span>，又称之为曼哈顿范数，表示向量各分量绝对值的和</li>
 <li><span class="arithmatex">\(ℓ_2\)</span>-范数 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{2} = \sqrt{x_1^2 + x_2^2 + \cdots + x_d^2}\)</span>，又称之为欧几里得范数，表示向量长度</li>
@@ -7107,7 +7107,7 @@ $$
 <p>范数具有正定性（不为零），可以表示一个向量的“大小”；内积可以表示两个向量的几何对齐程度</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260408203047167.png" data-desc-position="bottom"><img alt="image-20260408203047167" src="../images/image-20260408203047167.png"></a></p>
 <p>上述提到的最佳一致逼近就是在无穷范数上的</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

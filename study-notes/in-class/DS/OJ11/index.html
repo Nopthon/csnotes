@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5772,14 +5772,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7991,7 +7991,7 @@
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
 <span class="w">    </span><span class="n">AdjNode</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">AdjNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dest</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="w"> </span><span class="n">weight</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="n">AdjNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dest</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="w"> </span><span class="n">weight</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">next</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="k">struct</span><span class="w"> </span><span class="nc">Graph</span><span class="p">{</span>
@@ -8009,7 +8009,7 @@
 <span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">weighted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">weighted</span><span class="p">;</span>
 <span class="w">    </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdjNode</span><span class="w"> </span><span class="o">*</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">        </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">headers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">headers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">addEdge</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="o">*</span><span class="n">graph</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
@@ -8129,7 +8129,7 @@
 <span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">ans</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
 
 <span class="w">            </span><span class="n">AdjNode</span><span class="w"> </span><span class="o">*</span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="o">-&gt;</span><span class="n">headers</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
-<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">){</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">){</span>
 <span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">;</span>
 <span class="w">                </span><span class="c1">// 未访问过的节点，记录信息入队</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">){</span>

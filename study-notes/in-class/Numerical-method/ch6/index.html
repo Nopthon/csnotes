@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -1464,13 +1464,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩阵范数与奇异值
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         条件数
@@ -1481,7 +1492,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         线性迭代方法
@@ -1520,7 +1531,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         线性迭代的收敛性
@@ -5809,14 +5820,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6931,13 +6942,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩阵范数与奇异值
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         条件数
@@ -6948,7 +6970,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         线性迭代方法
@@ -6987,7 +7009,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         线性迭代的收敛性
@@ -7130,16 +7152,20 @@
 <p>把矩阵当做一个变换</p>
 <details class="success" open="open">
 <summary>Definition：矩阵算子范数（Matrix Operator Norm）</summary>
-<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵算子范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{op}, p}\)</span>，有：
-$$
-\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}_{p}\rVert}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
-$$</p>
+<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵算子范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{op}, p}\)</span>，有：</p>
+<div class="arithmatex">\[
+\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
+\]</div>
 </details>
 <p>矩阵算子范数衡量矩阵对向量的最大化放大能力（最坏情况下，<span class="arithmatex">\(A\)</span> 能把一个单位向量拉长多少倍），比如：</p>
 <ul>
 <li>列和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
 <li>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></li>
-<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩</li>
+<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩<ul>
+<li>特别的，对于列向量 <span class="arithmatex">\(v\in \R^{m}\)</span>，其谱范数的定义退化为向量的欧几里得范数，定义为各个分量平方的和</li>
+<li><span class="arithmatex">\(\lVert v \rVert_{2}^{2} = \sum_{i=1}^{m} v_i^{2}\)</span></li>
+</ul>
+</li>
 </ul>
 <p>算子范数具有一个基于定义的性质：</p>
 <ul>
@@ -7150,10 +7176,10 @@ $$</p>
 <p>把矩阵当做一个长向量，其定义基于向量范数</p>
 <details class="success" open="open">
 <summary>Definition：矩阵分量范数（Matrix Entrywise Norm）</summary>
-<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵分量范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{en}, p}\)</span>，有：
-$$
+<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵分量范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{en}, p}\)</span>，有：</p>
+<div class="arithmatex">\[
 \lVert A \rVert_{\text{en}, p} \triangleq \left( \sum_{i=1}^{m} \sum_{j=1}^{n} |A_{ij}^{p}|\right)^{1/p}
-$$</p>
+\]</div>
 </details>
 <p>矩阵分量范数衡量矩阵本身的“大小”，比如：</p>
 <ul>
@@ -7161,14 +7187,59 @@ $$</p>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, \infty} = \max_{i \in [m]} \max_{j \in [n]}  |A_{ij}|\)</span></li>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 2} = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij}^{2}}\)</span>，又记为 Frobenius 范数 <span class="arithmatex">\(\lVert A \rVert_{F}\)</span></li>
 </ul>
-<h2 id="_4">条件数</h2>
+<h3 id="_4">矩阵范数与奇异值</h3>
+<p>对于常见的两种范数：Frobenius 范数与谱范数，我们有</p>
+<div class="arithmatex">\[
+\lVert A \rVert_F = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} |a_{ij}|^2} = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}
+\newline
+\lVert A \rVert_2 = \max_{\mathbf{x} \neq \mathbf{0}} \frac{\|A\mathbf{x}\|_2}{\|\mathbf{x}\|_2} = \sigma_{\max}(A)
+\]</div>
+<details class="question">
+<summary>证明</summary>
+<p>我们记 <span class="arithmatex">\(A^{\ast}\)</span> 为 <span class="arithmatex">\(A\)</span> 的共轭转置</p>
+<ul>
+<li>Frobenius 范数</li>
+</ul>
+<p>由定义，</p>
+<div class="arithmatex">\[
+\lVert A \rVert_F^2 = \sum_{i,j} |a_{ij}|^2 = \text{tr}(A^{\ast} A)
+\]</div>
+<p>对 A 作奇异值分解 <span class="arithmatex">\(A = U \Sigma V^{\ast}\)</span>，代入得</p>
+<div class="arithmatex">\[
+A^{\ast} A = V \Sigma^{\ast} \Sigma V^{\ast}, \quad \text{tr}(A^{\ast} A) = \text{tr}(\Sigma^{\ast} \Sigma) = \sum_{i=1}^r \sigma_i^2
+\]</div>
+<p>所以</p>
+<div class="arithmatex">\[
+\lVert A \rVert_F = \sqrt{\sigma_1^2 + \cdots + \sigma_r^2}
+\]</div>
+<ul>
+<li>谱范数</li>
+</ul>
+<p>由定义，</p>
+<div class="arithmatex">\[
+\lVert A \rVert_2 = \max_{\mathbf{x} \neq \mathbf{0}} \frac{\|A\mathbf{x}\|_2}{\|\mathbf{x}\|_2}
+\]</div>
+<p>任取 <span class="arithmatex">\(\mathbf{x}\)</span>，用右奇异向量基展开 <span class="arithmatex">\(\mathbf{x} = \sum c_i \mathbf{v}_i\)</span>，则</p>
+<div class="arithmatex">\[
+\|A\mathbf{x}\|_2^2 = \sum \sigma_i^2 c_i^2 \leq \sigma_{\max}^2 \sum c_i^2 = \sigma_{\max}^2 \|\mathbf{x}\|_2^2
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+\frac{\|A\mathbf{x}\|_2}{\|\mathbf{x}\|_2} \leq \sigma_{\max}
+\]</div>
+<p>取 <span class="arithmatex">\(\mathbf{x} = \mathbf{v}_1\)</span>（最大奇异值对应的右奇异向量），则等号成立，故</p>
+<div class="arithmatex">\[
+\lVert A \rVert_2 = \sigma_{\max}(A)
+\]</div>
+</details>
+<h2 id="_5">条件数</h2>
 <p>我们在 Lecture 1 时讨论过浮点数误差：</p>
 <details class="abstract">
 <summary>回顾</summary>
 <p>将单变量理想输入 <span class="arithmatex">\(x\)</span> 的某个浮点数问题记为 <span class="arithmatex">\(f(x)\)</span>，由于绝对浮点误差 <span class="arithmatex">\(\Delta x\)</span> 实际被计算的值为 <span class="arithmatex">\(f(x+\Delta x)\)</span></p>
 <details class="success">
 <summary>中值定理</summary>
-<div class="arithmatex">\[f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\\
+<div class="arithmatex">\[f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\newline
 f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)\]</div>
 </details>
 <p>计算误差 <span class="arithmatex">\(f(x+\Delta x) - f(x) \approx \Delta x f'(x)\)</span>，对应绝对误差 <span class="arithmatex">\(\Delta x\)</span> 的放大比例近似为 <span class="arithmatex">\(f'(x)\)</span></p>
@@ -7179,83 +7250,83 @@ f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)\]</div>
 <p>如果将单变量函数拓展到线性方程组，可以提出基于矩阵范数的条件数定义</p>
 </details>
 <p>假设我们要求 <span class="arithmatex">\(Ax=b\)</span> 的解，其中 <span class="arithmatex">\(A\)</span> 可逆。在数值计算中，输入数据（<span class="arithmatex">\(A,b\)</span> 等）会产生误差，我们需要判断，这个较小的误差会不会导致 <span class="arithmatex">\(x\)</span> 的解出现大的误差</p>
-<p>我们定义矩阵 <span class="arithmatex">\(A\)</span> 的条件数：
-$$
+<p>我们定义矩阵 <span class="arithmatex">\(A\)</span> 的条件数：</p>
+<div class="arithmatex">\[
 \text{cond}(A) = \lVert A \rVert \cdot \lVert A^{-1} \rVert
-$$
-这里我们使用<strong>算子范数</strong>，<span class="arithmatex">\(\lVert A \rVert\)</span> 衡量矩阵对向量的最大放大能力，<span class="arithmatex">\(\lVert A^{-1} \rVert\)</span> 衡量矩阵对向量的最大缩小能力。条件数越大，矩阵越病态（ill-conditioned），意味着小的输入误差会导致大的输出误差</p>
+\]</div>
+<p>这里我们使用<strong>算子范数</strong>，<span class="arithmatex">\(\lVert A \rVert\)</span> 衡量矩阵对向量的最大放大能力，<span class="arithmatex">\(\lVert A^{-1} \rVert\)</span> 衡量矩阵对向量的最大缩小能力。条件数越大，矩阵越病态（ill-conditioned），意味着小的输入误差会导致大的输出误差</p>
 <p>条件数最小为 <span class="arithmatex">\(1\)</span>，对应正交矩阵</p>
 <details class="question" open="open">
 <summary>条件数的定义</summary>
 <p>假设 <span class="arithmatex">\(b\)</span> 的数值存在误差，变成了 <span class="arithmatex">\(b+e\)</span>，则 <span class="arithmatex">\(x = A^{-1}b\)</span> 变成 <span class="arithmatex">\(x = A^{-1} (b+e)\)</span></p>
-<p>条件数的原始定义是相对误差的放大比例，即
-$$
+<p>条件数的原始定义是相对误差的放大比例，即</p>
+<div class="arithmatex">\[
 \text{cond} (A) = \dfrac{x \text{ 的相对误差}}{b \text{ 的相对误差}}
-$$
-代入
-$$
+\]</div>
+<p>代入</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \mathrm{cond}(A) 
-&amp;= \max_{e, b \neq 0} \frac{|A^{-1} e| / |A^{-1} b|}{|e| / |b|} 
-= \max_{e, b \neq 0} \frac{|A^{-1} e|}{|e|} \cdot \frac{|b|}{|A^{-1} b|} \
-&amp;= \max_{e \neq 0} \frac{|A^{-1} e|}{|e|} \cdot \max_{b \neq 0} \frac{|b|}{|A^{-1} b|} 
-= \max_{e \neq 0} \frac{|A^{-1} e|}{|e|} \cdot \max_{x \neq 0} \frac{|A x|}{|x|}
+&amp;= \max_{e, b \neq 0} \frac{\|A^{-1} e\| / \|A^{-1} b\|}{\lVert e \rVert / \lVert b \rVert} 
+= \max_{e, b \neq 0} \frac{\|A^{-1} e\|}{\lVert e \rVert} \cdot \frac{\lVert b \rVert}{\|A^{-1} b\|} \newline
+&amp;= \max_{e \neq 0} \frac{\|A^{-1} e\|}{\lVert e \rVert} \cdot \max_{b \neq 0} \frac{\lVert b \rVert}{\|A^{-1} b\|} 
+= \max_{e \neq 0} \frac{\|A^{-1} e\|}{\lVert e \rVert} \cdot \max_{x \neq 0} \frac{\|A x\|}{\|x\|}
 \end{aligned}
-$$
-代入算子范数的定义，则 <span class="arithmatex">\(\text{cond}(A) = \lVert A \rVert \cdot \lVert A^{-1} \rVert\)</span></p>
+\]</div>
+<p>代入算子范数的定义，则 <span class="arithmatex">\(\text{cond}(A) = \lVert A \rVert \cdot \lVert A^{-1} \rVert\)</span></p>
 </details>
 <p>条件数有一个性质</p>
 <ul>
 <li><span class="arithmatex">\(\text{cond}(c\cdot A) = \text{cond}(A)\)</span></li>
 </ul>
 <p>可以由定义直接得到。这个性质的意义是：整体缩放矩阵不改变条件数</p>
-<h2 id="_5">线性迭代方法</h2>
+<h2 id="_6">线性迭代方法</h2>
 <p>线性迭代方法的核心是将解方程组的问题转化为寻找一个映射的不动点问题</p>
-<p>在根求解问题问题中，我们构造过迭代式。对于线性方程组的计算，我们也有类似的写法：
-$$
+<p>在根求解问题问题中，我们构造过迭代式。对于线性方程组的计算，我们也有类似的写法：</p>
+<div class="arithmatex">\[
 A\mathbf{x}=\mathbf{b} \to \mathbf{x} = T\mathbf{x} + \mathbf{c}
-$$
-因此 <span class="arithmatex">\(\mathbf{x}_{k+1} = T\mathbf{x}_{k} + \mathbf{c}\)</span> 就是一个迭代式。如果迭代收敛，满足 <span class="arithmatex">\(\mathbf{x}_{\ast} = T\mathbf{x}_{\ast} + \mathbf{c}\)</span> 的解就是一个不动点</p>
+\]</div>
+<p>因此 <span class="arithmatex">\(\mathbf{x}_{k+1} = T\mathbf{x}_{k} + \mathbf{c}\)</span> 就是一个迭代式。如果迭代收敛，满足 <span class="arithmatex">\(\mathbf{x}_{\ast} = T\mathbf{x}_{\ast} + \mathbf{c}\)</span> 的解就是一个不动点</p>
 <h3 id="jacobi">Jacobi 迭代法</h3>
-<p>将矩阵 <span class="arithmatex">\(A\)</span> 拆解为
-$$
+<p>将矩阵 <span class="arithmatex">\(A\)</span> 拆解为</p>
+<div class="arithmatex">\[
 A = L+D+U
-$$
-其中 <span class="arithmatex">\(D\)</span> 是对角矩阵，<span class="arithmatex">\(L,U\)</span> 是严格下 / 上三角矩阵</p>
-<p>因此我们有
-$$
+\]</div>
+<p>其中 <span class="arithmatex">\(D\)</span> 是对角矩阵，<span class="arithmatex">\(L,U\)</span> 是严格下 / 上三角矩阵</p>
+<p>因此我们有</p>
+<div class="arithmatex">\[
 \mathbf{x} = D^{-1} (\mathbf{b} - (L+U) \mathbf{x})
-$$
-得到迭代式（前提是 <span class="arithmatex">\(a_{ii} \ne 0\)</span>）</p>
+\]</div>
+<p>得到迭代式（前提是 <span class="arithmatex">\(a_{ii} \ne 0\)</span>）</p>
 <div class="arithmatex">\[
 \mathbf{x}_{k+1} = D^{-1} (\mathbf{b} - (L+U) \mathbf{x}_{k})
 \]</div>
-<p>即：
-$$
-x_{i}^{(k+1)} = \dfrac{1}{a_{ii}} \left( b_{i} - \sum_{i\ne j} a_{ij} x_{j}^{(k)} \right)
-$$</p>
+<p>即：</p>
+<div class="arithmatex">\[
+x_{i}^{(k+1)} = \dfrac{1}{a_{ii}} \left( b_{i} - \sum_{j\ne i} a_{ij} x_{j}^{(k)} \right)
+\]</div>
 <blockquote>
-<p>把线性方程组的第 <span class="arithmatex">\(i\)</span> 行方程：
-$$
+<p>把线性方程组的第 <span class="arithmatex">\(i\)</span> 行方程：</p>
+<div class="arithmatex">\[
 a_{i1}x_1 + \dots + a_{ii}x_i + \dots + a_{in}x_n = b_i
-$$
-进行移项，就是上面的结果</p>
+\]</div>
+<p>进行移项，就是上面的结果</p>
 <p>因此 Jacobi 迭代法的对于每一个 <span class="arithmatex">\(x_{i}^{(k+1)}\)</span>，都用全部的 <span class="arithmatex">\(\mathbf{x}^{(k)}\)</span> 去迭代计算</p>
 </blockquote>
 <h3 id="gauss-seidel">Gauss-Seidel</h3>
-<p>回顾 Jacobi 迭代法（将 <span class="arithmatex">\(i\ne j\)</span> 的范围拆成两个部分）
-$$
+<p>回顾 Jacobi 迭代法（将 <span class="arithmatex">\(i\ne j\)</span> 的范围拆成两个部分）</p>
+<div class="arithmatex">\[
 x_i^{(k+1)} =
 \frac{1}{a_{ii}}\Bigl(b_i - \sum_{j &lt; i} a_{ij} {x_j^{(k)}} - \sum_{j &gt; i} a_{ij} {x_j^{(k)}}\Bigr)
-$$
-注意到，Jacobi 迭代法的对于每一个 <span class="arithmatex">\(x_{i}^{(k+1)}\)</span>，都只用上一轮的全部的 <span class="arithmatex">\(\mathbf{x}^{(k)}\)</span> 去迭代计算。事实上，当计算第 <span class="arithmatex">\(k+1\)</span> 轮迭代的 <span class="arithmatex">\(x_{i}^{(k+1)}\)</span>，其中 <span class="arithmatex">\(i\)</span> 较大时，对应 <span class="arithmatex">\(i\)</span> 更小的迭代结果已经算出来了（也就是 <span class="arithmatex">\(\displaystyle \sum_{j &lt; i} a_{ij} {x_j^{(k)}}\)</span> 的部分）</p>
+\]</div>
+<p>注意到，Jacobi 迭代法的对于每一个 <span class="arithmatex">\(x_{i}^{(k+1)}\)</span>，都只用上一轮的全部的 <span class="arithmatex">\(\mathbf{x}^{(k)}\)</span> 去迭代计算。事实上，当计算第 <span class="arithmatex">\(k+1\)</span> 轮迭代的 <span class="arithmatex">\(x_{i}^{(k+1)}\)</span>，其中 <span class="arithmatex">\(i\)</span> 较大时，对应 <span class="arithmatex">\(i\)</span> 更小的迭代结果已经算出来了（也就是 <span class="arithmatex">\(\displaystyle \sum_{j &lt; i} a_{ij} {x_j^{(k)}}\)</span> 的部分）</p>
 <p>如果能直接用本轮已经迭代的值代替上一轮已经迭代的值，则迭代效率会有很大的提升</p>
-<p>这就是 Gauss-Seidel 的改进之处：
-$$
-x_i^{(k+1)} = 
+<p>这就是 Gauss-Seidel 的改进之处：</p>
+<div class="arithmatex">\[
+x_i^{(k+1)} =
 \frac{1}{a_{ii}} \left( b_i - \sum_{j &lt; i} a_{ij} x_j^{\textcolor{orange}{(k+1)}} - \sum_{j &gt; i} a_{ij} x_j^{(k)} \right)
-$$
-对应的迭代式中，<span class="arithmatex">\(\mathbf{x}_{k}\)</span> 只与 <span class="arithmatex">\(U\)</span> 左乘</p>
+\]</div>
+<p>对应的迭代式中，<span class="arithmatex">\(\mathbf{x}_{k}\)</span> 只与 <span class="arithmatex">\(U\)</span> 左乘</p>
 <div class="arithmatex">\[
 \mathbf{x}_{k+1} = (D+L)^{-1} (\mathbf{b} - U \mathbf{x}_{k})
 \]</div>
@@ -7267,50 +7338,50 @@ $$
 <li><span class="arithmatex">\(A\)</span> 是可逆的（非奇异）</li>
 <li>对任意右端向量 <span class="arithmatex">\(\mathbf{b}\)</span> 和任意初始猜测 <span class="arithmatex">\(\mathbf{x}^{(0)}\)</span>，解 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span> 的 Gauss–Seidel 迭代都收敛到唯一解</li>
 </ol>
-<p>其中严格对角占优指每行的对角线元素在绝对值上严格大于该行其余所有元素绝对值之和
-$$
+<p>其中严格对角占优指每行的对角线元素在绝对值上严格大于该行其余所有元素绝对值之和</p>
+<div class="arithmatex">\[
 |a_{ii}| &gt; \sum_{j \neq i} |a_{ij}|, \quad \forall i = 1, 2, \dots, n
-$$</p>
+\]</div>
 <details class="question">
 <summary>证明</summary>
 <p>对于第一个性质，证明采用反证法，假设存在 <span class="arithmatex">\(\mathbf{x} \ne \mathbf{0}\)</span> 使 <span class="arithmatex">\(A\mathbf{x} = \mathbf{0}\)</span></p>
-<p>考虑 <span class="arithmatex">\(|x_{k}|\)</span> 为 <span class="arithmatex">\(\mathbf{x}\)</span> 中绝对值最大的分量，第 <span class="arithmatex">\(k\)</span> 个方程满足
-$$
+<p>考虑 <span class="arithmatex">\(|x_{k}|\)</span> 为 <span class="arithmatex">\(\mathbf{x}\)</span> 中绝对值最大的分量，第 <span class="arithmatex">\(k\)</span> 个方程满足</p>
+<div class="arithmatex">\[
 a_{kk}x_{k} = - \sum_{j\ne k} a_{kj}x_{j}
-$$
-取绝对值，放缩
-$$
+\]</div>
+<p>取绝对值，放缩</p>
+<div class="arithmatex">\[
 |a_{kk}| \cdot |x_k| = \left| \sum_{j \neq k} a_{kj} x_j \right|
 \le \sum_{j \neq k} |a_{kj}| \cdot |x_j|
 \le \sum_{j \neq k} |a_{kj}| \cdot |x_k|
-$$
-约去 <span class="arithmatex">\(|x_{k}|\)</span> 发现 <span class="arithmatex">\(|a_{kk}| \le \sum_{j \neq k} |a_{kj}|\)</span>，产生矛盾</p>
+\]</div>
+<p>约去 <span class="arithmatex">\(|x_{k}|\)</span> 发现 <span class="arithmatex">\(|a_{kk}| \le \sum_{j \neq k} |a_{kj}|\)</span>，产生矛盾</p>
 <hr>
 <p>对于第二个性质，需要借助之后的谱半径分析</p>
 </details>
 </details>
-<h2 id="_6">线性迭代的收敛性</h2>
+<h2 id="_7">线性迭代的收敛性</h2>
 <p>我们已知不动点满足（<span class="arithmatex">\(A\)</span> 不是原系数矩阵，而是迭代矩阵）</p>
 <div class="arithmatex">\[
 \mathbf{x}_{\ast} = A \mathbf{x}_{\ast} + \mathbf{b}
 \]</div>
-<p>我们令计算误差项 <span class="arithmatex">\(e_{k} = x_{k} - x^{\ast}\)</span>，则递归下的误差传播为
-$$
+<p>我们令计算误差项 <span class="arithmatex">\(e_{k} = x_{k} - x^{\ast}\)</span>，则递归下的误差传播为</p>
+<div class="arithmatex">\[
 e_{k} = A^{k} (x_{0} - x^{\ast})
-$$
-以上，我们给出一个对于任意初始值 <span class="arithmatex">\(x_{0}\)</span>，迭代都收敛的充分必要条件
-$$
+\]</div>
+<p>以上，我们给出一个对于任意初始值 <span class="arithmatex">\(x_{0}\)</span>，迭代都收敛的充分必要条件</p>
+<div class="arithmatex">\[
 k\to \infty \text{ 时 }, A^{k} \to \mathbf{0}
-$$</p>
+\]</div>
 <blockquote>
-<p>当然，即使这个条件不满足，如果我们选取好的 <span class="arithmatex">\(x_{0}\)</span>，</p>
+<p>当然，即使这个条件不满足，如果我们选取好的 <span class="arithmatex">\(x_{0}\)</span>，也有可能实现收敛</p>
 </blockquote>
 <hr>
-<p>如何判断矩阵幂 <span class="arithmatex">\(A^{k}\)</span> 是否趋于 0？我们定义谱半径为矩阵所有特征值的模的最大值
-$$
+<p>如何判断矩阵幂 <span class="arithmatex">\(A^{k}\)</span> 是否趋于 0？我们定义谱半径为矩阵所有特征值的模的最大值</p>
+<div class="arithmatex">\[
 \rho(A) := \max \lbrace |\lambda_{1}|, \cdots, |\lambda_{n}| \rbrace
-$$
-并指出，<span class="arithmatex">\(\displaystyle \lim_{k \to \infty} A^k = 0\)</span> 的充分必要条件是 <span class="arithmatex">\(\rho(A) &lt; 1\)</span></p>
+\]</div>
+<p>并指出，<span class="arithmatex">\(\displaystyle \lim_{k \to \infty} A^k = 0\)</span> 的充分必要条件是 <span class="arithmatex">\(\rho(A) &lt; 1\)</span></p>
 <blockquote>
 <p>如果 <span class="arithmatex">\(A\)</span> 可以对角化，则 <span class="arithmatex">\(A = P \Lambda P^{-1}\)</span>，<span class="arithmatex">\(A^k = P \Lambda^k P^{-1}\)</span>。当且仅当对角阵 <span class="arithmatex">\(\Lambda\)</span> 上的每个特征值的 <span class="arithmatex">\(k\)</span> 次幂趋于 0（即 <span class="arithmatex">\(|\lambda_i| &lt; 1\)</span>）时，<span class="arithmatex">\(A^k\)</span> 趋于 0</p>
 <p>如果 <span class="arithmatex">\(A\)</span> 不能对角化，则用 Jordan 标准型推广，或者利用可对角化矩阵的稠密性论证，此处略</p>
@@ -7329,21 +7400,21 @@ $$
 <summary>证明：若原矩阵严格对角占优，则 Jacobi 迭代的谱半径小于1</summary>
 <p>设 <span class="arithmatex">\(\lambda\)</span> 为 <span class="arithmatex">\(A = -D^{-1}(L+U)\)</span> 的特征值，<span class="arithmatex">\(v\)</span> 为对应的特征向量，并令 <span class="arithmatex">\(\lVert v \rVert_{\infty} = 1\)</span></p>
 <p>取最大分量位置满足 <span class="arithmatex">\(\lVert v_{m} \rVert = 1\)</span>，取对应的线性方程组 <span class="arithmatex">\((L+U)v = \lambda Dv\)</span> 的分量</p>
-<p>$$
+<div class="arithmatex">\[
 \sum_{j \neq m} a_{mj} v_j = \lambda a_{mm} v_m = \lambda a_{mm}
-$$
-左边取绝对值：
-$$
+\]</div>
+<p>左边取绝对值：</p>
+<div class="arithmatex">\[
 \left|\sum_{j \neq m} a_{mj} v_j\right| \leq \sum_{j \neq m} |a_{mj}| \cdot |v_j| \leq \sum_{j \neq m} |a_{mj}|
-$$
-根据严格对角占优：
-$$
+\]</div>
+<p>根据严格对角占优：</p>
+<div class="arithmatex">\[
 \sum_{j \neq m} |a_{mj}| &lt; |a_{mm}|
-$$
-所以 <span class="arithmatex">\(|\lambda a_{mm}| &lt; |a_{mm}|\)</span>，即 <span class="arithmatex">\(|\lambda| &lt; 1\)</span> 对任意特征值都满足，故 <span class="arithmatex">\(\rho &lt; 1\)</span></p>
+\]</div>
+<p>所以 <span class="arithmatex">\(|\lambda a_{mm}| &lt; |a_{mm}|\)</span>，即 <span class="arithmatex">\(|\lambda| &lt; 1\)</span> 对任意特征值都满足，故 <span class="arithmatex">\(\rho &lt; 1\)</span></p>
 </details>
 <p>对于 Gauss-Seidel 的收敛性，性质完全相同，此处略</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

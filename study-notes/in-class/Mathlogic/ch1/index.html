@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5758,14 +5758,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7037,22 +7037,22 @@
 <p>设 <span class="arithmatex">\(P\)</span> 是一个命题（简单命题，或由简单命题通过连接词构成的命题），<span class="arithmatex">\(P\)</span> 中的简单命题为 <span class="arithmatex">\(\{p_1, \cdots, p_{n}\}\)</span> 的一个子集，我们归纳定义 <span class="arithmatex">\(P\)</span> 的真值函数 <span class="arithmatex">\([P]：\mathbb{T}^{n} \to \mathbb{T}\)</span>（<span class="arithmatex">\(\mathbb{T} = \{0, 1\}\)</span>）：</p>
 <ul>
 <li>对于简单命题 <span class="arithmatex">\(P = p_{i}\)</span>，则 <span class="arithmatex">\([P](\sigma(p_1), \cdots, \sigma(p_{n})) =\sigma(p_{i})\)</span></li>
-<li>定义 <span class="arithmatex">\([P_1], [P_2]\)</span>，则任意选定一种连接符 <span class="arithmatex">\(\ast\)</span>：
-$$
-⟦P_{1} \ast P_2⟧(\sigma) = H^{\ast}(⟦P_1⟧, ⟦P_2⟧)(\sigma) = ⟦P_1⟧(\sigma) \ast_{\text{bool}} ⟦P_2⟧(\sigma)
-$$</li>
+<li>定义 <span class="arithmatex">\([P_1], [P_2]\)</span>，则任意选定一种连接符 <span class="arithmatex">\(\ast\)</span>：</li>
 </ul>
+<div class="arithmatex">\[
+⟦P_{1} \ast P_2⟧(\sigma) = H^{\ast}(⟦P_1⟧, ⟦P_2⟧)(\sigma) = ⟦P_1⟧(\sigma) \ast_{\text{bool}} ⟦P_2⟧(\sigma)
+\]</div>
 <hr>
 <p>如果 <span class="arithmatex">\(\exists \sigma, [P](\sigma) = T\)</span>，则 <span class="arithmatex">\(P\)</span> 是可满足的</p>
 <p>如果 <span class="arithmatex">\(\forall \sigma, [P](\sigma) = T\)</span>，则 <span class="arithmatex">\(P\)</span> 是重言式</p>
 <p>如果 <span class="arithmatex">\(\forall \sigma, [P](\sigma) = F\)</span>，则 <span class="arithmatex">\(P\)</span> 是矛盾式</p>
 <h2 id="_3">命题关系</h2>
 <p>已知命题 <span class="arithmatex">\(P,Q\)</span></p>
-<p>如果 <span class="arithmatex">\((P \leftrightarrow Q)\)</span> 为重言式，则 <span class="arithmatex">\(P,Q\)</span> 逻辑等价，记为 <span class="arithmatex">\(P \Leftrightarrow Q\)</span> 或 <span class="arithmatex">\(P \equiv Q\)</span>。逻辑等价是 <span class="arithmatex">\((F, ¬,∧, ∨,→, \leftrightarrow)\)</span> 上的一个同余关系：对于任意运算 <span class="arithmatex">\(f\)</span>（如 <span class="arithmatex">\(\land, \lor, \to\)</span> 等），如果 <span class="arithmatex">\(a_1 \equiv b_1, a_2 \equiv b_2\)</span>，则：
-$$
+<p>如果 <span class="arithmatex">\((P \leftrightarrow Q)\)</span> 为重言式，则 <span class="arithmatex">\(P,Q\)</span> 逻辑等价，记为 <span class="arithmatex">\(P \Leftrightarrow Q\)</span> 或 <span class="arithmatex">\(P \equiv Q\)</span>。逻辑等价是 <span class="arithmatex">\((F, ¬,∧, ∨,→, \leftrightarrow)\)</span> 上的一个同余关系：对于任意运算 <span class="arithmatex">\(f\)</span>（如 <span class="arithmatex">\(\land, \lor, \to\)</span> 等），如果 <span class="arithmatex">\(a_1 \equiv b_1, a_2 \equiv b_2\)</span>，则：</p>
+<div class="arithmatex">\[
 f(a_1, a_2) \equiv f(b_1, b_2)
-$$
-如果 <span class="arithmatex">\((P \to Q)\)</span> 为重言式，则称 <span class="arithmatex">\(P\)</span> 逻辑蕴涵于 <span class="arithmatex">\(Q\)</span>，记为 <span class="arithmatex">\(P \Rightarrow Q\)</span></p>
+\]</div>
+<p>如果 <span class="arithmatex">\((P \to Q)\)</span> 为重言式，则称 <span class="arithmatex">\(P\)</span> 逻辑蕴涵于 <span class="arithmatex">\(Q\)</span>，记为 <span class="arithmatex">\(P \Rightarrow Q\)</span></p>
 <hr>
 <p><span class="arithmatex">\(P[Q/p]\)</span> 表示把命题 <span class="arithmatex">\(P\)</span> 中简单命题 <span class="arithmatex">\(p\)</span> 的所有出现统一替换为
 命题 <span class="arithmatex">\(Q\)</span> 得到的命题，<span class="arithmatex">\(P[P_{1}/p_{1},…,P_{n}/p_{n}]\)</span> 表示将简单命题 <span class="arithmatex">\(p_1,\cdots, p_{n}\)</span>的所有出现同时分别替换为命题 <span class="arithmatex">\(P_{1}, \cdots, P_{n}\)</span> 得到的命题</p>

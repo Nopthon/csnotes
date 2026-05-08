@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -763,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -791,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -819,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -847,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5638,14 +5638,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -8469,11 +8469,11 @@ Testcase 1 passed, num_cycles: 53244 (92.3% of MXM's peak), score: 100.0    # go
 <p>KDT-TPU 的 SM 数量为 32，每个 SM 的 SPM 大小为 528 KB，<span class="arithmatex">\(L_{mem} = 1000\)</span>。</p>
 </blockquote>
 <p>相比任务 2，添加对缩放因子的处理，这意味着 MXM 和 VXM 都将参与计算：</p>
-<p>（<span class="arithmatex">\(Ab\)</span> 和 <span class="arithmatex">\(As\)</span> 分别表示 <span class="arithmatex">\(A\)</span> 的基准矩阵和缩放矩阵）
-$$
+<p>（<span class="arithmatex">\(Ab\)</span> 和 <span class="arithmatex">\(As\)</span> 分别表示 <span class="arithmatex">\(A\)</span> 的基准矩阵和缩放矩阵）</p>
+<div class="arithmatex">\[
 C[i, j] = \sum_{k=0}^{K-1} Ab[i, k] \cdot As\left[i, \left\lfloor \frac{k}{64} \right\rfloor\right] \cdot Bb[k, j] \cdot Bs\left[\left\lfloor \frac{k}{64} \right\rfloor, j\right]
-$$
-一开始尝试 128 × 128 ＋ 双缓冲，两个测试点都是 50% 的分数；换成 256 × 128 后对于 <span class="arithmatex">\((M,N,K) = (512, 1024, 2560)\)</span> 的测试点性能下跌一半，对于 <span class="arithmatex">\((M,N,K) = (2048, 512, 3072)\)</span> 性能上涨一半，才意识到前者的 Job 数只有 SM 数的一半，而后者是吃满的</p>
+\]</div>
+<p>一开始尝试 128 × 128 ＋ 双缓冲，两个测试点都是 50% 的分数；换成 256 × 128 后对于 <span class="arithmatex">\((M,N,K) = (512, 1024, 2560)\)</span> 的测试点性能下跌一半，对于 <span class="arithmatex">\((M,N,K) = (2048, 512, 3072)\)</span> 性能上涨一半，才意识到前者的 Job 数只有 SM 数的一半，而后者是吃满的</p>
 <p>依旧采用双缓冲机制，最终发现分块 <span class="arithmatex">\(K\)</span> 的选取是很关键的。如果 <span class="arithmatex">\(K = 128\)</span>，那么加上 <span class="arithmatex">\(T_{VXM}\)</span> 后 MXM 的计算周期数 <span class="arithmatex">\(T = 1537 &lt; L_{mem} + T_{VXM}\)</span>，会有约 200 Ticks 的约束等待；如果 <span class="arithmatex">\(K = 256\)</span>，那么双缓冲区（512 KB）加上结果矩阵 C （64 KB）的容量就已经超过了 SPM 的大小，因此决定 <span class="arithmatex">\(K = 3 \times 64 = 192\)</span> </p>
 <p>但是 <span class="arithmatex">\(K = 192\)</span> 的情况下，矩阵的总长度不能被 <span class="arithmatex">\(K\)</span> 整除，因此最后会留下一小段 Tail 块（Testcase 0 对应 128 × 128 × 64 的 Tail 块）。 Tail 块的问题在于：MXM 分块运算在循环语句内时不会计算 Tail 块，需要在循环结束后额外处理。可是循环结束后再 Load 这部分数据，直到 MXM 开始计算，会浪费包含但不限于 <span class="arithmatex">\(L_{mem}\)</span> 的周期数（相当于又冷加载了一次）。因此这部分内容需要提前加载</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -9307,7 +9307,7 @@ Testcase 3 passed, num_cycles: 141948 (92.3% of MXM's peak), score: 100.0
 <span class="w">        </span><span class="s">"/sys/fs/cgroup/cpuset.cpus"</span><span class="p">,</span>
 <span class="w">        </span><span class="s">"/sys/fs/cgroup/cpuset/cpuset.cpus"</span>
 <span class="w">    </span><span class="p">};</span>
-<span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">paths</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">"r"</span><span class="p">)))</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>

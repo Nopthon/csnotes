@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -766,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../../in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -794,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../../in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -822,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../../in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -850,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../../in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5766,14 +5766,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rust/part1/" class="md-nav__link">
+      <a href="../../../Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7092,10 +7092,10 @@
 <p>比如 <span class="arithmatex">\(h(n) = 1 - g(n)\)</span>，此时 <span class="arithmatex">\(f(n) = 1\)</span> 退化为 BFS</p>
 <p>比如 <span class="arithmatex">\(h(n) = 0\)</span>，此时 <span class="arithmatex">\(f(n) = 1\)</span> 退化为 UCS</p>
 </blockquote>
-<p>我们定义可接受性条件：一个启发式函数 <span class="arithmatex">\(h(n)\)</span>，对任意目标状态 <span class="arithmatex">\(G\)</span> 满足 <span class="arithmatex">\(h(G) = 0\)</span>，且
-$$
+<p>我们定义可接受性条件：一个启发式函数 <span class="arithmatex">\(h(n)\)</span>，对任意目标状态 <span class="arithmatex">\(G\)</span> 满足 <span class="arithmatex">\(h(G) = 0\)</span>，且</p>
+<div class="arithmatex">\[
 \forall n:0 \leq h(n) \leq h^{*}(n)
-$$</p>
+\]</div>
 <ul>
 <li>其中 <span class="arithmatex">\(h^{*}(n)\)</span> 为真实（非松弛）最优成本</li>
 </ul>
@@ -7104,11 +7104,11 @@ $$</p>
 <p><span class="arithmatex">\(h(n) = 1 - g(n)\)</span> 不满足可接受性条件，因此 BFS 不能保证找到最优解</p>
 <p><span class="arithmatex">\(h(n) = 0\)</span> 满足可接受性条件，因此 UCS 保证找到最优解</p>
 </blockquote>
-<p>我们定义支配性的衡量标准：如果启发式函数 <span class="arithmatex">\(h_a\)</span> 支配 <span class="arithmatex">\(h_b\)</span>，则意味着在状态空间中的每个节点，<span class="arithmatex">\(a\)</span> 的估算目标距离总是比 <span class="arithmatex">\(b\)</span> 的估算距离更大或相等，即：
-$$
+<p>我们定义支配性的衡量标准：如果启发式函数 <span class="arithmatex">\(h_a\)</span> 支配 <span class="arithmatex">\(h_b\)</span>，则意味着在状态空间中的每个节点，<span class="arithmatex">\(a\)</span> 的估算目标距离总是比 <span class="arithmatex">\(b\)</span> 的估算距离更大或相等，即：</p>
+<div class="arithmatex">\[
 \forall n:h_{a}(n) \geq h_{b}(n)
-$$
-这直观地表明一个启发式函数比另一个更好，因为它始终更精确地估算到目标的距离</p>
+\]</div>
+<p>这直观地表明一个启发式函数比另一个更好，因为它始终更精确地估算到目标的距离</p>
 <p>UCS 相当于 <span class="arithmatex">\(h(n) =  0\)</span> 的 A* Search，我们定义 <span class="arithmatex">\(h(n) =  0\)</span> 为平凡启发式，所有的可接受启发式函数都支配平凡启发式</p>
 <p>对于任何给定的搜索问题，生成多个可接受的启发式函数并取它们的最大值，通常会产生一个比它们各自单独使用时更好的启发式函数</p>
 <h2 id="graph-search">Graph Search</h2>

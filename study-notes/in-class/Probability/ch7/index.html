@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5803,14 +5803,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7185,7 +7185,7 @@ L(\theta) = \prod_{i=1}^n p(x_i;\theta)
 <div class="admonition abstract">
 <p>如果 <span class="arithmatex">\(\hat{\theta}\)</span> 使 <span class="arithmatex">\(L(\theta)\)</span> 值最大，那么对于参数 <span class="arithmatex">\(\eta = \varphi(\theta)\)</span>，由于一一对应关系，同样的 <span class="arithmatex">\(\varphi(\hat{\theta})\)</span> 也会使关于 <span class="arithmatex">\(\eta\)</span> 的似然函数最大</p>
 </div>
-<p>比如 <span class="arithmatex">\(\sigma^2\)</span> 的极大似然估计为 <span class="arithmatex">\(S^{\ast 2}\)</span>，因为 <span class="arithmatex">\(\varphi(\sigma) = \sigma^2(\sigma \geq 0)\)</span> 有单值反函数，则 <span class="arithmatex">\(\sigma\)</span> 的极大似然估计为 <span class="arithmatex">\(S^{\ast}\)</span> </p>
+<p>比如 <span class="arithmatex">\(\sigma^2\)</span> 的极大似然估计为 <span class="arithmatex">\(S^{\ast 2}\)</span>，因为 <span class="arithmatex">\(\varphi(\sigma) = \sigma^2(\sigma \geq 0)\)</span> 有单值反函数，则 <span class="arithmatex">\(\sigma\)</span> 的极大似然估计为 <span class="arithmatex">\(S^{\ast}\)</span></p>
 <p><br></p>
 <h2 id="_4">估计量的评价标准</h2>
 <p>由不同的方法可以得到不同的参数估计，这里引入常用的三种标准，用于对估计量进行评价</p>
@@ -7281,7 +7281,7 @@ P(a&lt;U&lt;b) = 1-\alpha
 <p><br></p>
 <p>--&gt; <strong>正态总体 <span class="arithmatex">\(N(\mu, \sigma^2)\)</span> 中方差 <span class="arithmatex">\(\sigma^2\)</span> 的置信区间</strong></p>
 <p>(1) <span class="arithmatex">\(\mu\)</span> 已知</p>
-<p>使用<strong>已知均值的</strong>样本二阶中心距 <span class="arithmatex">\(\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2\)</span> </p>
+<p>使用<strong>已知均值的</strong>样本二阶中心距 <span class="arithmatex">\(\displaystyle S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\mu)^2\)</span></p>
 <p>取枢轴变量 <span class="arithmatex">\(U = \dfrac{nS^{\ast 2}}{\sigma ^2}\sim \chi^2(n)\)</span>，由<span class="arithmatex">\(P(\chi^2_{1-\alpha/2}(n) &lt; U &lt; \chi^2_{\alpha/2}(n)) = 1 - \alpha\)</span> 得置信区间：</p>
 <div class="arithmatex">\[
 \left( \dfrac{nS^{\ast 2}}{\chi^2_{\alpha /2}(n)}, \dfrac{nS^{\ast 2}}{\chi^2_{1-\alpha /2}(n)} \right)
@@ -7317,7 +7317,7 @@ S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
 <p>回到最开始：此处 <span class="arithmatex">\(\mu\)</span> 已知，因此我们使用 <span class="arithmatex">\(\sum(X_i - \mu)^2\)</span> 而不是 <span class="arithmatex">\(\sum(X_i - \overline{X})^2\)</span>，这样不会存在样本均值带来的偏差，那么分母为 <span class="arithmatex">\(n\)</span> 在这里就是无偏估计</p>
 </details>
 <p>(2) <span class="arithmatex">\(\mu\)</span> 未知</p>
-<p>使用无偏估计的样本方差 <span class="arithmatex">\(\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2\)</span> </p>
+<p>使用无偏估计的样本方差 <span class="arithmatex">\(\displaystyle S^{2} = \dfrac{1}{n-1} \sum_{i=1}^{n}(X_i-\overline{X})^2\)</span></p>
 <p>取枢轴变量 <span class="arithmatex">\(U = \dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)\)</span>，由<span class="arithmatex">\(P(\chi^2_{1-\alpha/2}(n-1) &lt; U &lt; \chi^2_{\alpha/2}(n-1)) = 1 - \alpha\)</span> 得置信区间：</p>
 <div class="arithmatex">\[
 \left( \dfrac{(n-1)S^2}{\chi^2_{\alpha /2}(n-1)}, \dfrac{(n-1)S^2}{\chi^2_{1- \alpha /2}(n-1)} \right)
@@ -7329,7 +7329,7 @@ S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
 <p><br></p>
 <p>--&gt; <strong>两个正态总体 <span class="arithmatex">\(N(\mu_1, \sigma^2_1),\;N(\mu_2, \sigma^2_2)\)</span> 中均值 <span class="arithmatex">\(\mu_1 - \mu_2\)</span> 的置信区间</strong></p>
 <p>(1) <span class="arithmatex">\(\sigma^2_1,\;\sigma^2_2\)</span> 均已知</p>
-<p>使用各自已知的方差 <span class="arithmatex">\(\sigma^2_1,\;\sigma^2_2\)</span> </p>
+<p>使用各自已知的方差 <span class="arithmatex">\(\sigma^2_1,\;\sigma^2_2\)</span></p>
 <p>取枢轴变量 <span class="arithmatex">\(U = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}} \sim N(0,1)\)</span>，由 <span class="arithmatex">\(P(|U| &lt; u_{\alpha/2}) = 1 - \alpha\)</span> 得置信区间：</p>
 <div class="arithmatex">\[
 \left( \overline{X} - \overline{Y} - u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}}, \overline{X} - \overline{Y} + u_{\alpha/2}  \sqrt{\dfrac{\sigma^2_1}{n_1}+\dfrac{\sigma^2_2}{n_2}} \right)
@@ -7338,7 +7338,7 @@ S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
 <p>根据正态分布的可加性，有 <span class="arithmatex">\(\overline{aX}-\overline{bY} \sim N\left(a\mu_1-b\mu_2, \dfrac{a^2 \sigma_1^2}{n_1}+\dfrac{b^2 \sigma_2^2}{n_2}\right)\)</span></p>
 </div>
 <p>(2) <span class="arithmatex">\(\sigma^2_1=\sigma^2_2=\sigma^2\)</span>，但 <span class="arithmatex">\(\sigma^2\)</span> 未知</p>
-<p>使用合并标准差 <span class="arithmatex">\(S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}\)</span> </p>
+<p>使用合并标准差 <span class="arithmatex">\(S_w = \sqrt{\dfrac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{(n_1 - 1) + (n_2 - 1)}}\)</span></p>
 <p>取枢轴变量 <span class="arithmatex">\(T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_1 - \mu_2)}{S_w \sqrt{\left( \dfrac{1}{n_1} + \dfrac{1}{n_2} \right)}} \sim t(n_1 + n_2 - 2)\)</span>，由 <span class="arithmatex">\(P(|T| &lt; t_{\alpha/2}(n_1 + n_2 - 2)) = 1 - \alpha\)</span> 得置信区间：</p>
 <div class="arithmatex">\[
 \left( \overline{X} - \overline{Y} - t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}, \overline{X} - \overline{Y} + t_{\alpha/2}(n_1+n_2-2) S_w\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}} \right)
@@ -7356,7 +7356,7 @@ S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
 <div class="arithmatex">\[
 \left( \overline{X} - u_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right)
 \]</div>
-<p><span class="arithmatex">\(\sigma\)</span> 未知时，用样本标准差 <span class="arithmatex">\(S\)</span> 代替 <span class="arithmatex">\(\sigma\)</span>： </p>
+<p><span class="arithmatex">\(\sigma\)</span> 未知时，用样本标准差 <span class="arithmatex">\(S\)</span> 代替 <span class="arithmatex">\(\sigma\)</span>：</p>
 <div class="arithmatex">\[
 \left( \overline{X} - u_{\alpha/2} \frac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \frac{S}{\sqrt{n}} \right)
 \]</div>
@@ -7369,7 +7369,7 @@ S^2 = \dfrac{\sum_{i=1}^{n}(X_i - \overline{X})^2}{n-1}
 <p>注意到 <span class="arithmatex">\(S^{\ast 2} = \dfrac{1}{n} \sum_{i=1}^{n}(X_i-\overline{X})^2 = \overline{X}(1-\overline{X})\)</span>，</p>
 <p>因此只要将 <span class="arithmatex">\(\left( \overline{X} - u_{\alpha/2} \dfrac{S}{\sqrt{n}}, \overline{X} + u_{\alpha/2} \dfrac{S}{\sqrt{n}} \right)\)</span> 中的 <span class="arithmatex">\(S\)</span> 替换为 <span class="arithmatex">\(S^{\ast}\)</span>，就可以得到 Wald 区间 </p>
 </div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

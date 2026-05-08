@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -812,7 +812,7 @@
   <a href="#bios-mbr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BIOS + MBR 计算机引导过程
+        BIOS + MBR 计算机引导过程（⭐）
       
     </span>
   </a>
@@ -823,7 +823,7 @@
   <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Linux 系统调用
+        Linux 系统调用（⭐）
       
     </span>
   </a>
@@ -845,7 +845,7 @@
   <a href="#cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        多道批处理系统 CPU 利用率计算
+        多道批处理系统 CPU 利用率计算（⭐）
       
     </span>
   </a>
@@ -896,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch3.md" class="md-nav__link">
+      <a href="../ch3/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch4.md" class="md-nav__link">
+      <a href="../ch4/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch5.md" class="md-nav__link">
+      <a href="../ch5/" class="md-nav__link">
         
   
   
@@ -980,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch6.md" class="md-nav__link">
+      <a href="../ch6/" class="md-nav__link">
         
   
   
@@ -5771,14 +5771,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6896,7 +6896,7 @@
   <a href="#bios-mbr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BIOS + MBR 计算机引导过程
+        BIOS + MBR 计算机引导过程（⭐）
       
     </span>
   </a>
@@ -6907,7 +6907,7 @@
   <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Linux 系统调用
+        Linux 系统调用（⭐）
       
     </span>
   </a>
@@ -6929,7 +6929,7 @@
   <a href="#cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        多道批处理系统 CPU 利用率计算
+        多道批处理系统 CPU 利用率计算（⭐）
       
     </span>
   </a>
@@ -7068,7 +7068,7 @@
 <p>其实计算机系统基础全部学过？</p>
 </blockquote>
 <h2 id="_1">操作系统概述</h2>
-<p>计算机系统通常包括：</p>
+<p>计算机系统通常自底向上包括：</p>
 <ul>
 <li>硬件层（CPU、存储、I/O 设备）</li>
 <li>操作系统层（操作系统软件）</li>
@@ -7076,18 +7076,25 @@
 <li>用户层（终端用户使用的软件）</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260407101815054.png" data-desc-position="bottom"><img alt="image-20260407101815054" src="../images/image-20260407101815054.png"></a></p>
-<p>操作系统是介于用户界面和硬件层之间的，处于内核态下的程序。<u>一方面，操作系统自顶向下为应用开发人员提供简洁易用的资源抽象（系统调用服务）；另一方面，自底向上管理种类繁多、纷繁复杂的硬件资源</u>（支撑软件层和用户层都通过操作系统接口使用资源）</p>
+<p>操作系统是介于用户界面和硬件层之间的，处于内核态下的程序</p>
+<ul>
+<li><u>一方面，操作系统自顶向下为应用开发人员提供简洁易用的资源抽象（系统调用服务）</u></li>
+<li><u>另一方面，自底向上管理种类繁多、纷繁复杂的硬件资源（支撑软件层和用户层都通过操作系统接口使用资源）</u></li>
+</ul>
 <p>从更具体的角度来说，资源管理、进程调度、接口提供，是操作系统的主要功能</p>
 <h2 id="_2">操作系统特征</h2>
 <ul>
-<li>并发性：指两个或两个以上的事件或活动在同一时间<u>间隔</u>内发生<ul>
+<li><strong>并发性</strong>：指两个或两个以上的事件或活动在<u>同一时间间隔内</u>发生<ul>
 <li>微观层面上，在这个时间间隔内，事件/活动是轮转进行的</li>
-<li>相对的，并行性指两个或两个以上事件或活动在同一时刻发生</li>
+<li>（并行性指两个或两个以上事件或活动在<u>同一时刻</u>发生）</li>
 </ul>
 </li>
-<li>共享性：指系统中的资源可被多个并发执行的任务（作业）所使用</li>
-<li>异步性：多道程序执行时，每个任务的推进速度和被中断时机是随机的、不可预测的，但操作系统必须通过同步机制保证最终结果的正确性</li>
-<li>虚拟性：指操作系统中的一种管理技术，将物理上的一个实体变成逻辑上的多个对应物，或把物理上的多个实体变成逻辑上的一个对应物的技术</li>
+<li><strong>共享性</strong>：指系统中的资源可被多个并发执行的任务（作业）所使用<ul>
+<li>互斥访问 or 同时访问</li>
+</ul>
+</li>
+<li><strong>异步性</strong>：多道程序执行时，每个任务的推进速度和被中断时机是随机的、不可预测的，但操作系统必须通过同步机制保证最终结果的正确性</li>
+<li><strong>虚拟性</strong>：指操作系统中的一种管理技术，将物理上的一个实体变成逻辑上的多个对应物，或把物理上的多个实体变成逻辑上的一个对应物的技术（比如虚拟内存）</li>
 </ul>
 <h2 id="_3">资源分配</h2>
 <p>计算机系统的物理资源可以分为两类：计算/存储类、接口类。操作系统通过一些管理技术控制软硬件资源的分配，最终体现为“应用程序的虚拟机”：</p>
@@ -7109,59 +7116,92 @@
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260407103823942.png" data-desc-position="bottom"><img alt="image-20260407103823942" src="../images/image-20260407103823942.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260407103906021.png" data-desc-position="bottom"><img alt="image-20260407103906021" src="../images/image-20260407103906021.png"></a></p>
 <p>基于上面的技术，我们开发出多道程序设计技术（将多个作业放入内存，同时启动运行，从微观上看其实是轮转进行），进而开发出分时交互系统</p>
-<h2 id="bios-mbr">BIOS + MBR 计算机引导过程</h2>
+<h2 id="bios-mbr">BIOS + MBR 计算机引导过程（⭐）</h2>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/a.png" data-desc-position="bottom"><img alt="a" src="../images/a.png"></a></p>
 <p>直接交给 LLM 解释：</p>
 <ol>
 <li><strong>Power-up / Reset（上电/复位）</strong>
    计算机通电或复位后，CPU 从固定地址开始执行，进入固件阶段。</li>
 <li><strong>System startup（系统启动）—— BIOS / BootMonitor</strong>
-   最先运行的程序称为 BIOS（Basic Input/Output System），其首先进行硬件初始化和 POST（加电开机自检），然后扫描可引导设备（如硬盘），按照用户设定的启动顺序 ，依次尝试每个可引导设备的第 0 扇区（MBR），直到找到第一个有效的 MBR 为止。</li>
+   <u>最先运行的程序称为 BIOS（Basic Input/Output System）</u>，其首先进行硬件初始化和 POST（加电开机自检），然后扫描可引导设备（如硬盘），按照用户设定的启动顺序 ，依次尝试每个可引导设备的<u>第 0 扇区（主引导记录，MBR，512 字节）</u>，直到找到第一个有效的 MBR 为止。</li>
 <li><strong>Stage 1 bootloader（第一阶段引导程序）—— Master Boot Record</strong>
-   BIOS 将 MBR（主引导记录，512 字节）加载到内存并执行。MBR 包含分区表和极小的 Stage 1 引导代码，其唯一任务是定位并加载位于磁盘其他位置的 <strong>Stage 2 bootloader</strong>。</li>
+   BIOS 将 MBR 加载到内存并执行。<u>MBR 包含分区表和极小的 Stage 1 引导代码</u>，其唯一任务是定位并加载位于磁盘其他位置的 Stage 2 bootloader（包含操作系统的活动分区）。</li>
 <li><strong>Stage 2 bootloader（第二阶段引导程序）—— LILO、GRUB 等</strong>
-   Stage 2 引导程序（如 GRUB、LILO）被加载到内存。它能识别文件系统，读取配置文件（例如 <code>/boot/grub/grub.cfg</code>），然后加载内核镜像。</li>
+   Stage 2 引导程序（如 GRUB、LILO）被加载到内存。它能识别文件系统，读取配置文件（例如 <code>/boot/grub/grub.cfg</code>），然后<u>加载操作系统内核镜像</u>。</li>
 <li><strong>Kernel（内核）—— Linux</strong>
-   Stage 2 将内核解压并加载到内存，传递启动参数，随后将控制权交给内核。内核初始化硬件、挂载根文件系统。</li>
+   Stage 2 将内核解压并加载到内存，传递启动参数，随后将控制权交给内核。内核初始化硬件、挂载根文件系统。（<u>内核初始化工作</u>）</li>
 <li><strong>Init（初始化进程）—— User-space（用户空间）</strong>
-   内核启动第一个用户态进程（通常是 <code>/sbin/init</code> 或 systemd），进入用户空间，开始运行系统服务、启动图形界面等，最终系统进入可用状态（Operation）。</li>
+   内核启动第一个用户态进程（通常是 <code>/sbin/init</code> 或 systemd，即初始化用户空间），进入用户空间，开始运行系统服务、启动图形界面等，最终系统进入可用状态（Operation）。</li>
 </ol>
-<h2 id="linux">Linux 系统调用</h2>
+<h2 id="linux">Linux 系统调用（⭐）</h2>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260407114233143.png" data-desc-position="bottom"><img alt="image-20260407114233143" src="../images/image-20260407114233143.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260409190149914.png" data-desc-position="bottom"><img alt="image-20260409190149914" src="../images/image-20260409190149914.png"></a></p>
+<details class="abstract">
+<summary>稍微具体一点的，系统调用的执行过程，以 <code>read()</code> 系统函数为例</summary>
 <ol>
 <li>用户程序调用 <code>read()</code>，实际上调用的是 glibc 库提供的包装函数</li>
 <li><code>read()</code> 函数构造相关参数，调用 <code>int 0x80</code> 触发软中断，进入内核态<ol>
 <li>系统调用号存入 <code>%eax</code> 寄存器</li>
-<li>最多6个参数依次存入 <code>%ebx</code>, <code>%ecx</code>, <code>%edx</code>, <code>%esi</code>, <code>%edi</code>, <code>%ebp</code></li>
+<li>最多6个参数依次存入 <code>%ebx</code>, <code>%ecx</code>, <code>%edx</code>, <code>%esi</code>, <code>%edi</code>, <code>%ebp</code>（IA-32）</li>
 <li>此时进行权限检查，要求 CPL ≤ DPL</li>
 </ol>
 </li>
-<li>内核模式中，保存用户态上下文（如 SS, ESP, EFLAGS, CS, EIP）到内核栈，然后 CPU 跳转到中断向量 <code>0x80</code> 对应的 <code>system_call</code> 入口，根据 <code>%eax</code> 中的调用号，在 <code>sys_call_table</code> 中查找对应内核函数并执行</li>
+<li>内核模式中，保存用户态上下文（如 SS, ESP, EFLAGS, CS, EIP）到内核栈，然后 CPU 跳转到中断向量 <code>0x80</code> 对应的 <code>system_call</code> 入口，根据 <code>%eax</code> 中的调用号，在 <code>sys_call_table</code> 中查找对应内核函数并执行（<code>sys_read</code>）</li>
 <li>内核函数完成后，将返回值放入 <code>%eax</code>，执行 <code>iret</code> 恢复用户态上下文，返回用户程序继续执行</li>
 </ol>
+</details>
+<p>简单来说就是：</p>
+<ul>
+<li>执行到相关用户语句<ul>
+<li>转入库函数执行</li>
+<li>库函数调用系统调用封装函数<ul>
+<li>封装函数将参数送入指定寄存器，自陷指令进入内核态<ul>
+<li>调用 <code>system_call</code>，该函数根据系统调用号转到系统调用服务例程</li>
+<li><code>system_call</code> 运行结束后将返回值放在 <code>%eax</code> 后，<code>iret</code> 逐步返回</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <hr>
-<p>注意到 <code>read()</code> 函数由 glibc 提供了一层封装，库函数的优点在于增强程序可移植性。对于不同的操作系统，库函数进行差异化的处理，并提供统一的上层接口，安全稳定，还增强了可读性</p>
-<p>当然，如果要提高执行效率，直接进行针对当前操作系统的系统调用也是可以的</p>
+<p>库函数的优点包括：</p>
+<ul>
+<li>增强可移植性（对不同操作系统的接口与实现机型差异化封装，提供统一编程接口）</li>
+<li>提高安全性稳定性（在系统调用前可以做额外检查）</li>
+<li>可读性更高</li>
+</ul>
+<p>直接进行系统调用的优点包括：</p>
+<ul>
+<li>提高程序的执行效率（减少函数调用的开销）</li>
+</ul>
 <h2 id="_4">操作系统分类</h2>
 <p>操作系统按照功能与使用方式分为三类：</p>
 <ul>
+<li>批处理操作系统：将一批作业集中输入，由系统自动依次处理，运行期间用户无法干预。主要用于早期大型计算机，特点是吞吐量大、资源利用率高，但无交互性（脱机工作）</li>
 <li>
-<p>批处理操作系统：将一批作业集中输入，由系统自动依次处理，运行期间用户无法干预。主要用于早期大型计算机，特点是吞吐量大、资源利用率高，但无交互性（脱机工作）</p>
+<p>分时操作系统：将 CPU 时间划分为很短的时间片，轮流分配给多个用户的任务，使每个用户都能通过终端与系统交互。特点是：</p>
+<ul>
+<li>同时性（多个用户同时工作）【系统资源分配】</li>
+<li>独立性（每个用户相对独立）【系统隔离保护】</li>
+<li>及时性（快速响应用户的请求）【系统调度策略】<ul>
+<li>交互性（最终实现联机工作，像对话一样工作）【用户工作模式】</li>
+</ul>
 </li>
-<li>
-<p>分时操作系统：将 CPU 时间划分为很短的时间片，轮流分配给多个用户的任务，使每个用户都能通过终端与系统交互。特点是同时性、独立性、及时性、交互性（联机工作）</p>
+</ul>
+<p>其核心机制是时钟中断 + 时间片轮转</p>
 </li>
 <li>
 <p>实时操作系统：必须在一个事先定义好的时间限制内，对外部或内部的事件进行响应和处理。特点是高可靠性和确定性，强调及时响应而非高吞吐量。</p>
 </li>
 </ul>
 <p>如果按照运行的硬件平台分类，常见的操作系统都是微机操作系统，此外还有并行操作系统（如 MACH），嵌入式操作系统，网络操作系统（如 Unix，Windows NT），分布式操作系统</p>
-<h2 id="cpu">多道批处理系统 CPU 利用率计算</h2>
+<h2 id="cpu">多道批处理系统 CPU 利用率计算（⭐）</h2>
 <p>假如一道程序在任意时刻，要么在使用 CPU 计算，要么在等待 I/O 操作完成，其中等待 I/O 操作的时间占其运行时间的比例为 <span class="arithmatex">\(p\)</span></p>
-<p>当内存中有 <span class="arithmatex">\(n\)</span> 道程序时，所有程序都等待 I/O 的概率是 <span class="arithmatex">\(p^n\)</span>（即 CPU 空闲），那么 CPU 利用率 <span class="arithmatex">\(=1-p^n\)</span></p>
+<p><strong>当内存中有 <span class="arithmatex">\(n\)</span> 道程序时，所有程序都等待 I/O 的概率是 <span class="arithmatex">\(p^n\)</span>（即 CPU 空闲），那么 CPU 利用率 <span class="arithmatex">\(=1-p^n\)</span></strong></p>
 <p>这就是为什么对于早期的多道批处理系统，多道程序能提高 CPU 利用率</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

@@ -11,7 +11,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5630,14 +5630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6948,11 +6948,11 @@
 <p>这就是 Floyd 算法的核心逻辑，可以在 <span class="arithmatex">\(O(V^3)\)</span> 的时间内得到全源最短路径，对应的空间复杂度 <span class="arithmatex">\(O(V^2)\)</span>。但是注意到：Floyd 算法在遇到负环（环的权重和为负）时，其会不断在循环中降低权值，而不会主动发现负权环（相比之下，一些其他算法可以发现负权环的存在）</p>
 <p>附 Luogu 模板题：<a href="https://www.luogu.com.cn/problem/B3647">B3647 【模板】Floyd - 洛谷</a></p>
 <h3 id="floyd_1">Floyd 变种</h3>
-<p>如果一个全源问题可以被表达为 
-$$
+<p>如果一个全源问题可以被表达为 </p>
+<div class="arithmatex">\[
 f[x][y] = f[x][y]\odot(f[x][k] \oplus f[k][y])
-$$
-并且具有最优子结构的性质，就可以用 Floyd 的方式解决</p>
+\]</div>
+<p>并且具有最优子结构的性质，就可以用 Floyd 的方式解决</p>
 <p>这里另外提一句：DAG 的最长路径问题不能用这种方式解决</p>
 <h4 id="_3">传递闭包</h4>
 <p>对于 a-&gt;b &amp;&amp; b-&gt;c，我们容易根据传递性得到 a-&gt;c</p>

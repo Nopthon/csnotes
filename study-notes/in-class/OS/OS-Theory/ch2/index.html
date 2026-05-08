@@ -9,13 +9,13 @@
         <link rel="prev" href="../ch1/">
       
       
-        <link rel="next" href="../../OS-Labs/lab1/">
+        <link rel="next" href="../ch3/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -846,16 +846,38 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中断
+        中断（⭐）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="中断">
+    <nav class="md-nav" aria-label="中断（⭐）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         多中断处理
@@ -865,8 +887,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快中断与慢中断
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 中断处理
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程（⭐）
+      
+    </span>
+  </a>
   
 </li>
       
@@ -886,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch3.md" class="md-nav__link">
+      <a href="../ch3/" class="md-nav__link">
         
   
   
@@ -914,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch4.md" class="md-nav__link">
+      <a href="../ch4/" class="md-nav__link">
         
   
   
@@ -942,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch5.md" class="md-nav__link">
+      <a href="../ch5/" class="md-nav__link">
         
   
   
@@ -970,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch6.md" class="md-nav__link">
+      <a href="../ch6/" class="md-nav__link">
         
   
   
@@ -5761,14 +5816,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6892,16 +6947,38 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        中断
+        中断（⭐）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="中断">
+    <nav class="md-nav" aria-label="中断（⭐）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         多中断处理
@@ -6911,8 +6988,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快中断与慢中断
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 中断处理
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程（⭐）
+      
+    </span>
+  </a>
   
 </li>
       
@@ -7044,131 +7154,11 @@
 
 
 <h1 id="ch2">Ch2. 处理器管理</h1>
-<blockquote>
-<p>考虑到与《计算机系统基础》的内容重合性，一部分内容就不写了</p>
-</blockquote>
 <h2 id="_1">程序状态字</h2>
 <p>操作系统将程序运行时的动态信息汇集在一起，称之为程序状态字（Program Status Word, PSW），通常存放在处理器中的特殊寄存器中</p>
 <h3 id="_2">纯硬件视角</h3>
 <p>先从更熟悉的（但不严谨的）硬件角度来解释：以 Intel x86 机器为例，PSW 的硬件实现为状态标志寄存器 EFLAGS 与指令指针寄存器 EIP 的组合，并将 EFLAGS 的低 16 位称为 FLAGS。EIP 就不需要解释了，其存储下一条将要执行的指令在内存中的地址</p>
-<p>EFLAGS 分为三个部分：</p>
-<ul>
-<li>状态标志位</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">位</th>
-<th style="text-align: left;">标志名</th>
-<th style="text-align: left;">含义</th>
-<th style="text-align: left;">何时为 1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>0</strong></td>
-<td style="text-align: left;"><strong>CF</strong></td>
-<td style="text-align: left;">进位标志</td>
-<td style="text-align: left;">无符号整数运算产生进位或借位时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>2</strong></td>
-<td style="text-align: left;"><strong>PF</strong></td>
-<td style="text-align: left;">奇偶标志</td>
-<td style="text-align: left;">结果的最低有效字节中，1 的个数为偶数时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>4</strong></td>
-<td style="text-align: left;"><strong>AF</strong></td>
-<td style="text-align: left;">辅助进位标志</td>
-<td style="text-align: left;">低字节向高字节进位/借位时（用于 BCD 码运算）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>6</strong></td>
-<td style="text-align: left;"><strong>ZF</strong></td>
-<td style="text-align: left;">零标志</td>
-<td style="text-align: left;">运算结果为 0 时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>7</strong></td>
-<td style="text-align: left;"><strong>SF</strong></td>
-<td style="text-align: left;">符号标志</td>
-<td style="text-align: left;">运算结果为负数（符号位为 1）时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>11</strong></td>
-<td style="text-align: left;"><strong>OF</strong></td>
-<td style="text-align: left;">溢出标志</td>
-<td style="text-align: left;">有符号整数运算结果超出范围时</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>控制标志位</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">位</th>
-<th style="text-align: left;">标志名</th>
-<th style="text-align: left;">含义</th>
-<th>何时为 1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>9</strong></td>
-<td style="text-align: left;"><strong>IF</strong></td>
-<td style="text-align: left;">中断允许标志</td>
-<td>允许响应外部中断时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>8</strong></td>
-<td style="text-align: left;"><strong>TF</strong></td>
-<td style="text-align: left;">陷阱标志</td>
-<td>进入单步调试模式时</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>10</strong></td>
-<td style="text-align: left;"><strong>DF</strong></td>
-<td style="text-align: left;">方向标志</td>
-<td>字符串操作时，当地址递减时</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>系统标志位</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">位</th>
-<th style="text-align: left;">标志名</th>
-<th style="text-align: left;">含义</th>
-<th style="text-align: left;">作用描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>12-13</strong></td>
-<td style="text-align: left;"><strong>IOPL</strong></td>
-<td style="text-align: left;">I/O 特权级 (I/O Privilege Level)</td>
-<td style="text-align: left;">一个 2 位的字段，用于指定允许执行 I/O 指令（如 <code>IN</code>, <code>OUT</code>）所需的最小特权级。只有当前特权级 (CPL) <strong>≤</strong> IOPL 时，程序才能访问 I/O 端口</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>14</strong></td>
-<td style="text-align: left;"><strong>NT</strong></td>
-<td style="text-align: left;">嵌套任务标志</td>
-<td style="text-align: left;">当前任务嵌套于另一个任务中时设为 1。用于在任务切换时，通过 <code>IRET</code> 指令正确地返回到之前的任务（即前一个任务的 TSS）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>16</strong></td>
-<td style="text-align: left;"><strong>RF</strong></td>
-<td style="text-align: left;">恢复标志</td>
-<td style="text-align: left;">用于调试异常（如指令断点）。当 RF 为 1 时，CPU 会在执行下一条指令时忽略调试故障，防止同一个断点被反复触发</td>
-</tr>
-</tbody>
-</table>
+<p>EFLAGS 内容略，去看《计算机系统基础》</p>
 <h3 id="_3">操作系统视角</h3>
 <p>PSW 通常包含这些信息：</p>
 <ul>
@@ -7179,21 +7169,131 @@
 <li>以及一些其他的奇奇怪怪的信息，大多数的硬件实现都是标志寄存器</li>
 </ul>
 <p>多数计算机的处理器现场可能找不到一个具体的 PSW 寄存器，但是总会有一组控制寄存器和状态寄存器起实际的作用</p>
-<h2 id="_4">中断</h2>
+<h2 id="_4">中断（⭐）</h2>
 <blockquote>
-<p>ICS 课程中，异常和中断是区分开的；而这门课程中，两者统称为中断，其中异常称之为内中断（缺页、地址越界、除零等），与之相对的（更狭义的中断）称为外中断</p>
+<p>《计算机系统基础》课程中，异常和中断是区分开的；而这门课程中，两者统称为中断，其中异常称之为内中断，与之相对的（更狭义的中断）称为外中断</p>
 </blockquote>
 <p>中断的定义就略过了</p>
+<h3 id="_5">分类</h3>
+<ul>
+<li>外部中断（时钟中断，I/O 中断，电源故障中断）<ul>
+<li>都是和外部设备相关的</li>
+</ul>
+</li>
+<li>
+<p>内部中断 / 异常（缺页、地址越界、除零）</p>
+<ul>
+<li>内部问题</li>
+</ul>
+</li>
+<li>
+<p>主动性中断（系统调用，执行访管指令）</p>
+<ul>
+<li>“系统调用”是功能接口（逻辑概念），“访管指令”是实现这个接口的硬件机制（物理指令）</li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">过程</h3>
 <p>迄今为止，所有计算机系统都采用硬件中断处理器+软件中断处理程序，分为四个步骤：</p>
 <ul>
 <li>硬件发现中断源</li>
 <li>硬件保护现场</li>
-<li>软件执行处理程序</li>
+<li>软件执行处理程序（进一步保护现场，执行处理代码，可能涉及调度，最后恢复一部分现场）</li>
 <li>硬件恢复现场</li>
 </ul>
-<h3 id="_5">多中断处理</h3>
-<p>同时有多个中断事件发生时，中断装置按一定顺序对其作出响应，其先后顺序即优先级</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<h3 id="_7">多中断处理</h3>
+<p>同时有多个中断事件发生时，中断装置按一定顺序对其作出响应。我们给出多个中断的处理逻辑：</p>
+<p>首先，需要满足一个基本原则：</p>
+<ul>
+<li>在响应高优先级的中断响应过程中，屏蔽低优先级的中断<ul>
+<li>一个典型顺序是：机器故障中断 &gt; 程序性中断 &gt; 时钟中断 &gt; 高速设备中断 &gt; 低速设备中断</li>
+<li>特例：“自愿访管中断”这种优先级低，但是不可被屏蔽的中断，CPU 会始终优先处理</li>
+</ul>
+</li>
+</ul>
+<p>据此，<u>针对不同的具体场景</u>，操作系统会采取不同策略：</p>
+<ul>
+<li>串行处理（关中断）：即在当前中断处理程序尚未执行完毕时，屏蔽绝大多数中断</li>
+<li>嵌套处理（开中断）：即在当前中断处理程序尚未执行完毕时，允许（更高优先级）中断打断过程，保存现场后嵌套执行新的中断</li>
+<li>即时处理：主要针对中断处理程序执行过程中发生的程序性中断，这意味着中断处理程序本身很可能有 Bug，或者需要额外服务调用</li>
+</ul>
+<h3 id="_8">快中断与慢中断</h3>
+<p>由操作系统开发者根据中断处理程序的执行时间和响应要求进行的软件层面的中断划分</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">对比维度</th>
+<th style="text-align: left;">快中断</th>
+<th style="text-align: left;">慢中断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">寄存器保存范围</td>
+<td style="text-align: left;">仅保存会被内核使用的寄存器</td>
+<td style="text-align: left;">保存所有寄存器的值</td>
+</tr>
+<tr>
+<td style="text-align: left;">中断处理</td>
+<td style="text-align: left;">串行处理</td>
+<td style="text-align: left;">嵌套处理</td>
+</tr>
+<tr>
+<td style="text-align: left;">返回行为</td>
+<td style="text-align: left;">通常返回被中断的进程继续执行</td>
+<td style="text-align: left;">通常不直接返回，而是转而执行调度程序（可能切换进程）</td>
+</tr>
+</tbody>
+</table>
+<p>时钟中断，键鼠外设中断，电源故障中断一般是快中断</p>
+<p>硬盘中断，串口中断一般是慢中断</p>
+<p>网卡中断可能分过程被拆分为上半部的快中断和下半部的慢中断</p>
+<h3 id="linux">Linux 中断处理</h3>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260508222531465.png" data-desc-position="bottom"><img alt="image-20260508222531465" src="../images/image-20260508222531465.png"></a></p>
+<details class="abstract">
+<summary>给一个 DeepSeek 的简述</summary>
+<p>按照图表从上到下的顺序，可以从以下三个核心阶段来详细讲解 Linux 中断处理过程：</p>
+<ol>
+<li>中断的入口与分流（图表左半部分）</li>
+</ol>
+<p>当 CPU 处于 <strong>用户态</strong> 运行时，硬件产生中断，CPU 会立即陷入 <strong>内核态</strong>。根据中断类型的紧急程度，流程被分为了两支：</p>
+<ul>
+<li><strong>快中断（左路）：</strong> 这种中断处理要求极快的响应速度。内核<strong>仅保存部分寄存器</strong>，立即执行“快中断处理”以最快速度回应硬件。完成后直接恢复部分寄存器，准备返回。</li>
+<li><strong>慢中断/常规中断（中路）：</strong> 这是绝大多数外设（如网卡、硬盘）中断的处理方式。</li>
+<li><strong>保存全部寄存器</strong>：因为这里要做比较复杂的工作，必须完整保存当前进程的上下文。</li>
+<li><strong>上半部分处理</strong>：直接封锁当前中断，快速完成非常必要、与硬件紧密相关的操作（比如确认中断、清除中断标志、拷贝数据到内存等）。</li>
+<li>
+<p><strong>排队下半部分</strong>：将耗时的、不紧急的工作（比如数据包协议栈处理）挂载到“下半部分”队列中，<strong>以便尽快释放 CPU 资源</strong>，让系统能响应新的中断。处理完后，进入统一的“从中断返回”。</p>
+</li>
+<li>
+<p>异常/系统调用的路径（图表右半部分）</p>
+</li>
+</ul>
+<p>除了硬件中断，图中右侧的 <strong>异常</strong> 路径（包含<strong>系统调用</strong>）也会触发内核态操作。这与中断一样，系统调用处理完成后，会从“系统调用返回” (<code>ret_from_sys_call()</code>) 开始退出内核。</p>
+<ol>
+<li>通用的“返回用户态”处理路径（图表下半部分）</li>
+</ol>
+<p>这是整张图最精彩、最精华的部分。无论是从<strong>中断</strong>返回 (<code>ret_from_intr</code>) 还是从<strong>系统调用</strong>返回 (<code>ret_from_sys_call</code>) ，内核都<strong>不会立即返回用户态</strong>，而是<strong>切换到一个统一的内核“大扫除”和调度流程</strong>：</p>
+<ul>
+<li><strong>调度下半部分 (<code>do_softirq()</code>)：</strong> 处理之前“慢中断”排队下来的下半部分任务（软中断/SoftIRQ/Tasklet等）。</li>
+<li><strong>处理积累的信号 (<code>do_signal()</code>)：</strong> 检查当前进程是否收到了信号（例如 <code>kill -9</code> 或用户按了 Ctrl+C），进行信号分发和处理。</li>
+<li><strong>检查调度标志和进程切换 (<code>check TIF_NEED_RESCHED</code> -&gt; <code>schedule()</code>)：</strong></li>
+<li><strong>TIF_NEED_RESCHED</strong> 是一个标志位。当定时器中断发现当前进程时间片用完，或者其他高优先级进程被唤醒时，就会设置这个标志。</li>
+<li>
+<p>一旦这个标志被设置，内核就会调用 <strong><code>schedule()</code></strong>函数。这里将<strong>真正发生进程切换</strong>：当前进程被挂起，CPU 会执行另一个被选中的进程。</p>
+</li>
+<li>
+<p>返回用户态（图表最底部）</p>
+</li>
+</ul>
+<p>当 <code>schedule()</code> 返回，或者不需要调度时，CPU 才会最终带着上下文，返回到用户态，恢复<strong>调度被中断进程或新进程运行</strong>。</p>
+<hr>
+<p>💡 总结（核心理解）：</p>
+<p>这张图揭示了 Linux 高性能中断处理的秘诀：<strong>“先快速处理硬件，再慢慢处理软件；返回到用户态之前，顺便把调度和信号处理干了。”</strong>
+它通过“上半部分+下半部分”的分离机制，保证了系统可以瞬间响应密集的硬件中断，同时把慢速的数据处理留到软中断中完成，最后在返回用户态的路口统一检查是否需要切换进程，极大地提升了系统的并发能力和响应速度。</p>
+</details>
+<h2 id="_9">进程（⭐）</h2>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

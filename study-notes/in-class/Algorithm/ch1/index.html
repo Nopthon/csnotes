@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5742,14 +5742,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7068,11 +7068,11 @@ return a
 <p>Asymptotic Analysis (渐进分析) focus on growth of running-time as a function, not any particular value (programming language, computer speed, ...).</p>
 <details class="success" open="open">
 <summary>Definition: Asymptotically Positive Function (渐近正函数)</summary>
-<p><span class="arithmatex">\(f : \mathbb{N}\to \R\)</span>, if:
-$$
+<p><span class="arithmatex">\(f : \mathbb{N}\to \R\)</span>, if:</p>
+<div class="arithmatex">\[
 \exists n_{0} &gt; 0, \forall n &gt; n_{0}, f(n) &gt; 0
-$$
-then we call <span class="arithmatex">\(f\)</span> an asymptotically positive function, which means this function is always positive when n is big enough.</p>
+\]</div>
+<p>then we call <span class="arithmatex">\(f\)</span> an asymptotically positive function, which means this function is always positive when n is big enough.</p>
 </details>
 <p><strong>We only consider asymptotically positive functions in definitions of asymptotic notations.</strong></p>
 <hr>
@@ -7143,26 +7143,26 @@ then we call <span class="arithmatex">\(f\)</span> an asymptotically positive fu
 <p><strong>Little-notation use <span class="arithmatex">\(\forall c &gt; 0\)</span>, while Big-notation use <span class="arithmatex">\(\exists c &gt; 0\)</span></strong></p>
 </blockquote>
 <p>As you can see, for a given function, all of its asymptotic notation representations are <strong>not unique</strong>, but the <strong>best practice</strong> is to choose the <strong><u>simplest and tightest</u></strong> representation.</p>
-<p>And we have:
-$$
+<p>And we have:</p>
+<div class="arithmatex">\[
 f(n) = \Theta(g(n)) \quad \text{iff} \quad f(n) = O(g(n)) \ \text{and} \ f(n) = \Omega(g(n))
-$$</p>
+\]</div>
 <hr>
 <p>Sometimes, we use two/more parameters to specify input size.</p>
 <ul>
 <li>Example: for a graph, n = number of vertices, m = number of edges.</li>
 </ul>
-<p>Unlike single-variable O-notation, there is no widely accepted formal definition of multi-variable O-notation.
-$$
+<p>Unlike single-variable O-notation, there is no widely accepted formal definition of multi-variable O-notation.</p>
+<div class="arithmatex">\[
 \lbrace f(n,m) : ∃c,n_0,m_0 &gt; 0, \text{such that } 0 ≤f(n,m) ≤ cg(n,m),∀n ≥ n_0 {\color{red}{\text{ or }}} m ≥ m_0 \rbrace
-$$
-There are pathological cases, where using "or" or "and" matters. However, most of the time in this course, it does not matter.</p>
+\]</div>
+<p>There are pathological cases, where using "or" or "and" matters. However, most of the time in this course, it does not matter.</p>
 <h3 id="common-running-time">Common Running Time</h3>
-<p>Sort the functions from smallest to largest asymptotically:
-$$
+<p>Sort the functions from smallest to largest asymptotically:</p>
+<div class="arithmatex">\[
 \log n, n, \lbrace n \log n, \log(n!) \rbrace, n^2, 2^{n}, e^{n}, n!, n^{n}
-$$
-We can notice an interesting relationship between <span class="arithmatex">\(n \log n\)</span> and <span class="arithmatex">\(\Theta(\log (n!))\)</span>:</p>
+\]</div>
+<p>We can notice an interesting relationship between <span class="arithmatex">\(n \log n\)</span> and <span class="arithmatex">\(\Theta(\log (n!))\)</span>:</p>
 <details class="question" open="open">
 <summary>Prove: <span class="arithmatex">\(n \log n = \Theta(\log (n!))\)</span></summary>
 <p>(If we don't use Stirling Formula)</p>
@@ -7170,26 +7170,26 @@ We can notice an interesting relationship between <span class="arithmatex">\(n \
 <p>Trivially <span class="arithmatex">\(n! = n\cdot (n-1) \cdots 1 \leq n\cdot n \cdots n = n^{n}\)</span></p>
 <p>So <span class="arithmatex">\(n \log n = \log n^{n} \geq \log (n!)\)</span></p>
 <p><strong>Lower bound estimate</strong></p>
-<p>Scale the original expression (using n/2 term):
-$$
+<p>Scale the original expression (using n/2 term):</p>
+<div class="arithmatex">\[
 \log (n!) = \sum_{k=1}^{n} \log k \geq \sum_{k=\lceil n/2 \rceil}^{n} \log k \geq (n - \lceil \dfrac{n}{2} + 1 \rceil ) (\log n - \log 2)
-$$
-i.e.
-$$
+\]</div>
+<p>i.e.</p>
+<div class="arithmatex">\[
 \log (n!) \geq \dfrac{n}{2} (\log n - \log 2)
-$$</p>
+\]</div>
 <p>(Consider the right half of the integers. For each term, use the smallest value
 <span class="arithmatex">\(log(n/2)\)</span> as the height of a rectangle. This rectangle lies entirely under the curve. That's how we scale it.)</p>
 <p>Trivially <span class="arithmatex">\(\dfrac{n}{2} (\log n - \log 2) \geq \dfrac{1}{4} n \log n\)</span> for all <span class="arithmatex">\(n \geq 4\)</span> (equal when <span class="arithmatex">\(n = 4\)</span>)</p>
 <p>So for all <span class="arithmatex">\(n \geq 4\)</span>, <span class="arithmatex">\(\log (n!) \geq c \cdot n \log n\)</span>, where <span class="arithmatex">\(c = \dfrac{1}{4}\)</span></p>
-<p>Therefore, for all <span class="arithmatex">\(n \ge 4\)</span>, we have
-$$
+<p>Therefore, for all <span class="arithmatex">\(n \ge 4\)</span>, we have</p>
+<div class="arithmatex">\[
 \frac{1}{4} \, n \log n \;\le\; \log (n!) \;\le\; n \log n,
-$$
-which proves <span class="arithmatex">\(n \log n = \Theta(\log (n!))\)</span>.</p>
+\]</div>
+<p>which proves <span class="arithmatex">\(n \log n = \Theta(\log (n!))\)</span>.</p>
 <p>Q.E.D.</p>
 </details>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-15"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-15T14:35:32.656998+08:00">2026-04-15</time></span><span data-tippy-content data-tippy-raw="2026-04-15"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-15T21:08:22.890042+08:00">2026-04-15</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

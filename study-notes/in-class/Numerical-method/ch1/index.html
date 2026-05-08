@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5775,14 +5775,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7227,7 +7227,7 @@ f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)\]</div>
 <li>反复计算 <span class="arithmatex">\(x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}\)</span></li>
 <li>如果 <span class="arithmatex">\(\lbrace x_n \rbrace\)</span> 逐渐收敛到某值，收敛值即为近似解</li>
 </ul>
-<p>可以直观地用图像表示这一过程，发现对于 <span class="arithmatex">\(x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}\)</span> 这一步，相当于取 <span class="arithmatex">\(f(x_i)\)</span> 切线交 <span class="arithmatex">\(x\)</span> 轴于 <span class="arithmatex">\(x_{i+1}\)</span> </p>
+<p>可以直观地用图像表示这一过程，发现对于 <span class="arithmatex">\(x_{i+1} = x_i - \dfrac{f(x_i)}{f'(x_i)}\)</span> 这一步，相当于取 <span class="arithmatex">\(f(x_i)\)</span> 切线交 <span class="arithmatex">\(x\)</span> 轴于 <span class="arithmatex">\(x_{i+1}\)</span></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260306150346723.png" data-desc-position="bottom"><img alt="image-20260306150346723" src="../images/image-20260306150346723.png"></a></p>
 <p>牛顿法本质上也是一种不动点迭代的方法，但是其迭代速度快于不动点迭代法：</p>
 <details class="question">
@@ -7260,36 +7260,36 @@ f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)\]</div>
 <p>割线法是局部收敛的</p>
 <h2 id="_6">根的敏感性分析</h2>
 <p>考虑原问题为 <span class="arithmatex">\(f(x) = 0\)</span>，精确根为 <span class="arithmatex">\(r\)</span>；在实际的数值计算时，<span class="arithmatex">\(f\)</span> 存在一定的误差，实际用于计算的函数为 <span class="arithmatex">\(\hat{f}(x) = f(x) + \varepsilon g(x)\)</span>，其中 <span class="arithmatex">\(\varepsilon g(x)\)</span> 是误差函数</p>
-<p>现在需要分析误差函数对根的计算影响，记实际得到的计算根 <span class="arithmatex">\(\hat{r} = r + \Delta r\)</span>，满足
-$$
+<p>现在需要分析误差函数对根的计算影响，记实际得到的计算根 <span class="arithmatex">\(\hat{r} = r + \Delta r\)</span>，满足</p>
+<div class="arithmatex">\[
 f(r + \Delta r) + \varepsilon g(r + \Delta r) = 0
-$$
-考虑两种推导方法：</p>
-<p>1- 将 <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(g\)</span> 进行泰勒展开，得到
-$$
+\]</div>
+<p>考虑两种推导方法：</p>
+<p>1- 将 <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(g\)</span> 进行泰勒展开，得到</p>
+<div class="arithmatex">\[
 f(r) + f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r + O((\Delta r)^2) = 0
-$$</p>
-<p>代入 <span class="arithmatex">\(f(r) = 0\)</span>，忽略 <span class="arithmatex">\(O((\Delta r)^2)\)</span> 高阶项，得到
-$$
+\]</div>
+<p>代入 <span class="arithmatex">\(f(r) = 0\)</span>，忽略 <span class="arithmatex">\(O((\Delta r)^2)\)</span> 高阶项，得到</p>
+<div class="arithmatex">\[
 f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r \approx 0
-$$
-当 <span class="arithmatex">\(\varepsilon\)</span> 很小，使得 <span class="arithmatex">\(\varepsilon g'(r)\)</span> 相对 <span class="arithmatex">\(f'(r)\)</span> 可以被忽略时，有
-$$
+\]</div>
+<p>当 <span class="arithmatex">\(\varepsilon\)</span> 很小，使得 <span class="arithmatex">\(\varepsilon g'(r)\)</span> 相对 <span class="arithmatex">\(f'(r)\)</span> 可以被忽略时，有</p>
+<div class="arithmatex">\[
 \Delta r \approx - \varepsilon \dfrac{g(r)}{f'(r)}
-$$
-将其记为根对函数误差的敏感度，发现 <span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得 <span class="arithmatex">\(\Delta r\)</span> 可能很大</p>
+\]</div>
+<p>将其记为根对函数误差的敏感度，发现 <span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得 <span class="arithmatex">\(\Delta r\)</span> 可能很大</p>
 <p>2- 隐函数求导，考虑 <span class="arithmatex">\(f(x(\varepsilon)) + \varepsilon g(x(\varepsilon)) = 0\)</span>，其中 <span class="arithmatex">\(x(\varepsilon)\)</span> 是依赖于 <span class="arithmatex">\(\varepsilon\)</span> 的根</p>
 <p>当 <span class="arithmatex">\(\varepsilon = 0\)</span> 时，方程退化为 <span class="arithmatex">\(f(x(0)) = 0\)</span>，因此记 <span class="arithmatex">\(x(0) = x^{\ast}\)</span>，得到 <span class="arithmatex">\(f(x^{\ast}) = 0\)</span></p>
 <p>我们假定 <span class="arithmatex">\(f'(x^{\ast}) \ne 0\)</span>，在 <span class="arithmatex">\(x^{\ast}\)</span> 附近的根唯一且光滑依赖于 <span class="arithmatex">\(\varepsilon\)</span></p>
-<p>将整个方程对 <span class="arithmatex">\(\varepsilon\)</span> 求导，之后代入 <span class="arithmatex">\(\varepsilon = 0\)</span> 得到：
-$$
+<p>将整个方程对 <span class="arithmatex">\(\varepsilon\)</span> 求导，之后代入 <span class="arithmatex">\(\varepsilon = 0\)</span> 得到：</p>
+<div class="arithmatex">\[
 f'(x^{\ast}) \cdot x'(0) + g(x^{\ast}) =0
-$$
-移项得到
-$$
+\]</div>
+<p>移项得到</p>
+<div class="arithmatex">\[
 x'(0) = \dfrac{\mathrm{d}x}{\mathrm{d}\varepsilon}\biggr| _{\varepsilon=0} = -\dfrac{g(x^{\ast})}{f'(x^{\ast})}
-$$
-这和第一种方法得到的结果是一样的：<span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得误差可能很大</p>
+\]</div>
+<p>这和第一种方法得到的结果是一样的：<span class="arithmatex">\(f'(r)\)</span> 越小，根对误差更加敏感，使得误差可能很大</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
 
 

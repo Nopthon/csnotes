@@ -11,7 +11,7 @@
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5630,14 +5630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6933,7 +6933,7 @@
 <p>直接插入排序是<strong>稳定</strong>的，这是因为插入过程在搜索插入位置时停止在相同元素的右侧</p>
 <p>考虑<strong>最坏</strong>情形，原数组完全逆序时，每次插入操作都需要对前面所有的元素进行比较，每次插入到最左端，此时有</p>
 <div class="arithmatex">\[
-KCN = \sum _{i=1}^{n-1} i = \dfrac{n(n-1)}{2} \\\\
+KCN = \sum _{i=1}^{n-1} i = \dfrac{n(n-1)}{2} \newline
 RMN = \sum _{i=1}^{n-1} (i+2) = \dfrac{(n+4)(n-1)}{2}
 \]</div>
 <blockquote>
@@ -6999,11 +6999,11 @@ RMN = \sum _{i=1}^{n-1} (i+2) = \dfrac{(n+4)(n-1)}{2}
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>此时 KCN 与待排序元素序列的初始值排列无关，仅依赖于元素个数，有：
-$$
+<p>此时 KCN 与待排序元素序列的初始值排列无关，仅依赖于元素个数，有：</p>
+<div class="arithmatex">\[
 KCN = \sum_{i=1}^{n-1} \left(\lfloor  \log_2 i \rfloor + 1 \right) = O (n \log_2 n)
-$$
-RMN 和直接插入排序一样，最坏情况下依旧为 <span class="arithmatex">\(RMN = \sum _{i=1}^{n-1} (i+2)\)</span> </p>
+\]</div>
+<p>RMN 和直接插入排序一样，最坏情况下依旧为 <span class="arithmatex">\(RMN = \sum _{i=1}^{n-1} (i+2)\)</span> </p>
 <p>注意折半插入排序的平均时间复杂度依旧是 <span class="arithmatex">\(O(n^2)\)</span>，因为 RMN 没有变化，对 KCN 的优化并没有改变时间复杂度。在<strong>比较操作的开销较大</strong>时，才会带来较为明显的优化 </p>
 <p><br></p>
 <h4 id="_7">希尔排序</h4>
@@ -7088,7 +7088,7 @@ RMN 和直接插入排序一样，最坏情况下依旧为 <span class="arithmat
 <p>冒泡排序是<strong>稳定</strong>的，这是因为交换操作仅在严格逆序下进行</p>
 <p>考虑<strong>最坏</strong>情形，原数组完全逆序时，每次比较操作都需要进行 swap 操作，此时有</p>
 <div class="arithmatex">\[
-KCN = \sum _{i=1}^{n-1} (n-i) = \dfrac{1}{2}n(n-1) \\\\
+KCN = \sum _{i=1}^{n-1} (n-i) = \dfrac{1}{2}n(n-1) \newline
 RMN = 3 \sum _{i=1}^{n-1} (n-i) = \dfrac{3}{2}n(n-1)
 \]</div>
 <blockquote>

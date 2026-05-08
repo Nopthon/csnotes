@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -6008,14 +6008,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7539,69 +7539,69 @@
 <h2 id="_2">微积分</h2>
 <details class="success" open="open">
 <summary>Definition：连续函数</summary>
-<p>函数 $ f : \mathbb{R}^n \to \mathbb{R}^m $ 在 $ x \in \text{dom } f $ 处连续，如果对于所有 $ \epsilon &gt; 0 $，存在一个 $ \delta &gt; 0 $，使得对于任意 $ y \in \text{dom } f $，有
-$$
+<p>函数 $ f : \mathbb{R}^n \to \mathbb{R}^m $ 在 $ x \in \text{dom } f $ 处连续，如果对于所有 $ \epsilon &gt; 0 $，存在一个 $ \delta &gt; 0 $，使得对于任意 $ y \in \text{dom } f $，有</p>
+<div class="arithmatex">\[
 \lVert y - x \rVert_2 \leq \delta \quad \implies \quad \lVert f(y) - f(x) \rVert_2 \leq \epsilon.
-$$
-其中 <span class="arithmatex">\(\lVert \cdot \rVert_{2}\)</span> 被称为欧几里得范数（Euclidean norm），几何上表示“两点间距离”。很快会提到其他范数</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(\lVert \cdot \rVert_{2}\)</span> 被称为欧几里得范数（Euclidean norm），几何上表示“两点间距离”。很快会提到其他范数</p>
 </details>
 <h3 id="_3">一阶概念：梯度与导数</h3>
 <p>如果 <span class="arithmatex">\(f:\mathbb{R} \to \mathbb{R}\)</span>，那么梯度（Gradient）和导数（Derivatives）等价</p>
 <p>如果 <span class="arithmatex">\(f:\mathbb{R}^d \to \mathbb{R}\)</span>，即输入是 <span class="arithmatex">\(d\)</span> 维向量，则定义梯度：</p>
 <details class="success" open="open">
 <summary>Definition：梯度</summary>
-<p>设 $ f : \mathcal{X} \subseteq \mathbb{R}^d \to \mathbb{R} $ 是一个一阶可导函数。令 <span class="arithmatex">\(\mathbf{x} = [x_1, \cdots, x_d]^{\top} \in \mathcal{X}\)</span>。那么，$ f $ 在 $ \mathbf{x} $ 处的梯度是一个 $ \mathbb{R}^d $ 中的<strong>列向量</strong>，记作 $ \nabla f(\mathbf{x}) $，其定义为<br>
-$$
+<p>设 $ f : \mathcal{X} \subseteq \mathbb{R}^d \to \mathbb{R} $ 是一个一阶可导函数。令 <span class="arithmatex">\(\mathbf{x} = [x_1, \cdots, x_d]^{\top} \in \mathcal{X}\)</span>。那么，$ f $ 在 $ \mathbf{x} $ 处的梯度是一个 $ \mathbb{R}^d $ 中的<strong>列向量</strong>，记作 $ \nabla f(\mathbf{x}) $，其定义为</p>
+<div class="arithmatex">\[
 \nabla f(\mathbf{x}) = 
 \begin{bmatrix}
-\frac{\partial f}{\partial x_1}(\mathbf{x}) \\
-\vdots \\
+\frac{\partial f}{\partial x_1}(\mathbf{x}) \newline
+\vdots \newline
 \frac{\partial f}{\partial x_d}(\mathbf{x})
 \end{bmatrix}
-$$</p>
-<p>Example: <span class="arithmatex">\(f(x) = \lVert\mathbf{x}\rVert_{2}^{2} \triangleq \sum_{i=1}^{d} x_{i}^{2}\)</span>，则
-$$
-\nabla f(x) = 
+\]</div>
+<p>Example: <span class="arithmatex">\(f(x) = \lVert\mathbf{x}\rVert_{2}^{2} \triangleq \sum_{i=1}^{d} x_{i}^{2}\)</span>，则</p>
+<div class="arithmatex">\[
+\nabla f(x) =
 \begin{bmatrix}
-2x_{1} \\
-\vdots \\
+2x_{1} \newline
+\vdots \newline
 2x_{n}
 \end{bmatrix}
 = 2\mathbf{x}
-$$</p>
+\]</div>
 </details>
 <p>而导数为梯度的转置（行向量）。这门课关注的是梯度</p>
 <h3 id="hessian">二阶概念：Hessian 矩阵</h3>
 <details class="success" open="open">
 <summary>Definition：Hessian 矩阵</summary>
-<p>设 $ f : \mathcal{X} \subseteq \mathbb{R}^d \to \mathbb{R} $ 是一个二阶可导函数。令 <span class="arithmatex">\(\mathbf{x} = [x_1, \cdots, x_d]^{\top} \in \mathcal{X}\)</span>。那么，$ f $ 在 $ \mathbf{x} $ 处的 Hessian 矩阵是一个 $ \mathbb{R}^{d \times d} $ 中的方阵，记作 $ \nabla ^{2} f(\mathbf{x}) $，其定义为<br>
-$$
+<p>设 $ f : \mathcal{X} \subseteq \mathbb{R}^d \to \mathbb{R} $ 是一个二阶可导函数。令 <span class="arithmatex">\(\mathbf{x} = [x_1, \cdots, x_d]^{\top} \in \mathcal{X}\)</span>。那么，$ f $ 在 $ \mathbf{x} $ 处的 Hessian 矩阵是一个 $ \mathbb{R}^{d \times d} $ 中的方阵，记作 $ \nabla ^{2} f(\mathbf{x}) $，其定义为  </p>
+<div class="arithmatex">\[
 \nabla^{2} f(\mathbf{x}) = 
 \begin{bmatrix}
 \frac{\partial ^{2} f}{\partial x_{i}, x_{j}}(\mathbf{x})
 \end{bmatrix}
 _{1 \le i, j \le d}
-$$</p>
-<p>Example: 信息论中的负熵函数 <span class="arithmatex">\(f(x) = -\sum_{i=1}^{d} x_{i} \ln x_{i},\; x_{i} &gt; 0\)</span>，则
-$$
+\]</div>
+<p>Example: 信息论中的负熵函数 <span class="arithmatex">\(f(x) = -\sum_{i=1}^{d} x_{i} \ln x_{i},\; x_{i} &gt; 0\)</span>，则</p>
+<div class="arithmatex">\[
 \nabla^{2} f(x) = \text{diag} \left( -\dfrac{1}{x_{1}}, \cdots, -\dfrac{1}{x_{d}} \right)
-$$</p>
+\]</div>
 </details>
 <p>对于二阶偏导数连续的函数（称为 <span class="arithmatex">\(C^2\)</span> 函数），得到的 Hessian 矩阵是对称矩阵</p>
 <h3 id="_4">链式法则</h3>
 <details class="success" open="open">
 <summary>Rule：链式法则</summary>
-<p>对于 <span class="arithmatex">\(h(x) = f \circ g (x)\)</span>，有：
-$$
+<p>对于 <span class="arithmatex">\(h(x) = f \circ g (x)\)</span>，有：</p>
+<div class="arithmatex">\[
 \begin{align}
-h'(x) &amp;= f'(g(x)) \cdot g'(x) \\
+h'(x) &amp;= f'(g(x)) \cdot g'(x) \newline
 h''(x) &amp;= f''(g(x)) (g'(x))^{2} + f'(g(x)) g''(x)
 \end{align}
-$$
-对于 <span class="arithmatex">\(n\)</span> 阶可导函数 <span class="arithmatex">\(h_{n}(x) = f_{n} \circ f_{n-1} \circ \cdots \circ f_{1} (x)\)</span>，有：
-$$
+\]</div>
+<p>对于 <span class="arithmatex">\(n\)</span> 阶可导函数 <span class="arithmatex">\(h_{n}(x) = f_{n} \circ f_{n-1} \circ \cdots \circ f_{1} (x)\)</span>，有：</p>
+<div class="arithmatex">\[
 \dfrac{\text{d}h_{n}}{\text{d}x} = \dfrac{\text{d}h_{n}}{\text{d}h_{n-1}} \cdot \dfrac{\text{d}h_{n-1}}{\text{d}h_{n-2}} \cdots \dfrac{\text{d}h_{1}}{\text{d}x}
-$$</p>
+\]</div>
 </details>
 <p>链式法则解释了如何对复合函数求导，在机器学习中的一个应用是实现反向传播算法（Backpropagation）</p>
 <h3 id="the-matrix-cookbook">《The Matrix Cookbook》</h3>
@@ -7662,32 +7662,32 @@ $$</p>
 <p>特征值（Eigenvalue）描述<u>方阵</u>在不变方向上的伸缩系数</p>
 <details class="success" open="open">
 <summary>Definition：特征值</summary>
-<p>对于方阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果存在非零向量 <span class="arithmatex">\(\mathbf{v}\)</span> 和一个标量 <span class="arithmatex">\(\lambda\)</span>，使得：
-$$
+<p>对于方阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果存在非零向量 <span class="arithmatex">\(\mathbf{v}\)</span> 和一个标量 <span class="arithmatex">\(\lambda\)</span>，使得：</p>
+<div class="arithmatex">\[
 A \mathbf{v} = \lambda \mathbf{v}
-$$
-则 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值，<span class="arithmatex">\(\mathbf{v}\)</span> 是对应的特征向量</p>
+\]</div>
+<p>则 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值，<span class="arithmatex">\(\mathbf{v}\)</span> 是对应的特征向量</p>
 </details>
 <p><span class="arithmatex">\(A \mathbf{v} = \lambda \mathbf{v}\)</span> 可以理解为：矩阵对 <span class="arithmatex">\(\mathbf{v}\)</span> 的方向上的作用只改变长度不改变方向，放缩倍数为 <span class="arithmatex">\(\lambda\)</span></p>
 <hr>
 <p>对于非方阵，<span class="arithmatex">\(A \mathbf{v} = \lambda \mathbf{v}\)</span> 在维度上不匹配，因此我们利用正交计算，给出奇异值的定义。奇异值（Singular Value）描述任意矩阵在最佳正交方向上的伸缩系数</p>
 <details class="success" open="open">
 <summary>Definition：奇异值</summary>
-<p>对于矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span>，定义奇异值 <span class="arithmatex">\(\sigma\)</span> 为 <span class="arithmatex">\(A^{T}A\)</span> 的特征值的算术平方根
-$$
+<p>对于矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span>，定义奇异值 <span class="arithmatex">\(\sigma\)</span> 为 <span class="arithmatex">\(A^{T}A\)</span> 的特征值的算术平方根</p>
+<div class="arithmatex">\[
 \sigma_{i} = \sqrt{\lambda_{A^{T}A}}
-$$</p>
+\]</div>
 <p>我们记 <span class="arithmatex">\(A\)</span> 的秩为 <span class="arithmatex">\(r\)</span>，则奇异值通常从大到小排列：<span class="arithmatex">\(\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r \geq 0\)</span></p>
 </details>
 <p><span class="arithmatex">\(A^{T}A\)</span> 一定是半正定矩阵，因此 <span class="arithmatex">\(A^{T}A\)</span> 的特征值一定非负，能够取算术平方根</p>
 <h3 id="_9">正规矩阵</h3>
 <details class="success" open="open">
 <summary>Definition：正规矩阵（Normal Matrix）</summary>
-<p>对于一个矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果满足：
-$$
+<p>对于一个矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果满足：</p>
+<div class="arithmatex">\[
 A^{T}A = AA^{T}
-$$
-则 <span class="arithmatex">\(A\)</span> 是正规矩阵</p>
+\]</div>
+<p>则 <span class="arithmatex">\(A\)</span> 是正规矩阵</p>
 </details>
 <p>实对称矩阵、正交矩阵、对角矩阵、酉矩阵（复数域正交矩阵）都是正规矩阵</p>
 <p>正规矩阵满足特征值的绝对值 = 对应的奇异值</p>
@@ -7696,15 +7696,15 @@ $$
 <p>分为向量内积和矩阵内积，其中对于向量空间下的内积，采用点积的计算方式；对于矩阵空间下的内积，采用”将矩阵拉长为长向量进行点积计算“的处理方式，称为 Frobenius 内积，本质上都是对向量的计算</p>
 <details class="success" open="open">
 <summary>Definition：内积</summary>
-<p>对于向量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^d\)</span>，定义内积运算：
-$$
+<p>对于向量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^d\)</span>，定义内积运算：</p>
+<div class="arithmatex">\[
 \left \langle \mathbf{x}, \mathbf{y} \right \rangle = \mathbf{x}^{T} \mathbf{y} = \sum_{i=1}^{d} x_i y_i
-$$
-另一种写法是 <span class="arithmatex">\(\left \langle \mathbf{x}, \mathbf{y} \right \rangle = \lVert x \rVert \lVert y \rVert \cos \theta\)</span>，其中 <span class="arithmatex">\(\theta\)</span> 是向量角</p>
-<p>对于矩阵 <span class="arithmatex">\(A, B \in \mathbb{R}^{m \times n}\)</span>，定义内积运算：
-$$
+\]</div>
+<p>另一种写法是 <span class="arithmatex">\(\left \langle \mathbf{x}, \mathbf{y} \right \rangle = \lVert x \rVert \lVert y \rVert \cos \theta\)</span>，其中 <span class="arithmatex">\(\theta\)</span> 是向量角</p>
+<p>对于矩阵 <span class="arithmatex">\(A, B \in \mathbb{R}^{m \times n}\)</span>，定义内积运算：</p>
+<div class="arithmatex">\[
 \left \langle A, B \right \rangle = \text{Tr}\left( A^{T}B \right) = \sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij} B_{ij}
-$$</p>
+\]</div>
 </details>
 <p>向量内积反映两个向量的对齐程度：考虑 <span class="arithmatex">\(\left \langle \mathbf{x}, \mathbf{y} \right \rangle = \lVert x \rVert \lVert y \rVert \cos \theta\)</span> 这种写法，内积的大小与向量长度成正比，和 <span class="arithmatex">\(\theta\)</span> 成反比</p>
 <p>同理，Frobenius 内积的计算结果衡量两个矩阵的相似性，常用于矩阵优化和分解问题中</p>
@@ -7712,11 +7712,11 @@ $$</p>
 <p>给定一种内积运算，可以诱导出对应的范数（Norm）计算。给出<u>向量</u>的 <span class="arithmatex">\(p\)</span>-范数的定义：</p>
 <details class="success" open="open">
 <summary>Definition：向量范数</summary>
-<p>对于向量 <span class="arithmatex">\(\mathbf{x}\)</span>，我们定义：
-$$
+<p>对于向量 <span class="arithmatex">\(\mathbf{x}\)</span>，我们定义：</p>
+<div class="arithmatex">\[
 \lVert \mathbf{x} \rVert_{p} = (|x_1|^{p} + |x_2|^{p} + \cdots + |x_d|^{p})^{1/p}
-$$
-为向量的 <span class="arithmatex">\(p\)</span>-范数，其中：</p>
+\]</div>
+<p>为向量的 <span class="arithmatex">\(p\)</span>-范数，其中：</p>
 <ul>
 <li><span class="arithmatex">\(ℓ_1\)</span>-范数 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{1} = |x_1| + |x_2| + \cdots + |x_d|\)</span>，又称之为曼哈顿范数，表示向量各分量绝对值的和</li>
 <li><span class="arithmatex">\(ℓ_2\)</span>-范数 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{2} = \sqrt{x_1^2 + x_2^2 + \cdots + x_d^2}\)</span>，又称之为欧几里得范数，表示向量长度</li>
@@ -7729,19 +7729,19 @@ $$
 <h3 id="_11">对偶范数</h3>
 <details class="success" open="open">
 <summary>Definition：对偶范数（Dual Norm）</summary>
-<p>给定一种 <span class="arithmatex">\(\mathbb{R}^{d}\)</span> 上的向量范数 <span class="arithmatex">\(\lVert \cdot \rVert\)</span>，我们定义对应的对偶范数 <span class="arithmatex">\(\lVert \cdot \rVert_{\ast}\)</span>：
-$$
+<p>给定一种 <span class="arithmatex">\(\mathbb{R}^{d}\)</span> 上的向量范数 <span class="arithmatex">\(\lVert \cdot \rVert\)</span>，我们定义对应的对偶范数 <span class="arithmatex">\(\lVert \cdot \rVert_{\ast}\)</span>：</p>
+<div class="arithmatex">\[
 \lVert \mathbf{y} \rVert_{\ast} = \max_{\lVert \mathbf{x} \rVert \leq 1} \langle \mathbf{y}, \mathbf{x} \rangle \left( a.k.a. \text{ sup} \lbrace \mathbf{y}^{T}\mathbf{x} | \lVert \mathbf{x} \rVert \leq 1\rbrace \right)
-$$</p>
+\]</div>
 </details>
 <p>对偶范数 <span class="arithmatex">\(\lVert \mathbf{y} \rVert_{\ast}\)</span> 的值表示为：向量 <span class="arithmatex">\(\mathbf{y}\)</span> 和所有方向上的单位向量 <span class="arithmatex">\(\mathbf{x}\)</span> 做内积计算 <span class="arithmatex">\(\mathbf{y}^{T}\mathbf{x}\)</span> 时，最大的计算结果</p>
 <details class="success" open="open">
 <summary>Proposition：<span class="arithmatex">\(ℓ_p\text{-norm}\)</span> 的对偶范数 <span class="arithmatex">\(ℓ_q\text{-norm}\)</span> 满足 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span></summary>
-<p>根据 Hölder 不等式，对于任意向量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^{d}\)</span>，指定 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span>，有：
-$$
+<p>根据 Hölder 不等式，对于任意向量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^{d}\)</span>，指定 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span>，有</p>
+<div class="arithmatex">\[
 |\mathbf{y}^{T}\mathbf{x}| \le \lVert \mathbf{x} \rVert_{p} \cdot \lVert \mathbf{y} \rVert_{q}
-$$
-令 <span class="arithmatex">\(x_{i} = \text{sgn}(y_i) \dfrac{|y_i|^{q-1}}{\lVert \mathbf{y} \rVert _{q}^{q-1}}\)</span>，满足 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{p} = 1\)</span>，<span class="arithmatex">\(\mathbf{y}^{T}\mathbf{x} = \lVert \mathbf{y} \rVert_{q}\)</span>，此时不等式取等，上界可以达到</p>
+\]</div>
+<p>令 <span class="arithmatex">\(x_{i} = \text{sgn}(y_i) \dfrac{|y_i|^{q-1}}{\lVert \mathbf{y} \rVert _{q}^{q-1}}\)</span>，满足 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{p} = 1\)</span>，<span class="arithmatex">\(\mathbf{y}^{T}\mathbf{x} = \lVert \mathbf{y} \rVert_{q}\)</span>，此时不等式取等，上界可以达到</p>
 <p>以上：<span class="arithmatex">\(ℓ_p\text{-norm}\)</span> 的对偶范数 <span class="arithmatex">\(ℓ_q\text{-norm}\)</span> 满足 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span></p>
 <p>（注：<span class="arithmatex">\(\text{sgn}(y_{i})\)</span> 符号函数根据 <span class="arithmatex">\(y_{i}\)</span> 的正负性取值 <span class="arithmatex">\(1, -1, 0\)</span>，确保 <span class="arithmatex">\(x_i\)</span> 与 <span class="arithmatex">\(y_i\)</span> 符号一致，内积计算最大化；分母 <span class="arithmatex">\(\lVert \mathbf{y} \rVert _{q}^{q-1}\)</span> 是为了归一化，确保 <span class="arithmatex">\(\lVert \mathbf{x} \rVert_{p} = 1\)</span>）</p>
 </details>
@@ -7749,15 +7749,15 @@ $$
 <h3 id="_12">范数等价性定理</h3>
 <details class="success" open="open">
 <summary>Lemma：在有限维度 <span class="arithmatex">\(\mathbb{R}^d\)</span> 上，有范数等价性定理</summary>
-<p><span class="arithmatex">\(\lVert \cdot \rVert_{a}\)</span> 和 <span class="arithmatex">\(\lVert \cdot \rVert_{b}\)</span> 是 <span class="arithmatex">\(\mathbb{R}^{d}\)</span> 上的两个范数，对于任意 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{d}\)</span>，存在常数 <span class="arithmatex">\(\alpha, \beta\)</span>，使得：
-$$
+<p><span class="arithmatex">\(\lVert \cdot \rVert_{a}\)</span> 和 <span class="arithmatex">\(\lVert \cdot \rVert_{b}\)</span> 是 <span class="arithmatex">\(\mathbb{R}^{d}\)</span> 上的两个范数，对于任意 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{d}\)</span>，存在常数 <span class="arithmatex">\(\alpha, \beta\)</span>，使得：</p>
+<div class="arithmatex">\[
 \alpha \lVert x \rVert_{a} \leq \lVert x \rVert_{b} \leq \beta \lVert x \rVert_{a}
-$$
-<span class="arithmatex">\(\alpha, \beta\)</span> 的值取决于范数的选择，并依赖于具体的维度值 <span class="arithmatex">\(d\)</span>，比如：
-$$
-\dfrac{1}{d} \lVert x \rVert_{1} \leq \lVert x \rVert_{\infty} \leq \lVert x \rVert_{1} \\
+\]</div>
+<p><span class="arithmatex">\(\alpha, \beta\)</span> 的值取决于范数的选择，并依赖于具体的维度值 <span class="arithmatex">\(d\)</span>，比如：</p>
+<div class="arithmatex">\[
+\dfrac{1}{d} \lVert x \rVert_{1} \leq \lVert x \rVert_{\infty} \leq \lVert x \rVert_{1} \newline
 \lVert x \rVert_{\infty} \leq \lVert x \rVert_{2} \leq \sqrt{d} \lVert x \rVert_{\infty}
-$$</p>
+\]</div>
 </details>
 <h3 id="_13">矩阵范数</h3>
 <p>矩阵范数有三种不同的定义</p>
@@ -7765,61 +7765,74 @@ $$</p>
 <p>把矩阵当做一个变换</p>
 <details class="success" open="open">
 <summary>Definition：矩阵算子范数（Matrix Operator Norm）</summary>
-<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵算子范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{op}, p}\)</span>，有：
-$$
-\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}_{p}\rVert}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
-$$</p>
+<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵算子范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{op}, p}\)</span>，有：</p>
+<div class="arithmatex">\[
+\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
+\]</div>
 </details>
 <p>矩阵算子范数衡量矩阵对向量的最大化放大能力，比如：</p>
 <ul>
 <li>列和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
-<li>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></li>
-<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩</li>
+<li>
+<p>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></p>
+</li>
+<li>
+<p>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩</p>
+</li>
 </ul>
 <h4 id="_15">分量范数</h4>
 <p>把矩阵当做一个长向量，其定义基于向量范数</p>
 <details class="success" open="open">
 <summary>Definition：矩阵分量范数（Matrix Entrywise Norm）</summary>
-<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵分量范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{en}, p}\)</span>，有：
-$$
+<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵分量范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{en}, p}\)</span>，有：</p>
+<div class="arithmatex">\[
 \lVert A \rVert_{\text{en}, p} \triangleq \left( \sum_{i=1}^{m} \sum_{j=1}^{n} |A_{ij}^{p}|\right)^{1/p}
-$$</p>
+\]</div>
 </details>
 <p>矩阵分量范数衡量矩阵本身的“大小”，比如：</p>
 <ul>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 1} = \sum_{i=1}^{m} \sum_{j=1}^{n} |A_{ij}|\)</span></li>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, \infty} = \max_{i \in [m]} \max_{j \in [n]}  |A_{ij}|\)</span></li>
-<li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 2} = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij}^{2}}\)</span>，又记为 Frobenius 范数 <span class="arithmatex">\(\lVert A \rVert_{F}\)</span></li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, \infty} = \max_{i \in [m]} \max_{j \in [n]}  |A_{ij}|\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{en}, 2} = \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n} A_{ij}^{2}}\)</span>，又记为 Frobenius 范数 <span class="arithmatex">\(\lVert A \rVert_{F}\)</span></p>
+</li>
 </ul>
 <h4 id="schatten">Schatten 范数</h4>
 <p>基于奇异值的范数定义</p>
 <details class="success" open="open">
 <summary>Definition：矩阵 Schatten 范数（Matrix Schatten Norm）</summary>
-<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，<span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩。记矩阵 Schatten 范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{Sc}, p}\)</span>，有：
-$$
+<p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，<span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩。记矩阵 Schatten 范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{Sc}, p}\)</span>，有：</p>
+<div class="arithmatex">\[
 \lVert A \rVert_{\text{Sc}, p} \triangleq \left( \sum_{i=1}^{r}  \sigma_{i}^{p}\right)^{1/p}
-$$
-特别的，<span class="arithmatex">\(p = \infty\)</span> 时，有 
-$$\lVert A \rVert_{\text{Sc}, \infty} \triangleq \max_{i \in [r]} |\sigma_{i}|
-$$</p>
+\]</div>
+<p>特别的，<span class="arithmatex">\(p = \infty\)</span> 时，有 </p>
+<div class="arithmatex">\[
+\lVert A \rVert_{\text{Sc}, \infty} \triangleq \max_{i \in [r]} |\sigma_{i}|
+\]</div>
 </details>
 <h3 id="_16">特征值分解</h3>
 <details class="success" open="open">
 <summary>Definition：特征值分解（Eigenvalue Decomposition, EVD）</summary>
-<p>对于方阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果能找到一组线性无关的特征向量，那么可以将 <span class="arithmatex">\(A\)</span> 分解为：
-$$
+<p>对于方阵 <span class="arithmatex">\(A \in \mathbb{R}^{d\times d}\)</span>，如果能找到一组线性无关的特征向量，那么可以将 <span class="arithmatex">\(A\)</span> 分解为：</p>
+<div class="arithmatex">\[
 A = Q Λ Q^{-1}
-$$
-其中 <span class="arithmatex">\(Q=(\mathbf{v_1}, \cdots, \mathbf{v_d})\)</span> 是 <span class="arithmatex">\(d\times d\)</span> 的矩阵，其列向量集合为 <span class="arithmatex">\(A\)</span> 的所有特征向量</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(Q=(\mathbf{v_1}, \cdots, \mathbf{v_d})\)</span> 是 <span class="arithmatex">\(d\times d\)</span> 的矩阵，其列向量集合为 <span class="arithmatex">\(A\)</span> 的所有特征向量</p>
 <p><span class="arithmatex">\(Λ=\text{diag} ({\lambda_1}, \cdots, {\lambda_d})\)</span> 是 <span class="arithmatex">\(d\times d\)</span> 的对角矩阵，其对角线元素是 <span class="arithmatex">\(Q\)</span> 对应位置特征向量的特征值</p>
 </details>
 <p>一些常用的方阵运算可以通过特征值进行表达：</p>
 <ul>
-<li><span class="arithmatex">\(A\)</span> 的行列式等于所有特征值的乘积<ul>
+<li>
+<p><span class="arithmatex">\(A\)</span> 的行列式等于所有特征值的乘积</p>
+<ul>
 <li><span class="arithmatex">\(\text{det}(A) = \displaystyle \prod_{i=1}^{d} \lambda_{i}\)</span></li>
 </ul>
 </li>
-<li><span class="arithmatex">\(A\)</span> 的迹（Trace）等于所有特征值的和<ul>
+<li>
+<p><span class="arithmatex">\(A\)</span> 的迹（Trace）等于所有特征值的和</p>
+<ul>
 <li><span class="arithmatex">\(\text{Tr}(A) = \displaystyle \sum_{i=1}^{d} \lambda_{i}\)</span></li>
 </ul>
 </li>
@@ -7827,11 +7840,15 @@ $$
 <li><span class="arithmatex">\(A = \displaystyle \sum_{i=1}^{d} \lambda_{i} v_{i}v_{i}^{T}\)</span></li>
 </ul>
 </li>
-<li>对于正规矩阵 <span class="arithmatex">\(A\)</span>，其谱范数为特征值的最大绝对值（因为正规矩阵的特征值绝对值 = 奇异值）<ul>
+<li>
+<p>对于正规矩阵 <span class="arithmatex">\(A\)</span>，其谱范数为特征值的最大绝对值（因为正规矩阵的特征值绝对值 = 奇异值）</p>
+<ul>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \max_{i \in [r]}|\lambda_{i}|\)</span></li>
 </ul>
 </li>
-<li>对于正规矩阵 <span class="arithmatex">\(A\)</span>，其 Frobenius 范数为所有特征值的平方和的平方根（因为正规矩阵的特征值绝对值 = 奇异值）<ul>
+<li>
+<p>对于正规矩阵 <span class="arithmatex">\(A\)</span>，其 Frobenius 范数为所有特征值的平方和的平方根（因为正规矩阵的特征值绝对值 = 奇异值）</p>
+<ul>
 <li><span class="arithmatex">\(\lVert A \rVert_{F} = \displaystyle \sqrt{\sum_{i=1}^{d} \lambda_{i}^2}\)</span></li>
 </ul>
 </li>
@@ -7839,26 +7856,24 @@ $$
 <h3 id="_17">奇异值分解</h3>
 <details class="success" open="open">
 <summary>Definition：奇异值分解（Singular Decomposition, SVD）</summary>
-<p>对于矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span>，其秩为 <span class="arithmatex">\(r\)</span>，则可以进行如下分解
-$$
+<p>对于矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span>，其秩为 <span class="arithmatex">\(r\)</span>，则可以进行如下分解</p>
+<div class="arithmatex">\[
 A = U \Sigma V^{T}
-$$
-其中 <span class="arithmatex">\(U \in \mathbb{R}^{m \times r}\)</span> 的列向量是 <span class="arithmatex">\(A\)</span> 的左奇异向量</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(U \in \mathbb{R}^{m \times r}\)</span> 的列向量是 <span class="arithmatex">\(A\)</span> 的左奇异向量</p>
 <p><span class="arithmatex">\(V \in \mathbb{R}^{n \times r}\)</span> 的列向量是 <span class="arithmatex">\(A\)</span> 的右奇异向量</p>
 <p><span class="arithmatex">\(U\)</span> 和 <span class="arithmatex">\(V\)</span> 都是正交矩阵（复数域上为酉矩阵）</p>
 <p><span class="arithmatex">\(\Sigma = \text{diag} ({\sigma_1}, \cdots, {\sigma_r})\)</span> 的元素是 <span class="arithmatex">\(A\)</span> 的非负奇异值，通常降序排列</p>
 </details>
 <p>同理我们有比特征值分解更广泛的结论：</p>
 <ul>
-<li><span class="arithmatex">\(A\)</span> 可以表示为奇异值+左右奇异向量的线性组合<ul>
+<li>
+<p><span class="arithmatex">\(A\)</span> 可以表示为奇异值+左右奇异向量的线性组合</p>
+<ul>
 <li><span class="arithmatex">\(A = \displaystyle \sum_{i=1}^{r} \sigma_{i} u_{i}v_{i}^{T}\)</span></li>
-</ul>
-</li>
-<li><span class="arithmatex">\(A\)</span> 的谱范数为奇异值的最大值<ul>
+<li><span class="arithmatex">\(A\)</span> 的谱范数为奇异值的最大值</li>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \max_{i \in [r]}\sigma_{i}\)</span></li>
-</ul>
-</li>
-<li><span class="arithmatex">\(A\)</span> 的 Frobenius 范数为所有奇异值的平方和的平方根<ul>
+<li><span class="arithmatex">\(A\)</span> 的 Frobenius 范数为所有奇异值的平方和的平方根</li>
 <li><span class="arithmatex">\(\lVert A \rVert_{F} = \displaystyle \sqrt{\sum_{i=1}^{r} \sigma_{i}^2}\)</span></li>
 </ul>
 </li>
@@ -7868,27 +7883,27 @@ $$
 <p>集中不等式（Concentration Inequalities）主要解决这样的问题：一个随机变量取值有多大可能性偏离其平均值。集中不等式不同于大数定律、中心极限定理这些大样本量的近似，是对优先样本的精确概率界限</p>
 <details class="success" open="open">
 <summary>Theorem：马尔可夫不等式（Markov's Inequality）</summary>
-<p>对于非负随机变量 <span class="arithmatex">\(X\)</span> 和任意 <span class="arithmatex">\(t &gt; 0\)</span>，如果 <span class="arithmatex">\(E(X) &lt; \infty\)</span>，则有：
-$$
+<p>对于非负随机变量 <span class="arithmatex">\(X\)</span> 和任意 <span class="arithmatex">\(t &gt; 0\)</span>，如果 <span class="arithmatex">\(E(X) &lt; \infty\)</span>，则有：</p>
+<div class="arithmatex">\[
 P(X \geq t) \leq \dfrac{E(X)}{t}
-$$
-或者令 <span class="arithmatex">\(t := tE(x)\)</span> 换个写法也可以</p>
+\]</div>
+<p>或者令 <span class="arithmatex">\(t := tE(x)\)</span> 换个写法也可以</p>
 </details>
 <p>一个非负随机变量取很大的值的概率，不会超过其均值除以这个很大的值的概率</p>
 <details class="success" open="open">
 <summary>Theorem：切比雪夫不等式（Chebyshev's Inequality）</summary>
-<p>对于随机变量 <span class="arithmatex">\(X\)</span> 和任意 <span class="arithmatex">\(t &gt; 0\)</span>，如果 <span class="arithmatex">\(E(X), D(X) &lt; \infty\)</span>，则有：
-$$
+<p>对于随机变量 <span class="arithmatex">\(X\)</span> 和任意 <span class="arithmatex">\(t &gt; 0\)</span>，如果 <span class="arithmatex">\(E(X), D(X) &lt; \infty\)</span>，则有：</p>
+<div class="arithmatex">\[
 P(X - E(X)\geq t) \leq \dfrac{D(X)}{t^2}
-$$</p>
+\]</div>
 </details>
 <p>随机变量偏离均值的概率受其方差的控制</p>
 <details class="success" open="open">
 <summary>Theorem：霍夫丁不等式（Hoeffding's Inequality）</summary>
-<p>对于独立同分布（i.i.d.）随机变量 <span class="arithmatex">\(X_{1}, \cdots, X_{n}\)</span>，并且每个 <span class="arithmatex">\(X_{i}\)</span> 都有各自的上下界 <span class="arithmatex">\([a_i, b_i]\)</span>，则令 <span class="arithmatex">\(S = \sum X_{i}\)</span>，对任意 <span class="arithmatex">\(t &gt; 0\)</span> 有：
-$$
+<p>对于独立同分布（i.i.d.）随机变量 <span class="arithmatex">\(X_{1}, \cdots, X_{n}\)</span>，并且每个 <span class="arithmatex">\(X_{i}\)</span> 都有各自的上下界 <span class="arithmatex">\([a_i, b_i]\)</span>，则令 <span class="arithmatex">\(S = \sum X_{i}\)</span>，对任意 <span class="arithmatex">\(t &gt; 0\)</span> 有：</p>
+<div class="arithmatex">\[
 P(|S - E(S)| \geq t) \leq 2 \cdot \text{exp} \left( -\dfrac{2t^2}{\sum_{i=1}^{n} (b_i-a_{i})^{2}} \right)
-$$</p>
+\]</div>
 </details>
 <p>独立同分布有界随机变量的和，其偏离均值的概率以 <span class="arithmatex">\(e^{-ct^2}\)</span> 的速度快速衰减</p>
 <h2 id="_20">信息论</h2>
@@ -7896,10 +7911,10 @@ $$</p>
 <p>熵（Entropy）度量“不确定性”，给出定义：</p>
 <details class="success" open="open">
 <summary>Definition：熵</summary>
-<p>对于离散随机变量 <span class="arithmatex">\(X\)</span>，概率质量函数 <span class="arithmatex">\(p(x) = P(X = x)\)</span>，其熵值 <span class="arithmatex">\(H(X)\)</span> 为：
-$$
+<p>对于离散随机变量 <span class="arithmatex">\(X\)</span>，概率质量函数 <span class="arithmatex">\(p(x) = P(X = x)\)</span>，其熵值 <span class="arithmatex">\(H(X)\)</span> 为：</p>
+<div class="arithmatex">\[
 H(X) = - \sum _{x\in X} p(x) \log(p(x))
-$$</p>
+\]</div>
 <p>通常 <span class="arithmatex">\(\log\)</span> 指代 <span class="arithmatex">\(\log_2\)</span>，因为信息量的单位为 bit</p>
 </details>
 <p>这个式子指出：如果一个事件发生的概率为 <span class="arithmatex">\(p(x)\)</span>，那么编码该事件的最优长度大约为 <span class="arithmatex">\(\log_2{\dfrac{1}{p(x)}}\)</span> bit，也就是式中的 <span class="arithmatex">\(- \log_{2} p(x)\)</span>。累加后，熵 <span class="arithmatex">\(H(X)\)</span> 表示了编码随机变量 <span class="arithmatex">\(X\)</span> 期望的最小 bit 数</p>
@@ -7908,11 +7923,11 @@ $$</p>
 <p>KL 散度（Kullback-Leibler Divergence），也叫做相对熵（Relative Entropy），衡量了两个概率分布之间的差异</p>
 <details class="success" open="open">
 <summary>Definition：KL 散度</summary>
-<p>对于两种分布 <span class="arithmatex">\(p, q\)</span>，记所有可能事件的集合为 <span class="arithmatex">\(X\)</span>，有
-$$
+<p>对于两种分布 <span class="arithmatex">\(p, q\)</span>，记所有可能事件的集合为 <span class="arithmatex">\(X\)</span>，有</p>
+<div class="arithmatex">\[
 KL(p || q) = \sum_{x\in X} p(x) \log\left( \dfrac{p(x)}{q(x)} \right)
-$$
-特别的，我们定义 <span class="arithmatex">\(0 \log 0 = 0 \log \dfrac{0}{0} = 0\)</span>，当 <span class="arithmatex">\(a&gt;0\)</span> 时有 <span class="arithmatex">\(a \log \dfrac{a}{0} = +\infty\)</span></p>
+\]</div>
+<p>特别的，我们定义 <span class="arithmatex">\(0 \log 0 = 0 \log \dfrac{0}{0} = 0\)</span>，当 <span class="arithmatex">\(a&gt;0\)</span> 时有 <span class="arithmatex">\(a \log \dfrac{a}{0} = +\infty\)</span></p>
 </details>
 <p>KL 散度不是对称的，即 <span class="arithmatex">\(KL(p || q) \ne KL(q || p)\)</span>；当 <span class="arithmatex">\(p = q\)</span> 时，<span class="arithmatex">\(KL(p || q) = KL(q || p) = 0\)</span></p>
 <p>KL 散度一定是非负的，并且满足 Pinsker 不等式：<span class="arithmatex">\(KL(p||q) \geq \dfrac{1}{2}\lVert p - q \rVert^{2}_{1}\)</span></p>
@@ -7920,10 +7935,10 @@ $$
 <p>Bregman 散度（Bregman Divergence）通过凸函数来刻画两个点之间的差异</p>
 <details class="success" open="open">
 <summary>Definition：Bregman 散度</summary>
-<p>记 <span class="arithmatex">\(\psi\)</span> 是一个凸且可微的函数，定义在凸集 <span class="arithmatex">\(\mathcal{K}\)</span> 上，取凸集上两个点 <span class="arithmatex">\(x, y\)</span>，则
-$$
+<p>记 <span class="arithmatex">\(\psi\)</span> 是一个凸且可微的函数，定义在凸集 <span class="arithmatex">\(\mathcal{K}\)</span> 上，取凸集上两个点 <span class="arithmatex">\(x, y\)</span>，则</p>
+<div class="arithmatex">\[
 D_{\psi} (x || y) = \psi(x) - \psi(y) - \langle \nabla \psi (y), x-y \rangle
-$$</p>
+\]</div>
 </details>
 <details class="abstract">
 <summary>更直观的图像表示</summary>
@@ -7946,7 +7961,7 @@ $$</p>
 </tbody></table>
 
 <p>结合图像能看出，Bregman 散度测量了一个函数与其线性近似之间的差异</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

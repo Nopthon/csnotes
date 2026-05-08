@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5655,14 +5655,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6860,13 +6860,13 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 </div>
 <hr>
 <blockquote>
-<p>2) 用命令man查看命令touch的使用手册。</p>
+<p>1) 用命令man查看命令touch的使用手册。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>man<span class="w"> </span>touch
 </code></pre></div></td></tr></tbody></table></div>
 <p>没有配图</p>
 <blockquote>
-<p>3) 用命令touch在test目录中新建一个名为test的文件。</p>
+<p>1) 用命令touch在test目录中新建一个名为test的文件。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>./test
@@ -6874,7 +6874,7 @@ touch<span class="w"> </span><span class="nb">test</span>
 </code></pre></div></td></tr></tbody></table></div>
 <hr>
 <blockquote>
-<p>4) 用命令echo将以下内容一行一行地写入test文件。</p>
+<p>1) 用命令echo将以下内容一行一行地写入test文件。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">'#!/bin/sh\ncurl --head --silent https://www.nju.edu.cn'</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">test</span>
 </code></pre></div></td></tr></tbody></table></div>
@@ -6885,7 +6885,7 @@ touch<span class="w"> </span><span class="nb">test</span>
 </div>
 <hr>
 <blockquote>
-<p>5) 尝试执行这个文件，即将该脚本的路径（./test）输入到您的shell中并回车。如果程序无法执行，请使用ls命令来获取信息并给出其不能执行的原因。</p>
+<p>1) 尝试执行这个文件，即将该脚本的路径（./test）输入到您的shell中并回车。如果程序无法执行，请使用ls命令来获取信息并给出其不能执行的原因。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>nopthon@nopes-computer:/tmp/test$<span class="w"> </span>./test
@@ -6901,7 +6901,7 @@ total<span class="w"> </span><span class="m">4</span>
 <p>发现我们缺乏对 <code>test</code> 的执行权限（否则它至少应该是 <code>-rwxr--r--</code>），需要使用 <code>chmod</code> 指令进行权限修改</p>
 <hr>
 <blockquote>
-<p>6) 查看命令chmod的手册，使用命令chmod改变test文件的权限，使 ./test 能够成功执行，不要使用sh test来执行该程序。</p>
+<p>1) 查看命令chmod的手册，使用命令chmod改变test文件的权限，使 ./test 能够成功执行，不要使用sh test来执行该程序。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -6920,7 +6920,7 @@ total<span class="w"> </span><span class="m">4</span>
 </div>
 <hr>
 <blockquote>
-<p>7) 请问你的shell是如何知道这个文件需要使用sh来解析的。请通过网络搜索“unix shebang”来了解更多信息。</p>
+<p>1) 请问你的shell是如何知道这个文件需要使用sh来解析的。请通过网络搜索“unix shebang”来了解更多信息。</p>
 </blockquote>
 <p><code>test</code> 作为bash脚本，其第一行 <code>#!/bin/sh</code> （其中 <code>#!</code> 就是 SheBang 符号）指定该程序使用 <code>/bin/sh</code> 处的 <code>sh</code> 进行解析（必须指定绝对路径）。如果缺少这一行，则会以当前默认 Shell 执行该脚本（由环境变量 <code>$SHELL</code> 决定）</p>
 <div class="admonition note">
@@ -6929,7 +6929,7 @@ total<span class="w"> </span><span class="m">4</span>
 </div>
 <hr>
 <blockquote>
-<p>8) 请使用 | 和 &gt; ，将test文件输出的最后5行内容写入自己<strong>主目录</strong>下的last-5-lines.txt文件中。</p>
+<p>1) 请使用 | 和 &gt; ，将test文件输出的最后5行内容写入自己<strong>主目录</strong>下的last-5-lines.txt文件中。</p>
 </blockquote>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./test<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>~/last-5-lines.txt
 </code></pre></div></td></tr></tbody></table></div>

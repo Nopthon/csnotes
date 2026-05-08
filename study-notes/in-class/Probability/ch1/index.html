@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5758,14 +5758,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7028,7 +7028,7 @@
 \overline{A_1 \cap A_2 \cap \cdots \cap A_n} = \overline{A_1} \cup \overline{A_2} \cup \cdots \cup \overline{A_n}
 \]</div>
 <h2 id="_2">事件的概率及性质</h2>
-<p>随机事件 <span class="arithmatex">\(A\)</span> 的频率 <span class="arithmatex">\(f_n(A) = \dfrac{n_A}{n}\)</span> ，定义样本空间 <span class="arithmatex">\(\Omega\)</span> </p>
+<p>随机事件 <span class="arithmatex">\(A\)</span> 的频率 <span class="arithmatex">\(f_n(A) = \dfrac{n_A}{n}\)</span> ，定义样本空间 <span class="arithmatex">\(\Omega\)</span></p>
 <p>如果集合函数 <span class="arithmatex">\(P(·)\)</span> 满足非负性（<span class="arithmatex">\(P(A) \geq 0\)</span>），规范性（<span class="arithmatex">\(P(\Omega) = 1\)</span>）与可列可加性，可称 <span class="arithmatex">\(P(A)\)</span> 为 <span class="arithmatex">\(A\)</span> 的概率</p>
 <div class="admonition abstract">
 <p>可列可加性：对于概率空间中<strong>两两互不相容</strong>（即互斥）的<strong>可数无穷个</strong>随机事件，这些事件<strong>至少有一个发生</strong>的概率，等于每个事件发生的概率之和</p>
@@ -7044,7 +7044,7 @@ P\left(\bigcup_{i=1}^{n} A_i\right) = \sum_{k=1}^{n} (-1)^{k-1} \sum_{1 \leq i_1
 <p><br></p>
 <h2 id="_3">古典概型常见模型</h2>
 <ul>
-<li>抽签模型：<span class="arithmatex">\(N\)</span> 个签中有 <span class="arithmatex">\(M\)</span> 个中签，有 <span class="arithmatex">\(n\,(&lt;M)\)</span> 个人不放回抽签，对<strong>任意</strong>一个人抽中好签的概率都是 <span class="arithmatex">\(\frac{M}{N}\)</span> </li>
+<li>抽签模型：<span class="arithmatex">\(N\)</span> 个签中有 <span class="arithmatex">\(M\)</span> 个中签，有 <span class="arithmatex">\(n\,(&lt;M)\)</span> 个人不放回抽签，对<strong>任意</strong>一个人抽中好签的概率都是 <span class="arithmatex">\(\frac{M}{N}\)</span></li>
 </ul>
 <div class="admonition abstract">
 <p>不放回地随机抽签，<strong>等价于对所有的签进行一次随机排序</strong>，那么排序后第 <span class="arithmatex">\(n\)</span> 个位置为好签的概率即为 <span class="arithmatex">\(\frac{M}{N}\)</span> </p>
@@ -7058,7 +7058,7 @@ P(k) = \frac{C_M^k C_{N-M}^{n-k}}{C_{N}^{n}}
 <ul>
 <li>放回抽样：<span class="arithmatex">\(N\)</span> 个产品中有 <span class="arithmatex">\(M\)</span> 个次品，放回取出 <span class="arithmatex">\(n\)</span> 件，恰取出 <span class="arithmatex">\(k\)</span> 次次品概率</li>
 </ul>
-<p>取出一次抽到正品 <span class="arithmatex">\(p_0 =\frac MN\)</span>，抽 <span class="arithmatex">\(k\)</span> 次正品 <span class="arithmatex">\((p_0)^k\)</span>，抽 <span class="arithmatex">\(n-k\)</span> 次次品 <span class="arithmatex">\((1-p_0)^{n-k}\)</span>，然后进行组合 <span class="arithmatex">\(C_n^k\)</span> </p>
+<p>取出一次抽到正品 <span class="arithmatex">\(p_0 =\frac MN\)</span>，抽 <span class="arithmatex">\(k\)</span> 次正品 <span class="arithmatex">\((p_0)^k\)</span>，抽 <span class="arithmatex">\(n-k\)</span> 次次品 <span class="arithmatex">\((1-p_0)^{n-k}\)</span>，然后进行组合 <span class="arithmatex">\(C_n^k\)</span></p>
 <div class="admonition abstract">
 <p>即 <span class="arithmatex">\(n\)</span> 重伯努利试验（独立重复实验模型）</p>
 <div class="arithmatex">\[
@@ -7088,7 +7088,7 @@ P(A_i|B)= \frac{P(A_i)P(B|A_i)}{\sum^{n}_{k=1} P(A_k)P(B|A_k)} \Big( = \frac{P(A
 <h2 id="_5">独立性</h2>
 <ul>
 <li>
-<p><span class="arithmatex">\(A,\;B\)</span> 两事件相互独立当且仅当 <span class="arithmatex">\(P(AB)=P(A)P(B)\)</span>，或者说 <span class="arithmatex">\(P(A|B) = P(A)\)</span> </p>
+<p><span class="arithmatex">\(A,\;B\)</span> 两事件相互独立当且仅当 <span class="arithmatex">\(P(AB)=P(A)P(B)\)</span>，或者说 <span class="arithmatex">\(P(A|B) = P(A)\)</span></p>
 </li>
 <li>
 <p>对于事件组 <span class="arithmatex">\(\{A_i\}\)</span> ：如果任取其中若干个事件，都满足 <span class="arithmatex">\(\displaystyle P\left(\bigcap_{i=1}^{n} A_i\right) = \prod_{i=1}^{n} P\left( A_i\right)\)</span></p>
@@ -7119,7 +7119,7 @@ P(A_i|B)= \frac{P(A_i)P(B|A_i)}{\sum^{n}_{k=1} P(A_k)P(B|A_k)} \Big( = \frac{P(A
 <div class="arithmatex">\[
 \color{orange}\displaystyle C_n^k p^k (1-p)^{n-k} ≈ \frac{\lambda^k}{k!}e^{-\lambda}
 \]</div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

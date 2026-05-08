@@ -11,7 +11,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5630,14 +5630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6888,10 +6888,10 @@ ve(i) = \max_{p = 1,\cdots,m} \lbrace ve(j_p) + w_{j_p} \rbrace
 <p>而对于非关键路径上的事件，不难意识到，我们可以在关键路径上找到两个事件点 <span class="arithmatex">\(v_{st},\;v_{ed}\)</span>，从 <span class="arithmatex">\(v_{st}\)</span> 向非关键路径分支，通过 <span class="arithmatex">\(v_{ed}\)</span> 回到关键路径的总体。非关键路径上的活动可以进行一定的延迟进行，但是不能影响到 <span class="arithmatex">\(v_{ed}\)</span> 的触发，也就是说 <span class="arithmatex">\(v_{ed}\)</span> 的非关键路径上的前驱活动不能晚于关键路径上的前驱活动完成进行</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251210104821981.png" data-desc-position="bottom"><img alt="image-20251210104821981" src="../images/image-20251210104821981.png"></a></p>
 <p>（当然，计算 <span class="arithmatex">\(vl(i)\)</span> 并不需要关心事件/活动是否处于关键路径）</p>
-<p>计算 <span class="arithmatex">\(vl(i)\)</span> 的本质依旧是递推，不过这一次是从后往前推（因为事件的最迟发生时间的约束体现在其后继事件的 <span class="arithmatex">\(vl\)</span>，而不是前驱事件）：我们假设以 <span class="arithmatex">\(v_i\)</span> 为起点的边有 <span class="arithmatex">\(\lbrace v_i, v_{j_1}, w_{j_1}\rbrace,\cdots,\lbrace v_i, v_{j_m}, w_{j_m}\rbrace\)</span> ，那么有：
-$$
+<p>计算 <span class="arithmatex">\(vl(i)\)</span> 的本质依旧是递推，不过这一次是从后往前推（因为事件的最迟发生时间的约束体现在其后继事件的 <span class="arithmatex">\(vl\)</span>，而不是前驱事件）：我们假设以 <span class="arithmatex">\(v_i\)</span> 为起点的边有 <span class="arithmatex">\(\lbrace v_i, v_{j_1}, w_{j_1}\rbrace,\cdots,\lbrace v_i, v_{j_m}, w_{j_m}\rbrace\)</span> ，那么有：</p>
+<div class="arithmatex">\[
 vl(i) = \min_{p = 1,\cdots,m} \lbrace vl(j_p) - w_{j_p} \rbrace
-$$</p>
+\]</div>
 <p><br></p>
 <ul>
 <li>活动 <span class="arithmatex">\(a_k\)</span> 的最早开始时间 <span class="arithmatex">\(e(k)\)</span>，或者记为 <span class="arithmatex">\(e(u,v)\)</span></li>

@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5792,14 +5792,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7106,7 +7106,7 @@ F(x) = \begin{cases}
 \end{cases}
 \]</div>
 </div>
-<p>分布函数的定义域是 <span class="arithmatex">\(\R\)</span>，值域 <span class="arithmatex">\([0,1]\)</span> 且左右边界一定分别是 <span class="arithmatex">\(0, 1\)</span> </p>
+<p>分布函数的定义域是 <span class="arithmatex">\(\R\)</span>，值域 <span class="arithmatex">\([0,1]\)</span> 且左右边界一定分别是 <span class="arithmatex">\(0, 1\)</span></p>
 <p>并且 <span class="arithmatex">\(F(x_0+0) = \displaystyle \lim _{x\to x_0+0} F(x) = F(x_0)\)</span> ，满足<strong>右连续</strong></p>
 <details class="abstract" open="open">
 <summary>如何简单理解分布函数有右连续性？</summary>
@@ -7136,7 +7136,7 @@ X \sim \begin{pmatrix}
 <h3 id="_4">常见的离散型随机变量</h3>
 <ul>
 <li>
-<p>0-1 分布：<span class="arithmatex">\(X \in \{0,1\}\)</span> </p>
+<p>0-1 分布：<span class="arithmatex">\(X \in \{0,1\}\)</span></p>
 </li>
 <li>
 <p>二项分布 <span class="arithmatex">\(B(n, p)\)</span> ：<span class="arithmatex">\({\color{orange}p_k = C_n^kp^k(1-p)^{n-k}},\;k = 0,1,\cdots,n\)</span></p>
@@ -7218,11 +7218,11 @@ p(x) = {\color{orange}\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{\left(x - \mu\right)
 <p>固定 <span class="arithmatex">\(σ\)</span>：<span class="arithmatex">\(μ\)</span> 变小时，曲线沿对称轴 <span class="arithmatex">\(x= μ\)</span> 向左平移；<span class="arithmatex">\(μ\)</span> 变大时，曲线沿对称轴 <span class="arithmatex">\(x= μ\)</span> 向右平移</p>
 <p><br></p>
 <h3 id="_7">标准正态分布</h3>
-<p>有定理：<span class="arithmatex">\(X\sim N(μ,σ^2) \to \frac{x-μ}{σ} \sim N(0,1)\)</span> ，其中后者为标准正态分布，其密度函数和分布函数特别记为 <span class="arithmatex">\(\varphi(x)\)</span> 和 <span class="arithmatex">\(\Phi(x)\)</span> 
-$$
+<p>有定理：<span class="arithmatex">\(X\sim N(μ,σ^2) \to \frac{x-μ}{σ} \sim N(0,1)\)</span> ，其中后者为标准正态分布，其密度函数和分布函数特别记为 <span class="arithmatex">\(\varphi(x)\)</span> 和 <span class="arithmatex">\(\Phi(x)\)</span></p>
+<div class="arithmatex">\[
 \varphi(x) = \dfrac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}, \qquad
 \Phi(x) = \int_{-\infty}^{x} \dfrac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \, dt
-$$</p>
+\]</div>
 <div class="admonition abstract">
 <p>将其他的正态分布转化为标准正态分布可以方便查表计算</p>
 <p>操作是 <span class="arithmatex">\(P(a&lt;x&lt;b) = P(\frac{a-μ}{σ} &lt; \frac{x-μ}{σ} &lt; \frac{b-μ}{σ}) = \Phi(\frac{b-μ}{σ}) - \Phi(\frac{a-μ}{σ})\)</span> </p>
@@ -7231,10 +7231,10 @@ $$</p>
 <p><br></p>
 <h2 id="_8">无记忆性</h2>
 <p>对于非负随机变量 <span class="arithmatex">\(X\)</span>，如果有</p>
-<p>$$
+<div class="arithmatex">\[
 P(X&gt;s+t∣X&gt;s)=P(X&gt;t),\;∀s,t≥0
-$$
-我们称 <span class="arithmatex">\(X\)</span> 的分布具有<strong>无记忆性</strong></p>
+\]</div>
+<p>我们称 <span class="arithmatex">\(X\)</span> 的分布具有<strong>无记忆性</strong></p>
 <p>对于连续型随机变量，只有<strong>指数分布</strong>具有无记忆性；对于离散型随机变量，只有<strong>几何分布</strong>具有无记忆性</p>
 <p>指数分布的无记忆性在可靠性工程中具有重要价值。以电子元件寿命为例，若已知元件在1000小时工作后仍正常，其后续使用寿命仍遵循原指数分布规律，无需重新评估剩余寿命的分布参数。该特性简化了系统维护策略制定与剩余寿命预测的复杂度。</p>
 <p>几何分布的无记忆性则体现在赌博策略分析中。假设赌徒连续经历 <span class="arithmatex">\(n\)</span> 次失败后，其后续需要再进行 <span class="arithmatex">\(m\)</span> 次尝试才能首次获胜的概率，与赌徒刚开始赌博时的概率分布完全一致。这种特性揭示了独立重复试验中概率规律的稳定性。</p>
@@ -7244,21 +7244,21 @@ $$
 <ol>
 <li><span class="arithmatex">\(X,Y\)</span> 为离散型随机变量，此时根据分布律带值计算即可</li>
 <li><span class="arithmatex">\(X,Y\)</span> 为连续型随机变量，此时的常见做法是：<ol>
-<li>先求 <span class="arithmatex">\(\displaystyle F_Y(y) = P(g(X) \leq Y) = \int_{x:g(x)\leq y} p_X(x)dx\)</span> </li>
-<li>然后求 <span class="arithmatex">\(p_Y(y) = F'_Y(y)\)</span> </li>
+<li>先求 <span class="arithmatex">\(\displaystyle F_Y(y) = P(g(X) \leq Y) = \int_{x:g(x)\leq y} p_X(x)dx\)</span></li>
+<li>然后求 <span class="arithmatex">\(p_Y(y) = F'_Y(y)\)</span></li>
 </ol>
 </li>
 </ol>
 <p>可以据此推导出定理：设随机变量 <span class="arithmatex">\(X\)</span> 的可能取值范围为 <span class="arithmatex">\((a, b)\)</span>，<span class="arithmatex">\(X\)</span> 的概率密度为 <span class="arithmatex">\(p_X(x)\)</span>，<span class="arithmatex">\(a &lt; x &lt; b\)</span> (其中 <span class="arithmatex">\(a\)</span> 可为 <span class="arithmatex">\(-\infty\)</span>，<span class="arithmatex">\(b\)</span> 可为 <span class="arithmatex">\(+\infty\)</span>)，设函数 <span class="arithmatex">\(y = g(x)\)</span> 处处可导，且恒有 <span class="arithmatex">\(g'(x) &gt; 0\)</span> [或恒有 <span class="arithmatex">\(g'(x) &lt; 0\)</span>]，则 <span class="arithmatex">\(Y = g(X)\)</span> 为连续型随机变量，其概率密度为</p>
 <div class="arithmatex">\[
-p_Y(y) = 
-\begin{cases} 
+p_Y(y) =
+\begin{cases}
 p_X[g^{-1}(y)] \cdot |[g^{-1}(y)]'|, &amp; \alpha &lt; y &lt; \beta \\
 0, &amp; \text{else}
 \end{cases}
 \]</div>
 <p>其中，<span class="arithmatex">\(\alpha = \min(g(a), g(b))\)</span>，<span class="arithmatex">\(\beta = \max(g(a), g(b))\)</span>，<span class="arithmatex">\(g^{-1}(y)\)</span> 为 <span class="arithmatex">\(y = g(x)\)</span> 的反函数。</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

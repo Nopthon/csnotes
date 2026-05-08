@@ -20,6 +20,26 @@ body {
     font-family: "KaTeX_Main", "LXGW WenKai", "JetBrains Mono", "sans-serif";
 }
 
+/* 调整公式块边缘的空白大小 */
+/* 这要求 Latex 公式块的上下两侧必须有空行 */
+.katex-display {
+    margin-top: -0.75em !important;
+    margin-bottom: -0.75em !important;
+}
+
+/* 给块级公式添加浅色细边框 */
+.md-typeset div.arithmatex {
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.8rem;
+    margin: 0.5rem 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset div.arithmatex {
+    border-color: rgba(200, 200, 200, 0.2);
+}
+
+
 /* 为 Blog 页面的每一个 article 块添加一个圆角边框 */
 .md-post.md-post--excerpt {
     border: 1px solid #aeb2b8;

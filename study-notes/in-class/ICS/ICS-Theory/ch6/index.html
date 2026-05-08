@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5860,14 +5860,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7491,10 +7491,10 @@
 <p>主存中的块与 cache 中的槽如何对应？</p>
 </blockquote>
 <p>▲ 直接映射：将 cache 槽直接与主存块进行一定的对应，每个块用的槽是通过取模操作指定的：</p>
-<p>$$
+<div class="arithmatex">\[
 cache \text{ 行号} = \text{ 主存块号} \bmod cache \text{ 行数}
-$$
-因此直接映射又叫做模映射，类比简易哈希表，优点是查找快；缺点是易冲突，缓存命中率可能不高</p>
+\]</div>
+<p>因此直接映射又叫做模映射，类比简易哈希表，优点是查找快；缺点是易冲突，缓存命中率可能不高</p>
 <p>▲ 全相联映射：cache 槽可以被任意主存块映射，“是坑就占”，采用标记字段判断槽中的数据是否存在</p>
 <p>优点是冲突小，缓存命中率较高；缺点是硬件实现复杂，查找速度慢（每个标记字段都要确认）</p>
 <p>▲ 组相联映射是上述的结合：cache 被分成若干组，每组有若干个槽。主存中的块与 cache 组有特定的对应关系，但是 cache 组内可以随意映射</p>

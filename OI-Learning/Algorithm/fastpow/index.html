@@ -11,7 +11,7 @@
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5630,14 +5630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -6797,8 +6797,8 @@
 <p>快速幂分为递归式与非递归式，其核心递推式如下：</p>
 <div class="arithmatex">\[
 a_n = \begin{cases}
-1 &amp; n = 0 \\\\
-a^{\frac{n}{2}} \cdot a^{\frac{n}{2}} &amp; n \bmod 2 = 0 \\\\
+1 &amp; n = 0 \newline
+a^{\frac{n}{2}} \cdot a^{\frac{n}{2}} &amp; n \bmod 2 = 0 \newline
 a \cdot a^{\frac{n-1}{2}} \cdot a^{\frac{n-1}{2}} &amp; n \bmod 2 \neq 0
 \end{cases}
 \]</div>
@@ -7001,14 +7001,14 @@ a \cdot a^{\frac{n-1}{2}} \cdot a^{\frac{n-1}{2}} &amp; n \bmod 2 \neq 0
 </div>
 <p>学过线性代数之后不难计算，对于斐波那契数列 <span class="arithmatex">\(F_n\)</span> 有：</p>
 <div class="arithmatex">\[
-\begin{aligned}\begin{pmatrix}F_n \\\\ F_{n-1}\end{pmatrix}=\begin{pmatrix}1 &amp; 1 \\\\1 &amp;0 \end{pmatrix}\begin{pmatrix}F_{n-1} \\\\ F_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
+\begin{aligned}\begin{pmatrix}F_n \newline F_{n-1}\end{pmatrix}=\begin{pmatrix}1 &amp; 1 \newline1 &amp;0 \end{pmatrix}\begin{pmatrix}F_{n-1} \newline F_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
 \]</div>
 <p>进一步得到</p>
 <div class="arithmatex">\[
-\begin{aligned}\begin{pmatrix}F_n \\\\ F_{n-1}\end{pmatrix}=\begin{pmatrix}1 &amp; 1 \\\\1 &amp; 0\end{pmatrix}^{n-1}
-\begin{pmatrix}F_{1} \\\\ F_{0}\end{pmatrix},\ n\geq 3\end{aligned}
+\begin{aligned}\begin{pmatrix}F_n \newline F_{n-1}\end{pmatrix}=\begin{pmatrix}1 &amp; 1 \newline1 &amp; 0\end{pmatrix}^{n-1}
+\begin{pmatrix}F_{1} \newline F_{0}\end{pmatrix},\ n\geq 3\end{aligned}
 \]</div>
-<p>对于 <span class="arithmatex">\(\begin{pmatrix}1 &amp; 1 \\\\1 &amp; 0\end{pmatrix}^{n-1}\)</span> 的计算，我们采用矩阵快速幂，然后进行一轮矩阵运算就可以得到单个 <span class="arithmatex">\(F_n\)</span> 的计算结果，时间复杂度 <span class="arithmatex">\(O(\log n)\)</span></p>
+<p>对于 <span class="arithmatex">\(\begin{pmatrix}1 &amp; 1 \newline1 &amp; 0\end{pmatrix}^{n-1}\)</span> 的计算，我们采用矩阵快速幂，然后进行一轮矩阵运算就可以得到单个 <span class="arithmatex">\(F_n\)</span> 的计算结果，时间复杂度 <span class="arithmatex">\(O(\log n)\)</span></p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -7047,11 +7047,11 @@ a \cdot a^{\frac{n-1}{2}} \cdot a^{\frac{n-1}{2}} &amp; n \bmod 2 \neq 0
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>对于广义的斐波那契数列：<span class="arithmatex">\(a_n = p \times a_{n-1} + q \times a_{n-2}\)</span> 也有：
-$$
-\begin{aligned}\begin{pmatrix}a_n \\ a_{n-1}\end{pmatrix}=\begin{pmatrix}p &amp; q \\1 &amp;0 \end{pmatrix}\begin{pmatrix}a_{n-1} \\ a_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
-$$
-也有一道对应的 <a href="https://www.luogu.com.cn/problem/P1349">P1349 广义斐波那契数列 - 洛谷</a> </p>
+<p>对于广义的斐波那契数列：<span class="arithmatex">\(a_n = p \times a_{n-1} + q \times a_{n-2}\)</span> 也有：</p>
+<div class="arithmatex">\[
+\begin{aligned}\begin{pmatrix}a_n \newline a_{n-1}\end{pmatrix}=\begin{pmatrix}p &amp; q \newline1 &amp;0 \end{pmatrix}\begin{pmatrix}a_{n-1} \newline a_{n-2}\end{pmatrix},\ n\geq 3\end{aligned}
+\]</div>
+<p>也有一道对应的 <a href="https://www.luogu.com.cn/problem/P1349">P1349 广义斐波那契数列 - 洛谷</a> </p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2025-10-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2025-10-23T11:56:01+08:00">2025-10-23</time></span><span data-tippy-content data-tippy-raw="2025-10-23"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2025-10-23T11:56:01+08:00">2025-10-23</time></span></div></div>
 
 

@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5836,14 +5836,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7190,19 +7190,19 @@ EX = \sum _ {i= 1} ^ {+\infty} x_i \cdot P(X = x_i)
 <div class="arithmatex">\[
 DX = E(X - EX)^2 = EX^2 - (EX)^2
 \]</div>
-<p>为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span> </p>
+<p>为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span></p>
 <p>方差 <span class="arithmatex">\(DX\)</span> 就是 <span class="arithmatex">\(g(X) = (X-EX)^2\)</span> 的数学期望</p>
 <p><br></p>
 <h3 id="_4">常见离散型随机变量的数字特征</h3>
 <ul>
-<li>几何分布 <span class="arithmatex">\(X \sim g(p)\)</span> </li>
+<li>几何分布 <span class="arithmatex">\(X \sim g(p)\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = \sum_{k= 0}^{n} k  p (1-p)^{k-1} ={\color{orange}{\frac{1}{p} }}\\
 DX = \sum_{k= 0}^{n} k^2 p (1-p)^{k-1} - (\frac1p)^2 = {\color{orange}{\frac{1-p}{p^2}}}
 \]</div>
 <ul>
-<li>二项分布 <span class="arithmatex">\(X \sim B(n,p)\)</span> </li>
+<li>二项分布 <span class="arithmatex">\(X \sim B(n,p)\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = \sum_{k= 0}^{n} k C_n^k p ^k(1-p)^{n-k} \left(=\sum_{k= 1}^{n} E(X_k) \right) = {\color{orange}{np}} \\
@@ -7210,7 +7210,7 @@ DX = \sum_{k= 0}^{n} k^2 C_n^k p ^k(1-p)^{n-k} - (np)^2 \left(=\sum_{k= 1}^{n} D
 \]</div>
 <p>（括号里的内容为通过期望/方差的性质进行的简化运算）</p>
 <ul>
-<li>泊松分布 <span class="arithmatex">\(X \sim P(\lambda)\)</span> </li>
+<li>泊松分布 <span class="arithmatex">\(X \sim P(\lambda)\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = \sum_{k=1}^{+\infty} k \dfrac{\lambda^k}{k!}e^{-\lambda}= \lambda  \sum_{k=0}^{+\infty} \dfrac{\lambda^k}{k!}e^{-\lambda} = {\color{orange}{\lambda}} \\
@@ -7227,26 +7227,26 @@ EX = \int_{-\infty}^{+\infty} xp(x)dx
 <div class="arithmatex">\[
 DX = E(X - EX)^2 = EX^2 - (EX)^2
 \]</div>
-<p>为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span> </p>
+<p>为 <span class="arithmatex">\(X\)</span> 的方差，同时记 <span class="arithmatex">\(\sqrt{DX} = \sigma(X)\)</span> 为标准差，存在的前提是 <span class="arithmatex">\(EX^2 &lt; +\infty\)</span></p>
 <p>方差 <span class="arithmatex">\(DX\)</span> 就是 <span class="arithmatex">\(g(X) = (X-EX)^2\)</span> 的数学期望</p>
 <p><br></p>
 <h3 id="_6">常见连续型随机变量的数字特征</h3>
 <ul>
-<li>均匀分布 <span class="arithmatex">\(X \sim U[a,b]\)</span> </li>
+<li>均匀分布 <span class="arithmatex">\(X \sim U[a,b]\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = {\color{orange}{\frac{a+b}{2}}} \\
 DX = EX^2 - (EX)^2 = \frac{a^2+ab+b^2}{3} - \left(\frac{a+b}{2}\right)^2 = {\color{orange}{\frac{(b-a)^2}{12}}}
 \]</div>
 <ul>
-<li>指数分布 <span class="arithmatex">\(X \sim E(\lambda)\)</span> </li>
+<li>指数分布 <span class="arithmatex">\(X \sim E(\lambda)\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = \int_{-\infty}^{+\infty} x\lambda e^{-\lambda x} dx = {\color{orange}{\frac{1}{\lambda} }}\\
 DX = \int_{-\infty}^{+\infty} x^2\lambda e^{-\lambda x} dx - \left(\frac{1}{\lambda} \right)^2 = {\color{orange}{ \frac{1}{\lambda^2}}}
 \]</div>
 <ul>
-<li>正态分布 <span class="arithmatex">\(X \sim N(\mu, \sigma^2)\)</span> </li>
+<li>正态分布 <span class="arithmatex">\(X \sim N(\mu, \sigma^2)\)</span></li>
 </ul>
 <div class="arithmatex">\[
 EX = {\color{orange}{\mu}} \\
@@ -7257,25 +7257,25 @@ DX = {\color{orange}{\rho^2}}
 <h2 id="_7">期望的性质</h2>
 <p>对于离散型随机变量</p>
 <ul>
-<li><span class="arithmatex">\(\displaystyle E(g(X))  = \sum _ {i= 1} ^ {+\infty} g(x_i) \cdot P(X = x_i)\)</span> </li>
+<li><span class="arithmatex">\(\displaystyle E(g(X))  = \sum _ {i= 1} ^ {+\infty} g(x_i) \cdot P(X = x_i)\)</span></li>
 </ul>
 <p>对于连续型随机变量</p>
 <ul>
-<li><span class="arithmatex">\(\displaystyle E(g(X)) = \int_{-\infty}^{+\infty} g(x)p(x)dx\)</span> </li>
+<li><span class="arithmatex">\(\displaystyle E(g(X)) = \int_{-\infty}^{+\infty} g(x)p(x)dx\)</span></li>
 </ul>
 <p>上述结论可以推广到 <span class="arithmatex">\(Z = g(X,Y)\)</span> 的数学期望，对应二重求和 / 积分</p>
 <p>对于任意随机变量</p>
 <ul>
-<li><span class="arithmatex">\(E(a) = a\)</span> </li>
-<li><span class="arithmatex">\(E(aX+bY) = aEX+bEY\)</span> </li>
-<li><span class="arithmatex">\(X,Y\)</span> 相互独立 <span class="arithmatex">\(\longrightarrow E(XY)=EX\cdot EY\)</span> </li>
+<li><span class="arithmatex">\(E(a) = a\)</span></li>
+<li><span class="arithmatex">\(E(aX+bY) = aEX+bEY\)</span></li>
+<li><span class="arithmatex">\(X,Y\)</span> 相互独立 <span class="arithmatex">\(\longrightarrow E(XY)=EX\cdot EY\)</span></li>
 </ul>
 <h2 id="_8">方差的性质</h2>
 <p>对于任意随机变量</p>
 <ul>
 <li><span class="arithmatex">\(D(a) = 0\)</span></li>
-<li><span class="arithmatex">\(D(aX+b) = a^2DX\)</span> </li>
-<li><span class="arithmatex">\(D(X ± Y) = DX + DY ± 2E[(X-EX)(Y-EY)]\)</span>，当 <span class="arithmatex">\(X,Y\)</span> 相互独立时化简为 <span class="arithmatex">\(D(X ± Y) = DX + DY\)</span> </li>
+<li><span class="arithmatex">\(D(aX+b) = a^2DX\)</span></li>
+<li><span class="arithmatex">\(D(X ± Y) = DX + DY ± 2E[(X-EX)(Y-EY)]\)</span>，当 <span class="arithmatex">\(X,Y\)</span> 相互独立时化简为 <span class="arithmatex">\(D(X ± Y) = DX + DY\)</span></li>
 </ul>
 <p>（<span class="arithmatex">\(D(X ± Y) = DX + DY ± 2 \text{cov}(X,Y)\)</span>）</p>
 <p>上面的结论可扩展到 <span class="arithmatex">\(n\)</span> 维</p>
@@ -7290,7 +7290,7 @@ DX = {\color{orange}{\rho^2}}
 P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}p(x)dx\leqslant\int\limits_{\lbrace x:\left|x-EX\right|\geqslant\varepsilon\rbrace}\frac{(x-EX)^2}{\varepsilon^2}p(x)dx\\ \leqslant\frac{1}{\varepsilon^2}\int_{-\infty}^{+\infty}(x-EX)^2p(x)dx=\frac{DX}{\varepsilon^2}
 \]</div>
 </details>
-<p>可以借助证明：<span class="arithmatex">\(DX = 0 \longrightarrow X = c\)</span> </p>
+<p>可以借助证明：<span class="arithmatex">\(DX = 0 \longrightarrow X = c\)</span></p>
 <h2 id="_10">协方差</h2>
 <p>如果 <span class="arithmatex">\(EX, EY, E(XY)\)</span> 存在，则</p>
 <div class="arithmatex">\[
@@ -7299,15 +7299,15 @@ P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left
 <p>为 <span class="arithmatex">\(X,Y\)</span> 的协方差</p>
 <p>有以下性质和结论：</p>
 <ul>
-<li><span class="arithmatex">\(\text{cov} (X,X) = D(X)\)</span> </li>
-<li><span class="arithmatex">\(\text{cov} (X,Y) = \text{cov}(Y,X)\)</span> </li>
-<li><span class="arithmatex">\(\text{cov} (aX+c,bY+d) = ab\text{cov}(X,Y)\)</span> </li>
-<li><span class="arithmatex">\(\text{cov} (X_1 + X_2,Y) = \text{cov}(X_1,Y) + \text{cov}(X_2,Y)\)</span> </li>
+<li><span class="arithmatex">\(\text{cov} (X,X) = D(X)\)</span></li>
+<li><span class="arithmatex">\(\text{cov} (X,Y) = \text{cov}(Y,X)\)</span></li>
+<li><span class="arithmatex">\(\text{cov} (aX+c,bY+d) = ab\text{cov}(X,Y)\)</span></li>
+<li><span class="arithmatex">\(\text{cov} (X_1 + X_2,Y) = \text{cov}(X_1,Y) + \text{cov}(X_2,Y)\)</span></li>
 <li>
-<p><span class="arithmatex">\(X,Y\)</span> 相互独立 <span class="arithmatex">\(\longrightarrow \text{cov}(X,Y) = E(XY) - EX\cdot EY = 0\)</span> </p>
+<p><span class="arithmatex">\(X,Y\)</span> 相互独立 <span class="arithmatex">\(\longrightarrow \text{cov}(X,Y) = E(XY) - EX\cdot EY = 0\)</span></p>
 </li>
 <li>
-<p>二维正态分布 <span class="arithmatex">\((X,Y)\sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)\)</span> 的协方差为 <span class="arithmatex">\(\sigma_1\sigma_2\rho\)</span> </p>
+<p>二维正态分布 <span class="arithmatex">\((X,Y)\sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)\)</span> 的协方差为 <span class="arithmatex">\(\sigma_1\sigma_2\rho\)</span></p>
 </li>
 </ul>
 <p><br></p>
@@ -7316,12 +7316,12 @@ P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left
 <div class="arithmatex">\[
 [\text{cov}(X,Y)]^2 \leqslant DX\cdot DY
 \]</div>
-<p>取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span> </p>
+<p>取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span></p>
 <p>一个更基础的形式是：若  <span class="arithmatex">\(X^2,Y^2\)</span> 期望存在，则</p>
 <div class="arithmatex">\[
 [E(XY)]^2 \leqslant E(X^2)\cdot E(Y^2)
 \]</div>
-<p>取等条件是存在 <span class="arithmatex">\(t_0\)</span> 不为零，<span class="arithmatex">\(P(Y= t_0X) = 1\)</span> </p>
+<p>取等条件是存在 <span class="arithmatex">\(t_0\)</span> 不为零，<span class="arithmatex">\(P(Y= t_0X) = 1\)</span></p>
 <div class="admonition abstract">
 <p>积分形式：若 <span class="arithmatex">\(\displaystyle \int_a^b f^2 dx, \int_a^b g^2 dx\)</span> 存在，则</p>
 <div class="arithmatex">\[
@@ -7338,12 +7338,12 @@ P\left(\left|X-EX\right|\geqslant\varepsilon\right)=\int\limits_{\lbrace x:\left
 X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
 \]</div>
 <p>计算得到 <span class="arithmatex">\(EX^\ast = 0,\; DX^\ast = 1\)</span>，此时称 <span class="arithmatex">\(X^*\)</span> 为 <span class="arithmatex">\(X\)</span> 的标准化随机变量</p>
-<p>上式中记 <span class="arithmatex">\(EX = \mu,\;DX = \sigma^2\)</span> </p>
+<p>上式中记 <span class="arithmatex">\(EX = \mu,\;DX = \sigma^2\)</span></p>
 <p>在此基础上定义 <span class="arithmatex">\(X,Y\)</span> 的相关系数：设 <span class="arithmatex">\(DX, DY &gt; 0\)</span>，则</p>
 <div class="arithmatex">\[
 \rho_{X\,Y} = \dfrac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}} = \text{cov}(X^{\ast}, Y^{\ast})
 \]</div>
-<p>记 <span class="arithmatex">\(\rho_{X\,Y}\)</span> 为 <span class="arithmatex">\(X,Y\)</span> 的相关系数，根据柯西 · 施瓦兹不等式 <span class="arithmatex">\([\text{cov}(X,Y)]^2 \leqslant DX\cdot DY\)</span>，得到 <span class="arithmatex">\(|\rho_{X\,Y}| \leqslant 1\)</span>，取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span> </p>
+<p>记 <span class="arithmatex">\(\rho_{X\,Y}\)</span> 为 <span class="arithmatex">\(X,Y\)</span> 的相关系数，根据柯西 · 施瓦兹不等式 <span class="arithmatex">\([\text{cov}(X,Y)]^2 \leqslant DX\cdot DY\)</span>，得到 <span class="arithmatex">\(|\rho_{X\,Y}| \leqslant 1\)</span>，取等条件是存在 <span class="arithmatex">\(a,b\)</span> 不全为零，<span class="arithmatex">\(P(Y= aX+b) = 1\)</span></p>
 <p>上面的性质表明，相关系数 <span class="arithmatex">\(ρ_{X\,Y}\)</span> 刻画了 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 间的线性相关特征。<span class="arithmatex">\(|ρ_{X\,Y}|\)</span> 越大，表明 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 之间线性关系越密切，当 <span class="arithmatex">\(|ρ_{X\,Y}| = 1\)</span> 时表明 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 以概率 <span class="arithmatex">\(1\)</span> 线性相关。反之，若 <span class="arithmatex">\(|ρ_{X\,Y}|\)</span> 越小，表明 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 的线性关系越弱。</p>
 <div class="admonition abstract">
 <p><span class="arithmatex">\(\rho_{X\,Y}\)</span> 描述了两个随机事件的线性相关特征；独立性描述了两个随机事件的相关性</p>
@@ -7352,7 +7352,7 @@ X^{*} = \dfrac{X - EX}{\sqrt{D(X)}}
 <div class="arithmatex">\[
 ρ_{X\,Y} = 0 \Leftrightarrow \text{cov}(X,Y) = 0 \Leftrightarrow E(XY)=EX\cdot EY \Leftrightarrow D(X±Y) = DX ± D(Y)
 \]</div>
-<p>独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 <span class="arithmatex">\((X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2, \sigma_2^2,\rho)\)</span> 中 <span class="arithmatex">\(\rho_{X\,Y} = \rho\)</span>，而 <span class="arithmatex">\(X,Y\)</span> 相互独立的充要条件即 <span class="arithmatex">\(\rho = 0\)</span> </p>
+<p>独立性和不相关并非等价，但是正态分布的独立性和不相关性等价，比如 <span class="arithmatex">\((X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2, \sigma_2^2,\rho)\)</span> 中 <span class="arithmatex">\(\rho_{X\,Y} = \rho\)</span>，而 <span class="arithmatex">\(X,Y\)</span> 相互独立的充要条件即 <span class="arithmatex">\(\rho = 0\)</span></p>
 <h2 id="_13">矩和协方差阵</h2>
 <p>矩可以看作期望的推广：对于随机变量 <span class="arithmatex">\(X\)</span>，<span class="arithmatex">\(X^k\)</span> 的数学期望 <span class="arithmatex">\(EX^k\)</span> 为 <span class="arithmatex">\(X\)</span> 的 <span class="arithmatex">\(k\)</span> 阶（原点）矩；标准化后 <span class="arithmatex">\(E(X-EX)^k\)</span> 为 <span class="arithmatex">\(X\)</span> 的 <span class="arithmatex">\(k\)</span> 阶<strong>中心</strong>矩</p>
 <p>（矩的存在性类比 <span class="arithmatex">\(EX\)</span> 的存在性）</p>
@@ -7372,8 +7372,8 @@ c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\
 c_{n1} &amp; c_{n2} &amp; \cdots &amp; c_{nn}
 \end{pmatrix}
 \]</div>
-<p>为 <span class="arithmatex">\(X\)</span> 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 <span class="arithmatex">\(\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}\)</span> </p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span></div></div>
+<p>为 <span class="arithmatex">\(X\)</span> 的协方差阵，它是一个对称矩阵，比如二维正态分布的协方差阵为 <span class="arithmatex">\(\begin{bmatrix}\sigma_1^2 &amp; \sigma_1 \sigma_2 \rho \\ \sigma_1 \sigma_2 \rho &amp; \sigma_2^2\end{bmatrix}\)</span></p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-03-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-03-16T13:15:52+08:00">2026-03-16</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 

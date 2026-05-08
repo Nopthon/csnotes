@@ -15,7 +15,7 @@
         
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/burger.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
     
     
@@ -768,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch3.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch3/" class="md-nav__link">
         
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch4.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch4/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch5.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch5/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/OS-Theory/ch6.md" class="md-nav__link">
+      <a href="../../OS/OS-Theory/ch6/" class="md-nav__link">
         
   
   
@@ -5909,14 +5909,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../self-study/Rust/part1/" class="md-nav__link">
+      <a href="../../../self-study/Rust/part2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Part1
+    Part2
   
 
     
@@ -7328,33 +7328,33 @@
 <p><strong>这里是凸优化基础部分</strong></p>
 <p>为什么要完整记录这部分内容？因为原课件是英文的我看不懂，以下内容相当于翻译了</p>
 <h2 id="_1">样本集</h2>
-<p>在机器学习中，我们通常要处理的数据是由一对输入和标签组成的样本集。取样本集中的某一个元素：
-$$
+<p>在机器学习中，我们通常要处理的数据是由一对输入和标签组成的样本集。取样本集中的某一个元素：</p>
+<div class="arithmatex">\[
 (\mathbf{x_i}, y_i)
-$$
-输入 <span class="arithmatex">\(\mathbf{x}_{i}\)</span> 是一个向量，存储了样本的各种特征 / 属性</p>
+\]</div>
+<p>输入 <span class="arithmatex">\(\mathbf{x}_{i}\)</span> 是一个向量，存储了样本的各种特征 / 属性</p>
 <p>标签 <span class="arithmatex">\(y_i\)</span> 是模型的目标（模型预测的期望值）</p>
 <h2 id="_2">风险最小化</h2>
 <p>监督学习的根本目标是风险最小化（Risk Minimization）</p>
-<p>我们想从假设空间 <span class="arithmatex">\(\mathcal{H}\)</span> 中找到最佳模型 <span class="arithmatex">\(h\)</span>，使得它在整个数据分布下的预期损失（expected loss）最小：
-$$
+<p>我们想从假设空间 <span class="arithmatex">\(\mathcal{H}\)</span> 中找到最佳模型 <span class="arithmatex">\(h\)</span>，使得它在整个数据分布下的预期损失（expected loss）最小：</p>
+<div class="arithmatex">\[
 \min_{h \in \mathcal{H}} \mathbb{E}_{(\mathbf{x}, y) \sim \mathcal{D}} [f(h(\mathbf{x}), y)]
-$$
-其中 <span class="arithmatex">\((\mathbf{x}, y) \sim \mathcal{D}\)</span> 表示训练样本 <span class="arithmatex">\((\mathbf{x}, y)\)</span> 来自于未知的真实分布 <span class="arithmatex">\(\mathcal{D}\)</span>；<span class="arithmatex">\(f(h(\mathbf{x}), y)\)</span> 为损失函数，表示使用模型 <span class="arithmatex">\(h\)</span> 对输入 <span class="arithmatex">\(x\)</span> 进行预测，和真实标签 <span class="arithmatex">\(y\)</span> 比较产生的损失</p>
+\]</div>
+<p>其中 <span class="arithmatex">\((\mathbf{x}, y) \sim \mathcal{D}\)</span> 表示训练样本 <span class="arithmatex">\((\mathbf{x}, y)\)</span> 来自于未知的真实分布 <span class="arithmatex">\(\mathcal{D}\)</span>；<span class="arithmatex">\(f(h(\mathbf{x}), y)\)</span> 为损失函数，表示使用模型 <span class="arithmatex">\(h\)</span> 对输入 <span class="arithmatex">\(x\)</span> 进行预测，和真实标签 <span class="arithmatex">\(y\)</span> 比较产生的损失</p>
 <p>这一风险为期望风险，又称上面的式子为泛化误差</p>
 <h3 id="_3">经验风险最小化</h3>
-<p>在实际应用中，我们通常无法获得数据的真实分布 <span class="arithmatex">\(\mathcal{D}\)</span>，这也意味着我们不能直接计算风险。因此在模型训练过程中，通常使用近似化方法计算风险：经验风险最小化（Empirical Risk Minimization, ERM）：
-$$
+<p>在实际应用中，我们通常无法获得数据的真实分布 <span class="arithmatex">\(\mathcal{D}\)</span>，这也意味着我们不能直接计算风险。因此在模型训练过程中，通常使用近似化方法计算风险：经验风险最小化（Empirical Risk Minimization, ERM）：</p>
+<div class="arithmatex">\[
 \min_{h \in \mathcal{H}} \dfrac{1}{m} \sum_{i=1}^{m} f(h(\mathbf{x_{i}}), y_{i})
-$$
-其中 <span class="arithmatex">\((\mathbf{x_i}, y_i)\)</span> 表示样本集中的第 <span class="arithmatex">\(i\)</span> 个样本，样本总数为 <span class="arithmatex">\(m\)</span>。对于 ERM 近似，由于不依赖数据的真实分布，而是通过从分布中随机抽取的样本来近似估算风险，认为每个样本独立同分布</p>
+\]</div>
+<p>其中 <span class="arithmatex">\((\mathbf{x_i}, y_i)\)</span> 表示样本集中的第 <span class="arithmatex">\(i\)</span> 个样本，样本总数为 <span class="arithmatex">\(m\)</span>。对于 ERM 近似，由于不依赖数据的真实分布，而是通过从分布中随机抽取的样本来近似估算风险，认为每个样本独立同分布</p>
 <p>经验风险最小化也可以看作是对样本的平均近似，因为它通过计算从样本中获得的平均损失来近似真实的风险</p>
 <h4 id="_4">结构化经验风险最小化</h4>
-<p>为了避免模型过于复杂导致过拟合，我们继续引入正则化项：
-$$
+<p>为了避免模型过于复杂导致过拟合，我们继续引入正则化项：</p>
+<div class="arithmatex">\[
 \min_{h \in \mathcal{H}} \dfrac{1}{m} \sum_{i=1}^{m} f(h(\mathbf{x_{i}}), y_{i}) + \lambda R(h)
-$$
-其中 <span class="arithmatex">\(\lambda\)</span> 是一个超参数（模型训练之前设定的参数），控制正则化的强度；<span class="arithmatex">\(R(h)\)</span> 是正则化项，限制模型复杂度来避免过拟合</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(\lambda\)</span> 是一个超参数（模型训练之前设定的参数），控制正则化的强度；<span class="arithmatex">\(R(h)\)</span> 是正则化项，限制模型复杂度来避免过拟合</p>
 <p>我们引入下面的图像：</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260317204047522.png" data-desc-position="bottom"><img alt="image-20260317204047522" src="../images/image-20260317204047522.png"></a></p>
 <p>其中：</p>
@@ -7370,11 +7370,11 @@ $$
 <li>黄色曲线是泛化误差界限（理论上模型在未知数据上的误差），呈 U 型曲线，其最低点大致符合最优泛化能力的模型</li>
 </ul>
 <h2 id="_5">一般优化问题</h2>
-<p>我们引入最小化的语言来表示一般优化问题（General Optimization Problem）：
-$$
+<p>我们引入最小化的语言来表示一般优化问题（General Optimization Problem）：</p>
+<div class="arithmatex">\[
 \min f(\mathbf{x}) \quad \text{s.t. } \mathbf{x}\in \mathcal{X}
-$$
-其中：</p>
+\]</div>
+<p>其中：</p>
 <ul>
 <li>优化变量 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{d}\)</span> 是待调整的变量，<span class="arithmatex">\(d\)</span> 为变量个数</li>
 <li>目标函数 <span class="arithmatex">\(f: \mathbb{R}^{d} \to \mathbb{R}\)</span> 的值需要最小化</li>
@@ -7385,10 +7385,10 @@ $$
 <h3 id="_7">凸集</h3>
 <details class="success" open="open">
 <summary>Definition：凸集（Convex Set）</summary>
-<p>一个集合是凸集，当且仅当任取集合上两点构成线段，线段上所有点也都在集合内：
-$$
+<p>一个集合是凸集，当且仅当任取集合上两点构成线段，线段上所有点也都在集合内：</p>
+<div class="arithmatex">\[
 \forall \alpha \in [0, 1], \; \alpha \mathbf{x} + (1-\alpha) \mathbf{y} \in \mathcal{X}
-$$</p>
+\]</div>
 </details>
 <p>线段、射线、线性子空间都是凸集，另外还有两种比较重要的凸集：</p>
 <details class="success" open="open">
@@ -7407,19 +7407,19 @@ $$</p>
 <h3 id="_8">凸函数</h3>
 <details class="success" open="open">
 <summary>Definition：凸函数（Convex Function）</summary>
-<p>一个函数 <span class="arithmatex">\(f:\mathcal{X} \to \mathbb{R}\)</span> 是凸的，当且仅当取任意函数上任意两点 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathcal{X}\)</span>，有：
-$$
+<p>一个函数 <span class="arithmatex">\(f:\mathcal{X} \to \mathbb{R}\)</span> 是凸的，当且仅当取任意函数上任意两点 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathcal{X}\)</span>，有：</p>
+<div class="arithmatex">\[
 \forall \alpha \in [0, 1], \; f(\alpha \mathbf{x} + (1-\alpha) \mathbf{y}  ) \leq \alpha f(\mathbf{x}) + (1-\alpha) f(\mathbf{y})
-$$
-如果 <span class="arithmatex">\(f\)</span> 一阶可微，则还有等价的一阶条件：
-$$
+\]</div>
+<p>如果 <span class="arithmatex">\(f\)</span> 一阶可微，则还有等价的一阶条件：</p>
+<div class="arithmatex">\[
 f(\mathbf{x}) + \langle \nabla f(\mathbf{x}), \mathbf{y} - \mathbf{x} \rangle \leq f(\mathbf{y})
-$$
-如果 <span class="arithmatex">\(f\)</span> 二阶可微，则还有等价的二阶条件：
-$$
+\]</div>
+<p>如果 <span class="arithmatex">\(f\)</span> 二阶可微，则还有等价的二阶条件：</p>
+<div class="arithmatex">\[
 \nabla ^{2} f(\mathbf{x}) \succeq 0
-$$
-（即 Hessian 矩阵是半正定的）</p>
+\]</div>
+<p>（即 Hessian 矩阵是半正定的）</p>
 </details>
 <p>其几何图像非常直观：</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260317220045097.png" data-desc-position="bottom"><img alt="image-20260317220045097" src="../images/image-20260317220045097.png"></a></p>
@@ -7440,15 +7440,15 @@ $$
 <p>对于<u>无约束</u>优化问题，我们给出 Fermat 最优性条件</p>
 <details class="success" open="open">
 <summary>Theorem：可微函数的 Fermat 最优性条件</summary>
-<p>对于无约束优化问题：
-$$
+<p>对于无约束优化问题：</p>
+<div class="arithmatex">\[
 \min_{x\in \mathbb{R}^{d}} f(x)
-$$
-如果 <span class="arithmatex">\(x^{\ast}\)</span> 是局部最优解，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x^{\ast}\)</span> 处可微，则：
-$$
+\]</div>
+<p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是局部最优解，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x^{\ast}\)</span> 处可微，则：</p>
+<div class="arithmatex">\[
 \nabla f(x^{\ast}) = 0
-$$
-如果 <span class="arithmatex">\(f\)</span> 是凸函数，则 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解的充要条件即 <span class="arithmatex">\(\nabla f(x^{\ast}) = 0\)</span></p>
+\]</div>
+<p>如果 <span class="arithmatex">\(f\)</span> 是凸函数，则 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解的充要条件即 <span class="arithmatex">\(\nabla f(x^{\ast}) = 0\)</span></p>
 </details>
 <p>从几何意义上来说，<span class="arithmatex">\(x^{\ast}\)</span> 的切平面是水平的，并且整个函数都在切平面上方</p>
 <hr>
@@ -7456,155 +7456,153 @@ $$
 <p>首先为了处理不可微的凸函数的梯度，引入次梯度</p>
 <details class="success" open="open">
 <summary>Definition：次梯度</summary>
-<p>定义凸函数 <span class="arithmatex">\(f\)</span> 在点 <span class="arithmatex">\(x^{\ast}\)</span> 处的次梯度为
-$$
+<p>定义凸函数 <span class="arithmatex">\(f\)</span> 在点 <span class="arithmatex">\(x^{\ast}\)</span> 处的次梯度为</p>
+<div class="arithmatex">\[
 \partial f(x^{\ast}) = \lbrace g \in \mathbb{R}^{d} \mid f(x) \geq f(x^{\ast}) + g^{\top} (x-x^{\ast}), \forall x \in \mathbb{R}^{d}\rbrace
-$$
-换句话说：
-$$
+\]</div>
+<p>换句话说：</p>
+<div class="arithmatex">\[
 g \in \partial f(x^{\ast}) \equiv f(x) \geq f(x^{\ast}) + g^{\top} (x-x^{\ast}), \forall x \in \mathbb{R}^{d}
-$$</p>
+\]</div>
 </details>
 <p>次梯度是向量的集合，表示所有支撑超平面的法向量的集合</p>
 <details class="success" open="open">
 <summary>Theorem：全体凸函数的 Fermat 最优性条件</summary>
-<p>令 <span class="arithmatex">\(f: \mathbb{R}^{d} \to (-\infty, \infty]\)</span> 是一个凸函数（可以不光滑），函数至少有一个点函数值有限，依旧是无约束优化问题：
-$$
+<p>令 <span class="arithmatex">\(f: \mathbb{R}^{d} \to (-\infty, \infty]\)</span> 是一个凸函数（可以不光滑），函数至少有一个点函数值有限，依旧是无约束优化问题：</p>
+<div class="arithmatex">\[
 \min_{x\in \mathbb{R}^{d}} f(x)
-$$
-如果 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x^{\ast}\)</span> 处可微，则充要条件为：
-$$
+\]</div>
+<p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x^{\ast}\)</span> 处可微，则充要条件为：</p>
+<div class="arithmatex">\[
 \mathbf{0} \in \partial f(x^{\ast})
-$$</p>
+\]</div>
 </details>
 <h2 id="_9">一阶最优性条件</h2>
-<p><u>约束集为凸集</u>优化问题可以这样表示：
-$$
+<p><u>约束集为凸集</u>优化问题可以这样表示：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \min \quad &amp; f(x) + \delta_{\mathcal{X}} (\mathbf{x})\newline
-\text{s.t.} \quad &amp; \mathbf{x} \in \mathbb{R}^{d} 
+\text{s.t.} \quad &amp; \mathbf{x} \in \mathbb{R}^{d}
 \end{aligned}
-$$
-其中：
-$$
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
 \delta_{\mathcal{X}}(\mathbf{x}) =
-\begin{cases} 
+\begin{cases}
 0, &amp; \mathbf{x} \in \mathcal{X}, \newline
 \infty, &amp; \mathbf{x} \notin \mathcal{X}.
 \end{cases}
-$$
-为指示函数（barrier / indicator function），显式表示集合的约束</p>
+\]</div>
+<p>为指示函数（barrier / indicator function），显式表示集合的约束</p>
 <p>我们给出一阶最优性条件</p>
 <p>（这里直接给出凸函数下的最优性条件，而不再介绍常规可微函数的条件写法）</p>
 <details class="success" open="open">
 <summary>Theorem：一阶最优性条件</summary>
-<p>对于 <span class="arithmatex">\(f\)</span> 为可微凸函数，约束集 <span class="arithmatex">\(\mathcal{X}\)</span> 为凸集的优化问题：
-$$
+<p>对于 <span class="arithmatex">\(f\)</span> 为可微凸函数，约束集 <span class="arithmatex">\(\mathcal{X}\)</span> 为凸集的优化问题：</p>
+<div class="arithmatex">\[
 \min_{x\in \mathcal{X}} f(x)
-$$
-如果 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解，则充要条件是存在 <span class="arithmatex">\(g \in \partial f(x^{\ast})\)</span>，满足变分不等式：
-$$
+\]</div>
+<p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是全局最优解，则充要条件是存在 <span class="arithmatex">\(g \in \partial f(x^{\ast})\)</span>，满足变分不等式：</p>
+<div class="arithmatex">\[
 \langle \mathbf{g}, \mathbf{x}-\mathbf{x}^{\ast} \rangle \geq 0, \quad \forall \mathbf{x} \in \mathcal{X}
-$$
-几何意义为：从 <span class="arithmatex">\(x^{\ast}\)</span> 沿任何方向出发，函数值都不会下降</p>
+\]</div>
+<p>几何意义为：从 <span class="arithmatex">\(x^{\ast}\)</span> 沿任何方向出发，函数值都不会下降</p>
 </details>
 <h2 id="lagrange">Lagrange 乘子法</h2>
-<p>Lagrange 乘子（Lagrange Multipliers）将等式约束优化问题转化为无约束优化问题，通过引入“乘子”来体现约束的影响
-$$
+<p>Lagrange 乘子（Lagrange Multipliers）将等式约束优化问题转化为无约束优化问题，通过引入“乘子”来体现约束的影响</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \min \quad &amp; f(x) \newline
 \text{s.t.} \quad &amp; h_j(x) = 0, \quad j = 1, \dots, n
 \end{aligned}
-$$
-在无约束情况下，最优点 <span class="arithmatex">\(x^{\ast}\)</span> 处满足 <span class="arithmatex">\(\nabla f(x^{\ast}) = 0\)</span></p>
-<p>而引入了约束曲面 <span class="arithmatex">\(h(x) = 0\)</span> 之后，在最优解 <span class="arithmatex">\(x^{\ast}\)</span> 处， <span class="arithmatex">\(f\)</span> 的梯度需要与所有约束的梯度张成的空间正交（否则沿曲面运动可以进一步缩小 <span class="arithmatex">\(f\)</span>），也就是说，存在 Lagrange 乘子 <span class="arithmatex">\(\mathbf{\lambda}= \left( \lambda^{\ast}_{1},  \cdots , \lambda^{\ast}_{n} \right)^{\top}\)</span>：
-$$
+\]</div>
+<p>在无约束情况下，最优点 <span class="arithmatex">\(x^{\ast}\)</span> 处满足 <span class="arithmatex">\(\nabla f(x^{\ast}) = 0\)</span></p>
+<p>而引入了约束曲面 <span class="arithmatex">\(h(x) = 0\)</span> 之后，在最优解 <span class="arithmatex">\(x^{\ast}\)</span> 处， <span class="arithmatex">\(f\)</span> 的梯度需要与所有约束的梯度张成的空间正交（否则沿曲面运动可以进一步缩小 <span class="arithmatex">\(f\)</span>），也就是说，存在 Lagrange 乘子 <span class="arithmatex">\(\mathbf{\lambda}= \left( \lambda^{\ast}_{1},  \cdots , \lambda^{\ast}_{n} \right)^{\top}\)</span>：</p>
+<div class="arithmatex">\[
 \nabla f(x^{\ast}) + \sum_{j=1}^{n}\lambda_{j} \nabla h_{j}(x^{\ast}) = 0
-$$
-因此我们给出 Lagrange 乘子法的一阶必要条件：</p>
+\]</div>
+<p>因此我们给出 Lagrange 乘子法的一阶必要条件：</p>
 <details class="success" open="open">
 <summary>Definition：Lagrange 乘子法的一阶必要条件</summary>
-<p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是局部最优解，且满足约束规格（比如 <span class="arithmatex">\(\{\nabla h_j(x^{\ast})\}_{j=1}^p\)</span> 线性独立），则一定存在 Lagrange 乘子 <span class="arithmatex">\(\lambda^{\ast} = \left( \lambda^{\ast}_{1}, \cdots , \lambda^{\ast}_{n} \right)^{\top}\)</span>，使得
-$$
+<p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是局部最优解，且满足约束规格（比如 <span class="arithmatex">\(\{\nabla h_j(x^{\ast})\}_{j=1}^p\)</span> 线性独立），则一定存在 Lagrange 乘子 <span class="arithmatex">\(\lambda^{\ast} = \left( \lambda^{\ast}_{1}, \cdots , \lambda^{\ast}_{n} \right)^{\top}\)</span>，使得</p>
+<div class="arithmatex">\[
 \nabla_x \mathcal{L}(x^{\ast}, \lambda^{\ast}) = 0 \quad \Leftrightarrow \quad \nabla f(x^{\ast}) + \sum_{j=1}^n \lambda_j^{\ast} \nabla h_j(x^{\ast}) = 0
 \newline
 h_{j}(x^{\ast}) = 0
-$$</p>
+\]</div>
 </details>
 <p>这组方程被称为 Lagrange 方程组</p>
 <h2 id="kkt">KKT 条件</h2>
-<p>KKT 条件是 Lagrange 乘子法在不等式约束下的推广，现在考虑等式约束 + 不等式约束的优化问题：
-$$
+<p>KKT 条件是 Lagrange 乘子法在不等式约束下的推广，现在考虑等式约束 + 不等式约束的优化问题：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \min \quad &amp; f(x) \newline
 \text{s.t.} \quad &amp; g_i(x) \leq 0, \quad i = 1, \dots, m \newline
 &amp; h_j(x) = 0, \quad j = 1, \dots, n
 \end{aligned}
-$$</p>
+\]</div>
 <details class="success" open="open">
 <summary>Definition：KKT 条件</summary>
 <p>假设 <span class="arithmatex">\(\mathbf{x}^{\ast}\)</span> 是问题的局部最优解，且满足约束规格（比如 <span class="arithmatex">\(\{\nabla h_j(x^{\ast})\}_{j=1}^m\)</span> 线性独立），则一定存在 Lagrange 乘子 <span class="arithmatex">\(\mu_i \ge 0\)</span> 和 <span class="arithmatex">\(\lambda_j\)</span>，使得</p>
 <ul>
-<li>
-<p>稳定性条件：
-   $$
+<li>稳定性条件：</li>
+</ul>
+<p>$$
    \nabla f(x^{\ast}) + \sum_{i=1}^m \mu_i \nabla g_i(x^{\ast}) + \sum_{j=1}^n \lambda_j \nabla h_j(x^{\ast}) = 0
    $$</p>
-</li>
-<li>
-<p>原始可行性：
-   $$
+<ul>
+<li>原始可行性：</li>
+</ul>
+<p>$$
    g_i(x^{\ast}) \le 0, \quad h_j(x^{\ast}) = 0
    $$</p>
-</li>
-<li>
-<p>对偶可行性：
-   $$
+<ul>
+<li>对偶可行性：</li>
+</ul>
+<p>$$
    \mu_i \ge 0
    $$</p>
-</li>
-<li>
-<p>互补松弛条件：
-   $$
+<ul>
+<li>互补松弛条件：</li>
+</ul>
+<p>$$
    \mu_i g_i(x^{\ast}) = 0, \quad \forall i
    $$</p>
-</li>
-</ul>
 </details>
 <p>KKT 条件对于一般的优化问题是<strong>必要条件</strong>，也就是说给定局部左右解和满足约束规格，可以得到四个条件，但是不具有充分性</p>
 <h3 id="lagrange_1">扩展后的 Lagrange 乘子法</h3>
-<p>考虑等式约束 + 不等式约束的优化问题：
-$$
+<p>考虑等式约束 + 不等式约束的优化问题：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \min \quad &amp; f(x) \newline
 \text{s.t.} \quad &amp; g_i(x) \leq 0, \quad i = 1, \dots, m \newline
 &amp; h_j(x) = 0, \quad j = 1, \dots, n
 \end{aligned}
-$$
-在引入 KKT 条件后，我们可以给出包含不等式约束的 Lagrange 函数：
-$$
+\]</div>
+<p>在引入 KKT 条件后，我们可以给出包含不等式约束的 Lagrange 函数：</p>
+<div class="arithmatex">\[
 \mathcal{L}(x, \lambda, ν) = f(x) + \sum_{i=1}^{m} \lambda_{i}g_{i}(x) + \sum_{j=1}^{n} ν_{j}h_{j}(x)
-$$
-其中 <span class="arithmatex">\(\lambda_{i} \geq 0\)</span> 对应不等式约束的 Lagrange 乘子；<span class="arithmatex">\(ν_{j} \in \R\)</span> 对应等式约束的 Lagrange 乘子</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(\lambda_{i} \geq 0\)</span> 对应不等式约束的 Lagrange 乘子；<span class="arithmatex">\(ν_{j} \in \R\)</span> 对应等式约束的 Lagrange 乘子</p>
 <h2 id="lagrange_2">Lagrange 对偶函数</h2>
 <p>定义 Lagrange 函数的对偶函数：</p>
 <details class="success" open="open">
 <summary>Definition：对偶函数</summary>
 <p>给出 Lagrange 函数 <span class="arithmatex">\(\mathcal{L}(x, \lambda, ν)\)</span>，其中 <span class="arithmatex">\(x \in \mathcal{X}\)</span></p>
-<p>定义对偶函数
-$$
+<p>定义对偶函数</p>
+<div class="arithmatex">\[
 g(\lambda, ν) = \text{inf}_{x\in \mathcal{X}} \mathcal{L}(x, \lambda, ν)
-$$</p>
+\]</div>
 <p>无论原问题是否是凸函数，对偶问题 <span class="arithmatex">\(g(\lambda, ν)\)</span> 一定是凹函数。也就是说，对偶行函数给出了原问题最优值的一个下界 infimum</p>
 </details>
-<p>为了得到这个最优下界，定义 Lagrange 对偶问题：
-$$
+<p>为了得到这个最优下界，定义 Lagrange 对偶问题：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \max_{\lambda, ν} \quad &amp; g(\lambda, ν) \newline
 \text{s.t.} \quad &amp;\lambda \succeq 0
 \end{aligned}
-$$
-我们定义原问题的最优值为 <span class="arithmatex">\(p^{\ast}\)</span>，对偶问题的最优值记为 <span class="arithmatex">\(d^{\ast}\)</span></p>
+\]</div>
+<p>我们定义原问题的最优值为 <span class="arithmatex">\(p^{\ast}\)</span>，对偶问题的最优值记为 <span class="arithmatex">\(d^{\ast}\)</span></p>
 <p>如果 <span class="arithmatex">\(d^{\ast} \leq p^{\ast}\)</span>，则弱对偶成立；如果 <span class="arithmatex">\(d^{\ast} = p^{\ast}\)</span>，则强对偶成立</p>
 <h2 id="slater">Slater 条件</h2>
 <p>现在来到凸优化问题，给出 Slater 条件</p>
@@ -7615,15 +7613,15 @@ $$
 <li><span class="arithmatex">\(f, g_{i}\)</span> 都是凸函数</li>
 <li><span class="arithmatex">\(h_{j}\)</span> 是仿射函数，即 <span class="arithmatex">\(h_j(x) = 0\)</span> 相当于 <span class="arithmatex">\(a_j^\top x = b_j\)</span></li>
 </ul>
-<p>即：
-$$
+<p>即：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \min \quad &amp; f(x) \newline
 \text{s.t.} \quad &amp; g_i(x) \leq 0, \quad i = 1, \dots, m \newline
 &amp; a_j^\top x = b_j, \quad j = 1, \dots, n
 \end{aligned}
-$$
-对于上述问题，如果存在一个点 <span class="arithmatex">\(x\)</span>，使得所有不等式约束即使去除等号也成立（<span class="arithmatex">\(g_i(x) &lt; 0, \quad i = 1, \dots, m\)</span>），并且所有的等式约束也成立，则称这个点为 Slater 点，该凸优化问题为满足 Slater 条件的问题</p>
+\]</div>
+<p>对于上述问题，如果存在一个点 <span class="arithmatex">\(x\)</span>，使得所有不等式约束即使去除等号也成立（<span class="arithmatex">\(g_i(x) &lt; 0, \quad i = 1, \dots, m\)</span>），并且所有的等式约束也成立，则称这个点为 Slater 点，该凸优化问题为满足 Slater 条件的问题</p>
 </details>
 <p>如果一个凸优化问题满足 Slater 条件，那么：</p>
 <ul>
@@ -7655,28 +7653,28 @@ $$
 </ul>
 <details class="question">
 <summary>证明</summary>
-<p>取任意 <span class="arithmatex">\(f\)</span> 和任意固定点 <span class="arithmatex">\(x_0\)</span>，构造：
-$$
+<p>取任意 <span class="arithmatex">\(f\)</span> 和任意固定点 <span class="arithmatex">\(x_0\)</span>，构造：</p>
+<div class="arithmatex">\[
 \phi(x) = f(x) - f'(x_0)x
-$$</p>
+\]</div>
 <p>由假设 2 和 3，<span class="arithmatex">\(\phi\)</span> 也在函数类中</p>
 <p>求导得 <span class="arithmatex">\(\phi'(x) = f'(x) - f'(x_0)\)</span>，所以 <span class="arithmatex">\(\phi'(x_0) = 0\)</span></p>
-<p>由假设 1，<span class="arithmatex">\(x_0\)</span> 是 <span class="arithmatex">\(\phi\)</span> 的全局最优点：
-$$
+<p>由假设 1，<span class="arithmatex">\(x_0\)</span> 是 <span class="arithmatex">\(\phi\)</span> 的全局最优点：</p>
+<div class="arithmatex">\[
 \phi(x) \geq \phi(x_0) \quad \forall x
-$$</p>
-<p>代入得：
-$$
+\]</div>
+<p>代入得：</p>
+<div class="arithmatex">\[
 f(x) - f'(x_0)x \geq f(x_0) - f'(x_0)x_0
-$$</p>
-<p>整理得：
-$$
+\]</div>
+<p>整理得：</p>
+<div class="arithmatex">\[
 f(x) \geq f(x_0) + f'(x_0)(x - x_0)
-$$</p>
+\]</div>
 <p>这是凸函数的一阶形式定义</p>
 </details>
 <p>事实上，很多非凸问题的解决方案，设计上也是源于凸优化问题的</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-04-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-04-13T19:32:48+08:00">2026-04-13</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 
 
