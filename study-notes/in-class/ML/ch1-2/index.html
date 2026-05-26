@@ -6875,17 +6875,23 @@ g \in \partial f(x^{\ast}) \equiv f(x) \geq f(x^{\ast}) + g^{\top} (x-x^{\ast}),
 <div class="arithmatex">\[
 \nabla f(x^{\ast}) + \sum_{j=1}^{n}\lambda_{j} \nabla h_{j}(x^{\ast}) = 0
 \]</div>
+<blockquote>
+<p>这个式子的含义是：<strong><span class="arithmatex">\(\nabla f\)</span> 是由所有的 <span class="arithmatex">\(\nabla h_{j}\)</span> 线性组合而成的</strong>（通过 Lagrange 乘子提供的比例）</p>
+</blockquote>
 <p>因此我们给出 Lagrange 乘子法的一阶必要条件：</p>
 <details class="success" open="open">
 <summary>Definition：Lagrange 乘子法的一阶必要条件</summary>
 <p>如果 <span class="arithmatex">\(x^{\ast}\)</span> 是局部最优解，且满足约束规格（比如 <span class="arithmatex">\(\{\nabla h_j(x^{\ast})\}_{j=1}^p\)</span> 线性独立），则一定存在 Lagrange 乘子 <span class="arithmatex">\(\lambda^{\ast} = \left( \lambda^{\ast}_{1}, \cdots , \lambda^{\ast}_{n} \right)^{\top}\)</span>，使得</p>
 <div class="arithmatex">\[
-\nabla_x \mathcal{L}(x^{\ast}, \lambda^{\ast}) = 0 \quad \Leftrightarrow \quad \nabla f(x^{\ast}) + \sum_{j=1}^n \lambda_j^{\ast} \nabla h_j(x^{\ast}) = 0
+\nabla f(x^{\ast}) + \sum_{j=1}^n \lambda_j^{\ast} \nabla h_j(x^{\ast}) = 0
 \newline
-h_{j}(x^{\ast}) = 0
+h_{j}(x^{\ast}) = 0 \quad (\text{即原等式约束成立})
 \]</div>
 </details>
-<p>这组方程被称为 Lagrange 方程组</p>
+<p>我们记 $\mathcal{L}(x, \lambda) = f(x) + \sum_{j=1}^{n} \lambda_j h_j(x) $ 为 Lagrange 函数，上述的 <span class="arithmatex">\(\nabla f(x^{\ast}) + \sum_{j=1}^n \lambda_j^{\ast} \nabla h_j(x^{\ast}) = 0\)</span> 即为：</p>
+<div class="arithmatex">\[
+\nabla_{x} \mathcal{L}(x, \lambda) = 0
+\]</div>
 <h2 id="kkt">KKT 条件</h2>
 <p>KKT 条件是 Lagrange 乘子法在不等式约束下的推广，现在考虑等式约束 + 不等式约束的优化问题：</p>
 <div class="arithmatex">\[
@@ -6895,7 +6901,7 @@ h_{j}(x^{\ast}) = 0
 &amp; h_j(x) = 0, \quad j = 1, \dots, n
 \end{aligned}
 \]</div>
-<details class="success" open="open">
+<details class="success">
 <summary>Definition：KKT 条件</summary>
 <p>假设 <span class="arithmatex">\(\mathbf{x}^{\ast}\)</span> 是问题的局部最优解，且满足约束规格（比如 <span class="arithmatex">\(\{\nabla h_j(x^{\ast})\}_{j=1}^m\)</span> 线性独立），则一定存在 Lagrange 乘子 <span class="arithmatex">\(\mu_i \ge 0\)</span> 和 <span class="arithmatex">\(\lambda_j\)</span>，使得</p>
 <ul>
@@ -6924,6 +6930,37 @@ g_i(x^{\ast}) \le 0, \quad h_j(x^{\ast}) = 0
 \]</div>
 </details>
 <p>KKT 条件对于一般的优化问题是<strong>必要条件</strong>，也就是说给定局部左右解和满足约束规格，可以得到四个条件，但是不具有充分性</p>
+<p>那么 KKT 条件和 Lagrange 乘子法的联系是什么呢？和 Lagrange 乘子法的一阶必要条件进行对照分析：</p>
+<ul>
+<li><strong>稳定性条件</strong></li>
+</ul>
+<div class="arithmatex">\[
+\nabla f(x^{\ast}) + \sum_{i=1}^m \mu_i \nabla g_i(x^{\ast}) + \sum_{j=1}^n \lambda_j \nabla h_j(x^{\ast}) = 0
+\]</div>
+<p>在 Lagrange 乘子法的基础上，新增了不等式约束的梯度项</p>
+<ul>
+<li><strong>原始可行性</strong></li>
+</ul>
+<div class="arithmatex">\[
+g_i(x^{\ast}) \le 0, \quad h_j(x^{\ast}) = 0
+\]</div>
+<p>在 Lagrange 乘子法的基础上，新增了不等式约束的约束项限制</p>
+<ul>
+<li><strong>对偶可行性</strong></li>
+</ul>
+<div class="arithmatex">\[
+\mu_i \ge 0
+\]</div>
+<p>不等式约束的拉格朗日乘子必须非负（因为不等式约束的搜索空间应该是向可行域内部的，不能反向），相比之下，等式约束的拉格朗日乘子没有符号限制（因为等式约束的搜索空间是整个切平面）</p>
+<ul>
+<li><strong>互补松弛条件</strong></li>
+</ul>
+<div class="arithmatex">\[
+\mu_i g_i(x^{\ast}) = 0, \quad \forall i
+\]</div>
+<p>对于每一个不等式约束，要么：</p>
+<p>&lt;1&gt; 约束是紧的，<span class="arithmatex">\(g_i(x^{\ast}) = 0\)</span>，此时最优解踩在这个约束的边界上，乘子 <span class="arithmatex">\(\mu_{i}\)</span> 可以不为 <span class="arithmatex">\(0\)</span></p>
+<p>&lt;2&gt; 约束是松的，<span class="arithmatex">\(g_i(x^{\ast}) &lt; 0\)</span>，此时这个约束是没有实际限制意义的，对应的乘子 <span class="arithmatex">\(\mu_{i}\)</span> 必须为 <span class="arithmatex">\(0\)</span></p>
 <h3 id="lagrange_1">扩展后的 Lagrange 乘子法</h3>
 <p>考虑等式约束 + 不等式约束的优化问题：</p>
 <div class="arithmatex">\[
@@ -6945,9 +6982,10 @@ g_i(x^{\ast}) \le 0, \quad h_j(x^{\ast}) = 0
 <p>给出 Lagrange 函数 <span class="arithmatex">\(\mathcal{L}(x, \lambda, ν)\)</span>，其中 <span class="arithmatex">\(x \in \mathcal{X}\)</span></p>
 <p>定义对偶函数</p>
 <div class="arithmatex">\[
-g(\lambda, ν) = \text{inf}_{x\in \mathcal{X}} \mathcal{L}(x, \lambda, ν)
+g(\lambda, ν) = \operatorname*{inf}_{x\in \mathcal{X}} \mathcal{L}(x, \lambda, ν)
 \]</div>
-<p>无论原问题是否是凸函数，对偶问题 <span class="arithmatex">\(g(\lambda, ν)\)</span> 一定是凹函数。也就是说，对偶行函数给出了原问题最优值的一个下界 infimum</p>
+<p>含义为：我们固定乘子 <span class="arithmatex">\(\boldsymbol{\lambda}, \mathbf{v}\)</span> 时，对 <span class="arithmatex">\(x\)</span> 求 <span class="arithmatex">\(\mathcal{L}\)</span> 的下确界</p>
+<p><strong>无论原问题是否是凸函数，对偶问题 <span class="arithmatex">\(g(\lambda, ν)\)</span> 一定是凹函数</strong></p>
 </details>
 <p>为了得到这个最优下界，定义 Lagrange 对偶问题：</p>
 <div class="arithmatex">\[
@@ -6957,7 +6995,21 @@ g(\lambda, ν) = \text{inf}_{x\in \mathcal{X}} \mathcal{L}(x, \lambda, ν)
 \end{aligned}
 \]</div>
 <p>我们定义原问题的最优值为 <span class="arithmatex">\(p^{\ast}\)</span>，对偶问题的最优值记为 <span class="arithmatex">\(d^{\ast}\)</span></p>
-<p>如果 <span class="arithmatex">\(d^{\ast} \leq p^{\ast}\)</span>，则弱对偶成立；如果 <span class="arithmatex">\(d^{\ast} = p^{\ast}\)</span>，则强对偶成立</p>
+<p>如果 <span class="arithmatex">\(d^{\ast} \leq p^{\ast}\)</span>，则弱对偶成立；<strong>如果 <span class="arithmatex">\(d^{\ast} = p^{\ast}\)</span>，则强对偶成立</strong></p>
+<blockquote>
+<p>对固定的乘子 <span class="arithmatex">\(\lambda \ge 0, \nu\)</span>，Lagrange 对偶函数</p>
+<div class="arithmatex">\[
+g(\lambda, \nu) = \inf_{x \in \mathcal{X}} \mathcal{L}(x, \lambda, \nu)
+\]</div>
+<p>给出了原问题最优值 <span class="arithmatex">\(p^\star\)</span> 的一个<strong>下界</strong>（弱对偶性）</p>
+<p><span class="arithmatex">\(g(\lambda, \nu)\)</span> 永远是凹函数，因此最大化它的<strong>对偶问题</strong>总是凸的。记对偶问题的最优值为  </p>
+<div class="arithmatex">\[
+d^\star = \sup_{\lambda \ge 0,\, \nu} g(\lambda, \nu),
+\]</div>
+<p>则有 <span class="arithmatex">\(d^\star \le p^\star\)</span>。<span class="arithmatex">\(d^\star\)</span> 是原问题<strong>最好的下界</strong></p>
+<p>若 <span class="arithmatex">\(d^\star = p^\star\)</span>，则称<strong>强对偶性</strong>成立</p>
+</blockquote>
+<p>如果强对偶性成立，我们就可以通过解对偶问题去得到原问题的最优值</p>
 <h2 id="slater">Slater 条件</h2>
 <p>现在来到凸优化问题，给出 Slater 条件</p>
 <details class="success" open="open">

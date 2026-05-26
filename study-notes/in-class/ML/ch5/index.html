@@ -1986,6 +1986,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="硬间隔支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        化简
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6154,6 +6210,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="硬间隔支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        化简
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6269,7 +6381,236 @@
 <h2 id="_1">硬间隔支持向量机</h2>
 <p>依旧是考虑分类问题，我们希望在样本空间中寻找一个超平面 , 将不同类别的样本分开</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260427173314099-1779786661997-1.png" data-desc-position="bottom"><img alt="image-20260427173314099" src="../images/image-20260427173314099-1779786661997-1.png"></a></p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-05-26"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-26T17:11:26.278993+08:00">2026-05-26</time></span></div></div>
+<p>将训练样本分开的超平面可能有很多，我们希望找出一个最优的超平面，它的稳健性、泛化能力应该是最优的。直觉下，“正中间”的这个超平面划分（比如下图红线），<strong>它使得全体样本到超平面的最小距离最大化</strong></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260526172119985.png" data-desc-position="bottom"><img alt="image-20260526172119985" src="../images/image-20260526172119985.png"></a></p>
+<p>现在我们形式化问题：</p>
+<ul>
+<li>一个<strong>线性可分</strong>的样本集 <span class="arithmatex">\(\{\mathbf{x}_{i}, y_{i}\}_{i=1}^{m}\)</span>，其中 <span class="arithmatex">\(y_i\)</span> 是二分类标签 <span class="arithmatex">\(\{-1, +1\}\)</span></li>
+<li>线性超平面为 <span class="arithmatex">\(\mathbf{w}^{T}\mathbf{x} + b = 0\)</span>，对应的线性分类器为 <span class="arithmatex">\(x \mapsto \text{sign}(\mathbf{w}^{T}\mathbf{x} + b)\)</span></li>
+<li>点 <span class="arithmatex">\(\mathbf{x}_{i}\)</span> 到超平面的距离为 <span class="arithmatex">\(r(\mathbf{x}_{i}) = \dfrac{|\mathbf{w}^{T}\mathbf{x}_{i} + b|}{\|\mathbf{w}\|}\)</span></li>
+<li>我们的原始任务是：</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_{\mathbf{w}, b} \min_{i \in [m]} \quad &amp;\dfrac{|\mathbf{w}^{T}\mathbf{x}_{i} + b|}{\|\mathbf{w}\|}
+\\
+\text{s.t.} \quad &amp; y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \geq 0, i \in [m]
+\end{aligned}
+\]</div>
+<p>（这里的约束 <span class="arithmatex">\(y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \geq 0, i \in [m]\)</span> 的意义是，确保满足线性分类器 <span class="arithmatex">\(x \mapsto \text{sign}(\mathbf{w}^{T}\mathbf{x} + b)\)</span>，即把超平面以上的样本作为正例而不是反例。去除约束可能会进行完全相反的分类，也就是 <span class="arithmatex">\(x \mapsto -\text{sign}(\mathbf{w}^{T}\mathbf{x} + b)\)</span>）</p>
+<h3 id="_2">化简</h3>
+<p>这个最优化任务并不适合直接求解，我们需要继续优化。首先我们进行符号简化，去除绝对值：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_{\mathbf{w}, b} \min_{i \in [m]} \quad &amp;\dfrac{y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b)}{\|\mathbf{w}\|}
+\end{aligned}
+\]</div>
+<p>注意到分式 <span class="arithmatex">\(\dfrac{y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b)}{\|\mathbf{w}\|}\)</span> 对 <span class="arithmatex">\((\mathbf{w}, b)\)</span> 的倍率是一样的，也即，将 <span class="arithmatex">\((\mathbf{w}, b)\)</span> 缩放相同的任意倍数 <span class="arithmatex">\(\lambda &gt; 0\)</span>，将 <span class="arithmatex">\((\lambda \mathbf{w}, \lambda b)\)</span> 代入到分式中，不改变计算结果</p>
+<p>因此，一定存在一个特定的 <span class="arithmatex">\(\lambda\)</span>，使得 <span class="arithmatex">\(\displaystyle \min_{i \in [m]} y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) = 1\)</span> 成立，因此我们不妨把 <span class="arithmatex">\((\mathbf{w}, b)\)</span> 恰好缩放到这个条件成立的情况，使得 <span class="arithmatex">\(\min_{i \in [m]}\)</span> 可以自动约去，即：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_{\mathbf{w}, b} \min_{i \in [m]} \; \dfrac{y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b)}{\|\mathbf{w}\|}
+\Leftrightarrow \;
+\max_{\mathbf{w}} \; \dfrac{1}{\|\mathbf{w}\|}
+\end{aligned}
+\]</div>
+<p>对应的新的约束条件是 <span class="arithmatex">\(y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \geq 1, i \in [m]\)</span>，因此消去了内层的 <span class="arithmatex">\(\min_{i \in [m]}\)</span></p>
+<p>因此我们直接将问题化简为了：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\mathbf{w}} \quad &amp; \|\mathbf{w}\|
+\\
+\text{s.t.} \quad &amp; y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \geq 1, i \in [m]
+\end{aligned}
+\]</div>
+<p>可以证明，它和原始的问题是完全等价的，两者在几何上寻找的是完全相同的超平面</p>
+<p>进一步的，为了让这个优化问题变成一个凸二次规划（Convex QP）的标准形式，并且让求导后的结果更加简洁，我们可以稍微变形：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\mathbf{w}} \quad &amp; \dfrac{1}{2}\|\mathbf{w}\|^{2}
+\\
+\text{s.t.} \quad &amp; y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \geq 1, i \in [m]
+\end{aligned}
+\]</div>
+<p>最终的化简结果是最好解决的一种凸优化问题（凸二次规划问题）</p>
+<h3 id="_3">求解</h3>
+<p>依旧用 Lagrange 乘子法求解：</p>
+<div class="arithmatex">\[
+\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \dfrac{1}{2}\|\mathbf{w}\|^{2} + \sum_{i=1}^{m} \alpha_{i} (1-y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b))
+\]</div>
+<p>这个问题的 Lagrange 对偶函数为</p>
+<div class="arithmatex">\[
+g(\boldsymbol{\alpha}) = \operatorname*{inf}_{\mathbf{w}, b} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})
+\]</div>
+<p>分别在 <span class="arithmatex">\(\mathbf{w}\)</span> 和 <span class="arithmatex">\(b\)</span> 上求极小值，对 <span class="arithmatex">\(\mathbf{w}\)</span> 和 <span class="arithmatex">\(b\)</span> 求偏导取 <span class="arithmatex">\(0\)</span>，得：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial \mathbf{w}} &amp;= \mathbf{w} - \sum_{i=1}^{n} \alpha_i y_i \mathbf{x}_i = 0 &amp; \implies \quad \mathbf{w} &amp;= \sum_{i=1}^{m} \alpha_i y_i \mathbf{x}_i \\
+\frac{\partial \mathcal{L}}{\partial b} &amp;= -\sum_{i=1}^{n} \alpha_i y_i = 0 &amp; \implies \quad 0 &amp;= \sum_{i=1}^{m} \alpha_i y_i
+\end{align*}
+\]</div>
+<p>我们将这两个式子代入到 <span class="arithmatex">\(\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})\)</span>，得：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathcal{L} = -\frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + \sum_{i=1}^m \alpha_i
+\end{aligned}
+\]</div>
+<p>因此我们得到对偶问题：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\boldsymbol{\alpha}} \quad &amp; \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \alpha_i \\
+\text{s.t.} \quad &amp; \sum_{i=1}^m \alpha_i y_i = 0, \\
+&amp; \alpha_i \ge 0, \quad i = 1, \dots, m
+\end{aligned}
+\]</div>
+<p>这是一个只关于 <span class="arithmatex">\(\boldsymbol\alpha\)</span> 的二次规划问题，变量数等于样本数 <span class="arithmatex">\(m\)</span>，可用 SMO 等算法高效求解。假设求出的最优解为 <span class="arithmatex">\(\boldsymbol{\alpha}^{\ast} = (\alpha_{1}^{\ast}, \cdots, \alpha_{m}^{\ast})\)</span></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260526220730018.png" data-desc-position="bottom"><img alt="image-20260526220730018" src="../images/image-20260526220730018.png"></a></p>
+<p>此时我们找到了所有的 <span class="arithmatex">\(\alpha_{i}^{\ast}\)</span>，但是对应的 <span class="arithmatex">\(b\)</span> 还没有找出</p>
+<p>因为目标函数和约束都是凸的，且 Slater 条件成立，因此强对偶成立，KKT 条件是全局最优解的充要条件</p>
+<p>对于这个优化问题，</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\mathbf{w},b} \quad &amp; \dfrac{1}{2}\|\mathbf{w}\|^{2}
+\end{aligned}
+\]</div>
+<p>约束条件为 <span class="arithmatex">\(m\)</span> 个不等式约束</p>
+<div class="arithmatex">\[
+g_i(\mathbf{w}, b) = 1 - y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \leq 0, i \in [m]
+\]</div>
+<p>KKT 条件中有一条互补松弛性：</p>
+<div class="arithmatex">\[
+\alpha_i\bigl(1 - y_i(\mathbf{w}^{T}\mathbf{x}_i + b)\bigr) = 0, \quad i\in [m]
+\]</div>
+<p>互补松弛性说明，对于每一个样本 <span class="arithmatex">\(i\)</span>：</p>
+<ul>
+<li>若 <span class="arithmatex">\(\alpha_i &gt; 0\)</span>，则必有</li>
+</ul>
+<div class="arithmatex">\[
+1 - y_i(\mathbf{w}^{T}\mathbf{x}_i + b) = 0 \quad\Longrightarrow\quad y_i(\mathbf{w}^{T}\mathbf{x}_i + b) = 1
+\]</div>
+<p><strong>样本正好落在间隔边界上，我们记这样的样本为支持向量</strong></p>
+<details class="abstract">
+<summary>更形象地，支持向量恰好处在图中的边缘线上，这些支持向量即“样本正好落在间隔边界上”</summary>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260526224505996.png" data-desc-position="bottom"><img alt="image-20260526224505996" src="../images/image-20260526224505996.png"></a></p>
+<p>支持向量机（Support Vector Machine, SVM）因此而得名</p>
+</details>
+<ul>
+<li>若 <span class="arithmatex">\(\alpha_i = 0\)</span>，则约束可能严格成立</li>
+</ul>
+<div class="arithmatex">\[
+1 - y_i(\mathbf{w}^{T}\mathbf{x}_i + b) &lt; 0 \quad\Longrightarrow\quad y_i(\mathbf{w}^{T}\mathbf{x}_i + b) &gt; 1
+\]</div>
+<p>样本在间隔边界之外，对 <span class="arithmatex">\(\mathbf{w}\)</span> 没有贡献</p>
+<p>因此，当我们通过求解对偶问题得到 <span class="arithmatex">\(\boldsymbol{\alpha}^*\)</span> 后，挑出任一支持向量（即 <span class="arithmatex">\(\alpha_k^* &gt; 0\)</span> 对应的样本 <span class="arithmatex">\((\mathbf{x}_k, y_k)\)</span>），由 <span class="arithmatex">\(y_k(\mathbf{w}^{T}\mathbf{x}_k + b) = 1\)</span> 可解出：</p>
+<div class="arithmatex">\[
+b = y_k - \mathbf{w}^{T}\mathbf{x}_k.
+\]</div>
+<p>为了数值稳定，实际中常用所有支持向量的平均值</p>
+<div class="arithmatex">\[
+b = \frac{1}{|S|} \sum_{k \in S} \left( y_k - \mathbf{w}^{T}\mathbf{x}_k \right)
+\]</div>
+<p>其中 <span class="arithmatex">\(S = \{ i \mid \alpha_i^* &gt; 0 \}\)</span> 是支持向量的下标集合，<span class="arithmatex">\(\mathbf{w} = \sum_{i=1}^m \alpha_i^* y_i \mathbf{x}_i\)</span></p>
+<p>最终，我们给出分类决策函数：</p>
+<div class="arithmatex">\[
+f(\mathbf{x}{}) = \operatorname{sign}\bigl( \mathbf{w}^{T}\mathbf{x} + b \bigr)
+= \operatorname{sign}\left( \sum_{i=1}^m \alpha_i^* y_i \mathbf{x}_i^{T}\mathbf{x} + b \right)
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{x}\)</span> 指的是待预测的新样本，<span class="arithmatex">\(\mathbf{x}_{i}\)</span> 指的是训练集中的第 <span class="arithmatex">\(i\)</span> 个支持向量</p>
+<h2 id="_4">核方法</h2>
+<p>线性支持向量机基于<strong>线性可分</strong>的样本集 <span class="arithmatex">\(\{\mathbf{x}_{i}, y_{i}\}_{i=1}^{m}\)</span>。如果不存在一个能正确划分两类样本的超平面，那么可以将样本从原始空间映射到一个更高维的特征空间，使样本在这个特征空间内线性可分：</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260527010314478.png" data-desc-position="bottom"><img alt="image-20260527010314478" src="../images/image-20260527010314478.png"></a></p>
+<blockquote>
+<p>如果原始空间是有限维（属性数有限），那么一定存在一个高维特征空间使样本可分（Cover 定理）</p>
+</blockquote>
+<p>我们将样本 <span class="arithmatex">\(\mathbf{x}\)</span> 映射到高维空间，结果为 <span class="arithmatex">\(\phi(\mathbf{x})\)</span>，因此：</p>
+<ul>
+<li>原始问题</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\mathbf{w}} \quad &amp; \dfrac{1}{2}\|\mathbf{w}\|^{2}
+\\
+\text{s.t.} \quad &amp; y_{i}(\mathbf{w}^{T}\phi(\mathbf{x}_{i}) + b) \geq 1, i \in [m]
+\end{aligned}
+\]</div>
+<ul>
+<li>对偶问题</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\boldsymbol{\alpha}} \quad &amp; \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \phi(\mathbf{x}_{i})^T \phi(\mathbf{x}_{j}) - \sum_{i=1}^m \alpha_i \\
+\text{s.t.} \quad &amp; \sum_{i=1}^m \alpha_i y_i = 0, \\
+&amp; \alpha_i \ge 0, \quad i = 1, \dots, m
+\end{aligned}
+\]</div>
+<ul>
+<li>预测函数</li>
+</ul>
+<div class="arithmatex">\[
+f(\mathbf{x}) = \operatorname{sign}\bigl( \mathbf{w}^{T}\phi(\mathbf{x}) + b \bigr)
+= \operatorname{sign}\left( \sum_{i=1}^m \alpha_i^* y_i \phi(\mathbf{x}_{i})^{T}\phi(\mathbf{x}) + b \right)
+\]</div>
+<hr>
+<p>如果映射后的空间维度过高（甚至无穷维），直接计算 <span class="arithmatex">\(\phi(\mathbf{x})\)</span> 及其内积会非常困难，因此我们引入<strong>核函数</strong></p>
+<h3 id="_5">核函数</h3>
+<p>我们绕过显式的映射表示与内积计算，直接设计这样的函数：</p>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_{i}, \mathbf{x}_{j}) = \phi(\mathbf{x}_{i})^{T} \phi(\mathbf{x}_{j})
+\]</div>
+<p>让它隐式地等于高维空间的内积，称之为核函数</p>
+<details class="success">
+<summary>严谨的定义</summary>
+<p>设 <span class="arithmatex">\(\mathcal{X}\)</span> 为输入空间，<span class="arithmatex">\(\kappa(\mathbf{x}, \mathbf{z})\)</span> 是定义在 <span class="arithmatex">\(\mathcal{X} \times \mathcal{X}\)</span> 上的对称函数。如果存在一个映射 <span class="arithmatex">\(\phi: \mathcal{X} \to \mathcal{H}\)</span> 到某个特征空间（希尔伯特空间）<span class="arithmatex">\(\mathcal{H}\)</span>，使得对所有 <span class="arithmatex">\(\mathbf{x}, \mathbf{z} \in \mathcal{X}\)</span> 有 <span class="arithmatex">\(\kappa(\mathbf{x}, \mathbf{z}) = \langle \phi(\mathbf{x}), \phi(\mathbf{z}) \rangle\)</span>，则称 <span class="arithmatex">\(\kappa\)</span> 为核函数</p>
+</details>
+<p>如何判断一个函数是有效核函数？我们有 Mercer 定理</p>
+<details class="success" open="open">
+<summary>Mercer 定理</summary>
+<p>对于任意一个给定的有限样本集 <span class="arithmatex">\(\{\mathbf{x}_1, \dots, \mathbf{x}_m\}\)</span>，如果由 <span class="arithmatex">\(\kappa\)</span> 构成的核矩阵 <span class="arithmatex">\(\mathbf{K}\)</span>（其中 <span class="arithmatex">\(K_{ij} = \kappa(\mathbf{x}_i, \mathbf{x}_j)\)</span>）是对称半正定的，那么 <span class="arithmatex">\(\kappa\)</span> 就可以作为核函数</p>
+</details>
+<p>我们给出一些常用的核函数：</p>
+<ul>
+<li><strong>线性核</strong></li>
+</ul>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_{i}, \mathbf{x}_{j}) = \mathbf{x}_{i}^{T} \mathbf{x}_{j}
+\]</div>
+<p>最原始的内积形式，等价于不做映射</p>
+<ul>
+<li><strong>多项式核</strong></li>
+</ul>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_i, \mathbf{x}_j) = (\gamma \mathbf{x}_i^T \mathbf{x}_j + r)^d
+\]</div>
+<p>其中 <span class="arithmatex">\(d\)</span> 是多项式的阶数（如 <span class="arithmatex">\(d=2\)</span> 代表二次特征），<span class="arithmatex">\(\gamma&gt;0\)</span> 和 <span class="arithmatex">\(r\ge0\)</span> 是超参数</p>
+<ul>
+<li><strong>高斯核</strong></li>
+</ul>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_i, \mathbf{x}_j) = \exp\left(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2\right), \quad \gamma &gt; 0
+\]</div>
+<p>记 <span class="arithmatex">\(\gamma = \dfrac{1}{2\sigma^2}\)</span>，<span class="arithmatex">\(\sigma&gt;0\)</span> 为高斯核的带宽</p>
+<ul>
+<li><strong>拉普拉斯核</strong></li>
+</ul>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_i, \mathbf{x}_j) = \exp\left(-\gamma \|\mathbf{x}_i - \mathbf{x}_j\|\right), \quad \gamma &gt; 0
+\]</div>
+<p>记 <span class="arithmatex">\(\gamma = \dfrac{1}{\sigma}\)</span>，<span class="arithmatex">\(\sigma&gt;0\)</span>。相比高斯核使用 L1 范数而不是 L2 范数</p>
+<ul>
+<li><strong>Sigmoid 核</strong></li>
+</ul>
+<div class="arithmatex">\[
+\kappa(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \mathbf{x}_i^T \mathbf{x}_j + r)
+\]</div>
+<p>其中 <span class="arithmatex">\(\gamma&gt;0\)</span> 和 <span class="arithmatex">\(r&lt; 0\)</span> 是超参数</p>
+<p>对于文本数据，直接使用线性核；对于不清楚数据特征的数据，优先尝试高斯核（RBF）</p>
+<hr>
+<p>核函数可以通过简单的数学运算组合成新的核函数，即多重核学习（Multiple Kernel Learning, MKL）</p>
+<p>如果 <span class="arithmatex">\(\kappa_1\)</span> 和 <span class="arithmatex">\(\kappa_2\)</span> 都是合法的核函数，那么以下三种运算得到的新函数依然是核函数：
+1.  线性组合： <span class="arithmatex">\(\gamma_1\kappa_1 + \gamma_2\kappa_2\)</span>（<span class="arithmatex">\(\gamma\)</span> 为正数）
+2.  直积： <span class="arithmatex">\(\kappa_1(x, z) \cdot \kappa_2(x, z)\)</span>
+3.  函数缩放： <span class="arithmatex">\(g(x)\kappa_1(x, z)g(z)\)</span> （<span class="arithmatex">\(g\)</span> 为任意函数）</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-05-27"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-27T02:07:59.247495+08:00">2026-05-27</time></span></div></div>
 
 
 
