@@ -1,0 +1,6859 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../NUAACTF-2026-Writeup/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/burger.svg">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>ACTF 2026 Writeup - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/core/core.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/user.config.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actf-2026-writeup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../assets/burger.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ACTF 2026 Writeup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../study-notes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Study-notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../gadgets/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../assets/burger.svg" alt="logo">
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study-notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study-notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In-class
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    In-class
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/OS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/OS/OS-Theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1_2" id="__nav_2_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统概论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    处理器管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    并发进程控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Theory/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    设备管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_3" id="__nav_2_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/lab1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1 - 引导程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/lab2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2 - 系统调用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/lab3.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3 - 进程管理与调度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/lab4.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4 - 进程通信与同步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/OS/OS-Labs/lab5.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 5 - 文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/Numerical-method/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数求根，牛顿法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插值，秘密分享，自纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chebyshev 插值与 Chebyshev 多项式，范数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最小二乘法，Gram-Schmidt 正交化与 QR 分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT，高斯消元与LU分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算子范数，条件数和迭代法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值与幂迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值的其它迭代方法，SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    迭代法解线性方程组：梯度下降方法与共轭梯度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    幂迭代的特例：随机游走与马尔可夫链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    谱图论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电阻电路网络，碰撞时间和遍历时间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性规划入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Numerical-method/ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LP 顶点，对偶性和零和游戏
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/ML/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习导论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器学习导论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch1-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch1-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-Extra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型评估与选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch3-extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维：主成分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ML/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/Algorithm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法设计与分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法设计与分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divide and Conque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Greedy Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch9.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NP-Completeness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Algorithm/ch10.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/Mathlogic/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理逻辑
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理逻辑
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Mathlogic/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    朴素命题逻辑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Mathlogic/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    形式化命题逻辑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Mathlogic/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    形式化推理系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Mathlogic/ch4.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    coq 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/ICS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/ICS/ICS-Theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6_2" id="__nav_2_2_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据的机器级表示与处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序转换与指令系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的机器级表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的链接与加载执行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储器层次结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虚拟存储器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程与异常控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Theory/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O 操作的实现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6_3" id="__nav_2_2_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Labs/Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Labs/Linklab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linklab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICS-Labs/Bufolab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bufolab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/ICS/ICSPA-x86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICSPA x86 note
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6_4" id="__nav_2_2_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICSPA x86 note
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    i386 指令结构 for PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/Before_PA3_%26%26_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Before PA3&amp;&amp;4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA4-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA4-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/PA4-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/ICS/ICSPA-x86/A_journey_of_debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A journey of debugging
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络攻防实战 Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络攻防实战 Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab07%28PWN%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab07(PWN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Network-attack-and-defense-in-action/lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/Probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机事件与概率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量及其概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量的数字特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    极限理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统计量与抽样分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参数估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/in-class/DS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构 OJ Ans
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构 OJ Ans
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/Exam1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/Exam2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/OJ12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 12 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/in-class/DS/Exam3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-study
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Self-study
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSAPP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CSAPP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CSAPP/Datalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CSAPP/Bomblab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bomblab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/self-study/CS188/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS188
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS188
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/Lectures/Lecture-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Artificial Intelligence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/Lectures/Lecture-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninformed Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/Lectures/Lecture-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A* Search and Heuristics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/Lectures/Lecture-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSPs I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/Lectures/Lecture-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSPs II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_3" id="__nav_2_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWs &amp; PROJs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HWs &amp; PROJs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/HWs%26PROJs/proj0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/HWs%26PROJs/proj1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/HWs%26PROJs/hw0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/CS188/HWs%26PROJs/hw1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../study-notes/self-study/Rust/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rust
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/Rust/part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../study-notes/self-study/Rust/part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../gadgets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gadgets/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇奇怪怪的网站推荐
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-ctf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏴‍☠️ CTF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-re/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔍 RE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-not-sorted-yet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../category/-hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 HPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 MISC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 MISC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        special day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zjuam-just-uses-awful-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZJUAM Just Uses Awful Math
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crypto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 CRYPTO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🕸️ WEB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 RE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 RE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ？！计算机系统贯通实验！？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flagchecker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flagchecker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
+                        <time datetime="2026-05-15 00:00:00+00:00" class="md-ellipsis">May 15, 2026</time>
+                      </div>
+                    </li>
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"></path></svg>
+                          <time datetime="2026-05-15 00:00:00+00:00" class="md-ellipsis">May 15, 2026</time>
+                        </div>
+                      </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../category/-ctf/">🏴‍☠️ CTF</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+<h1 id="actf-2026-writeup">ACTF 2026 Writeup</h1>
+<p>压根没打，考完期中后看看题</p>
+<p>按照解题数排序找点水题写写</p>
+<!-- more -->
+
+<p>赛后没办法验 Flag 了所以还得找题解确认，部分题目的线上环境还关闭了没法做😭</p>
+<hr>
+<h2 id="misc">🧩 MISC</h2>
+<h3 id="special-day">special day</h3>
+<blockquote>
+<p>Today is ACTF, and it is also Mother’s Day in China.</p>
+<p>The competition matters, but don’t forget to send your mom a simple blessing.
+Even one short sentence is enough.</p>
+<p>Use _ to join the words, remove punctuation, and wrap it with ACTF{}.</p>
+</blockquote>
+<p>给了一个 txt 文件，内容是</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>SGFwcHkgTW90aGVyJ3MgRGF5LCBNb20h
+</code></pre></div></td></tr></tbody></table></div>
+<p>Base64 得</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Happy Mother's Day, Mom!
+</code></pre></div></td></tr></tbody></table></div>
+<p>包装为 Flag</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ACTF{Happy_Mothers_Day_Mom}
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
+<h3 id="zjuam-just-uses-awful-math">ZJUAM Just Uses Awful Math</h3>
+<blockquote>
+<p>有黑调的迪克把我的浙江大学统一身份认证登录过程抓包了，黑调的迪克怎么这么坏啊</p>
+</blockquote>
+<p>题目描述不像人类，下发一个 <code>zjuam.pcap</code></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/image-20260515143847118.png" data-desc-position="bottom"><img alt="image-20260515143847118" src="../../images/image-20260515143847118.png"></a></p>
+<p>直接 <code>strings</code> 扫一遍，发现神秘字符串：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>{"modulus":"90011418f37a7a075aead75a9829d38eb2d750fd17bb24e5861b89d7658a88c3","exponent":"10001"}
+
+username=player&amp;password=590948ad2f7a3c0b1a2a5e5f470f4297db3b90623251132be2c5e5395cd12563&amp;execution=[redacted]&amp;_eventId=submit&amp;rememberMe=true
+</code></pre></div></td></tr></tbody></table></div>
+<p>RSA 暗示？我们提取十六进制内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mh">0x90011418f37a7a075aead75a9829d38eb2d750fd17bb24e5861b89d7658a88c3</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mh">0x10001</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mh">0x590948ad2f7a3c0b1a2a5e5f470f4297db3b90623251132be2c5e5395cd12563</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>其中 n 在 factordb 上可以被分解</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>6513495575...67&lt;77&gt; = 202555251191383333988748320354737959551&lt;39&gt; · 321566364572398185024295275472079273917&lt;39&gt;
+</code></pre></div></td></tr></tbody></table></div>
+<p>得到的相关参数进行 RSA 解密</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mh">0x90011418f37a7a075aead75a9829d38eb2d750fd17bb24e5861b89d7658a88c3</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mh">0x10001</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mh">0x590948ad2f7a3c0b1a2a5e5f470f4297db3b90623251132be2c5e5395cd12563</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">202555251191383333988748320354737959551</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">321566364572398185024295275472079273917</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'big'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>得到 Flag</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ACTF{TLS_s@ves_THE_w0RLd}
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
+<hr>
+<h2 id="crypto">🔒 CRYPTO</h2>
+<hr>
+<h2 id="web">🕸️ WEB</h2>
+<hr>
+<h2 id="re">🔍 RE</h2>
+<h3 id="_1">？！计算机系统贯通实验！？</h3>
+<blockquote>
+<p>我好像一不小心把我<strong>普通物理学实验II(H)</strong>的实验报告交到了<strong>计算机系统I</strong>实验报告提交处……要不就将错就错吧。</p>
+</blockquote>
+<p>！？Excel 逆向题？！</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/image-20260515161058425.png" data-desc-position="bottom"><img alt="image-20260515161058425" src="../../images/image-20260515161058425.png"></a></p>
+<p>C 列藏了一堆 excel 运算，K 列似乎是一堆初始数据，L 列似乎是 Runtime 内存</p>
+<p>提取出所有 C 列公式，是这个画风，丢给 LLMs 说是 RISC-V 指令集模拟器，I 列是原始 RISC-V 字节码（好像还混淆了）：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">单元格地址</span>   <span class="n">公式内容</span>
+
+<span class="c1"># 取指与译码 (C4-C14)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">4</span>    <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">B2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C110</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">5</span>    <span class="o">=</span><span class="n">C4</span><span class="o">/</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">6</span>    <span class="o">=</span><span class="n">HEX2DEC</span><span class="p">(</span><span class="n">INDEX</span><span class="p">(</span><span class="n">I</span><span class="p">:</span><span class="n">I</span><span class="p">,</span> <span class="n">C5</span><span class="p">))</span> <span class="o">-</span> <span class="mi">11462713</span> <span class="o">*</span> <span class="n">C4</span><span class="o">/</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">918823512</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">7</span>    <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C6</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C6</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C6</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">8</span>    <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">9</span>    <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">31</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">10</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">11</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">31</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">12</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">31</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">13</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">127</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">14</span>   <span class="o">=</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+
+<span class="c1"># 指令识别 (C15-C23)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">15</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="mi">14</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">16</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">Q16</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">17</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="mi">1</span>    <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">18</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="n">R22</span><span class="p">:</span><span class="n">S23</span><span class="p">)</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">19</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="n">T20</span><span class="p">:</span><span class="n">U24</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">20</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="mi">59</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">21</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="n">Q16</span><span class="p">:</span><span class="n">Q19</span><span class="p">)</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">22</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="n">Q19</span><span class="p">:</span><span class="n">Q21</span><span class="p">)</span>   <span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">23</span>   <span class="o">=</span><span class="p">(</span><span class="n">C8</span><span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="n">R18</span><span class="p">:</span><span class="n">S29</span><span class="p">)</span>  <span class="p">)</span>
+
+<span class="c1"># 操作数获取 (C24-C27)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">24</span>   <span class="o">=</span><span class="n">CHOOSE</span><span class="p">(</span><span class="n">C11</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">2</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">3</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">4</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">5</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">6</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">7</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">8</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">9</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">10</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">11</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">12</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">13</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">14</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">15</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">16</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">17</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">18</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">19</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">20</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">21</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">22</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">23</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">24</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">25</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">26</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">27</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">28</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">29</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">30</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">31</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">32</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">33</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">25</span>   <span class="o">=</span><span class="n">CHOOSE</span><span class="p">(</span><span class="n">C12</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">2</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">3</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">4</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">5</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">6</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">7</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">8</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">9</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">10</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">11</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">12</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">13</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">14</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">15</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">16</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">17</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">18</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">19</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">20</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">21</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">22</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">23</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">24</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">25</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">26</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">27</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">28</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">29</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">30</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">31</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">32</span><span class="p">,</span> <span class="n">J</span><span class="err">$</span><span class="mi">33</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">26</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C24</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C24</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C24</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">27</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C25</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C25</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C25</span><span class="p">)</span>
+
+<span class="c1"># 立即数与分支地址计算 (C28-C44)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">28</span>   <span class="o">=</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">29</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="n">C28</span> <span class="o">-</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">C28</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">30</span>   <span class="o">=</span><span class="n">BITOR</span><span class="p">(</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C13</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">C9</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">31</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="n">C30</span> <span class="o">-</span> <span class="mi">4096</span><span class="p">,</span> <span class="n">C30</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">32</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">33</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="mi">63</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">34</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="mi">15</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">35</span>   <span class="o">=</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C32</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C33</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C34</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">36</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="n">C35</span> <span class="o">-</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">C35</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">37</span>   <span class="o">=</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">38</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="n">C37</span> <span class="o">-</span> <span class="mi">4294967296</span><span class="p">,</span> <span class="n">C37</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">39</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="mi">255</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">40</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">41</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C7</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span> <span class="mi">1023</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">42</span>   <span class="o">=</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C39</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C40</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="o">+</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C41</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">43</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C14</span><span class="p">,</span> <span class="n">C42</span> <span class="o">-</span> <span class="mi">2097152</span><span class="p">,</span> <span class="n">C42</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">44</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C16</span><span class="p">,</span> <span class="n">C29</span><span class="p">,</span> <span class="n">C15</span><span class="p">,</span> <span class="n">C29</span><span class="p">,</span> <span class="n">C22</span><span class="p">,</span> <span class="n">C29</span><span class="p">,</span> <span class="n">C18</span><span class="p">,</span> <span class="n">C31</span><span class="p">,</span> <span class="n">C21</span><span class="p">,</span> <span class="n">C36</span><span class="p">,</span> <span class="n">C20</span><span class="p">,</span> <span class="n">C38</span><span class="p">,</span> <span class="n">C17</span><span class="p">,</span> <span class="n">C38</span><span class="p">,</span> <span class="n">C23</span><span class="p">,</span> <span class="n">C43</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 执行与ALU (C45-C62, C70)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">45</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">OR</span><span class="p">(</span><span class="n">C17</span><span class="p">,</span> <span class="n">C23</span><span class="p">),</span> <span class="n">C4</span><span class="p">,</span> <span class="n">C20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">C24</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">46</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">OR</span><span class="p">(</span><span class="n">C19</span><span class="p">,</span> <span class="n">C21</span><span class="p">),</span> <span class="n">C25</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">C44</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">47</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C45</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C45</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C45</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">48</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C46</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C46</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C46</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">49</span>   <span class="o">=</span><span class="n">AND</span><span class="p">(</span><span class="n">C19</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">BITAND</span><span class="p">(</span><span class="n">C13</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">50</span>   <span class="o">=</span><span class="n">AND</span><span class="p">(</span><span class="n">OR</span><span class="p">(</span><span class="n">C19</span><span class="p">,</span> <span class="n">C16</span><span class="p">),</span> <span class="n">C10</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">BITAND</span><span class="p">(</span><span class="n">C13</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">51</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">OR</span><span class="p">(</span><span class="n">C15</span><span class="p">,</span> <span class="n">C18</span><span class="p">,</span> <span class="n">C17</span><span class="p">,</span> <span class="n">C20</span><span class="p">,</span> <span class="n">C23</span><span class="p">,</span> <span class="n">C22</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C49</span><span class="p">,</span> <span class="mi">123459</span><span class="p">,</span> <span class="n">C50</span><span class="p">,</span> <span class="mi">908811</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">865911</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="mi">119900</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="mi">353216</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="mi">996612</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">771662</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="mi">987651</span><span class="p">,</span> <span class="n">C10</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="mi">901383</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">52</span>   <span class="o">=</span><span class="n">MOD</span><span class="p">(</span><span class="n">C47</span> <span class="o">+</span> <span class="n">C48</span><span class="p">,</span> <span class="mi">4294967296</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">53</span>   <span class="o">=</span><span class="n">MOD</span><span class="p">(</span><span class="n">C47</span> <span class="o">-</span> <span class="n">C48</span> <span class="o">+</span> <span class="mi">4294967296</span><span class="p">,</span> <span class="mi">4294967296</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">54</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C47</span><span class="p">,</span> <span class="n">C48</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">55</span>   <span class="o">=</span><span class="n">BITOR</span><span class="p">(</span><span class="n">C47</span><span class="p">,</span> <span class="n">C48</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">56</span>   <span class="o">=</span><span class="n">BITXOR</span><span class="p">(</span><span class="n">C47</span><span class="p">,</span> <span class="n">C48</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">57</span>   <span class="o">=</span><span class="n">MOD</span><span class="p">(</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C47</span><span class="p">,</span> <span class="n">BITAND</span><span class="p">(</span><span class="n">C48</span><span class="p">,</span> <span class="mi">31</span><span class="p">)),</span> <span class="mi">4294967296</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">58</span>   <span class="o">=</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C47</span><span class="p">,</span> <span class="n">BITAND</span><span class="p">(</span><span class="n">C48</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">59</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C45</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C58</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4294967296</span> <span class="o">-</span> <span class="n">POWER</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">32</span> <span class="o">-</span> <span class="n">BITAND</span><span class="p">(</span><span class="n">C48</span><span class="p">,</span> <span class="mi">31</span><span class="p">))),</span> <span class="n">C58</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">60</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C45</span> <span class="o">&lt;</span> <span class="n">C46</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">61</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C47</span> <span class="o">&lt;</span> <span class="n">C48</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">62</span>   <span class="o">=</span><span class="n">SWITCH</span><span class="p">(</span><span class="n">C51</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C52</span><span class="p">,</span> <span class="mi">123459</span><span class="p">,</span> <span class="n">C53</span><span class="p">,</span> <span class="mi">901383</span><span class="p">,</span> <span class="n">C54</span><span class="p">,</span> <span class="mi">987651</span><span class="p">,</span> <span class="n">C55</span><span class="p">,</span> <span class="mi">996612</span><span class="p">,</span> <span class="n">C56</span><span class="p">,</span> <span class="mi">865911</span><span class="p">,</span> <span class="n">C57</span><span class="p">,</span> <span class="mi">771662</span><span class="p">,</span> <span class="n">C58</span><span class="p">,</span> <span class="mi">908811</span><span class="p">,</span> <span class="n">C59</span><span class="p">,</span> <span class="mi">119900</span><span class="p">,</span> <span class="n">C60</span><span class="p">,</span> <span class="mi">353216</span><span class="p">,</span> <span class="n">C61</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">63</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C62</span><span class="o">&gt;=</span><span class="mi">2147483648</span><span class="p">,</span> <span class="n">C62</span><span class="o">-</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C62</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">64</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C24</span> <span class="o">=</span> <span class="n">C25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">65</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C24</span> <span class="o">&lt;&gt;</span> <span class="n">C25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">66</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C45</span> <span class="o">&lt;</span> <span class="n">C46</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">67</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C45</span> <span class="o">&gt;=</span> <span class="n">C46</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">68</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C47</span> <span class="o">&lt;</span> <span class="n">C48</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">69</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C47</span> <span class="o">&gt;=</span> <span class="n">C48</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">70</span>   <span class="o">=</span><span class="n">SWITCH</span><span class="p">(</span><span class="n">C10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">C64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">C65</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">C66</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">C67</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">C68</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">C69</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 访存操作 (C71-C110)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">71</span>   <span class="o">=</span><span class="n">AND</span><span class="p">(</span><span class="n">C21</span><span class="p">,</span> <span class="n">C70</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">72</span>   <span class="o">=</span><span class="n">C63</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">73</span>   <span class="o">=</span><span class="n">FLOOR</span><span class="p">(</span><span class="n">C72</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">74</span>   <span class="o">=</span><span class="p">(</span><span class="n">C72</span> <span class="o">=</span> <span class="mi">268435456</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">75</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C74</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">INDEX</span><span class="p">(</span><span class="n">L</span><span class="p">:</span><span class="n">L</span><span class="p">,</span> <span class="n">C73</span><span class="p">))</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">76</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C75</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="n">C75</span><span class="o">+</span><span class="mi">4294967296</span><span class="p">,</span> <span class="n">C75</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">77</span>   <span class="o">=</span><span class="n">MOD</span><span class="p">(</span><span class="n">C72</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">78</span>   <span class="o">=</span><span class="n">C77</span> <span class="o">*</span> <span class="mi">8</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">79</span>   <span class="o">=</span><span class="n">BITRSHIFT</span><span class="p">(</span><span class="n">C76</span><span class="p">,</span> <span class="n">C78</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">80</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C79</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">81</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C80</span> <span class="o">&gt;=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">C80</span> <span class="o">-</span> <span class="mi">256</span><span class="p">,</span> <span class="n">C80</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">82</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C79</span><span class="p">,</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">83</span>   <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">C82</span> <span class="o">&gt;=</span> <span class="mi">32768</span><span class="p">,</span> <span class="n">C82</span> <span class="o">-</span> <span class="mi">65536</span><span class="p">,</span> <span class="n">C82</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">84</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">85</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">86</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">87</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">88</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">89</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C84</span><span class="p">,</span> <span class="n">C81</span><span class="p">,</span> <span class="n">C85</span><span class="p">,</span> <span class="n">C83</span><span class="p">,</span> <span class="n">C86</span><span class="p">,</span> <span class="n">C75</span><span class="p">,</span> <span class="n">C87</span><span class="p">,</span> <span class="n">C80</span><span class="p">,</span> <span class="n">C88</span><span class="p">,</span> <span class="n">C82</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">90</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">91</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">92</span>   <span class="o">=</span><span class="p">(</span><span class="n">C10</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">93</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C27</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">94</span>   <span class="o">=</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C27</span><span class="p">,</span> <span class="mi">65535</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">95</span>   <span class="o">=</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C93</span><span class="p">,</span> <span class="n">C78</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">96</span>   <span class="o">=</span><span class="n">BITLSHIFT</span><span class="p">(</span><span class="n">C94</span><span class="p">,</span> <span class="n">C78</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">97</span>   <span class="o">=</span><span class="n">C27</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">98</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C90</span><span class="p">,</span> <span class="n">C95</span><span class="p">,</span> <span class="n">C91</span><span class="p">,</span> <span class="n">C96</span><span class="p">,</span> <span class="n">C92</span><span class="p">,</span> <span class="n">C97</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">99</span>   <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C90</span><span class="p">,</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">C78</span><span class="p">),</span> <span class="n">C91</span><span class="p">,</span> <span class="n">BITLSHIFT</span><span class="p">(</span><span class="mi">65535</span><span class="p">,</span> <span class="n">C78</span><span class="p">),</span> <span class="n">C92</span><span class="p">,</span> <span class="mi">4294967295</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">100</span>  <span class="o">=</span><span class="n">C18</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">101</span>  <span class="o">=</span><span class="n">C4</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">102</span>  <span class="o">=</span><span class="n">C4</span> <span class="o">+</span> <span class="n">C36</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">103</span>  <span class="o">=</span><span class="n">C4</span> <span class="o">+</span> <span class="n">C43</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">104</span>  <span class="o">=</span><span class="p">(</span><span class="n">C24</span> <span class="o">+</span> <span class="n">C29</span><span class="p">)</span> <span class="o">-</span> <span class="n">MOD</span><span class="p">(</span><span class="n">C24</span> <span class="o">+</span> <span class="n">C29</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">105</span>  <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C15</span><span class="p">,</span> <span class="n">C89</span><span class="p">,</span> <span class="n">OR</span><span class="p">(</span><span class="n">C23</span><span class="p">,</span> <span class="n">C22</span><span class="p">),</span> <span class="n">C101</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">C63</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">106</span>  <span class="o">=</span><span class="n">AND</span><span class="p">(</span><span class="n">OR</span><span class="p">(</span><span class="n">C19</span><span class="p">,</span> <span class="n">C16</span><span class="p">,</span> <span class="n">C15</span><span class="p">,</span> <span class="n">C20</span><span class="p">,</span> <span class="n">C17</span><span class="p">,</span> <span class="n">C23</span><span class="p">,</span> <span class="n">C22</span><span class="p">),</span> <span class="n">C9</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">107</span>  <span class="o">=</span><span class="n">C9</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">108</span>  <span class="o">=</span><span class="n">AND</span><span class="p">(</span><span class="n">C100</span><span class="p">,</span> <span class="n">C74</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">109</span>  <span class="o">=</span><span class="n">IF</span><span class="p">(</span><span class="n">AND</span><span class="p">(</span><span class="n">C108</span><span class="p">,</span><span class="n">C27</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="p">),</span><span class="n">CHAR</span><span class="p">(</span><span class="n">BITAND</span><span class="p">(</span><span class="n">C27</span><span class="p">,</span><span class="mi">255</span><span class="p">)),</span><span class="s2">""</span><span class="p">)</span>
+<span class="err">$</span><span class="n">C</span><span class="err">$</span><span class="mi">110</span>  <span class="o">=</span><span class="n">IFS</span><span class="p">(</span><span class="n">C71</span><span class="p">,</span> <span class="n">C102</span><span class="p">,</span> <span class="n">C23</span><span class="p">,</span> <span class="n">C103</span><span class="p">,</span> <span class="n">C22</span><span class="p">,</span> <span class="n">C104</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">C101</span><span class="p">)</span>
+
+<span class="c1"># 把 Input flag 填写的字符串拆分成 4 字节一组，并转换成十六进制存储到 K 列的内存中</span>
+<span class="c1"># 之后的内容都是这样</span>
+<span class="err">$</span><span class="n">K</span><span class="err">$</span><span class="mi">4135</span> <span class="o">=</span><span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span>
+<span class="err">$</span><span class="n">K</span><span class="err">$</span><span class="mi">4136</span> <span class="o">=</span><span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">IFERROR</span><span class="p">(</span><span class="n">DEC2HEX</span><span class="p">(</span><span class="n">CODE</span><span class="p">(</span><span class="n">MID</span><span class="p">(</span><span class="err">$</span><span class="n">F</span><span class="err">$</span><span class="mi">4</span><span class="p">,(</span><span class="n">ROW</span><span class="p">()</span><span class="o">-</span><span class="mi">4135</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">),</span><span class="s2">"00"</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>将所有的白色字体修改为黑色，在 K 列第 4098 行开始可以看到下面的数据：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code># 4098 行
+49484733
+4d4c4b4a
+51504f4e
+55545352
+64633d62
+68676665
+6c6b6a69
+706f6e6d
+5a595857
+2b32312f
+37363034
+61563938
+74737271
+78777675
+42417a79
+46454443
+00000035
+2b594a4a
+5673646e
+772d7972
+39414e57
+63594a4d
+30593567
+77495357
+49386957
+4f722b72
+3d3d2d47
+00000000
+69676562
+6e69206e
+00007469
+63656843
+676e696b
+616c6620
+00000067
+6e6f7257
+00000067
+46544341
+616C667B
+00007D67
+
+# K4135 ~ K4160 是输入的数据段
+
+# 4161 行
+46544341
+6968547b
+73692d73
+662d612d
+7d67616c
+00000000
+44434241
+48474645
+4c4b4a49
+504f4e4d
+54535251
+58575655
+62615a59
+66656463
+6a696867
+6e6d6c6b
+7271706f
+76757473
+7a797877
+</code></pre></div></td></tr></tbody></table></div>
+<p>Python 小端序解码一下是这样的内容：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>3GHIJKLMNOPQ RSTUb=cd efghijkl mnopWXYZ/12+406789Va qrstuvwx yzABCDEF5 JJY+ndsV ry-wWNA9 MJYc g5Y0WSIw Wi8Ir+rO G-== begi n in it
+Chec king fla g Wron g ACTF fla{ g }
+
+ACTF{This-is-a-flag} ABCDEFGH IJKL MNOP QRST UVWX YZab cdef ghij klmn opqr stuv wxyz
+</code></pre></div></td></tr></tbody></table></div>
+<p>那个 <code>ACTF{This-is-a-flag}</code> 是假 Flag，现在唯一能做的就是反编译</p>
+<hr>
+<h3 id="flagchecker">flagchecker</h3>
+<blockquote>
+<p>Flag structure: <code>ACTF{[0-9a-f]{32}}</code>.</p>
+</blockquote>
+<p>DIE 扫一下发现是神秘架构 LOONGARCH，IDA Pro 不原生支持</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../../images/image-20260515174524170.png" data-desc-position="bottom"><img alt="image-20260515174524170" src="../../images/image-20260515174524170.png"></a></p>
+<p>STFW 发现 Ghidra 可以较好地分析 Loongarch Go 程序，只能抛弃 IDA Pro 了（虽然后者插件好像没有什么作用）</p>
+<p>Go 运行时段的符号表依旧保存，从 <code>.gopclntab</code> 段中还原函数名等</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-15"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-15T14:24:21.264746+08:00">2026-05-15</time></span><span data-tippy-content data-tippy-raw="2026-05-22"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-22T15:14:08.320445+08:00">2026-05-22</time></span></div></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.select", "content.code.copy", "content.code.cop", "navigation.tabs", "navigation.top", "navigation.indexes", "navigation.path"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://events.vercount.one/js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../../assets/document_dates/user.config.js"></script>
+      
+        <script src="../../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../../assets/document_dates/core/core.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
