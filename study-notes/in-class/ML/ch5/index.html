@@ -2044,6 +2044,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        软间隔支持向量机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="软间隔支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        替代损失函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6268,6 +6296,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        软间隔支持向量机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="软间隔支持向量机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        替代损失函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6455,7 +6511,7 @@ g(\boldsymbol{\alpha}) = \operatorname*{inf}_{\mathbf{w}, b} \mathcal{L}(\mathbf
 \mathcal{L} = -\frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j + \sum_{i=1}^m \alpha_i
 \end{aligned}
 \]</div>
-<p>因此我们得到对偶问题：</p>
+<p>结合 KKT 条件，我们得到对偶问题：</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \min_{\boldsymbol{\alpha}} \quad &amp; \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \alpha_i \\
@@ -6501,6 +6557,9 @@ g_i(\mathbf{w}, b) = 1 - y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b) \leq 0, i \in [
 1 - y_i(\mathbf{w}^{T}\mathbf{x}_i + b) &lt; 0 \quad\Longrightarrow\quad y_i(\mathbf{w}^{T}\mathbf{x}_i + b) &gt; 1
 \]</div>
 <p>样本在间隔边界之外，对 <span class="arithmatex">\(\mathbf{w}\)</span> 没有贡献</p>
+<blockquote>
+<p>根据 KKT 条件可知，最终模型仅与支持向量有关，这使得 SVM 的解具有稀疏性</p>
+</blockquote>
 <p>因此，当我们通过求解对偶问题得到 <span class="arithmatex">\(\boldsymbol{\alpha}^*\)</span> 后，挑出任一支持向量（即 <span class="arithmatex">\(\alpha_k^* &gt; 0\)</span> 对应的样本 <span class="arithmatex">\((\mathbf{x}_k, y_k)\)</span>），由 <span class="arithmatex">\(y_k(\mathbf{w}^{T}\mathbf{x}_k + b) = 1\)</span> 可解出：</p>
 <div class="arithmatex">\[
 b = y_k - \mathbf{w}^{T}\mathbf{x}_k.
@@ -6606,11 +6665,69 @@ f(\mathbf{x}) = \operatorname{sign}\bigl( \mathbf{w}^{T}\phi(\mathbf{x}) + b \bi
 <p>对于文本数据，直接使用线性核；对于不清楚数据特征的数据，优先尝试高斯核（RBF）</p>
 <hr>
 <p>核函数可以通过简单的数学运算组合成新的核函数，即多重核学习（Multiple Kernel Learning, MKL）</p>
-<p>如果 <span class="arithmatex">\(\kappa_1\)</span> 和 <span class="arithmatex">\(\kappa_2\)</span> 都是合法的核函数，那么以下三种运算得到的新函数依然是核函数：
-1.  线性组合： <span class="arithmatex">\(\gamma_1\kappa_1 + \gamma_2\kappa_2\)</span>（<span class="arithmatex">\(\gamma\)</span> 为正数）
-2.  直积： <span class="arithmatex">\(\kappa_1(x, z) \cdot \kappa_2(x, z)\)</span>
-3.  函数缩放： <span class="arithmatex">\(g(x)\kappa_1(x, z)g(z)\)</span> （<span class="arithmatex">\(g\)</span> 为任意函数）</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-05-27"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-27T02:07:59.247495+08:00">2026-05-27</time></span></div></div>
+<p>如果 <span class="arithmatex">\(\kappa_1\)</span> 和 <span class="arithmatex">\(\kappa_2\)</span> 都是合法的核函数，那么以下三种运算得到的新函数依然是核函数：</p>
+<ol>
+<li>线性组合： <span class="arithmatex">\(\gamma_1\kappa_1 + \gamma_2\kappa_2\)</span>（<span class="arithmatex">\(\gamma\)</span> 为正数）</li>
+<li>直积： <span class="arithmatex">\(\kappa_1(x, z) \cdot \kappa_2(x, z)\)</span></li>
+<li>函数缩放： <span class="arithmatex">\(g(x)\kappa_1(x, z)g(z)\)</span> （<span class="arithmatex">\(g\)</span> 为任意函数）</li>
+</ol>
+<h2 id="_6">软间隔支持向量机</h2>
+<p>现实中很难确定合适的核函数，使训练样本在特征空间中线性可分（即便貌似线性可分，也很难断定是否是因过拟合造成的）</p>
+<p>因此我们引入软间隔（soft margin），允许在一些样本上不满足约束（图中红色的样本）</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260527021440609.png" data-desc-position="bottom"><img alt="image-20260527021440609" src="../images/image-20260527021440609.png"></a></p>
+<p>具体地说，我们希望最大化间隔的同时，让违背 <span class="arithmatex">\(y_{i}(\mathbf{w}^{T}\phi(\mathbf{x}_{i}) + b) \geq 1\)</span> 的程度尽可能的少</p>
+<p>为了量化“犯错”的程度，我们为每个样本引入一个<strong>松弛变量</strong> <span class="arithmatex">\(\xi_i \ge 0\)</span>：</p>
+<ul>
+<li><span class="arithmatex">\(\xi_i = 0\)</span>：样本分类正确，且在间隔边界外</li>
+<li><span class="arithmatex">\(0 &lt; \xi_i &lt; 1\)</span>：样本分类正确，但落在了间隔内部</li>
+<li><span class="arithmatex">\(\xi_i \ge 1\)</span>：样本被误分类</li>
+</ul>
+<p>此时，约束条件从硬间隔的 <span class="arithmatex">\(y_i(\mathbf{w}^T\mathbf{x}_i + b) \ge 1\)</span> 放宽为：</p>
+<div class="arithmatex">\[
+y_i(\mathbf{w}^T\mathbf{x}_i + b) \ge 1 - \xi_i
+\]</div>
+<p>现在我们的优化目标为最大化间隔与最小化犯错</p>
+<div class="arithmatex">\[
+\min_{\mathbf{w}, b, \xi} \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i=1}^n \xi_i
+\]</div>
+<p>其中 <span class="arithmatex">\(C\)</span> 是一个超参数，决定犯错惩罚的程度。当 <span class="arithmatex">\(C\)</span> 很大时，接近于硬间隔 SVM，对噪声敏感，可能会过拟合；当 <span class="arithmatex">\(C\)</span> 很小时，对错误容忍度高，可能会欠拟合</p>
+<p>我们定义合页损失（hinge loss）函数为 <span class="arithmatex">\(\ell_\text{hinge}(z) = \max(0, 1-z)\)</span>，把约束条件隐含在优化目标中。整个优化问题可以等价写为：</p>
+<div class="arithmatex">\[
+\min_{\mathbf{w}, b} \frac{1}{2}\|\mathbf{w}\|^2 + C \sum_{i=1}^n \ell_\text{hinge}(y_i(\mathbf{w}^T\mathbf{x}_i + b))
+\]</div>
+<p>因此软间隔 SVM 的本质就是最小化“正则化项 + 合页损失函数”。事实上，我们有很多的替代损失函数</p>
+<hr>
+<p>软间隔 SVM 对应的对偶问题为：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_{\boldsymbol{\alpha}} \quad &amp; \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T \mathbf{x}_j - \sum_{i=1}^m \alpha_i \\
+\text{s.t.} \quad &amp; \sum_{i=1}^m \alpha_i y_i = 0, \\
+&amp; 0 \le \alpha_i \le C, \quad i = 1, \dots, m
+\end{aligned}
+\]</div>
+<p>只多了一个 <span class="arithmatex">\(\alpha_{i} \leq C\)</span> 的约束，其他内容与硬间隔 SVM 的对偶问题完全一致。这说明软间隔 SVM 的解依旧具有稀疏性</p>
+<h3 id="_7">替代损失函数</h3>
+<p>损失函数是用来衡量模型预测结果与真实结果之间差距 / 错误程度的函数</p>
+<blockquote>
+<p>比如经验误差的表达式中，就用到了损失函数：</p>
+<div class="arithmatex">\[
+\hat{R} (f) = \dfrac{1}{m} \sum_{i = 1}^{m} ℓ(f(h(\mathbf{x_{i}}), y_{i}))
+\]</div>
+</blockquote>
+<p>除了 Hinge 损失函数，我们还有其他替代损失函数 <span class="arithmatex">\(\ell(z)\)</span></p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260527163715651.png" data-desc-position="bottom"><img alt="image-20260527163715651" src="../images/image-20260527163715651.png"></a></p>
+<p><span class="arithmatex">\(\ell_{0/1}\)</span>（0/1 损失）是最常见的，最难优化的替代损失函数</p>
+<p>对于 SVM 问题，我们使用 Hinge 损失函数：
+$$
+\ell_\text{hinge}(z) = \max(0, 1-z)
+$$
+对于逻辑回归问题，我们使用 Logistic 损失函数：
+$$
+\ell_\text{log}(z) = \log(1 +  \exp(-z))
+$$
+它们都是 0/1 损失的上界，且都是连续 / 凸 / 光滑的</p>
+<p>选择替代损失函数的关键在于：确认求解替代函数得到的解是否仍是原问题的解。可以证明，Hinge loss 和 Logistic Loss 都满足一致性，只要样本量足够大，优化它们就等于在优化 0/1 损失</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-05-27"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-27T20:07:15.794374+08:00">2026-05-27</time></span></div></div>
 
 
 
