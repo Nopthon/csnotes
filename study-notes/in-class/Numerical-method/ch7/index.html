@@ -2505,7 +2505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch9.md" class="md-nav__link">
+      <a href="../../Algorithm/ch9/" class="md-nav__link">
         
   
   
@@ -2533,7 +2533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch10.md" class="md-nav__link">
+      <a href="../../Algorithm/ch10/" class="md-nav__link">
         
   
   
@@ -6812,7 +6812,7 @@ R(A, x) = \frac{\langle Ax , x\rangle}{\langle x , x\rangle} = \frac{x^T Ax}{x^T
 <tr>
 <td style="text-align: left;"><strong>有界性</strong></td>
 <td style="text-align: left;">瑞利商的值被矩阵的最小和最大特征值所限定。</td>
-<td style="text-align: left;"><span class="arithmatex">\(\lambda_{\min} \leq R(A, x) \leq \lambda_{\max}\)</span><br>（注意到这里与 Min-Max 刻画有关）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\lambda_{\min} \leq R(A, x) \leq \lambda_{\max}\)</span><br>（由 Courant-Fischer 定理得出）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>取值点</strong></td>
@@ -6844,7 +6844,7 @@ R(A, x) = \frac{\langle Ax , x\rangle}{\langle x , x\rangle} = \frac{x^T Ax}{x^T
 \newline
 \text{Specially, } \lambda_1 = \min_{x \in U, x \neq 0} \frac{x^T A x}{x^T x}
 \]</div>
-<p>注意到最右侧的分式即瑞利商。</p>
+<p>注意到最右侧的分式即瑞利商（因此瑞利商具有这样的性质）</p>
 <p>我们不妨证明 <span class="arithmatex">\(\lambda_{n}\)</span> 的结论：</p>
 <details class="question">
 <summary>证明：对实数对称矩阵 <span class="arithmatex">\(A\)</span>，最大特征值满足 <span class="arithmatex">\(\lambda_n(A) = \max_{x \neq 0} \frac{x^T A x}{x^T x}\)</span></summary>
@@ -6915,7 +6915,7 @@ p(A) x = p(\lambda_{1})\alpha_{1}v_{1} + \cdots + p(\lambda_{n})\alpha_{n}v_{n}
 <div class="arithmatex">\[
 A^{k} x = \lambda_{1}^{k}\alpha_{1}v_{1} + \cdots + \lambda_{n}^{k}\alpha_{n}v_{n}
 \]</div>
-<p>提取公因子 <span class="arithmatex">\(\lambda_{1}\)</span> </p>
+<p>提取公因子 <span class="arithmatex">\(\lambda_{1}\)</span></p>
 <div class="arithmatex">\[
 A^k x = \lambda_1^k \left( \alpha_1 v_1 + \left(\frac{\lambda_2}{\lambda_1}\right)^k \alpha_2 v_2 + \cdots + \left(\frac{\lambda_n}{\lambda_1}\right)^k \alpha_n v_n \right)
 \]</div>
@@ -6928,11 +6928,12 @@ A^k x = \lambda_1^k \left( \alpha_1 v_1 + \left(\frac{\lambda_2}{\lambda_1}\righ
 A^k x \to \lambda_1^k \alpha_1 v_1
 \]</div>
 <p>当 <span class="arithmatex">\(k\)</span> 很大时，更大的常数 <span class="arithmatex">\(\left(\frac{\lambda_2}{\lambda_1}\right)^k\)</span> 主导了非 <span class="arithmatex">\(v_1\)</span> 方向的分量大小，其余特征值项衰减更快，所以整体收敛速度由 <span class="arithmatex">\(|\lambda_2/\lambda_1|\)</span> 决定</p>
-<p>计算过程中，可能会遇到浮点数的上溢或下溢（取决于 <span class="arithmatex">\(|\lambda_{1}|\)</span> 的值），解决方案是在迭代过程中进行归一化：</p>
-<div class="arithmatex">\[
-w_{k+1} = Ax_{k} \newline
-x_{k+1} = \dfrac{w_{k+1}}{\lVert w_{k+1} \rVert}
-\]</div>
+<p>因此我们发现，不断地迭代 <span class="arithmatex">\(x_{k+1} = Ax_{k}\)</span>，最终 <span class="arithmatex">\(x\)</span> 收敛为最大特征值对应的特征向量</p>
+<p>计算过程中，可能会遇到浮点数的上溢或下溢（取决于 <span class="arithmatex">\(|\lambda_{1}|\)</span> 的值），解决方案是在迭代过程中进行归一化</p>
+<p><strong>以下，我们给出幂迭代的数值计算过程：</strong>
+$$
+x_{k+1} = \frac{A x_k}{|A x_k|}
+$$</p>
 <p>这里取任何范数都可以，但是通常用 2-范数或 ∞-范数</p>
 <hr>
 <p>随着幂迭代的进行，得到了一个近似的特征向量方向之后，如何求解近似的特征值？</p>

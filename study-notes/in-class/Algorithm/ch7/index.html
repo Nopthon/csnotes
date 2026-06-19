@@ -108,6 +108,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ch7-graph-algorithms" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2236,6 +2241,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2253,6 +2278,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kruskals-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kruskal’s Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prims-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prim’s Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-for-e-in-mst-or-e-not-in-mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence for e in MST or e not in MST
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSSP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relax-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relax Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dijkstra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bellman-ford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman-Ford
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APSP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="APSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#floyd-warshall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Floyd-Warshall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2294,7 +2488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch9.md" class="md-nav__link">
+      <a href="../ch9/" class="md-nav__link">
         
   
   
@@ -2322,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch10.md" class="md-nav__link">
+      <a href="../ch10/" class="md-nav__link">
         
   
   
@@ -6081,6 +6275,166 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MST
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kruskals-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kruskal’s Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prims-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prim’s Algorithm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evidence-for-e-in-mst-or-e-not-in-mst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence for e in MST or e not in MST
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSSP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relax-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relax Operation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dijkstra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bellman-ford" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bellman-Ford
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APSP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="APSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#floyd-warshall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Floyd-Warshall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -6189,8 +6543,303 @@
 
 
 
-  <h1>Graph Algorithms</h1>
-
+<h1 id="ch7-graph-algorithms">Ch7. Graph Algorithms</h1>
+<p>一些依旧很熟悉的图论算法</p>
+<h2 id="mst">MST</h2>
+<p>给定一张带边权<u>无向图</u>，考虑生成树的性质，以下命题是等价的：</p>
+<ul>
+<li><span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(G\)</span> 的生成树</li>
+<li><span class="arithmatex">\(T\)</span> 将图连通且不成环</li>
+<li><span class="arithmatex">\(T\)</span> 是连通的且只有 <span class="arithmatex">\(n-1\)</span> 条边</li>
+<li><span class="arithmatex">\(T\)</span> 是不成环的且只有 <span class="arithmatex">\(n-1\)</span> 条边</li>
+<li><span class="arithmatex">\(T\)</span> 是最小连通的，这意味着任意删除一条边会使图不连通</li>
+<li><span class="arithmatex">\(T\)</span> 是最大不成环的，这意味着任意添加一条边会使图成环</li>
+<li><span class="arithmatex">\(T\)</span> 上任意两点存在唯一路径</li>
+</ul>
+<p>现在需要求出其最小生成树，也即边权和最小的生成树</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260605210112327.png" data-desc-position="bottom"><img alt="image-20260605210112327" src="../images/image-20260605210112327.png"></a></p>
+<h3 id="kruskals-algorithm">Kruskal’s Algorithm</h3>
+<p>一种正确的贪心思路是：始终选择当前最小的边加入 MST，跳过会使得当前 MST 成环的边，直到选择了 <span class="arithmatex">\(n-1\)</span> 条边</p>
+<ul>
+<li>我们首先证明：一定存在一个 MST，它包含整个图的最短边</li>
+</ul>
+<p>假设这个图的最短边 <span class="arithmatex">\((u, v)\)</span> 并不在当前的 MST 中，我们知道树上从 <span class="arithmatex">\(u\)</span> 到 <span class="arithmatex">\(v\)</span> 的路线是唯一的，则断开 <span class="arithmatex">\(u\to v\)</span> 路径的任意一条边，并将 <span class="arithmatex">\((u, v)\)</span> 加入到 MST，得到的 MST 依旧连通（因为原 MST 上 <span class="arithmatex">\(u\to v\)</span> 的路径与 <span class="arithmatex">\((u,v)\)</span> 是成环的），且边权和一定不会增大（因为 <span class="arithmatex">\((u,v)\)</span> 是已知的最短边）</p>
+<blockquote>
+<p>对应的，我们也可以证明：在图中任意寻找一个环，环上权重最大边一定不在任何一个 MST 中（不考虑并列的情况）</p>
+</blockquote>
+<ul>
+<li>接下来我们证明，在选定当前最小边的情况下，剩余的问题依旧是一个求 MST 的问题</li>
+</ul>
+<p>我们考虑缩点，将当前最短边 <span class="arithmatex">\((u, v)\)</span> 的两个点缩点成一个点 <span class="arithmatex">\(u^\ast\)</span>，则剩下的问题就是对这个新图求 MST</p>
+<p>（即：对缩点后的图求得的 MST，加上 <span class="arithmatex">\((u,v)\)</span> 就是对原图的 MST）</p>
+<p>（特别的，如果形成了重边，则只保留最短边）</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260605213108545.png" data-desc-position="bottom"><img alt="image-20260605213108545" src="../images/image-20260605213108545.png"></a></p>
+<p>因此我们证明了贪心策略的正确性，即“在不成环的基础上始终选最短边加入 MST”能得到正确的 MST</p>
+<p>如何判断成环性？对点集使用并查集</p>
+<p>时间开销包含对边按照边权排序的 <span class="arithmatex">\(O(m\log n)\)</span>，以及并查集开销 <span class="arithmatex">\(O(m\alpha(n))\)</span>，总时间复杂度 <span class="arithmatex">\(O(m\log n)\)</span></p>
+<hr>
+<p>在图中任意寻找一个环，环上权重的绝对最大边一定不在任何一个 MST 中，这意味着我们还可以反向进行贪心删除，据此给出 Reverse Kruskal’s Algorithm 算法：</p>
+<ul>
+<li>对边按照边权进行降序排序</li>
+<li>尝试删除当前边权最大边，如果破坏图的连通性，则重新保留这条边</li>
+<li>当边数只剩下 <span class="arithmatex">\(n-1\)</span> 条时，最小生成树生成完毕</li>
+</ul>
+<p>因为图的连通性检查比使用并查集维护当前 MST 成环性更加困难，因此这种方法通常不采用</p>
+<h3 id="prims-algorithm">Prim’s Algorithm</h3>
+<p>现在考虑对点进行贪心处理：指定任意一个点作为 MST 的起始点，始终选择与当前 MST 集合相邻的点，且这个点与 MST 的连边权重最小</p>
+<ul>
+<li>证明：一定存在一个 MST，对于顶点 <span class="arithmatex">\(a\)</span>，与它相邻的权重最小的边在 MST 中</li>
+</ul>
+<p>假设与 <span class="arithmatex">\(a\)</span> 相邻的最短边 <span class="arithmatex">\(e^{\ast}\)</span> 并不在当前的 MST 中，如果我们在 MST 中删除点 <span class="arithmatex">\(a\)</span>，则整棵树会裂成若干个连通分量。记 <span class="arithmatex">\(e^{\ast}\)</span> 是连接删点后连通分量 <span class="arithmatex">\(C\)</span> 的边，<span class="arithmatex">\(T\)</span> 上原本连接到 <span class="arithmatex">\(C\)</span> 的边是 <span class="arithmatex">\(e\)</span>。则将 MST 中的边 <span class="arithmatex">\(e\)</span> 替换为 <span class="arithmatex">\(e^{\ast}\)</span>，MST 连通性不变，且边权和只可能更优</p>
+<p>因为我们不断选择这样的边进行树的扩展，每次连通一个顶点，所以这个贪心策略对于构建整个 MST 树也是自然成立的</p>
+<p>具体的，我们维护当前 MST 集合 <span class="arithmatex">\(S\)</span> 及其补集 <span class="arithmatex">\(V \backslash S\)</span>，并记录 <span class="arithmatex">\(d[v]\)</span> 为：<span class="arithmatex">\(S\)</span> 外的所有点连接 <span class="arithmatex">\(S\)</span> 中任意一点的边权最短边的权重；记录 <span class="arithmatex">\(\pi[v]\)</span> 为：记录 <span class="arithmatex">\(v\)</span> 对应的边权最短边的另一端顶点（也就是说，两个数组动态维护每个点到 MST 集合的最短距离，以及最短距离对应的另一端的顶点）</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260605225946136.png" data-desc-position="bottom"><img alt="image-20260605225946136" src="../images/image-20260605225946136.png"></a></p>
+<p>每一次，我们取出最小 <span class="arithmatex">\(d[u]\)</span> 对应的顶点加入 MST，然后更新与它相邻的节点的 <span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(\pi\)</span>（使用优先队列维护）</p>
+<p>时间开销包含 <span class="arithmatex">\(O(n)\times\)</span> 取最小元素 + $O(m) \times $ 修改边的 <span class="arithmatex">\(d, \pi\)</span> 数组：</p>
+<ul>
+<li>对于常规二叉堆，时间复杂度为 <span class="arithmatex">\(O((n+m)\log n)\)</span></li>
+<li>对于 Fibonacci 堆，时间复杂度为 <span class="arithmatex">\(O(n\log n + m)\)</span></li>
+</ul>
+<h3 id="evidence-for-e-in-mst-or-e-not-in-mst">Evidence for <code>e</code> in MST or <code>e</code> not in MST</h3>
+<p><strong>假定所有的边权都不同</strong></p>
+<p>我们给出两个判断一条边是否在 MST 中的充要条件：</p>
+<ul>
+<li>割定理：对于图的任何一个割（将图的顶点集划分为不相交的两部分），权重最小的横跨割的边一定属于 MST</li>
+<li>环定理：对于图中的任何一个环，环上权重最大的边一定不属于 MST</li>
+</ul>
+<p>这一条件对所有 MST 上的边都符合，即：对于图中的<strong>任意一条边</strong>，它要么是某个割的最轻边（因此参与构成 MST），要么是某个环的最重边（因此不参与构成 MST）</p>
+<p>进一步的，MST 的边集是唯一确定的</p>
+<hr>
+<p>Kruskal 算法的本质是（逆向）使用环定理；Prim 算法的本质是（正向）使用割定理</p>
+<h2 id="mca">MCA</h2>
+<p>现在我们考虑有向图的类似问题：给定一个有向图 <span class="arithmatex">\(G\)</span> 与指定的根节点 <span class="arithmatex">\(r\)</span>，要求构建一个“有向的生成树”，我们记为树形图。<strong>额外的，树形图要求除了根以外，每个节点的入度只能为 1</strong>，因此这个树又叫“有向入树”</p>
+<p>现在我们需要求最小树形图（Minimum Cost Arborescence, MCA）</p>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260607192617509.png" data-desc-position="bottom"><img alt="image-20260607192617509" src="../images/image-20260607192617509.png"></a></p>
+<p>为了引入具体的解决算法，需要引入两个引理：</p>
+<ul>
+<li>对于 <span class="arithmatex">\(r\)</span> 以外的所有节点 <span class="arithmatex">\(v\)</span>，我们找到进入它的所有边 <span class="arithmatex">\(e = (u,v)\)</span> 中最小的权重 <span class="arithmatex">\(l_v\)</span>，将所有入边 <span class="arithmatex">\(e\)</span> 的权重减去 <span class="arithmatex">\(l_{v}\)</span>，即 <span class="arithmatex">\(w(e) \leftarrow w(e) -l_v\)</span>，最终得到的新图和原图具有完全一致的 MCA 解</li>
+</ul>
+<p>不难发现，不管最后选出的树形图 <span class="arithmatex">\(T\)</span> 长什么样，<span class="arithmatex">\(T\)</span> 中除了根节点外，每个节点都有且仅有一条入边。因此，原图总权重 - 新图总权重 = 所有节点 <span class="arithmatex">\(l_v\)</span> 之和。这是一个常数，所以优化原图等同于优化新图</p>
+<ul>
+<li>如果某张图中存在一个 0 权重环，则必然存在一个 MCA 的最优解，它包含环上的除了一条边以外的所有边</li>
+</ul>
+<p>可以考虑将 0 权重环缩成一个点，现在内部选择 <span class="arithmatex">\(n-1\)</span> 条边，再向外部进行连接</p>
+<hr>
+<p>因此，我们给出朱-刘算法 (Chu-Liu/Edmonds Algorithm)，递归贪心的解决这个问题：</p>
+<ul>
+<li>对于 <span class="arithmatex">\(r\)</span> 以外的所有节点 <span class="arithmatex">\(v\)</span>，我们找到进入它的所有边 <span class="arithmatex">\(e = (u,v)\)</span> 中最小的权重 <span class="arithmatex">\(l_v\)</span>，将所有入边 <span class="arithmatex">\(e\)</span> 的权重减去 <span class="arithmatex">\(l_{v}\)</span>，即 <span class="arithmatex">\(w(e) \leftarrow w(e) -l_v\)</span></li>
+<li>对于 <span class="arithmatex">\(r\)</span> 以外的所有节点 <span class="arithmatex">\(v\)</span>，我们选择一条进入 <span class="arithmatex">\(v\)</span> 的，且权值为 0 的入边，加入集合 <span class="arithmatex">\(F^{\ast}\)</span>（初始为空）</li>
+<li>如果 <span class="arithmatex">\(F^{\ast}\)</span> 已经是以 <span class="arithmatex">\(r\)</span> 为根的有向入树，则返回 <span class="arithmatex">\(F^{\ast}\)</span> 为 MCA</li>
+<li>否则把每个 0 权重环缩成一个点，得到新图递归上面的过程</li>
+<li>最终离开递归还原，展开 0 权重环时，要保留环中的大部分边，但删除一条边打破环，具体的，删掉环中进入那个被外部边连接到的节点的原本入边</li>
+</ul>
+<p>这个算法的时间复杂度是 <span class="arithmatex">\(O(mn)\)</span>，通过设计数据结构维护每个节点的入边，最终可以优化到 <span class="arithmatex">\(O(m\log \log n)\)</span></p>
+<h2 id="sssp">SSSP</h2>
+<p>单源最短路问题：给定一张带边权图（有向或无向），指定一个起点 <span class="arithmatex">\(s\)</span>，给出从 <span class="arithmatex">\(s\)</span> 出发到其他各点的最短路</p>
+<h3 id="relax-operation">Relax Operation</h3>
+<p>考虑 <code>dis(s-&gt;v)</code> 为从某个起点 <code>s</code> 到 <code>v</code> 的距离，假设我们在求 <code>dis(s-&gt;v)</code> 的最小值过程中，发现存在另一个节点 <code>u</code>，有 <code>dis(s-&gt;u) + dis(u-&gt;v) &lt; dis(s-&gt;v)</code>，我们找到了一条从 <code>s</code> 到 <code>v</code> 更近的路线，此时我们更新 <code>dis(s-&gt;v) = dis(s-&gt;u) + dis(u-&gt;v)</code>，而原来的约束 <code>dis(v)_old</code> 不再是最紧的约束，因此得到了“松弛”</p>
+<p>（一种很物理的想法：思考一张起点为 <code>s</code>，终点 <code>v</code> 的弹性绳网，拉住 <code>s</code>，<code>v</code> 往两侧拉伸，最短路对应的绳会紧绷住，而其他的绳都是相对松弛的。现在我找到了一条更短的路径，在添加“路径对应的绳”后，原来紧绷的绳也会松弛，这就是一次“松弛化”操作）</p>
+<h3 id="bfs">BFS</h3>
+<p>如果所有的边权都为 <span class="arithmatex">\(1\)</span>，那么 BFS 逐层扩展是最自然且最优的计算方案，时间复杂度为 <span class="arithmatex">\(O(V+E)\)</span></p>
+<p>如果边权不都为 <span class="arithmatex">\(1\)</span>，我们记边权上限为 <span class="arithmatex">\(W\)</span>，则我们可以将每条权值为 <span class="arithmatex">\(w\)</span> 的边拆分为 <span class="arithmatex">\(w\)</span> 条权值为 <span class="arithmatex">\(1\)</span> 的边，最坏情况下所有边权均为 <span class="arithmatex">\(W\)</span>，时间复杂度为 <span class="arithmatex">\(O(V+EW)\)</span></p>
+<h3 id="dijkstra">Dijkstra</h3>
+<p>回忆 Prim 算法，我们对点按照最近最小边权进行贪心</p>
+<p>同样的，我们给出 Dijkstra 算法：从源点出发，逐步扩展已确定最短路径的顶点集合，每次选择当前距离源点最近的未处理顶点，并松弛它的所有出边。</p>
+<p>Dijkstra 算法按照距离递增的顺序确定所有节点的最短路径，换句话说，它每轮确定的最短路的长度是递增的。可以这样理解：Dijkstra 每次只确定最紧的路线作为一条最短路（也就是已经实现松弛操作最大化的路径）</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Dijkstra</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">S</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">∅</span><span class="o">,</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="err">∞</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="cm">{s}</span>
+<span class="k">while</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="err">≠</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1">// 取当前距离原点最近的点 u，加入已处理集合</span>
+<span class="w">    </span><span class="n">u</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">vertex</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+<span class="w">    </span><span class="n">add</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">S</span>
+<span class="w">    </span><span class="c1">// 对 u 的所有相邻点（不在已处理集合中），我们尝试进行“松弛”操作</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="err">∈</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="c1">// 如果从 u 到 v 的最短路可以通过 (u,v) 刷新，则进行松弛化</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">u</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w">   </span><span class="c1">// 更新最短路</span>
+<span class="w">            </span><span class="err">π</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="err">←</span><span class="w"> </span><span class="n">u</span><span class="w">                </span><span class="c1">// 记录 v 的上一个顶点为 u</span>
+<span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="o">,</span><span class="w"> </span><span class="err">π</span><span class="p">)</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>我们使用优先队列来维护 <span class="arithmatex">\((v, d[v])\)</span> 键值对</p>
+<p>与 Prim 相同的，时间开销包含 <span class="arithmatex">\(O(n)\times\)</span> 取最小元素 + $O(m) \times $ 修改边的 <span class="arithmatex">\(d, \pi\)</span> 数组：</p>
+<ul>
+<li>对于常规二叉堆，时间复杂度为 <span class="arithmatex">\(O((n+m)\log n)\)</span></li>
+<li>对于 Fibonacci 堆，时间复杂度为 <span class="arithmatex">\(O(n\log n + m)\)</span></li>
+</ul>
+<details class="abstract">
+<summary>举例</summary>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251207201831082.png" data-desc-position="bottom"><img alt="image-20251207201831082" src="../images/image-20251207201831082.png"></a></p>
+<p>考虑以 <span class="arithmatex">\(a\)</span> 为起点的单源最短路径，不难发现从 <span class="arithmatex">\(a\)</span> 能到达的最近的节点是 <span class="arithmatex">\(c\)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5[MIN]</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">INF</td>
+</tr>
+</tbody>
+</table>
+<p>不难意识到，<strong>因为没有负权，我们只要继续沿着路线走下去，经过路径的权值和只会变得更大（或不变）</strong>，而我们目前能够到达的最近节点就是点 <span class="arithmatex">\(c\)</span>，因此 <span class="arithmatex">\(a\to c\)</span> 的最短路就为 <span class="arithmatex">\(5\)</span>，我们完成了 <span class="arithmatex">\(a\to c\)</span> 最短路的计算</p>
+<p>不妨从目前最近的 <span class="arithmatex">\(c\)</span> 出发，其能够到达的点为 <span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(e\)</span>，我们继续更新目前的路径：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">6[MIN]</td>
+<td style="text-align: center;">5[Start Vertex]</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">15</td>
+</tr>
+</tbody>
+</table>
+<p>我们发现 <span class="arithmatex">\(a\to b\)</span> 和 <span class="arithmatex">\(a\to d\)</span> 的路径是最短的，我们任意取一个（<span class="arithmatex">\(a\to b\)</span>），同理可得 <span class="arithmatex">\(a\to b\)</span> 的最短路就为 6（确定的结果）</p>
+<p>继续上述的操作：选择当前的最近节点，延伸路线，取最近的尚未确定最短路的节点，得到其最短路，循环。</p>
+<p>这里给出完整的流程表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">b</th>
+<th style="text-align: center;">c</th>
+<th style="text-align: center;">d</th>
+<th style="text-align: center;">e</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5[MIN]</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">INF</td>
+</tr>
+<tr>
+<td style="text-align: center;">6[MIN]</td>
+<td style="text-align: center;">5[Start Vertex]</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr>
+<td style="text-align: center;">6[Start Vertex]</td>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">6[MIN]</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">7[Start Vertex]</td>
+<td style="text-align: center;">9[MIN]</td>
+</tr>
+<tr>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">9[FINISHED]</td>
+</tr>
+</tbody>
+</table>
+<p>我们发现，每次由最近节点进行延伸和松弛操作，都可以确认一个点的最短路径长度；经过 <span class="arithmatex">\(n-1\)</span> 次操作，我们就能得到单源最短路径（因此这个算法很稳定）</p>
+</details>
+<hr>
+<p>Dijkstra 要求<strong>边权是非负的</strong>，否则如果存在一个负权环，则算法会不断用这个负权环刷新最短路直到 <span class="arithmatex">\(-\infty\)</span>，且算法不能主动感知这一情况的发生</p>
+<p>那么，如果我们求的是简单最短路呢？这是 NP-Hard 问题</p>
+<h3 id="bellman-ford">Bellman-Ford</h3>
+<p>和 Dijkstra 一样，都是求单源最短路径的算法。其优势在于允许负权边且能检测负环</p>
+<p>朴素 Bellman–Ford 的核心依旧是松弛操作：具体地说，由于 <span class="arithmatex">\(n\)</span> 个顶点的图任意两点之间的最短路一定不超过 <span class="arithmatex">\(n-1\)</span> 条边，因此对所有的边进行 <span class="arithmatex">\(n-1\)</span> 轮松弛操作，一定能得到单源最短路径，时间复杂度 <span class="arithmatex">\(O(VE)\)</span></p>
+<p>这种算法的好处在于松弛次数固定，如果在进行了 <span class="arithmatex">\(n-1\)</span> 轮松弛后还能继续松弛，则说明图中存在负环</p>
+<hr>
+<p>此外，注意到，如果每轮松弛操作只使用上一轮的 <code>dis[u]</code>，而不使用在本轮更新过的 <code>dis[u]</code>，则第 <span class="arithmatex">\(i\)</span> 轮松弛可以得到从原点出发，最多经过 <span class="arithmatex">\(i\)</span> 条边到达其他顶点的最短路</p>
+<p>朴素 Bellman–Ford 算法对所有边进行 <span class="arithmatex">\(n-1\)</span> 次松弛，我们发现，在通常情况下，大多数的边都不可能被松弛却尝试了松弛，这其中的很多次松弛操作是浪费的</p>
+<p>进一步的，只有当某个顶点的最短距离被松弛更新时，从该顶点出发的边才可能会对其他顶点产生影响。因此我们可以使用一个队列，存储那些待处理的顶点，这就是 SPFA (Shortest Path Faster Algorithm) 的思想</p>
+<p>数学上可以证明：SPFA 对随机图的优化确实非常强大，其理想时间复杂度可以简单写作 <span class="arithmatex">\(O(kE)\)</span>，但最坏时间复杂度依旧为 <span class="arithmatex">\(O(VE)\)</span></p>
+<h2 id="apsp">APSP</h2>
+<p>全源最短路问题：给定一张带边权图（有向或无向），求出从所有起点 <span class="arithmatex">\(s\)</span> 出发到其他各点的最短路</p>
+<h3 id="floyd-warshall">Floyd-Warshall</h3>
+<p>一种动态规划的算法</p>
+<p>我们初始一个二元数组 <code>f[n][n]</code>：对于每对节点 <code>(x,y)</code>，记 <code>f[x][y]</code> 从 <code>x</code> 到 <code>y</code> 最短路径长度。</p>
+<p>首先，没有图信息，我们初始化每个节点到自己的距离为 <code>0</code>，到其他节点的距离为 <code>INF</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">     </span><span class="c1">// 自己到自己的路径长为 0</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INF</span><span class="p">;</span><span class="w">         </span><span class="c1">// 否则不可达</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>现在我们加入图的基础边信息，而 <code>f[x][y]</code> 更新为从 <code>x</code> 到 <code>y</code> <strong>最多一步抵达</strong>的最短路径长度：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">);</span><span class="w">  </span><span class="c1">// 这里考虑到了重边，取最小边</span>
+<span class="w">    </span><span class="c1">// 如果是无向图：f[v][u] = min(f[v][u], w);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>此时我们只考虑了每个节点到达自己的情况，以及一步可达的情况，现在我们对每两个点进行“松弛”操作，不妨从节点 <code>0</code> 开始：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">],</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">y</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>上面的程序的意思是：对所有的 <code>(x,y)</code>，如果从 <code>x</code> 到 <code>y</code> 的路径可以通过节点 <code>0</code> 松弛化，那么我们就更新更短的路径。</p>
+<p>进一步地，我们依次加入其他节点，从节点 <code>0</code> 到节点 <code>n-1</code> 依次松弛化，就有了：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">],</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">y</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>这就是 Floyd 算法的核心逻辑，可以在 <span class="arithmatex">\(O(V^3)\)</span> 的时间内得到全源最短路径，对应的空间复杂度 <span class="arithmatex">\(O(V^2)\)</span>。但是注意到：Floyd 算法在遇到负环（环的权重和为负）时，其会不断在循环中降低权值，而不会主动发现负权环（和 Dijkstra 行为类似，不同于 Bellman-Ford）</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div>
 
 

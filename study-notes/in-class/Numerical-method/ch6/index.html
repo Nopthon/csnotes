@@ -2466,7 +2466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch9.md" class="md-nav__link">
+      <a href="../../Algorithm/ch9/" class="md-nav__link">
         
   
   
@@ -2494,7 +2494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch10.md" class="md-nav__link">
+      <a href="../../Algorithm/ch10/" class="md-nav__link">
         
   
   
@@ -6501,21 +6501,21 @@
 
 <h1 id="lecture-6">Lecture 6: 算子范数，条件数和迭代法</h1>
 <h2 id="_1">矩阵范数</h2>
-<p>矩阵范数有两种常见的定义（详见《机器学习导论》）</p>
+<p>矩阵范数有两种常见的定义（详见《机器学习导论》）：</p>
 <h3 id="_2">算子范数</h3>
 <p>把矩阵当做一个变换</p>
 <details class="success" open="open">
 <summary>Definition：矩阵算子范数（Matrix Operator Norm）</summary>
 <p>给定矩阵 <span class="arithmatex">\(A\in \mathbb{R}^{m \times n}\)</span>，记矩阵算子范数为 <span class="arithmatex">\(\lVert \cdot \rVert_{\text{op}, p}\)</span>，有：</p>
 <div class="arithmatex">\[
-\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
+\lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace =  \max_{\|x\|_p = 1} \|Ax\|_p
 \]</div>
 </details>
 <p>矩阵算子范数衡量矩阵对向量的最大化放大能力（最坏情况下，<span class="arithmatex">\(A\)</span> 能把一个单位向量拉长多少倍），比如：</p>
 <ul>
 <li>列和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
-<li>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></li>
-<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩<ul>
+<li>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{j=1}^{n} |A_{ij}|\)</span></li>
+<li>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩（证明需要参考后面的瑞利商性质，或者使用下面提到的方法）<ul>
 <li>特别的，对于列向量 <span class="arithmatex">\(v\in \R^{m}\)</span>，其谱范数的定义退化为向量的欧几里得范数，定义为各个分量平方的和</li>
 <li><span class="arithmatex">\(\lVert v \rVert_{2}^{2} = \sum_{i=1}^{m} v_i^{2}\)</span></li>
 </ul>

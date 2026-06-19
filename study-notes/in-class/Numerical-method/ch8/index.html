@@ -1414,6 +1414,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值的其它迭代方法，SVD
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1430,6 +1448,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        反幂迭代
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反幂迭代">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rayleigh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rayleigh 商迭代
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2301,7 +2366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch9.md" class="md-nav__link">
+      <a href="../../Algorithm/ch9/" class="md-nav__link">
         
   
   
@@ -2329,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Algorithm/ch10.md" class="md-nav__link">
+      <a href="../../Algorithm/ch10/" class="md-nav__link">
         
   
   
@@ -6091,6 +6156,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        反幂迭代
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反幂迭代">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rayleigh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rayleigh 商迭代
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6199,6 +6300,60 @@
 
 
 <h1 id="lecture-8-svd">Lecture 8: 特征值的其它迭代方法，SVD</h1>
+<p>在之前的迭代运算中，我们使用 Jacobi / Gauss-Seidel 迭代解线性方程组 <span class="arithmatex">\(Ax=b\)</span> 对应的不动点方程；用幂迭代法迭代解 <span class="arithmatex">\(Ax =\lambda x\)</span> 模最大的特征值</p>
+<p>进一步的，如果我们不希望只求最大的特征值，而是求任意的特征值（最小的特征值 / 最接近某个值的特征值），此时需要采用<strong>反幂迭代</strong></p>
+<h2 id="_1">反幂迭代</h2>
+<p>对原始矩阵 <span class="arithmatex">\(A\)</span> 进行幂迭代，收敛结果对应模最大的特征值</p>
+<p>如果构造矩阵 <span class="arithmatex">\((A-qI)^{-1}\)</span>，收敛结果对应为最接近 <span class="arithmatex">\(q\)</span> 的特征值</p>
+<details class="question" open="open">
+<summary>证明</summary>
+<p><span class="arithmatex">\(Av = \lambda v\)</span>，则：</p>
+<div class="arithmatex">\[
+(A - qI)^{-1} v = \frac{1}{\lambda - q} v
+\]</div>
+<p>当原矩阵 <span class="arithmatex">\(A\)</span> 的某个特征值最接近 <span class="arithmatex">\(q\)</span> 时，对应 <span class="arithmatex">\((A - qI)^{-1}\)</span> 的特征值 <span class="arithmatex">\(\frac{1}{\lambda - q}\)</span> 是最大的，通过幂迭代会收敛到这个量对应的特征向值</p>
+</details>
+<p>特别的，当 <span class="arithmatex">\(q = 0\)</span> 时，对 <span class="arithmatex">\(A^{-1}\)</span> 幂迭代收敛结果对应模最小的特征值</p>
+<p>我们已知幂迭代的迭代公式</p>
+<div class="arithmatex">\[
+x_{k+1} = \frac{A x_k}{\|A x_k\|}
+\]</div>
+<p>而对于反幂迭代过程，我们解的是：</p>
+<div class="arithmatex">\[
+x_{k+1} = \dfrac{(A-qI)^{-1}x_{k}}{\|(A-qI)^{-1}x_{k}\|}
+\]</div>
+<p>对 <span class="arithmatex">\((A-qI)^{-1}\)</span> 求逆需要付出 <span class="arithmatex">\(O(n^{3})\)</span> 的代价，并且依旧需要每次 <span class="arithmatex">\(O(n^2)\)</span> 的迭代计算（以及数值稳定性，内存浪费等其他问题）</p>
+<p>一种方法是对 <span class="arithmatex">\(M = A-qI\)</span> 进行数值稳定的 LU 分解：</p>
+<div class="arithmatex">\[
+PM=LU
+\]</div>
+<blockquote>
+<p><span class="arithmatex">\(P\)</span> 是正交置换矩阵（每一行、每一列恰好只有一个 1；用于数值稳定）；<span class="arithmatex">\(L\)</span> 是单位下三角矩阵（对角线为 <span class="arithmatex">\(1\)</span>）；<span class="arithmatex">\(U\)</span> 是上三角矩阵</p>
+<p>时间复杂度 <span class="arithmatex">\(O(n^{3})\)</span>，是一次性计算</p>
+</blockquote>
+<p>不考虑第二步归一化的计算：</p>
+<div class="arithmatex">\[
+Mx_{k+1} = x_{k}
+$$
+分解转化为：
+$$
+LUx_{k+1} = Px_{k}
+\]</div>
+<ul>
+<li>置换</li>
+</ul>
+<p>计算 <span class="arithmatex">\(b = Px_{k}\)</span>，时间复杂度 <span class="arithmatex">\(O(n)\)</span></p>
+<ul>
+<li>前代</li>
+</ul>
+<p>计算 <span class="arithmatex">\(Lz=b\)</span>，因为 <span class="arithmatex">\(L\)</span> 是单位下三角矩阵，所以解这个线性方程组只需要从上到下依次代入计算，时间复杂度 <span class="arithmatex">\(O(n^{2})\)</span></p>
+<ul>
+<li>回代</li>
+</ul>
+<p>计算 <span class="arithmatex">\(Uy=z\)</span>，同理对于上三角矩阵，解这个线性方程组只需要从上到下依次代入计算，时间复杂度 <span class="arithmatex">\(O(n^{2})\)</span></p>
+<p>LU 分解迭代的常数因子比显式求逆小（没有改变时间复杂度），并且减少数值不稳定性与内存浪费</p>
+<h3 id="rayleigh">Rayleigh 商迭代</h3>
+<p>反幂迭代固定 <span class="arithmatex">\(q\)</span> 值，收敛速度是线性的。如果我们能在迭代过程中，让 <span class="arithmatex">\(q\)</span> 也能向真实特征值</p>
 <div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T02:28:10+08:00">2026-05-09</time></span></div></div>
 
 
