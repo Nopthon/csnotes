@@ -7088,7 +7088,7 @@ A^{T}A = AA^{T}
 \lVert \mathbf{y} \rVert_{\ast} = \max_{\lVert \mathbf{x} \rVert \leq 1} \langle \mathbf{y}, \mathbf{x} \rangle \left( a.k.a. \text{ sup} \lbrace \mathbf{y}^{T}\mathbf{x} | \lVert \mathbf{x} \rVert \leq 1\rbrace \right)
 \]</div>
 </details>
-<p>对偶范数 <span class="arithmatex">\(\lVert \mathbf{y} \rVert_{\ast}\)</span> 的值表示为：向量 <span class="arithmatex">\(\mathbf{y}\)</span> 和所有方向上的单位向量 <span class="arithmatex">\(\mathbf{x}\)</span> 做内积计算 <span class="arithmatex">\(\mathbf{y}^{T}\mathbf{x}\)</span> 时，最大的计算结果</p>
+<p>对偶范数 <span class="arithmatex">\(\lVert \mathbf{y} \rVert_{\ast}\)</span> 的值表示为：向量 <span class="arithmatex">\(\mathbf{y}\)</span> 和单位球内任意向量 <span class="arithmatex">\(\mathbf{x}\)</span> 做内积计算 <span class="arithmatex">\(\mathbf{y}^{T}\mathbf{x}\)</span> 时，最大的计算结果</p>
 <details class="success" open="open">
 <summary>Proposition：<span class="arithmatex">\(ℓ_p\text{-norm}\)</span> 的对偶范数 <span class="arithmatex">\(ℓ_q\text{-norm}\)</span> 满足 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span></summary>
 <p>根据 Hölder 不等式，对于任意向量 <span class="arithmatex">\(\mathbf{x}, \mathbf{y} \in \mathbb{R}^{d}\)</span>，指定 <span class="arithmatex">\(\dfrac{1}{p} + \dfrac{1}{q} = 1\)</span>，有</p>
@@ -7128,7 +7128,7 @@ A^{T}A = AA^{T}
 <ul>
 <li>列和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|\)</span></li>
 <li>
-<p>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|\)</span></p>
+<p>行和范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{j=1}^{n} |A_{ij}|\)</span></p>
 </li>
 <li>
 <p>谱范数：<span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是 <span class="arithmatex">\(A\)</span> 从大到小第 <span class="arithmatex">\(i\)</span> 个奇异值，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(A\)</span> 的秩</p>
@@ -7178,15 +7178,11 @@ A = Q Λ Q^{-1}
 </details>
 <p>一些常用的方阵运算可以通过特征值进行表达：</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(A\)</span> 的行列式等于所有特征值的乘积</p>
-<ul>
+<li><span class="arithmatex">\(A\)</span> 的行列式等于所有特征值的乘积<ul>
 <li><span class="arithmatex">\(\text{det}(A) = \displaystyle \prod_{i=1}^{d} \lambda_{i}\)</span></li>
 </ul>
 </li>
-<li>
-<p><span class="arithmatex">\(A\)</span> 的迹（Trace）等于所有特征值的和</p>
-<ul>
+<li><span class="arithmatex">\(A\)</span> 的迹（Trace）等于所有特征值的和<ul>
 <li><span class="arithmatex">\(\text{Tr}(A) = \displaystyle \sum_{i=1}^{d} \lambda_{i}\)</span></li>
 </ul>
 </li>
@@ -7221,13 +7217,15 @@ A = U \Sigma V^{T}
 </details>
 <p>同理我们有比特征值分解更广泛的结论：</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(A\)</span> 可以表示为奇异值+左右奇异向量的线性组合</p>
-<ul>
+<li><span class="arithmatex">\(A\)</span> 可以表示为奇异值+左右奇异向量的线性组合<ul>
 <li><span class="arithmatex">\(A = \displaystyle \sum_{i=1}^{r} \sigma_{i} u_{i}v_{i}^{T}\)</span></li>
-<li><span class="arithmatex">\(A\)</span> 的谱范数为奇异值的最大值</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(A\)</span> 的谱范数为奇异值的最大值<ul>
 <li><span class="arithmatex">\(\displaystyle \lVert A \rVert_{\text{op}, 2} = \max_{i \in [r]}\sigma_{i}\)</span></li>
-<li><span class="arithmatex">\(A\)</span> 的 Frobenius 范数为所有奇异值的平方和的平方根</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(A\)</span> 的 Frobenius 范数为所有奇异值的平方和的平方根<ul>
 <li><span class="arithmatex">\(\lVert A \rVert_{F} = \displaystyle \sqrt{\sum_{i=1}^{r} \sigma_{i}^2}\)</span></li>
 </ul>
 </li>

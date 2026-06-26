@@ -6685,11 +6685,11 @@ R(f) = \mathbb{E}_{(\mathbf{x}, y) \sim \mathcal{D}} [ℓ(f(h(\mathbf{x}), y))]
 <h3 id="_5">均方误差</h3>
 <p>在预测问题中，给定样例集 <span class="arithmatex">\([(\mathbf{x}_{m}, y_{m})]\)</span>，对于回归任务，通常用均方误差</p>
 <div class="arithmatex">\[
-E(f; D) = \dfrac{1}{m} \sum_{i = 1}^{m} \left(f(\mathbf{x_{i}}), y_{i} \right)^{2}
+E(f; D) = \dfrac{1}{m} \sum_{i = 1}^{m} \left(f(\mathbf{x_{i}})- y_{i} \right)^{2}
 \]</div>
 <p>更广义的，对于数据分布 <span class="arithmatex">\(\mathcal{D}\)</span> 和概率密度函数 <span class="arithmatex">\(p\)</span>，有</p>
 <div class="arithmatex">\[
-E(f; D) = \int_{\mathbf{x} \sim \mathcal{D}}  \left(f(\mathbf{x_{i}}), y_{i} \right)^{2} p(\mathbf{x}) \text{d} \mathbf{x}
+E(f; D) = \int_{\mathbf{x} \sim \mathcal{D}}  \left(f(\mathbf{x_{i}})-y_{i} \right)^{2} p(\mathbf{x}) \text{d} \mathbf{x}
 \]</div>
 <h3 id="_6">错误率</h3>
 <blockquote>

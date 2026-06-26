@@ -6496,10 +6496,10 @@
 <li>原始问题的表达式依赖于 <span class="arithmatex">\(\mathbf{x}_{i}\)</span> 本身，导致只能处理线性可分的样本</li>
 </ul>
 <p>因此我们希望解<strong>对偶问题</strong>，而不是原问题。我们先给出求出对偶问题的过程，然后指出其好处</p>
-<p>首先是引入非负因子 <span class="arithmatex">\(\alpha_{i}\)</span>，写出 Lagrange 函数
-$$
-\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \dfrac{1}{2}|\mathbf{w}|^{2} + \sum_{i=1}^{m} \alpha_{i} (1-y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b))
-$$</p>
+<p>首先是引入非负因子 <span class="arithmatex">\(\alpha_{i}\)</span>，写出 Lagrange 函数</p>
+<div class="arithmatex">\[
+\mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha}) = \dfrac{1}{2}\|\mathbf{w}\|^{2} + \sum_{i=1}^{m} \alpha_{i} (1-y_{i}(\mathbf{w}^{T}\mathbf{x}_{i} + b))
+\]</div>
 <p>Lagrange 对偶函数为</p>
 <div class="arithmatex">\[
 g(\boldsymbol{\alpha}) = \operatorname*{inf}_{\mathbf{w}, b} \mathcal{L}(\mathbf{w}, b, \boldsymbol{\alpha})
@@ -6741,7 +6741,7 @@ y_i(\mathbf{w}^T\mathbf{x}_i + b) \ge 1 - \xi_i
 \]</div>
 <p>它们都是 0/1 损失的上界，且都是连续 / 凸 / 光滑的</p>
 <p>选择替代损失函数的关键在于：确认求解替代函数得到的解是否仍是原问题的解。可以证明，Hinge loss 和 Logistic Loss 都满足一致性，只要样本量足够大，优化它们就等于在优化 0/1 损失</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-05-30"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-30T00:27:12.898148+08:00">2026-05-30</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-25"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-25T21:04:57.555671+08:00">2026-05-25</time></span><span data-tippy-content data-tippy-raw="2026-06-25"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-06-25T23:05:13.968725+08:00">2026-06-25</time></span></div></div>
 
 
 

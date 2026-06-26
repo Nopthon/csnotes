@@ -6658,10 +6658,10 @@ L(\mathbf{w}, \lambda) = -\mathbf{w}^T \mathbf{S}_b \mathbf{w} + \lambda(\mathbf
 \mathbf{S}_b = \mathbf{S}_t - \mathbf{S}_w = \sum_{i=1}^{N} m_i (\boldsymbol{\mu}_i - \boldsymbol{\mu})(\boldsymbol{\mu}_i - \boldsymbol{\mu})^T
 \]</div>
 <p>（其中 <span class="arithmatex">\(m_i\)</span> 是样本数）</p>
-<p>依旧采用广义瑞利商的形式，<span class="arithmatex">\(\mathbf{W} \in \R^{d\times (N-1)}\)</span>：
-$$
+<p>依旧采用广义瑞利商的形式，<span class="arithmatex">\(\mathbf{W} \in \R^{d\times (N-1)}\)</span>：</p>
+<div class="arithmatex">\[
 \max_{\mathbf{W}} = \frac{\text{tr}(\mathbf{W}^T \mathbf{S}_b \mathbf{W})}{\text{tr}(\mathbf{W}^T \mathbf{S}_w\mathbf{W})}
-$$</p>
+\]</div>
 <blockquote>
 <p>单个方向的瑞利商要推广到矩阵形式进行计算，采用迹来衡量总的散度</p>
 </blockquote>
