@@ -7044,7 +7044,7 @@ opt[i, j - 1] + 1
 \]</div>
 <p><span class="arithmatex">\(opt[n][m]\)</span> 为最短编辑距离</p>
 <h3 id="longest-palindrome">Longest Palindrome</h3>
-<p>对于最长回文子串问题，一种思路是转化为“对原串 <span class="arithmatex">\(A\)</span> 和反转串 <span class="arithmatex">\(A'\)</span> 求 LCS”，另一种思路是区间 DP：记 <span class="arithmatex">\(opt[i][j]\)</span> 为子串 <span class="arithmatex">\(A[i..j]\)</span> 的最长回文子串长度，最终答案为 <span class="arithmatex">\(opt[1][n]\)</span></p>
+<p>对于最长回文子序列问题，一种思路是转化为“对原串 <span class="arithmatex">\(A\)</span> 和反转串 <span class="arithmatex">\(A'\)</span> 求 LCS”，另一种思路是区间 DP：记 <span class="arithmatex">\(opt[i][j]\)</span> 为子串 <span class="arithmatex">\(A[i..j]\)</span> 的最长回文子序列长度，最终答案为 <span class="arithmatex">\(opt[1][n]\)</span></p>
 <p>接下来分析如何状态转移，由子问题得到 <span class="arithmatex">\(opt[i][j]\)</span> 的值：</p>
 <ul>
 <li>如果 <span class="arithmatex">\(A[i] = B[j]\)</span>，那么显然 <span class="arithmatex">\(opt[i][j] := opt[i+1][j-1]+2\)</span>（向外扩张了两个元素）</li>
@@ -7057,8 +7057,19 @@ opt[i+1][j-1] + 2 &amp; \text{if } A[i] = A[j] \\
 \max(opt[i+1][j], opt[i][j-1]) &amp; \text{if } A[i] \neq A[j]
 \end{cases}
 \]</div>
-<p>考虑更新方式：因为大的回文子串唯一依赖于小的回文子串，所以我们必须按照子串长度从小到大计算对应的 opt 值</p>
+<p>考虑更新方式：因为大的回文子序列唯一依赖于小的回文子序列，所以我们必须按照子序列长度从小到大计算对应的 opt 值</p>
 <p>两种方法的时间复杂度都是 <span class="arithmatex">\(O(n^{2})\)</span></p>
+<hr>
+<p>如果是回文子串，那么记 <span class="arithmatex">\(opt[i][j]\)</span> 为子串 <span class="arithmatex">\(A[i..j]\)</span> 是否为回文子串的 bool 值</p>
+<div class="arithmatex">\[
+opt[i][j] =
+\begin{cases}
+true &amp; \text{if } i = j \\
+(A[i] = A[j]) &amp; \text{if } j = i + 1 \\
+(A[i] = A[j]) \land opt[i+1][j-1] &amp; \text{if } j &gt; i + 1
+\end{cases}
+\]</div>
+<p>然后在所有的 <span class="arithmatex">\(opt[i][j] = 1\)</span> 中得到最大的 <span class="arithmatex">\(j-i+1\)</span> 的值作为最长回文子串的长度</p>
 <h2 id="shortest-paths-in-dag">Shortest Paths in DAG</h2>
 <p>回顾一下数据结构课程的内容，对于一个 DAG，我们假定顶点集 <span class="arithmatex">\(V\)</span> 是按照拓扑序排列的，求出从 <span class="arithmatex">\(1\)</span> 到每个 <span class="arithmatex">\(i\)</span> 的最短路 <span class="arithmatex">\(f[i]\)</span></p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260602224011073.png" data-desc-position="bottom"><img alt="image-20260602224011073" src="../images/image-20260602224011073.png"></a></p>
@@ -7199,7 +7210,7 @@ w_u + \displaystyle\sum_{v \in \text{child}(u)} opt[v, 0]
 \]</div>
 <p>简单来说：如果 <span class="arithmatex">\(u \not\in S\)</span>，则子节点可以在 <span class="arithmatex">\(S\)</span> 中也可以不在，取较大值；如果 <span class="arithmatex">\(u \in S\)</span>，则子节点必须不在 <span class="arithmatex">\(S\)</span> 中</p>
 <h3 id="minimum-weight-vertex-cover-mwvc">Minimum Weight Vertex Cover (MWVC)</h3>
-<p>相对地，我们提出这样的问题：给定一棵树，我们希望找出最小权顶点覆盖集，满足任意一条树边都至少有一个顶点在集合中，且包含顶点个数最少</p>
+<p>相对地，我们提出这样的问题：给定一棵树，我们希望找出最小权顶点覆盖集，满足任意一条树边都至少有一个顶点在集合中，且包含点权和最小</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260605200410104.png" data-desc-position="bottom"><img alt="image-20260605200410104" src="../images/image-20260605200410104.png"></a></p>
 <p>不难发现，如果 <span class="arithmatex">\(S\)</span> 是一个顶点覆盖集，那么 <span class="arithmatex">\(T \backslash S\)</span> 一定是一个独立集。因为我们对 MWIS 的结果取树上的反图，则得到的结果就是一个 MWVC</p>
 <p>直接套用 MWIS 的树上 DP 即可</p>

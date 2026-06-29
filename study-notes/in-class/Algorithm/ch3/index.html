@@ -2241,6 +2241,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Self-Balancing Binary-Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avl-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AVL-Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -6265,6 +6282,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Self-Balancing Binary-Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avl-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AVL-Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -6539,23 +6573,50 @@
 <span class="w">            </span><span class="n">u</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">w</span><span class="o">.</span><span class="n">left</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">key</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">w</span><span class="o">.</span><span class="n">key</span><span class="o">,</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">w</span><span class="o">,</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">v</span>
 </code></pre></div></td></tr></tbody></table></div>
 <p>如果要进行排名查询，则需要借助 size 记录子树大小，然后进行搜索计算</p>
-<p>```pascal title="rank
-// 查询元素的排名
-rank(v, key):
-    if v = nil then return 0                           // 空节点定义 size = 0
-    if key &lt; v.key then
-        return rank(v.left, key)
-    else
-        return v.left.size + 1 + rank(v.right, key)    // 左子树和根节点排名都在它前面</p>
-<p>// 查询对应排名的元素
-selection(v, i)
-    if i &lt;= v.left.size then
-        return selection(v.left,i)
-    else if i = v.left.size + 1 then
-        return v.key
-    else
-        return selection(v.right, i − (v.left.size + 1))
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">rank</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 查询元素的排名</span>
+<span class="n">rank</span><span class="p">(</span><span class="n">v</span><span class="o">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nil</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="mi">0</span><span class="w">                           </span><span class="c1">// 空节点定义 size = 0</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">key</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">rank</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rank</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">right</span><span class="o">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w">    </span><span class="c1">// 左子树和根节点排名都在它前面</span>
+
+<span class="c1">// 查询对应排名的元素</span>
+<span class="n">selection</span><span class="p">(</span><span class="n">v</span><span class="o">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">size</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">selection</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">,</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="n">key</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">selection</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">right</span><span class="o">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="err">−</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="avl-tree">AVL-Tree</h3>
+<p>一种自平衡二叉树，每个节点维护一个变量，记录其左右子树的大小差值，并且要确保差值绝对值不超过 1，否则需要进行平衡调整</p>
+<p>AVL 一旦遇到不平衡就会进行调整，失衡的情况总共可以概括为四种，分为两类。我们假定 <span class="arithmatex">\(A\)</span> 为自底向上回溯的路径中第一个失衡的节点，路径向下分别为节点 <span class="arithmatex">\(B\)</span> <span class="arithmatex">\(C\)</span>：</p>
+<ul>
+<li>这三个节点在一条直线上</li>
+</ul>
+<p>对 <span class="arithmatex">\(A,B\)</span> 进行单次的左旋 &amp;&amp; 右旋操作即可，如何操作在之前已经说明，平衡因子的更新也比较简单</p>
+<blockquote>
+<p>1- RR 情况</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20251210222315955-1765802143103-5.png" data-desc-position="bottom"><img alt="image-20251210222315955" src="../images/image-20251210222315955-1765802143103-5.png"></a></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -6572,55 +6633,25 @@ selection(v, i)
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>### AVL-Tree
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="nf">rotateRR</span><span class="p">(</span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">treeNode</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">;</span>
+<span class="w">    </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">;</span>
+<span class="w">    </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
 
-一种自平衡二叉树，每个节点维护一个变量，记录其左右子树的大小差值，并且要确保差值绝对值不超过 1，否则需要进行平衡调整
-
-AVL 一旦遇到不平衡就会进行调整，失衡的情况总共可以概括为四种，分为两类。我们假定 $A$ 为自底向上回溯的路径中第一个失衡的节点，路径向下分别为节点 $B$ $C$：
-
-- 这三个节点在一条直线上
-
-对 $A,B$ 进行单次的左旋 &amp;&amp; 右旋操作即可，如何操作在之前已经说明，平衡因子的更新也比较简单
-
-&gt; 1- RR 情况
-
-![image-20251210222315955](images/image-20251210222315955-1765802143103-5.png)
-
-```c++
-treeNode* rotateRR(treeNode* A) {
-    treeNode* B = A-&gt;rightChild;
-    A-&gt;rightChild = B-&gt;leftChild;
-    B-&gt;leftChild = A;
-
-    // 平衡因子更新
-    if (B-&gt;bf == 0) {        // 这个情形会在删除操作中出现
-        A-&gt;bf = 1;
-        B-&gt;bf = -1;
-    } else {                // 对于插入操作和大多数删除场景都是 B-&gt;bf == 1
-        A-&gt;bf = 0;
-        B-&gt;bf = 0;
-    }
-    // size 更新
-    updateSize(A);
-    updateSize(B);
-    return B;
-}
-</code></pre></div></td></tr></tbody></table></div><p></p>
+<span class="w">    </span><span class="c1">// 平衡因子更新</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="o">-&gt;</span><span class="n">bf</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 这个情形会在删除操作中出现</span>
+<span class="w">        </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">bf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">bf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">                </span><span class="c1">// 对于插入操作和大多数删除场景都是 B-&gt;bf == 1</span>
+<span class="w">        </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">bf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">bf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// size 更新</span>
+<span class="w">    </span><span class="n">updateSize</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="w">    </span><span class="n">updateSize</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
 <blockquote>
 <p>2- LL 情况</p>
 </blockquote>
