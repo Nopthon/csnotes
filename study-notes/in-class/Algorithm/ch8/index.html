@@ -6726,7 +6726,7 @@
 <p>算法每次迭代至少能增加 1 单位的流量，因此时间复杂度为 <span class="arithmatex">\(O(m \times val(f^{\ast}))\)</span>，是伪多项式复杂度</p>
 <h3 id="correctness-maximum-flow-minimum-cut-theorem">Correctness - Maximum Flow Minimum Cut Theorem</h3>
 <p>首先定义 s-t 割：我们将顶点集 <span class="arithmatex">\(V\)</span> 分为不相交两个部分 <span class="arithmatex">\((S, T)\)</span>，满足 <span class="arithmatex">\(s \in S,t\in T\)</span></p>
-<p>将 s-t 割的容量 <span class="arithmatex">\(c(S, T)\)</span> 记为从 <span class="arithmatex">\(S \to T\)</span> 的边的容量和，不考虑反向边，比如图中的 s-t 割的容量为 <span class="arithmatex">\(12 + 7 + 4 = 23\)</span>。最小割问题就是找出容量最小的 s-t 割</p>
+<p>将 s-t 割的容量 <span class="arithmatex">\(c(S, T)\)</span> 记为从 <span class="arithmatex">\(S \to T\)</span> 的边的容量和，不考虑反向边，比如图中的 s-t 割的容量为 <span class="arithmatex">\(12 + 7 + 4 - 0 = 23\)</span>。最小割问题就是找出容量最小的 s-t 割</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20260608202856639.png" data-desc-position="bottom"><img alt="image-20260608202856639" src="../images/image-20260608202856639.png"></a></p>
 <p>容易得到，对于任意流函数 <span class="arithmatex">\(f\)</span> 与任意 s-t 割 <span class="arithmatex">\((S, T)\)</span>，总流量的值为从 <span class="arithmatex">\(S\)</span> 流出的净流量</p>
 <div class="arithmatex">\[
@@ -6769,14 +6769,14 @@
 <li>最终得到的残余图 <span class="arithmatex">\(G_f\)</span> 中，我们可以构造这样的 s-t 割 <span class="arithmatex">\((S, T)\)</span>，其中能从 <span class="arithmatex">\(s\)</span> 出发并抵达的点属于 <span class="arithmatex">\(S\)</span>，否则属于 <span class="arithmatex">\(T\)</span>。可以确定这就是一个最小割，对应的得到最大流</li>
 </ul>
 <h3 id="improvement">Improvement</h3>
-<p>朴素的 Ford-Fulkerson 算法时间复杂度为 <span class="arithmatex">\(O(m \times val(f^{\ast}))\)</span>，是伪多项式复杂度，受到 <span class="arithmatex">\(val(f^{\ast})\)</span> 的约束很大</p>
+<p>朴素的 Ford-Fulkerson 算法时间复杂度为 <span class="arithmatex">\(O(m \times val(f^{\ast}))\)</span>，是伪多项式复杂度，受到最大流答案 <span class="arithmatex">\(val(f^{\ast})\)</span> 的约束很大</p>
 <p>注意到朴素的 Ford-Fulkerson 算法在寻找增广路径时具有任意性，我们基于此给出两种优化：</p>
 <ul>
 <li>每次选择最短的增广路径</li>
 <li>每次选择瓶颈容量最大的增广路径</li>
 </ul>
 <h4 id="shortest-augmenting-path-algorithm">Shortest Augmenting Path Algorithm</h4>
-<p>这个算法（最初版本）的优化非常朴素：在寻找增广路径时，使用 BFS 搜索，确保找到的增广路径是最短的，我们称之为 Edmonds-Karp 算法</p>
+<p>这个算法（最初版本）的优化非常朴素：在寻找增广路径时，使用 BFS 搜索，确保找到的增广路径是最短的（边的个数最少），我们称之为 Edmonds-Karp 算法</p>
 <p>我们给出两个引理：</p>
 <ul>
 <li>在整个算法执行过程中，残余图 <span class="arithmatex">\(G_f\)</span> 中从 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最短路长度（边的个数）一定不会减少<ul>

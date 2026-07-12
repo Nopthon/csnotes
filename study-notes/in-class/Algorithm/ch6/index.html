@@ -7221,9 +7221,9 @@ w_u + \displaystyle\sum_{v \in \text{child}(u)} opt[v, 0]
 <ul>
 <li><span class="arithmatex">\(opt[u][0]\)</span> 表示 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(T_u\)</span> 的 MWDS 中</li>
 <li><span class="arithmatex">\(opt[u][1]\)</span> 表示 <span class="arithmatex">\(u\)</span> 不在 <span class="arithmatex">\(T_u\)</span> 的 MWDS中，但是已经被某个子节点支配</li>
-<li><span class="arithmatex">\(opt[u][2]\)</span> 表示 <span class="arithmatex">\(u\)</span> 不在 <span class="arithmatex">\(T_u\)</span> 的 MWDS中，其不被任何子节点支配（因此它一定被父节点支配）</li>
+<li><span class="arithmatex">\(opt[u][2]\)</span> 表示 <span class="arithmatex">\(u\)</span> 不在 <span class="arithmatex">\(T_u\)</span> 的 MWDS中，其不需要被任何子节点支配（因此它一定能被父节点支配，即它的父节点是支配集中的）</li>
 </ul>
-<p>对于所有的叶节点，初始化 <span class="arithmatex">\(opt[u][0] = w_{u}, opt[u][1] = \infty, opt[u][2] = 0\)</span>（正无穷说明不存在这一情况）</p>
+<p>对于所有的<strong>叶节点</strong>，初始化为 <span class="arithmatex">\(opt[u][0] = w_{u}, opt[u][1] = \infty, opt[u][2] = 0\)</span>（正无穷说明不存在这一情况）</p>
 <p>现在考虑其状态方程：</p>
 <ul>
 <li><span class="arithmatex">\(opt[u][0]\)</span> 意味着子节点无论如何都是合法的，则</li>
@@ -7249,8 +7249,9 @@ opt[u][2] = \sum_{v \in \text{child}(u)} \min(opt[v][0], opt[v][1])
 </li>
 </ul>
 <div class="arithmatex">\[
-opt[u][1] =  \sum_{v \in \text{child}(u)} \left(\min(opt[v][0], opt[v][1]) + \max(0, \min_{v}(opt[v][0] - opt[v][1])) \right)
+opt[u][1] =  \sum_{v \in \text{child}(u)} \left(\min(opt[v][0], opt[v][1]) \right) + \max(0, \min_{v}(opt[v][0] - opt[v][1]))
 \]</div>
+<p>最终取答案时，取 <span class="arithmatex">\(min(opt[root][0], opt[root][1])\)</span> 的值，因为根节点无法满足状态 <span class="arithmatex">\(2\)</span></p>
 <p></p><div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span><span data-tippy-content data-tippy-raw="2026-05-09"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-05-09T01:53:55+08:00">2026-05-09</time></span></div></div><p></p>
 
 

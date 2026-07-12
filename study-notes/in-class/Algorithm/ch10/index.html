@@ -6974,7 +6974,7 @@ L(x^{\ast}, y) \leq L(x^{\ast}, y^{\ast}) \leq L(x, y^\ast)
 <p>这就是最小割问题，因此说最大流-最小割定理成立</p>
 <h2 id="weighted-vertex-cover">(Weighted) Vertex Cover</h2>
 <p>顶点覆盖问题（Vertex Cover）希望找出最少的顶点，使得所有的边都至少有一个端点在覆盖集中；加权版本的问题则为每个顶点附加一个权重，找到权重和最小的顶点覆盖</p>
-<p>这个问题与加权版本的是 NP-Complete 的，我们给出对这个问题的一些分析：</p>
+<p>这个问题与加权版本都是 NP-Complete 的，我们给出对这个问题的一些分析：</p>
 <p>我们只考虑决策问题：是否存在大小不超过 <span class="arithmatex">\(k\)</span> 的顶点覆盖</p>
 <h3 id="fpt">FPT</h3>
 <p>朴素方法的时间复杂度是 <span class="arithmatex">\(O(k^n)\)</span> 级别的，但是存在 <span class="arithmatex">\(O(2^k \times kn)\)</span> 的算法。为了不直接搜索所有顶点，我们利用边覆盖的约束，进行递归二分搜索：</p>
@@ -7059,7 +7059,7 @@ L(x, y) &amp;= \sum_{v \in V} w_v x_v - \sum_{(u,v) \in E} y_{uv} \cdot (x_u + x
 \end{align*}
 \]</div>
 <p>对应的解答也是一个 2-近似算法</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-06-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-06-16T02:59:46.712768+08:00">2026-06-16</time></span><span data-tippy-content data-tippy-raw="2026-06-28"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-06-28T23:38:00.904478+08:00">2026-06-28</time></span></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><span data-tippy-content data-tippy-raw="2026-06-16"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-06-16T02:59:46.712768+08:00">2026-06-16</time></span><span data-tippy-content data-tippy-raw="2026-06-29"><span class="material-icons" data-icon="doc_modified"></span><time datetime="2026-06-29T23:39:55.049978+08:00">2026-06-29</time></span></div></div>
 
 
 
