@@ -1,0 +1,6406 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CSAPP/Bomblab/">
+      
+      
+        <link rel="next" href="Lectures/Lecture-1/">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../assets/burger.svg">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.2.0">
+    
+    
+      
+        <title>intro - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d7aee198.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a45159b5.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkai-regular.css">
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/lxgwwenkaimono-bold.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../assets/document_dates/core/core.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cs188-fall-2025" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../assets/burger.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              intro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Study-notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../gadgets/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../assets/burger.svg" alt="logo">
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study-notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Study-notes
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    In-class
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    In-class
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/Numerical-method/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算方法
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数求根，牛顿法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插值，秘密分享，自纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chebyshev 插值与 Chebyshev 多项式，范数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最小二乘法，Gram-Schmidt 正交化与 QR 分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT，高斯消元与LU分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算子范数，条件数和迭代法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值与幂迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>特征值的其它迭代方法，SVD</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>迭代法解线性方程组：梯度下降方法与共轭梯度</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>幂迭代的特例：随机游走与马尔可夫链</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>谱图论</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>电阻电路网络，碰撞时间和遍历时间</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>线性规划入门</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Numerical-method/ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>LP 顶点，对偶性和零和游戏</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/ML/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习导论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器学习导论
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch1-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch1-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-Extra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型评估与选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch3-extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维：主成分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>神经网络</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>深度学习</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>贝叶斯分类器</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>集成学习</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ML/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>聚类</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/Algorithm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法设计与分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法设计与分析
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divide and Conque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Greedy Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NP-Completeness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Algorithm/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/ICS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/ICS/ICS-Theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_4_2" id="__nav_2_2_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Theory
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据的机器级表示与处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序转换与指令系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的机器级表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的链接与加载执行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储器层次结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虚拟存储器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程与异常控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Theory/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O 操作的实现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4_3" id="__nav_2_2_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Labs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Labs/Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Labs/Linklab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linklab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICS-Labs/Bufolab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bufolab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/ICS/ICSPA-x86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICSPA x86 note
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_4_4" id="__nav_2_2_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICSPA x86 note
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    i386 指令结构 for PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [Protected] PA2-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/Before_PA3_%26%26_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Before PA3&amp;&amp;4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA4-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA4-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/PA4-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [Protected] PA4-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/ICS/ICSPA-x86/A_journey_of_debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    [Protected] A journey of debugging
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/Network-attack-and-defense-in-action/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络攻防实战 Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络攻防实战 Labs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab07%28PWN%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab07(PWN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Network-attack-and-defense-in-action/lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/Probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机事件与概率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量及其概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量的数字特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    极限理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统计量与抽样分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参数估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../in-class/DS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构 OJ Ans
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构 OJ Ans
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/Exam1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/Exam2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/OJ12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 12 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../in-class/DS/Exam3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    out-of-class
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    out-of-class
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSAPP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CSAPP
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSAPP/Datalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSAPP/Bomblab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bomblab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS188
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS188
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lectures
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lectures/Lecture-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Artificial Intelligence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lectures/Lecture-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Uninformed Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lectures/Lecture-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A* Search and Heuristics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lectures/Lecture-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSPs I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Lectures/Lecture-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSPs II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_3" id="__nav_2_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWs &amp; PROJs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HWs &amp; PROJs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HWs%26PROJs/proj0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HWs%26PROJs/proj1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HWs%26PROJs/hw0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HWs%26PROJs/hw1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Rust/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rust
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rust/part1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rust/part2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../jyyOS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    jyyOS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    jyyOS
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../jyyOS/OS-Theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_4_2" id="__nav_2_3_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS Theory
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jyyOS/OS-Theory/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 - Agentic AI 时代的操作系统课：绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jyyOS/OS-Theory/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 - 应用视角的操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4_3" id="__nav_2_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS Labs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jyyOS/OS-Labs/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../5th-the-beauty-of-TCS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5th-The-Beauty-Of-TCS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_5" id="__nav_2_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5th-The-Beauty-Of-TCS
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5th-the-beauty-of-TCS/graph-coloring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Coloring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5th-the-beauty-of-TCS/graph-streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../gadgets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂项
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gadgets/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇奇怪怪的网站推荐
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/-ctf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏴‍☠️ CTF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/-re/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔍 RE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/-not-sorted-yet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🗑️ Not-sorted-yet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/-hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 HPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#cs188-fall-2025-calendar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 CS188 Fall 2025 Calendar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    intro
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Study-notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../CSAPP/Datalab/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    out-of-class
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    CS188
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="cs188-fall-2025">CS188 Fall 2025</h1>
+<p>UC Berkley 的人工智能导论，Fall 2025 版本</p>
+<p>前 24 节课程视频 Lecture 选择 Fall 2018 版本（据说质量更高一些）</p>
+<p>其他的内容均选择 Fall 2025 版本（有公开版本的作业可以提交批改）</p>
+<p>作业提交平台 <a href="https://www.gradescope.com/">Gradescope</a>，使用邀请码 <code>4VK322</code>，选择学校为 <code>UC Berkley</code> 即可参与，不需要学生身份</p>
+<hr>
+<p>Lecture Notes 基本上是对课程自带 Note + PPT 的概括，从某种悲观的角度来看，就是翻译原来的英文讲义（自身理解难以超出书本）</p>
+<p>Discussion 就不看了</p>
+<p>HWs&amp;PROJs 是作业/项目实现，着重在 Project 的实现</p>
+<hr>
+<h3 id="cs188-fall-2025-calendar">📅 CS188 Fall 2025 Calendar</h3>
+<p><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/">CS 188 Fall 2025 | Introduction to Artificial Intelligence at UC Berkeley</a></p>
+<style>
+    .spanned-table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 2px solid #333;
+    }
+    .spanned-table th,
+    .spanned-table td {
+        border: 1px solid #666;
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+    }
+</style>
+<table class="spanned-table"><thead>
+    <tr class="starting-row">
+        <th style="width:3%">Wk.</th>
+        <th style="width:8%">Date</th>
+        <th style="width:29%">Lecture (<a href="https://drive.google.com/drive/folders/1w7O6oPDxzE5WU4-AFRG74RuBZgCyrRaX">pptx</a>)</th>
+        <th style="width:12%">Readings</th>
+        <th style="width:18%">Discussion</th>
+        <th style="width:15%">HW</th>
+        <th style="width:15%">Project</th>
+    </tr>
+    </thead><tbody><tr class="starting-row"><td class=" week-cell" rowspan="1" id="week-34">
+    1</td><td class="" rowspan="1">
+    Thu<br>Aug 28
+    </td><td class=" " rowspan="1">1. Intro<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec01.pdf" aria-label="Slides for Lecture 1 (Intro)">Slides</a> / <a href="https://www.youtube.com/watch?v=16Dir4QqCUg" aria-label="Video for Lecture 1 (Intro)">Video</a> / <a href="https://www.youtube.com/watch?v=U9dUsmXEdkw" aria-label="Recording for Lecture 1 (Intro)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 1-2
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/search/agents.html">1.1</a></td>
+    <td class=" " rowspan="1">No Discussion</td>
+    <td class=" " rowspan="1">HW0 [optional]
+        <br>
+        (due Tue Sep 02)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6615217" aria-label="Part A for HW0 [optional]">Part A</a>
+        / 
+        No Part B</td>
+    <td class="schedule-purple" rowspan="1"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj0">Project 0 (optional)</a>
+        <br>
+        (due Fri Aug 29)</td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-35">
+    2</td><td class="is-even" rowspan="1">
+    Tue<br>Sep 02
+    </td><td class="is-even " rowspan="1">2. Uninformed Search<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec02.pdf" aria-label="Slides for Lecture 2 (Uninformed Search)">Slides</a> / <a href="https://www.youtube.com/watch?v=-Xx0QSFYfIQ" aria-label="Video for Lecture 2 (Uninformed Search)">Video</a> / <a href="https://www.youtube.com/watch?v=tpBQkYm41kg" aria-label="Recording for Lecture 2 (Uninformed Search)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 3.1-3.4
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/search/state.html">1.2-1.3</a></td>
+    <td class="is-even " rowspan="2">No Discussion</td>
+    <td class="is-even " rowspan="2">HW1
+        <br>
+        (due Thu Sep 11)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6616314" aria-label="Part A for HW1">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw1.pdf" aria-label="Part B for HW1">Part B</a></td>
+    <td class="schedule-blue" rowspan="4"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj1">Project 1</a>
+        <br>
+        (due Fri Sep 12)</td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Sep 04
+    </td><td class="is-even " rowspan="1">3. A* Search and Heuristics<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec03.pdf" aria-label="Slides for Lecture 3 (A* Search and Heuristics)">Slides</a> / <a href="https://www.youtube.com/watch?v=Mlwrx7hbKPs" aria-label="Video for Lecture 3 (A* Search and Heuristics)">Video</a> / <a href="https://www.youtube.com/watch?v=UuPyDKANqVo" aria-label="Recording for Lecture 3 (A* Search and Heuristics)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 3.5-3.6
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/search/informed.html">1.4-1.5</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-36">
+    3</td><td class="" rowspan="1">
+    Tue<br>Sep 09
+    </td><td class=" " rowspan="1">4. CSPs I<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec04.pdf" aria-label="Slides for Lecture 4 (CSPs I)">Slides</a> / <a href="https://www.youtube.com/watch?v=81z2ANjQcH4" aria-label="Video for Lecture 4 (CSPs I)">Video</a> / <a href="https://www.youtube.com/watch?v=y80mKSJIG3Q" aria-label="Recording for Lecture 4 (CSPs I)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 6.1
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/csp/csps.html">2.1-2.4</a>
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa21/assets/demos/csp/csp_demos.html">CSP Demo</a></td>
+    <td class=" " rowspan="2">1. Search<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc01.pdf" aria-label="Worksheet for Discussion 1 (Search)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc01-sols.pdf" aria-label="Solutions for Discussion 1 (Search)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7YElaVxVC1LhD-THpGCUkw" aria-label="Video for Discussion 1 (Search)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep01.pdf" aria-label="Worksheet for Exam Prep 1 (Search)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep01-sols.pdf" aria-label="Solutions for Exam Prep 1 (Search)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6Mu2VdR7e4vsjLavKH4rpq" aria-label="Video for Exam Prep 1 (Search)">Video</a></td>
+    <td class=" " rowspan="2">HW2
+        <br>
+        (due Thu Sep 18)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6699564" aria-label="Part A for HW2">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw2.pdf" aria-label="Part B for HW2">Part B</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Sep 11
+    </td><td class=" " rowspan="1">5. CSPs II<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec05.pdf" aria-label="Slides for Lecture 5 (CSPs II)">Slides</a> / <a href="https://www.youtube.com/watch?v=_DXf6oaknHw" aria-label="Video for Lecture 5 (CSPs II)">Video</a> / <a href="https://www.youtube.com/watch?v=BZjQnNpXrqU" aria-label="Recording for Lecture 5 (CSPs II)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 6.2-6.5
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/csp/ordering.html">2.4-2.6</a></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-37">
+    4</td><td class="is-even" rowspan="1">
+    Tue<br>Sep 16
+    </td><td class="is-even " rowspan="1">6. Game Trees I<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec06.pdf" aria-label="Slides for Lecture 6 (Game Trees I)">Slides</a> / <a href="https://www.youtube.com/watch?v=v6RgZBjc8og" aria-label="Video for Lecture 6 (Game Trees I)">Video</a> / <a href="https://www.youtube.com/watch?v=nYSXOdOoVWk" aria-label="Recording for Lecture 6 (Game Trees I)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 5.2-5.5
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/games.html">3.1-3.2</a></td>
+    <td class="is-even " rowspan="2">2. CSPs<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc02.pdf" aria-label="Worksheet for Discussion 2 (CSPs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc02-sols.pdf" aria-label="Solutions for Discussion 2 (CSPs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg40_abgeF6j-SsVirPL8ybH" aria-label="Video for Discussion 2 (CSPs)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep02.pdf" aria-label="Worksheet for Exam Prep 2 (CSPs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep02-sols.pdf" aria-label="Solutions for Exam Prep 2 (CSPs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg5CwVq3fOErJavyrRYg1J1V" aria-label="Video for Exam Prep 2 (CSPs)">Video</a></td>
+    <td class="is-even " rowspan="2">HW3
+        <br>
+        (due Thu Sep 25)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6749422" aria-label="Part A for HW3">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw3.pdf" aria-label="Part B for HW3">Part B</a></td>
+    <td class="schedule-green" rowspan="4"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj2">Project 2</a>
+        <br>
+        (due Fri Sep 26)</td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Sep 18
+    </td><td class="is-even " rowspan="1">7. Game Trees II<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec07.pdf" aria-label="Slides for Lecture 7 (Game Trees II)">Slides</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6LsW3Ye46-3_SEodVEFWXc" aria-label="Video for Lecture 7 (Game Trees II)">Video</a> / <a href="https://www.youtube.com/watch?v=XviDZUyJ_Mc" aria-label="Recording for Lecture 7 (Game Trees II)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 5.2-5.5, 16.1-16.3
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/expectimax.html">3.3-3.6</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-38">
+    5</td><td class="" rowspan="1">
+    Tue<br>Sep 23
+    </td><td class=" " rowspan="1">8. MDPs I<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec08.pdf" aria-label="Slides for Lecture 8 (MDPs I)">Slides</a> / <a href="https://www.youtube.com/watch?v=4LW3H_Jinr4" aria-label="Video for Lecture 8 (MDPs I)">Video</a> / <a href="https://www.youtube.com/watch?v=5_ltZ7LnwM0" aria-label="Recording for Lecture 8 (MDPs I)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 17.1-17.2
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/markov-decision-processes.html">4.1-4.2</a></td>
+    <td class=" " rowspan="2">3. Game Trees<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc03.pdf" aria-label="Worksheet for Discussion 3 (Game Trees)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc03-sols.pdf" aria-label="Solutions for Discussion 3 (Game Trees)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7zq86VPzCRa0bLgIRxSb2w" aria-label="Video for Discussion 3 (Game Trees)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep03.pdf" aria-label="Worksheet for Exam Prep 3 (Game Trees)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep03-sols.pdf" aria-label="Solutions for Exam Prep 3 (Game Trees)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7yHhsVxDWC3MOyNqHw99Nb" aria-label="Video for Exam Prep 3 (Game Trees)">Video</a></td>
+    <td class=" " rowspan="2">HW4
+        <br>
+        (due Thu Oct 02)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6812376" aria-label="Part A for HW4">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw4.pdf" aria-label="Part B for HW4">Part B</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Sep 25
+    </td><td class=" " rowspan="1">9. MDPs II<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec09.pdf" aria-label="Slides for Lecture 9 (MDPs II)">Slides</a> / <a href="https://www.youtube.com/watch?v=ZToWj64rxvQ" aria-label="Video for Lecture 9 (MDPs II)">Video</a> / <a href="https://www.youtube.com/watch?v=iXELtYQIV2g" aria-label="Recording for Lecture 9 (MDPs II)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 17.1-17.2
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/mdp/value-iteration.html">4.3-4.5</a></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-39">
+    6</td><td class="is-even" rowspan="1">
+    Tue<br>Sep 30
+    </td><td class="is-even " rowspan="1">10. RL I<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec10.pdf" aria-label="Slides for Lecture 10 (RL I)">Slides</a> / <a href="https://www.youtube.com/watch?v=TiXS7vROBEg" aria-label="Video for Lecture 10 (RL I)">Video</a> / <a href="https://www.youtube.com/watch?v=qu1e-uO8p3E" aria-label="Recording for Lecture 10 (RL I)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 22
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/rl/rl.html">5.1-5.3</a></td>
+    <td class="is-even " rowspan="2">4. MDPs<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc04.pdf" aria-label="Worksheet for Discussion 4 (MDPs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc04-sols.pdf" aria-label="Solutions for Discussion 4 (MDPs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6fl7wlML6-1zoaENqU6J9R" aria-label="Video for Discussion 4 (MDPs)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep04.pdf" aria-label="Worksheet for Exam Prep 4 (MDPs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep04-sols.pdf" aria-label="Solutions for Exam Prep 4 (MDPs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6qD_jkkypKBR1MPmYm4gTA" aria-label="Video for Exam Prep 4 (MDPs)">Video</a></td>
+    <td class="is-even " rowspan="2">HW5
+        <br>
+        (due Thu Oct 09)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6866431" aria-label="Part A for HW5">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw5.pdf" aria-label="Part B for HW5">Part B</a></td>
+    <td class="schedule-purple" rowspan="4"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj3">Project 3</a>
+        <br>
+        (due Fri Oct 10)</td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Oct 02
+    </td><td class="is-even " rowspan="1">11. RL II<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec11.pdf" aria-label="Slides for Lecture 11 (RL II)">Slides</a> / <a href="https://www.youtube.com/watch?v=XafrqwHfBKE" aria-label="Video for Lecture 11 (RL II)">Video</a> / <a href="https://www.youtube.com/watch?v=utsftCPoFBU" aria-label="Recording for Lecture 11 (RL II)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 22
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/rl/eae.html">5.4-5.5</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-40">
+    7</td><td class="" rowspan="1">
+    Tue<br>Oct 07
+    </td><td class=" " rowspan="1">12. Probability<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec12.pdf" aria-label="Slides for Lecture 12 (Probability)">Slides</a> / <a href="https://www.youtube.com/watch?v=sMNbLXsvRig" aria-label="Video for Lecture 12 (Probability)">Video</a> / <a href="https://www.youtube.com/watch?v=Ko3GJpMW3GM" aria-label="Recording for Lecture 12 (Probability)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 12.1-12.5
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/probability.html">6.1-6.2</a></td>
+    <td class=" " rowspan="2">5. RL<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc05.pdf" aria-label="Worksheet for Discussion 5 (RL)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc05-sols.pdf" aria-label="Solutions for Discussion 5 (RL)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg70Qjh5v9djygB2wBOZ6nhg" aria-label="Video for Discussion 5 (RL)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep05.pdf" aria-label="Worksheet for Exam Prep 5 (RL)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep05-sols.pdf" aria-label="Solutions for Exam Prep 5 (RL)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7a4HT0zzWdM4SnKAgMQWZF" aria-label="Video for Exam Prep 5 (RL)">Video</a></td>
+    <td class=" " rowspan="2">HW6
+        <br>
+        (due Thu Oct 16)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/6924842" aria-label="Part A for HW6">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw6.pdf" aria-label="Part B for HW6">Part B</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Oct 09
+    </td><td class=" " rowspan="1">13. Bayes Nets: Representation<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec13.pdf" aria-label="Slides for Lecture 13 (Bayes Nets: Representation)">Slides</a> / <a href="https://www.youtube.com/watch?v=T4l6ltMMcec" aria-label="Video for Lecture 13 (Bayes Nets: Representation)">Video</a> / <a href="https://www.youtube.com/watch?v=6c_aQcEWLgM" aria-label="Recording for Lecture 13 (Bayes Nets: Representation)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 13.1-13.3
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/representation.html">6.3-6.4</a></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-41">
+    8</td><td class="is-even" rowspan="1">
+    Tue<br>Oct 14
+    </td><td class="is-even " rowspan="1">14. Bayes Nets: Independence<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec14.pdf" aria-label="Slides for Lecture 14 (Bayes Nets: Independence)">Slides</a> / <a href="https://www.youtube.com/watch?v=FUnOdyZZAaE" aria-label="Video for Lecture 14 (Bayes Nets: Independence)">Video</a> / <a href="https://www.youtube.com/watch?v=GrvNhe_LcDE" aria-label="Recording for Lecture 14 (Bayes Nets: Independence)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 13.2
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/d-separation.html">6.5</a></td>
+    <td class="is-even " rowspan="2">6. Probability and Bayes Nets<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc06.pdf" aria-label="Worksheet for Discussion 6 (Probability and Bayes Nets)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc06-sols.pdf" aria-label="Solutions for Discussion 6 (Probability and Bayes Nets)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6UNR28A6dXAHrG7Swqlwtl" aria-label="Video for Discussion 6 (Probability and Bayes Nets)">Video</a></td>
+    <td class="is-even " rowspan="2"></td>
+    <td class="schedule-blue" rowspan="9"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj4">Project 4</a>
+        <br>
+        (due Fri Nov 07)</td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Oct 16
+    </td><td class="is-even " rowspan="1">15. Bayes Nets: Inference<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec15.pdf" aria-label="Slides for Lecture 15 (Bayes Nets: Inference)">Slides</a> / <a href="https://www.youtube.com/watch?v=A1hYXGAUdmU" aria-label="Video for Lecture 15 (Bayes Nets: Inference)">Video</a> / <a href="https://www.youtube.com/watch?v=cLq_tFYQn4U" aria-label="Recording for Lecture 15 (Bayes Nets: Inference)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 13.3
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/elimination.html">6.6</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="3" id="week-42">
+    9</td><td class="" rowspan="1">
+    Tue<br>Oct 21
+    </td><td class=" " rowspan="1">16. Bayes Nets: Sampling<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec16.pdf" aria-label="Slides for Lecture 16 (Bayes Nets: Sampling)">Slides</a> / <a href="https://www.youtube.com/watch?v=kGngCS-1kjU" aria-label="Video for Lecture 16 (Bayes Nets: Sampling)">Video</a> / <a href="https://www.youtube.com/watch?v=dD4NQBESd1o" aria-label="Recording for Lecture 16 (Bayes Nets: Sampling)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 13.3-13.4
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/approximate.html">6.7-6.8</a></td>
+    <td class=" " rowspan="3">No Discussion</td>
+    <td class=" " rowspan="3">HW7
+        <br>
+        (due Thu Oct 30)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/7039470" aria-label="Part A for HW7">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw7.pdf" aria-label="Part B for HW7">Part B</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw7_sols.pdf" aria-label="Solutions for HW7">Solutions</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Wed<br>Oct 22
+    </td><td class=" " rowspan="1"><p>Midterm (Wed Oct 22, 7–9pm PT)</p>
+    </td>
+    <td class=" " rowspan="1"></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Oct 23
+    </td><td class=" " rowspan="1">17. Decision Networks and VPI<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec17.pdf" aria-label="Slides for Lecture 17 (Decision Networks and VPI)">Slides</a> / <a href="https://www.youtube.com/watch?v=19sr7yKV56I" aria-label="Video for Lecture 17 (Decision Networks and VPI)">Video</a> / <a href="https://www.youtube.com/watch?v=H7myHLyR4_o" aria-label="Recording for Lecture 17 (Decision Networks and VPI)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 16.5-16.6
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/vpis/utilities.html">7.1-7.3</a></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-43">
+    10</td><td class="is-even" rowspan="1">
+    Tue<br>Oct 28
+    </td><td class="is-even " rowspan="1">18. HMMs<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec18.pdf" aria-label="Slides for Lecture 18 (HMMs)">Slides</a> / <a href="https://www.youtube.com/watch?v=eCZLhZu_U1I" aria-label="Video for Lecture 18 (HMMs)">Video</a> / <a href="https://www.youtube.com/watch?v=sLoDIozweP8" aria-label="Recording for Lecture 18 (HMMs)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 14.3, 14.5
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/hmms/markov.html">8.1-8.3</a></td>
+    <td class="is-even " rowspan="2">7. BN Inference and Sampling<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc07.pdf" aria-label="Worksheet for Discussion 7 (BN Inference and Sampling)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc07-sols.pdf" aria-label="Solutions for Discussion 7 (BN Inference and Sampling)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg4aHUl656RzNNp01xJWMOaX" aria-label="Video for Discussion 7 (BN Inference and Sampling)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep07.pdf" aria-label="Worksheet for Exam Prep 7 (BN Inference and Sampling)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep07-sols.pdf" aria-label="Solutions for Exam Prep 7 (BN Inference and Sampling)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg68kHzpVpZyu28iiMFWGSRw" aria-label="Video for Exam Prep 7 (BN Inference and Sampling)">Video</a></td>
+    <td class="is-even " rowspan="2">HW8
+        <br>
+        (due Thu Nov 06)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/7082567" aria-label="Part A for HW8">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw8.pdf" aria-label="Part B for HW8">Part B</a></td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Oct 30
+    </td><td class="is-even " rowspan="1">19. Particle Filtering<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec19.pdf" aria-label="Slides for Lecture 19 (Particle Filtering)">Slides</a> / <a href="https://www.youtube.com/watch?v=pNam9hbwg4g" aria-label="Video for Lecture 19 (Particle Filtering)">Video</a> / <a href="https://www.youtube.com/watch?v=hSEVCBVnd9I" aria-label="Recording for Lecture 19 (Particle Filtering)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 14.3
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/hmms/particle-filtering.html">8.4-8.5</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-44">
+    11</td><td class="" rowspan="1">
+    Tue<br>Nov 04
+    </td><td class=" " rowspan="1">20. ML I: Naive Bayes<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec20.pdf" aria-label="Slides for Lecture 20 (ML I: Naive Bayes)">Slides</a> / <a href="https://www.youtube.com/watch?v=1nOb0vwWkAE" aria-label="Video for Lecture 20 (ML I: Naive Bayes)">Video</a> / <a href="https://www.youtube.com/watch?v=e8QI3N-BuEk" aria-label="Recording for Lecture 20 (ML I: Naive Bayes)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 20.1-20.2
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/ml/machine-learning.html">9.1-9.2</a></td>
+    <td class=" " rowspan="2">8. VPI and HMMs<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc08.pdf" aria-label="Worksheet for Discussion 8 (VPI and HMMs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc08-sols.pdf" aria-label="Solutions for Discussion 8 (VPI and HMMs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg5k-qfJ2yJllVvOkvynnh3A" aria-label="Video for Discussion 8 (VPI and HMMs)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep08.pdf" aria-label="Worksheet for Exam Prep 8 (VPI and HMMs)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep08-sols.pdf" aria-label="Solutions for Exam Prep 8 (VPI and HMMs)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6kWHo6B5ZxyaMc32lmSKd2" aria-label="Video for Exam Prep 8 (VPI and HMMs)">Video</a></td>
+    <td class=" " rowspan="2">HW9
+        <br>
+        (due Thu Nov 13)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/7126783" aria-label="Part A for HW9">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw9.pdf" aria-label="Part B for HW9">Part B</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Nov 06
+    </td><td class=" " rowspan="1">21. ML II: Perceptrons<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec21.pdf" aria-label="Slides for Lecture 21 (ML II: Perceptrons)">Slides</a> / <a href="https://www.youtube.com/watch?v=UNr9gHyOnWA" aria-label="Video for Lecture 21 (ML II: Perceptrons)">Video</a> / <a href="https://www.youtube.com/watch?v=DgNpKfQBscs" aria-label="Recording for Lecture 21 (ML II: Perceptrons)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 19.6
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/ml/perceptrons.html">9.3-9.5, 9.7, 9.8</a></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-45">
+    12</td><td class="is-even" rowspan="1">
+    Tue<br>Nov 11
+    </td><td class="is-even " rowspan="1"><p>No Lecture (Veterans Day)</p>
+    </td>
+    <td class="is-even " rowspan="1"></td>
+    <td class="is-even " rowspan="2">9. Particle Filtering and Naive Bayes<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc09.pdf" aria-label="Worksheet for Discussion 9 (Particle Filtering and Naive Bayes)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc09-sols.pdf" aria-label="Solutions for Discussion 9 (Particle Filtering and Naive Bayes)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg5Oa65tmgsXLbeMI3Bgc-JW" aria-label="Video for Discussion 9 (Particle Filtering and Naive Bayes)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep09.pdf" aria-label="Worksheet for Exam Prep 9 (Particle Filtering and Naive Bayes)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep09-sols.pdf" aria-label="Solutions for Exam Prep 9 (Particle Filtering and Naive Bayes)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7bkPNq7wXdPYoO7g19quUj" aria-label="Video for Exam Prep 9 (Particle Filtering and Naive Bayes)">Video</a></td>
+    <td class="is-even " rowspan="2">HW10
+        <br>
+        (due Thu Nov 20)<br><br><a href="https://www.gradescope.com/courses/1104867/assignments/7160703" aria-label="Part A for HW10">Part A</a>
+        / 
+        <a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/homeworks/cs188_fa25_hw10.pdf" aria-label="Part B for HW10">Part B</a></td>
+    <td class="schedule-green" rowspan="4"><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/projects/proj5">Project 5</a>
+        <br>
+        (due Fri Nov 21)</td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Nov 13
+    </td><td class="is-even " rowspan="1">22. ML III: Neural Networks<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec22.pdf" aria-label="Slides for Lecture 22 (ML III: Neural Networks)">Slides</a> / <a href="https://www.youtube.com/watch?v=LERtLI2h_nQ" aria-label="Video for Lecture 22 (ML III: Neural Networks)">Video</a> / <a href="https://www.youtube.com/watch?v=Cyq76KSM83k" aria-label="Recording for Lecture 22 (ML III: Neural Networks)">Recording</a></td>
+    <td class="is-even " rowspan="1">AIMA 19.7
+        <br>
+        <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/ml/optimization.html">9.6, 9.9</a></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-46">
+    13</td><td class="" rowspan="1">
+    Tue<br>Nov 18
+    </td><td class=" " rowspan="1">23. ML IV: Applications &amp; Decision Trees<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec23.pdf" aria-label="Slides for Lecture 23 (ML IV: Applications &amp; Decision Trees)">Slides</a> / <a href="https://www.youtube.com/watch?v=svW3I0cqfpw" aria-label="Video for Lecture 23 (ML IV: Applications &amp; Decision Trees)">Video</a> / <a href="https://www.youtube.com/watch?v=Thk6sY0OIqo" aria-label="Recording for Lecture 23 (ML IV: Applications &amp; Decision Trees)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 19.3</td>
+    <td class=" " rowspan="2">10. ML<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc10.pdf" aria-label="Worksheet for Discussion 10 (ML)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc10-sols.pdf" aria-label="Solutions for Discussion 10 (ML)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg6nK60vejxWpFQNW8fIx2j_" aria-label="Video for Discussion 10 (ML)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep10.pdf" aria-label="Worksheet for Exam Prep 10 (ML)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep10-sols.pdf" aria-label="Solutions for Exam Prep 10 (ML)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7hzMd0eXTgEXyCqywxtdlV" aria-label="Video for Exam Prep 10 (ML)">Video</a></td>
+    <td class=" " rowspan="10"></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Nov 20
+    </td><td class=" " rowspan="1">24. ML V: Transformers<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec24.pdf" aria-label="Slides for Lecture 24 (ML V: Transformers)">Slides</a> / <a href="https://www.youtube.com/watch?v=JKGyGcooQWU" aria-label="Recording for Lecture 24 (ML V: Transformers)">Recording</a></td>
+    <td class=" " rowspan="1">AIMA 24.4-24.5</td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-47">
+    14</td><td class="is-even" rowspan="1">
+    Tue<br>Nov 25
+    </td><td class="is-even " rowspan="1">25. Applications: AI for Healthcare<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec25.pdf" aria-label="Slides for Lecture 25 (Applications: AI for Healthcare)">Slides</a> / <a href="https://www.youtube.com/watch?v=-NZ0YfCgEB0" aria-label="Recording for Lecture 25 (Applications: AI for Healthcare)">Recording</a></td>
+    <td class="is-even " rowspan="1"></td>
+    <td class="is-even " rowspan="2">No Discussion</td>
+    <td class="" rowspan="8"></td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Nov 27
+    </td><td class="is-even " rowspan="1"><p>No Lecture (Thanksgiving Break)</p>
+    </td>
+    <td class="is-even " rowspan="1"></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-48">
+    15</td><td class="" rowspan="1">
+    Tue<br>Dec 02
+    </td><td class=" " rowspan="1">26. Applications: AI for Equality and Course Wrap-up<br><a href="https://inst.eecs.berkeley.edu/~cs188/fa25/assets/lectures/cs188-fa25-lec26.pdf" aria-label="Slides for Lecture 26 (Applications: AI for Equality and Course Wrap-up)">Slides</a> / <a href="https://youtu.be/NH_rutMYr1w" aria-label="Recording for Lecture 26 (Applications: AI for Equality and Course Wrap-up)">Recording</a></td>
+    <td class=" " rowspan="1"></td>
+    <td class=" " rowspan="2">11. ML 2<br><br>Discussion:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc11.pdf" aria-label="Worksheet for Discussion 11 (ML 2)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-disc11-sols.pdf" aria-label="Solutions for Discussion 11 (ML 2)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg55tVExgnBNPYEUoUeEUGlV" aria-label="Video for Discussion 11 (ML 2)">Video</a><br><br>Exam Prep:&nbsp;<a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep11.pdf" aria-label="Worksheet for Exam Prep 11 (ML 2)">Worksheet</a> / <a href="/~cs188/fa25/assets/discussions/cs188-fa25-examprep11-sols.pdf" aria-label="Solutions for Exam Prep 11 (ML 2)">Solutions</a> / <a href="https://www.youtube.com/playlist?list=PLp8QV47qJEg7XYsL7qqjL2AMfrNf_SBKK" aria-label="Video for Exam Prep 11 (ML 2)">Video</a></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Dec 04
+    </td><td class=" " rowspan="1"><p>No Lecture</p>
+    </td>
+    <td class=" " rowspan="1"></td>
+    </tr><tr class="starting-row"><td class="is-even week-cell" rowspan="2" id="week-49">
+    16</td><td class="is-even" rowspan="1">
+    Tue<br>Dec 09
+    </td><td class="is-even " rowspan="2"><p>RRR Week</p>
+    </td>
+    <td class="is-even " rowspan="2"></td>
+    <td class="is-even " rowspan="1"></td>
+    </tr><tr class=""><td class="is-even" rowspan="1">
+    Thu<br>Dec 11
+    </td><td class="is-even " rowspan="1"></td>
+    </tr><tr class="starting-row"><td class=" week-cell" rowspan="2" id="week-50">
+    17</td><td class="" rowspan="1">
+    Tue<br>Dec 16
+    </td><td class=" " rowspan="1">
+    </td>
+    <td class=" " rowspan="1"></td>
+    <td class=" " rowspan="1"></td>
+    </tr><tr class=""><td class="" rowspan="1">
+    Thu<br>Dec 18
+    </td><td class=" " rowspan="1"><p>Final Exam (Thu Dec 18, 11:30am–2:30pm PT)</p>
+    </td>
+    <td class=" " rowspan="1"></td>
+    <td class=" " rowspan="1"></td>
+    </tr></tbody>
+</table>
+
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-02-12"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-02-12T15:14:07.912036+08:00">2026-02-12</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-02-26"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-02-26T21:03:51.028253+08:00">2026-02-26</time></span></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden="">
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "code": null, "features": ["content.code.select", "content.code.copy", "content.code.cop", "navigation.tabs", "navigation.top", "navigation.indexes", "navigation.path"], "search": null, "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.collapse": "Collapse", "code.download": "Download", "code.expand": "Expand remaining # lines", "code.select": "Toggle line selection", "search.offline": "Switch to Lunr for offline search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.44453a05.min.js"></script>
+      
+        <script src="https://events.vercount.one/js"></script>
+      
+        <script src="../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../../assets/document_dates/core/core.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>
