@@ -24,7 +24,7 @@
 
 - [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 
-可视化学习 git 操作，使我的 HEAD 头旋转
+可视化学习 git 操作，使我的 HEAD 头旋转（然后 Detached）
 
 !!! tip "这是一个开源项目"
 
@@ -53,14 +53,17 @@ char * const (*(* const bar)[5])(int );
 
 ---
 
-- [01xz - Digital Logic and Computer Architecture](https://www.01xz.net/wiki/Main_Page)
+- [**CPUlator**](https://cpulator.01xz.net/)
 
-硬件学习相关的工具集合，包含下面的在线工具
-
-[**HDLBits**](https://hdlbits.01xz.net/)：一个用于练习数字电路设计的在线判题系统（附带题集）
-
-[**ASMBits**](https://asmbits.01xz.net/)：类似于 HDLBits，但专门用于练习汇编语言编程（Nios II 或 ARMv7 架构）
-
-[**CPUlator**](https://cpulator.01xz.net/)：一个在线的全处理器系统模拟器和调试器，模拟了完整的计算机系统（包括 CPU、内存、外设）
+一个在线的全处理器系统模拟器和调试器，模拟了完整的计算机系统（包括 CPU、内存、外设）
 
 ---
+
+- [Detexify - LaTeX handwritten symbol recognition](https://detexify.kirelabs.org/#/)
+
+可以用手写的方式识别对应的 LaTeX 符号
+
+!!! tip "这是一个开源项目"
+
+    项目地址：[kirel/detexify-next](https://github.com/kirel/detexify-next)
+

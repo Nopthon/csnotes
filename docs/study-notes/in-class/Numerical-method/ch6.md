@@ -2,7 +2,7 @@
 
 ## 矩阵范数
 
-矩阵范数有两种常见的定义（详见《机器学习导论》）
+矩阵范数有两种常见的定义（详见《机器学习导论》）：
 
 ### 算子范数
 
@@ -13,14 +13,14 @@
     给定矩阵 $A\in \mathbb{R}^{m \times n}$，记矩阵算子范数为 $\lVert \cdot \rVert_{\text{op}, p}$，有：
     
     $$
-    \lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace
+    \lVert A \rVert_{\text{op}, p} \triangleq \max \left \lbrace \frac{ \lVert A \mathbf{x} \rVert_p}{\lVert \mathbf{x}\rVert_{p}}  \mathbf{x} \in \mathbb{R}^d, \mathbf{x} \neq 0 \right \rbrace =  \max_{\|x\|_p = 1} \|Ax\|_p
     $$
 
 矩阵算子范数衡量矩阵对向量的最大化放大能力（最坏情况下，$A$ 能把一个单位向量拉长多少倍），比如：
 
 - 列和范数：$\displaystyle \lVert A \rVert_{\text{op}, 1} = \max_{j \in [n]} \sum_{i=1}^{m} |A_{ij}|$
-- 行和范数：$\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{i=1}^{n} |A_{ij}|$
-- 谱范数：$\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|$，其中 $\sigma_{i}$ 是 $A$ 从大到小第 $i$ 个奇异值，$r$ 是 $A$ 的秩
+- 行和范数：$\displaystyle \lVert A \rVert_{\text{op}, \infty} = \max_{i \in [m]} \sum_{j=1}^{n} |A_{ij}|$
+- 谱范数：$\displaystyle \lVert A \rVert_{\text{op}, 2} = \sqrt{\lambda_{\max} (A^{T}A)} = \max_{i \in [r]}|\sigma_{i}|$，其中 $\sigma_{i}$ 是 $A$ 从大到小第 $i$ 个奇异值，$r$ 是 $A$ 的秩（证明需要参考后面的瑞利商性质，或者使用下面提到的方法）
     - 特别的，对于列向量 $v\in \R^{m}$，其谱范数的定义退化为向量的欧几里得范数，定义为各个分量平方的和
     - $\lVert v \rVert_{2}^{2} = \sum_{i=1}^{m} v_i^{2}$
 
@@ -75,7 +75,7 @@ $$
     $$
     A^{\ast} A = V \Sigma^{\ast} \Sigma V^{\ast}, \quad \text{tr}(A^{\ast} A) = \text{tr}(\Sigma^{\ast} \Sigma) = \sum_{i=1}^r \sigma_i^2
     $$
-
+    
     所以
     
     $$
@@ -101,7 +101,7 @@ $$
     $$
     \frac{\|A\mathbf{x}\|_2}{\|\mathbf{x}\|_2} \leq \sigma_{\max}
     $$
-
+    
     取 $\mathbf{x} = \mathbf{v}_1$（最大奇异值对应的右奇异向量），则等号成立，故
     
     $$
@@ -118,8 +118,10 @@ $$
     
     ??? success "中值定理"
     
-        $$f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\newline
-        f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)$$
+        $$
+        f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\newline
+        f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)
+        $$
     
     计算误差 $f(x+\Delta x) - f(x) \approx \Delta x f'(x)$，对应绝对误差 $\Delta x$ 的放大比例近似为 $f'(x)$
     
@@ -145,7 +147,7 @@ $$
 ???+ question "条件数的定义"
 
     假设 $b$ 的数值存在误差，变成了 $b+e$，则 $x = A^{-1}b$ 变成 $x = A^{-1} (b+e)$
-
+    
     条件数的原始定义是相对误差的放大比例，即
     
     $$
@@ -183,7 +185,6 @@ $$
 A\mathbf{x}=\mathbf{b} \to \mathbf{x} = T\mathbf{x} + \mathbf{c}
 $$
 
-
 因此 $\mathbf{x}_{k+1} = T\mathbf{x}_{k} + \mathbf{c}$ 就是一个迭代式。如果迭代收敛，满足 $\mathbf{x}_{\ast} = T\mathbf{x}_{\ast} + \mathbf{c}$ 的解就是一个不动点
 
 ### Jacobi 迭代法
@@ -219,7 +220,7 @@ $$
 > $$
 > a_{i1}x_1 + \dots + a_{ii}x_i + \dots + a_{in}x_n = b_i
 > $$
-> 
+>
 > 进行移项，就是上面的结果
 >
 > 因此 Jacobi 迭代法的对于每一个 $x_{i}^{(k+1)}$，都用全部的 $\mathbf{x}^{(k)}$ 去迭代计算
@@ -265,7 +266,7 @@ Gauss-Seidel 迭代法有一个非常良好的定理：
     $$
     |a_{ii}| > \sum_{j \neq i} |a_{ij}|, \quad \forall i = 1, 2, \dots, n
     $$
-
+    
     ??? question "证明"
     
         对于第一个性质，证明采用反证法，假设存在 $\mathbf{x} \ne \mathbf{0}$ 使 $A\mathbf{x} = \mathbf{0}$
@@ -287,7 +288,7 @@ Gauss-Seidel 迭代法有一个非常良好的定理：
         约去 $|x_{k}|$ 发现 $|a_{kk}| \le \sum_{j \neq k} |a_{kj}|$，产生矛盾
     
         ---
-
+    
         对于第二个性质，需要借助之后的谱半径分析
 
 ## 线性迭代的收敛性

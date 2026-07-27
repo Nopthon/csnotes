@@ -42,8 +42,6 @@ Cyberchef 解一下 Base64
 DASCTF{W3lc0me_t0_DASCTF_2025_H4lf_Y34r!}
 ```
 
----
-
 ## 🕸️ WEB
 
 ### SecretPhotoGallery
@@ -265,8 +263,6 @@ if (strpos($filepath_lower, 'base64') !== false) {
 DASCTF{2d4a07d5-3dab-4440-a791-3a0d24faad2f}
 ```
 
----
-
 ## 🔍 RE
 
 ###ezmac
@@ -418,8 +414,6 @@ DASCTF{83c720da35436cc0}
 ```
 
 （这题接入 IDA Pro MCP，让 Trae 一把过了，AI 真强大。）
-
----
 
 ## Appendix
 

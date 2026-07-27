@@ -96,20 +96,18 @@ $$
 在预测问题中，给定样例集 $[(\mathbf{x}_{m}, y_{m})]$，对于回归任务，通常用均方误差
 
 $$
-E(f; D) = \dfrac{1}{m} \sum_{i = 1}^{m} \left(f(\mathbf{x_{i}}), y_{i} \right)^{2}
+E(f; D) = \dfrac{1}{m} \sum_{i = 1}^{m} \left(f(\mathbf{x_{i}})- y_{i} \right)^{2}
 $$
 
 更广义的，对于数据分布 $\mathcal{D}$ 和概率密度函数 $p$，有
 
 $$
-E(f; D) = \int_{\mathbf{x} \sim \mathcal{D}}  \left(f(\mathbf{x_{i}}), y_{i} \right)^{2} p(\mathbf{x}) \text{d} \mathbf{x}
+E(f; D) = \int_{\mathbf{x} \sim \mathcal{D}}  \left(f(\mathbf{x_{i}})-y_{i} \right)^{2} p(\mathbf{x}) \text{d} \mathbf{x}
 $$
 
 ### 错误率
 
-记 $\mathbb{I}$ 为指示函数
-
-> 指示函数 $\mathbb{I}$ 的定义
+> 记 $\mathbb{I}$ 为指示函数，指示函数 $\mathbb{I}$ 的定义为：
 >
 > $$
 > \mathbb{I}(P) =

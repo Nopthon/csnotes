@@ -12,7 +12,7 @@ $$
 线性模型要找到一组参数 $\mathbf{w}$ 和 $b$，使得模型对每个训练样本 $\mathbf{x}_i$ 的预测值 $f(\mathbf{x}_i)$ 与样本的真实标记 $ y_i $ 渐进相等
 
 $$
-f(x_{i}) = wx_{i} + b, \text{that } f(x_{i}) \simeq y_{i}
+f(x_{i}) = wx_{i} + b, \text{ that } f(x_{i}) \simeq y_{i}
 $$
 
 ## 线性回归
@@ -92,10 +92,9 @@ $$
 
 > 换个符号表示，把 $\mathbf{X}$ 看作 $A$，把 $\mathbf{y}$ 看作 $b$，把 $\mathbf{\hat{w}}$ 看作 $x$，那么我们就是在求 $Ax = b$ 的最佳平方逼近解
 >
-
 > 《计算方法》课程中里有更详细的讲解
 
-几何法、微分法、变分法都可以证明得到这样一个方程：
+各种方法都可以证明得到这样一个方程：
 
 $$
 \mathbf{X}^{T}\mathbf{X}\mathbf{\hat{w}}^{\ast} = \mathbf{X}^{T}\mathbf{y}
@@ -126,7 +125,7 @@ $$
 
 > logistic / logit 这个单词和 logic 没有任何关系
 
-给出图像，发现对数几率函数是一种 Sigmoid 函数（形状类似为 S 的函数）
+给出图像，发现对数几率函数是一种 Sigmoid 函数（形状类似为 S 的函数，将任意实数映射到 $0$ 到 $1$ 之间的值）
 
 ![image-20260427164620853](images/image-20260427164620853.png)
 
@@ -193,7 +192,13 @@ $$
 J(\mathbf{w}) = \frac{\mathbf{w}^T \mathbf{S}_b \mathbf{w}}{\mathbf{w}^T \mathbf{S}_w\mathbf{w}}
 $$
 
-它满足广义瑞利商 (generalized Rayleigh quotient) 的格式
+> 它满足<u>广义</u>瑞利商 (generalized Rayleigh quotient) 的格式：
+>
+> $$
+> R(A, B, x) = \frac{x^* A x}{x^* B x}
+> $$
+>
+> 其中 $A, B$ 都是 Hermitian 矩阵（实数域下即实对称矩阵），$B$ 通常还是正定的以防止分母为 $0$
 
 
 不难发现，LDA 的解可以只考虑方向而忽略长度，因为成倍缩放 $\mathbf{w}$ 的值，不会改变 $J$ 的大小，因此我们可以人为添加一个约束（$\mathbf{w}^T \mathbf{S}_w \mathbf{w} = 1$）来固定长度，构造出这样的最优化问题：
@@ -221,7 +226,7 @@ $$
 \mathbf{S}_b \mathbf{w} = \lambda \mathbf{S}_w \mathbf{w}
 $$
 
-代入 $\mathbf{S}_{b} =  (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1) (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T$，得 $\mathbf{S}_{b} =  (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1) (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w} = \lambda \mathbf{S}_w \mathbf{w}$
+代入 $\mathbf{S}_{b} =  (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1) (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T$，得 $\mathbf{S}_{b} \mathbf{w}=  (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1) (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w} = \lambda \mathbf{S}_w \mathbf{w}$
 
 注意到 $(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w}$ 是标量，$\lambda$ 也是标量，因此我们直接让 $(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w} = \lambda$，得到
 
@@ -229,7 +234,7 @@ $$
 \mathbf{w} = \mathbf{S}_{w}^{-1} (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)
 $$
 
-> 为什么可以令 $(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w} = \lambda$？注意到我们并不关心 $\mathbf{w}$ 的值，只关心 $\mathbf{w}$ 的大小
+> 为什么可以令 $(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \mathbf{w} = \lambda$？注意到我们并不关心 $\mathbf{w}$ 的值，只关心 $\mathbf{w}$ 的方向，因此可以自由伸缩 $\mathbf{w}$ 的值
 
 ---
 
@@ -255,13 +260,15 @@ $$
 \mathbf{S}_b = \mathbf{S}_t - \mathbf{S}_w = \sum_{i=1}^{N} m_i (\boldsymbol{\mu}_i - \boldsymbol{\mu})(\boldsymbol{\mu}_i - \boldsymbol{\mu})^T
 $$
 
+（其中 $m_i$ 是样本数）
+
 依旧采用广义瑞利商的形式，$\mathbf{W} \in \R^{d\times (N-1)}$：
 
 $$
 \max_{\mathbf{W}} = \frac{\text{tr}(\mathbf{W}^T \mathbf{S}_b \mathbf{W})}{\text{tr}(\mathbf{W}^T \mathbf{S}_w\mathbf{W})}
 $$
 
-> 单个方向的锐瑞利商要推广到矩阵形式，用迹来衡量总的散度
+> 单个方向的瑞利商要推广到矩阵形式进行计算，采用迹来衡量总的散度
 
 同理解得
 

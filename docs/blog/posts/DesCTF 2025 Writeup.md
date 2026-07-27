@@ -20,6 +20,8 @@ slug: "DESCTF-2026-Writeup"
 
 忍住不用 Agent
 
+---
+
 ## 🧩 MISC
 
 ### Neural Secrets
@@ -1319,8 +1321,6 @@ flag{b054bddd24904ef28e58ac4fae9929d3}
 ---
 
 最后一个 Devil 看不懂，题目核心应该是白盒魔改 AES 加密，不会，遂放弃
-
----
 
 ## Appendix
 

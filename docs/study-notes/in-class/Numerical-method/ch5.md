@@ -1,4 +1,4 @@
-# Lecture 5: FFT，高斯消元与LU分解
+# Lecture 5: FFT，高斯消元与 LU 分解
 
 ## 多项式乘法
 
@@ -70,7 +70,6 @@ $$
 $$
 p(\omega^{l}) = \sum_{j=0}^{n-1} a_{j} \omega^{lj}
 $$
-
 
 以及逆运算：
 
@@ -205,13 +204,13 @@ $$
 ???+ question "证明 $\phi_{k}$ 构成 $\mathbb{C}^{n}$ 的一组正交基"
 
     定义复数空间的标准内积计算为 $\langle \mathbf{u}, \mathbf{v} \rangle = \sum_{j=0}^{n-1} u_{i}\overline{v_{j}}$，注意对 $v_{j}$ 取共轭
-
+    
     计算任意两个不同的 $\phi_{k}, \phi_{m}$ 的内积（$k \ne m$）：
     
     $$
     \langle \phi_{k}, \phi_{m} \rangle = \sum_{j=0}^{n-1} w^{kj}\overline{w^{mj}}
     $$
-
+    
     根据 $w = e^{2\pi i/n}$ 的定义，容易得到 $\overline{w} = w^{-1}$，代入得
     
     $$
@@ -223,7 +222,7 @@ $$
     $$
     \sum_{j=0}^{n-1} w^{(k-m)j} = \dfrac{1-(w^{k-m})^{n}}{1-w^{k-m}} = \dfrac{1-(w^{n})^{k-m}}{1-w^{k-m}} = \dfrac{1-1}{1-w^{k-m}} = 0
     $$
-
+    
     因此
     
     $$

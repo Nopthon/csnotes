@@ -46,8 +46,10 @@ Python 的 `math.fsum` 函数采用 [Shewchuk 算法](http://www-2.cs.cmu.edu/af
 
 ??? success "中值定理"
 
-    $$f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\\
-    f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)$$
+    $$
+    f\in C^1[x, x+\Delta x], \quad\exists ξ \in (x, x+\Delta x),\newline
+    f(x + \Delta x) - f(x) = \Delta x \cdot f'(ξ)
+    $$
 
 计算误差 $f(x+\Delta x) - f(x) \approx \Delta x f'(x)$，对应绝对误差 $\Delta x$ 的放大比例近似为 $f'(x)$
 
@@ -83,7 +85,6 @@ Python 的 `math.fsum` 函数采用 [Shewchuk 算法](http://www-2.cs.cmu.edu/af
     连续函数 $f$ 满足 $f(a)f(b)<0$，则 $f$ 在 $(a,b)$ 中间有一个根 $r$ 使得 $f(r) = 0$
     
     如果 $f$ 不连续，介值定理不成立，即使 $f(a)f(b)<0$，也不能保证 $(a,b)$ 内存在根，此时二分法的完备性不成立
-
 
 ```python
 # init (a, b) that f(a)f(b) < 0
@@ -255,20 +256,17 @@ $$
 
 考虑两种推导方法：
 
-
-1- 将 $f$ 与 $g$ 进行泰勒展开，得到
+**1-高阶展开** 将 $f$ 与 $g$ 进行泰勒展开，得到
 
 $$
 f(r) + f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r + O((\Delta r)^2) = 0
 $$
-
 
 代入 $f(r) = 0$，忽略 $O((\Delta r)^2)$ 高阶项，得到
 
 $$
 f'(r) \Delta r +\varepsilon g(r) + \varepsilon g'(r)\Delta r \approx 0
 $$
-
 
 当 $\varepsilon$ 很小，使得 $\varepsilon g'(r)$ 相对 $f'(r)$ 可以被忽略时，有
 
@@ -278,10 +276,9 @@ $$
 
 将其记为根对函数误差的敏感度，发现 $f'(r)$ 越小，根对误差更加敏感，使得 $\Delta r$ 可能很大
 
-2- 隐函数求导，考虑 $f(x(\varepsilon)) + \varepsilon g(x(\varepsilon)) = 0$，其中 $x(\varepsilon)$ 是依赖于 $\varepsilon$ 的根
+**2- 隐函数求导**，考虑 $f(x(\varepsilon)) + \varepsilon g(x(\varepsilon)) = 0$，其中 $x(\varepsilon)$ 是依赖于 $\varepsilon$ 的根
 
 当 $\varepsilon = 0$ 时，方程退化为 $f(x(0)) = 0$，因此记 $x(0) = x^{\ast}$，得到 $f(x^{\ast}) = 0$
-
 
 我们假定 $f'(x^{\ast}) \ne 0$，在 $x^{\ast}$ 附近的根唯一且光滑依赖于 $\varepsilon$
 

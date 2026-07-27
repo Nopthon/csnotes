@@ -12,7 +12,7 @@ slug: "Molhub"
 
 水群的时候看到了致史量的拜谢表情包，憋不住了所以让 LLM 搓个了 Molhub
 
-PaaS + BaaS 或许大幅降低了简易全栈开发的入门难度（笑）
+【Update】这网站已经似了
 
 <!-- more -->
 

@@ -590,7 +590,7 @@ __int64 __fastcall sub_120007FF8(_QWORD *a1)	// a1 就是 Part 1 中的 v43
         // 对 v10[4] 赋值
         *(_BYTE *)(v10[4] + i) = v8 ^ (v8 >> 11) ^ (i - 91);
     }
-    // 对
+
     sub_120007D30(v10[5], 64, v10);
     sub_12000C9F0(*(_QWORD *)qword_1200B7F60);
     for ( j = 0; j < 0x30; ++j )

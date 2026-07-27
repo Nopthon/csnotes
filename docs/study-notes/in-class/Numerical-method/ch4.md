@@ -73,7 +73,6 @@ $$
 A^{T}(A \hat{x} - b) = 0
 $$
 
-
 由此，我们定义法线方程
 
 ???+ success "Definition：法线方程"
@@ -117,13 +116,11 @@ $$
     
     $$
     \forall y, E(\hat{x}) \leq E(\hat{x} + y)
-    
     $$
     
     证明:  
     
     $$
-    
     E(\hat{x} + y) = E(x) + (Ay)^\top (Ay) + 2y^\top A^\top (A\hat{x} - b)
     $$
     
@@ -293,7 +290,7 @@ $$
     $$
     I = \int_{-1}^{1} T_{i}(x)T_{j}(x) \dfrac{\text{d}x}{\sqrt{1-x^{2}}}
     $$
-
+    
     换元 $x = \cos\theta$，得到
     
     $$
@@ -303,7 +300,7 @@ $$
     &=  \dfrac{1}{2} \int^{\pi}_{0} \cos ((i+j)\theta) + \cos ((i-j)\theta) \text{d} \theta
     \end{aligned}
     $$
-
+    
     当 $i \ne j$ 时，$I = 0$，也就是 $⟨T_{i}, T_{j}⟩ = 0$，这说明对于 $i \ne j$，$T_i(x)$ 与 $T_j(x)$ 是正交的 $\Box$
 
 ### 傅里叶级数基

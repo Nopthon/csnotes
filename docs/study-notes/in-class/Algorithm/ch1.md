@@ -2,9 +2,9 @@
 
 ## Pseudo-Code
 
-Take "Euclidean algorithm" as an example (calculate GCD of two non‑negative integers):
+以“欧几里得算法”为例（计算两个非负整数的最大公约数）：
 
-```pseudocode title="Pseudo code"
+```pascal title="伪代码"
 Algorithm: Euclidean(a, b)
 Input: two non‑negative integers a, b (not both zero)
 Output: GCD of a and b
@@ -14,7 +14,7 @@ while b > 0 do
 return a
 ```
 
-To make comparision, here are C++ && Python version:
+作为对比，下面是 C++ 和 Python 版本：
 
 ```python title="Python"
 def Euclidean(a, b):
@@ -35,11 +35,11 @@ int Euclidean(int a, int b){
 }
 ```
 
-Usually, we need an algorithm header (contains algo-name, inpiut, output), along with simple procedures (not in C++ coding-style, <u>more like Python coding-style</u>).
+伪代码通常需要一个 Header（包含算法名称、输入、输出），以及简明的过程（非 C++ 编码风格，<u>更像 Python 编码风格</u>）
 
-> Usually we use "←" as assignment operator, and "=" or ":=" use less.
+> 通常我们用 `←` 作为赋值运算符，`=` 或 `:=` 则用得较少
 
-Here gives another example (Insertion-sort, algorithm header omitted):
+这里是另一个例子（插入排序，省略了算法头部）：
 
 ```pseudocode
 for j ← 2 to n do
@@ -53,71 +53,69 @@ for j ← 2 to n do
 
 ## Analyzing Running Time
 
-We define the size of input as `n`.
+我们将输入的规模定义为 `n`
 
-- If the input is one array, the num of integers is `n`.
-- If "shortest-path problem" in a graph, the num of edges in graph is `n`.
+- 如果输入是一个数组，整数的数量即为 `n`
+- 如果是图中的“最短路径问题”，图中的边数即为 `n`
 - ...
 
-<u>Different input can lead to vast difference in running time.</u>
+<u>不同的输入会导致运行时间的巨大差异</u>
 
-- For insertion-sort, if input array is already sorted in ascending order, then algorithm runs much faster than when it is sorted in descending order.
+- 对于插入排序，如果输入数组已经是升序排列，那么算法的运行速度会比降序排列时快得多
 
-We should consider <u>worst-case analysis</u>, which stands for the effeciency of algorithm.
+通常我们应该考虑<u>最坏情况分析</u>，它代表了算法的效率
 
 ### Asymptotic Analysis
 
-Asymptotic Analysis (渐进分析) focus on growth of running-time as a function, not any particular value (programming language, computer speed, ...).
+渐近分析关注的是运行时间作为函数的增长趋势，而非任何特定的值（编程语言、计算机速度等）
 
-???+ success "Definition: Asymptotically Positive Function (渐近正函数)"
+???+ success "定义：渐近正函数"
 
-    $f : \mathbb{N}\to \R$, if:
+    $f : \mathbb{N}\to \R$，如果：
     
     $$
     \exists n_{0} > 0, \forall n > n_{0}, f(n) > 0
     $$
     
-    then we call $f$ an asymptotically positive function, which means this function is always positive when n is big enough.
+    则称 $f$ 为渐近正函数，这意味着当 n 足够大时，该函数始终为正
 
-**We only consider asymptotically positive functions in definitions of asymptotic notations.**
+**在渐近记号的定义中，我们只考虑渐近正函数**
 
 ---
 
-Informally, give an asymptotically positive function $g(n)$ ,we ignore <u>lower-order terms</u> && <u>leading constants</u>, to get a **O-notation** result.
+非正式地，给定一个渐近正函数 $g(n)$，我们忽略<u>低阶项</u>和<u>首项常数</u>，以得到 **大 O 记号**的结果
 
-> When $n$ is big enough, both lower-order terms and leading constants make little contribution to the running time.
+> 当 $n$ 足够大时，低阶项和首项常数对运行时间的贡献都很小
 
-???+ example "Example"
+???+ example "示例"
 
     $g(n) = 3n^{3} + 2n^{2} + n + 1 \in O(n^{3})$
 
-We use the following conventions:
+我们使用如下约定：
 
-- Use "$f(n) = O(g(n))$" to denote "$f(n) \in O(g(n))$"
-- Use "$O(g(n)) = O(g'(n))$" to denote "$O(g(n)) \in O(g'(n))$"
-- Do not use "$O(g(n)) = f(n)$", as "=" is asymmetric
+- 用“$f(n) = O(g(n))$”来表示“$f(n) \in O(g(n))$”
+- 用“$O(g(n)) = O(g'(n))$”来表示“$O(g(n)) \in O(g'(n))$”
+- 不要使用“$O(g(n)) = f(n)$”，因为“=”是不对称的
     - $3n^{2} + 2n = O(3n^{2} + 2n) = O(n^{2})$
-    - You cannot reverse the order ("=" implies the order)
+    - 不能颠倒顺序（“=”蕴含了顺序）
 
 ---
 
-Formally, we have three important asymptotic notations
+正式地，我们有三种重要的渐近记号
 
-| Notation | Name                         | **Comparison Relations** | Formal Definition                                            |
+| 记号 | 名称 | **比较关系** | 形式化定义 |
 | :------- | :--------------------------- | :----------------------- | :----------------------------------------------------------- |
-| $O$      | Big-O<br />(upper bound)     | $\le$                    | $\exists c, n_0 > 0, \forall n \ge n_0 \newline 0 \le f(n) \le c \cdot g(n)$ |
-| $\Omega$ | Big-Omega<br />(lower bound) | $\ge$                    | $\exists c, n_0 > 0, \forall n \ge n_0:  \newline 0 \le c \cdot g(n) \le f(n)$ |
-| $\Theta$ | Theta<br />(tight bound)     | $=$                      | $\exists c_1, c_2, n_0 > 0, \forall n \ge n_0:  \newline c_1 g(n) \le f(n) \le c_2 g(n)$ |
-| $o$      | Little-O                     | $<$                      | $\exists n_0 > 0, \forall n \ge n_0 , c > 0:\newline 0 \le f(n) \le c \cdot g(n)$ |
-| $\omega$ | Little-Omega                 | $>$                      | $\exists, n_0 > 0, \forall n \ge n_0, c > 0:  \newline 0 \le c \cdot g(n) \le f(n)$ |
+| $O$ | 大 O<br />（上界） | $\le$ | $\exists c, n_0 > 0, \forall n \ge n_0 \newline 0 \le f(n) \le c \cdot g(n)$ |
+| $\Omega$ | 大 Omega<br />（下界） | $\ge$ | $\exists c, n_0 > 0, \forall n \ge n_0: \newline 0 \le c \cdot g(n) \le f(n)$ |
+| $\Theta$ | Theta<br />（紧界） | $=$ | $\exists c_1, c_2, n_0 > 0, \forall n \ge n_0: \newline c_1 g(n) \le f(n) \le c_2 g(n)$ |
+| $o$ | 小 o | $<$ | $\exists n_0 > 0, \forall n \ge n_0 , c > 0:\newline 0 \le f(n) \le c \cdot g(n)$ |
+| $\omega$ | 小 Omega | $>$ | $\exists, n_0 > 0, \forall n \ge n_0, c > 0: \newline 0 \le c \cdot g(n) \le f(n)$ |
 
-> Little-O / Little-Omega is more strict than its Big-version.
+> 小 o / 小 Omega 比其大版本更严格
 >
-> **Little-notation use $\forall c > 0$, while Big-notation use $\exists c > 0$**
+> **小记号使用 $\forall c > 0$，而大记号使用 $\exists c > 0$**
 
-As you can see, for a given function, all of its asymptotic notation representations are **not unique**, but the **best practice** is to choose the **<u>simplest and tightest</u>** representation.
-
-And we have:
+如你所见，对于一个给定的函数，其所有渐近记号表示都**不是唯一的**，但**最佳实践**是选择**<u>最简单且最紧</u>**的表示，并且有：
 
 $$
 f(n) = \Theta(g(n)) \quad \text{iff} \quad f(n) = O(g(n)) \ \text{and} \ f(n) = \Omega(g(n))
@@ -125,67 +123,66 @@ $$
 
 ---
 
-Sometimes, we use two/more parameters to specify input size.
+有时，我们使用两个或多个参数来指定输入规模
 
-- Example: for a graph, n = number of vertices, m = number of edges.
+- 示例：对于一个图，`n` = 顶点数，`m` = 边数
 
-Unlike single-variable O-notation, there is no widely accepted formal definition of multi-variable O-notation.
+所有可变参数都会影响计算规模，因此渐进复杂度表示中这些参数都需要出现
+
+与单变量大 O 记号不同，多变量大 O 记号没有广泛接受的形式化定义
 
 $$
-\lbrace f(n,m) : ∃c,n_0,m_0 > 0, \text{such that } 0 ≤f(n,m) ≤ cg(n,m),∀n ≥ n_0 {\color{red}{\text{ or }}} m ≥ m_0 \rbrace
+\lbrace f(n,m) : ∃c,n_0,m_0 > 0, \text{ such that } 0 ≤f(n,m) ≤ cg(n,m),∀n ≥ n_0 {\color{red}{\text{ or }}} m ≥ m_0 \rbrace
 $$
 
-There are pathological cases, where using "or" or "and" matters. However, most of the time in this course, it does not matter.
+存在一些病态情况，使得使用“或”还是“且”会有所影响。然而在本课程的大多数情况下并无影响
 
 ### Common Running Time
 
-Sort the functions from smallest to largest asymptotically:
+将函数按渐近增长从小到大排序：
 
 $$
 \log n, n, \lbrace n \log n, \log(n!) \rbrace, n^2, 2^{n}, e^{n}, n!, n^{n}
 $$
 
-We can notice an interesting relationship between $n \log n$ and $\Theta(\log (n!))$:
+我们可以注意到 $n \log n$ 和 $\Theta(\log (n!))$ 之间的一个有趣关系：
 
-???+ question "Prove: $n \log n = \Theta(\log (n!))$"
+???+ question "证明：$n \log n = \Theta(\log (n!))$"
 
-    (If we don't use Stirling Formula)
+    （如果不使用 Stirling 公式）
     
-    **Upper bound estimate**
+    **上界估计**
     
-    Trivially $n! = n\cdot (n-1) \cdots 1 \leq n\cdot n \cdots n = n^{n}$
+    $n! = n\cdot (n-1) \cdots 1 \leq n\cdot n \cdots n = n^{n}$
     
-    So $n \log n = \log n^{n} \geq \log (n!)$
+    所以 $n \log n = \log n^{n} \geq \log (n!)$
     
-    **Lower bound estimate**
+    **下界估计**
     
-    Scale the original expression (using n/2 term):
+    缩放原式（使用 n/2 项）：
     
     $$
     \log (n!) = \sum_{k=1}^{n} \log k \geq \sum_{k=\lceil n/2 \rceil}^{n} \log k \geq (n - \lceil \dfrac{n}{2} + 1 \rceil ) (\log n - \log 2)
     $$
     
-    
-    i.e.
+    即
     
     $$
     \log (n!) \geq \dfrac{n}{2} (\log n - \log 2)
     $$
     
-    (Consider the right half of the integers. For each term, use the smallest value
-    $log(n/2)$ as the height of a rectangle. This rectangle lies entirely under the curve. That's how we scale it.)
+    （考虑整数的右半部分。对于每一项，使用最小值 $log(n/2)$ 作为矩形的高。该矩形完全位于曲线下方）
     
-    Trivially $\dfrac{n}{2} (\log n - \log 2) \geq \dfrac{1}{4} n \log n$ for all $n \geq 4$ (equal when $n = 4$)
+    $\dfrac{n}{2} (\log n - \log 2) \geq \dfrac{1}{4} n \log n$ 对所有 $n \geq 4$ 成立（当 $n = 4$ 时取等号）
     
-    So for all $n \geq 4$, $\log (n!) \geq c \cdot n \log n$, where $c = \dfrac{1}{4}$
+    所以对所有 $n \geq 4$，$\log (n!) \geq c \cdot n \log n$，其中 $c = \dfrac{1}{4}$
     
-    
-    Therefore, for all $n \ge 4$, we have
+    因此，对所有 $n \ge 4$，我们有
     
     $$
     \frac{1}{4} \, n \log n \;\le\; \log (n!) \;\le\; n \log n,
     $$
     
-    which proves $n \log n = \Theta(\log (n!))$.
+    这证明了 $n \log n = \Theta(\log (n!))$
     
-    Q.E.D.
+    证毕

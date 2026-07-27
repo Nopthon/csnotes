@@ -1,7 +1,7 @@
 site_name: CSNote
 
 theme:
-  name: material
+  name: materialx         # material
   logo: assets/burger.svg
   favicon: assets/burger.svg
   features:
@@ -81,6 +81,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.highlight:
+      use_pygments: true
       linenums: true
       linenums_style: pymdownx.inline
   - pymdownx.arithmatex:
@@ -119,34 +120,7 @@ nav:
     - intro: study-notes/index.md
 
     - In-class: 
-      - OS:
-        - intro: study-notes/in-class/OS/index.md
-        - OS Theory:
-          - intro: study-notes/in-class/OS/OS-Theory/index.md
-          - 操作系统概论: study-notes/in-class/OS/OS-Theory/ch1.md
-          - 处理器管理: study-notes/in-class/OS/OS-Theory/ch2.md
-          - 并发进程控制: study-notes/in-class/OS/OS-Theory/ch3.md
-          - 文件系统: study-notes/in-class/OS/OS-Theory/ch4.md
-          - 存储管理: study-notes/in-class/OS/OS-Theory/ch5.md
-          - 设备管理: study-notes/in-class/OS/OS-Theory/ch6.md
-        - OS Labs:
-          - intro: study-notes/in-class/OS/OS-Labs/index.md
-          - Lab 1 - 引导程序: study-notes/in-class/OS/OS-Labs/lab1.md
-          - Lab 2 - 系统调用: study-notes/in-class/OS/OS-Labs/lab2.md
-          - Lab 3 - 进程管理与调度: study-notes/in-class/OS/OS-Labs/lab3.md
-          - Lab 4 - 进程通信与同步: study-notes/in-class/OS/OS-Labs/lab4.md
-          - Lab 5 - 文件系统: study-notes/in-class/OS/OS-Labs/lab5.md
-
-      # - jyyOS:
-      #   - intro: study-notes/in-class/jyyOS/index.md
-      #   - OS Theory:
-      #     - intro: study-notes/in-class/jyyOS/OS-Theory/index.md
-      #     - 01 - Agentic AI 时代的操作系统课：绪论: study-notes/in-class/jyyOS/OS-Theory/ch1.md
-      #     - 02 - 应用视角的操作系统: study-notes/in-class/jyyOS/OS-Theory/ch2.md
-      #   - OS Labs:
-      #     - intro: study-notes/in-class/jyyOS/OS-Labs/index.md
         
-
       - 计算方法:
         - intro: study-notes/in-class/Numerical-method/index.md
         - 函数求根，牛顿法: study-notes/in-class/Numerical-method/ch1.md
@@ -156,15 +130,13 @@ nav:
         - FFT，高斯消元与LU分解: study-notes/in-class/Numerical-method/ch5.md
         - 算子范数，条件数和迭代法: study-notes/in-class/Numerical-method/ch6.md
         - 特征值与幂迭代: study-notes/in-class/Numerical-method/ch7.md
-        - 特征值的其它迭代方法，SVD: study-notes/in-class/Numerical-method/ch8.md
-        - 迭代法解线性方程组：梯度下降方法与共轭梯度: study-notes/in-class/Numerical-method/ch9.md
-        - 幂迭代的特例：随机游走与马尔可夫链: study-notes/in-class/Numerical-method/ch10.md
-        - 谱图论: study-notes/in-class/Numerical-method/ch11.md
-        - 电阻电路网络，碰撞时间和遍历时间: study-notes/in-class/Numerical-method/ch12.md
-        - 线性规划入门: study-notes/in-class/Numerical-method/ch13.md
-        - LP 顶点，对偶性和零和游戏: study-notes/in-class/Numerical-method/ch14.md
-
-
+        - <del>特征值的其它迭代方法，SVD</del>: study-notes/in-class/Numerical-method/ch8.md
+        - <del>迭代法解线性方程组：梯度下降方法与共轭梯度</del>: study-notes/in-class/Numerical-method/ch9.md
+        - <del>幂迭代的特例：随机游走与马尔可夫链</del>: study-notes/in-class/Numerical-method/ch10.md
+        - <del>谱图论</del>: study-notes/in-class/Numerical-method/ch11.md
+        - <del>电阻电路网络，碰撞时间和遍历时间</del>: study-notes/in-class/Numerical-method/ch12.md
+        - <del>线性规划入门</del>: study-notes/in-class/Numerical-method/ch13.md
+        - <del>LP 顶点，对偶性和零和游戏</del>: study-notes/in-class/Numerical-method/ch14.md
 
       - 机器学习导论:
         - intro: study-notes/in-class/ML/index.md
@@ -177,6 +149,11 @@ nav:
         - 降维：主成分分析: study-notes/in-class/ML/ch3-extra.md
         - 决策树: study-notes/in-class/ML/ch4.md
         - 支持向量机: study-notes/in-class/ML/ch5.md
+        - <del>神经网络</del>: study-notes/in-class/ML/ch6.md
+        - <del>深度学习</del>: study-notes/in-class/ML/ch7.md
+        - <del>贝叶斯分类器</del>: study-notes/in-class/ML/ch8.md
+        - <del>集成学习</del>: study-notes/in-class/ML/ch9.md
+        - <del>聚类</del>: study-notes/in-class/ML/ch10.md
 
       - 算法设计与分析:
         - intro: study-notes/in-class/Algorithm/index.md
@@ -190,16 +167,6 @@ nav:
         - Network Flow: study-notes/in-class/Algorithm/ch8.md
         - NP-Completeness: study-notes/in-class/Algorithm/ch9.md
         - Advanced Topics: study-notes/in-class/Algorithm/ch10.md
-
-
-
-      - 数理逻辑:
-        - intro: study-notes/in-class/Mathlogic/index.md
-        - 朴素命题逻辑: study-notes/in-class/Mathlogic/ch1.md
-        - 形式化命题逻辑: study-notes/in-class/Mathlogic/ch2.md
-        - 形式化推理系统: study-notes/in-class/Mathlogic/ch3.md
-        - coq 入门: study-notes/in-class/Mathlogic/ch4.md
-
 
       - ICS:
         - intro: study-notes/in-class/ICS/index.md
@@ -284,49 +251,69 @@ nav:
 
 
 
-    - Self-study:
+    - out-of-class:
       - CSAPP:
-        - Datalab: study-notes/self-study/CSAPP/Datalab.md
-        - Bomblab: study-notes/self-study/CSAPP/Bomblab.md
+        - Datalab: study-notes/out-of-class/CSAPP/Datalab.md
+        - Bomblab: study-notes/out-of-class/CSAPP/Bomblab.md
 
       - CS188:
-        - intro: study-notes/self-study/CS188/index.md
+        - intro: study-notes/out-of-class/CS188/index.md
         - Lectures:
-          - Introduction to Artificial Intelligence: study-notes/self-study/CS188/Lectures/Lecture-1.md
-          - Uninformed Search: study-notes/self-study/CS188/Lectures/Lecture-2.md
-          - A* Search and Heuristics: study-notes/self-study/CS188/Lectures/Lecture-3.md
-          - CSPs I: study-notes/self-study/CS188/Lectures/Lecture-4.md
-          - CSPs II: study-notes/self-study/CS188/Lectures/Lecture-5.md
+          - Introduction to Artificial Intelligence: study-notes/out-of-class/CS188/Lectures/Lecture-1.md
+          - Uninformed Search: study-notes/out-of-class/CS188/Lectures/Lecture-2.md
+          - A* Search and Heuristics: study-notes/out-of-class/CS188/Lectures/Lecture-3.md
+          - CSPs I: study-notes/out-of-class/CS188/Lectures/Lecture-4.md
+          - CSPs II: study-notes/out-of-class/CS188/Lectures/Lecture-5.md
 
         - HWs & PROJs: 
-          - Project 0: study-notes/self-study/CS188/HWs&PROJs/proj0.md
-          - Project 1: study-notes/self-study/CS188/HWs&PROJs/proj1.md
-          - Homework 0: study-notes/self-study/CS188/HWs&PROJs/hw0.md
-          - Homework 1: study-notes/self-study/CS188/HWs&PROJs/hw1.md
+          - Project 0: study-notes/out-of-class/CS188/HWs&PROJs/proj0.md
+          - Project 1: study-notes/out-of-class/CS188/HWs&PROJs/proj1.md
+          - Homework 0: study-notes/out-of-class/CS188/HWs&PROJs/hw0.md
+          - Homework 1: study-notes/out-of-class/CS188/HWs&PROJs/hw1.md
 
       - Rust:
-        - intro: study-notes/self-study/Rust/index.md
-        - Part1: study-notes/self-study/Rust/part1.md
-        - Part2: study-notes/self-study/Rust/part2.md
+        - intro: study-notes/out-of-class/Rust/index.md
+        - Part1: study-notes/out-of-class/Rust/part1.md
+        - Part2: study-notes/out-of-class/Rust/part2.md
+
+      - jyyOS:
+        - intro: study-notes/out-of-class/jyyOS/index.md
+        - OS Theory:
+          - intro: study-notes/out-of-class/jyyOS/OS-Theory/index.md
+          - 01 - Agentic AI 时代的操作系统课：绪论: study-notes/out-of-class/jyyOS/OS-Theory/ch1.md
+          - 02 - 应用视角的操作系统: study-notes/out-of-class/jyyOS/OS-Theory/ch2.md
+        - OS Labs:
+          - intro: study-notes/out-of-class/jyyOS/OS-Labs/index.md
+
+
+      - 5th-The-Beauty-Of-TCS:
+        - intro: study-notes/out-of-class/5th-the-beauty-of-TCS/index.md
+        - Graph Coloring: study-notes/out-of-class/5th-the-beauty-of-TCS/graph-coloring.md
+        - Graph Streaming: study-notes/out-of-class/5th-the-beauty-of-TCS/graph-streaming.md
+        - Intro to QC: study-notes/out-of-class/5th-the-beauty-of-TCS/intro-to-quantum-computation.md
+        - Modern Hashing Tables: study-notes/out-of-class/5th-the-beauty-of-TCS/modern-hash-tables.md
+        - Differential Privacy: study-notes/out-of-class/5th-the-beauty-of-TCS/differential-privacy.md
+        - Addictive Combinatorics: study-notes/out-of-class/5th-the-beauty-of-TCS/addictive-combinatorics.md
+        - Distributed Computing: study-notes/out-of-class/5th-the-beauty-of-TCS/distributed-computing.md
 
 
 
 
-  - CTF-Learning:
-    - intro: CTF-Learning/index.md
-    - MISC:
-      - intro: CTF-Learning/MISC/index.md
-    - CRYPTO:
-      - intro: CTF-Learning/CRYPTO/index.md
-    - PWN:
-      - intro: CTF-Learning/PWN/index.md
-    - WEB:
-      - SQL:
-        - SQL 基础: CTF-Learning/WEB/SQL/SQL-intro.md
-        - SQL 注入: CTF-Learning/WEB/SQL/SQL-injection.md
-      - Insecure File Upload: CTF-Learning/WEB/Insecure-File-Upload.md
-    - RE:
-      - intro: CTF-Learning/RE/index.md
+  # - CTF-Learning:
+  #   - intro: CTF-Learning/index.md
+  #   - MISC:
+  #     - intro: CTF-Learning/MISC/index.md
+  #   - CRYPTO:
+  #     - intro: CTF-Learning/CRYPTO/index.md
+  #   - PWN:
+  #     - intro: CTF-Learning/PWN/index.md
+  #   - WEB:
+  #     - SQL:
+  #       - SQL 基础: CTF-Learning/WEB/SQL/SQL-intro.md
+  #       - SQL 注入: CTF-Learning/WEB/SQL/SQL-injection.md
+  #     - Insecure File Upload: CTF-Learning/WEB/Insecure-File-Upload.md
+  #   - RE:
+  #     - intro: CTF-Learning/RE/index.md
 
 
   - 杂项:

@@ -36,9 +36,13 @@ slug: "TrinityCTF-2025-Writeup"
 
 > 最后祝大家参赛愉快<del>ZmxhZ3toNHBweV9oNGNrMW41IX0=</del>取得好成绩
 
-Base64 一下被划线的乱码得到 `flag{h4ppy_h4ck1n5!}`
+Base64 一下被划线的乱码得到 Flag
 
+```
+flag{h4ppy_h4ck1n5!}
+```
 
+---
 
 ### Misc02-搜打撤
 
@@ -57,9 +61,13 @@ def exit_gate():
     return 1
 ```
 
-把三个 secret 按照语序拼接得到 `flag{c0mbIne_al1_w0rK}` （一开始我一直尝试把 `NJUer` 塞进去😰）
+把三个 secret 按照语序拼接得到 Flag
 
+```
+flag{c0mbIne_al1_w0rK}
+```
 
+---
 
 ### Misc03-Watch the Star
 
@@ -85,9 +93,13 @@ def exit_gate():
 
 ![image-20251006104300071](images/image-20251006104300071.png)
 
-是个二维码，扫描得到 `flag:bWlzY19maW5pc2g=`， Base64 一下得到 `flag{misc_finish}`
+是个二维码，扫描得到 `flag:bWlzY19maW5pc2g=`， Base64 一下得到 Flag
 
+```
+flag{misc_finish}
+```
 
+---
 
 ### **Misc04-猫猫**（Unfinished）
 
@@ -124,8 +136,6 @@ b4,bgr,msb,xy       .. text: "J&dB.dB."
 字面意思，这我还能说什么呢，太性情了哥们，flag 没保存所以不贴了
 
 ps: 我拿的一血🤓
-
----
 
 ## 🔒 CRYPTO
 
@@ -170,11 +180,11 @@ while True:
 
 赛时考虑使用 **Håstad广播攻击**，需要收集 4097 组数据但是被 600s 时限卡住了（600s 只能收集 1k 组不到的数据，而 1k 组数据破解的概率太低了），遂 giveup
 
-
+---
 
 **Crypto02-PQC**  和 **Crypto03-ECC** 都没碰，不会离散数学
 
-
+---
 
 ### Crypto04-PRNG
 
@@ -409,11 +419,15 @@ if __name__ == '__main__':
     main()
 ```
 
-跑一遍程序即可拿到 Flag: `flag{303191d0-227d-440d-8cf6-7a45f378757e}` 
+跑一遍程序即可拿到 Flag
+
+```
+flag{303191d0-227d-440d-8cf6-7a45f378757e}
+```
 
 （个人建议把 600s 时限放宽一点，我一开始连接的校内 VPN 在得到两千多分的时候就超时退出了😡）
 
-
+---
 
 ### Crypto05-EZRSA
 
@@ -461,17 +475,17 @@ def fermat_factorization(n):
         a += 1
 ```
 
-带入到具体数据跑一遍程序就可以拿到 Flag：`flag{RSA_is_weak_when_p_approx_q}`，Flag 说得对
+带入到具体数据跑一遍程序就可以拿到 Flag
 
----
+```
+flag{RSA_is_weak_when_p_approx_q}
+```
 
 ## 💥 PWN
 
 PWN 题我都不会写，对不起出题者😭
 
 (Update: 网络攻防实战课程学到了 PWN，应该不至于一点不会了)
-
----
 
 ## 🕸️ WEB
 
@@ -541,11 +555,17 @@ $ cat /home/git/flag.txt
 Trinity{GIT_5HE11_byp@ss_OOOOO_060524592cce19c7}$
 ```
 
-获得了 Flag `Trinity{GIT_5HE11_byp@ss_OOOOO_060524592cce19c7}`
+获得了 Flag
 
+```
+Trinity{GIT_5HE11_byp@ss_OOOOO_060524592cce19c7}
+```
 
+---
 
 **Web02-逻辑鬼才** 没有进展，不懂 HTTPDigestAuth :(
+
+---
 
 ### Web03-Hello Flask!
 
@@ -570,9 +590,11 @@ STFW 了解到 Flask 是 Python 的 Web 框架，使用 Jinja 模板引擎，又
 # 从 cycler 对象开始（Jinja2模板的默认对象），通过 __init__ 获取初始化方法， __globals__ 获取全局命名空间， __builtins__ 获取内置函数， __import__('os') 导入os模块，最终调用 popen() 执行系统命令，read() 进行读取，输出在 HTML 页面上
 ```
 
-得到 Flag `Trinity{ssti_is_Funnnnnny!422144319e480db2}`
+得到 Flag
 
----
+```
+Trinity{ssti_is_Funnnnnny!422144319e480db2}
+```
 
 ## 🔍 RE
 
@@ -633,9 +655,13 @@ if ((nVar5 == 0) && (arg_value.len - 1 < 0x3ff)) {
 
 对 ` "#1\x03\x17.\x10\n\x135/\x16$\r6<\x0e ,\x13F"` 与 `"This_is_a_fake_flag!"` 进行异或解密得到 `password = wYjdqyyLTppEfSchLMtg`
 
-先 `http://ip:port/?wYjdqyyLTppEfSchLMtg=cp /flag /nginx/html/flag.txt` 把 flag 文件拷贝到网站根目录，然后 `http://ip:port/flag.txt` 就能获得 Flag: `flag{17a7f10e-f07c-4e3f-a080-8b91d94245b4}`
+先 `http://ip:port/?wYjdqyyLTppEfSchLMtg=cp /flag /nginx/html/flag.txt` 把 flag 文件拷贝到网站根目录，然后 `http://ip:port/flag.txt` 就能获得 Flag
 
+```
+flag{17a7f10e-f07c-4e3f-a080-8b91d94245b4}
+```
 
+---
 
 ### RE02-ITSC正版Office激活工具
 
@@ -731,9 +757,13 @@ print(f"code: {code}")
 
 ![image-20251006185600169](images/image-20251006185600169.png)
 
-Flag 就是 `flag{15F00E032036724774CF4A2D2CA7C63C}`
+即 Flag
 
+```
+ flag{15F00E032036724774CF4A2D2CA7C63C}
+```
 
+---
 
 ### RE03-幸运数字
 
@@ -863,12 +893,16 @@ if (iStack_4c == iVar2) {
 
 ![image-20251006200446865](images/image-20251006200446865.png)
 
-于是得到了 Flag: `flag{c0ngr4tul4t1ons_th1s_1s_3z_lucknumb3r_4nd_xte4}`
+于是得到了 Flag
+
+```
+flag{c0ngr4tul4t1ons_th1s_1s_3z_lucknumb3r_4nd_xte4}
+```
 
 （其实我也关注了一下 Flag 是怎么解码得到的，似乎包含 XTEA 加密过程，但是我一直没有进展，于是选择了改汇编码的 patch 方案）
 
 （为了拿到 Flag 不择手段了 😈）
 
----
+## Appendix
 
-（<del>有点遗憾自己是第一天下午才决定参加比赛的，不然可以拿 RE 的三个一血</del>）
+<del>有点遗憾自己是第一天下午才决定参加比赛的，不然可以拿 RE 的三个一血</del>
