@@ -958,7 +958,7 @@
   <a href="#internet-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Internet History ...
+        Internet History
       
     </span>
   </a>
@@ -5402,7 +5402,7 @@
   <a href="#internet-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Internet History ...
+        Internet History
       
     </span>
   </a>
@@ -5608,10 +5608,10 @@ d_{\text{end-end}} = N \times (d_{\text{proc}} + d_{\text{trans}} + d_{\text{pro
 </blockquote>
 <hr>
 <h4 id="loss">Loss</h4>
-<p>“排队”是非常普遍的现象，考虑 packet 长度 <span class="arithmatex">\(L\)</span>，到达速率 <span class="arithmatex">\(a\)</span>，链路传输速率为 <span class="arithmatex">\(R\)</span>。显然我们应该比较
-$$
+<p>“排队”是非常普遍的现象，考虑 packet 长度 <span class="arithmatex">\(L\)</span>，到达速率 <span class="arithmatex">\(a\)</span>，链路传输速率为 <span class="arithmatex">\(R\)</span>。显然我们应该比较</p>
+<div class="arithmatex">\[
 \dfrac{La}{R} \sim 1
-$$</p>
+\]</div>
 <p>如果这个比例超过了 1，那么时延会趋向正无穷；越接近 1，流量波动对排队时延的影响就越明显。我们希望 <span class="arithmatex">\(La/R\)</span> 较小，这说明不需要进行长时间排队</p>
 <p>排队的直接代价就是丢包 Loss</p>
 <h4 id="throughput">Throughput</h4>
@@ -5627,10 +5627,8 @@ $$</p>
 <p>一个复杂的结构必然需要分层，好处在于：</p>
 <ul>
 <li>模块化（Modularity）</li>
-<li>解耦（Decoupling）<ul>
+<li>解耦（Decoupling）</li>
 <li>显然，这样做是为了让每次改动都是精确的、最小化的</li>
-</ul>
-</li>
 <li>易于维护更新</li>
 </ul>
 <p>互联网将复杂的通信过程划分为 5 个层次，自顶向下分为：</p>
@@ -5644,25 +5642,19 @@ $$</p>
 <p>我们给出一个自顶向下的简单情景：</p>
 <ul>
 <li>应用层产生一个报文 Message，记为 <span class="arithmatex">\(M\)</span></li>
-<li>数据下传到运输层，运输层为报文添加运输层 Header，存储端口号等内容用于进程间通信，记为 <span class="arithmatex">\(H_t\)</span><ul>
+<li>数据下传到运输层，运输层为报文添加运输层 Header，存储端口号等内容用于进程间通信，记为 <span class="arithmatex">\(H_t\)</span></li>
 <li>形成了运输层报文段 <span class="arithmatex">\([H_t\mid M]\)</span></li>
-</ul>
-</li>
-<li>网络层接收 <span class="arithmatex">\([H_t\mid M]\)</span>，也加上自己的 Header，包含 IP 地址等用于主机间通信，记为 <span class="arithmatex">\(H_n\)</span><ul>
+<li>网络层接收 <span class="arithmatex">\([H_t\mid M]\)</span>，也加上自己的 Header，包含 IP 地址等用于主机间通信，记为 <span class="arithmatex">\(H_n\)</span></li>
 <li>形成了网络层报文段 <span class="arithmatex">\([H_n\mid H_t\mid M]\)</span></li>
-</ul>
-</li>
-<li>链路层接收 <span class="arithmatex">\([H_n\mid H_t\mid M]\)</span>，也加上自己的 Header，包含 MAC 地址等用于在相邻设备间通信，记为 <span class="arithmatex">\(H_l\)</span><ul>
+<li>链路层接收 <span class="arithmatex">\([H_n\mid H_t\mid M]\)</span>，也加上自己的 Header，包含 MAC 地址等用于在相邻设备间通信，记为 <span class="arithmatex">\(H_l\)</span></li>
 <li>形成了链路层报文段 <span class="arithmatex">\([H_l\mid H_n\mid H_t\mid M]\)</span></li>
-</ul>
-</li>
 <li>之后进入物理层进行实际传输。对于接收端，它实施解封装（Decapsulation），即自底向上拆开报文段的头（每一层负责拆开对应的 Header 并处理），最终得到原始的 <span class="arithmatex">\(M\)</span></li>
 </ul>
 <p>每一层的 Header 都是为了帮助对应层完成它的任务。下层把上层的数据当作有效载荷，并且附加自己的 Header 并下传</p>
 <p>特别的，交换机 Switch 只会处理物理层+链路层，而路由器 Router 还会处理到网络层。这解释了为什么路由器可以连接不同的网络，而交换机通常只能在同一网络内工作</p>
-<h2 id="internet-history">Internet History ...</h2>
+<h2 id="internet-history">Internet History</h2>
 <p>自己看去</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-09-14"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-09-14T14:31:27.686745+08:00">2026-09-14</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-24"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-24T15:17:39.628763+08:00">2026-10-24</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-09-14"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-09-14T14:31:27.686745+08:00">2026-09-14</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-25"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-25T23:45:01.989485+08:00">2026-10-25</time></span></div></div></div>
 
 
 

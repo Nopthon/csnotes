@@ -6161,17 +6161,17 @@ T_2=\frac{F}{d_{\min}}
 <div class="arithmatex">\[
 T_3=\frac{NF}{u_s+\sum_{i=1}^{N}u_i}
 \]</div>
-<p>因此整体分发下界为
-$$
+<p>因此整体分发下界为</p>
+<div class="arithmatex">\[
 \boxed{
 D_{P2P}\geq
-\max\left{
+\max\left\{
 \frac{F}{u_s},
 \frac{F}{d_{\min}},
 \frac{NF}{u_s+\sum_{i=1}^{N}u_i}
-\right}
+\right\}
 }
-$$</p>
+\]</div>
 <h3 id="bittorrent">BitTorrent</h3>
 <p>BitTorrent 是一种用于 P2P 文件共享的通信协议，允许用户利用分散的网络资源分发文件</p>
 <p>BitTorrent 为了让新增 Peer 的上传能力更早参与，将单个文件切割成很多 Chunks，让不同的 Peer 以这些 Chunks 作为交换单位，最后所有的 Peers 拼凑出完整文件</p>
@@ -6242,7 +6242,7 @@ cn.cdn.example.net
 <p>对于 TCP，发送方需要先建立握手连接，然后<strong>以字节流为单位提供服务</strong>，可以保证顺序到达和完整性，但是不保证一次发送对应一次接收（因为多个数据流可能被一次性接收）</p>
 <p>两者的 Socket 类型分别是 <code>SOCK_DGRAM</code> 和 <code>SOCK_STREAM</code></p>
 <p>我看不下去了这个</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-23T19:36:24.667018+08:00">2026-10-23</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-25"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-25T22:55:39.129909+08:00">2026-10-25</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-23T19:36:24.667018+08:00">2026-10-23</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-25"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-25T23:45:04.680369+08:00">2026-10-25</time></span></div></div></div>
 
 
 
