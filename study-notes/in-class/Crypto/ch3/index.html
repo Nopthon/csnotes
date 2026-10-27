@@ -114,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture3-computational-security" class="md-skip">
+        <a href="#lecture-3-computational-security" class="md-skip">
           Skip to content
         </a>
       
@@ -5214,7 +5214,7 @@
                 
                   
 
-<h1 id="lecture3-computational-security">Lecture3. Computational Security</h1>
+<h1 id="lecture-3-computational-security">Lecture 3. Computational Security</h1>
 <p>我们常说的安全包括两类安全：</p>
 <ul>
 <li>信息论安全：即使攻击者拥有无限计算能力，密文也不会提供关于明文的额外信息（也就是完美保密性）</li>
@@ -5306,10 +5306,10 @@ m=\operatorname{Dec}_k(c)
 <li>Indistinguishability（不可区分性）：攻击者无法区分两条候选明文的加密结果</li>
 </ul>
 <p>这两者是意义等价的（不觉得很像完美保密性与完美不可区分性等价吗，它们的证明过程也是类似的）</p>
-<p>对于后者，我们再次引入安全游戏
-$$
+<p>对于后者，我们再次引入安全游戏</p>
+<div class="arithmatex">\[
 \operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)
-$$</p>
+\]</div>
 <p>玩法不变：攻击者给定两条等长明文，选择一个构造密文，由攻击者根据 <span class="arithmatex">\(c\)</span> 猜测 <span class="arithmatex">\(b\)</span>，给出猜测结果 <span class="arithmatex">\(b'\)</span></p>
 <p>我们定义：一个私钥加密方案具有窃听攻击下的计算不可区分性，当且仅当对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
 <div class="arithmatex">\[
@@ -5320,31 +5320,31 @@ $$</p>
 \frac12+\operatorname{negl}(n)
 \]</div>
 <p>它有一个基于语义安全的等价定义（<span class="arithmatex">\(b'=0\)</span> 同理）：</p>
-<p>$$
+<div class="arithmatex">\[
 \left| \Pr[b'= 1 \mid b = 0] - \Pr[b'= 1 \mid b = 1] \right| \leq \operatorname{negl}(n)
-$$
-证明略，只要根据全概率公式代入推导即可：
-$$
+\]</div>
+<p>证明略，只要根据全概率公式代入推导即可：</p>
+<div class="arithmatex">\[
 \Pr[
 \operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)=1
 ] = \frac12+\frac12(\Pr[b'= 1 \mid b = 0] - \Pr[b'= 1 \mid b = 1])
-$$
-我们称上述加密方案是 EAV-secure 的，即在窃听攻击模型下的计算安全</p>
+\]</div>
+<p>我们称上述加密方案是 EAV-secure 的，即在窃听攻击模型下的计算安全</p>
 <h2 id="prg">PRG</h2>
-<p>我们需要一个由短密钥生成长字符串的工具，因此引入伪随机生成器 PRG：
-$$
-G:{0,1}^n\rightarrow{0,1}^{\ell(n)}
-$$
-一方面，PRG 需要满足扩展性，即 <span class="arithmatex">\(\ell(n) &gt; n\)</span>；另一方面它需要满足伪随机性，对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>（也就是不可区分游戏的挑战者），都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得
-$$
+<p>我们需要一个由短密钥生成长字符串的工具，因此引入伪随机生成器 PRG：</p>
+<div class="arithmatex">\[
+G:\{0,1\}^n\rightarrow\{0,1\}^{\ell(n)}
+\]</div>
+<p>一方面，PRG 需要满足扩展性，即 <span class="arithmatex">\(\ell(n) &gt; n\)</span>；另一方面它需要满足伪随机性，对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>（也就是不可区分游戏的挑战者），都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
+<div class="arithmatex">\[
 \begin{aligned}
 &amp;\left|
 \Pr[D(G(s))=1]
 -\Pr[D(r)=1]
 \right|\leq\mu(n)
 \end{aligned}
-$$
-其中 <span class="arithmatex">\(s\xleftarrow{\$}\{0,1\}^n,\;r\xleftarrow{\$}\{0,1\}^{\ell(n)}\)</span> 都是真随机字符串</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(s\xleftarrow{\$}\{0,1\}^n,\;r\xleftarrow{\$}\{0,1\}^{\ell(n)}\)</span> 都是真随机字符串</p>
 <p>一个安全的 PRG 具有以下特征：</p>
 <ul>
 <li>它是确定性算法，保证对于固定 <span class="arithmatex">\(s\)</span>，输出固定 <span class="arithmatex">\(G(s)\)</span></li>
@@ -5353,64 +5353,64 @@ $$
 </ul>
 <hr>
 <p>利用 PRG 和 OTP，我们可以给出一个完整的计算加密方案。记 <span class="arithmatex">\(G\)</span> 是一个安全的 PRG，给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span></p>
-<p>Gen 均匀生成 <span class="arithmatex">\(n\)</span> 位密钥，核心的加解密算法为：
-$$
+<p>Gen 均匀生成 <span class="arithmatex">\(n\)</span> 位密钥，核心的加解密算法为：</p>
+<div class="arithmatex">\[
 c=G(k)\oplus m
-\
+\\
 m=G(k)\oplus c
-$$
-它和 OTP 只在异或使用的字符串存在差异，但是它实现了使用较短的密钥加密较长的消息，得到计算不可区分的加密方案</p>
+\]</div>
+<p>它和 OTP 只在异或使用的字符串存在差异，但是它实现了使用较短的密钥加密较长的消息，得到计算不可区分的加密方案</p>
 <h3 id="proof-by-reduction">Proof by Reduction</h3>
 <p>我们如何证明：在上述情境下，只要 <span class="arithmatex">\(G\)</span> 是一个安全的 PRG，可以推导出 <span class="arithmatex">\(\Pi\)</span> 是 EAV-secure？我们需要使用规约法</p>
 <p>（也就是算法课程中在证明 Karp's 21 NP-complete problems 时使用的方法，思路非常接近）</p>
 <p>简单来说，假设 <span class="arithmatex">\(X\)</span> 是一个已知计算困难问题，<span class="arithmatex">\(Y\)</span> 是另一个难度未知问题，我们证明：如果 <span class="arithmatex">\(Y\)</span> 可以被高效的解决，则 <span class="arithmatex">\(X\)</span> 可以被高效的解决（说明 <span class="arithmatex">\(Y\)</span> 的难度不低于 <span class="arithmatex">\(X\)</span> 的）；那么取逆否，既然 <span class="arithmatex">\(X\)</span> 是一个已知计算困难问题，而 <span class="arithmatex">\(Y\)</span> 的难度不低于 <span class="arithmatex">\(X\)</span>，则 <span class="arithmatex">\(Y\)</span> 也是个计算困难问题</p>
 <p>此处我们证明：如果我们的 <span class="arithmatex">\(\Pi\)</span> 方案可以被攻击，那么 PRG 可以被区分</p>
 <hr>
-<p>假设存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案：
-$$
+<p>假设存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案：</p>
+<div class="arithmatex">\[
 \Pr[
 \operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)=1
 ]
 =
 \frac12+\epsilon(n)
-$$
-其中 <span class="arithmatex">\(\epsilon\)</span> 是一个不可忽略的函数</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(\epsilon\)</span> 是一个不可忽略的函数</p>
 <p>现在我们需要构造新的 PPT Attacker <span class="arithmatex">\(A'\)</span> 用来攻破 PRG，也就是给定一个长度为 <span class="arithmatex">\(\ell(n)\)</span> 的字符串 <span class="arithmatex">\(x\)</span>，判断它究竟来自 <span class="arithmatex">\(G(s)\)</span> 还是 <span class="arithmatex">\(r\)</span></p>
-<p><span class="arithmatex">\(A'\)</span> 怎么做呢？它接收 <span class="arithmatex">\(x\)</span>，提供给 <span class="arithmatex">\(A\)</span>，得到 <span class="arithmatex">\(m_0,m_1\)</span>，然后随机选择 <span class="arithmatex">\(b\)</span>，构造密文 <span class="arithmatex">\(c\)</span> 发给 <span class="arithmatex">\(A\)</span>，返回猜测 <span class="arithmatex">\(b'\)</span>，然后按照下面的函数给出结果
-$$
+<p><span class="arithmatex">\(A'\)</span> 怎么做呢？它接收 <span class="arithmatex">\(x\)</span>，提供给 <span class="arithmatex">\(A\)</span>，得到 <span class="arithmatex">\(m_0,m_1\)</span>，然后随机选择 <span class="arithmatex">\(b\)</span>，构造密文 <span class="arithmatex">\(c\)</span> 发给 <span class="arithmatex">\(A\)</span>，返回猜测 <span class="arithmatex">\(b'\)</span>，然后按照下面的函数给出结果</p>
+<div class="arithmatex">\[
 A'(x)=
 \begin{cases}
-1,&amp;b'=b\
+1,&amp;b'=b\\
 0,&amp;b'\neq b
 \end{cases}
-$$
-（容易根据操作判断他属于 PPT Attacker）</p>
-<p>如果真实输入来自 PRG，那么 <span class="arithmatex">\(c=G(s)\oplus m_b\)</span>，哎这不就是 <span class="arithmatex">\(\Pi\)</span> 方案下的 EAV 游戏分布吗，因此：
-$$
+\]</div>
+<p>（容易根据操作判断他属于 PPT Attacker）</p>
+<p>如果真实输入来自 PRG，那么 <span class="arithmatex">\(c=G(s)\oplus m_b\)</span>，哎这不就是 <span class="arithmatex">\(\Pi\)</span> 方案下的 EAV 游戏分布吗，因此：</p>
+<div class="arithmatex">\[
 \begin{aligned}
 \Pr[A'(G(s))=1]
-&amp;=\Pr[b'=b]\
+&amp;=\Pr[b'=b]\\
 &amp;=\Pr[
-\operatorname{PrivK}^{\mathrm{eav}}<em>{A,\Pi}(n)=1
-]\
+\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)=1
+]\\
 &amp;=\frac12+\epsilon(n)
 \end{aligned}
-$$
-如果真实输入来自真随机 <span class="arithmatex">\(r\)</span>，那么 <span class="arithmatex">\(c=r\oplus m_b\)</span>，哎这不是 OTP 加密吗，它满足完美不可区分性，因此：
-$$
+\]</div>
+<p>如果真实输入来自真随机 <span class="arithmatex">\(r\)</span>，那么 <span class="arithmatex">\(c=r\oplus m_b\)</span>，哎这不是 OTP 加密吗，它满足完美不可区分性，因此：</p>
+<div class="arithmatex">\[
 \Pr[A'(r)=1]=\frac12
-$$
-我们记
-$$
-\operatorname{Adv}^{\mathrm{prg}}</em>{A',G}(n)
+\]</div>
+<p>我们记</p>
+<div class="arithmatex">\[
+\operatorname{Adv}^{\mathrm{prg}}_{A',G}(n)
 =\left|
 \Pr[A'(G(s))=1]
 -\Pr[A'(r)=1]
 \right| =|\epsilon(n)|
-$$
-由此我们得到结论：如果存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案，那么就存在 PPT Attacker <span class="arithmatex">\(A'\)</span> 能够以不可忽略的优势区分 PRG 输出</p>
+\]</div>
+<p>由此我们得到结论：如果存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案，那么就存在 PPT Attacker <span class="arithmatex">\(A'\)</span> 能够以不可忽略的优势区分 PRG 输出</p>
 <p>但是根据假设，PRG 是安全的，因此根据逆否结论，不存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T03:15:33.334687+08:00">2026-10-27</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T03:20:41.067928+08:00">2026-10-27</time></span></div></div></div>
 
 
 
