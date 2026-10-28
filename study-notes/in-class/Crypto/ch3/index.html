@@ -447,6 +447,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -745,6 +749,62 @@
     
   
     Stream Cipher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPA Security and Pseudorandom Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Cipher
   
 
     
@@ -5381,7 +5441,9 @@ G:\{0,1\}^n\rightarrow\{0,1\}^{\ell(n)}
 <li>它的输出并不均匀随机，因为 PRG 的输入空间 &lt; 输出空间</li>
 <li>它能抵御 PPT 攻击</li>
 </ul>
-<p>目前来看，现实中不存在完全的 PRG 算法，而理论存在性也基于部分猜想，所以它是一个理想算法</p>
+<blockquote>
+<p>PRG 是一个广泛使用的生成器，但是它的安全性依赖于类似于 <span class="arithmatex">\(P\ne NP\)</span> 的开放假设。我们目前基于计算复杂性假设，认为它的安全性成立</p>
+</blockquote>
 <hr>
 <p>利用 PRG 和 OTP，我们可以给出一个完整的计算加密方案。记 <span class="arithmatex">\(G\)</span> 是一个安全的 PRG，给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span></p>
 <p>Gen 均匀生成 <span class="arithmatex">\(n\)</span> 位密钥，核心的加解密算法为：</p>
@@ -5441,7 +5503,7 @@ A'(x)=
 \]</div>
 <p>由此我们得到结论：如果存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案，那么就存在 PPT Attacker <span class="arithmatex">\(A'\)</span> 能够以不可忽略的优势区分 PRG 输出</p>
 <p>但是根据假设，PRG 是安全的，因此根据逆否结论，不存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T13:36:06.914511+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T19:16:33.734446+08:00">2026-10-28</time></span></div></div></div>
 
 
 

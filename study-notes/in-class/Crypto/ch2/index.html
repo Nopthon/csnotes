@@ -447,6 +447,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -711,6 +715,62 @@
     
   
     Stream Cipher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPA Security and Pseudorandom Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Cipher
   
 
     
@@ -5331,6 +5391,9 @@ m=\operatorname{Dec}_k(c)
 \]</div>
 <h2 id="perfect-adversarial-indistinguishability">Perfect Adversarial Indistinguishability</h2>
 <p>我们考虑一个安全游戏：攻击者选择两条信息 <span class="arithmatex">\(m_0,m_1\)</span>，挑战者随机生成密钥 <span class="arithmatex">\(k\)</span>，随机选择 <span class="arithmatex">\(b\in\{0,1\}\)</span>（即随机选择 <span class="arithmatex">\(m_0\)</span> 或 <span class="arithmatex">\(m_1\)</span> 进行加密），令 <span class="arithmatex">\(c=\operatorname{Enc}_k(m_b)\)</span>，由攻击者根据密文猜测 <span class="arithmatex">\(b\)</span> 的值，记作 <span class="arithmatex">\(b'\)</span></p>
+<blockquote>
+<p>这个游戏被称为 IND-EAV，全称是 Indistinguishability under Eavesdropping（在窃听者存在下的不可区分性）</p>
+</blockquote>
 <p>定义这样的游戏是完美不可区分的：对于任意攻击者 <span class="arithmatex">\(A\)</span>，如果</p>
 <div class="arithmatex">\[
 \Pr[\operatorname{PrivK}^{eav}_{A,\Pi}=1]=\frac12
@@ -5499,7 +5562,7 @@ M=C\oplus K
 \]</div>
 <p>因此满足完美保密的等价条件</p>
 </blockquote>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T15:40:50.379343+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T17:05:57.880861+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T15:40:50.379343+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T17:30:17.473556+08:00">2026-10-28</time></span></div></div></div>
 
 
 

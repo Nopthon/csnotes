@@ -6,6 +6,10 @@
       
       
       
+        <link rel="prev" href="../ch4/">
+      
+      
+        <link rel="next" href="../ch6/">
       
       
         
@@ -23,7 +27,7 @@
     
     
       
-        <title>Lecture 5. CPA Security and Pseudorandom Functions - CSNote</title>
+        <title>CPA Security and Pseudorandom Functions - CSNote</title>
       
     
     
@@ -143,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 5. CPA Security and Pseudorandom Functions
+              CPA Security and Pseudorandom Functions
             
           </span>
         </div>
@@ -229,10 +233,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../../" class="md-tabs__link">
           
   
@@ -332,6 +338,8 @@
       
   
   
+    
+  
   
   
     
@@ -365,14 +373,17 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -394,13 +405,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -416,6 +427,8 @@
               
                 
   
+  
+    
   
   
   
@@ -434,6 +447,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -441,11 +458,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -473,7 +490,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -585,6 +602,281 @@
     
   
     Stream Cipher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPA Security and Pseudorandom Functions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPA Security and Pseudorandom Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#need-for-stronger-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need for Stronger Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Need for Stronger Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ind-mult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IND-MULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chosen-plaintext-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chosen-Plaintext Attack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpa-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPA-Secure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-by-hybrid-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof by Hybrid Argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-encryptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Encryptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existence-of-prfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existence of PRFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prp-and-prf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRP and PRF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-prp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong PRP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prfs-and-prgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRFs and PRGs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRFs and PRGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ggm-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GGM Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-by-hybrid-argument_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof by Hybrid Argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Cipher
   
 
     
@@ -4895,6 +5187,186 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#need-for-stronger-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need for Stronger Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Need for Stronger Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ind-mult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IND-MULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chosen-plaintext-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chosen-Plaintext Attack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpa-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPA-Secure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-by-hybrid-argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof by Hybrid Argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-encryptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Encryptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existence-of-prfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existence of PRFs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prp-and-prf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRP and PRF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-prp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong PRP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-cipher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Cipher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prfs-and-prgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRFs and PRGs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRFs and PRGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ggm-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GGM Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-by-hybrid-argument_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof by Hybrid Argument
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4911,6 +5383,64 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    intro
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Course-notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Crypto
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               
               
@@ -4919,7 +5449,599 @@
                   
 
 <h1 id="lecture-5-cpa-security-and-pseudorandom-functions">Lecture 5. CPA Security and Pseudorandom Functions</h1>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T17:04:47.331242+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T17:12:05.751711+08:00">2026-10-28</time></span></div></div></div>
+<h2 id="need-for-stronger-security">Need for Stronger Security</h2>
+<p>为什么我们需要比 IND-EAV 更强的安全性？考虑两个场景：</p>
+<h3 id="ind-mult">IND-MULT</h3>
+<p>我们回顾 <span class="arithmatex">\(\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)\)</span> 不可区分性实验：攻击者每次看到一个密文，然后二选一猜测明文。如果对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\Pr[
+\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)=1
+]
+\leq
+\frac12+\operatorname{negl}(n)
+\]</div>
+<p>则该方案具有<u>单消息</u>不可区分性</p>
+<p>而现实中，密钥会被反复使用，因此对于多个密文，我们需要额外分析多密文是否会暴露明文关系</p>
+<p>因此我们引入多消息窃听实验</p>
+<div class="arithmatex">\[
+\operatorname{PrivK}^{\mathrm{mult}}_{A,\Pi}(n)
+\]</div>
+<p>它的流程为：攻击者提交两组信息，保证 <span class="arithmatex">\(|m_{0,i}| = |m_{1,i}|\)</span></p>
+<div class="arithmatex">\[
+\vec{M_0} = (m_{0,1}, \cdots, m_{0,t})
+\\
+\vec{M_1} = (m_{1,1}, \cdots, m_{1,t})
+\]</div>
+<p>挑战者生成密钥 <span class="arithmatex">\(k \leftarrow Gen(1^n)\)</span>，并随机选择 <span class="arithmatex">\(b\in\{0,1\}\)</span>（即随机选择 <span class="arithmatex">\(\vec{M_0}\)</span> 或 <span class="arithmatex">\(\vec{M_1}\)</span> 进行加密），令 <span class="arithmatex">\(c_i=\operatorname{Enc}_k(m_b,i)\)</span>，由攻击者根据密文组 <span class="arithmatex">\(\vec{C} = (c_1,\cdots,c_t)\)</span>猜测 <span class="arithmatex">\(b\)</span> 的值，记作 <span class="arithmatex">\(b'\)</span></p>
+<p>我们继续定义窃听模型下的多次加密计算不可区分性（Indistinguishable multiple encryptions in the presence of an eavesdropper）：对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}^{\mathrm{mult}}_{A,\Pi}(n)=1]
+\leq
+\frac12+\operatorname{negl}(n)
+\]</div>
+<p>满足 IND-EAV 的加密方案不一定能满足多消息安全。我们以基于 PRG 的加密方案为例，依旧是 Two-Time Pad 攻击：对两条加密信息异或，可以得到两条原文的异或</p>
+<p>具体的，我们令</p>
+<div class="arithmatex">\[
+\vec{M_0} = (aa, aa)
+\\
+\vec{M_1} = (aa, ab)
+\]</div>
+<p>如果加密的是第一组，那么 <span class="arithmatex">\(c_1\oplus c_2 = 0\)</span> 是显然的；否则 <span class="arithmatex">\(c_1 \oplus c_2 \ne 0\)</span> 是显然的。此时 <span class="arithmatex">\(\Pr[\operatorname{PrivK}^{\mathrm{mult}}_{A,\Pi}(n)=1] = 1\)</span></p>
+<p>以上：IND-EAV 无法得到 IND-MULT。只要加密算法是确定性的，那么它一定不符合 IND-MULT 下的安全</p>
+<h2 id="chosen-plaintext-attack">Chosen-Plaintext Attack</h2>
+<p>EAV 模型中，攻击者（窃听者）只能获得指定的明文；KPA 模型中，攻击者一直某些其他明文以及对应密文；而 CPA 模型中，攻击者可以主动提供明文并获取对应的密文。在最后一种情形下，攻击者得到最多的信息</p>
+<p>我们提供一个加密预言机 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span>，输入为明文，输出为密文，攻击者可以自适应多次查询结果。进一步的，我们给出 CPA 不可区分性实验 <span class="arithmatex">\(\operatorname{PrivK}^{\mathrm{cpa}}_{A,\Pi}(n)\)</span></p>
+<p>相比直接提供两个等长明文，攻击者可以先使用 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span> 观察任意多次的加密结果，然后再给出 <span class="arithmatex">\(m_0,m_1\)</span>。挑战者依旧二选一明文并给出密文，攻击者可以在看到密文之后继续使用 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span> 观察任意多次的加密结果，并最终给出自己的判断 <span class="arithmatex">\(b'\)</span></p>
+<p>同理，如果对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\Pr[
+\operatorname{PrivK}^{\mathrm{cpa}}_{A,\Pi}(n)=1
+]
+\leq
+\frac12+\operatorname{negl}(n)
+\]</div>
+<p>则该方案满足 CPA-Secure</p>
+<p>显然，只要加密算法是确定性的，那么它一定不符合 CPA 安全：我只要在看到密文后，对 <span class="arithmatex">\(m_0\)</span> 进行一次预言机查询，就可以判断密文来自 <span class="arithmatex">\(m_0\)</span> 还是 <span class="arithmatex">\(m_1\)</span></p>
+<hr>
+<p>上面两个场景都是对 EAV 场景的加强，攻击者通过获得更多的信息，使得当前的加密算法不再安全。具体的，CPA 情景蕴含于 MULT 情景，如果一个方案是 CPA 安全的，那么它一定是 IND-MULT 安全的（后面会说）</p>
+<h2 id="prf">PRF</h2>
+<p>我们先从真正的随机函数说起：考虑一个函数</p>
+<div class="arithmatex">\[
+f:\{0,1\}^{l_{in}} \to \{0,1\}^{l_{out}}
+\]</div>
+<p>通常我们只需要考虑等长映射</p>
+<div class="arithmatex">\[
+f:\{0,1\}^{n} \to \{0,1\}^{n}
+\]</div>
+<p>这样的函数集合我们记为 <span class="arithmatex">\(\text{Func}_{n}\)</span>，对于不同的 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\(|\text{Func}_{n}|\)</span> 的大小会如何膨胀？我们知道输入空间 <span class="arithmatex">\(|\{0,1\}^{n}| = 2^{n}\)</span>，而对于每个输入，可以独立选择 <span class="arithmatex">\(2^n\)</span> 个可能输出，因此</p>
+<div class="arithmatex">\[
+|\text{Func}_{n}| = \underbrace{2^{n} \times 2^{n} \times \cdots \times 2^{n}}_{2^{n} \text{ times}} = 2^{n2^n}
+\]</div>
+<p>正式的随机函数就是：从 <span class="arithmatex">\(\text{Func}_{n}\)</span> 中均匀随机抽取一个函数，然后再之后的计算过程中始终使用这个函数：相同输入一定是相同输出；不同输入的输出独立均匀分布</p>
+<hr>
+<p>现在我们引入带密钥的函数 <span class="arithmatex">\(F(k,x)\)</span>，在本章中默认所有的 <span class="arithmatex">\(l_{?} = n\)</span>：</p>
+<div class="arithmatex">\[
+F: \{0,1\}^{l_{key}} \times \{0,1\}^{l_{in}} \to \{0,1\}^{l_{out}}
+\]</div>
+<p>对于相同的密钥和输入，它的输出依旧是固定的；然而只要更换 <span class="arithmatex">\(k\)</span>，它对相同输入的输出就是不可预测的</p>
+<p>对于固定的 <span class="arithmatex">\(k\)</span>，我们得到基于 <span class="arithmatex">\(k\)</span> 的特定函数，记为 <span class="arithmatex">\(F_{k}(x)\)</span>。简单来说</p>
+<div class="arithmatex">\[
+F(k,x) = F_{k}(x)
+\]</div>
+<p>即每一个密钥 <span class="arithmatex">\(k\)</span> 都对应了一个具体的函数 <span class="arithmatex">\(F_k\)</span></p>
+<hr>
+<p>函数空间的大小为 <span class="arithmatex">\(|\text{Func}_{n}| = 2^{n2^n}\)</span>，而 <span class="arithmatex">\(F(k,x)\)</span> 只能抽取其中的 <span class="arithmatex">\(2^{n}\)</span> 个函数（由密钥空间决定），然而这样的函数依旧看上去随机，因为一个高效攻击者无法在多项式时间内检查单个带密钥函数的全部 <span class="arithmatex">\(2^n\)</span> 个输入</p>
+<p>由此，我们定义伪随机函数：给定多项式量级的输入 <span class="arithmatex">\(x_i\)</span>，如果攻击者在观察</p>
+<div class="arithmatex">\[
+F_k(x_1), F_k(x_2),\cdots,F_{k}(x_{poly(n)})
+\]</div>
+<p>后，在计算层面上与一个真正随机函数的对应结果不可区分，那么 <span class="arithmatex">\(F\)</span> 就是伪随机函数（当然，<span class="arithmatex">\(F(k,x)\)</span> 的计算得是多项式时间的）</p>
+<blockquote>
+<p>区分器仅根据多项式个输入以及对应的输出，无法判断自己使用的是一个由短密钥生成的假随机函数，还是一个真正的随机函数</p>
+</blockquote>
+<p>形式化的，令</p>
+<div class="arithmatex">\[
+F: \{0,1\}^{n} \times \{0,1\}^{n} \to \{0,1\}^{n}
+\]</div>
+<p>随机选择密钥 <span class="arithmatex">\(k\leftarrow \{0,1\}^n\)</span>，以及 <span class="arithmatex">\(f \leftarrow \text{Func}_{n}\)</span></p>
+<p>如果对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>，都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\left|
+\Pr[D^{F_k(\cdot)}(1^{n})=1]
+-\Pr[D^{f(\cdot)}(1^{n})=1]
+\right|\leq\mu(n)
+\end{aligned}
+\]</div>
+<p>那么 <span class="arithmatex">\(F\)</span> 是伪随机函数</p>
+<blockquote>
+<p>为什么我们希望达到这样的计算结果？注意到 <span class="arithmatex">\(F(k,x)\)</span> 只能在 <span class="arithmatex">\(|\text{Func}_{n}| = 2^{n2^n}\)</span> 中采样非常小部分的函数，但是 PRF 能够做到让区分器看不出来自己其实是从一个密钥小空间采样的函数，而不是从完整的函数空间中采样的函数</p>
+<p>这就是 PRF 的价值：它以小乱大，用伪随机的方式实现了计算安全上的等价真随机（不可区分）</p>
+</blockquote>
+<p>一个失败的 PRF 构造往往会让它的函数族 <span class="arithmatex">\(F_k\)</span> 存在相似的特征，导致不同的输入在输出上存在规律</p>
+<h3 id="cpa-secure">CPA-Secure</h3>
+<p>我们现在有了 PRF 可以产生计算上与随机函数不可区分的输出，现在可以构造 CPA-Secure 的方案了</p>
+<p>给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span>，以及一个安全的 PRF <span class="arithmatex">\(F\)</span></p>
+<p>我们均匀随机采样 <span class="arithmatex">\(k\)</span>，使用 Gen 执行密钥生成。然后给定明文 <span class="arithmatex">\(m\)</span>，随机选择 <span class="arithmatex">\(r\)</span> 并计算 <span class="arithmatex">\(F_k(r)\)</span> 的值，进行加密</p>
+<div class="arithmatex">\[
+\text{Enc}_k(m) = (r,F_{k}(r) \oplus m)
+\]</div>
+<p>这里 <span class="arithmatex">\(r\)</span> 不需要保密，可以直接放到密文中。解密同理</p>
+<div class="arithmatex">\[
+\text{Dec}_k(r,s) = F_{k}(r) \oplus s
+\]</div>
+<p>显然它是正确的</p>
+<hr>
+<p>相比较我们之前进行 PRG 加密</p>
+<div class="arithmatex">\[
+\text{Enc}_k(m) = G(k) \oplus m
+\]</div>
+<p>它每次解密使用相同的掩码 <span class="arithmatex">\(G(k)\)</span>，而现在我们使用不同的掩码 <span class="arithmatex">\(F_{k}(r_1),F_{k}(r_2),\cdots\)</span>，有效避免了不同输入的输出存在关联性</p>
+<blockquote>
+<p>我们假设 <span class="arithmatex">\(r\)</span> 的碰撞概率极低</p>
+</blockquote>
+<h3 id="proof-by-hybrid-argument">Proof by Hybrid Argument</h3>
+<p>我们如何证明：在上述情境下，只要 <span class="arithmatex">\(F\)</span> 是一个安全的 PRF，可以推导出 <span class="arithmatex">\(\Pi\)</span> 是 CPA-secure？我们需要使用混合实验论证（它也用到了规约思想）</p>
+<p>我们记使用了 PRF 的原始方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，满足</p>
+<div class="arithmatex">\[
+\text{Enc}_k(m) = (r,F_{k}(r) \oplus m)
+\]</div>
+<p>现在构造一个理想化方案 <span class="arithmatex">\(\tilde{\Pi}\)</span>，它的加密采用真正的随机函数</p>
+<div class="arithmatex">\[
+\text{Enc}_k(m) = (r,f(r) \oplus m)
+\]</div>
+<p>我们证明它在 CPA 攻击模型中是计算不可区分的。反设存在一个 PPT 攻击者 <span class="arithmatex">\(A\)</span> 可以区分两者输出，那么就有对应的区分器 <span class="arithmatex">\(D\)</span>。具体的，<span class="arithmatex">\(D\)</span> 得到一个预言机 <span class="arithmatex">\(Oracle(\cdot)\)</span>，它可能实现为 <span class="arithmatex">\(F_k\)</span> 也可能实现为 <span class="arithmatex">\(f\)</span></p>
+<p>如果 <span class="arithmatex">\(A\)</span> 可以区分 <span class="arithmatex">\(\Pi\)</span> 和 <span class="arithmatex">\(\tilde\Pi\)</span>，那么就说明 <span class="arithmatex">\(D\)</span> 能够区分 <span class="arithmatex">\(F_k\)</span> 和 <span class="arithmatex">\(f\)</span>，而根据 PRF 的定义，后者是不可能的，因此 <span class="arithmatex">\(A\)</span> 不可能区分 <span class="arithmatex">\(\Pi\)</span> 和 <span class="arithmatex">\(\tilde\Pi\)</span></p>
+<div class="arithmatex">\[
+\left| \Pr[\text{PrivK}^{\text{cpa}}_{\mathcal{A}, \Pi} = 1] - \Pr[\text{PrivK}^{\text{cpa}}_{\mathcal{A}, \tilde{\Pi}} = 1] \right| \leq \text{negl}_1(n) \tag{1}
+\]</div>
+<hr>
+<p>接下来我们想进一步分析真正随机函数下的 CPA 安全性，即尝试证明（其中 <span class="arithmatex">\(q(n)\)</span> 为攻击者查询的多项式次数上界）</p>
+<div class="arithmatex">\[
+\Pr[\text{PrivK}^{\text{cpa}}_{\mathcal{A}, \tilde{\Pi}} = 1] \leq \frac{1}{2} + \text{negl}_2(n)
+\]</div>
+<p>对于一个尚未查询过的新输入 <span class="arithmatex">\(r_i\)</span>，真随机函数输出的 <span class="arithmatex">\(f(r_i)\)</span> 就是完全独立、均匀随机的字符串。这等同于每次加密都使用 OTP 方案，显然猜对概率严格等于 <span class="arithmatex">\(1/2\)</span></p>
+<p>在共计 <span class="arithmatex">\(q(n)\)</span> 次的已知明文查询（每次生成 <span class="arithmatex">\(r_i\)</span>），假设挑战时使用的随机值为 <span class="arithmatex">\(r^{\ast}\)</span>，则</p>
+<div class="arithmatex">\[
+\Pr[r_i = r^{\ast}] = \dfrac{1}{2^n}
+\]</div>
+<p>而至少存在一次碰撞的概率为</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\Pr[\mathrm{Match}]
+&amp;=\Pr\left[\bigcup_{i=1}^{q(n)}\{r_i=r^*\}\right]\\
+&amp;\leq\sum_{i=1}^{q(n)}\Pr[r_i=r^*]\\
+&amp;=\frac{q(n)}{2^n}
+\end{aligned}
+\]</div>
+<p>而 <span class="arithmatex">\(q(n)/2^n\)</span> 是一个可忽略函数</p>
+<p>根据全概率公式，我们记 <span class="arithmatex">\(W=\{\operatorname{PrivK}^{\mathrm{cpa}}_{\mathcal A,\widetilde\Pi}=1\}\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\Pr[W]
+={}&amp;\Pr[W\mid\neg\mathrm{Match}]
+  \Pr[\neg\mathrm{Match}]\\
+&amp;+\Pr[W\mid\mathrm{Match}]
+  \Pr[\mathrm{Match}]
+\end{aligned}
+\]</div>
+<p>未碰撞时，<span class="arithmatex">\(\Pr[W\mid\neg\mathrm{Match}]=\frac12\)</span>，碰撞时直接取 <span class="arithmatex">\(\Pr[W\mid\mathrm{Match}]\leq1\)</span></p>
+<p>代入上式：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\Pr[W]
+&amp;\leq\frac12\Pr[\neg\mathrm{Match}]
++\Pr[\mathrm{Match}]\\
+&amp;\leq\frac12+\Pr[\mathrm{Match}]\\
+&amp;\leq\frac12+\frac{q(n)}{2^n}
+\end{aligned}
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}^{\mathrm{cpa}}_{\mathcal A,\widetilde\Pi}(n)=1]
+\leq\frac12+\frac{q(n)}{2^n} \tag{2}
+\]</div>
+<hr>
+<p>结合两个结论式 <span class="arithmatex">\((1),(2)\)</span>，我们得到</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}^{\mathrm{cpa}}_{\mathcal A,\Pi}(n)=1]
+\leq
+\frac12+\frac{q(n)}{2^n}+\operatorname{negl}(n)
+\]</div>
+<p>而 <span class="arithmatex">\(q(n)/2^n\)</span> 是一个可忽略函数，则</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}^{\mathrm{cpa}}_{\mathcal A,\Pi}(n)=1]
+\leq\frac12+\operatorname{negl}'(n)
+\]</div>
+<p>以上，我们完成了证明：</p>
+<div class="arithmatex">\[
+F\text{ is a PRF}
+\Longrightarrow
+\Pi\text{ is CPA-secure}
+\]</div>
+<h3 id="multiple-encryptions">Multiple Encryptions</h3>
+<p>我们直接给出一个结论：单个挑战密文在 CPA 环境下安全，那么它对于多个挑战密文的情形也是 CPA 安全的</p>
+<p>我们依旧利用 Hybrid Argument 证明</p>
+<p>假设攻击者需要区分：</p>
+<div class="arithmatex">\[
+\vec M_0=(m_{0,1},\ldots,m_{0,t})
+\]</div>
+<p>和：</p>
+<div class="arithmatex">\[
+\vec M_1=(m_{1,1},\ldots,m_{1,t})
+\]</div>
+<p>我们构造 <span class="arithmatex">\(t+1\)</span> 个混合实验（从 0 计数），其中第 0 个实验为</p>
+<div class="arithmatex">\[
+H_0=
+(\mathrm{Enc}_k(m_{0,1}),\ldots,\mathrm{Enc}_k(m_{0,t}))
+\]</div>
+<p>最后一个实验为</p>
+<div class="arithmatex">\[
+H_t=
+(\mathrm{Enc}_k(m_{1,1}),\ldots,\mathrm{Enc}_k(m_{1,t}))
+\]</div>
+<p>对于中间的实验，我们让每一个实验相比上一个实验，只将第 <span class="arithmatex">\(i\)</span> 条密文的明文选择从 <span class="arithmatex">\(\vec M_0\)</span> 替换为 <span class="arithmatex">\(\vec M_1\)</span> 的对应值</p>
+<p>此时相邻的两个实验只有单信息不同，退化为单信息 CPA。如果攻击者能够有效区分任意相邻的两个实验，那么就可以构造一个单消息 CPA 攻击者：把第 <span class="arithmatex">\(i\)</span> 条消息放进自己的 CPA 挑战，其余位置通过加密预言机生成，显然这不满足已知的单消息 CPA 安全。因此相邻实验之间的区分优势都是可忽略的</p>
+<p>当 <span class="arithmatex">\(t\)</span> 是多项式规模时，有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\left|
+\Pr[\mathcal A(H_0)=1]
+-
+\Pr[\mathcal A(H_t)=1]
+\right|\\
+&amp;\leq\sum_{i=1}^{t}
+\left|
+\Pr[\mathcal A(H_{i-1})=1]
+-
+\Pr[\mathcal A(H_i)=1]
+\right|\\
+&amp;\leq t\cdot\operatorname{negl}(n)
+\end{aligned}
+\]</div>
+<p>多项式与可忽略函数的乘积仍然可忽略，因此上述结果依旧是可忽略的</p>
+<blockquote>
+<p>证明思路就是想办法让多消息挑战的可忽略程度表述为多项式个单消息挑战的可忽略程度之和</p>
+</blockquote>
+<h3 id="existence-of-prfs">Existence of PRFs</h3>
+<p>PRF 能否被实际构造出来？我们先引入函数映射的一个特殊情况：置换</p>
+<p>对于一个等长函数 <span class="arithmatex">\(f:\{0,1\}^n\to\{0,1\}^n\)</span>，如果它满足一一对应的双射关系，即不同输入一定得到不同输出，那么称 <span class="arithmatex">\(f\)</span> 是一个置换（相比单纯的函数不能产生多对一的碰撞）</p>
+<p>我们记所有 <span class="arithmatex">\(n\)</span>-bit 置换构成的集合为 <span class="arithmatex">\(\text{Perm}_n\)</span>。计算这个集合的大小：一共有 <span class="arithmatex">\(2^n\)</span> 个输入，第一个输入有 <span class="arithmatex">\(2^n\)</span> 种输出可以选择，第二个输入只能选择剩下的 <span class="arithmatex">\(2^n-1\)</span> 个输出，以此类推，因此</p>
+<div class="arithmatex">\[
+|\text{Perm}_n|=2^n\cdot(2^n-1)\cdots 1=(2^n)!
+\]</div>
+<p>与之前的随机函数对比</p>
+<div class="arithmatex">\[
+|\text{Func}_n|=2^{n2^n}
+\\
+|\text{Perm}_n|=(2^n)!
+\]</div>
+<p>显然 <span class="arithmatex">\(\text{Perm}_n\subseteq\text{Func}_n\)</span>，置换实际上就是满足双射约束的特殊函数</p>
+<p>进一步的，我们引入随机置换（Random Permutation），均匀随机选择 <span class="arithmatex">\(f\leftarrow\mathrm{Perm}_n\)</span>，并在后续计算中始终使用它</p>
+<hr>
+<p>现在考虑一个带密钥置换 <span class="arithmatex">\(F(k,x)\)</span>，对于任意固定的密钥 <span class="arithmatex">\(k\)</span>，映射 <span class="arithmatex">\(F_k\)</span> 都必须是一个置换</p>
+<div class="arithmatex">\[
+F:\{0,1\}^{\ell_{\mathrm{key}}}
+\times\{0,1\}^{\ell_{\mathrm{in}}}
+\rightarrow\{0,1\}^{\ell_{\mathrm{in}}}
+\]</div>
+<p>我们将输入和输出的长度称为分组长度（Block Length），记为 <span class="arithmatex">\(\ell_{in}\)</span>，并要求正向计算 <span class="arithmatex">\(F_k(x)\)</span> 与逆向计算 <span class="arithmatex">\(F_k^{-1}(y)\)</span> 都是多项式时间的</p>
+<p>我们希望它和之前的 PRF 一样具有不可区分性，只是现在比较的对象变成了真正的随机置换</p>
+<p>形式化的，随机选择密钥 <span class="arithmatex">\(k\leftarrow\{0,1\}^n\)</span>，以及 <span class="arithmatex">\(f\leftarrow\text{Perm}_n\)</span>，如果对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>，都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\left|
+\Pr[D^{F_k(\cdot)}(1^n)=1]
+-
+\Pr[D^{f(\cdot)}(1^n)=1]
+\right|\leq\mu(n)
+\]</div>
+<p>那么 <span class="arithmatex">\(F\)</span> 就是伪随机置换（Pseudorandom Permutation，PRP）</p>
+<blockquote>
+<p>PRF 要求区分器无法分辨 <span class="arithmatex">\(F_k\)</span> 和真随机函数，而 PRP 要求区分器无法分辨 <span class="arithmatex">\(F_k\)</span> 和真随机置换。这里的 PRP 定义只给区分器提供正向预言机，并没有提供 <span class="arithmatex">\(F_k^{-1}\)</span> 的查询能力</p>
+</blockquote>
+<h3 id="prp-and-prf">PRP and PRF</h3>
+<p>如果 <span class="arithmatex">\(F\)</span> 是安全的 PRP，并且它的分组长度 <span class="arithmatex">\(\ell_{in}\geq n\)</span>（<span class="arithmatex">\(n\)</span> 为安全参数），则 <span class="arithmatex">\(F\)</span> 也是安全的 PRF，即使 PRF 允许碰撞，而 PRP 不允许碰撞</p>
+<p>假设区分器拥有一个预言机 <span class="arithmatex">\(O(\cdot)\)</span>，它可能来自 <span class="arithmatex">\(\text{Perm}_n\)</span>，也可能来自 <span class="arithmatex">\(\text{Func}_n\)</span>。区分器选取两个不同输入 <span class="arithmatex">\(x_1\ne x_2\)</span>，查询结果为</p>
+<div class="arithmatex">\[
+y_1=O(x_1)
+\\
+y_2=O(x_2)
+\]</div>
+<p>如果 <span class="arithmatex">\(y_1=y_2\)</span>，那么可以肯定 <span class="arithmatex">\(O\)</span> 不是随机置换，因为置换必须满足一一对应关系。但是在真随机函数下，这个事件发生的概率只有</p>
+<div class="arithmatex">\[
+\Pr[f(x_1)=f(x_2)]=\frac1{2^n}
+\]</div>
+<p>现在考虑查询 <span class="arithmatex">\(q(n)\)</span> 个不同输入。在随机函数下，任意一对不同输入的输出碰撞概率为 <span class="arithmatex">\(2^{-n}\)</span>，而这样的输入对共有 <span class="arithmatex">\(\binom{q(n)}2\)</span> 个，因此利用 Union Bound 得到</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\Pr[\text{Collision}]
+&amp; = 1-\prod_{i=0}^{q-1}\left(1-\frac{i}{2^n}\right)\\
+&amp;\leq\binom{q(n)}2\cdot\frac1{2^n}\\
+&amp;=\frac{q(n)(q(n)-1)}{2^{n+1}}
+\end{aligned}
+\]</div>
+<p>如果没有发生输出碰撞，随机函数在这些不同输入上的输出分布，就和随机置换的查询结果相同，因此攻击者只有在碰撞事件出现时才可能利用两者之间的结构差异</p>
+<p>由于 PPT 区分器的查询次数 <span class="arithmatex">\(q(n)\)</span> 是多项式，因此</p>
+<div class="arithmatex">\[
+\frac{q(n)(q(n)-1)}{2^{n+1}}
+\]</div>
+<p>是一个可忽略函数</p>
+<blockquote>
+<p>所以在多项式数量的正向查询下，随机置换与随机函数之间的差别在计算上不可察觉</p>
+</blockquote>
+<hr>
+<p>我们继续将这个结论与 PRP 的安全性结合。考虑三种预言机：</p>
+<div class="arithmatex">\[
+F_k(\cdot)
+\quad\longrightarrow\quad
+f_{\text{perm}}(\cdot)
+\quad\longrightarrow\quad
+f_{\text{func}}(\cdot)
+\]</div>
+<p>其中第一个是伪随机置换，第二个是真随机置换，第三个是真随机函数</p>
+<ul>
+<li>根据 PRP 的定义，第一个与第二个计算不可区分</li>
+<li>根据刚才的碰撞概率分析，第二个与第三个在多项式次查询下计算不可区分</li>
+</ul>
+<p>因此利用三角不等式，可以得到</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\left|
+\Pr[D^{F_k(\cdot)}(1^n)=1]
+-
+\Pr[D^{f_{\text{func}}(\cdot)}(1^n)=1]
+\right|\\
+&amp;\leq
+\operatorname{negl}(n)
++
+\frac{q(n)(q(n)-1)}{2^{n+1}}
+\end{aligned}
+\]</div>
+<p>右边是两个可忽略函数之和，因此我们证明了</p>
+<div class="arithmatex">\[
+F\text{ is a PRP}
+\Longrightarrow
+F\text{ is a PRF}
+\]</div>
+<h3 id="strong-prp">Strong PRP</h3>
+<p>我们之前定义的 PRP 只允许攻击者查询正向函数 <span class="arithmatex">\(F_k(x)\)</span>，但是一个置换还拥有逆函数 <span class="arithmatex">\(F_k^{-1}(y)\)</span>，实际密码系统往往也需要同时提供正向和逆向运算</p>
+<p>因此我们进一步加强攻击模型：允许区分器同时获得两个预言机</p>
+<div class="arithmatex">\[
+F_k(\cdot),\quad F_k^{-1}(\cdot)
+\]</div>
+<p>如果在这种情况下，它依旧无法区分一个带密钥置换与真正随机置换，就称其为强伪随机置换（Strong Pseudorandom Permutation，Strong PRP）</p>
+<p>形式化的，随机选择 <span class="arithmatex">\(k\leftarrow\{0,1\}^n\)</span> 和 <span class="arithmatex">\(f\leftarrow\text{Perm}_n\)</span>，若对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>，都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\big|
+&amp;\Pr[D^{F_k(\cdot),F_k^{-1}(\cdot)}(1^n)=1]\\
+-&amp;\Pr[D^{f(\cdot),f^{-1}(\cdot)}(1^n)=1]
+\big|\leq\mu(n)
+\end{aligned}
+\]</div>
+<p>则 <span class="arithmatex">\(F\)</span> 是 Strong PRP</p>
+<p>显然 Strong PRP 的攻击者拥有更强的能力，因此</p>
+<div class="arithmatex">\[
+\text{Strong PRP}\Longrightarrow\text{PRP}
+\]</div>
+<h3 id="block-cipher">Block Cipher</h3>
+<p>PRP 与实际加密有什么关系？我们之前在流密码一章中提到，除了 Stream Cipher，我们还可以使用 Block Cipher（分组密码）实现对称加密</p>
+<p>分组密码会接收固定长度的输入分组，并在密钥控制下输出一个等长分组，同时支持逆运算。比如 AES 的分组长度固定为 128-bit，密钥长度可以是 128/192/256-bit</p>
+<p>对于固定的密钥 <span class="arithmatex">\(k\)</span>，AES 定义了一个从 <span class="arithmatex">\(\{0,1\}^{128}\)</span> 到自身的置换，并可以通过对应的逆函数解密。因此分组密码可以被看作带密钥置换，安全的设计目标是使它在计算上表现为一个 PRP（通常还希望满足 Strong PRP）</p>
+<p>需要注意：一个分组密码满足 PRP 安全，不代表直接对消息的每个分组分别使用它加密就满足 CPA 安全</p>
+<p>例如，直接使用分组密码 <span class="arithmatex">\(F_k\)</span> 加密每个分组，有</p>
+<div class="arithmatex">\[
+c_i=F_k(m_i)
+\]</div>
+<p>对于固定密钥，相同明文分组一定得到相同密文分组，因此这种 ECB 方式是确定性的，仍然暴露了明文的重复结构</p>
+<p>为了安全地加密较长的消息，我们还需要将分组密码与合适的工作模式（Mode of Operation）结合，比如 CBC、CTR 等。它们的安全性还依赖于模式本身的构造以及随机数 / IV 的使用方式</p>
+<h3 id="prfs-and-prgs">PRFs and PRGs</h3>
+<p>最后讨论 PRF 和 PRG 的关系，我们之前已经学过：PRG 使用短种子生成一个较长的伪随机字符串，而 PRF 通过短密钥生成一个看起来像随机函数的映射</p>
+<p>我们先从 PRF 构造 PRG：假设 <span class="arithmatex">\(F\)</span> 是安全 PRF，固定一个随机种子 <span class="arithmatex">\(s\in\{0,1\}^n\)</span> 作为密钥，选择 <span class="arithmatex">\(\ell\)</span> 个互不相同的 <span class="arithmatex">\(n\)</span>-bit 输入，定义</p>
+<div class="arithmatex">\[
+G(s)=F_s(1)||F_s(2)||\cdots||F_s(\ell)
+\]</div>
+<p>数字 <span class="arithmatex">\(1,2,\cdots,\ell\)</span> 编码为互不相同的 <span class="arithmatex">\(n\)</span> 比特输入。由于每个 <span class="arithmatex">\(F_s(i)\)</span> 都有 <span class="arithmatex">\(n\)</span> 个 bit，因此</p>
+<div class="arithmatex">\[
+G:\{0,1\}^n\to\{0,1\}^{n\ell}
+\]</div>
+<p>当 <span class="arithmatex">\(\ell&gt;1\)</span> 时，就实现了从 <span class="arithmatex">\(n\)</span> bit 种子扩展到 <span class="arithmatex">\(n\ell\)</span> bit 输出</p>
+<p>为什么它是 PRG？我们依旧考虑一个混合替换：如果把 <span class="arithmatex">\(F_s\)</span> 替换成真正的随机函数 <span class="arithmatex">\(f\)</span>，那么对于不同输入 <span class="arithmatex">\(1,2,\cdots,\ell\)</span>，每一个 <span class="arithmatex">\(f(i)\)</span> 都是独立均匀随机的 <span class="arithmatex">\(n\)</span>-bit 字符串，因此拼接结果就是一个真正均匀随机的 <span class="arithmatex">\(n\ell\)</span>-bit 字符串</p>
+<p>而如果攻击者能够区分 <span class="arithmatex">\(G(s)\)</span> 与这样一个真随机字符串，那么就可以构造区分器来区分 <span class="arithmatex">\(F_s\)</span> 和 <span class="arithmatex">\(f\)</span>，违反 PRF 的定义</p>
+<p>因此</p>
+<div class="arithmatex">\[
+\text{PRF}\Longrightarrow\text{PRG}
+\]</div>
+<hr>
+<p>反过来，我们能否利用 PRG 构造 PRF？一个直观想法是：先通过 PRG 生成足够长的伪随机比特串，然后根据输入 <span class="arithmatex">\(x\)</span> 的值，截取其中对应的一段作为 <span class="arithmatex">\(F_k(x)\)</span></p>
+<p>设 <span class="arithmatex">\(G(k)\)</span> 生成比特串</p>
+<div class="arithmatex">\[
+G(k)=y_0y_1y_2\cdots
+\]</div>
+<p>初步的尝试是：使用 PRG 输出切片</p>
+<p>对于输出长度为 <span class="arithmatex">\(t(n)\)</span> 的函数，我们将 <span class="arithmatex">\(x\in\{0,1\}^n\)</span> 解释为一个整数，定义
+$$
+F_k(x)
+=
+y_{x\cdot t(n)}
+y_{x\cdot t(n)+1}
+\cdots
+y_{x\cdot t(n)+t(n)-1}
+$$</p>
+<p>也就是说，将 PRG 输出按 <span class="arithmatex">\(t(n)\)</span> bit 分组，每个不同的 <span class="arithmatex">\(x\)</span> 对应其中一组。这样就能够利用 PRG 给不同的函数输入分配伪随机输出</p>
+<p>不过这里有一个效率问题：<span class="arithmatex">\(x\)</span> 有 <span class="arithmatex">\(2^n\)</span> 种可能取值，为了完整覆盖所有输入，PRG 必须产生至少</p>
+<div class="arithmatex">\[
+t(n)\cdot 2^n
+\]</div>
+<p>个 bit，这个长度相对于安全参数 <span class="arithmatex">\(n\)</span> 是指数级的，因此上面这种直接切片的方法无法作为标准意义下的高效 PRF 构造</p>
+<h4 id="ggm-construction">GGM Construction</h4>
+<blockquote>
+<p>Generated by GPT Maybe</p>
+</blockquote>
+<p>Goldreich–Goldwasser–Micali（GGM）Construction 是一个在多项式内构造 <span class="arithmatex">\(\text{PRG}\Longrightarrow\text{PRF}\)</span> 的方法</p>
+<p>我们考虑一个安全的 PRG，它将 <span class="arithmatex">\(n\)</span>-bit 种子扩展为 <span class="arithmatex">\(2n\)</span>-bit 输出</p>
+<div class="arithmatex">\[
+G:\{0,1\}^n\to\{0,1\}^{2n}
+\]</div>
+<p>将输出均分为两个 <span class="arithmatex">\(n\)</span>-bit 字符串，分别记为 <span class="arithmatex">\(G_0(s)\)</span> 和 <span class="arithmatex">\(G_1(s)\)</span></p>
+<div class="arithmatex">\[
+G(s)=G_0(s)||G_1(s)
+\]</div>
+<p>这里 <span class="arithmatex">\(G_0,G_1\)</span> 都是确定性函数，可以根据一个输入 bit 选择其中一个输出。比如给定 <span class="arithmatex">\(b\in\{0,1\}\)</span>，则 <span class="arithmatex">\(G_b(s)\)</span> 表示当 <span class="arithmatex">\(b=0\)</span> 时取前半部分，当 <span class="arithmatex">\(b=1\)</span> 时取后半部分</p>
+<p>我们使用 <span class="arithmatex">\(n\)</span>-bit 的 <span class="arithmatex">\(k\)</span> 作为 PRF 密钥，并将输入 <span class="arithmatex">\(x\in\{0,1\}^n\)</span> 写成</p>
+<div class="arithmatex">\[
+x=x_1x_2\cdots x_n
+\]</div>
+<p>从 <span class="arithmatex">\(k\)</span> 开始，根据 <span class="arithmatex">\(x\)</span> 的每一个 bit 依次执行 <span class="arithmatex">\(G_0\)</span> 或 <span class="arithmatex">\(G_1\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+s_0&amp;=k\\
+s_i&amp;=G_{x_i}(s_{i-1}),\qquad i=1,\ldots,n\\
+F_k(x)&amp;=s_n
+\end{aligned}
+\]</div>
+<p>所以完整的构造为</p>
+<div class="arithmatex">\[
+F_k(x_1x_2\cdots x_n)
+=
+G_{x_n}\left(
+G_{x_{n-1}}\left(
+\cdots G_{x_2}(G_{x_1}(k))\cdots
+\right)\right)
+\]</div>
+<p>比如 <span class="arithmatex">\(x=011\)</span>，那么计算顺序就是</p>
+<div class="arithmatex">\[
+F_k(011)=G_1(G_1(G_0(k)))
+\]</div>
+<p>我们可以将这个过程理解为一棵深度为 <span class="arithmatex">\(n\)</span> 的二叉树：根结点保存 <span class="arithmatex">\(k\)</span>，对于保存了 <span class="arithmatex">\(s\)</span> 的结点，它的左子结点是 <span class="arithmatex">\(G_0(s)\)</span>，右子结点是 <span class="arithmatex">\(G_1(s)\)</span></p>
+<p>输入 <span class="arithmatex">\(x\)</span> 就是在指定从根到叶子的路径：遇到 0 向左，遇到 1 向右，最终到达的叶子结点保存的值就是 <span class="arithmatex">\(F_k(x)\)</span></p>
+<p>虽然整棵树一共有 <span class="arithmatex">\(2^n\)</span> 个叶子，但是计算一个确定的 <span class="arithmatex">\(F_k(x)\)</span> 时，根本不需要把整棵树都生成出来，只需要沿着 <span class="arithmatex">\(x\)</span> 指定的路径向下计算，每一层执行一次 <span class="arithmatex">\(G\)</span></p>
+<p>因此单次函数计算只需要 <span class="arithmatex">\(n\)</span> 次 PRG 调用，是多项式时间的</p>
+<p>并且对于固定的 <span class="arithmatex">\(k,x\)</span>，整条路径和最终结果都固定，所以它首先满足一个带密钥函数的基本要求。现在需要证明它进一步满足 PRF 的不可区分性</p>
+<h4 id="proof-by-hybrid-argument_1">Proof by Hybrid Argument</h4>
+<p>我们希望证明：如果 <span class="arithmatex">\(G\)</span> 是安全 PRG，那么 <span class="arithmatex">\(F_k\)</span> 与真正随机函数计算不可区分</p>
+<p>形式化的，对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>，需要证明</p>
+<div class="arithmatex">\[
+\left|
+\Pr[D^{F_k(\cdot)}(1^n)=1]
+-
+\Pr[D^{f(\cdot)}(1^n)=1]
+\right|
+\leq\operatorname{negl}(n)
+\]</div>
+<p>其中 <span class="arithmatex">\(k\leftarrow\{0,1\}^n\)</span>，<span class="arithmatex">\(f\leftarrow\mathrm{Func}_n\)</span></p>
+<p>直接分析整棵树比较困难，因为它有指数数量的结点，而区分器可以自适应查询多个不同输入。我们依旧使用 Hybrid Argument：逐层将由 <span class="arithmatex">\(G\)</span> 产生的结点值替换为真正均匀随机的字符串</p>
+<p>我们构造 <span class="arithmatex">\(n+1\)</span> 个混合实验 <span class="arithmatex">\(H_0,H_1,\ldots,H_n\)</span></p>
+<p>对于第 <span class="arithmatex">\(i\)</span> 个实验 <span class="arithmatex">\(H_i\)</span>，在深度为 <span class="arithmatex">\(i\)</span> 的那一层，让每个结点的值分别独立均匀地取自 <span class="arithmatex">\(\{0,1\}^n\)</span>，之后的所有层仍然按照 <span class="arithmatex">\(G_0,G_1\)</span> 的规则向下生成</p>
+<p>这里的 <span class="arithmatex">\(H_i\)</span> 表示一整个函数的分布；区分器只能通过查询输入来得到对应的叶子输出，而不能直接查看树中间的结点</p>
+<p>我们先考虑两个端点：</p>
+<ul>
+<li><span class="arithmatex">\(H_0\)</span>：只有根结点随机选择 <span class="arithmatex">\(k\)</span>，下面所有结点都通过 <span class="arithmatex">\(G\)</span> 计算，因此得到的就是原始的 <span class="arithmatex">\(F_k\)</span></li>
+<li><span class="arithmatex">\(H_n\)</span>：所有叶子结点都独立均匀随机，因此对于不同输入，输出相互独立且均匀，而相同输入始终对应同一个叶子，这恰好就是真正随机函数</li>
+</ul>
+<p>因此我们只需要证明相邻的 <span class="arithmatex">\(H_i,H_{i+1}\)</span> 计算不可区分</p>
+<hr>
+<p>先暂时考虑一个更简单的问题：如果 <span class="arithmatex">\(G\)</span> 是安全 PRG，那么多次独立运行 <span class="arithmatex">\(G\)</span> 产生的结果，与同样数量的独立真随机字符串是否不可区分？</p>
+<p>假设共有 <span class="arithmatex">\(q=q(n)\)</span> 次输出，其中 <span class="arithmatex">\(q\)</span> 是多项式。定义</p>
+<div class="arithmatex">\[
+\begin{aligned}
+Y_0&amp;=G(s_1)||G(s_2)||\cdots||G(s_q)\\
+Y_q&amp;=r_1||r_2||\cdots||r_q
+\end{aligned}
+\]</div>
+<p>这里每个 <span class="arithmatex">\(s_i\)</span> 都是独立均匀的 <span class="arithmatex">\(n\)</span>-bit 种子，每个 <span class="arithmatex">\(r_i\)</span> 都是独立均匀的 <span class="arithmatex">\(2n\)</span>-bit 字符串</p>
+<p>我们构造 <span class="arithmatex">\(q+1\)</span> 个中间分布 <span class="arithmatex">\(Y_j\)</span>，其中前 <span class="arithmatex">\(j\)</span> 段改为真随机，剩余部分依旧来自 PRG</p>
+<div class="arithmatex">\[
+Y_j=
+r_1||\cdots||r_j||
+G(s_{j+1})||\cdots||G(s_q)
+\]</div>
+<p>相邻两个分布 <span class="arithmatex">\(Y_{j-1}\)</span> 和 <span class="arithmatex">\(Y_j\)</span> 只有第 <span class="arithmatex">\(j\)</span> 段不同，其余部分的生成方式完全相同</p>
+<p>如果存在 PPT 区分器 <span class="arithmatex">\(A\)</span> 能以不可忽略的优势区分 <span class="arithmatex">\(Y_0\)</span> 与 <span class="arithmatex">\(Y_q\)</span>，我们就可以构造 PRG 区分器 <span class="arithmatex">\(B\)</span></p>
+<p>具体的，<span class="arithmatex">\(B\)</span> 获得一个未知来源的 <span class="arithmatex">\(2n\)</span>-bit 字符串 <span class="arithmatex">\(w\)</span>，它可能是 <span class="arithmatex">\(G(s)\)</span>，也可能是真随机字符串。<span class="arithmatex">\(B\)</span> 均匀随机选择 <span class="arithmatex">\(j\in\{1,\ldots,q\}\)</span>，自己生成前 <span class="arithmatex">\(j-1\)</span> 段真随机字符串和后 <span class="arithmatex">\(q-j\)</span> 段 PRG 输出，再将 <span class="arithmatex">\(w\)</span> 放到第 <span class="arithmatex">\(j\)</span> 段，拼接后交给 <span class="arithmatex">\(A\)</span></p>
+<ul>
+<li>如果 <span class="arithmatex">\(w\)</span> 来自 PRG，那么 <span class="arithmatex">\(A\)</span> 看到的是 <span class="arithmatex">\(Y_{j-1}\)</span></li>
+<li>如果 <span class="arithmatex">\(w\)</span> 来自真随机，那么 <span class="arithmatex">\(A\)</span> 看到的是 <span class="arithmatex">\(Y_j\)</span></li>
+</ul>
+<p>记 <span class="arithmatex">\(\alpha_j=\Pr[A(Y_j)=1]\)</span>，根据全概率公式与求和消去中间项</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\Pr[B(r)=1]-\Pr[B(G(s))=1]\\
+&amp;=\frac1q\sum_{j=1}^{q}(\alpha_j-\alpha_{j-1})\\
+&amp;=\frac{\alpha_q-\alpha_0}{q}
+\end{aligned}
+\]</div>
+<p>由于 <span class="arithmatex">\(B\)</span> 是 PPT 区分器，而 <span class="arithmatex">\(G\)</span> 是安全 PRG，左边的绝对值是可忽略函数。又因为 <span class="arithmatex">\(q(n)\)</span> 是多项式，所以</p>
+<div class="arithmatex">\[
+|\alpha_q-\alpha_0|
+\leq q(n)\cdot\operatorname{negl}(n)
+\]</div>
+<p>依旧是可忽略函数</p>
+<p>这就说明：多项式个独立 PRG 输出，与同样数量的独立真随机字符串计算不可区分</p>
+<hr>
+<p>现在回到 GGM 的二叉树。考虑相邻的两个实验 <span class="arithmatex">\(H_i,H_{i+1}\)</span></p>
+<p>在 <span class="arithmatex">\(H_i\)</span> 中，深度 <span class="arithmatex">\(i\)</span> 的每个结点保存独立均匀随机的 <span class="arithmatex">\(n\)</span>-bit 值 <span class="arithmatex">\(s\)</span>，它的两个子结点分别保存</p>
+<div class="arithmatex">\[
+G_0(s),\quad G_1(s)
+\]</div>
+<p>而在 <span class="arithmatex">\(H_{i+1}\)</span> 中，深度 <span class="arithmatex">\(i+1\)</span> 的所有结点都直接独立均匀随机生成</p>
+<p>因此，对于深度 <span class="arithmatex">\(i\)</span> 的一个结点，两个实验之间的差异正好是将</p>
+<div class="arithmatex">\[
+G(s)=G_0(s)||G_1(s)
+\]</div>
+<p>替换为一个均匀随机的 <span class="arithmatex">\(2n\)</span>-bit 字符串</p>
+<p>这个替换与刚才证明的多次 PRG 输出不可区分性完全对应</p>
+<p>但是还有一个问题：深度 <span class="arithmatex">\(i\)</span> 的结点最多有 <span class="arithmatex">\(2^i\)</span> 个，如果真的生成整棵树，仍然可能需要指数时间</p>
+<p>我们注意到，PPT 区分器 <span class="arithmatex">\(D\)</span> 最多只能进行 <span class="arithmatex">\(q(n)\)</span> 次函数查询。每条输入 <span class="arithmatex">\(x=x_1\cdots x_n\)</span> 在深度 <span class="arithmatex">\(i\)</span> 只对应一个前缀</p>
+<div class="arithmatex">\[
+x_1x_2\cdots x_i
+\]</div>
+<p>因此实际被访问到的深度 <span class="arithmatex">\(i\)</span> 的结点最多只有 <span class="arithmatex">\(q(n)\)</span> 个，而不是 <span class="arithmatex">\(2^i\)</span> 个</p>
+<p>我们可以按需生成并缓存结点的值：当某个长度为 <span class="arithmatex">\(i\)</span> 的前缀第一次出现时，才为它的两个子结点分配一组 <span class="arithmatex">\(2n\)</span>-bit 值；再次遇到相同前缀时，直接使用之前保存的结果，之后沿着剩下的输入 bit 计算 <span class="arithmatex">\(G\)</span>，直到得到叶子输出</p>
+<p>这样就能够用多项式时间模拟相邻的混合实验，并且保证相同输入得到相同输出</p>
+<p>具体的，构造一个区分器 <span class="arithmatex">\(A'\)</span>，它接收 <span class="arithmatex">\(q(n)\)</span> 段未知来源的 <span class="arithmatex">\(2n\)</span>-bit 字符串，并随机选择一个层数 <span class="arithmatex">\(i\in\{0,\ldots,n-1\}\)</span></p>
+<p>当 <span class="arithmatex">\(D\)</span> 查询一个新的长度为 <span class="arithmatex">\(i\)</span> 的前缀时，<span class="arithmatex">\(A'\)</span> 就拿出下一段字符串，把前后两半分别作为该结点的左、右子结点，并继续按照 GGM 的规则向下计算。如果这个前缀已经出现过，则复用之前的值</p>
+<ul>
+<li>若输入 <span class="arithmatex">\(A'\)</span> 的每段字符串都是独立的 PRG 输出，那么模拟的就是 <span class="arithmatex">\(H_i\)</span></li>
+<li>若输入 <span class="arithmatex">\(A'\)</span> 的每段字符串都是独立真随机，那么模拟的就是 <span class="arithmatex">\(H_{i+1}\)</span></li>
+</ul>
+<p>特别注意，同一个前缀的两个子结点必须来自<u>同一段</u> <span class="arithmatex">\(2n\)</span>-bit 字符串，不能在每次函数查询时重新生成，否则会破坏随机函数对相同输入输出一致的性质</p>
+<p>记</p>
+<div class="arithmatex">\[
+\beta_i=\Pr[D^{H_i(\cdot)}(1^n)=1]
+\]</div>
+<p>由于 <span class="arithmatex">\(A'\)</span> 均匀随机选择 <span class="arithmatex">\(i\)</span>，我们同样得到</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\Pr[A'(r_1||\cdots||r_q)=1]\\
+&amp;\qquad-\Pr[A'(G(s_1)||\cdots||G(s_q))=1]\\
+&amp;=\frac1n\sum_{i=0}^{n-1}(\beta_{i+1}-\beta_i)\\
+&amp;=\frac{\beta_n-\beta_0}{n}
+\end{aligned}
+\]</div>
+<p>而我们刚才已经证明，多项式个独立 PRG 输出与真随机字符串不可区分，所以左边的绝对值是可忽略函数。乘上多项式 <span class="arithmatex">\(n\)</span> 之后仍然可忽略，因此</p>
+<div class="arithmatex">\[
+|\beta_n-\beta_0|
+\leq n\cdot\operatorname{negl}(n)
+\]</div>
+<p>结合 <span class="arithmatex">\(H_0\)</span> 和 <span class="arithmatex">\(H_n\)</span> 的定义</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\left|
+\Pr[D^{F_k(\cdot)}(1^n)=1]
+-
+\Pr[D^{f(\cdot)}(1^n)=1]
+\right|\\
+&amp;\leq\operatorname{negl}'(n)
+\end{aligned}
+\]</div>
+<p>以上，我们完成了证明：</p>
+<div class="arithmatex">\[
+G\text{ is a PRG}
+\Longrightarrow
+F\text{ is a PRF}
+\]</div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T21:24:11.062792+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T21:26:43.328923+08:00">2026-10-28</time></span></div></div></div>
 
 
 

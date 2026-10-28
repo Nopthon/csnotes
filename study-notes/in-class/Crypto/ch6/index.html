@@ -1,0 +1,6408 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ch5/">
+      
+      
+        <link rel="next" href="../../Networks/">
+      
+      
+        
+      
+      
+      
+      
+        
+        
+        
+          <link rel="icon" href="../../../../assets/burger.svg">
+        
+      
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-materialx-10.2.0">
+    
+    
+      
+        <title>Block Cipher - CSNote</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.d7aee198.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a45159b5.min.css">
+      
+    
+    
+
+    
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap">
+    
+      <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkai-regular.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkaimono-bold.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../../../assets/document_dates/core/core.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+        </style></head>
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" data-mx-topbar="glass">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="toc" type="checkbox" id="__toc" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__toc"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-6-block-cipher" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="CSNote" class="md-header__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../../assets/burger.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNote
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Block Cipher
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Course-notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../gadgets/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="CSNote" class="md-nav__button md-logo" aria-label="CSNote" data-md-component="logo">
+      
+  <img src="../../../../assets/burger.svg" alt="logo">
+
+    </a>
+    CSNote
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course-notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Course-notes
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crypto
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Crypto
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classical Ciphers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Perfect Secrecy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computational Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream Cipher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPA Security and Pseudorandom Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Cipher
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Cipher
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#modes-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes of Operation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes of Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OFB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-cipher-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Cipher Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Cipher Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avalanche-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avalanche Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confusion-and-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confusion and Diffusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-rounds-of-spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Rounds of SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avalanche-effect-in-spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avalanche Effect in SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feistel-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feistel Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des-round-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DES Round Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-of-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security of DES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triple-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triple DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Triple DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meet-in-the-middle-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meet-in-the-Middle Attack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3des-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3DES Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aes-round-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES Round Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-of-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security of AES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-in-network-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES in Network Communication
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Networks/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networks
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networks
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networks/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networks/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networks/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Numerical-method/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算方法
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数求根，牛顿法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    插值，秘密分享，自纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chebyshev 插值与 Chebyshev 多项式，范数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最小二乘法，Gram-Schmidt 正交化与 QR 分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FFT，高斯消元与LU分解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算子范数，条件数和迭代法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征值与幂迭代
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>特征值的其它迭代方法，SVD</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>迭代法解线性方程组：梯度下降方法与共轭梯度</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>幂迭代的特例：随机游走与马尔可夫链</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>谱图论</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>电阻电路网络，碰撞时间和遍历时间</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>线性规划入门</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Numerical-method/ch14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>LP 顶点，对偶性和零和游戏</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ML/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习导论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器学习导论
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    绪论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch1-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch1-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch1-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础-Extra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型评估与选择
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch3-extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维：主成分分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>神经网络</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>深度学习</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>贝叶斯分类器</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>集成学习</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>聚类</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法设计与分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法设计与分析
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divide and Conque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Greedy Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NP-Completeness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ICS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ICS/ICS-Theory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Theory
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机系统概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据的机器级表示与处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序转换与指令系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的机器级表示
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程序的链接与加载执行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    存储器层次结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虚拟存储器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进程与异常控制流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Theory/ch9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <del>I/O 操作的实现</del>
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_7_3" id="__nav_2_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICS Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICS Labs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Labs/Binalab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binalab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Labs/Linklab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linklab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICS-Labs/Bufolab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bufolab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ICS/ICSPA-x86/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ICSPA x86 note
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7_4" id="__nav_2_7_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ICSPA x86 note
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA2-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/i386/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    i386 指令结构 for PA2-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA2-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA2-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA2-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/Before_PA3_%26%26_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Before PA3&amp;&amp;4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA3-3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA4-0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA4-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA4-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/PA4-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PA4-3
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ICS/ICSPA-x86/A_journey_of_debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A journey of debugging
+  
+
+    
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--encrypted"></span>
+  
+
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Network-attack-and-defense-in-action/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络攻防实战 Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络攻防实战 Labs
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab06.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab06.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab07%28PWN%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab07(PWN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Network-attack-and-defense-in-action/lab09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机事件与概率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量及其概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机变量的数字特征
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    极限理论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    统计量与抽样分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参数估计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    假设检验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability/tip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../DS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构 OJ Ans
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构 OJ Ans
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 4 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 5 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/Exam1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 1 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 6 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 7 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 8 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 9 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/Exam2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 2 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 10 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 11 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/OJ12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 12 次实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DS/Exam3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第 3 次竞赛
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../out-of-class/5th-the-beauty-of-TCS/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5th-The-Beauty-Of-TCS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5th-The-Beauty-Of-TCS
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/graph-coloring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Coloring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/graph-streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/intro-to-quantum-computation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to QC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/modern-hash-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Hashing Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/differential-privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Differential Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/addictive-combinatorics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Addictive Combinatorics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../out-of-class/5th-the-beauty-of-TCS/distributed-computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distributed Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../gadgets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    杂项
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../gadgets/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇奇怪怪的网站推荐
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="#modes-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes of Operation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes of Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OFB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-cipher-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Cipher Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Block Cipher Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avalanche-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avalanche Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confusion-and-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confusion and Diffusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-rounds-of-spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Rounds of SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avalanche-effect-in-spn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avalanche Effect in SPN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feistel-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feistel Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#des-round-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DES Round Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-of-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security of DES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triple-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triple DES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Triple DES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meet-in-the-middle-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meet-in-the-Middle Attack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3des-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3DES Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aes-round-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES Round Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-of-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security of AES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-in-network-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES in Network Communication
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    intro
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Course-notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Crypto
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="lecture-6-block-cipher">Lecture 6. Block Cipher</h1>
+<p>形式化的，一个分组密码就是高效的带密钥置换函数（Efficient Keyed Permutation）</p>
+<div class="arithmatex">\[
+F:\{0,1\}^n\times\{0,1\}^{\ell}\rightarrow\{0,1\}^{\ell}
+\]</div>
+<p>其中 <span class="arithmatex">\(n\)</span> 为密钥长度，<span class="arithmatex">\(\ell\)</span> 为分组长度（Block Length）。给定固定的密钥 <span class="arithmatex">\(k\in\{0,1\}^n\)</span>，我们得到一个具体的置换</p>
+<div class="arithmatex">\[
+F_k:\{0,1\}^{\ell}\rightarrow\{0,1\}^{\ell}
+\]</div>
+<p>这里的置换意味着 <span class="arithmatex">\(F_k\)</span> 是一个双射，不同输入必须对应不同输出，同时每个输出都有唯一的原像。于是我们可以定义逆函数 <span class="arithmatex">\(F_k^{-1}\)</span>，满足</p>
+<div class="arithmatex">\[
+F_k^{-1}(F_k(x))=x
+\]</div>
+<p>如果 <span class="arithmatex">\(F_k(x)\)</span> 与 <span class="arithmatex">\(F_k^{-1}(y)\)</span> 均可以在多项式时间内计算，那么它就是高效的，这使得它能够用于实际的加密和解密</p>
+<p><span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(\ell\)</span> 没有必要相同。比如后面介绍的 AES 可以使用不同长度的密钥，但每次处理的分组始终是固定的 128-bit</p>
+<hr>
+<p>一个符合数学定义的分组密码不一定安全。比如一个完全不使用密钥的恒等置换 <span class="arithmatex">\(F_k(x)=x\)</span>，它符合可逆性和高效性，但显然无法实现保密</p>
+<p>因此我们还需要额外要求其安全性。在理论上，希望分组密码至少满足 PRP，最好能够满足 Strong PRP，即在对应的预言机访问模型下，与真正随机置换计算不可区分</p>
+<p>在实际密码分析中，我们通常希望已知的最佳攻击没有明显优于穷举密钥的表现。如果密钥长度为 <span class="arithmatex">\(n\)</span>，穷举所有密钥的计算规模大致是 <span class="arithmatex">\(|\mathcal K|=2^n\)</span>。注意到这个目标比 PRP 安全性稍弱</p>
+<p>（具有 <span class="arithmatex">\(n\)</span>-bit 密钥的分组密码不代表 <span class="arithmatex">\(n\)</span>-bit 的实际安全强度，与实际设计有关）</p>
+<h2 id="modes-of-operation">Modes of Operation</h2>
+<p>如果直接把分组密码当作完整的加密方案，就会遇到一个问题：<span class="arithmatex">\(F_k\)</span> 每次只能处理 <span class="arithmatex">\(\ell\)</span> bit 的数据，并且对于固定 <span class="arithmatex">\(k\)</span>，它是一个确定性函数</p>
+<p>我们希望通过某种工作模式（Mode of Operation），把分组密码扩展为能够处理长消息的加密方案，并且能够满足之前定义的 CPA 安全性</p>
+<p>假设明文被划分为若干个分组</p>
+<div class="arithmatex">\[
+m=m_1||m_2||\cdots||m_t
+\]</div>
+<p>其中 <span class="arithmatex">\(m_i\in\{0,1\}^{\ell}\)</span>。这里先考虑消息长度恰好是分组长度整数倍的情形</p>
+<p>常见的工作模式有 ECB、CBC、OFB、CTR，它们使用相同的底层分组密码，却通过不同的输入构造和分组连接关系，得到不同的安全性质</p>
+<h3 id="ecb">ECB</h3>
+<p>ECB（Electronic Codebook，电子密码本模式）是最直接的做法：把每个明文分组单独输入分组密码，加密后拼接全部结果</p>
+<div class="arithmatex">\[
+c_i=F_k(m_i)
+\\
+c=F_k(m_1)||F_k(m_2)||\cdots||F_k(m_t)
+\]</div>
+<p>解密时只需要独立计算</p>
+<div class="arithmatex">\[
+m_i=F_k^{-1}(c_i)
+\]</div>
+<p>这个模式的问题非常明显：对于固定密钥，相同的明文分组永远产生相同的密文分组（它是确定性加密）</p>
+<div class="arithmatex">\[
+m_i=m_j\Longrightarrow c_i=c_j
+\]</div>
+<p>我们甚至可以直接构造 CPA 攻击。攻击者选择两个不同的等长分组 <span class="arithmatex">\(m_0,m_1\)</span>，攻击者选择两个等长消息（其中 <span class="arithmatex">\(A\ne B\)</span>）：</p>
+<div class="arithmatex">\[
+m_0=A\Vert A
+\]</div>
+<div class="arithmatex">\[
+m_1=A\Vert B
+\]</div>
+<p>挑战者随机选择 <span class="arithmatex">\(\beta\in\{0,1\}\)</span>，返回：</p>
+<div class="arithmatex">\[
+c=\operatorname{Enc}_k(m_\beta)
+\]</div>
+<p>攻击者查看两个密文分组：</p>
+<ul>
+<li>如果 <span class="arithmatex">\(c_1=c_2\)</span>，猜测 <span class="arithmatex">\(\beta=0\)</span></li>
+<li>如果 <span class="arithmatex">\(c_1\ne c_2\)</span>，猜测 <span class="arithmatex">\(\beta=1\)</span></li>
+</ul>
+<p>因为 <span class="arithmatex">\(F_k\)</span> 是置换，所以攻击者的判断永远正确：</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}_{A,\Pi}^{\mathrm{cpa}}(n)=1]=1
+\]</div>
+<p>对于多分组的情形，即使攻击者不知道原始明文，也可以根据重复的密文分组推断明文的重复结构。图像学中，ECB 加密后的图像仍然可能保留原始图案的轮廓</p>
+<h3 id="cbc">CBC</h3>
+<p>CBC（Cipher Block Chaining，密码分组链接模式）通过将上一分组的密文与当前明文异或，再输入分组密码，使不同分组之间产生关联</p>
+<p>首先为每条消息均匀随机生成一个初始化向量（Initialization Vector，IV），其长度等于分组长度</p>
+<div class="arithmatex">\[
+IV\xleftarrow{\$}\{0,1\}^{\ell}
+\]</div>
+<p>将其记为第零个密文分组 <span class="arithmatex">\(c_0\)</span>，然后依次计算</p>
+<div class="arithmatex">\[
+c_0=IV
+\\
+c_i=F_k(m_i\oplus c_{i-1}),\qquad i=1,\ldots,t
+\]</div>
+<p>完整密文包括公开的 IV</p>
+<div class="arithmatex">\[
+c=c_0||c_1||\cdots||c_t
+\]</div>
+<p>解密时，先对密文分组计算逆置换，再和上一密文分组异或</p>
+<div class="arithmatex">\[
+m_i=F_k^{-1}(c_i)\oplus c_{i-1}
+\]</div>
+<p>我们直接验证正确性</p>
+<div class="arithmatex">\[
+\begin{aligned}
+F_k^{-1}(c_i)\oplus c_{i-1}
+&amp;=F_k^{-1}(F_k(m_i\oplus c_{i-1}))\oplus c_{i-1}\\
+&amp;=m_i\oplus c_{i-1}\oplus c_{i-1}\\
+&amp;=m_i
+\end{aligned}
+\]</div>
+<p>CBC 的关键在于每次加密都生成新的随机 IV。即使同一条明文在同一密钥下被多次加密，通常也会因为 IV 不同而得到不同的密文，因此它是概率加密</p>
+<hr>
+<p>如果底层 <span class="arithmatex">\(F\)</span> 是安全的 PRP，且每次加密都正确生成独立均匀随机的 IV，那么 CBC 模式满足 CPA 安全性</p>
+<p>为什么它在结构上比 ECB 安全？因为即使两个位置的明文分组相同，输入到分组密码的通常不同，不会保留 ECB 的简单重复结构</p>
+<p>但 CBC 也存在一个明显缺点：加密无法并行。为了计算 <span class="arithmatex">\(c_i\)</span>，必须先得到 <span class="arithmatex">\(c_{i-1}\)</span>，因此当前分组的计算依赖上一分组的加密结果</p>
+<p>相对的，解密时所有密文分组 <span class="arithmatex">\(c_i\)</span> 已经给出，每个 <span class="arithmatex">\(F_k^{-1}(c_i)\)</span> 可以独立计算，因此解密具有并行化的可能</p>
+<h3 id="ofb">OFB</h3>
+<p>OFB（Output Feedback，输出反馈模式）的思路与 CBC 不同：我们不再把明文输入分组密码，而是利用分组密码生成伪随机的密钥流，再像 OTP 一样与明文异或</p>
+<p>每加密一条新消息，先均匀随机生成 IV，并把它作为初始状态</p>
+<div class="arithmatex">\[
+y_0=IV
+\]</div>
+<p>之后递推生成密钥流分组</p>
+<div class="arithmatex">\[
+y_i=F_k(y_{i-1}),\qquad i=1,\ldots,t
+\]</div>
+<p>再分别与明文异或</p>
+<div class="arithmatex">\[
+c_i=m_i\oplus y_i
+\]</div>
+<p>完整密文为</p>
+<div class="arithmatex">\[
+c=IV||c_1||c_2||\cdots||c_t
+\]</div>
+<p>解密者拿到 IV 后，使用相同的密钥生成 <span class="arithmatex">\(y_1,y_2,\cdots,y_t\)</span>，然后直接计算</p>
+<div class="arithmatex">\[
+m_i=c_i\oplus y_i
+\]</div>
+<p>因此 OFB 在加解密中都只需要计算正向函数 <span class="arithmatex">\(F_k\)</span>，<u>不要求底层函数具有逆函数</u>。只要 <span class="arithmatex">\(F_k\)</span> 是合适的 PRF，就可以构造对应的安全模式（而不强制要求为 PRP）</p>
+<p>另外，OFB 的密钥流生成与明文没有关系，所以我们可以在不知道明文内容时预先计算</p>
+<div class="arithmatex">\[
+y_1,y_2,\cdots,y_t
+\]</div>
+<p>等到真正需要加密时，再执行 XOR 操作即可</p>
+<p>但 OFB 的密钥流具有递推关系，生成 <span class="arithmatex">\(y_i\)</span> 需要先得到 <span class="arithmatex">\(y_{i-1}\)</span>，因此密钥流本身无法并行生成，解密时也存在相同的依赖</p>
+<hr>
+<p>和之前的流密码一样，OFB 需要避免重复使用相同密钥流。如果两次加密生成相同的 <span class="arithmatex">\(y_i\)</span>，那么对应密文就会出现</p>
+<div class="arithmatex">\[
+c_i\oplus c_i'
+=(m_i\oplus y_i)\oplus(m_i'\oplus y_i)
+=m_i\oplus m_i'
+\]</div>
+<p>因此新的 IV 与密钥流输入重复问题直接影响其安全性</p>
+<p>当 <span class="arithmatex">\(F\)</span> 满足 PRF 安全性、IV 正确随机生成、消息与查询次数受到多项式限制时，OFB 可以达到 CPA 安全</p>
+<h3 id="ctr">CTR</h3>
+<p>CTR（Counter Mode，计数器模式）同样通过分组密码生成密钥流，只不过它不采用 OFB 的递推形式，而是使用一个初始计数器值作为输入的起点</p>
+<p>每次加密均匀随机选择</p>
+<div class="arithmatex">\[
+ctr\xleftarrow{\$}\{0,1\}^{\ell}
+\]</div>
+<p>之后对第 <span class="arithmatex">\(i\)</span> 个明文分组计算</p>
+<div class="arithmatex">\[
+y_i=F_k(ctr+i)
+\\
+c_i=m_i\oplus y_i
+\]</div>
+<p>这里 <span class="arithmatex">\(ctr+i\)</span> 在 <span class="arithmatex">\(\ell\)</span>-bit 的计数器空间内进行运算，使用时需要保证不同位置的计数器输入不会发生不希望的重复</p>
+<p>完整密文为</p>
+<div class="arithmatex">\[
+c=ctr||c_1||c_2||\cdots||c_t
+\]</div>
+<p>解密时使用相同的初始计数器和密钥，重新计算每个分组的 <span class="arithmatex">\(y_i\)</span>，再异或恢复明文</p>
+<div class="arithmatex">\[
+m_i=c_i\oplus F_k(ctr+i)
+\]</div>
+<p>我们可以发现 CTR 和 OFB 的主要区别在于密钥流生成方式</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{OFB:}\quad &amp;y_i=F_k(y_{i-1})\\
+\text{CTR:}\quad &amp;y_i=F_k(ctr+i)
+\end{aligned}
+\]</div>
+<p>OFB 必须按顺序生成，而 CTR 的每个输入只依赖初始计数器及分组编号，因此 <span class="arithmatex">\(y_1,y_2,\cdots,y_t\)</span> 可以同时计算</p>
+<p>这意味着 CTR 的加密和解密都可以并行化，也可以在事先知道计数器时预先生成密钥流。和 OFB 一样，CTR 的加解密都只需要正向函数 <span class="arithmatex">\(F_k\)</span></p>
+<p>CTR 同样具有 CPA 安全性，前提是底层 PRF 安全，并且生成的计数器输入没有以不可忽略的概率发生碰撞</p>
+<p>这里需要注意一个细节：仅仅要求不同消息的初始 <span class="arithmatex">\(ctr\)</span> 不完全相同还不够，因为如果一条消息使用 <span class="arithmatex">\(ctr,ctr+1,ctr+2\)</span>，另一条消息从 <span class="arithmatex">\(ctr+1\)</span> 开始，那么两条消息的密钥流输入仍然有重合</p>
+<p>一旦对相同密钥重复使用了同一个计数器输入，就会出现相同的 XOR 掩码，产生与 Two-Time Pad 相似的问题</p>
+<h3 id="comparison">Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>加密公式</th>
+<th>是否需要随机 IV / ctr</th>
+<th>加密是否可并行</th>
+<th>解密是否需要 <span class="arithmatex">\(F_k^{-1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECB</td>
+<td><span class="arithmatex">\(c_i=F_k(m_i)\)</span></td>
+<td>不需要</td>
+<td>可以</td>
+<td>需要</td>
+</tr>
+<tr>
+<td>CBC</td>
+<td><span class="arithmatex">\(c_i=F_k(m_i\oplus c_{i-1})\)</span></td>
+<td>需要随机 IV</td>
+<td>不可以</td>
+<td>需要</td>
+</tr>
+<tr>
+<td>OFB</td>
+<td><span class="arithmatex">\(c_i=m_i\oplus F_k(y_{i-1})\)</span></td>
+<td>需要随机 IV</td>
+<td>密钥流不能并行生成</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>CTR</td>
+<td><span class="arithmatex">\(c_i=m_i\oplus F_k(ctr+i)\)</span></td>
+<td>需要安全的 ctr</td>
+<td>可以</td>
+<td>不需要</td>
+</tr>
+</tbody>
+</table>
+<p>只有 ECB 一定不满足 CPA-Security</p>
+<h3 id="security">Security</h3>
+<p>我们进一步证明 CBC 的安全性结论（Theorem 3.32）：如果 <span class="arithmatex">\(F\)</span> 是安全的 PRP，那么使用随机 IV 的 CBC 模式满足 CPA 安全</p>
+<p>证明思路与前面用 PRF 构造 CPA-Secure Encryption 的过程类似，我们先构造一个理想化方案 <span class="arithmatex">\(\tilde\Pi\)</span>：将真实的 <span class="arithmatex">\(F_k\)</span> 替换为从 <span class="arithmatex">\(\text{Perm}_\ell\)</span> 中均匀抽取的随机置换 <span class="arithmatex">\(f\)</span></p>
+<div class="arithmatex">\[
+c_0=IV
+\\
+c_i=f(m_i\oplus c_{i-1})
+\]</div>
+<p>如果存在 PPT 攻击者 <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分真实 CBC 和理想 CBC，那么可以构造 PRP 区分器 <span class="arithmatex">\(D\)</span>，用自己的未知函数预言机代替 <span class="arithmatex">\(F_k\)</span> 进行加密模拟，从而区分 PRP 和随机置换，违反 PRP 安全性</p>
+<p>因此有</p>
+<div class="arithmatex">\[
+\left|
+\Pr[\operatorname{PrivK}_{A,\Pi}^{\mathrm{cpa}}=1]
+-
+\Pr[\operatorname{PrivK}_{A,\tilde\Pi}^{\mathrm{cpa}}=1]
+\right|
+\leq\operatorname{negl}(n)
+\]</div>
+<p>接下来考虑理想方案。令输入到随机置换的每个值为</p>
+<div class="arithmatex">\[
+x_i=m_i\oplus c_{i-1}
+\]</div>
+<p>由于每条消息都使用新的随机 IV，而不同轮次的密文输出在随机置换模型下也具有随机性，所以只要这些 <span class="arithmatex">\(x_i\)</span> 没有发生重复，攻击者就无法利用重复输入得到确定的密文关系</p>
+<p>假设所有加密查询和挑战消息总共处理了 <span class="arithmatex">\(Q(n)\)</span> 个分组。与随机函数 / 随机置换的碰撞分析类似，这种构造中发生输入重复等坏事件的概率可以由生日悖论控制，量级为</p>
+<div class="arithmatex">\[
+\Pr[\mathrm{Bad}]
+\leq O\left(\frac{Q(n)^2}{2^\ell}\right)
+\]</div>
+<p>在没有坏事件时，理想 CBC 的输出与随机分组序列不可区分；即使在坏事件发生时采取最保守的攻击成功率上界，也能得到</p>
+<div class="arithmatex">\[
+\Pr[\operatorname{PrivK}_{A,\Pi}^{\mathrm{cpa}}=1]
+\leq
+\frac12+
+\operatorname{negl}(n)+
+O\left(\frac{Q(n)^2}{2^\ell}\right)
+\]</div>
+<p>当分组长度随安全参数充分增长，而 <span class="arithmatex">\(Q(n)\)</span> 只是多项式规模时，后两项都是可忽略的，因此 CBC 满足 CPA 安全</p>
+<blockquote>
+<p>这对 OFB、CTL 也是一样的，证明思路相近</p>
+<p>只需要替换碰撞事件，其他的内容几乎一样</p>
+</blockquote>
+<h2 id="block-cipher-design">Block Cipher Design</h2>
+<p>前面我们一直假设存在一个安全的 PRP，并用它设计加密模式。现在进一步分析如何实际构造一个这样的置换</p>
+<p>直接从 <span class="arithmatex">\(\text{Perm}_\ell\)</span> 中均匀抽取一个随机置换是不现实的，因为对于较大的分组长度，需要描述的输入输出对应关系数量是指数级的</p>
+<p>因此实际分组密码通常使用多个简单、可以高效实现的操作，通过多轮组合构造一个复杂的置换。这里首先引入一个用于评价分组密码设计的性质</p>
+<h3 id="avalanche-effect">Avalanche Effect</h3>
+<p>雪崩效应（Avalanche Effect）要求：对输入进行非常小的改变，也应该让输出的许多 bit 发生变化</p>
+<p>比如对于两个输入 <span class="arithmatex">\(x,x'\)</span>，如果它们只相差一个 bit</p>
+<div class="arithmatex">\[
+x\oplus x'=2^j
+\]</div>
+<p>那么我们希望 <span class="arithmatex">\(F_k(x)\)</span> 和 <span class="arithmatex">\(F_k(x')\)</span> 在输出上产生广泛的差异，而不只改变某一个固定位置</p>
+<p>这是为了避免输入与输出之间存在容易利用的局部关联。如果改变明文的一位只影响密文的某一位，那么攻击者就可以通过输入差分追踪输出变化，从而分析加密结构</p>
+<blockquote>
+<p>雪崩效应是分组密码设计中的重要目标，但不能仅凭观察到雪崩效应就证明它满足 PRP 安全。形式化安全性仍然需要依靠攻击模型和不可区分性的定义</p>
+</blockquote>
+<h3 id="confusion-and-diffusion">Confusion and Diffusion</h3>
+<p>Shannon 提出的混淆与扩散（Confusion-Diffusion）思想，是构造分组密码的一种基本方式</p>
+<p>我们希望从许多小规模、相对简单的变换出发，通过反复组合，使最终的整个分组表现得像一个复杂的随机置换</p>
+<p>具体来说：</p>
+<ul>
+<li>混淆（Confusion）：使用较小的非线性代换，打乱局部输入与输出之间的关系，降低攻击者直接推断密钥或明文的可能</li>
+</ul>
+<p>在分组密码中，通常由非线性变换的 S-box 完成</p>
+<ul>
+<li>扩散（Diffusion）：将局部的变化传播到其他位置，使输入某一部分的差异能够影响更多输出 bit</li>
+</ul>
+<p>避免小分组的独立性带来局部分析的可能性</p>
+<p>为什么需要重复多轮？因为一次局部代换只能影响有限的输入位置，而后续的扩散会把变化分散到更多小分组中，使下一轮混淆影响更多位置。随着轮数增加，最初很小的差异便有可能扩散到整个输出分组</p>
+<h3 id="spn">SPN</h3>
+<p>SPN（Substitution-Permutation Network，代换-置换网络）是将混淆与扩散组织为多轮计算的一类分组密码结构</p>
+<p>它的每一轮通常包含三个步骤</p>
+<ol>
+<li>Key Mixing：将当前状态与对应的轮密钥异或</li>
+<li>Substitution：通过若干个固定且可逆的 S-box 对局部小分组进行代换</li>
+<li>Permutation：对 S-box 的输出 bit 进行重新排列，使不同位置的信息在下一轮相互混合</li>
+</ol>
+<p>我们考虑一个当前状态为 <span class="arithmatex">\(x_{i-1}\)</span>、轮密钥为 <span class="arithmatex">\(k_i\)</span> 的轮计算</p>
+<p>首先通过 XOR 混合轮密钥</p>
+<div class="arithmatex">\[
+u_i=x_{i-1}\oplus k_i
+\]</div>
+<p>再把 <span class="arithmatex">\(u_i\)</span> 切分成多个小分组，分别输入 S-box。记由所有 S-box 组合得到的变换为 <span class="arithmatex">\(S\)</span>，则</p>
+<div class="arithmatex">\[
+v_i=S(u_i)
+\]</div>
+<p>最后通过一个置换 <span class="arithmatex">\(P\)</span> 对 <span class="arithmatex">\(v_i\)</span> 的 bit 位置进行重新排列</p>
+<div class="arithmatex">\[
+x_i=P(v_i)
+\]</div>
+<p>因此一轮 SPN 可以概括为</p>
+<div class="arithmatex">\[
+x_i=P(S(x_{i-1}\oplus k_i))
+\]</div>
+<p>这里 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(P\)</span> 都是公开算法，安全性不依赖于隐藏这些代换表或位置映射，只有密钥需要保密。这仍然符合之前学习的 Kerckhoffs 原则</p>
+<hr>
+<p>我们进一步区分 S-box 和 P-box 的作用</p>
+<ul>
+<li>S-box（Substitution Box）是一个小规模的置换。它负责非线性代换，比如将一个固定长度的小分组映射为另一个等长的小分组。由于代换必须可逆，所以不允许不同输入映射成同一输出</li>
+</ul>
+<p>S-box 的内部结构、置换规则等算法细节都是公开的，只有密钥需要保密。它满足 Kerckhoffs' Principle</p>
+<ul>
+<li>P-box（Permutation Box）负责把输入 bit 重新分配到不同的位置。它不会凭空增加信息，只是改变各 bit 的连接关系，使某个 S-box 的输出能够进入下一轮的多个 S-box</li>
+</ul>
+<p>如果只进行 S-box 代换而不进行跨分组的混合，那么不同小分组之间仍然是相互独立的，攻击者可以分别分析它们。P-box 的作用就是打破这种独立关系</p>
+<p>另一方面，如果没有非线性代换，整个方案容易退化为一系列 XOR 与线性位置变换的组合，同样难以抵御基于代数结构的分析</p>
+<p>这就解释了为什么 SPN 需要同时存在 Substitution 和 Permutation</p>
+<h3 id="multiple-rounds-of-spn">Multiple Rounds of SPN</h3>
+<p>一个完整的 SPN 不会只执行一轮，而是将前一轮的输出作为下一轮输入，并由主密钥（Master Key）通过密钥调度（Key Schedule）生成每一轮使用的子密钥</p>
+<p>对于 <span class="arithmatex">\(r\)</span> 轮 SPN，前 <span class="arithmatex">\(r\)</span> 轮都执行 Key Mixing、Substitution 和 Permutation，最后还需要一次 Key Mixing</p>
+<div class="arithmatex">\[
+x_0=m
+\]</div>
+<div class="arithmatex">\[
+x_i=P(S(x_{i-1}\oplus k_i)),\qquad i=1,\ldots,r
+\]</div>
+<div class="arithmatex">\[
+c=x_r\oplus k_{r+1}
+\]</div>
+<p>因此这个结构一共使用 <span class="arithmatex">\(r+1\)</span> 个轮密钥</p>
+<p>轮密钥之间并不是完全独立随机选择的，而是由同一个主密钥派生。实际加密算法只需要保存或获取主密钥，就能按照确定的密钥调度得到对应的 <span class="arithmatex">\(k_1,k_2,\cdots,k_{r+1}\)</span></p>
+<p>为了使整个网络能够解密，每一步也必须可逆：XOR 可以通过再次 XOR 相同轮密钥恢复，S-box 本身具有逆映射，P-box 则可以通过逆置换恢复原始 bit 顺序</p>
+<p>所以解密时按照相反的轮顺序，依次执行这些变换的逆运算，就能够还原明文</p>
+<h3 id="avalanche-effect-in-spn">Avalanche Effect in SPN</h3>
+<p>SPN 的雪崩效应主要依赖两个设计细节</p>
+<p>首先，需要使 S-box 对输入 bit 的变化足够敏感。比如只改变一个输入 bit 时，设计希望它能导致至少两个输出 bit 变化，而不是始终只改变一个对应位置</p>
+<p>其次，P-box 应该将同一个 S-box 的输出 bit 分配到下一轮的多个不同 S-box 中</p>
+<p>假设某个输入 bit 的改变首先影响了一个 S-box 的输出，经过 P-box 之后，这些变化会出现在下一轮多个 S-box 的输入中，再经过下一轮代换，就可能影响更多输出 bit</p>
+<p>随着轮数增加，这种影响会进一步传播，最终使密文中大量 bit 对最初的单 bit 改动产生响应</p>
+<p>因此雪崩效应并不是单纯依靠增加轮数获得的，还依赖每轮 S-box 与 P-box 的具体设计</p>
+<h3 id="feistel-network">Feistel Network</h3>
+<p>Feistel Network 是另一种常见的分组密码构造，它与 SPN 有一个重要区别：<u>Feistel 的轮函数本身不需要可逆</u>，仍然可以得到一个整体可逆的分组密码</p>
+<p>我们考虑一个长度为 <span class="arithmatex">\(\ell\)</span> 的输入，并将其均分为左右两个部分</p>
+<div class="arithmatex">\[
+(L_0,R_0),\qquad
+L_0,R_0\in\{0,1\}^{\ell/2}
+\]</div>
+<p>每一轮使用一个轮函数 <span class="arithmatex">\(\hat f_i\)</span> 和轮密钥 <span class="arithmatex">\(k_i\)</span>，固定密钥后记为</p>
+<div class="arithmatex">\[
+f_i(R)=\hat f_i(k_i,R)
+\]</div>
+<p>其中 <span class="arithmatex">\(f_i\)</span> 的输入输出长度都是 <span class="arithmatex">\(\ell/2\)</span>，但不要求 <span class="arithmatex">\(f_i\)</span> 是双射</p>
+<p>第 <span class="arithmatex">\(i\)</span> 轮根据下面的公式更新</p>
+<div class="arithmatex">\[
+\begin{aligned}
+L_i&amp;=R_{i-1}\\
+R_i&amp;=L_{i-1}\oplus f_i(R_{i-1})
+\end{aligned}
+\]</div>
+<p>从计算顺序上看，先将原来的右半部分作为新的左半部分，然后计算原右半部分的轮函数输出，并与原左半部分异或，得到新的右半部分</p>
+<p>这个结构可以重复多轮，上一轮的 <span class="arithmatex">\((L_i,R_i)\)</span> 直接作为下一轮输入。比如一个三轮 Feistel 网络依次执行 <span class="arithmatex">\(f_1,f_2,f_3\)</span>，得到 <span class="arithmatex">\((L_3,R_3)\)</span></p>
+<hr>
+<p>我们进一步证明：即使 <span class="arithmatex">\(f_i\)</span> 不存在逆函数，Feistel 单轮变换也一定可以逆转</p>
+<p>已知本轮输出 <span class="arithmatex">\((L_i,R_i)\)</span>，根据第一条公式直接得到</p>
+<div class="arithmatex">\[
+R_{i-1}=L_i
+\]</div>
+<p>再将它代入第二条公式</p>
+<div class="arithmatex">\[
+R_i=L_{i-1}\oplus f_i(R_{i-1})
+\]</div>
+<p>两侧同时异或 <span class="arithmatex">\(f_i(R_{i-1})\)</span>，得到</p>
+<div class="arithmatex">\[
+\begin{aligned}
+L_{i-1}
+&amp;=R_i\oplus f_i(R_{i-1})\\
+&amp;=R_i\oplus f_i(L_i)
+\end{aligned}
+\]</div>
+<p>因此完整的逆向计算就是</p>
+<div class="arithmatex">\[
+\begin{aligned}
+R_{i-1}&amp;=L_i\\
+L_{i-1}&amp;=R_i\oplus f_i(L_i)
+\end{aligned}
+\]</div>
+<p>整个过程中只需要再次计算 <span class="arithmatex">\(f_i\)</span>，根本不需要调用 <span class="arithmatex">\(f_i^{-1}\)</span></p>
+<p>多轮解密时，只需要从最后一轮开始，按照轮密钥的相反顺序，逐轮恢复左右状态即可</p>
+<p>这使得 Feistel 能够使用一些本身不可逆的复杂函数作为内部轮函数，同时仍然构造出整体可逆的分组密码</p>
+<p>与 SPN 对比，SPN 要求内部的 S-box 和位置混合具有可逆性；Feistel 可以让轮函数不可逆，但依靠特殊的左右结构维持整个映射的可逆性</p>
+<h2 id="des">DES</h2>
+<p>DES（Data Encryption Standard）是采用 Feistel 结构的经典分组密码，其主要参数为</p>
+<ul>
+<li>分组长度为 64-bit</li>
+<li>有效密钥长度为 56-bit</li>
+<li>一共执行 16 轮 Feistel 变换</li>
+</ul>
+<p>在每一轮中，DES 使用一个 48-bit 的轮密钥，并通过一个轮函数，将 32-bit 的输入映射为 32-bit 的输出</p>
+<p>我们记轮函数为</p>
+<div class="arithmatex">\[
+f_i(R)=f(k_i,R)
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+k_i\in\{0,1\}^{48},
+\qquad R\in\{0,1\}^{32}
+\]</div>
+<p>DES 的整体仍然使用 Feistel 的基本更新公式</p>
+<div class="arithmatex">\[
+L_i=R_{i-1}
+\\
+R_i=L_{i-1}\oplus f_i(R_{i-1})
+\]</div>
+<h3 id="des-round-function">DES Round Function</h3>
+<p>DES 的轮函数本身由几个步骤组成</p>
+<p>首先，将 32-bit 的右半部分 <span class="arithmatex">\(R\)</span> 扩展为 48-bit。由于输出比输入长，这一步实际上会按照固定规则重复使用部分 bit，记为扩展函数 <span class="arithmatex">\(E\)</span></p>
+<div class="arithmatex">\[
+E:\{0,1\}^{32}\to\{0,1\}^{48}
+\]</div>
+<p>接下来把扩展结果与 48-bit 轮密钥异或</p>
+<div class="arithmatex">\[
+u=E(R)\oplus k_i
+\]</div>
+<p>将 <span class="arithmatex">\(u\)</span> 切分成 8 个 6-bit 的小分组，每个分组输入一个对应的 S-box。每个 S-box 将 6-bit 输入映射为 4-bit 输出，因此总共重新得到 32-bit</p>
+<div class="arithmatex">\[
+S_j:\{0,1\}^{6}\to\{0,1\}^{4},
+\qquad j=1,\ldots,8
+\]</div>
+<p>这里的 S-box 并不是双射，因为输入输出长度不同，但这并不影响 DES 整体的可逆性，原因正是上一节证明的 Feistel 结构</p>
+<p>最后，将 8 个 S-box 的输出拼接，再通过一个固定的 32-bit 位置置换 <span class="arithmatex">\(P\)</span>，得到轮函数的最终输出</p>
+<div class="arithmatex">\[
+f_i(R)=P(S(E(R)\oplus k_i))
+\]</div>
+<p>其中 <span class="arithmatex">\(S\)</span> 表示 8 个 S-box 的并行代换</p>
+<p>我们可以将整个轮函数的操作顺序理解为</p>
+<div class="arithmatex">\[
+32\text{-bit }R
+\xrightarrow{E}
+48\text{-bit}
+\xrightarrow{\oplus k_i}
+48\text{-bit}
+\xrightarrow{S}
+32\text{-bit}
+\xrightarrow{P}
+32\text{-bit}
+\]</div>
+<p>扩展与轮密钥异或负责让数据和密钥相互作用，S-box 提供非线性变换，最后的 <span class="arithmatex">\(P\)</span> 将结果重新排列，以便后续轮进一步混合</p>
+<h3 id="security-of-des">Security of DES</h3>
+<p>DES 的设计在其历史背景下是比较成熟的，其实用攻击长期以来仍主要依赖穷举密钥的方式。但它有一个根本问题：密钥太短</p>
+<p>DES 只有 56-bit 的有效密钥，因此穷举密钥空间的计算规模大约是 <span class="arithmatex">\(2^{56}\)</span>，这个规模已经无法满足现代加密系统的安全需求，DES 因此逐渐被 AES 取代</p>
+<blockquote>
+<p>DES 的主要实际问题是密钥长度，而不是因为 Feistel 结构本身一定不安全。Feistel 是一种构造方法，具体安全性仍然取决于轮函数、轮数和密钥设计</p>
+</blockquote>
+<h2 id="triple-des">Triple DES</h2>
+<p>一种直接的改进思路是增加密钥长度，比如将 DES 连续执行多次</p>
+<p>但先考虑使用两个独立密钥的 Double DES，定义</p>
+<div class="arithmatex">\[
+F'_{k_1,k_2}(x)=F_{k_2}(F_{k_1}(x))
+\]</div>
+<p>其中每一个 <span class="arithmatex">\(k_i\)</span> 都是 56-bit 密钥</p>
+<p>看上去两个密钥合计为 112-bit，似乎穷举密钥的复杂度将从 <span class="arithmatex">\(2^{56}\)</span> 增加到 <span class="arithmatex">\(2^{112}\)</span>。但实际上这种简单的两次加密会受到 Meet-in-the-Middle Attack（中间相遇攻击）</p>
+<h3 id="meet-in-the-middle-attack">Meet-in-the-Middle Attack</h3>
+<p>假设攻击者掌握一组明密文对 <span class="arithmatex">\((m,c)\)</span>，并且知道</p>
+<div class="arithmatex">\[
+c=F_{k_2}(F_{k_1}(m))
+\]</div>
+<p>那么必然有</p>
+<div class="arithmatex">\[
+F_{k_1}(m)=F_{k_2}^{-1}(c)
+\]</div>
+<p>这意味着攻击者可以从加密的两端向中间计算，不需要同时暴力枚举所有 <span class="arithmatex">\((k_1,k_2)\)</span></p>
+<p>具体的：</p>
+<ol>
+<li>枚举所有 <span class="arithmatex">\(2^{56}\)</span> 个 <span class="arithmatex">\(k_1\)</span>，计算 <span class="arithmatex">\(F_{k_1}(m)\)</span>，并将中间结果和对应密钥保存在表中</li>
+<li>枚举所有 <span class="arithmatex">\(2^{56}\)</span> 个 <span class="arithmatex">\(k_2\)</span>，计算 <span class="arithmatex">\(F_{k_2}^{-1}(c)\)</span>，在之前的表中查找是否存在相同的中间结果</li>
+<li>对匹配的候选密钥对，使用额外的明密文对进行验证</li>
+</ol>
+<p>原本直接枚举所有密钥对，需要大约</p>
+<div class="arithmatex">\[
+2^{56}\cdot2^{56}=2^{112}
+\]</div>
+<p>次尝试</p>
+<p>而通过中间结果的存储和查找，主要计算复杂度可以下降到大约</p>
+<div class="arithmatex">\[
+2^{56}+2^{56}\approx2^{57}
+\]</div>
+<p>不过代价是需要存储大约 <span class="arithmatex">\(2^{56}\)</span> 个中间结果，并且因为不同候选密钥对可能恰好产生相同中间值，还需要额外验证</p>
+<p>我们因此得到一个很重要的结论：连续使用两个独立密钥加密，不意味着安全强度一定能够直接相加</p>
+<h3 id="3des-construction">3DES Construction</h3>
+<p>为了解决 DES 密钥长度不足的问题，3DES（Triple DES）将 DES 执行三次，采用 EDE（Encrypt-Decrypt-Encrypt）的形式</p>
+<p>这里 <span class="arithmatex">\(F_k\)</span> 表示使用密钥 <span class="arithmatex">\(k\)</span> 的 DES 加密，<span class="arithmatex">\(F_k^{-1}\)</span> 表示对应的 DES 解密</p>
+<p>有两种常见构造</p>
+<ul>
+<li>Variant 1：使用三个独立密钥 <span class="arithmatex">\(k_1,k_2,k_3\)</span></li>
+</ul>
+<div class="arithmatex">\[
+F''_{k_1,k_2,k_3}(x)
+=
+F_{k_3}(F_{k_2}^{-1}(F_{k_1}(x)))
+\]</div>
+<ul>
+<li>Variant 2：使用两个独立密钥 <span class="arithmatex">\(k_1,k_2\)</span>，其中第一层和第三层使用相同密钥</li>
+</ul>
+<div class="arithmatex">\[
+F''_{k_1,k_2}(x)
+=
+F_{k_1}(F_{k_2}^{-1}(F_{k_1}(x)))
+\]</div>
+<p>无论哪一种形式，它们依旧是由可逆置换组合得到的可逆函数</p>
+<p>比如第一种形式的解密就是按照相反顺序进行</p>
+<div class="arithmatex">\[
+x=
+F_{k_1}^{-1}
+\left(
+F_{k_2}
+\left(
+F_{k_3}^{-1}(c)
+\right)
+\right)
+\]</div>
+<p>这里的 EDE 并不意味着第二步需要知道明文才能解密，而只是对中间分组执行 DES 的逆置换。由于所有密钥都已知，可以按定义正常计算</p>
+<p>一个简单的性质是：如果三个密钥完全相同，那么</p>
+<div class="arithmatex">\[
+F_k(F_k^{-1}(F_k(x)))=F_k(x)
+\]</div>
+<p>即三次 EDE 会退化成一次 DES</p>
+<p>虽然三密钥 3DES 的总密钥长度达到 168-bit，但其安全强度不能简单地按 168-bit 计算，通常认为最高约为 112-bit。它也明显慢于单次分组密码，并且仍然沿用 DES 的 64-bit 分组长度</p>
+<p>随着安全需求提高，3DES 也逐渐退出实际应用，DES 和 3DES 已经不适合作为新系统的主要加密算法</p>
+<h2 id="aes">AES</h2>
+<p>AES（Advanced Encryption Standard）是目前最重要的现代分组密码标准之一</p>
+<p>与 DES 不同，AES 使用 SPN 类结构，不采用 Feistel 网络</p>
+<p>AES 的基本参数如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>AES-128</th>
+<th>AES-192</th>
+<th>AES-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分组长度</td>
+<td>128-bit</td>
+<td>128-bit</td>
+<td>128-bit</td>
+</tr>
+<tr>
+<td>密钥长度</td>
+<td>128-bit</td>
+<td>192-bit</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td>轮数</td>
+<td>10</td>
+<td>12</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>其中 AES-128、AES-192、AES-256 中的数字表示密钥长度，而不是分组长度。三种版本处理的都是 128-bit 分组</p>
+<h3 id="aes-round-function">AES Round Function</h3>
+<p>AES 可以将 128-bit 的状态看成 16 个 Byte，并按照一个 <span class="arithmatex">\(4\times4\)</span> 的矩阵组织</p>
+<div class="arithmatex">\[
+S=
+\begin{pmatrix}
+s_{0,0}&amp;s_{0,1}&amp;s_{0,2}&amp;s_{0,3}\\
+s_{1,0}&amp;s_{1,1}&amp;s_{1,2}&amp;s_{1,3}\\
+s_{2,0}&amp;s_{2,1}&amp;s_{2,2}&amp;s_{2,3}\\
+s_{3,0}&amp;s_{3,1}&amp;s_{3,2}&amp;s_{3,3}
+\end{pmatrix}
+\]</div>
+<p>其中每个 <span class="arithmatex">\(s_{i,j}\)</span> 都是一个 8-bit 字节</p>
+<p>AES 的轮计算主要包含四种操作：</p>
+<ul>
+<li>SubBytes：对每个 Byte 分别进行 S-box 代换</li>
+<li>ShiftRows：循环移动状态矩阵中各行的字节位置</li>
+<li>MixColumns：混合每一列中的字节，使某个字节的变化可以影响同一列中的其他字节</li>
+<li>AddRoundKey：将当前状态与轮密钥按 bit 异或</li>
+</ul>
+<p>首先，SubBytes 使用固定的字节代换表，对每个字节进行独立且可逆的非线性变换</p>
+<div class="arithmatex">\[
+s'_{i,j}=S_{\mathrm{AES}}(s_{i,j})
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+S_{\mathrm{AES}}:\{0,1\}^{8}\to\{0,1\}^{8}
+\]</div>
+<p>是一个可逆的 8-bit 置换，它主要负责混淆</p>
+<p>接下来，ShiftRows 对各行进行不同程度的循环移位，让原来处于同一列的字节分散到不同位置</p>
+<p>之后 MixColumns 对每一列进行混合，使一个字节对该列多个输出字节产生影响。ShiftRows 与 MixColumns 配合，就可以将局部的变化传播到整个状态矩阵中</p>
+<p>最后，AddRoundKey 将状态与当前轮密钥异或</p>
+<div class="arithmatex">\[
+S'=S\oplus K_i
+\]</div>
+<p>使每一轮变换都依赖于密钥。所有轮密钥都由原始 AES 密钥通过密钥调度生成</p>
+<p>由此，AES 与前面学习的 SPN 思想是对应的：SubBytes 提供非线性混淆，ShiftRows 和 MixColumns 提供扩散，AddRoundKey 引入轮密钥</p>
+<h3 id="security-of-aes">Security of AES</h3>
+<p>AES 的密钥长度可以达到 128/192/256-bit，并且设计目标是让整体加密表现为一个足够安全的伪随机置换</p>
+<p>它与 DES 的差异不仅是密钥更长，还包括分组长度、内部结构和轮函数设计都不同</p>
+<p>需要注意，AES 本身仍然只是一个固定 128-bit 分组上的带密钥置换。即使它具有良好的抗密码分析能力，如果直接将 AES 用在 ECB 模式中，仍然无法获得 CPA 安全性</p>
+<p>因此实际使用 AES 时，还需要配合合适的工作模式，这与本章开头讨论 CBC、OFB、CTR 的原因是一致的</p>
+<h2 id="aes-in-network-communication">AES in Network Communication</h2>
+<p>分组密码的实际应用之一是 TLS 加密通信</p>
+<p>例如一个使用 AES-128-GCM 的 TLS 连接，其密码套件名称中会出现 AES_128_GCM 这样的字段，表示使用 128-bit 密钥的 AES 与对应的工作模式保护通信数据</p>
+<p>这也说明：实际网络协议需要组合多个密码学组件，而 AES 只是其中负责对称加密的一个部分，不能简单地把整个安全协议理解为单独执行一次 AES</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T20:32:29.633072+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:04:51.207321+08:00">2026-10-28</time></span></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+          <div class="md-top" data-md-component="top" hidden="">
+  <div class="md-top__center">
+    <button type="button" class="md-top__button md-top__button--main" data-md-action="top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+      <span>Back to top</span>
+    </button>
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--nav" for="__drawer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg>
+      </label>
+    
+    
+      
+      
+      <label class="md-top__button md-top__side md-top__side--toc" for="__toc">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg>
+      </label>
+    
+  </div>
+</div>
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://jaywhj.github.io/mkdocs-materialx/" target="_blank" rel="noopener">
+      MaterialX
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "code": null, "features": ["content.code.select", "content.code.copy", "content.code.cop", "navigation.tabs", "navigation.top", "navigation.indexes", "navigation.path"], "search": null, "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "code.collapse": "Collapse", "code.download": "Download", "code.expand": "Expand remaining # lines", "code.select": "Toggle line selection", "search.offline": "Switch to Lunr for offline search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.44453a05.min.js"></script>
+      
+        <script src="https://events.vercount.one/js"></script>
+      
+        <script src="../../../../stylesheets/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../../../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../../../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../../../assets/document_dates/core/core.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>
