@@ -5736,7 +5736,7 @@ m_i=F_k^{-1}(c_i)
 <div class="arithmatex">\[
 m_i=m_j\Longrightarrow c_i=c_j
 \]</div>
-<p>我们甚至可以直接构造 CPA 攻击。攻击者选择两个不同的等长分组 <span class="arithmatex">\(m_0,m_1\)</span>，攻击者选择两个等长消息（其中 <span class="arithmatex">\(A\ne B\)</span>）：</p>
+<p>我们甚至可以直接构造 CPA 攻击。攻击者选择两个等长的两分组消息（其中 <span class="arithmatex">\(A\ne B\)</span>）：</p>
 <div class="arithmatex">\[
 m_0=A\Vert A
 \]</div>
@@ -5756,7 +5756,7 @@ c=\operatorname{Enc}_k(m_\beta)
 <div class="arithmatex">\[
 \Pr[\operatorname{PrivK}_{A,\Pi}^{\mathrm{cpa}}(n)=1]=1
 \]</div>
-<p>对于多分组的情形，即使攻击者不知道原始明文，也可以根据重复的密文分组推断明文的重复结构。图像学中，ECB 加密后的图像仍然可能保留原始图案的轮廓</p>
+<p>对于多分组的情形，即使攻击者不知道原始明文，也可以根据重复的密文分组推断明文的重复结构。在图像加密中，ECB 加密后的图像仍然可能保留原始图案的轮廓</p>
 <h3 id="cbc">CBC</h3>
 <p>CBC（Cipher Block Chaining，密码分组链接模式）通过将上一分组的密文与当前明文异或，再输入分组密码，使不同分组之间产生关联</p>
 <p>首先为每条消息均匀随机生成一个初始化向量（Initialization Vector，IV），其长度等于分组长度</p>
@@ -5893,7 +5893,7 @@ m_i=c_i\oplus F_k(ctr+i)
 <td>OFB</td>
 <td><span class="arithmatex">\(c_i=m_i\oplus F_k(y_{i-1})\)</span></td>
 <td>需要随机 IV</td>
-<td>密钥流不能并行生成</td>
+<td>不可以（密钥流递推）</td>
 <td>不需要</td>
 </tr>
 <tr>
@@ -5944,7 +5944,7 @@ O\left(\frac{Q(n)^2}{2^\ell}\right)
 \]</div>
 <p>当分组长度随安全参数充分增长，而 <span class="arithmatex">\(Q(n)\)</span> 只是多项式规模时，后两项都是可忽略的，因此 CBC 满足 CPA 安全</p>
 <blockquote>
-<p>这对 OFB、CTL 也是一样的，证明思路相近</p>
+<p>这对 OFB、CTR 也是一样的，证明思路相近</p>
 <p>只需要替换碰撞事件，其他的内容几乎一样</p>
 </blockquote>
 <h2 id="block-cipher-design">Block Cipher Design</h2>
@@ -6304,7 +6304,7 @@ S'=S\oplus K_i
 <p>分组密码的实际应用之一是 TLS 加密通信</p>
 <p>例如一个使用 AES-128-GCM 的 TLS 连接，其密码套件名称中会出现 AES_128_GCM 这样的字段，表示使用 128-bit 密钥的 AES 与对应的工作模式保护通信数据</p>
 <p>这也说明：实际网络协议需要组合多个密码学组件，而 AES 只是其中负责对称加密的一个部分，不能简单地把整个安全协议理解为单独执行一次 AES</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T20:32:29.633072+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:04:51.207321+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T20:32:29.633072+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:28:50.363523+08:00">2026-10-28</time></span></div></div></div>
 
 
 

@@ -5452,7 +5452,7 @@
 <h2 id="need-for-stronger-security">Need for Stronger Security</h2>
 <p>为什么我们需要比 IND-EAV 更强的安全性？考虑两个场景：</p>
 <h3 id="ind-mult">IND-MULT</h3>
-<p>我们回顾 <span class="arithmatex">\(\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)\)</span> 不可区分性实验：攻击者每次看到一个密文，然后二选一猜测明文。如果对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
+<p>我们回顾 <span class="arithmatex">\(\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)\)</span> 不可区分性实验：攻击者每次看到一个密文，然后二选一猜测加密的是哪条明文。如果对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
 <div class="arithmatex">\[
 \Pr[
 \operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)=1
@@ -5472,7 +5472,7 @@
 \\
 \vec{M_1} = (m_{1,1}, \cdots, m_{1,t})
 \]</div>
-<p>挑战者生成密钥 <span class="arithmatex">\(k \leftarrow Gen(1^n)\)</span>，并随机选择 <span class="arithmatex">\(b\in\{0,1\}\)</span>（即随机选择 <span class="arithmatex">\(\vec{M_0}\)</span> 或 <span class="arithmatex">\(\vec{M_1}\)</span> 进行加密），令 <span class="arithmatex">\(c_i=\operatorname{Enc}_k(m_b,i)\)</span>，由攻击者根据密文组 <span class="arithmatex">\(\vec{C} = (c_1,\cdots,c_t)\)</span>猜测 <span class="arithmatex">\(b\)</span> 的值，记作 <span class="arithmatex">\(b'\)</span></p>
+<p>挑战者生成密钥 <span class="arithmatex">\(k \leftarrow Gen(1^n)\)</span>，并随机选择 <span class="arithmatex">\(b\in\{0,1\}\)</span>（即随机选择 <span class="arithmatex">\(\vec{M_0}\)</span> 或 <span class="arithmatex">\(\vec{M_1}\)</span> 进行加密），令 <span class="arithmatex">\(c_i=\operatorname{Enc}_k(m_{b,i})\)</span>，由攻击者根据密文组 <span class="arithmatex">\(\vec{C} = (c_1,\cdots,c_t)\)</span>猜测 <span class="arithmatex">\(b\)</span> 的值，记作 <span class="arithmatex">\(b'\)</span></p>
 <p>我们继续定义窃听模型下的多次加密计算不可区分性（Indistinguishable multiple encryptions in the presence of an eavesdropper）：对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
 <div class="arithmatex">\[
 \Pr[\operatorname{PrivK}^{\mathrm{mult}}_{A,\Pi}(n)=1]
@@ -5489,7 +5489,7 @@
 <p>如果加密的是第一组，那么 <span class="arithmatex">\(c_1\oplus c_2 = 0\)</span> 是显然的；否则 <span class="arithmatex">\(c_1 \oplus c_2 \ne 0\)</span> 是显然的。此时 <span class="arithmatex">\(\Pr[\operatorname{PrivK}^{\mathrm{mult}}_{A,\Pi}(n)=1] = 1\)</span></p>
 <p>以上：IND-EAV 无法得到 IND-MULT。只要加密算法是确定性的，那么它一定不符合 IND-MULT 下的安全</p>
 <h2 id="chosen-plaintext-attack">Chosen-Plaintext Attack</h2>
-<p>EAV 模型中，攻击者（窃听者）只能获得指定的明文；KPA 模型中，攻击者一直某些其他明文以及对应密文；而 CPA 模型中，攻击者可以主动提供明文并获取对应的密文。在最后一种情形下，攻击者得到最多的信息</p>
+<p>EAV 模型中，攻击者（窃听者）只能获得指定的密文；KPA 模型中，攻击者已知某些其他明文以及对应密文；而 CPA 模型中，攻击者可以主动提供明文并获取对应的密文。在最后一种情形下，攻击者得到最多的信息</p>
 <p>我们提供一个加密预言机 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span>，输入为明文，输出为密文，攻击者可以自适应多次查询结果。进一步的，我们给出 CPA 不可区分性实验 <span class="arithmatex">\(\operatorname{PrivK}^{\mathrm{cpa}}_{A,\Pi}(n)\)</span></p>
 <p>相比直接提供两个等长明文，攻击者可以先使用 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span> 观察任意多次的加密结果，然后再给出 <span class="arithmatex">\(m_0,m_1\)</span>。挑战者依旧二选一明文并给出密文，攻击者可以在看到密文之后继续使用 <span class="arithmatex">\(\operatorname{Enc}_k(\cdot)\)</span> 观察任意多次的加密结果，并最终给出自己的判断 <span class="arithmatex">\(b'\)</span></p>
 <p>同理，如果对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
@@ -5503,7 +5503,7 @@
 <p>则该方案满足 CPA-Secure</p>
 <p>显然，只要加密算法是确定性的，那么它一定不符合 CPA 安全：我只要在看到密文后，对 <span class="arithmatex">\(m_0\)</span> 进行一次预言机查询，就可以判断密文来自 <span class="arithmatex">\(m_0\)</span> 还是 <span class="arithmatex">\(m_1\)</span></p>
 <hr>
-<p>上面两个场景都是对 EAV 场景的加强，攻击者通过获得更多的信息，使得当前的加密算法不再安全。具体的，CPA 情景蕴含于 MULT 情景，如果一个方案是 CPA 安全的，那么它一定是 IND-MULT 安全的（后面会说）</p>
+<p>上面两个场景都是对 EAV 场景的加强，攻击者通过获得更多的信息，使得当前的加密算法不再安全。具体的，MULT 情景蕴含于 CPA 情景，如果一个方案是 CPA 安全的，那么它一定是 IND-MULT 安全的（后面会说）</p>
 <h2 id="prf">PRF</h2>
 <p>我们先从真正的随机函数说起：考虑一个函数</p>
 <div class="arithmatex">\[
@@ -5562,7 +5562,7 @@ F: \{0,1\}^{n} \times \{0,1\}^{n} \to \{0,1\}^{n}
 <h3 id="cpa-secure">CPA-Secure</h3>
 <p>我们现在有了 PRF 可以产生计算上与随机函数不可区分的输出，现在可以构造 CPA-Secure 的方案了</p>
 <p>给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span>，以及一个安全的 PRF <span class="arithmatex">\(F\)</span></p>
-<p>我们均匀随机采样 <span class="arithmatex">\(k\)</span>，使用 Gen 执行密钥生成。然后给定明文 <span class="arithmatex">\(m\)</span>，随机选择 <span class="arithmatex">\(r\)</span> 并计算 <span class="arithmatex">\(F_k(r)\)</span> 的值，进行加密</p>
+<p>我们使用 Gen 执行密钥生成，得到密钥 <span class="arithmatex">\(k\)</span>。然后给定明文 <span class="arithmatex">\(m\)</span>，随机选择 <span class="arithmatex">\(r\)</span> 并计算 <span class="arithmatex">\(F_k(r)\)</span> 的值，进行加密</p>
 <div class="arithmatex">\[
 \text{Enc}_k(m) = (r,F_{k}(r) \oplus m)
 \]</div>
@@ -5576,7 +5576,7 @@ F: \{0,1\}^{n} \times \{0,1\}^{n} \to \{0,1\}^{n}
 <div class="arithmatex">\[
 \text{Enc}_k(m) = G(k) \oplus m
 \]</div>
-<p>它每次解密使用相同的掩码 <span class="arithmatex">\(G(k)\)</span>，而现在我们使用不同的掩码 <span class="arithmatex">\(F_{k}(r_1),F_{k}(r_2),\cdots\)</span>，有效避免了不同输入的输出存在关联性</p>
+<p>它每次加密使用相同的掩码 <span class="arithmatex">\(G(k)\)</span>，而现在我们使用不同的掩码 <span class="arithmatex">\(F_{k}(r_1),F_{k}(r_2),\cdots\)</span>，有效避免了不同输入的输出存在关联性</p>
 <blockquote>
 <p>我们假设 <span class="arithmatex">\(r\)</span> 的碰撞概率极低</p>
 </blockquote>
@@ -5600,8 +5600,8 @@ F: \{0,1\}^{n} \times \{0,1\}^{n} \to \{0,1\}^{n}
 <div class="arithmatex">\[
 \Pr[\text{PrivK}^{\text{cpa}}_{\mathcal{A}, \tilde{\Pi}} = 1] \leq \frac{1}{2} + \text{negl}_2(n)
 \]</div>
-<p>对于一个尚未查询过的新输入 <span class="arithmatex">\(r_i\)</span>，真随机函数输出的 <span class="arithmatex">\(f(r_i)\)</span> 就是完全独立、均匀随机的字符串。这等同于每次加密都使用 OTP 方案，显然猜对概率严格等于 <span class="arithmatex">\(1/2\)</span></p>
-<p>在共计 <span class="arithmatex">\(q(n)\)</span> 次的已知明文查询（每次生成 <span class="arithmatex">\(r_i\)</span>），假设挑战时使用的随机值为 <span class="arithmatex">\(r^{\ast}\)</span>，则</p>
+<p>对于挑战时尚未被任何加密查询使用过的新输入 <span class="arithmatex">\(r^{\ast}\)</span>，真随机函数输出的 <span class="arithmatex">\(f(r^{\ast})\)</span> 就是完全独立、均匀随机的字符串。这等同于每次加密都使用 OTP 方案，显然猜对概率严格等于 <span class="arithmatex">\(1/2\)</span></p>
+<p>在共计 <span class="arithmatex">\(q(n)\)</span> 次的加密查询中（每次生成 <span class="arithmatex">\(r_i\)</span>），假设挑战时使用的随机值为 <span class="arithmatex">\(r^{\ast}\)</span>，则</p>
 <div class="arithmatex">\[
 \Pr[r_i = r^{\ast}] = \dfrac{1}{2^n}
 \]</div>
@@ -6041,7 +6041,7 @@ G\text{ is a PRG}
 \Longrightarrow
 F\text{ is a PRF}
 \]</div>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T21:24:11.062792+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T21:26:43.328923+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T21:24:11.062792+08:00">2026-10-28</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:28:50.363012+08:00">2026-10-28</time></span></div></div></div>
 
 
 

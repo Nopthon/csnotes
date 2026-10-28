@@ -5276,7 +5276,7 @@ m=\operatorname{Dec}_k(c)
 <div class="arithmatex">\[
 \Pr[M=m\mid C=c]=\Pr[M=m]
 \]</div>
-<p>则称该加密方案满足完美保密性。同时它还有等价定义：当且仅当对任意两个明文 <span class="arithmatex">\(m,m'\)</span> 和任意密文 <span class="arithmatex">\(c\)</span>，有</p>
+<p>则称该加密方案满足完美保密性。同时它还有等价定义：当且仅当对任意两个明文 <span class="arithmatex">\(m,m'\)</span> 和任意满足 <span class="arithmatex">\(\Pr[C=c]&gt;0\)</span> 的密文 <span class="arithmatex">\(c\)</span>，有</p>
 <div class="arithmatex">\[
 \Pr[C=c\mid M=m]
 =
@@ -5330,7 +5330,7 @@ m=\operatorname{Dec}_k(c)
 <ul>
 <li><strong>完美保密的两个定义等价</strong></li>
 </ul>
-<p>我们先从定义 2 推导出定义 1：假设对于任意 <span class="arithmatex">\(m,m'\)</span> 和 <span class="arithmatex">\(c\)</span>：</p>
+<p>我们先从定义 2 推导出定义 1：假设对于任意 <span class="arithmatex">\(m,m'\)</span> 和满足 <span class="arithmatex">\(\Pr[C=c]&gt;0\)</span> 的 <span class="arithmatex">\(c\)</span>：</p>
 <div class="arithmatex">\[
 \Pr[C=c\mid M=m]
 =
@@ -5373,7 +5373,7 @@ m=\operatorname{Dec}_k(c)
 =
 \frac{\Pr[M=m]\Pr[C=c\mid M=m]}{\Pr[C=c]}
 \]</div>
-<p>我们默认 <span class="arithmatex">\(\Pr[C=c] &gt; 0\)</span>，则带入定义 1，有</p>
+<p>我们默认 <span class="arithmatex">\(\Pr[C=c] &gt; 0\)</span>，则代入定义 1，有</p>
 <div class="arithmatex">\[
 \Pr[C=c]=\Pr[C=c\mid M=m]
 \]</div>
@@ -5404,23 +5404,27 @@ m=\operatorname{Dec}_k(c)
 <ul>
 <li><strong>维吉尼亚密码不是完美不可区分的</strong></li>
 </ul>
-<p>我们以维吉尼亚密码为例，明文 <span class="arithmatex">\(m_0=aa,m_1=ab\)</span>，挑战密文 <span class="arithmatex">\(c=c_1c_2\)</span></p>
+<p>我们以维吉尼亚密码为例，明文 <span class="arithmatex">\(m_0=xx,m_1=xy\)</span>，挑战密文 <span class="arithmatex">\(c=c_1c_2\)</span></p>
 <p>攻击者在知道加密算法后，选择策略：如果两个密文字母不同，则猜明文是 <span class="arithmatex">\(m_1\)</span>，否则猜明文是 <span class="arithmatex">\(m_0\)</span></p>
-<p>密钥周期 <span class="arithmatex">\(k\)</span> 在 <span class="arithmatex">\(\{1,2\}\)</span> 等可能选取</p>
-<p>对于 <span class="arithmatex">\(b=0\)</span>：若密钥周期为 1，则 <span class="arithmatex">\(c_1 = a+k,c_2=a+k,c_1=c_2\)</span>，攻击者根据策略一定会选择 <span class="arithmatex">\(b'=0\)</span>，猜测正确；否则 <span class="arithmatex">\(c_1 = a+k_1,c_2 = a + k_2\)</span>，由于 <span class="arithmatex">\(k_1,k_2\)</span> 是独立均匀的，因此只有 <span class="arithmatex">\(1/26\)</span> 的概率使得 <span class="arithmatex">\(c_1=c_2\)</span>，因此猜测正确的概率为 <span class="arithmatex">\(1/26\)</span></p>
-<p>对于 <span class="arithmatex">\(b=1\)</span>：若密钥周期为 1，则 <span class="arithmatex">\(c_1 = a+k,c_2=b+k,c_1\ne c_2\)</span>，攻击者根据策略一定会选择 <span class="arithmatex">\(b'=1\)</span>，猜测正确；否则 <span class="arithmatex">\(c_1 = a+k_1,c_2 = b + k_2\)</span>，由于 <span class="arithmatex">\(k_1,k_2\)</span> 是独立均匀的，因此只有 <span class="arithmatex">\(25/26\)</span> 的概率使得 <span class="arithmatex">\(c_1\ne c_2\)</span>，因此猜测正确的概率为 <span class="arithmatex">\(25/26\)</span></p>
+<p>密钥周期 <span class="arithmatex">\(r\)</span> 在 <span class="arithmatex">\(\{1,2\}\)</span> 等可能选取</p>
+<p>对于 <span class="arithmatex">\(b=0\)</span>：若密钥周期为 1，则 <span class="arithmatex">\(c_1 = x+k,c_2=x+k,c_1=c_2\)</span>，攻击者根据策略一定会选择 <span class="arithmatex">\(b'=0\)</span>，猜测正确；否则 <span class="arithmatex">\(c_1 = x+k_1,c_2 = x + k_2\)</span>，由于 <span class="arithmatex">\(k_1,k_2\)</span> 是独立均匀的，因此只有 <span class="arithmatex">\(1/26\)</span> 的概率使得 <span class="arithmatex">\(c_1=c_2\)</span>，因此猜测正确的概率为 <span class="arithmatex">\(1/26\)</span></p>
+<p>对于 <span class="arithmatex">\(b=1\)</span>：若密钥周期为 1，则 <span class="arithmatex">\(c_1 = x+k,c_2=y+k,c_1\ne c_2\)</span>，攻击者根据策略一定会选择 <span class="arithmatex">\(b'=1\)</span>，猜测正确；否则 <span class="arithmatex">\(c_1 = x+k_1,c_2 = y + k_2\)</span>，由于 <span class="arithmatex">\(k_1,k_2\)</span> 是独立均匀的，因此只有 <span class="arithmatex">\(25/26\)</span> 的概率使得 <span class="arithmatex">\(c_1\ne c_2\)</span>，因此猜测正确的概率为 <span class="arithmatex">\(25/26\)</span></p>
 <p>因此</p>
 <div class="arithmatex">\[
-Pr[PrivK = 1] = \frac{1}{2} Pr[\text{猜对} \mid b=0] + \frac{1}{2} Pr[\text{猜对} \mid b=1]
-\\
-= \frac{1}{2} \left( \frac{1}{2} + \frac{1}{2} \cdot \frac{1}{26} \right) + \frac{1}{2} \left( 1 - \frac{1}{2} \cdot \frac{1}{26} \right)
- = 0.75 \ne 0.5
+\begin{aligned}
+\Pr[\operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}=1]
+&amp;= \frac{1}{2}\Pr[\text{猜对}\mid b=0]
+ + \frac{1}{2}\Pr[\text{猜对}\mid b=1] \\
+&amp;= \frac{1}{2}\left(\frac{1}{2}+\frac{1}{2}\cdot\frac{1}{26}\right)
+ + \frac{1}{2}\left(1-\frac{1}{2}\cdot\frac{1}{26}\right) \\
+&amp;= 0.75 \ne 0.5
+\end{aligned}
 \]</div>
 <p>攻击者可以通过特殊策略达到更高的猜对概率，因此算法不是完美不可区分的</p>
 <ul>
 <li><strong>完美保密性与完美不可区分性等价</strong></li>
 </ul>
-<p>我们引入完美保密性的等价定义：对任意 <span class="arithmatex">\(m_0,m_1\in\mathcal M\)</span> 和 <span class="arithmatex">\(c\in\mathcal C\)</span>，有</p>
+<p>我们引入完美保密性的等价定义：对任意 <span class="arithmatex">\(m_0,m_1\in\mathcal M\)</span> 和任意满足 <span class="arithmatex">\(\Pr[C=c]&gt;0\)</span> 的 <span class="arithmatex">\(c\in\mathcal C\)</span>，有</p>
 <div class="arithmatex">\[
 \Pr[C=c\mid M=m_0]
 =
@@ -5445,7 +5449,7 @@ Pr[PrivK = 1] = \frac{1}{2} Pr[\text{猜对} \mid b=0] + \frac{1}{2} Pr[\text{�
 =
 \Pr[b'=0\mid b=1]
 \]</div>
-<p>我们将上式即为 <span class="arithmatex">\(p\)</span>，那么 <span class="arithmatex">\(\Pr[b'=1\mid b=1]=1-p\)</span></p>
+<p>我们将上式记为 <span class="arithmatex">\(p\)</span>，那么 <span class="arithmatex">\(\Pr[b'=1\mid b=1]=1-p\)</span></p>
 <p>因此</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -5556,13 +5560,13 @@ M=C\oplus K
 <li>对于任意明文 <span class="arithmatex">\(m\)</span> 和任意密文 <span class="arithmatex">\(c\)</span>，存在唯一的密钥 <span class="arithmatex">\(k\)</span>，使加密算法输出 <span class="arithmatex">\(c\)</span></li>
 </ul>
 <blockquote>
-<p>这使得（具体的，参考 OTP 是完美保密的证明过程）</p>
+<p>此时（具体可参考 OTP 是完美保密的证明过程）</p>
 <div class="arithmatex">\[
 \Pr[C=c\mid M=m]=\frac1{|\mathcal K|}
 \]</div>
 <p>因此满足完美保密的等价条件</p>
 </blockquote>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T15:40:50.379343+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T17:30:17.473556+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T15:40:50.379343+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:28:50.362011+08:00">2026-10-28</time></span></div></div></div>
 
 
 

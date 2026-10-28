@@ -5339,8 +5339,59 @@ m=\pi^{-1}(c)
 \\
 {m_i=(c_i-k_{i\bmod r})\bmod 26}
 \]</div>
-<p>例如：</p>
-<p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20261027151443500.png" data-desc-position="bottom"><img alt="image-20261027151443500" src="../images/image-20261027151443500.png"></a></p>
+<p>例如（原笔记配图从略，以下为标准示例）：</p>
+<table>
+<thead>
+<tr>
+<th>明文</th>
+<th>A</th>
+<th>T</th>
+<th>T</th>
+<th>A</th>
+<th>C</th>
+<th>K</th>
+<th>A</th>
+<th>T</th>
+<th>D</th>
+<th>A</th>
+<th>W</th>
+<th>N</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>密钥</td>
+<td>L</td>
+<td>E</td>
+<td>M</td>
+<td>O</td>
+<td>N</td>
+<td>L</td>
+<td>E</td>
+<td>M</td>
+<td>O</td>
+<td>N</td>
+<td>L</td>
+<td>E</td>
+</tr>
+<tr>
+<td>密文</td>
+<td>L</td>
+<td>X</td>
+<td>F</td>
+<td>O</td>
+<td>P</td>
+<td>V</td>
+<td>E</td>
+<td>F</td>
+<td>R</td>
+<td>N</td>
+<td>H</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p>即密钥 <code>LEMON</code> 循环使用，逐字母移位加密。</p>
 <p>它依旧是不安全的，因为它使用周期性重复的密钥：</p>
 <ul>
 <li>可以通过密文中的重复片段推测密钥长度 <span class="arithmatex">\(r\)</span></li>
@@ -5407,10 +5458,10 @@ m=\pi^{-1}(c)
 </blockquote>
 <p>而现代密码学追求 Kerckhoffs 原则</p>
 <blockquote>
-<p>即使攻击者知道加密系统的全部设计细节，只要不知道私钥德国不应公开的信息，系统依旧保持安全</p>
+<p>即使攻击者知道加密系统的全部设计细节，只要不知道私钥等不应公开的信息，系统依旧保持安全</p>
 </blockquote>
-<p>这一原则是现代密码学的基本设计思想之一</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-13T14:58:18.000288+08:00">2026-10-13</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T11:15:03.379305+08:00">2026-10-28</time></span></div></div></div>
+<p>这一原则是现代密码学的基本设计思想之一。</p>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-13"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-13T14:58:18.000288+08:00">2026-10-13</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:28:50.362011+08:00">2026-10-28</time></span></div></div></div>
 
 
 

@@ -5308,12 +5308,12 @@
 <p>我们常说的安全包括两类安全：</p>
 <ul>
 <li>信息论安全：即使攻击者拥有无限计算能力，密文也不会提供关于明文的额外信息（也就是完美保密性）</li>
-<li>计算安全：不再考虑具有无限计算能力的攻击者，而是仅要求系统能够抵抗高效攻击者，允许攻击者具有可忽略的成功概率或区分优势</li>
+<li>计算安全：不再考虑具有无限计算能力的攻击者，而是仅要求系统能够抵抗高效攻击者，只允许攻击者具有可忽略的成功概率或区分优势</li>
 </ul>
 <blockquote>
 <p>RSA 加密算法就是典型的计算安全，因为具有无限计算能力的攻击者可以做到手撕大数分解</p>
 </blockquote>
-<p>为什么我们优先考虑计算安全的算法？因为完美保密算法的开销往往很大（至少要求 <span class="arithmatex">\(|\mathcal K|\geq|\mathcal M|\)</span>），我们希望在降低开销的同时，<del>以现有的人类科技</del>无法在多项式的计算能力下实现攻击</p>
+<p>为什么我们优先考虑计算安全的算法？因为完美保密算法的开销往往很大（至少要求 <span class="arithmatex">\(|\mathcal K|\geq|\mathcal M|\)</span>），我们希望在降低开销的同时，<del>以现有的人类科技</del>无法在多项式时间内实现攻击</p>
 <p>具体的，计算安全有两类定义方法：</p>
 <ol>
 <li>具体安全方法（Concrete Approach）：直接讨论给定资源下，攻击成功概率的具体上界</li>
@@ -5325,8 +5325,8 @@
 <h3 id="ppt-algorithm">PPT Algorithm</h3>
 <p>提出一类算法：PPT Algorithm（概率多项式时间算法）</p>
 <ul>
-<li>它满足随机性，比如随机猜测密钥</li>
-<li>它满足多项式时间</li>
+<li>它允许使用随机性，比如随机猜测密钥</li>
+<li>它在多项式时间内运行</li>
 </ul>
 <p>我们提到的高效攻击者，使用的攻击算法就是 PPT Algorithm</p>
 <h3 id="security-parameter">Security Parameter</h3>
@@ -5377,8 +5377,8 @@ f(n) &gt; n^c
 <div class="arithmatex">\[
 1-(1-p)^t\leq tp
 \]</div>
-<p>我们记 <span class="arithmatex">\(n\)</span> 为安全参数，若成功概率 <span class="arithmatex">\(p(n)\)</span> 是可忽略函数，而攻击者的尝试次数 <span class="arithmatex">\(t(n)\)</span> 是多项式次数，根据性质，<span class="arithmatex">\(tp\)</span> 依旧是可忽略函数。因此当单次攻击的成功概率小到“可忽略”时，即使攻击者进行任意多项式次数的攻击，成功概率的提升依旧是可忽略的</p>
-<p>以上，我们给出（渐进）计算安全的定义：如果对于任意高效攻击者 <span class="arithmatex">\(A\)</span>，针对指定攻击类型的成功概率都是可忽略函数，那么称方案在该安全模型下是计算安全的</p>
+<p>我们记 <span class="arithmatex">\(n\)</span> 为安全参数，若成功概率 <span class="arithmatex">\(p(n)\)</span> 是可忽略函数，而攻击者的尝试次数 <span class="arithmatex">\(t(n)\)</span> 是多项式，根据性质，<span class="arithmatex">\(tp\)</span> 依旧是可忽略函数。因此当单次攻击的成功概率小到“可忽略”时，即使攻击者进行任意多项式次数的攻击，成功概率的提升依旧是可忽略的</p>
+<p>以上，我们给出（渐进）计算安全的定义：如果对于任意高效攻击者 <span class="arithmatex">\(A\)</span>，针对指定攻击类型的优势（即成功概率超出平凡猜测上界的部分）都是可忽略函数，那么称方案在该安全模型下是计算安全的</p>
 <p>根据定义，它并不保证对于所有较小的安全参数都安全</p>
 <h2 id="computationally-secure-encryption">Computationally Secure Encryption</h2>
 <p>我们希望将完美不可区分游戏改造成计算不可区分游戏。给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span></p>
@@ -5400,7 +5400,7 @@ m=\operatorname{Dec}_k(c)
 <div class="arithmatex">\[
 \operatorname{PrivK}^{\mathrm{eav}}_{A,\Pi}(n)
 \]</div>
-<p>玩法不变：攻击者给定两条等长明文，选择一个构造密文，由攻击者根据 <span class="arithmatex">\(c\)</span> 猜测 <span class="arithmatex">\(b\)</span>，给出猜测结果 <span class="arithmatex">\(b'\)</span></p>
+<p>玩法不变：攻击者给定两条等长明文，挑战者随机选择其中一条加密得到挑战密文 <span class="arithmatex">\(c\)</span>，由攻击者根据 <span class="arithmatex">\(c\)</span> 猜测 <span class="arithmatex">\(b\)</span>，给出猜测结果 <span class="arithmatex">\(b'\)</span></p>
 <p>我们定义：一个私钥加密方案具有窃听攻击下的计算不可区分性，当且仅当对于任意 PPT 攻击者 <span class="arithmatex">\(A\)</span>，都存在一个可忽略函数 <span class="arithmatex">\(\operatorname{negl}(n)\)</span>，使得</p>
 <div class="arithmatex">\[
 \Pr[
@@ -5409,7 +5409,7 @@ m=\operatorname{Dec}_k(c)
 \leq
 \frac12+\operatorname{negl}(n)
 \]</div>
-<p>它有一个基于语义安全的等价定义（<span class="arithmatex">\(b'=0\)</span> 同理）：</p>
+<p>它有一个基于优势的等价定义（<span class="arithmatex">\(b'=0\)</span> 同理）：</p>
 <div class="arithmatex">\[
 \left| \Pr[b'= 1 \mid b = 0] - \Pr[b'= 1 \mid b = 1] \right| \leq \operatorname{negl}(n)
 \]</div>
@@ -5425,7 +5425,7 @@ m=\operatorname{Dec}_k(c)
 <div class="arithmatex">\[
 G:\{0,1\}^n\rightarrow\{0,1\}^{\ell(n)}
 \]</div>
-<p>一方面，PRG 需要满足扩展性，即 <span class="arithmatex">\(\ell(n) &gt; n\)</span>；另一方面它需要满足伪随机性，对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>（也就是不可区分游戏的挑战者），都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
+<p>一方面，PRG 需要满足扩展性，即 <span class="arithmatex">\(\ell(n) &gt; n\)</span>；另一方面它需要满足伪随机性，对于任意 PPT 区分器 <span class="arithmatex">\(D\)</span>，都存在可忽略函数 <span class="arithmatex">\(\mu(n)\)</span>，使得</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp;\left|
@@ -5442,7 +5442,7 @@ G:\{0,1\}^n\rightarrow\{0,1\}^{\ell(n)}
 <li>它能抵御 PPT 攻击</li>
 </ul>
 <blockquote>
-<p>PRG 是一个广泛使用的生成器，但是它的安全性依赖于类似于 <span class="arithmatex">\(P\ne NP\)</span> 的开放假设。我们目前基于计算复杂性假设，认为它的安全性成立</p>
+<p>PRG 是一个广泛使用的生成器，但它的存在性目前仍是计算复杂性假设（例如可由单向函数的存在性推出），尚未被无条件证明。我们目前基于这类假设认为它的安全性成立</p>
 </blockquote>
 <hr>
 <p>利用 PRG 和 OTP，我们可以给出一个完整的计算加密方案。记 <span class="arithmatex">\(G\)</span> 是一个安全的 PRG，给出加密方案 <span class="arithmatex">\(\Pi=(\operatorname{Gen},\operatorname{Enc},\operatorname{Dec})\)</span>，以及安全参数 <span class="arithmatex">\(n\)</span></p>
@@ -5469,7 +5469,7 @@ m=G(k)\oplus c
 \]</div>
 <p>其中 <span class="arithmatex">\(\epsilon\)</span> 是一个不可忽略的函数</p>
 <p>现在我们需要构造新的 PPT Attacker <span class="arithmatex">\(A'\)</span> 用来攻破 PRG，也就是给定一个长度为 <span class="arithmatex">\(\ell(n)\)</span> 的字符串 <span class="arithmatex">\(x\)</span>，判断它究竟来自 <span class="arithmatex">\(G(s)\)</span> 还是 <span class="arithmatex">\(r\)</span></p>
-<p><span class="arithmatex">\(A'\)</span> 怎么做呢？它接收 <span class="arithmatex">\(x\)</span>，提供给 <span class="arithmatex">\(A\)</span>，得到 <span class="arithmatex">\(m_0,m_1\)</span>，然后随机选择 <span class="arithmatex">\(b\)</span>，构造密文 <span class="arithmatex">\(c\)</span> 发给 <span class="arithmatex">\(A\)</span>，返回猜测 <span class="arithmatex">\(b'\)</span>，然后按照下面的函数给出结果</p>
+<p><span class="arithmatex">\(A'\)</span> 怎么做呢？它接收 <span class="arithmatex">\(x\)</span>，先运行 <span class="arithmatex">\(A\)</span> 得到 <span class="arithmatex">\(m_0,m_1\)</span>，然后随机选择 <span class="arithmatex">\(b\)</span>，构造密文 <span class="arithmatex">\(c=x\oplus m_b\)</span> 发给 <span class="arithmatex">\(A\)</span>，并得到 <span class="arithmatex">\(A\)</span> 的猜测 <span class="arithmatex">\(b'\)</span>，然后按照下面的函数给出结果</p>
 <div class="arithmatex">\[
 A'(x)=
 \begin{cases}
@@ -5503,7 +5503,7 @@ A'(x)=
 \]</div>
 <p>由此我们得到结论：如果存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案，那么就存在 PPT Attacker <span class="arithmatex">\(A'\)</span> 能够以不可忽略的优势区分 PRG 输出</p>
 <p>但是根据假设，PRG 是安全的，因此根据逆否结论，不存在 PPT Attacker <span class="arithmatex">\(A\)</span> 能够以不可忽略的优势区分 <span class="arithmatex">\(\Pi\)</span> 方案</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T19:16:33.734446+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-27T23:07:12.253657+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:29:02.348459+08:00">2026-10-28</time></span></div></div></div>
 
 
 

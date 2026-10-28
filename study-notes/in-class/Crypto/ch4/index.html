@@ -5296,7 +5296,7 @@
 <div class="arithmatex">\[
 st_0 := \mathsf{Init}(s,IV)
 \]</div>
-<p>生成函数 GetBits 用于根据当前状态生成输出，并更新内部状态为下一位</p>
+<p>生成函数 GetBits 用于根据当前状态生成输出，并更新内部状态到下一状态</p>
 <div class="arithmatex">\[
 (y_i,st_i) = \mathsf{GetBits}(st_{i-1})
 \]</div>
@@ -5393,7 +5393,7 @@ st=(s_{n-1},\cdots,s_0)
 <div class="arithmatex">\[
 s_t = c_1 s_{t-1} \oplus c_2 s_{t-2} \oplus \dots \oplus c_n s_{t-n}
 \]</div>
-<p>我们可以用接下来的 <span class="arithmatex">\(n\)</span> 个输出得到对应的 <span class="arithmatex">\(n\)</span> 个方程，解这个 <span class="arithmatex">\(\mathbb{F}_2\)</span> 上的线性方程组可以解出所有的 <span class="arithmatex">\(s_i\)</span></p>
+<p>我们可以用接下来的 <span class="arithmatex">\(n\)</span> 个输出得到对应的 <span class="arithmatex">\(n\)</span> 个方程，解这个 <span class="arithmatex">\(\mathbb{F}_2\)</span> 上的线性方程组可以解出所有的 <span class="arithmatex">\(c_i\)</span></p>
 <h2 id="adding-nonlinearity">Adding Nonlinearity</h2>
 <p>在经典 LFSR 中，我们将状态更新概括为一个矩阵乘法（它是线性计算）</p>
 <div class="arithmatex">\[
@@ -5412,7 +5412,9 @@ st_{i+1} = Ast_i
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
 <span class="w">    </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span>
 <span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
 <span class="p">}</span>
@@ -5447,7 +5449,7 @@ c = RC4(IV + Key) \oplus (m || CRC32(m))
 <li>不要使用不安全的流密码</li>
 <li>私钥加密时，建议优先考虑分组密码 Block Cipher 而不是流密码 Stream Cipher</li>
 </ul>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T03:19:42.080232+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T21:20:11.175300+08:00">2026-10-28</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-27"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-28T03:19:42.080232+08:00">2026-10-27</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-28"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-28T22:28:50.363012+08:00">2026-10-28</time></span></div></div></div>
 
 
 
