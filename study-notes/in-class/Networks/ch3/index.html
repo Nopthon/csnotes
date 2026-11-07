@@ -56,6 +56,8 @@
     
       <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../../stylesheets/latex-copy.css">
+    
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
       <link rel="stylesheet" href="https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&amp;display=swap">
@@ -1067,10 +1069,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp-throughout" class="md-nav__link">
+  <a href="#tcp-throughput" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TCP Throughout
+        TCP Throughput
       
     </span>
   </a>
@@ -5437,10 +5439,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp-throughout" class="md-nav__link">
+  <a href="#tcp-throughput" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TCP Throughout
+        TCP Throughput
       
     </span>
   </a>
@@ -5849,16 +5851,16 @@ cwnd\leftarrow cwnd+\frac{1}{cwnd}
 <ul>
 <li>Timeout 型丢包</li>
 </ul>
-<p>则将 ssthresh 减半，并重置 cwnd 为 1，重新进入慢启动</p>
+<p>则将 ssthresh 设为 cwnd / 2，并重置 cwnd 为 1，重新进入慢启动</p>
 <ul>
 <li>三个重复 ACK</li>
 </ul>
-<p>如果是 Reno 模型，则将 ssthresh 减半，并将 cwnd 临时设置为 ssthresh + 3，且每额外收到一个重复 ACK 则 cwnd + 1。在收到确认丢失数据的新 ACK 后重新设置 cwnd = ssthresh。我们称这个操作为快速恢复</p>
+<p>如果是 Reno 模型，则将 ssthresh 设为 cwnd / 2，并将 cwnd 临时设置为 ssthresh + 3，且每额外收到一个重复 ACK 则 cwnd + 1。在收到确认丢失数据的新 ACK 后重新设置 cwnd = ssthresh。我们称这个操作为快速恢复</p>
 <p>如果是 Tahoe 模型则和 Timeout 型丢包一样，减半窗口并重置 cwnd</p>
 <hr>
 <p>以上，我们总结 TCP 拥塞控制的三个主要状态（以 Reno 为例）</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20261025231148938.png" data-desc-position="bottom"><img alt="image-20261025231148938" src="../images/image-20261025231148938.png"></a></p>
-<h3 id="tcp-throughout">TCP Throughout</h3>
+<h3 id="tcp-throughput">TCP Throughput</h3>
 <p>考虑 TCP 的平均吞吐量和 cwnd、RTT 的关系：</p>
 <p>我们假设一个理想模型：没有慢启动，使用经典 AIMD，持续发送数据，并假设窗口增长到 W 时发生拥塞，然后减半。那么在稳定之后，AIMD 拥塞窗口的变化大概是这样的</p>
 <p><a class="glightbox" data-type="image" data-width="80%" data-height="auto" href="../images/image-20261025231714485.png" data-desc-position="bottom"><img alt="image-20261025231714485" src="../images/image-20261025231714485.png"></a></p>
@@ -5900,7 +5902,7 @@ W\approx\sqrt{\frac{8}{3p}}
 <p>QUIC 是底层基于 UDP 的传输协议，实现了各种传输机制，默认使用在 HTTP/3</p>
 <p>之前的 HTTP 访问中，我们会在 HTTP 应用层和 TCP 运输层之间设置 TLS（安全层）负责加密和身份验证，而 QUIC 将其统一，使得只需要大约一个 RTT 的握手即可进行传输</p>
 <p>一条 QUIC 连接中可以复用多个相互独立的数据流（Streams）：QUIC 把不同的应用数据组织在多个 Stream 中，某个 Stream 内发生丢包，不必阻塞其他 Stream 已经正确到达的数据（相比之下，TCP 存在队头阻塞问题）</p>
-<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-23T19:36:30.364324+08:00">2026-10-23</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-25"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-25T23:42:13.988586+08:00">2026-10-25</time></span></div></div></div>
+<div class="document-dates-plugin-wrapper document-dates-bottom"><div class="document-dates-plugin" locale=""><div class="dd-left"><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-23"><span class="material-icons" data-icon="doc_created"></span><time datetime="2026-10-23T19:36:30.364324+08:00">2026-10-23</time></span><span class="dd-item" data-tippy-content="" data-tippy-raw="2026-10-30"><span class="material-icons" data-icon="doc_updated"></span><time datetime="2026-10-30T14:39:15.407056+08:00">2026-10-30</time></span></div></div></div>
 
 
 
@@ -5985,6 +5987,8 @@ W\approx\sqrt{\frac{8}{3p}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="../../../../stylesheets/latex-copy.js"></script>
       
         <script src="../../../../assets/document_dates/tippy/popper.min.js"></script>
       
